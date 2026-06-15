@@ -1,0 +1,199 @@
+---
+title: "Week 8 — Independent Research Project II: Execution, Robustness, Writing, Defense"
+subtitle: "8-Week Empirical Finance Camp"
+author: "Prof. Lei Gao, George Mason University"
+date: "2026-06-14"
+date-format: "YYYY-MM-DD"
+format:
+  pptx:
+    slide-level: 2
+    incremental: false
+    toc: false
+    fig-width: 7.5
+    fig-height: 4.2
+    fig-dpi: 200
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto
+---
+
+# Week 8 — Execution, Robustness, Writing, Defense {.title}
+
+::: notes
+Welcome to Week 8, the final week of the camp. For seven weeks you have built toward one object — an original empirical paper you can defend in public. You filed a pre-analysis plan, wrote an identification memo, and pulled clean data into a frozen repository. This week is where all of that becomes a paper, a talk, and a one-click replication packet. The reveal that ties this whole week together is sharp, so carry it through everything that follows. A paper is not a transcript of what you did; it is an argument for why a reader should believe what you found. And a result a stranger cannot reconstruct is not yet a result — it is a claim about a result. Today we walk the five chapters that get you from a frozen plan to a defended paper, following Maya, Devon, Priya, Sam, and Leah as they take their projects across the finish line.
+:::
+
+## Learning Objectives
+
+- Execute a pre-registered specification and build a specification curve
+- Stress-test with placebos, wild cluster bootstrap, Benjamini-Hochberg, and Oster delta
+- Write an empirical paper in four moves; referee and respond
+- Deliver an eight-minute defense and ship a one-click replication packet
+
+::: callout-tip
+## Key takeaway
+By Friday you hold a paper, a timed talk, and a packet that lets a stranger rebuild every number with one command.
+:::
+
+::: notes
+Each objective maps cleanly to a deliverable. Chapter 8.1 and notebook nb8.1 produce the confirmatory result and the specification curve — every defensible analytic choice, plotted at once. Chapter 8.2 and notebook nb8.2 produce the robustness battery — placebos, the wild cluster bootstrap, Benjamini-Hochberg, Oster delta. Chapter 8.3 produces the manuscript itself, written to the Appendix D style guide. Chapter 8.4 produces the referee report you write on a peer's draft and the revise-and-resubmit memo you produce when they referee yours. Chapter 8.5 closes the camp with the eight-minute talk and the replication packet that lets a stranger rebuild your numbers. The terminal assessment is two hundred points across paper, packet, presentation, and an honest AI-use disclosure. Everything we do today feeds that grade.
+:::
+
+## The Confirmatory Run and the Specification Curve
+
+- Run the pre-registered specification once, report whatever it shows
+- Enumerate every defensible analytic choice; for Maya, 144 specifications
+- Plot estimates sorted on top; the choice grid aligned underneath
+- Read the bottom panel to find the fork that flips your sign
+
+::: callout-tip
+## Key takeaway
+The p-hacker hides choices. The specification curve discloses them all at once.
+:::
+
+::: notes
+Maya's pre-analysis plan sits in her repository as a tagged commit called pap-filed, time-stamped and frozen. She runs her staggered difference-in-differences exactly once on the confirmation data and gets an ATT of negative one point nine percentage points, with a state-clustered standard error of zero point zero six five. That number is the headline whatever it showed — the contract she signed when she filed the PAP. Recall from Chapter 1.5 that the p-value only means five percent if the test was fixed before you saw the outcome. But a clean execution is not yet a robust result. The garden of forking paths from Chapter 7.3 is just multiple testing wearing a disguise. So Maya enumerates four control sets, two fixed-effect choices, three sample windows, three clustering choices, and two outcome definitions — four times two times three times three times two equals one hundred forty-four specifications. Simonsohn, Simmons, and Nelson's curve plots all of them, sorted on top with the choice grid aligned underneath. Her curve sits robustly below zero, median around negative one point eight, with one hundred thirty-two of one hundred forty-four significant. The twelve exceptions cluster in the lowest-power corner. That picture licenses the word "robust."
+:::
+
+## When the Curve Lies — Sam's Cautionary Mirror
+
+- The curve only contains the forks you enumerated
+- Robustness across choices is not validity of identification
+- Pre-register the headline; never pick the median after the fact
+
+::: callout-warning
+## Watch out
+A robust spec curve on an invalid design is a confident wrong answer — the most expensive kind.
+:::
+
+::: notes
+Reveal the trick. The specification curve is extraordinarily persuasive, which is exactly why it is dangerous. Sam's momentum project is the cautionary mirror to Maya's. He builds a multiverse over formation window, holding period, weighting, breakpoints, the microcap universe, and the sample period. His curve sweeps from significantly negative on the left through a fat band of insignificant noise in the middle up to significantly positive on the right — and the bottom panel reveals that every significantly positive specification shares one choice: include microcaps, equal-weighted. The momentum premium is not a feature of the cross-section of returns; it is a feature of how you weight tiny illiquid hard-to-trade stocks. The curve drags that into the light. Sam's honest sentence kills the easy paper and replaces it with a truer and more interesting one. Robustness across analytic choices is necessary, not sufficient — every one of his one hundred forty-four specifications could share the same fatal identification flaw. The identifying assumption itself is what Chapter 8.2 stress-tests next.
+:::
+
+## Robustness Battery — Kill Your Own Result
+
+- Wild cluster bootstrap when treated clusters are few
+- In-time, in-space, and in-outcome placebos
+- Benjamini-Hochberg on the pre-specified family of outcomes
+- Sensitivity to bandwidth, controls, and winsorizing
+
+::: callout-tip
+## Key takeaway
+A failed robustness check is a finding, not a setback. Treat it that way.
+:::
+
+::: notes
+Chapter 8.2 has an ugly name and a beautiful purpose. You are going to try to kill your own result — not soften it, not hedge it, kill it. You design the tests a hostile referee would design, run them on yourself first, and report what they find. Each test answers one specific row of your Chapter 7.5 threats table. Maya re-clusters her standard errors by state, by county, and two-way; under the most conservative defensible clustering her interval still excludes zero. Because only a handful of states adopted, she runs the wild cluster bootstrap with Rademacher sign flips and the bootstrap p-value agrees with the conventional one. She runs an in-time placebo three years before any state adopted — the placebo ATT is small and statistically indistinguishable from zero, supporting parallel trends. She corrects her family of eight outcomes with Benjamini-Hochberg, and two survive at the five-percent FDR. The honest report names the family size, names the correction, and states the surviving set. If a check fails, that failure is the finding.
+:::
+
+## Oster Delta — Bounding the Unobservable
+
+$$
+\hat\delta = \frac{(\hat\beta_1 - \beta^*)\,(\tilde R_1 - \tilde R_0)}{(\hat\beta_0 - \hat\beta_1)\,(R_{\max} - \tilde R_1)}
+$$
+
+- Maya: $\hat\beta_0 = -2.2 \to \hat\beta_1 = -1.4$ while $\tilde R^2$ climbs $0.08 \to 0.42$
+- Result: $\hat\delta \approx 4.7$ — robust ($\delta \gg 1$)
+
+::: callout-tip
+## Key takeaway
+Coefficient stability matters only when paired with $R^2$ movement. Oster makes that quantitative.
+:::
+
+::: notes
+Here is the deepest attack in the battery. An omitted variable is, by definition, not in your table — no balance check can reach it. Emily Oster's twenty-nineteen paper reframes the question into one you can answer. How strong would selection on unobservables have to be, relative to the selection on observables you can see, to explain away your entire result? The argument has a fatal-flaw fix. Coefficient stability alone proves nothing unless you also know how much explanatory power the controls added. Maya's uncontrolled coefficient is negative two point two; with full controls it moves only modestly to negative one point four. But R-squared climbs a lot, from zero point zero eight to zero point four two. The coefficient barely moved while the controls explained a great deal — that contrast is the whole point. Plug into Oster's formula with R-max set to one point three times the controlled R-squared, and delta-hat comes out around four point seven. An unobservable would need to be roughly five times more confounding than Maya's rich observables to nullify the effect. That is robust. Always report R-max and show the sensitivity sweep — delta without its R-max is uninterpretable.
+:::
+
+## Writing the Empirical Paper — Promise and Pay Off
+
+- A paper is an argument for belief, not a transcript of what you did
+- Intro in four moves: hook, one-sentence contribution, "we find" preview, roadmap
+- Lead with the headline at every scale; the verb is bounded by the weakest assumption
+
+::: callout-tip
+## Key takeaway
+Say the important thing first, at every scale. The reader is your judge, not your audience.
+:::
+
+::: notes
+Chapter 8.3's reveal is one sentence and the whole chapter turns on it. A paper is not a transcript of what you did; it is an argument for why a reader should believe what you found. The transcript is chronological and exhaustive. The argument is logical and ruthlessly selective. Beginning writers produce transcripts and wonder why nobody finishes them. Maya's introduction makes four moves in order. The hook opens with a real-world fact about minority-white denial gaps in twenty twenty-three. The one-sentence contribution claims the first quasi-experimental estimate of how state examination programs affect that gap. The "we find" preview gives the number — about one point eight percentage points — the human-units magnitude, the timing, and the key robustness fact in one paragraph that begins literally "we find that." The roadmap is a few short sentences. Then causal-language discipline runs through every section. Maya's strongest verb is bounded by her weakest assumption — parallel trends, untestable beyond the pre-period — so she never writes "causes" without the conditional attached. Match the verb to the design. The grader runs the same audit your Week-5 reading guides ran on published authors.
+:::
+
+## Peer Review and the R&R Memo
+
+- Open with a one-paragraph summary in your own words
+- Lead with the single biggest concern — usually identification
+- Quote each comment, state what you changed, point to the evidence
+- Concede when right; defend with evidence; bound the untestable
+
+::: callout-tip
+## Key takeaway
+Tough on the work, kind to the person. Honest concession is the strongest evidence the surviving result is real.
+:::
+
+::: notes
+Refereeing and writing are the same skill aimed in opposite directions — you already learned it in Week 5. A referee is just a Week-5 reader with a deadline and a verdict to render. Devon has Maya's draft on his desk. He opens with a one-paragraph summary in his own words, proving he understood the paper. Then he leads with his biggest concern — anticipation and pre-trends, the threat that, if Maya cannot answer it, sinks the result. He does not bury the dagger under typo complaints. For that major point he states what evidence would move him. An event study with at least four pre-period leads — flat leads would substantially reassure him, a downward pre-trend would be close to fatal. That is a contract, not a complaint. Now Maya responds with the quote-change-evidence shape. She quotes Devon verbatim, adds a new Figure 2 with a joint F-test p-value of zero point four one, points to the specific section, and bounds the untestable counterfactual in the limitations. On the small-cell concern she respectfully defends but does the requested work first. Honest concession buys credibility no bluff ever can.
+:::
+
+## The Eight-Minute Defense
+
+The arc, one slide per beat: question, why it matters, design and identification, headline result, robustness, contribution.
+
+- Translate tables into figures — error bars, coefficient plots, event studies
+- One idea per slide; the title is the idea as a full sentence
+- Rehearse to seven minutes; pre-decide your cut line
+
+::: callout-tip
+## Key takeaway
+A table is for a reader who can stop and study. A figure is for a listener who cannot.
+:::
+
+::: notes
+Eight minutes is not a short version of a long talk; it is a different object with room for exactly one idea defended cleanly. Memorize the six-beat arc — question, why it matters, design and identification, headline result, robustness, contribution. Six beats, one slide each, about one minute apiece, two minutes of slack you will need every second of. Priya's climate-insurance talk does not open with the IPCC; it opens with a concrete stake about insurers going insolvent or abandoning whole counties. Devon's ETF-volatility headline becomes a point with an error bar — not a regression table the back row cannot read. Leah's regression discontinuity becomes a binned scatter with a visible jump at the cutoff. Sam's robustness slide is the specification curve itself — stability you can see. The design slide is the spine — slow down there, because the room cannot read a regression equation in sixty seconds but it can read one sentence about why the comparison is fair. Rehearse against the clock at least three times and pre-decide your cut line before you walk in. A talk you have not said out loud will run long on stage.
+:::
+
+## Defending Identification Live, and the Packet
+
+- Hard questions are the rows of your Chapter 7.5 threats table
+- Survivable critique attacks a number; fatal critique attacks the comparison
+- A located "I don't know" is more credible than a confident bluff
+- Packet: pinned env, one named SEED, `make all` rebuilds bit-identically
+
+```bash
+$ git clone <repo> && cd <repo> && make all   # raw data -> paper.pdf
+```
+
+::: callout-tip
+## Key takeaway
+Reproducibility is not a virtue added at the end. It is the form your credibility takes.
+:::
+
+::: notes
+The talk is eight minutes; the questions are where the talk is actually judged. The good news is you already did the work. Every hard question has the same shape and that shape is a row of your Chapter 7.5 threats table — you wrote them yourself when you were calm. So you answer in order — the threat, why it is plausible, what you did, the residual concern. A survivable critique attacks a choice you can re-run, like clustering or winsorizing. A fatal critique attacks the comparison itself, like a diverging pre-trend. If the attacker is right about a fatal critique, do not defend the indefensible — concede at the level it was made and retreat to the descriptive claim that survives. Then the packet, the second surface a skeptic touches. A stranger clones your repo, types make-all, and watches every table and figure regenerate from raw data to PDF. One named SEED set once, pinned environment lock, no hand-pasted numbers. The honesty test is make-clean followed by make-all. Delete every derived file and rebuild. If the paper comes back identical, the packet is real and you just found any hand-edit before a reviewer did.
+:::
+
+## What You Have, and Go Say It
+
+- A question nobody had cleanly answered, attacked with a defensible design
+- Honest uncertainty, robust to the choices you worried about
+- Refereed, defended in eight minutes, reproducible in one command
+
+::: callout-tip
+## Key takeaway
+"Here is what I found, here is why you should believe it, and here is the command that lets you check me." Go say it.
+:::
+
+::: notes
+Look back at where Week 1 started. The first thing you did was compute an average — eight percent a year, and it felt like an answer. It was not an answer; it was the first question. Trace the arc the eight weeks walked. Week 1 turned a number into a number-with-uncertainty. Week 2 turned correlation into regression and the ghost of omitted-variable bias. Weeks 3 and 4 built the causal toolkit — IV, RD, difference-in-differences, synthetic control. Week 5 taught you to read papers as a skeptic. Week 6 sharpened the inference. Week 7 made the project yours — a pre-analysis plan tagged before you could fool yourself. Week 8 took that and made it communicable and checkable. What you have at the end is not "the average return was eight percent." It is an original empirical paper, refereed, defended in eight minutes, and reproducible with one command. The single sentence this whole camp existed to let you say truthfully is — here is what I found, here is exactly why you should believe it, and here is the command that lets you check me. You can say it now. Go say it.
+:::
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
+
+::: notes
+Anchoring works: Simonsohn, Simmons and Nelson on the specification curve; Oster on coefficient stability; Cameron, Gelbach and Miller on the wild cluster bootstrap; Benjamini and Hochberg on the false discovery rate; Bertrand, Duflo and Mullainathan on DiD standard errors; Olken on promises and perils of pre-analysis plans; Christensen and Miguel on reproducibility. Full bibliographic entries appear in the textbook.
+:::

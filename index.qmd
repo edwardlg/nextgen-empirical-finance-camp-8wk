@@ -1,0 +1,267 @@
+---
+title: "NextGen Empirical Finance Research Camp"
+subtitle: "An intensive 8-week, research-grade introduction to empirical finance for advanced high-school students"
+pagetitle: "NextGen Empirical Finance Research Camp — 8-Week Edition"
+description-meta: >
+  An intensive 8-week empirical finance research camp for advanced high-school students.
+  Hosted by Prof. Lei Gao at George Mason University's Costello College of Business.
+  Probability, OLS, causal inference, quasi-experiments, text-as-data, and a capstone
+  research paper carried all the way to a conference talk and a real submission —
+  built around real data and real methods.
+toc: false
+number-sections: false
+page-layout: full
+format:
+  html:
+    css: styles.scss
+    include-in-header:
+      - text: |
+          <meta name="twitter:card" content="summary_large_image">
+          <meta name="twitter:title" content="NextGen Empirical Finance Research Camp">
+          <meta name="twitter:description" content="An intensive 8-week empirical-finance research camp for advanced high-school students, hosted by Prof. Lei Gao at GMU.">
+          <meta property="og:type" content="website">
+          <meta property="og:title" content="NextGen Empirical Finance Research Camp — 8-Week Edition">
+          <meta property="og:description" content="An intensive 8-week empirical-finance research camp for advanced high-school students, hosted by Prof. Lei Gao at GMU.">
+          <meta property="og:site_name" content="NextGen Empirical Finance Research Camp">
+---
+
+::: {.hero}
+
+::: {.hero-eyebrow}
+George Mason University · Costello College of Business
+:::
+
+# NextGen Empirical Finance Research Camp {.hero-title}
+
+### Eight intensive weeks. Real data. Real methods. A research paper, a conference talk, and a submission at the end. {.hero-subtitle}
+
+A textbook-and-lab system for high-school researchers who want to do
+empirical finance the way it is actually done: with code, with data,
+and with intellectual honesty about what we can and cannot conclude.
+
+::: {.hero-cta}
+[Start here →](book/00-front-matter/00-preface.md){.btn .btn-primary}
+[How to use the book](book/00-front-matter/02-how-to-use.md){.btn .btn-outline}
+[View source on GitHub](https://github.com/edwardlg/nextgen-empirical-finance-camp-8wk){.btn .btn-outline}
+:::
+
+::: {.hero-host}
+Hosted by **[Prof. Lei Gao](https://business.gmu.edu/)**, Associate Professor of Finance,
+Costello College of Business, George Mason University.
+:::
+
+:::
+
+::: {.quick-stats}
+::: {.stat}
+[**8**]{.stat-num} [Weeks]{.stat-lbl}
+:::
+::: {.stat}
+[**44**]{.stat-num} [Chapters]{.stat-lbl}
+:::
+::: {.stat}
+[**40**]{.stat-num} [Notebooks]{.stat-lbl}
+:::
+::: {.stat}
+[**34**]{.stat-num} [Data cards]{.stat-lbl}
+:::
+::: {.stat}
+[**5**]{.stat-num} [Capstones]{.stat-lbl}
+:::
+::: {.stat}
+[**1**]{.stat-num} [Instructor manual]{.stat-lbl}
+:::
+:::
+
+---
+
+## The 8-week arc
+
+Eight intensive weeks take you from the logic of inference to a finished,
+submittable paper. Weeks 1–6 build the toolkit (probability, OLS, causal
+inference, quasi-experiments, reading the canon, text/AI); Weeks 7–8 are
+your own research project, carried all the way through robustness,
+manuscript, conference talk, and submission. The symposium-and-paper
+material that a longer camp spreads across extra weeks is folded into the
+arc: second-round **robustness v2** lands in Week 4, the **manuscript build**
+in Week 7, and the **conference talk, poster, defense, and submission** in
+Week 8. (Deeper, optional treatments of these are available on demand in
+office hours.)
+
+::: {.week-grid}
+
+::: {.week-card}
+### [Week 1](book/weeks/week-01/README.md)
+**Probability, Inference, and the Logic of Estimation**
+
+The two laws, expectations as geometry, sampling distributions, LLN/CLT, the
+mechanics of a $t$-test. Lab: simulating the *coin-flip universe*.
+:::
+
+::: {.week-card}
+### [Week 2](book/weeks/week-02/README.md)
+**OLS, Geometry, and Inference**
+
+OLS in matrix form, Gauss-Markov, Frisch-Waugh-Lovell, robust and clustered
+standard errors, omitted-variable bias. Lab: Fama-MacBeth on CRSP.
+:::
+
+::: {.week-card}
+### [Week 3](book/weeks/week-03/README.md)
+**Causal Inference Foundations**
+
+Potential outcomes and SUTVA, matching and propensity scores, entropy
+balancing, IV and weak-IV pathology. Lab: making weak instruments lie.
+:::
+
+::: {.week-card}
+### [Week 4](book/weeks/week-04/README.md)
+**Quasi-Experiments in Finance**
+
+Event studies, staggered DiD (TWFE vs. Callaway-Sant'Anna), regression
+discontinuity, synthetic control, Bartik shift-share, plus **robustness v2**
+(multiple testing, heterogeneity, mechanisms, external validity). Lab: HMDA DiD.
+:::
+
+::: {.week-card}
+### [Week 5](book/weeks/week-05/README.md)
+**Reading the Empirical Finance Canon**
+
+Reader's guides to Fama-French 1992 & 1993, Jegadeesh-Titman 1993,
+Petersen 2009, Bertrand-Duflo-Mullainathan 2004. *What does a JF paper actually do?*
+:::
+
+::: {.week-card}
+### [Week 6](book/weeks/week-06/README.md)
+**Text, AI, and Alternative Data**
+
+Patent value, 10-K similarity, Loughran-McDonald sentiment, fair-lending
+decomposition, and an AI copilot lab — without fooling yourself.
+:::
+
+::: {.week-card}
+### [Week 7](book/weeks/week-07/README.md)
+**Your Project, Part I**
+
+Idea generation, data acquisition, pre-analysis plan, dataset
+construction, identification memo, and the **manuscript build** (abstract,
+publication-grade tables/figures, intro, literature). The week you stop being a student.
+:::
+
+::: {.week-card}
+### [Week 8](book/weeks/week-08/README.md)
+**Your Project, Part II**
+
+Specification curve, robustness battery, writing the paper, peer review,
+defense, replication packet — plus the **conference talk, poster, and
+defense** and a **real submission** (Young Scholars Journal, MARS, SSRN,
+the conference circuit). Final manuscript, repo, and submission packet.
+:::
+
+:::
+
+---
+
+## Who this is for
+
+This camp is for advanced high-school students with strong precalculus or
+calculus, comfort with Python or strong motivation to learn it quickly,
+and an appetite for the kind of math that begins:
+
+$$
+\hat{\boldsymbol{\beta}}_{\text{OLS}} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}.
+$$
+
+If that equation is intimidating but interesting, you are exactly the
+intended reader. Appendix A is a math toolkit; Appendix B is a setup
+guide; the prerequisite self-test will tell you which gaps to close
+first.
+
+::: {.cta-row}
+[Take the prerequisite self-test →](book/00-front-matter/03-prerequisite-self-test.md){.btn .btn-outline}
+:::
+
+---
+
+## What you'll build
+
+By the end of week 8 you will have:
+
+- A **research paper** answering a question of your own choosing, with a
+  pre-analysis plan, a real dataset, an identification strategy, a
+  specification curve, and an honest robustness section (Weeks 7–8).
+- A **second-round robustness battery** (Romano–Wolf multiple-testing,
+  causal-forest heterogeneity, sequential-*g* mediation, transportability) —
+  the robustness v2 toolkit folded into Week 4.
+- A **press-ready manuscript** — 250-word abstract, publication-grade
+  tables and figures, rewritten introduction, three-strand literature
+  review — built in Week 7.
+- A **public replication packet**: code, data references, a README, an
+  environment file, and a one-command rebuild (Week 8).
+- A **conference talk and poster** that survive an adversarial Q&A
+  session — including the questions you cannot yet answer (Week 8).
+- A **real submission**: an SSRN preprint, a Schar Young Scholars Journal
+  portal submission, a GMU MARS repository deposit, and a populated
+  conference-submission calendar for the year ahead (Week 8).
+- **Reading fluency** in five canonical empirical-finance papers, plus
+  five more from the text/AI tradition.
+
+---
+
+## How to use the book
+
+::: {.use-grid}
+::: {.use-card}
+### For students
+Read each week's chapters in order. Work the problem sets *before*
+opening the solutions. Run every notebook. The labs are the part where
+you actually learn.
+:::
+
+::: {.use-card}
+### For instructors
+The [instructor manual](book/instructor-manual/README.md) has a pacing
+guide, grading rubrics, common pitfalls, and answer keys. The
+[capstone gallery](book/capstones/README.md) gives five fully-specified
+projects with synthetic illustrative results.
+:::
+
+::: {.use-card}
+### For independent readers
+You can run every notebook on **Colab** or **Binder** directly from each
+notebook page — look for the buttons at the top. The
+[`environment.yml`](https://github.com/edwardlg/nextgen-empirical-finance-camp-8wk/blob/main/environment.yml)
+pins the conda environment.
+:::
+
+::: {.use-card}
+### For everyone
+Every chapter that makes a quantitative claim flags the claim with a
+`[CHECK]` tag if it has not yet been verified against a primary source.
+This is on purpose. Research is a process, not a posture.
+:::
+:::
+
+---
+
+## Acknowledgements
+
+This camp is part of the **NextGen Scholars** articulation effort to make
+research-grade methods accessible to high-school students who are ready
+for them. The [articulation matrix](book/00-front-matter/01-articulation-matrix.md)
+maps every learning objective to a downstream undergraduate or
+PhD-level competency, with sources cited.
+
+The textbook was drafted in a multi-agent workflow that pairs planning,
+writing, and review agents under human supervision. See [About](about.qmd)
+for the methodology and the editorial standard.
+
+---
+
+::: {.footer-cta}
+Ready to start?
+
+[Read the preface →](book/00-front-matter/00-preface.md){.btn .btn-primary}
+[Browse the capstones →](book/capstones/README.md){.btn .btn-outline}
+[Open on GitHub →](https://github.com/edwardlg/nextgen-empirical-finance-camp-8wk){.btn .btn-outline}
+:::

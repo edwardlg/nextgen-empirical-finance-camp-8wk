@@ -1,0 +1,270 @@
+---
+title: "Week 2 — The OLS Engine"
+subtitle: "8-Week Empirical Finance Camp"
+author: "Prof. Lei Gao, George Mason University"
+date: "2026-06-14"
+date-format: "YYYY-MM-DD"
+format:
+  pptx:
+    slide-level: 2
+    incremental: false
+    toc: false
+    fig-width: 7.5
+    fig-height: 4.2
+    fig-dpi: 200
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto
+---
+
+# Week 2 — The OLS Engine {.title}
+
+::: notes
+Welcome to Week 2 of the NextGen Empirical Finance Camp. Last week we built the statistical floor — random variables as vectors, the central limit theorem, the idea that a number becomes a finding only when paired with a standard error. This week we open the hood on the workhorse of every empirical finance paper you will ever read: ordinary least squares. By the end of this lecture you will know what the formula beta hat equals X-prime-X inverse X-prime-y actually does, why it works, and the three ways the textbook story quietly breaks the moment you touch real financial data. The theme for this week is the OLS engine, and the pedagogy is the same as last week: state the result first, then earn it, then show the failure mode. Today is the most mechanical week of the camp, but it is also the foundation everything causal in Weeks 3 and 4 will sit on top of. Pay close attention to the assumptions, because that is where the credibility lives.
+:::
+
+## Learning Objectives
+
+- Derive OLS in matrix form two different ways — by calculus, and by orthogonality
+- State Gauss–Markov and decode what each letter of "BLUE" buys you
+- Apply Frisch–Waugh–Lovell to read any "controlling for" coefficient
+- Choose the right standard-error flavor: classical, robust, clustered, or HAC
+- Spot omitted-variable bias and measurement error before they ruin your finding
+
+::: callout-tip
+## Key takeaway
+OLS is a one-line formula with a five-clause contract. The art is reading the contract.
+:::
+
+::: notes
+Walk through each objective and tie it to the lab. The first three are the mechanics — what OLS computes and why. The last two are the credibility layer — and that is where actual empirical finance careers are won or lost. Tell students that by the end of the week they will be running Fama–MacBeth on either real CRSP data through WRDS, or on a seeded synthetic panel with a known planted risk premium. Either way they will see the two-pass procedure recover the truth, and they will see naive standard errors collapse the moment they let the errors inside a cluster talk to each other. Mention that the dataset lives in data slash week-02 and is documented in Appendix C as the Fama–MacBeth CRSP card.
+:::
+
+## Sam's Question, in Matrix Form
+
+Sam wants a number: when the market jumps one percent, how much does his stock jump?
+
+$$
+\mathbf{y} = \mathbf{X}\boldsymbol\beta + \boldsymbol\varepsilon
+$$
+
+- $\mathbf{y}$ is the $N\times 1$ vector of stock returns
+- $\mathbf{X}$ is the $N\times K$ design matrix (column of ones plus regressors)
+- $\boldsymbol\beta$ stacks the intercept and slopes; $\boldsymbol\varepsilon$ is what the line cannot explain
+
+::: callout-tip
+## Key takeaway
+One matrix equation absorbs $N$ scalar equations. Every OLS derivation from here lives on this single line.
+:::
+
+::: notes
+Sam trades, follows momentum, and has noticed that on days when the whole market jumps, his favorite stock tends to jump too — but not one-for-one. He wants a number for that sensitivity. In finance we call it beta, and estimating it is a regression of his stock's return on the market's return. The clever move is to write all N daily equations as one matrix equation: y equals X beta plus epsilon. The first column of X is all ones — that is the intercept's regressor, a variable that equals one for every observation, so its coefficient adds the same baseline to every prediction. Everything we do for the rest of the week is invariant to the number of regressors. Add a control, add ten controls, the formula does not change a symbol. That invariance is the whole reason we work in matrix form: one derivation, done once, covers every linear regression you will ever run.
+:::
+
+## The Normal Equations, Two Ways
+
+**Calculus.** Expand the sum of squared residuals, take the gradient, set it to zero.
+
+**Orthogonality.** Demand the residual be perpendicular to every column of $\mathbf{X}$.
+
+Both routes deliver the same system:
+
+$$
+\mathbf{X}'\mathbf{X}\,\hat{\boldsymbol\beta} = \mathbf{X}'\mathbf{y}
+\quad\Longrightarrow\quad
+\hat{\boldsymbol\beta} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}
+$$
+
+::: callout-tip
+## Key takeaway
+Minimizing squared length and dropping a perpendicular are the same act. OLS is an orthogonality machine.
+:::
+
+::: notes
+Here is the reveal-the-trick moment of the week. The least-squares formula looks like a magic incantation, but it falls out of two completely different lines of reasoning that meet in the middle. Route one is calculus: write the sum of squared residuals as a quadratic in the candidate coefficients, take the gradient, set it to zero, and the matrix X-prime-X beta-hat equals X-prime-y drops out. Route two is pure geometry, no derivatives: if beta hat truly minimizes the residual's length, then the residual vector must be perpendicular to every regressor, because otherwise we could nudge the fit along that regressor and shave off more length. Demand X-prime times the residual equals zero, expand, and the identical normal equations appear. Two routes, same destination. The geometric route is the one worth remembering, because the rest of the week — partialling out, the hat matrix, projection — all lives in that picture.
+:::
+
+## OLS as Projection
+
+The fitted values are a *shadow*; the residuals stick straight out.
+
+- Hat matrix: $\mathbf{H} = \mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'$, $\ \hat{\mathbf{y}} = \mathbf{H}\mathbf{y}$
+- Residual maker: $\mathbf{M} = \mathbf{I} - \mathbf{H}$, $\ \hat{\mathbf{e}} = \mathbf{M}\mathbf{y}$
+- Both are symmetric and idempotent — the algebra of *projecting*
+- Pythagoras: $\lVert\mathbf{y}\rVert^2 = \lVert\hat{\mathbf{y}}\rVert^2 + \lVert\hat{\mathbf{e}}\rVert^2$
+
+::: callout-tip
+## Key takeaway
+Every "$R^2$" you have ever seen rests on this right triangle.
+:::
+
+::: notes
+Think geometrically. The vector y lives in N-dimensional space. The column space of X — every linear combination of the regressors — is a flat subspace, usually a plane. The outcome y almost never lies in that plane. OLS asks: which point in the plane is closest to y? The answer from plane geometry, scaled up, is the orthogonal projection — the foot of the perpendicular dropped from y onto the column space. That projection is the fitted values y-hat, and the leftover sticking straight out of the plane is the residual e-hat. The matrix H performs the projection; the matrix M performs the complementary residual-making operation. Apply either twice and nothing new happens, because once you have dropped onto the plane you are on the plane. That is what idempotent means. And because the angle is right, Pythagoras applies: the squared length of y equals the squared length of the fit plus the squared length of the residual, which is exactly the variance decomposition that defines R-squared.
+:::
+
+## Gauss–Markov: The Five-Clause Contract
+
+OLS is **BLUE** — Best Linear Unbiased Estimator — *if* you accept:
+
+1. Linearity in parameters
+2. Random sampling + full column rank of $\mathbf{X}$
+3. **Zero conditional mean**: $\mathbb{E}[\boldsymbol\varepsilon\mid\mathbf{X}] = \mathbf{0}$
+4. Homoskedasticity + no autocorrelation: $\operatorname{Var}(\boldsymbol\varepsilon\mid\mathbf{X}) = \sigma^2\mathbf{I}$
+5. (Optional, for inference) Normality of errors
+
+::: callout-warning
+## Watch out
+Clause 3 is the load-bearing wall. It is also the one that fails in every interesting question.
+:::
+
+::: notes
+Gauss–Markov says OLS is the best linear unbiased estimator — BLUE — and "best" here means lowest-variance among the unbiased linear estimators. But that guarantee is a contract, not a law of nature, and the contract has five clauses. Maya is testing whether borrower income predicts loan rate. Clause one says the world is linear in the betas. Clause two says her sample is random and no regressor is a perfect copy of another. Clause three is the load-bearing wall: the error has mean zero given every configuration of the regressors. That is the clause that breaks the moment a relevant variable is missing — and that breaking biases the estimator, full stop. Clauses four and five govern the standard error, not the point estimate. Each clause has a known failure mode and a known fix later in the book. The art of empirical work is reading the contract carefully and knowing which clause your particular dataset is going to violate.
+:::
+
+## Frisch–Waugh–Lovell: What "Controlling For" Really Means
+
+Leah regresses patents on R&D, controlling for firm size. FWL says the coefficient is identical to:
+
+1. Residualize R&D against size — keep $\tilde{x}$
+2. Residualize patents against size — keep $\tilde{y}$
+3. Run a *simple* regression of $\tilde{y}$ on $\tilde{x}$
+
+::: callout-tip
+## Key takeaway
+"Controlling for $z$" means subtracting $z$ out of everything first. Multiple regression is bivariate regression on the leftovers.
+:::
+
+::: notes
+Every multiple regression coefficient in every finance paper you will ever read is reported as the coefficient on x "controlling for" the other variables. Frisch–Waugh–Lovell is the theorem that tells you what that phrase mechanically means. Leah studies innovation. She has firm-level data, and she worries that big firms file more patents and spend more on R&D simply because they are big. She wants the partial effect of R&D after netting out size. FWL says she can get the exact same coefficient — to the last decimal — three different ways. Run the full multiple regression, or residualize R&D against size, residualize patents against size, and run a tiny two-variable regression on the leftovers. Same number. The bonus payoff lands a month early: subtracting group means is exactly the same as throwing in a dummy for every group. That equivalence is fixed effects, sneaking up on you in Week 3.
+:::
+
+## When the Errors Misbehave
+
+Maya's fair-lending regression: $\hat\beta_1 = 0.42$, both times.
+
+| Standard error | SE | t-stat |
+|---|---|---|
+| Classical, $\sigma^2 \mathbf{I}$ | 0.07 | **6.0** |
+| Clustered by lender | 0.19 | 2.2 |
+
+The point estimate never moved. The $0.07$ was a lie.
+
+::: callout-warning
+## Watch out
+Naive SEs are almost always too small, because positive within-cluster correlation means $N$ observations carry less than $N$ pieces of independent information.
+:::
+
+::: notes
+Here is the most important fact in all of applied econometrics, stated as a paradox. Maya runs a fair-lending regression on nine thousand consumer loans. Coefficient on her ZIP-code tier comes back at 0.42 percentage points with a classical standard error of 0.07. T-statistic of six, screaming through a megaphone. Then her mentor asks one question: are those nine thousand loans really nine thousand independent pieces of evidence? They are not. Loans cluster by lender and by state. Once Maya allows the errors inside a lender to be correlated, the same 0.42 comes back with a standard error of 0.19, and the t-statistic collapses from six to roughly two. The point estimate never moved a hair. The 0.07 was the lie. The 0.42 was right the whole time. In finance data, errors are almost always heteroskedastic, clustered within firm or industry, and serially correlated across months. Every one of those shapes for omega makes the naive standard error wrong, almost always too small.
+:::
+
+## The Sandwich Variance
+
+When $\operatorname{Var}(\boldsymbol\varepsilon\mid\mathbf{X}) = \boldsymbol\Omega \ne \sigma^2\mathbf{I}$:
+
+$$
+\operatorname{Var}(\hat{\boldsymbol\beta}\mid\mathbf{X}) = (\mathbf{X}'\mathbf{X})^{-1}\,\mathbf{X}'\boldsymbol\Omega\mathbf{X}\,(\mathbf{X}'\mathbf{X})^{-1}
+$$
+
+Choose your $\hat{\boldsymbol\Omega}$ by the shape of the dependence:
+
+- **HC** (White, HC1–HC3): heteroskedastic, independent errors
+- **Cluster**: correlated within group (firm, industry, state)
+- **HAC** (Newey–West): correlated across time (monthly returns)
+
+::: callout-tip
+## Key takeaway
+Same $\hat{\boldsymbol\beta}$, different bread on the sandwich, different t-stat. Petersen 2009 is the cheat sheet.
+:::
+
+::: notes
+This is the technical centerpiece of the week. Write the variance of beta hat as a sandwich: X-prime-X inverse on the outside, and the middle filling is X-prime omega X, where omega is the true variance-covariance matrix of the errors. The classical formula assumes omega is sigma-squared times the identity, which collapses the sandwich to the familiar sigma-squared times X-prime-X inverse. When that assumption fails, the bread stays the same but you have to estimate the filling honestly. White's heteroskedasticity-consistent estimator handles non-constant variance. Cluster-robust estimators handle within-group correlation — same firm across years, same lender across loans. HAC estimators, with Newey–West being the most famous, handle serial correlation in time-series data like monthly returns. Petersen's 2009 Review of Financial Studies paper is the cheat sheet every empirical finance person keeps on their desk. Gao, Moulton, and Ng 2024 in the Journal of Corporate Finance is the modern follow-up worth reading.
+:::
+
+## Misspecification: Three Ways the Coefficient Itself Lies
+
+Standard errors do not save you from a biased estimate.
+
+- **Omitted variable bias.** Bias $= \beta_2 \cdot \delta_1$ — effect of omitted on $y$, times slope of omitted on included
+- **Measurement error in $x$** — attenuates the coefficient *toward zero*
+- **Wrong functional form** — curvature dumped into $\varepsilon$, correlates with $x$
+
+::: callout-warning
+## Watch out
+A precise estimate of a biased quantity is the most expensive mistake in empirical work.
+:::
+
+::: notes
+Chapter 2.4 fixed your standard errors — the wobble. But a standard error tells you how much your estimate would bounce if you redrew the sample. It says nothing about whether the number you are bouncing around is the right number. You can have a razor-sharp standard error on a completely wrong coefficient. There are three classic ways the coefficient itself can be biased. First, omitted variable bias: leave out something relevant and correlated with your regressor, and your coefficient absorbs its effect — the bias is exactly the product of two slopes, the omitted variable's effect on the outcome times its correlation with what you kept. Maya's mortgage regression with creditworthiness omitted is the canonical example. Second, measurement error in the regressor attenuates the coefficient toward zero. Third, forcing a straight line through a curved world dumps the curvature into the error term, where it correlates with x and breaks the zero-conditional-mean assumption. Same disease, three vectors. This is the bridge to causal inference in Weeks 3 and 4.
+:::
+
+## Code You Will Run in Lab 2
+
+```{.python}
+import numpy as np, pandas as pd, statsmodels.api as sm
+
+# Pass 1: time-series beta per stock
+betas = (panel.groupby("permno")
+              .apply(lambda g: sm.OLS(g["ret"], sm.add_constant(g["mkt"])).fit().params["mkt"]))
+
+# Pass 2: cross-sectional regression each month
+gammas = (panel.merge(betas.rename("beta"), on="permno")
+               .groupby("month")
+               .apply(lambda g: sm.OLS(g["ret"], sm.add_constant(g["beta"])).fit().params["beta"]))
+
+fm_estimate = gammas.mean()
+fm_se       = gammas.std(ddof=1) / np.sqrt(len(gammas))
+```
+
+::: callout-tip
+## Key takeaway
+Fama–MacBeth's trick: run the cross-section in *each* month, then treat the slope time series as data.
+:::
+
+::: notes
+This is the procedure Eugene Fama and James MacBeth published in 1973, and it is still the default fifty years later. The question is Sam's, scaled to the whole market: do high-beta stocks actually earn higher average returns? Pass one estimates a time-series beta for every stock by regressing its returns on the market factor. Pass two runs a cross-sectional regression of returns on those betas, but it runs that regression separately in every single month. You end up with a little time series of monthly slopes. Their mean is your point estimate of the risk premium. Their scatter, divided by root T, is your standard error — and that standard error automatically handles the within-month cross-sectional correlation that would wreck a naive panel regression. This is clustering, but disguised as a two-pass procedure. In the lab you plant a known risk premium in synthetic data and check that the machine recovers it.
+:::
+
+## Common Pitfalls
+
+1. **Reporting the t-stat from your software's default SE** without asking whether the errors cluster
+2. **Adding controls** to fix bias without checking whether the controls are *bad controls* (Week 3)
+3. **Calling something "the effect of $x$"** when zero-conditional-mean has not been defended
+4. **Trusting a regression with $h_{ii} \approx 1$** — a single observation is driving your fit
+5. **Confusing "no bias" with "no problem"** — heteroskedasticity is an SE issue, not a bias issue
+
+::: callout-warning
+## Watch out
+Every one of these will make your $R^2$ look great and your referee report look brutal.
+:::
+
+::: notes
+A short tour of the traps. First, the default standard error your software prints is almost always wrong for finance data — ask whether the errors cluster before you trust a t-stat. Second, simply adding more controls is not a research strategy. Some controls are bad controls that introduce new bias; you will meet them in Week 3. Third, the phrase "the effect of x on y" is a causal claim, and a causal claim demands a defense of the zero-conditional-mean assumption. Without that defense, you have a conditional correlation, not an effect. Fourth, check your leverage scores. If a single observation has h-i-i close to one, your entire fit is being driven by that one point. Finally, the most subtle: heteroskedasticity does not bias your point estimate, but it does break your standard error. Knowing whether you have a bias problem or a standard-error problem decides whether you reach for a different research design or just a different SE flavor. Students remember stories, not bullet points — tie each pitfall to a paper you have lived through.
+:::
+
+## This Week's Deliverable, and What's Next
+
+- **Lab 2.** Replicate Fama–MacBeth on CRSP (Path A: WRDS; Path B: seeded synthetic with planted $\lambda$)
+- **Mentor session.** "Why your standard error is the whole ballgame" — Petersen 2009; Gao et al. 2024
+- **Assessment.** Derive the normal equations both ways; choose and defend an SE flavor on a panel
+- **Week 3.** Causal inference: DAGs, good controls vs. bad controls, instrumental variables
+
+::: callout-tip
+## Key takeaway
+This week gave you the engine. Next week you learn when you are *allowed* to call $\hat\beta$ an effect.
+:::
+
+::: notes
+This week's deliverable has three pieces. Lab 2 is the capstone: replicate Fama–MacBeth, either on real CRSP through WRDS on Hopper, or on a fully self-contained synthetic panel with a planted risk premium so you can verify your code recovers the truth. The mentor session takes the same beta hat of 0.42 and tells two different stories with it, depending on which standard-error flavor you choose — that is the whole ballgame. The assessment forces you to derive the normal equations both ways and to defend your standard-error choice on a small panel you simulate. Looking ahead, Week 3 is where everything causal lives. You learn DAGs, the difference between a good control and a bad one, and instrumental variables. The point of this week was to give you the engine. The point of next week is to teach you when you are allowed to call the output an effect rather than a correlation.
+:::
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
+
+::: notes
+By-name references for this lecture: Fama and MacBeth 1973 for the two-pass procedure; Frisch, Waugh, and Lovell for the partialling-out theorem; White 1980 for heteroskedasticity-consistent standard errors; Newey and West 1987 for HAC; Petersen 2009 for the modern clustering cheat sheet; and Gao, Moulton, and Ng 2024 in the Journal of Corporate Finance for the contemporary follow-up. Full bibliographic entries live in the textbook bibliography.
+:::

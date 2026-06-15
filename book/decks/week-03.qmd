@@ -1,0 +1,259 @@
+---
+title: "Week 3 — Causal Inference I: Potential Outcomes, Selection-on-Observables, IV"
+subtitle: "8-Week Empirical Finance Camp"
+author: "Prof. Lei Gao, George Mason University"
+date: "2026-06-14"
+date-format: "YYYY-MM-DD"
+format:
+  pptx:
+    slide-level: 2
+    incremental: false
+    toc: false
+    fig-width: 7.5
+    fig-height: 4.2
+    fig-dpi: 200
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto
+---
+
+# Week 3 — Causal Inference I {.title}
+
+::: notes
+Welcome to Week 3. Last week a regression could be confidently, precisely wrong. This week we rebuild on a sturdier foundation — the potential-outcomes framework — and earn the right to say the word "causes." We will watch Maya stare at a financial-literacy program that looks like it boosts approvals by twenty-one points, and discover that two thirds of that gap is not the program at all. By the end you will know what a causal effect is, why you can never see one directly, and the three families of designs empirical finance uses when randomization is off the table.
+:::
+
+## Learning Objectives
+
+- Define potential outcomes $Y_i(1), Y_i(0)$, and the estimands ATE, ATT, LATE
+- Decompose the naive difference into a causal effect plus selection bias
+- Apply selection-on-observables tools: PSM, IPW, entropy balancing, AIPW
+- Read a 2SLS estimate critically: first-stage F, LATE, and the weak-IV pathology
+
+::: callout-tip
+## Key takeaway
+Correlation is cheap. Causal claims are earned through *design*, not control variables.
+:::
+
+::: notes
+Four objectives. Vocabulary every method this week leans on. The master decomposition that organizes the week. Methods you use when all confounders are measured. The escape hatch when they are not. The deliverable is Lab 3, where students simulate a weak-instrument disaster and watch Anderson–Rubin intervals fix it. What is hard this week is not the math — it is the discipline of naming assumptions before estimating.
+:::
+
+## Maya's Puzzle: A 21-Point Gap That Lies
+
+- Enrollees in a free financial-literacy program: 62% approval
+- Non-enrollees: 41% approval
+- Naive gap $= +21$ points, t-stat enormous
+- The trap is buried in the word "causes"
+
+::: callout-tip
+## Key takeaway
+The gap is real. The *causal* interpretation is not — who chooses to enroll is who would be approved anyway.
+:::
+
+::: notes
+Maya volunteers at a credit union. Voluntary enrollment, twenty-one point approval gap, she is ready to recommend a nationwide rollout. Ask the room: who signs up for a free six-week evening course on personal finance? People already organized, already worried about credit. They were already more approvable, program or no program. Maya is comparing two different kinds of people. No omitted control fixes this, no robust standard error saves her.
+:::
+
+## Potential Outcomes and the Fundamental Problem
+
+For each person $i$, two parallel worlds:
+
+$$Y_i(1) = \text{outcome if treated}, \qquad Y_i(0) = \text{outcome if untreated}.$$
+
+Observation rule: $Y_i = D_i\, Y_i(1) + (1-D_i)\, Y_i(0).$
+
+Individual effect: $\tau_i = Y_i(1) - Y_i(0).$
+
+::: callout-warning
+## The Fundamental Problem
+We can never observe both $Y_i(1)$ and $Y_i(0)$ for the same person. Causal inference is a missing-data problem.
+:::
+
+::: notes
+The hinge of the whole framework, due to Rubin. For one person, $Y$-sub-$i$-of-one is what would happen under treatment, $Y$-sub-$i$-of-zero is what would happen under control. Both real, only one realized. Holland's fundamental problem from nineteen eighty-six: you can never see the individual effect. The escape is to stop asking about individuals and ask about averages over a population.
+:::
+
+## The Master Decomposition
+
+Maya's naive comparison decomposes *exactly*:
+
+$$\underbrace{\mathbb{E}[Y\mid D=1] - \mathbb{E}[Y\mid D=0]}_{\Delta\ =\ 0.21} = \underbrace{\text{ATT}}_{\text{what we want}} + \underbrace{\mathbb{E}[Y(0)\mid D=1] - \mathbb{E}[Y(0)\mid D=0]}_{\text{selection bias}}$$
+
+Hidden truth on Maya's numbers: $\;0.21 = \underbrace{0.07}_{\text{real effect}} + \underbrace{0.14}_{\text{selection bias}}$
+
+::: callout-tip
+## Key takeaway
+Two thirds of Maya's "effect" is not the program. The whole week is a hunt for that bias term.
+:::
+
+::: notes
+The single most important equation of Week 3. Naive difference equals what we want plus a selection-bias term. That bias is the gap in the untreated potential outcome between the groups — how the enrollees *would have* done without the program, versus how non-enrollees actually did. For Maya: seven points of real effect, fourteen points of bias. The data cannot reveal the split; the counterfactual is structurally missing. Every method this week is a different strategy to make that term go to zero.
+:::
+
+## The Gold Standard: Randomization
+
+Randomize $D_i$. Then by construction:
+
+$$\big(Y_i(0), Y_i(1)\big) \perp\!\!\!\perp D_i \quad\Longrightarrow\quad \text{selection bias} = 0.$$
+
+- The coin does not know who you are — groups are interchangeable
+- Difference in means becomes the causal effect, full stop
+- RCTs are gold because bias is prevented by *design*
+
+::: callout-warning
+## Watch out
+SUTVA still needs to hold: no spillovers, no hidden versions of treatment. Devon's general-equilibrium tax credit moves prices, and randomization cannot fix that.
+:::
+
+::: notes
+A coin flip makes treatment statistically independent of potential outcomes. Savvy and disorganized applicants split evenly across arms. Independence collapses the bias term to zero, and the simplest estimator — two averages subtracted — recovers the truth. This is why clinical trials and A/B tests are the gold standard. But two caveats: zeroes bias in expectation, not in any one sample; and finance almost never lets you randomize.
+:::
+
+## Selection on Observables: PSM
+
+Conditional Independence Assumption: $\;\{Y_i(1), Y_i(0)\} \perp\!\!\!\perp D_i \mid \mathbf{X}_i.$
+
+Rosenbaum–Rubin (1983): match on the scalar
+$\;e(\mathbf{X}_i) = \Pr(D_i = 1 \mid \mathbf{X}_i)\;$ instead of all of $\mathbf{X}$.
+
+- Fit logit, 1:1 caliper match, audit balance with SMDs
+- Check balance, *never* the outcome — keep design and answer separated
+- On Maya's simulated data: naive $0.63$, true ATT $0.32$, PSM recovers $0.31$
+
+::: callout-tip
+## Key takeaway
+Matching is randomization's poorer cousin: it assumes confounders are measured. CIA is untestable.
+:::
+
+::: notes
+First family of methods: bet that you measured the relevant confounders. CIA says treatment is as-good-as-random within each cell of $\mathbf{X}$. Exact matching dies of the curse of dimensionality. Rosenbaum and Rubin's trick: the propensity score is a balancing score, so match on that one number. Maya runs a logit, finds nearest controls within a caliper, recovers about 0.31 — close to the true 0.32, far from the naive 0.63. Iron rule: never tune the recipe while watching the outcome. If motivation drives both enrollment and approval and is not in $\mathbf{X}$, matching balances beautifully and is still wrong.
+:::
+
+## IPW, Entropy Balancing, and AIPW
+
+Inverse-probability weighting:
+
+$$\hat\tau_{\text{IPW}} = \frac{1}{N}\sum_i \frac{D_i Y_i}{\hat e(\mathbf{X}_i)} - \frac{1}{N}\sum_i \frac{(1-D_i) Y_i}{1 - \hat e(\mathbf{X}_i)}$$
+
+- **IPW**: propensity cancels in expectation — explodes when $\hat e \to 0$
+- **Entropy balancing** (Hainmueller 2012): solve for weights that force balance directly
+- **AIPW / doubly robust**: combine propensity + outcome model; consistent if *either* is right
+
+::: callout-warning
+## Watch out
+$\hat e = 0.02$ gives weight 50 — one unit dominates. Trim, stabilize, print the effective sample size.
+:::
+
+::: notes
+Same propensity score, different use. IPW reweights instead of matching: count each unit by one over its treatment probability. The score cancels and you have manufactured a fake experiment. Use Hájek normalized weights, not raw Horvitz–Thompson. Failure mode: a tiny estimated score blows up the weight and one observation dominates. Entropy balancing skips the propensity middleman and solves directly for balance weights. AIPW combines both models and gets consistency if either one is right — a genuinely surprising guarantee.
+:::
+
+## Escape Hatch: Instrumental Variables
+
+When an unobserved confounder kills CIA, find an external lever $Z$.
+
+$$\hat\beta_{\text{IV}} = \dfrac{\text{how } Y \text{ moves with } Z}{\text{how } D \text{ moves with } Z} \quad \text{(Wald ratio)}$$
+
+- **Relevance**: $\operatorname{Cov}(Z, D) \neq 0$ — *testable* via first-stage F
+- **Exclusion**: $Z$ affects $Y$ only through $D$ — *untestable*, must be argued
+
+Maya's mailer: first stage 0.30, reduced form $-\$90$, Wald $= -\$300$.
+
+::: callout-tip
+## Key takeaway
+Relevance you can test. Exclusion you must defend. The asymmetry is half of becoming a competent empiricist.
+:::
+
+::: notes
+When motivation is unmeasured, selection-on-observables dies. IV imports exogenous variation: $Z$ shoves $D$ for reasons unrelated to the confounder. The Wald ratio is the whole idea. Maya's lender randomly mails a flyer — mailing raises completion from ten to forty percent and lowers balances by ninety dollars, so the per-completer effect is three hundred. Random assignment buys the easier half of exclusion. The direct-path half — that the mailer touches $Y$ only through $D$ — is on Maya to defend in prose.
+:::
+
+## LATE: Whose Effect Did You Just Estimate?
+
+Four types based on $(D_i(0), D_i(1))$:
+
+- **Always-takers**: enroll either way
+- **Never-takers**: never enroll
+- **Compliers**: enroll iff mailed — the swing group
+- **Defiers**: ruled out by monotonicity
+
+**Imbens–Angrist (1994):** IV identifies the effect *only* for compliers.
+
+$$\hat\beta_{\text{IV}} \xrightarrow{p} \mathbb{E}\big[Y_i(1) - Y_i(0) \mid \text{complier}\big] \equiv \text{LATE}.$$
+
+::: callout-warning
+## Watch out
+Two valid instruments for the same treatment can give two different — both correct — LATEs.
+:::
+
+::: notes
+The most misunderstood fact in modern IV. Maya's three hundred dollars is not the effect on everyone. Always-takers like Sam's most motivated clients enroll either way — IV is blind to their effect. Never-takers never enroll — invisible too. Only compliers, the fence-sitters tipped over by the nudge, contribute. Monotonicity rules out defiers. The honest question when reading any IV paper is: who are the compliers, and is their effect the one I care about?
+:::
+
+## The Weak-IV Pathology
+
+A small first-stage F drags 2SLS *toward OLS* — the bias you were fleeing.
+
+$$\frac{\mathbb{E}[\hat\beta_{\text{2SLS}}] - \beta}{\mathbb{E}[\hat\beta_{\text{OLS}}] - \beta} \approx \frac{1}{F+1}$$
+
+- Conventional standard error becomes too narrow — confidently wrong
+- Bound–Jaeger–Baker (1995): a *random* quarter-of-birth instrument still produced "significant" 2SLS
+- Cure: **Anderson–Rubin** confidence intervals — never divide by the first stage
+
+::: callout-warning
+## Watch out
+"$F > 10$" is a smoke alarm, not a certificate. With heteroskedasticity, report Olea–Pflueger effective F.
+:::
+
+::: notes
+Wald has a denominator: how much $Z$ moves $D$. A weak denominator is numerically violent and systematically biased toward OLS. Bound, Jaeger, and Baker's nineteen-ninety-five critique: a random instrument still produced a confident, significant, completely fake coefficient. The cure is Anderson–Rubin: test each candidate $\beta_0$ through the reduced form without ever dividing. The AR interval stays honest no matter how weak the instrument is. In Lab 3 students build the disaster themselves and watch AR rescue them.
+:::
+
+## Common Pitfalls
+
+1. Reporting LATE while *claiming* ATE — abstract overclaims
+2. Tight 2SLS standard error with no first-stage F reported
+3. Adding more instruments to "boost" F — invites many-instruments bias
+4. Tuning the matching recipe while watching the outcome
+5. Treating a passed Sargan/Hansen $J$ test as proof of exclusion
+
+::: callout-warning
+## Watch out
+A confident IV number with no first-stage F, no balance table, and no AR interval is a *red flag*, not a result.
+:::
+
+::: notes
+Every one of these is a real, repeated mistake. Priya overclaims a population effect from a complier-specific estimate. Sam tries to boost a weak F by interacting with twenty market-state dummies — the fitted treatment overfits noise and 2SLS slides back to OLS. Devon refits the propensity model while watching the answer move. Leah's passed $J$ test does not prove exclusion; it only tests whether her instruments agree — and instruments sharing the same back door agree perfectly.
+:::
+
+## Deliverable: Lab 3 and the Bridge to Week 4
+
+**Lab 3 — Reproduce a Weak-IV Pathology**:
+
+- Build a DGP with true $\beta = 0$, dial first-stage strength
+- Monte Carlo: 2SLS conventional 95% CI fails to cover
+- AR intervals recover ≈95% coverage, go unbounded as $Z$ weakens
+- Mentor session: Deng, Gao & Kim (2020), *JCF*, short-sale natural experiment
+
+**Next week:** difference-in-differences, regression discontinuity, synthetic control.
+
+::: callout-tip
+## Key takeaway
+Week 3 leaned on strong assumptions over one cross-section. Week 4 weakens those assumptions by exploiting *time* and *thresholds*.
+:::
+
+::: notes
+Lab 3 is the capstone. Plant a true effect of zero, dial the first-stage strength, measure how often the conventional interval excludes zero — far more than five percent of the time when the instrument is weak. Then invert Anderson–Rubin on a grid and watch coverage return to ninety-five percent and the interval go unbounded as the lever vanishes. The mentor session walks through Deng, Gao, and Kim's natural-experiment paper on short-sale constraints and crash risk. Week 4 changes the game — panels, thresholds, and donor pools weaken the heroic assumptions Week 3 needed. See you Monday.
+:::
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
+
+::: notes
+Key references: Rubin nineteen seventy-four, Holland nineteen eighty-six, Rosenbaum and Rubin nineteen eighty-three, Hainmueller two thousand twelve, Imbens and Angrist nineteen ninety-four, Bound, Jaeger and Baker nineteen ninety-five, Stock and Yogo two thousand five, Olea and Pflueger two thousand thirteen, Anderson and Rubin nineteen forty-nine. Full bibliography in the textbook.
+:::

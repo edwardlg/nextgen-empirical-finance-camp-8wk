@@ -1,0 +1,106 @@
+# =====================================================================
+# Build the Quarto book and publish to the gh-pages branch.
+#
+# After this workflow first succeeds, enable GitHub Pages in
+# Settings -> Pages, with:
+#   Source:  Deploy from a branch
+#   Branch:  gh-pages   /  (root)
+# The site will then be served at:
+#   https://<owner>.github.io/<repo>/
+#
+# Build artifacts published to gh-pages:
+#   _site/                                    -> 8-week HTML book
+#   _site/empirical-finance-camp-8wk.pdf      -> 8-week PDF
+#   _site/decks/week-*.pptx                   -> per-week PowerPoint decks (Weeks 1-8) with speaker notes
+#
+# Trigger: push to main, or manual dispatch from the Actions tab.
+# =====================================================================
+name: Render and publish Quarto book
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Allow only one concurrent deployment, cancel in-progress runs.
+concurrency:
+  group: "pages-${{ github.ref }}"
+  cancel-in-progress: true
+
+permissions:
+  contents: write   # needed for quarto-actions/publish to push to gh-pages
+
+jobs:
+  build-deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history; quarto-actions/publish needs it for gh-pages
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          # tinytex: true installs Quarto's bundled TinyTeX so PDF rendering works.
+          tinytex: true
+          # Pin a recent Quarto. Bump when needed.
+          version: "1.5.57"
+
+      - name: Quarto check (diagnostic)
+        run: quarto check
+
+      # Notebooks are NOT executed on CI (no data, no API keys).
+      # _quarto.yml sets `execute.enabled: false` globally; the renders
+      # below produce static notebook pages from the .ipynb sources.
+
+      # ---- 8-week edition: HTML + PDF -----------------------------
+      - name: Render 8-week book -> _site/ (HTML)
+        run: quarto render --to html
+
+      - name: Render 8-week book -> _site/ (PDF)
+        run: quarto render --to pdf
+
+      # ---- Per-week PowerPoint decks (Weeks 1-8, with speaker notes)
+      - name: Render decks -> book/decks/*.pptx
+        run: |
+          set -e
+          mkdir -p _site/decks
+          shopt -s nullglob
+          for f in book/decks/week-*.qmd; do
+            echo "::group::Rendering $f"
+            quarto render "$f" --to pptx
+            base="$(basename "$f" .qmd)"
+            if [ -f "book/decks/${base}.pptx" ]; then
+              cp "book/decks/${base}.pptx" "_site/decks/${base}.pptx"
+            fi
+            echo "::endgroup::"
+          done
+          echo "Decks copied to _site/decks/:"
+          ls -la _site/decks/ || true
+
+      - name: List built site (diagnostic)
+        run: |
+          echo "::group::Top-level _site/"
+          ls -la _site/ || true
+          echo "::endgroup::"
+          echo "::group::_site/decks/"
+          ls -la _site/decks/ 2>/dev/null || true
+          echo "::endgroup::"
+
+      - name: Deploy _site/ to gh-pages
+        # peaceiris auto-creates the gh-pages branch with force_orphan; this
+        # works on a fresh repo, unlike quarto-actions/publish@v2 which
+        # requires gh-pages to pre-exist (the prior failure mode).
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
+          force_orphan: true
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          commit_message: "Deploy ${{ github.sha }}"

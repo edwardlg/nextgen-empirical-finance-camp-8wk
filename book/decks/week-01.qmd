@@ -1,0 +1,251 @@
+---
+title: "Week 1 — Probability, Sampling, and the Logic of Inference"
+subtitle: "8-Week Empirical Finance Camp · NextGen"
+author: "Prof. Lei Gao, George Mason University"
+date: "2026-06-14"
+date-format: "YYYY-MM-DD"
+format:
+  pptx:
+    slide-level: 2
+    incremental: false
+    toc: false
+    fig-width: 7.5
+    fig-height: 4.2
+    fig-dpi: 200
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto
+---
+
+# Week 1 — Probability, Sampling, and the Logic of Inference {.title}
+
+::: notes
+Welcome to Week 1 of the NextGen Empirical Finance Camp. This week we rebuild probability and frequentist inference from the ground up, so when we hit regression in Week 2 the foundations are solid. The pedagogy is the same all summer: state the result in one sentence, show why on a small worked example, then show when it breaks. Today's cast: Sam runs a momentum rule, Maya splits a dollar across two assets, Priya has two hundred wildfire claims, Devon pulls crypto data with fat tails, and Leah keeps us honest about what a finding actually is. By the end of the hour you should be able to answer one question: when is a number a finding, and when is it just noise wearing a nice outfit?
+:::
+
+## Learning Objectives
+
+- Use the Law of Iterated Expectations and Law of Total Variance to decompose risk
+- Compute a sample mean, its standard error, and the variance of an estimator
+- State the Law of Large Numbers and Central Limit Theorem precisely, and recognize when they fail
+- Run a one-sample t-test and interpret size, power, and the p-value honestly
+
+::: callout-tip
+## Key takeaway
+Every regression you will ever run is a sophisticated conditional expectation with a standard error attached. This week is the standard error.
+:::
+
+::: notes
+Four objectives, mapped one-to-one onto chapters one point one through one point five. Notice what is not on the list: memorizing formulas. The goal is fluency with the logic. If you leave the week able to say out loud why averaging shrinks noise like one over root N, and why the t-distribution has fatter tails than the normal, the formulas follow. Lab one — Build a Coin-Flip Universe — is where these become muscle memory. Every concept today gets stress-tested in a simulation where the true answer is known by construction.
+:::
+
+## Two Laws That Run Everything
+
+- Law of Iterated Expectations: $\mathbb{E}[X] = \mathbb{E}\big[\mathbb{E}[X \mid Y]\big]$
+- Law of Total Variance: $\operatorname{Var}(X) = \mathbb{E}[\operatorname{Var}(X\mid Y)] + \operatorname{Var}(\mathbb{E}[X\mid Y])$
+- Conditioning is the mathematical name for "using what you know"
+- $\mathbb{E}[X \mid Y]$ is itself a random variable — the object regression estimates
+
+::: callout-tip
+## Key takeaway
+Total risk equals average within-group risk plus risk across group means. Nothing leaks; nothing is double-counted.
+:::
+
+::: notes
+Two identities that quietly power the entire field. Iterated Expectations says you can build up an overall average by first averaging within groups, then across groups, weighted by group frequency. Total Variance says total variance splits into average within-group variance plus variance of the group means. Sam cares about the second one. Sam's momentum strategy earns about plus seventy basis points on calm days and loses about sixty seven on stormy days. The blended average, thirty basis points, hides two opposite stories. The decomposition tells Sam how much risk would disappear with perfect regime forecasting — and therefore whether the right move is timing or an edge inside each regime.
+:::
+
+## Sam's Risk Decomposition (Worked)
+
+| Quantity | Value |
+|---|---|
+| $\operatorname{Var}(X)$ — total | 2.110 |
+| $\mathbb{E}[\operatorname{Var}(X\mid Y)]$ — within | 1.710 (81%) |
+| $\operatorname{Var}(\mathbb{E}[X\mid Y])$ — across | 0.400 (19%) |
+
+- Only ~19% of variance is across regimes
+- Perfect regime forecasting kills only a fifth of the risk
+- Regime-timing alone will not tame this strategy
+
+::: callout-warning
+## Watch out
+The math is exact; the *story* depends on whether your two-bucket "calm vs. stormy" coding carves the world at its real joints.
+:::
+
+::: notes
+The chapter one point one punchline made concrete. Sam builds the joint table of regime and return, computes the two pieces by hand. Total variance: two point one one zero. Within-regime: one point seven one zero, about eighty one percent. Across-regime: zero point four, about nineteen percent. The sentence Sam can now defend to a risk manager: even with perfect regime forecasting, only a fifth of my variance goes away — most of the wobble lives inside the regimes, so I need an edge that works within regimes too. Caveat: the math is exact, but only as meaningful as the two-bucket coding. If there are really five regimes, finer structure gets misfiled as noise.
+:::
+
+## Variance of a Sum — Where Diversification Lives
+
+$$
+\operatorname{Var}(aX + bY) = a^2\operatorname{Var}(X) + b^2\operatorname{Var}(Y) + 2ab\operatorname{Cov}(X, Y)
+$$
+
+- Linearity of expectation never asks permission — works for any $X, Y$
+- Variance does ask permission: the cross-term $2ab\operatorname{Cov}(X,Y)$
+- Correlation is the cosine of an angle between two vectors; $|\rho| \le 1$ is Cauchy–Schwarz
+- Uncorrelated does *not* mean independent (covariance only sees linear co-movement)
+
+::: callout-tip
+## Key takeaway
+Diversification is one term: the covariance. Mixing two assets reduces risk whenever that term is small enough — that is the whole story.
+:::
+
+::: notes
+Chapter one point two reformulates everything as geometry. Maya splits a dollar between two assets. Expected return is a straight line in the weight — linearity pays no toll. Variance is not, because of the cross term, two a b times the covariance. That term can be positive, negative, or zero, and it is exactly where diversification lives. Lockstep assets: cross term large and positive, blending does nothing. Opposing assets: cross term negative, the blend can be less risky than either piece. Correlation is covariance rescaled — geometrically, the cosine of an angle, which is why it is bounded by one. Warning that costs students every year: uncorrelated is not independent. Covariance is blind to curved relationships.
+:::
+
+## Estimator vs. Estimate — Priya's Sticky Note
+
+> An **estimator** is a random rule for turning data into a guess.
+> An **estimate** is the one number you get when you feed it your data.
+
+- Priya's 200 wildfire claims average to $8{,}410 — that is an *estimate*
+- The recipe $\bar{x} = \tfrac{1}{N}\sum x_i$ is the *estimator*
+- A function of random variables is a random variable: $\bar{x}$ has a distribution
+- That distribution — the **sampling distribution** — is what we actually study
+
+::: callout-tip
+## Key takeaway
+The honest question is never "is $8{,}410 right?" but "how different could it have been under a re-draw?"
+:::
+
+::: notes
+Priya interns at a regional insurer. Her supervisor asks for the average wildfire claim this season. She averages her two hundred claims, writes eight thousand four hundred ten on a sticky note. Chapter one point three is built around a sharper question: if the universe had handed her a different two hundred claims, how different would the sticky note be? If a re-draw gives eight thousand three ninety, the number is solid. If a re-draw could plausibly give six thousand or eleven thousand, it is barely a rumor. To answer, we stop thinking about the one number and start studying the recipe — which is itself a random variable with a distribution.
+:::
+
+## Bias, Variance, MSE
+
+$$
+\operatorname{MSE}(\hat{\mu}) = \operatorname{Bias}(\hat{\mu})^2 + \operatorname{Var}(\hat{\mu})
+$$
+
+- Bias: where the recipe is centered (does it aim at $\mu$?)
+- Variance: how much it bounces from sample to sample
+- Standard error of the mean: $\operatorname{sd}(\bar{x}) = \sigma / \sqrt{N}$
+- Sample mean is unbiased; sample variance uses $N-1$ (Bessel) to stay unbiased
+
+::: callout-warning
+## Watch out
+Unbiasedness is not a virtue if variance is huge. A biased estimator with low variance can beat an unbiased one on MSE.
+:::
+
+::: notes
+Three words: bias, variance, mean squared error. Bias asks whether the recipe aims at the truth on average. Variance asks how much it bounces. MSE is bias squared plus variance — the scorecard you would pay under quadratic loss. The sample mean is unbiased, and crucially its variance equals sigma squared over N. That single fact is the engine of everything: standard error of the mean is sigma over root N, so to halve your uncertainty you must quadruple your sample. That diminishing return is baked into the math, and it should be a researcher's reflex.
+:::
+
+## LLN and CLT — Where, Then What Shape
+
+- **Law of Large Numbers:** $\bar{x} \xrightarrow{p} \mu$ as $N \to \infty$
+- **Central Limit Theorem:** $\dfrac{\bar{x} - \mu}{\sigma/\sqrt{N}} \xrightarrow{d} N(0,1)$
+- LLN gives the *destination*; CLT gives the *shape* of the cloud around it
+- Both require finite variance — heavy tails break both
+
+::: callout-tip
+## Key takeaway
+Averaging cancels noise — but only when draws are independent and variance is finite. Devon's crypto returns will fail this.
+:::
+
+::: notes
+The LLN tells you where the sample mean ends up — it homes in on mu as N grows. The CLT tells you the shape of the cloud around that destination. Standardize — subtract the mean, divide by sigma over root N — and the distribution becomes the standard normal no matter how messy the raw data. One of the most surprising facts in mathematics. Both laws need one ingredient: finite variance. Devon, scraping crypto off-chain, is about to discover some assets have tails heavy enough that variance is effectively infinite. When that happens, two hundred daily returns are not approximately normal and the confidence interval is a lie.
+:::
+
+## A Picture: The Sampling Distribution Tightens Like $1/\sqrt{N}$
+
+```{.python}
+# Watch a single sample's running mean settle (lab uses this)
+rng = np.random.default_rng(42)
+rolls = rng.integers(1, 7, size=5000)        # mu = 3.5
+running_mean = np.cumsum(rolls) / np.arange(1, 5001)
+# plot running_mean vs N on a log x-axis; dashed line at 3.5
+```
+
+- Early N: wild jagged path; late N: pressed against $\mu$
+- Width of the cloud shrinks like $1/\sqrt{N}$ — *not* like $1/N$
+- Quadruple the data to halve the error: the researcher's reflex
+
+::: callout-tip
+## Key takeaway
+The destination is a property of the population; only the route is random. Pin your seed.
+:::
+
+::: notes
+This is the figure you produce in lab one. Simulate die rolls — mu equals three point five — and after each new roll recompute and plot the running average. The curve starts jagged and undisciplined, then as N climbs into the hundreds and thousands, presses against the dashed line. The wandering shrinks visibly. We use a fixed seed: the modern numpy generator, default rng forty two. Pinning the seed means anyone rerunning gets your exact figures. Reproducibility is a discipline. The lab pushes further: ten thousand samples, the histogram of the sample mean, watching it tighten like one over root N and morph into a bell curve. CLT in pixels.
+:::
+
+## Hypothesis Test — Sam's Reversal Rule
+
+- Null: $H_0:\ \mu = 0$ (no edge); Alt: $H_1:\ \mu > 0$
+- Sam's data: $\bar{x} = 0.08\%$, $s = 0.75\%$, $N = 252$ days
+- Standard error: $\widehat{\operatorname{se}} = 0.75\% / \sqrt{252} = 0.047\%$
+- t-statistic: $t = 0.08 / 0.047 \approx 1.69$; critical value at $\alpha=0.05$ one-sided: $1.65$
+
+::: callout-tip
+## Key takeaway
+*Identical* average return on $N=63$ days gives $t \approx 0.85$ — opposite conclusion. A result is only as convincing as the sample size beneath it.
+:::
+
+::: notes
+Sam backtests a reversal rule on two hundred fifty two days, averages eight basis points per day. The question is not whether eight basis points is positive — it plainly is. The question is whether it is too far from zero to be zero, given the wobble. Standard error is the sample standard deviation, zero point seven five percent, divided by root two fifty two, about zero point zero four seven percent. The t-statistic — estimate in units of its own standard error — is about one point six nine. Critical value at five percent one-sided is one point six five. Sam barely clears the bar. Here is the teaching moment: at sixty three days, same eight basis points gives t of zero point eight five — nowhere near significance. Identical result, opposite conclusion, purely from sample size.
+:::
+
+## Size, Power, and What a P-Value Is Not
+
+- **Size** $\alpha$ = false-positive rate when $H_0$ is true (we choose it, e.g., 0.05)
+- **Power** $1-\beta$ = probability of catching a real effect when it exists
+- p-value: probability of data this extreme *if $H_0$ were true* — **not** $\Pr(H_0 \mid \text{data})$
+- Failing to reject $\ne$ accepting $H_0$
+
+::: callout-warning
+## Watch out
+A low-power test is a metal detector that protects you from false alarms by never alarming at all — useless.
+:::
+
+::: notes
+Two error rates, two ways a test lies. Type one: rejecting a true null — declaring Sam's worthless rule a winner. Cap at alpha, conventionally five percent, fixed before seeing data. Type two: missing a real effect. Power is one minus that. Concrete: if Sam's true edge were five basis points, a one-year test catches it only about twenty eight percent of the time. Reaching eighty percent power needs roughly five and a half years. That is a power analysis. And two p-value misreadings to stamp out: a p-value is not the probability the null is true, and failing to reject is not accepting. The asymmetry of the test is baked into the language.
+:::
+
+## Common Pitfalls
+
+1. Confusing **uncorrelated** with **independent** (covariance only sees lines)
+2. Reporting a t-statistic without sample size context
+3. Assuming the CLT rescues fat-tailed data — finite mean is not enough
+4. Treating $p < 0.05$ as proof; ignoring how many things you tried
+5. Mixing the **estimator** (recipe) with the **estimate** (today's number)
+
+::: callout-warning
+## Watch out
+Every one of these mistakes appears in published work. The mentor session this week — anchored to Gao, Han, Li and Zhou 2018 — walks through one in print.
+:::
+
+::: notes
+Five pitfalls, every one shows up in real research. First, conflating uncorrelated with independent — covariance is blind to curves. Second, reporting a t-statistic without sample size context. Third, assuming the CLT rescues fat-tailed data — Devon's crypto may have finite mean but infinite variance, and that breaks both laws. Fourth, treating p below five percent as a discovery. Leah keeps us honest: if you tested twenty rules and reported the winner, your reported p-value is a lie. The mentor session Thursday is anchored to Gao, Han, Li and Zhou twenty eighteen, which walks through this exact failure mode in print. Fifth, mixing the estimator with today's estimate.
+:::
+
+## This Week's Deliverable & Look-Ahead
+
+- **Lab 1:** Build a Coin-Flip Universe — measure size and power of your own t-test
+- **Mentor Session:** "What is a finding?" — three gates a number must clear
+- **Assessment:** 7 short-answer + Monte Carlo coded reproducibly
+- **Week 2 preview:** OLS regression *is* a conditional expectation with a standard error attached
+
+::: callout-tip
+## Key takeaway
+The lecture gave you the tools; the lab is where you stress-test them in a universe whose truth you control. That is the only honest way to audit a procedure.
+:::
+
+::: notes
+Three deliverables. Lab one, Build a Coin-Flip Universe: you will write a one-proportion test from scratch, then measure — not assume — its false-positive rate and power, and run a small p-hacking experiment showing why a single significant result from many tries means almost nothing. The mentor session Thursday circles the week's question: when is a number a finding? Three gates: could noise produce it, is it big enough to matter, and would it survive the search that found it. The assessment is seven short answers plus a coded Monte Carlo, reproducible from a pinned seed. Look-ahead: OLS in Week two is the conditional expectation function from chapter one point one, estimated from data, with the standard error from one point three through one point five attached. Office hours Thursday at four.
+:::
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
+
+::: notes
+The references slide is auto-populated by Pandoc from cited keys. Do not edit by hand.
+:::

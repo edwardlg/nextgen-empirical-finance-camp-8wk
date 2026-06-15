@@ -1,0 +1,143 @@
+---
+title: "About this book"
+subtitle: "How the camp was built — and the editorial standard it tries to meet."
+pagetitle: "About — NextGen Empirical Finance Research Camp"
+description-meta: >
+  How the NextGen Empirical Finance Research Camp textbook was drafted,
+  the editorial honesty policy, and how to contribute.
+toc: true
+number-sections: false
+---
+
+## What this is
+
+This site is the textbook, lab manual, instructor manual, and capstone
+gallery for an **intensive 8-week empirical finance research camp** aimed at
+advanced high-school students — the **8-Week Edition** of the NextGen camp.
+Weeks 1–6 build the toolkit and Weeks 7–8 are the student's own research
+project, carried all the way through robustness, manuscript, conference
+talk, and submission (the symposium-and-paper essentials are folded into
+Weeks 4, 7, and 8, with long-form treatments available on demand). It is
+built around real datasets (CRSP,
+Compustat, HMDA, EDGAR, FRED, USPTO, and others — see the
+[data dictionary](book/appendices/C-data-dictionary/README.md)) and
+real methods (OLS and its standard-error pathologies, IV, DiD, RD,
+synthetic control, shift-share, event studies, text-as-data, an AI
+copilot lab, multiple-testing-honest robustness, heterogeneous-treatment
+effects, mediation done right, and the publication mechanics of an SSRN
+preprint and a peer-reviewed venue submission).
+
+The camp is hosted by **[Prof. Lei Gao](https://business.gmu.edu/)**,
+Associate Professor of Finance at George Mason University's Costello
+College of Business.
+
+## How it was drafted
+
+The textbook was drafted in a **multi-agent workflow** under human
+editorial supervision. The pipeline runs roughly:
+
+1. A **planner** drafts a chapter outline from the syllabus and prior
+   reviews, with handoff notes for the writer.
+2. A **writer** produces the chapter, the worked examples, the problem
+   set, and the companion notebook.
+3. A **reviewer** reads the chapter against the planner's outline and
+   the editorial standard, flags issues, and writes a revision memo.
+4. A **human editor** (Prof. Gao) accepts, rejects, or rewrites — and
+   resolves any disagreement between the planner and the reviewer.
+
+Every artifact you see — chapters, problem sets, solution sketches,
+notebooks, data cards, capstone specs — went through this pipeline.
+The handoff notes are kept under [`agents/handoffs/`](https://github.com/edwardlg/nextgen-empirical-finance-camp-8wk/tree/main/agents/handoffs)
+so the editorial process itself is auditable.
+
+## The `[CHECK]` policy
+
+Empirical finance is full of numbers that are *almost right* — a
+coefficient quoted from memory, a year off by one, a sample period
+that does not quite match the source. The honest way to handle that is
+to flag the uncertainty in line, not to launder it into confidence.
+
+Throughout the book you will see tags like:
+
+> The HML factor earned an annualized premium of roughly 4.3 %
+> in 1963–1990 `[CHECK against Fama-French 1993 Table 4]`.
+
+A `[CHECK]` is **not** a typo or a TODO. It is an explicit statement
+that the surrounding number, claim, or attribution has not yet been
+independently verified against a primary source. Tagged claims are
+true to the best of the writer's knowledge but the verification step
+has not been logged. Students are encouraged to do that verification
+themselves and submit corrections.
+
+## A note on synthetic results
+
+The five **capstone projects** ship with illustrative result tables and
+figures. Where a capstone shows an estimate — a coefficient, a
+t-statistic, a balance table — that estimate is a **synthetic
+illustration** generated from realistic but simulated data, *not* a
+publication-quality replication. Each capstone landing page carries a
+prominent banner saying so. Students executing the capstone for real
+will obtain different (and we hope, more interesting) results.
+
+## A note on math
+
+Math is rendered with **KaTeX** for speed and clean typography. Display
+equations use the standard double-dollar block:
+
+$$
+\widehat{\boldsymbol{\beta}} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y},
+\qquad
+\widehat{\mathrm{Var}}(\widehat{\boldsymbol{\beta}}) =
+(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}' \widehat{\boldsymbol{\Omega}} \mathbf{X} (\mathbf{X}'\mathbf{X})^{-1}.
+$$
+
+Inline math like $\Pr(A \mid B) = \Pr(A,B) / \Pr(B)$ uses single dollars.
+If a formula does not render, it is a bug — please
+[open an issue](https://github.com/edwardlg/nextgen-empirical-finance-camp-8wk/issues/new).
+
+## How to contribute
+
+There are three good ways to help.
+
+### Submit a correction
+
+If you find a `[CHECK]` you can resolve, or a flat error you can fix,
+the recommended path is:
+
+1. Fork the repo on GitHub.
+2. Edit the relevant `.md` file.
+3. Open a pull request with the source of the corrected fact in the
+   description.
+
+### Suggest a problem
+
+Problem sets are the most valuable contribution. A good problem
+- has a unique correct answer (or a unique correct approach),
+- uses only data students can actually obtain,
+- ties to a specific chapter and learning objective, and
+- comes with a short solution sketch in the same style as the existing
+  ones.
+
+### Suggest a reading
+
+Week 5 and Week 6 are reader's-guide weeks. If there is a paper that
+*belongs* in a high-school empirical-finance camp and is not here,
+[open an issue](https://github.com/edwardlg/nextgen-empirical-finance-camp-8wk/issues/new)
+with the citation and a one-paragraph case.
+
+## License and citation
+
+The text and notebooks are released under
+[**CC BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+Code blocks inside the notebooks are additionally released under MIT.
+
+Suggested citation:
+
+> Gao, L. (2026). *NextGen Empirical Finance Research Camp.*
+> Costello College of Business, George Mason University.
+> <https://edwardlg.github.io/nextgen-empirical-finance-camp-8wk/>
+
+## Contact
+
+Editorial questions, errata, and partnership inquiries:
+**lgao9 (at) gmu.edu**.

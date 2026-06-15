@@ -1,0 +1,2 @@
+A.1 Matrix Algebra written -> book/appendices/A-math-toolkit/A1-matrix-algebra.md (~4,465 prose words; cross-refs Ch1.2 Sigma, Ch2.1 OLS shapes/rank/PSD, Appendix A.2/A.3/A.4; worked 2x2 inverse det=8, eigenvalue/condition-number near-collinearity demo; no [CHECK]).
+A.2 Optimization written -> book/appendices/A-math-toolkit/A2-optimization.md (~3,160 prose words; gradient/FOC/Hessian-SOC, Lagrange min-var portfolio reproduces Ch1.2 w*=(0.2,0.8) var=0.008, normal eqns as optimization tying to Ch2.1 Sam beta=7/6; all arithmetic verified in NumPy; no [CHECK]).

@@ -1,0 +1,214 @@
+---
+title: "Week 6 — Reading the Frontier II: Text, Modern Empirics, AI Co-Pilot"
+subtitle: "8-Week Empirical Finance Camp"
+author: "Prof. Lei Gao, George Mason University"
+date: "2026-06-14"
+date-format: "YYYY-MM-DD"
+format:
+  pptx:
+    slide-level: 2
+    incremental: false
+    toc: false
+    fig-width: 7.5
+    fig-height: 4.2
+    fig-dpi: 200
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto
+---
+
+# Week 6 — Reading the Frontier II {.title}
+
+::: notes
+Welcome to Week 6. The data itself changes this week. For five weeks data arrived already numeric. This week it arrives as prose — a fifty-thousand-word ten-K, a product description, a risk factor section. Someone has to turn that prose into a number before it can enter a regression, and that someone is increasingly a large language model. The sentence to carry into every slide. A text-derived number is a measurement, and an LLM is a fluent measuring instrument that has not been calibrated until you calibrate it.
+:::
+
+## Learning Objectives
+
+- Explain how Kogan, Papanikolaou, Seru, Stoffman measure patent value from stock reactions
+- Compute cosine similarity between two 10-K descriptions and read the Hoberg–Phillips network
+- Diagnose why "liability" is not a negative word in finance, per Loughran and McDonald
+- Decompose a fair-lending disparity and name the over-controlling trap
+- Build, validate, and disclose an LLM classifier with held-out precision, recall, F1
+
+::: callout-tip
+## Key takeaway
+By Friday you can take a wall of text, turn it into a defensible variable, and report exactly how wrong it might be.
+:::
+
+::: notes
+Each objective ties to a student. Patent value is Leah's innovation number she has chased since Week 1. Cosine similarity is Devon's industry definition. The Loughran–McDonald lesson is Priya's risk-factor tone. Fair lending is Maya, who learned in Mentor Session 4 that no controls close the gap between a disparity and a finding. The AI lab is everyone, because every capstone touches a language model somewhere.
+:::
+
+## KPSS 2017: Measuring Patent Value the Market Already Computed
+
+- Patent counts and citation counts fail — slow, truncated, not in dollars
+- Read the abnormal return in a short window around the grant date
+- Multiply by market cap, scale up for grant-anticipation probability
+- Result: a real-time, dollar-denominated value for every patent
+
+::: callout-tip
+## Key takeaway
+Outsource the valuation to the market. The hard work was already done by every investor who saw the grant.
+:::
+
+::: notes
+Leah has wanted a dollar number for innovation since Day One. Patent counts weight the transistor and a throwaway tweak equally. Forward citations take a decade to accrue. Kogan and coauthors make the move that defines the modern measurement literature. A grant is news. If the patent matters, the stock jumps in a short window. Strip out the market component the Week-4 way, multiply by market cap, scale up for the probability of surprise. Then they released the dataset publicly and it became infrastructure.
+:::
+
+## Hoberg–Phillips 2016: Industries as Cosines, Not Codes
+
+A firm's product description $\mathbf{w}_i$ is a word-weight vector. Industry similarity is
+
+$$
+\text{sim}(i,k) \;=\; \frac{\mathbf{w}_i \cdot \mathbf{w}_k}{\lVert \mathbf{w}_i\rVert\,\lVert \mathbf{w}_k\rVert}.
+$$
+
+- SIC codes are transitive and time-invariant — competition is neither
+- TF–IDF down-weights "company," up-weights "lithium"
+- TNIC is firm-specific, time-varying, intransitive
+
+::: callout-tip
+## Key takeaway
+The cosine you met as a correlation in Chapter 1.2 turns words into a map of competition.
+:::
+
+::: notes
+Devon wants to know who actually competes with Amazon. The official answer hands him a four-digit code. Hoberg and Phillips overthrow that. Pull the product description, weight rare words with term-frequency-inverse-document-frequency, represent each firm as a vector, and ask how aligned the vectors are. That is the cosine — exactly the correlation tool from Chapter One Point Two. Two oil firms score near one. The network is intransitive — Amazon neighbors Microsoft on cloud and Walmart on groceries, but those two are not neighbors.
+:::
+
+## Loughran–McDonald 2011: Domain Matters
+
+- "Liability," "tax," "cost," "capital," "crude" — accounting, not gloom
+- The Harvard psycho-social dictionary mis-flags most of them as negative
+- Build a finance-specific list — plus uncertainty, litigious, modal categories
+- Validate by tying scores to filing-window abnormal returns and volatility
+
+::: callout-warning
+## Watch out
+The sentiment of a word is not a property of the word. It is a property of the word in its domain.
+:::
+
+::: notes
+Priya wants to score risk-factor tone for her climate paper. She grabs the most popular sentiment dictionary, the Harvard General Inquirer, and starts counting. Loughran and McDonald show what happens. Roughly three-quarters of Harvard-negative words in a ten-K are tax, cost, liability, capital. To a balance sheet those are Tuesday. Priya's sentiment score is then mostly an accounting-density score in costume. The repair: a finance-specific list, released publicly, validated against market reactions. It has been the standard ever since.
+:::
+
+## Fair Lending in the Algorithmic Era
+
+- Bartlett, Morse, Stanton, Wallace 2022 — pricing margin, FinTech vs. human
+- Bhutta, Hizmo, Ringo — finally observes the credit score HMDA omits
+- Blinder–Oaxaca decomposition watches the race coefficient march across columns
+- Algorithms shrink the discretion channel; a residual disparity survives
+
+::: callout-tip
+## Key takeaway
+A disparity is not a finding. The trick is never in the headline gap — it is in what you could hold fixed.
+:::
+
+::: notes
+Maya has circled this for two weeks. The hope: a computer makes the lending decision, so discrimination must vanish. Bartlett uses the GSE published risk formula to build a clean legitimate-risk benchmark, then splits by FinTech versus face-to-face. Bhutta, Hizmo, Ringo do what nobody could before — they get the credit score and the race-blind automated underwriting recommendation. Much of the raw gap explains away through legitimate risk, but a residual survives on both margins. That residual is the contested core.
+:::
+
+## AI Co-Pilot, Not Autopilot
+
+- Safe: literature triage, data dictionaries, code review, prose editing, classification at scale
+- Hazards: facts you cannot check, look-ahead into your sample, prompt p-hacking
+- A prompt is an instruction — constrain it, do not invite improvisation
+- The captain signs the logbook; the model never signs your paper
+
+::: callout-warning
+## Watch out
+A fluent answer that you cannot cheaply verify is the most dangerous output of all.
+:::
+
+::: notes
+Leah opens a chat with forty thousand filings and a deadline. She types, read these and tell me which firms are innovative. Twenty seconds later she has a fluent answer, and parts of it are completely made up — and the made-up parts look exactly like the true parts. A large language model is a co-pilot. It accelerates work you could verify yourself, and it is a hazard when you use it to replace judgment you cannot check.
+:::
+
+## Prompt Patterns That Constrain the Model
+
+```text
+Bad:  "What can you tell me about this filing's risk factors?"
+
+Good: "Extract the primary stated risk factor in 10 words or fewer.
+       Return only JSON: {"risk": "..."}.
+       If no clear primary risk is stated, return {"risk": null}.
+       Do not infer risks not in the text."
+```
+
+- Pin the output type, bound the length, define the unsure case
+- Make "I don't know" the correct answer, not a sign of failure
+- Stable instruction first, volatile input last — for caching and consistency
+
+::: callout-tip
+## Key takeaway
+A good empirical prompt closes every door the model would otherwise wander through.
+:::
+
+::: notes
+Sam wants one fact from each of a thousand 8-Ks. The conversational temptation produces free prose that varies in structure and cannot be parsed. The constrained prompt fixes the output as JSON, bounds the length, and — most important — defines what to return when the fact is absent. Without that permission, the model invents something, because its training rewards helpful-sounding completions. A rubric is to LLM classification what a variable definition is to a regression.
+:::
+
+## RAG Over 10-Ks and Validating Labels
+
+- Chunk each filing at section boundaries, keep firm-year-section metadata
+- Embed each chunk into a vector; retrieve top-$k$ by cosine similarity
+- Ground the answer: "answer only from passages, cite the chunk ID"
+- Hand-label a gold set, split it, freeze the rubric on the development half
+
+$$
+\text{Precision} = \frac{TP}{TP + FP}, \quad \text{Recall} = \frac{TP}{TP + FN}, \quad F_1 = 2\cdot\frac{P \cdot R}{P + R}
+$$
+
+::: callout-warning
+## Watch out
+If 5% of filings are truly negative, a "always not-negative" classifier scores 95% accuracy and catches zero of what you care about. Never report bare accuracy under imbalance.
+:::
+
+::: notes
+Retrieval-augmented generation grounds the model in source passages — it turns recall, which is fabrication-prone, into reading comprehension, which is reliable. Then validate. An LLM label is a measurement, not the truth. Build a gold set by random sampling, split, freeze the rubric on the development half, score on the held-out half exactly once. Report precision and recall on the class you care about. Class imbalance makes accuracy a liar — this is the most important number this week.
+:::
+
+## Critical Limits: Where the Co-Pilot Crashes
+
+- Hallucinated citations — perfectly formatted papers that do not exist
+- Look-ahead bias — the model has read what happened to your 2021 stocks
+- Prompt-induced p-hacking — reword the rubric until the coefficient turns significant
+- Stochastic output — same filing, two days, two labels
+
+::: callout-warning
+## Watch out
+Freeze the prompt against the gold set before you look at the regression. Save labels to disk and treat that file as data. Never re-query the model inside a reproducible analysis.
+:::
+
+::: notes
+Four failure modes, each documented in retracted or embarrassing results. Look-ahead is the finance-specific killer. Sam wants to backtest by asking the model to predict returns from old filings, but the model was trained through 2024 and has already read what happened. The backtest shows spectacular fake performance. The defense: validate against the gold set, freeze the prompt before looking at the downstream regression, disclose every prompt verbatim. Labels are data — freeze them like data.
+:::
+
+## Deliverable and Look-Ahead
+
+- Week 6 assessment: build and validate one text classifier end to end
+- Hand-label 60 snippets, split, freeze the rubric, report held-out precision, recall, F1
+- Write the leakage audit and the disclosure statement honestly
+- Local fallback is fine — no API key required
+- Week 7 begins your capstone — bring the rubric you froze this week
+
+::: callout-tip
+## Key takeaway
+The grade rewards an F1 you have earned the right to report, not a high F1. A mediocre but honestly validated classifier beats a shiny but contaminated one.
+:::
+
+::: notes
+Pick one assessment problem: Leah's 8-K event labels, Priya's ten-K tone, or Devon's disclosure topics. Hand-label sixty snippets, split with a fixed reported seed, write the rubric in full, build the classifier, produce the out-of-sample report with confusion matrix, precision, recall, F1, and Cohen's kappa. Write the leakage audit honestly. Next week your capstone begins, and the rubric you freeze this week is the first measurement instrument you will defend.
+:::
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
+
+::: notes
+Citations appear by author and year. Kogan, Papanikolaou, Seru, Stoffman 2017 QJE. Hoberg and Phillips 2016 JPE. Loughran and McDonald 2011 JF. Bartlett, Morse, Stanton, Wallace 2022 JFE. Bhutta, Hizmo, Ringo 2022 working paper, 2025 JF. Gao and Sun 2019. Gao et al. 2024 JCF.
+:::

@@ -1,0 +1,2 @@
+- 2026-05-28 — Wrote book/instructor-manual/README.md (IM front page): purpose, linked index of IM-1..IM-6 (filenames verified), "before you teach" note (no-API-key local fallback; licensed data stays on GMU per CONVENTIONS §5; two integrity checks — pap-filed tagged commit before peeking, make clean && make all reproducibility).
+- Flagged IM-2 §1 program-level grade weighting as an editorial proposal for Prof. Gao to finalize; per-week assessmentN.md remain authoritative per-rubric. All six section links resolve.

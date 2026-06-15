@@ -1,0 +1,2 @@
+Recommendation: adopt **Quarto** — it renders our existing `.md` + `.ipynb` tree unchanged, has first-class math/citations/cross-refs, and ships HTML+PDF+EPUB from one source via a single CLI ([details](../../docs/research/interactive-textbook-platforms.md)).
+Runner-up: **Jupyter Book 2 (mystmd)** — preferred if we later want JupyterLite-style live in-browser execution, deeper MyST semantic metadata, or alignment with QuantEcon / Turing Way contribution patterns.

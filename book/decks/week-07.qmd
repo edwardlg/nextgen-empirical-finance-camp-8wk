@@ -1,0 +1,257 @@
+---
+title: "Week 7 — Independent Research Project I: From Question to Pre-Analysis Plan"
+subtitle: "8-Week Empirical Finance Camp"
+author: "Prof. Lei Gao, George Mason University"
+date: "2026-06-14"
+date-format: "YYYY-MM-DD"
+format:
+  pptx:
+    slide-level: 2
+    incremental: false
+    toc: false
+    fig-width: 7.5
+    fig-height: 4.2
+    fig-dpi: 200
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto
+---
+
+# Week 7 — From Question to Pre-Analysis Plan {.title}
+
+::: notes
+Welcome to Week 7. For six weeks you have been a passenger — every dataset pre-cleaned, every regression with a known right answer. Starting today the scaffolding comes down. The rest of the camp is your own project, on real data you acquire yourself, with a design you choose and defend. This week we build the design half. By Friday you will file a pre-analysis plan and an identification memo as a tagged Git commit, time-stamped before you have seen a single confirmatory coefficient. Week 8 is where you run the regression. Week 7 is where you earn the right to.
+:::
+
+## Learning Objectives
+
+- Turn a vague puzzle into a sharp, falsifiable, four-slot hypothesis
+- Pull data reproducibly — pinned, cached, logged, license-respecting
+- File a pre-analysis plan that pins one primary specification
+- Write an identifying-assumption sentence and a threats-and-responses table
+
+::: callout-tip
+## Key takeaway
+By Friday you should be able to hand a stranger your repo and have them re-run your data pull, read your PAP, attack your threats table, and know exactly what you committed to before peeking.
+:::
+
+::: notes
+Walk through each objective and tie it to Lab 7 — the tagged commit holding your PAP and identification memo. Maya, Devon, Priya, Sam, and Leah will each carry a project all week, spanning the five realistic dataset families. Notebook seven-point-five, the first-look regressions, is frozen until your plan is filed — the technological enforcement of the whole week. This week reuses everything from Weeks one through six, but turns it inward onto a project you own.
+:::
+
+## The Trick of Week 7
+
+> A good empirical project is a vague interest passed through three filters until it becomes one sentence: **the effect of X on Y, identified by Z, using dataset W.**
+
+- Filter 1 — *So what?* Would either answer change someone's behavior?
+- Filter 2 — *Who cares?* Is there an audience and a conversation?
+- Filter 3 — *What's new?* Your specific combination must add something
+- Get the sentence right and the project almost runs itself
+
+::: callout-tip
+## Key takeaway
+The thing that kills first projects is not the regression. It is the gap between a mood and a sentence. The whole week is a machine for crossing that gap.
+:::
+
+::: notes
+Most first projects die before they reach a regression. They die in the gap between, I am interested in crypto, and, here is a specific, answerable question I can attack with data I can get in five weeks. Experienced researchers cross that gap in minutes because they have a procedure, not a flash of genius. So-what comes first because it is cheap and kills the most ideas. Who-cares tells you which literature to read. What-is-new comes last because you cannot know what is new until you know what exists.
+:::
+
+## The Four-Slot Hypothesis Grammar
+
+Watch Devon's puzzle sharpen:
+
+- **Puzzle:** "Crypto seems to crash all at once."
+- **Sharpened:** "When an ERC-20 stablecoin loses its dollar peg by more than five percent, same-day decentralized-exchange trading volume in that token rises sharply versus the prior thirty-day average."
+
+The four slots: outcome $y$ · treatment $D$ · direction · unit and window.
+
+::: callout-tip
+## Key takeaway
+A hypothesis you cannot kill is a hypothesis you cannot learn from. The direction is what makes it scientific.
+:::
+
+::: notes
+A puzzle is a feeling that something is interesting. Crypto crashes all at once is a puzzle. But a puzzle is not yet a research question, because nothing could prove it wrong. Watch what sharpening did to Devon's mood. It named the trigger, a stablecoin depeg above five percent. It named the outcome, DEX trading volume. It named the timing, same day. And it committed to a direction — volume goes up. Now Devon can be wrong. If he pulls the data and volume does not move, the hypothesis dies, and that is a feature. Outcome, treatment, direction, unit-and-window — every project this week goes through this grammar.
+:::
+
+## Five Students, Five Real Datasets
+
+| Student | Question | Dataset | Design |
+|---|---|---|---|
+| **Maya** | Race and mortgage denial | HMDA (CFPB) | DiD around a state exam program |
+| **Devon** | Depegs and DEX volume | Etherscan + CoinGecko | Event study |
+| **Priya** | Disasters and insurance cost | NOAA + FEMA + FRED | DiD on counties |
+| **Sam** | Momentum returns | CRSP / yfinance | Portfolio sort |
+| **Leah** | Patents and citations | USPTO PatentsView | RD on near-miss apps |
+
+::: callout-tip
+## Key takeaway
+Each project pairs a real free or program-provided dataset with one of the designs you already learned in Weeks 3 and 4. Pick one as a template; vary it for your own question.
+:::
+
+::: notes
+Here is the payoff for the recurring cast. Each pairing was chosen so the data is obtainable for free or through GMU, the scope fits five weeks, and a design from Weeks three or four is available. Maya gets HMDA because she lived in it during the Week 4 fair-lending lab. Devon gets on-chain data because depegs have precise timestamps — exactly what an event study eats for breakfast. Priya gets disasters and insurance because FEMA declarations give her dated treatment and never-hit counties give her clean controls. Sam gets momentum because yfinance is enough to prototype, with CRSP on WRDS only if he wants the survivorship-free history. Leah gets patents because near-miss applications have a natural regression-discontinuity flavor.
+:::
+
+## Data Acquisition: Three Rules That Apply Everywhere
+
+1. **Secrets live in environment variables**, never in code or git
+2. **Licensed data stays on GMU infrastructure** — CRSP, Compustat never leave WRDS
+3. **A pull is reproducible only if it is pinned, cached, and logged**
+
+```python
+# The pattern repeats for every source
+import os
+KEY = os.environ["FRED_API_KEY"]   # set in your shell; never hard-coded
+if cache.exists():                  # cache-or-fetch: pull once
+    df = pd.read_parquet(cache)
+else:
+    df = fetch(...); df.to_parquet(cache)
+    log_pull("logs/pulls.jsonl", source, query, df)
+```
+
+::: callout-tip
+## Key takeaway
+A pull you cannot re-run is a pull no one can check. The log on disk is the evidence you did it right.
+:::
+
+::: notes
+Chapter seven-point-two tours seven sources — WRDS, EDGAR, FRED, HMDA, 13F filings, PatentsView, and free alternatives like yfinance. Each has its own rate limit and license, but the discipline is identical. Rule one — API keys live in environment variables. Write a key into a notebook and it is in your shell history, your git history, and on GitHub forever. Rule two — licensed data stays on GMU infrastructure. CRSP and Compustat may be analyzed on WRDS Cloud, never copied to your laptop. Rule three — pin the snapshot, cache the raw bytes, log the query with a content hash so future-you can detect that the data has moved.
+:::
+
+## The Garden of Forking Paths
+
+Maya runs her main regression. Coefficient is small. She tries things:
+
+- Drop the smallest lenders · Winsorize income · Add quadratic LTV
+- Purchase only · Cluster by county instead of lender
+- Five binary choices give $2^5 = 32$ specifications
+
+Even under a true null, $P(\text{at least one star}) = 1 - 0.95^{32} \approx 80\%$.
+
+::: callout-warning
+## Watch out
+Maya has not lied. Every choice was defensible alone. She has *p-hacked her own honest project*, steered choice by choice by a coefficient she was already looking at.
+:::
+
+::: notes
+Maya runs her main HMDA regression and gets a small, insignificant number. So she tries things — drop small lenders, winsorize income, add a quadratic LTV, restrict to purchase loans, cluster by county. Each choice is defensible alone. Five binary forks give thirty-two specifications. Even if the true gap is zero, the chance at least one crosses the five-percent line by luck is around eighty percent. This is Gelman's garden of forking paths. It is more insidious than classic p-hacking because Maya did not run thirty-two regressions — she walked one path, but with the outcome in view, steered at each fork toward the branch that helped her.
+:::
+
+## The Pre-Analysis Plan: Five Components
+
+1. **Hypotheses, stated directionally** — numbered, falsifiable, primary vs. secondary
+2. **Primary specification** in CONVENTIONS §4 form — every slot named
+3. **Multiple-testing plan** — primary outcome, families, BH-FDR
+4. **Falsification** — the result that would make you abandon the hypothesis
+5. **Planned robustness** — reported whichever way they come out
+
+::: callout-tip
+## Key takeaway
+You cannot fish in a pond whose boundaries you nailed down before you knew where the fish were.
+:::
+
+::: notes
+The PAP collapses Maya's thirty-two forks back into one. Five components, written in order. Hypotheses directionally — not race is related to denial, but minority applicants face higher denial rates. Number them. Primary specification in CONVENTIONS section-four form, naming outcome, treatment, controls with justifications, fixed effects, clustering chosen in advance, sample, and identifying assumption. Multiple-testing plan — one primary test held to alpha five percent, everything else labeled secondary; Benjamini-Hochberg FDR within families. Falsification — the exact coefficient pattern that would force you to say you were wrong. Planned robustness — checks promised in advance and reported whichever way they come out.
+:::
+
+## Register Before You Peek
+
+- **Hold-out:** split data thirty-percent exploration / seventy-percent confirmation on a hashed key
+- **Tag the commit:** `git tag pap-filed` — your time-stamp is your Git history
+- **Deviation log:** every departure dated, reasoned, flagged as outcome-driven or not
+
+::: callout-tip
+## Key takeaway
+A plan no one can date is a plan that constrains no one. The cryptographic time-stamp is the whole game.
+:::
+
+::: notes
+Five components are what you write; three mechanics make them work. First, separate confirmatory from exploratory mechanically. Maya's data already exists, so she splits — thirty percent to play in, seventy percent untouched until the plan is filed. The hold-out converts do-not-peek from willpower into a mechanical fact. Second, register by time-stamping. In this camp your registry is your Git history; Lab 7 files the plan as a tagged commit. The tag is a cryptographic promise. Third, log your deviations. You will deviate — that is fine. Hiding it is the sin. The log distinguishes a mechanical fix from an outcome-driven choice.
+:::
+
+## Building the Analysis Dataset
+
+Before the regression, the panel. Each step is a decision:
+
+- **Crosswalks:** never join on a ticker; join on a date-aware identifier (PERMNO ↔ GVKEY via CCM)
+- **Cardinality:** pass `validate="many_to_one"` to every merge — silent explosions become loud errors
+- **Survivorship:** delisted firms are the ones that matter; check that firm counts *churn* by year
+- **Look-ahead:** lag accounting data; `merge_asof(direction="backward")` plus an assertion
+
+::: callout-warning
+## Watch out
+A look-ahead bug *improves* every backtest statistic and is invisible in your results. The only defense is a structural assertion that no return ever uses data dated after it.
+:::
+
+::: notes
+Sam's question lives in neither file — returns are in CRSP, book equity is in Compustat. The moment he types pd-dot-merge, every quiet decision turns loud. Tickers are nicknames — C meant Chrysler before Citigroup — so you join through the CRSP-Compustat-Merged link table, with its date window respected. Pass validate equals many-to-one so silent Cartesian explosions become loud errors. Then two content bugs no syntax checker catches. Survivorship — if your panel never loses firms, you dropped the ones that died. Look-ahead — December 2014 book equity is not knowable until the firm files months later. The Fama-French six-month lag plus merge-asof backward is the fix; the assertion is the tripwire.
+:::
+
+## The Identification Memo
+
+The single most important page in your paper. Two parts:
+
+The **identifying-assumption sentence** (one template, three blanks):
+
+> Our estimate of *[the effect]* is **credible** as long as *[the named assumption]*, which we defend by *[the design feature or evidence]*.
+
+The **threats-and-responses table** — four columns, descending order of danger:
+
+| Threat | Why plausible | What we do | Residual concern |
+
+::: callout-tip
+## Key takeaway
+For every threat, decide first whether it is *testable* (pre-trend, first-stage F, McCrary, balance) or only *arguable* (exclusion, compound treatment, parallel-trends counterfactual). Match the response to the nature.
+:::
+
+::: notes
+The identification memo is the most important page in your paper. The sentence has three blanks — name the effect not the regression; name the specific threat not the word endogeneity; name the design or evidence that defends it. Most observational designs earn credible, not causal. Overclaiming is the tell of an amateur. The threats-and-responses table has four columns; the fourth, residual concern, is mandatory. A table with no residual concerns is less credible, not more. Lead with the threat that would most cleanly kill the paper. For each row, ask whether it is testable — pre-trends, first-stage F, McCrary, balance — or only arguable — exclusion, compound treatment, the parallel-trends counterfactual. Match the response to the nature.
+:::
+
+## Common Pitfalls This Week
+
+1. A puzzle without a direction — "I want to study X" is not a hypothesis
+2. Falling in love before the kill — sunk-cost bias keeps dead ideas alive
+3. A vague PAP that constrains nothing — "appropriate controls" is not a spec
+4. Joining on tickers, or merging without `validate=` — Cartesian explosions
+5. Using "causal" where "credible" was warranted — calibrate your verbs
+6. An empty residual-concern cell — you have not looked hard enough
+
+::: callout-warning
+## Watch out
+The biggest difference between people who finish good research and people who do not is not cleverness at generating ideas. It is the willingness to kill the ones they have already fallen in love with.
+:::
+
+::: notes
+Six failure modes. A puzzle without a direction is a mood. Make yourself write the sign. Sunk-cost bias — once you have scraped a dataset for a week, the dataset argues for its own survival; the mentor session is about killing ideas cheaply before the love becomes sunk cost. The vague PAP — if it does not name the outcome to a variable name, the clustering level, and the exact sample, it is not a plan. The cardinality trap — never join on a ticker, always pass validate equals to merge. Verb mismatch — write credible, not causal, when the threat is only arguable. And the empty residual-concern cell — every real design has them, and a referee who sees none assumes you have not looked.
+:::
+
+## This Week's Deliverable and Look-Ahead
+
+- **Lab 7:** stand up the research repo — pinned env, `.gitignore`, `pap-filed` tag
+- **PS 7.1–7.5:** candidate ideas · data pull + card · PAP · merged panel · identification memo
+- **Mentor 7:** "How I pick and kill a project" — Gao, He & Wu 2023 *JFQA*
+- **Assessment 7 (100 pts):** PAP + identification memo + reproducible repo
+- **Next week:** execute the regression, run the threats table, write the paper
+
+::: callout-tip
+## Key takeaway
+The PAP says you did not fish. The memo says the pond is the right pond. Together, tagged in your Git history, they are the spine of a Week 8 capstone that could survive a hostile referee.
+:::
+
+::: notes
+By Friday your repo is the deliverable. The tagged commit pap-filed is cryptographic proof that your plan existed before any confirmatory result. Notebook seven-point-five stays frozen until the tag exists, then runs once. Mentor Session 7 brings the camera around — instead of dissecting strangers' papers as in Week 5, you watch one of mine get built and one get killed; the reading is Gao, He and Wu 2023 in JFQA. Week 8 is where the design half meets the estimation half — the assumption paragraph becomes your empirical-strategy section, the threats table becomes your robustness section almost literally. Write the memo so there is no row left to bury.
+:::
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
+
+::: notes
+References are auto-populated by Pandoc from cited keys. Full bibliographic entries for Olken 2015 on pre-analysis plans, Bartlett, Morse, Stanton and Wallace 2022 on fair lending, Callaway and Sant'Anna on staggered difference-in-differences, and Gao, He and Wu 2023 on the Rainbow of Credits live in the textbook's main bibliography.
+:::

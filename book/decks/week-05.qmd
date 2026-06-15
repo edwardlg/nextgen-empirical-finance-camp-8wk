@@ -1,0 +1,222 @@
+---
+title: "Week 5 — Reading the Frontier I: Decoding Empirical Papers"
+subtitle: "8-Week Empirical Finance Camp"
+author: "Prof. Lei Gao, George Mason University"
+date: "2026-06-14"
+date-format: "YYYY-MM-DD"
+format:
+  pptx:
+    slide-level: 2
+    incremental: false
+    toc: false
+    fig-width: 7.5
+    fig-height: 4.2
+    fig-dpi: 200
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto
+---
+
+# Week 5 — Reading the Frontier I {.title}
+
+::: notes
+Welcome to Week 5. For four weeks you have been a producer of empirical work. You built OLS from the design matrix up, you learned which standard errors lie, and you assembled the modern causal toolkit. This week we flip the verb. Now you become a consumer. The skill that separates a student who has taken econometrics from one who can actually do research is the ability to pick up a frontier paper, read it the way a referee reads it, and decide for yourself whether to believe it. That is a different muscle, and it is trainable. We train it on five great texts, one per day. By Friday you will have a portable seven-part anatomy you can apply to any empirical paper for the rest of your life.
+:::
+
+## Learning Objectives
+
+- Apply the seven-part Reader's Guide anatomy to any empirical paper
+- Read tables before prose and find the headline number in thirty seconds
+- State an identifying assumption in a single, falsifiable sentence
+- Diagnose whether reported standard errors are honest for the design
+
+::: callout-tip
+## Key takeaway
+By Friday you should be able to walk into a seminar, read the tables of an unseen paper in twenty minutes, and know what to attack first.
+:::
+
+::: notes
+The Friday assessment hands you a paper none of us has discussed and asks for a four-page Reader's Guide on it. Everything this week is a rehearsal. Maya, Devon, Priya, Sam, and Leah will each encounter the paper most relevant to their capstone direction. The seven-part anatomy is a checklist, not a cage. The reading-order heuristic — tables first, prose last — is the single most useful habit in the pack and the one that most surprises beginners. By the end of the week the habit should feel automatic.
+:::
+
+## The Seven-Part Anatomy
+
+1. Research question — one sentence, ending in a question mark
+2. Identification strategy — name the design and the identifying assumption
+3. Data — unit, sample period, source, filters
+4. Table-by-table reading order — which table is the headline
+5. What's clever — the one genuinely good idea
+6. What's vulnerable — the soft spot a referee fires at first
+7. Three replication exercises — what you would do on a laptop
+
+::: callout-tip
+## Key takeaway
+A paper is a chain. The chain is only as strong as its weakest link, and a referee attacks the weakest link first.
+:::
+
+::: notes
+The order of the seven boxes is not decoration. It is the order in which a claim has to survive scrutiny. A sharp question with no credible identification is a guess. Great identification on thin data is a curiosity. Box two, identification, is the single most important one — most of the rest of the guide is in service of deciding whether that one sentence is true. Force yourself to name the outcome and the key right-hand-side variable inside box one. If you cannot state the question as a question, you do not yet understand the paper. Carry this template everywhere.
+:::
+
+## Tables First, Prose Last
+
+- Abstract once, for claim and magnitude
+- Tables and figures — before any body prose
+- Identification section — now you learn how they earned the result
+- Robustness section — what did they do to convince a skeptic
+- Introduction and literature review — last, read as salesmanship
+
+::: callout-tip
+## Key takeaway
+The table is the part of the paper the authors cannot fudge. Read it while your mind is still your own.
+:::
+
+::: notes
+A professional does not read a paper front to back. She reads the abstract once, then goes straight to the exhibits, finds the headline table, and reads the main result off the table itself — sign, size, t-statistic, sample size — before reading a single sentence of authors' prose. Prose can spin a 1.3 t-statistic as suggestive evidence. The table just shows you 1.3, and you decide for yourself. This is exactly how Devon should attack a new crypto-adoption paper, how Priya should attack a climate-insurance study, and how Sam should read the latest momentum paper. Skeleton first, framing last. The introduction is read last because by then you already know the answer and design, so you read the framing for what it is — salesmanship — without being sold.
+:::
+
+## Monday — Fama and French 1992: Beta Dies
+
+- Question: what explains why some stocks have higher average returns?
+- Design: double sorts plus Fama-MacBeth cross-sectional regressions
+- Headline: size and book-to-market survive; market beta does not
+- Beta competes against size and BE/ME — and beta loses
+
+::: callout-tip
+## Key takeaway
+The number that should be big under the reigning theory is the number that isn't. That absence is the finding.
+:::
+
+::: notes
+Sam walks in believing riskier stocks pay more. In Lab 2 he built the Fama-MacBeth machine to test the CAPM claim that a stock's reward is proportional to its market beta. This paper is the moment the field told Sam that belief was badly incomplete. The clever move is the double sort. In raw data, size and beta are correlated — small firms tend to be high-beta — so a simple sort on beta is partly a disguised sort on size. By forming size-beta portfolios, Fama and French create cells that vary in beta while holding size roughly fixed. Now the within-size beta comparison is clean, and it is flat. Beta's apparent premium was size in disguise. In the kitchen-sink column, beta's slope collapses toward zero while size and book-to-market keep their large, significant slopes.
+:::
+
+## Tuesday — Fama and French 1993: From Sort to Factor Model
+
+The time-series regression for each of 25 test portfolios:
+
+$$
+R_{it} - R_{ft} = \alpha_i + b_i\,(R_{Mt} - R_{ft}) + s_i\,\text{SMB}_t + h_i\,\text{HML}_t + \varepsilon_{it}
+$$
+
+- $R^2$ asks: do factors capture common variation?
+- $\alpha$ asks: is any priced risk left on the table?
+- GRS test: are all 25 intercepts jointly zero?
+
+::: callout-tip
+## Key takeaway
+1992 documents the pattern. 1993 hands you a machine: a three-line regression anyone can run.
+:::
+
+::: notes
+Students conflate 1992 and 1993 constantly, and the conflation hides the cleverest move in the literature. 1992 is cross-sectional — across firms in a single month, do returns line up with characteristics? 1993 is time-series — when a portfolio's return moves, what moved with it? The cleverness is manufacturing the characteristics into tradeable factor portfolios. SMB and HML come from a two-by-three sort that averages across the orthogonal dimension, so size and value do not contaminate each other. The intercept alpha is the pricing error — money the model cannot explain. Devon will want this when he runs three-factor regressions on crypto returns. You cannot eyeball twenty-five t-statistics, so the right tool is the GRS F-test for the joint null that all alphas equal zero. A model passes when GRS fails to reject.
+:::
+
+## Wednesday — Jegadeesh and Titman 1993: Momentum
+
+- Sort stocks on past 6-month return; rank into deciles
+- Buy winners (top decile), short losers (bottom decile), hold 6 months
+- Average spread roughly 1% per month — and risk-adjustment does not kill it
+- Overlapping cohorts induce serial correlation: needs Newey-West
+
+::: callout-tip
+## Key takeaway
+A rule a sixteen-year-old day-trader would invent on a napkin beats the market. That is what makes it dangerous to the efficient-markets hypothesis.
+:::
+
+::: notes
+Sam has been waiting all week for this one. Jegadeesh and Titman take a strategy almost insultingly simple — buy what went up, short what went down — and show it makes money for decades in a way 1993's risk factors cannot explain. The elegance is the evidence. A simple rule that works is far more damaging to a theory than a complicated one, because there is nowhere to hide a degree of freedom. The methodological subtlety is the overlapping-portfolio construction. To use every month of data, they form a fresh winner-minus-loser portfolio every month and hold each for K months. The price is serial correlation: consecutive monthly returns share K-minus-one of their K component cohorts, so the standard OLS error is too small. The fix is Newey-West HAC from Chapter 2.4. Always ask: did they correct for the overlap?
+:::
+
+## Thursday — Petersen 2009: Methods as a Paper
+
+- Sociological question: published SEs differed by factors of two on identical data
+- Identification by Monte Carlo: build a world where you know the truth
+- Diagnosis: OLS and White SEs are biased down under firm or time effects
+- Cure: cluster at the level where the correlation lives
+
+::: callout-tip
+## Key takeaway
+"Robust" does not mean "robust to everything." White SEs fix the diagonal of Omega — but a firm effect lives in the off-diagonals.
+:::
+
+::: notes
+You met this paper in Week 2 as a recipe — firm effect, cluster by firm; time effect, cluster by time; both, cluster two ways. This week we read it as a paper. A methods paper claims something about how we should do empirical work itself, so you cannot check it against a stylized fact. The cleverest move is identification by simulation. Petersen builds artificial panels where he sets the true beta and the true error correlation. Because he created the data-generating process, he knows the right answer with certainty, then asks whether each method's reported standard error matches the true sampling variability. The taxonomy is what Maya will use on her loan-default panel. Memorize the rule: correlation in a firm's residuals over time means a firm effect, cluster by firm; correlation across firms within a period means a time effect, cluster by time.
+:::
+
+## Friday — Bertrand, Duflo and Mullainathan 2004: The Placebo Law
+
+- DiD on state-year panels with conventional SEs
+- Fake law: pick random states, random year — true effect is zero by construction
+- Repeat thousands of times; count how often you reject the null
+- An honest 5% test should reject 5% of the time. It rejects far more.
+
+::: callout-tip
+## Key takeaway
+A test that advertises 5% false positives actually fires on a third or more of pure noise. The standard error is too small because the outcome is serially correlated within state.
+:::
+
+::: notes
+Priya met this paper as a footnote. When she clustered her wildfire-regulation standard errors by state and watched the t-stat fall from 5.0 to 1.8, the lesson came from here. The placebo-law experiment is one of the most beautiful designs in empirical economics. Take a real state-year panel with its real serial correlation. Invent a fake law: random treated states, random treatment year. The true effect is exactly zero by construction. Run the standard DiD, check whether the t-statistic crosses 1.96. Repeat thousands of times. The fraction of rejections is the true size of the test. If standard errors were honest, you would reject 5% of the time. The headline is that conventional SEs reject far more, often around 45%. The cure is clustering at the unit of treatment.
+:::
+
+## The Cast and Their Papers
+
+- Sam — momentum and the death of beta (Mon, Wed)
+- Priya — placebo laws and clustered SEs for her wildfire-regulation DiD (Fri)
+- Devon — factor regressions for a crypto adoption study (Tue)
+- Maya — Petersen's taxonomy for her loan-default panel (Thu)
+- Leah — robustness and table transparency across all five
+
+::: callout-tip
+## Key takeaway
+Every paper this week speaks directly to one of your capstones. Read with your own project in your other hand.
+:::
+
+::: notes
+This is the week the camp's recurring cast earns its keep. Sam reads the death of beta and the birth of momentum because his capstone is a trading strategy and he needs to see what survives risk adjustment. Priya reads Bertrand, Duflo and Mullainathan because her wildfire-regulation DiD lives or dies on whether she clusters honestly. Devon reads Fama and French 1993 because he wants the same three-line regression on crypto returns. Maya reads Petersen because her loan-default panel has firm-year structure. Leah reads all five for the discipline of table transparency. Use these characters as anchors when you read on your own.
+:::
+
+## Common Pitfalls When Reading Papers
+
+1. Believing the introduction before checking the table
+2. Confusing a descriptive finding with a causal one
+3. Trusting reported t-stats without asking about the SE flavor
+4. Mistaking a robustness section's *length* for its *strength*
+5. Failing to write the identifying assumption as a single sentence
+
+::: callout-warning
+## Watch out
+The prose oversells. The table just is. Read the table while your mind is still your own.
+:::
+
+::: notes
+The first pitfall is the most common — students read the abstract, then the introduction, and arrive at the tables already believing the result. The second is the trap Fama and French 1992 sets: a beautiful descriptive paper, but the design has no causal leverage to settle whether size and value premia are risk or mispricing. The third is the combined lesson of Petersen and Bertrand, Duflo and Mullainathan — on panel data the SE flavor decides everything. The fourth is what Leah catches reviewing classmates' work: thirty specifications that never vary the threatening one is theater, not robustness. The fifth is what your mentor will ask in office hours. Write the sentence.
+:::
+
+## This Week's Deliverable and Look Ahead
+
+- Five Reader's Guides drafted across nb5.1 through nb5.5
+- Mentor session: watch a paper get built, not just read
+- Assessment: four-page Reader's Guide on an unseen paper (70 pts)
+- Next week: Reading the Frontier II — newer methods, newer markets
+
+::: callout-tip
+## Key takeaway
+The seven-part anatomy is portable. By Friday it should feel automatic, because the capstone in Weeks 7 and 8 is where you will turn it inward on your own work.
+:::
+
+::: notes
+By Friday you should have run the seven-part anatomy on five papers and on a sixth you have never seen. The mentor session turns the camera around: instead of dissecting strangers' papers, we watch one of mine get built. The seven boxes you apply outward to strangers are the same boxes I apply inward when I decide whether a question of mine is worth chasing. Reading well and writing well are the same act run in opposite directions. Next week we read newer papers in newer markets — fintech, climate finance, machine learning in asset pricing — but the anatomy does not change. See you Monday at the Fama and French double sort.
+:::
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
+
+::: notes
+References auto-populate from cited keys. Full entries for Fama and French, Jegadeesh and Titman, Petersen, and Bertrand, Duflo and Mullainathan live in the textbook's main bibliography.
+:::

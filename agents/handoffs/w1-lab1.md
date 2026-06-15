@@ -1,0 +1,5 @@
+# w1-lab1 — Lab 1: Build a Coin-Flip Universe
+
+Word count: 3,861 (target ~3,400; slightly over due to the rubric checklist and step-reflection scaffolding — prose body is on target). All six guided steps present (Bernoulli universe, sampling dist + CLT, from-scratch one-prop z-test, empirical size, power curve, p-hacking stretch) plus learning goals, conda/seed setup, and a "you're done when" checklist. Voice/notation matched to ch13–ch15; uses the student cast (Sam, Leah) and `rng = np.random.default_rng(SEED)` reproducibility per CONVENTIONS §5.
+
+[CHECK] Verified all load-bearing code skeletons run under python3 (numpy/scipy): hand z-test ≈ binomtest at N=200; power(p=0.6,N=200)≈0.835; p-hacking empirical P(≥1 FP) tracks 1−(1−α)^m across m=1,5,20,50. Empirical size at N=200,p0=0.5 came out 0.0554 (slightly above the naive 0.05±2·MCSE band) — this is the normal approx being mildly liberal on discrete data, not a bug; prose in Step 4 was revised to state this honestly rather than promise size lands inside ±2 MC SE. Reviewer should confirm that framing reads as intended pedagogy.

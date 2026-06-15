@@ -1,0 +1,2 @@
+- Wrote `book/capstones/README.md` (Capstone Gallery front page): gallery purpose, a prominent gallery-wide synthetic/illustrative-results notice, a linked index of all five exemplars (real filenames verified) each with track + Gao/anchor paper + notebook, and a "how to use" section (referee read, structural template, grading rubric, instructor anchor use).
+- All eight relative links verified to resolve: the five capstone files, Week-5 anatomy (`mentor5-anatomy-of-a-jf-paper.md`), Week-8 rubric (`assessment8.md`), and IM-5 (`IM5-answer-keys-anchor-work.md`).

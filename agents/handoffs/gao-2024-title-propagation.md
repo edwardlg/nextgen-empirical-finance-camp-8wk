@@ -1,0 +1,5 @@
+# Handoff — Gao et al. (2024) title correction propagated across the book
+
+Propagated published title "Overlapping institutional ownership along the supply chain and earnings management of supplier firms" (*JCF*, 84:102520) in place of the working-paper title across 11 book-content files: TOC.md, 00-preface.md, 01-articulation-matrix.md, mentor2 (W2), mentor6 (W6), capstone2-common-ownership-13f.md, capstones/README.md, data-cards/edgar-13f.md, data-cards/thomson-13f.md, and the frontmatter-toc spec; reframed Mentor 6 from "disclosure measured from text" to "earnings management as a measured construct (discretionary accruals as a noisy proxy)" and rewrote stretch-question 1 with planted-truth/specification-sensitivity validation (continuous analogue of precision/recall); kept Capstone 2's outcome as voluntary disclosure but added an explicit "student-track variant" notice positioning it as a sibling-outcome to the anchor paper's accruals-based outcome.
+
+Final grep confirms zero occurrences of the old title in book content (handoffs left untouched as historical record per task spec).
