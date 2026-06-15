@@ -8,10 +8,13 @@
 # The site will then be served at:
 #   https://<owner>.github.io/<repo>/
 #
-# Build artifacts published to gh-pages:
-#   _site/                                    -> 8-week HTML book
-#   _site/empirical-finance-camp-8wk.pdf      -> 8-week PDF
-#   _site/decks/week-*.pptx                   -> per-week PowerPoint decks (Weeks 1-8) with speaker notes
+# Build artifact published to gh-pages:
+#   _site/   -> 8-week HTML book (KaTeX math, search, dark/light)
+#
+# The PDF and per-week .pptx decks are NOT built here: a separate
+# `quarto render --to pdf` cleans _site and wipes the HTML book, and
+# neither artifact is linked on the site. Build them locally / on Hopper
+# (see book/decks/Makefile and slurm/) when you actually need them.
 #
 # Trigger: push to main, or manual dispatch from the Actions tab.
 # =====================================================================
@@ -57,45 +60,22 @@ jobs:
       # _quarto.yml sets `execute.enabled: false` globally; the renders
       # below produce static notebook pages from the .ipynb sources.
 
-      # ---- 8-week edition: HTML + PDF -----------------------------
+      # ---- 8-week edition: HTML site (the deployed deliverable) ----
+      # IMPORTANT: render HTML only. A separate `quarto render --to pdf`
+      # cleans the _site output dir and wipes the HTML book before deploy.
+      # The PDF and the per-week .pptx decks are supplementary artifacts,
+      # not linked on the site (downloads: []); generate them locally / on
+      # Hopper (see slurm/ and book/decks/Makefile) when needed.
       - name: Render 8-week book -> _site/ (HTML)
         run: quarto render --to html
-
-      - name: Render 8-week book -> _site/ (PDF)
-        # Non-blocking: the HTML site is the primary deliverable and the PDF is
-        # not linked on the site (downloads: []). A PDF/LaTeX hiccup must never
-        # block the Pages deploy.
-        continue-on-error: true
-        run: quarto render --to pdf
-
-      # ---- Per-week PowerPoint decks (Weeks 1-8, with speaker notes)
-      - name: Render decks -> book/decks/*.pptx
-        # Non-blocking: decks are a supplementary artifact, not the site itself.
-        continue-on-error: true
-        run: |
-          set -e
-          mkdir -p _site/decks
-          shopt -s nullglob
-          for f in book/decks/week-*.qmd; do
-            echo "::group::Rendering $f"
-            quarto render "$f" --to pptx
-            base="$(basename "$f" .qmd)"
-            if [ -f "book/decks/${base}.pptx" ]; then
-              cp "book/decks/${base}.pptx" "_site/decks/${base}.pptx"
-            fi
-            echo "::endgroup::"
-          done
-          echo "Decks copied to _site/decks/:"
-          ls -la _site/decks/ || true
 
       - name: List built site (diagnostic)
         run: |
           echo "::group::Top-level _site/"
           ls -la _site/ || true
           echo "::endgroup::"
-          echo "::group::_site/decks/"
-          ls -la _site/decks/ 2>/dev/null || true
-          echo "::endgroup::"
+          echo "index.html present:"
+          test -f _site/index.html && echo "  yes" || { echo "  NO — aborting deploy"; exit 1; }
 
       - name: Deploy _site/ to gh-pages
         # peaceiris auto-creates the gh-pages branch with force_orphan; this
