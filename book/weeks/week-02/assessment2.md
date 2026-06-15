@@ -85,7 +85,7 @@ Then apply the two-sign rule to Maya's case: the omitted variable is creditworth
 approval ($\beta_2 > 0$) and is *lower* on average for the disadvantaged group $D=1$ so that the slope of
 $C$ on $D$ is negative ($\delta_1 < 0$) — state the sign of the bias on the $D$ coefficient and what it
 does to the apparent approval penalty. (ii) Now a *different* contamination: Maya's income variable is
-self-reported, $x = x^\* + m$ with classical noise $m$. State the attenuation formula
+self-reported, $x = x^{*} + m$ with classical noise $m$. State the attenuation formula
 $\hat\beta_1 \xrightarrow{p} \beta_1\lambda$, define the reliability ratio $\lambda$, and say which way the
 income coefficient is pushed. Close with one sentence contrasting OVB and attenuation: which one has a
 *known* direction regardless of the data, and why.
@@ -257,7 +257,7 @@ the last $\operatorname{Cov}(x,\varepsilon)=0$ term vanishing because the long m
 Maya: $\beta_2>0$, $\delta_1<0 \Rightarrow$ bias $=\beta_2\delta_1 < 0$, i.e. the $D$ coefficient is biased
 **downward** (more negative), so it **overstates** the approval penalty against $D=1$ — part of the
 apparent penalty is omitted creditworthiness loaded onto $D$. (ii) $\hat\beta_1 \xrightarrow{p} \beta_1\lambda$
-with $\lambda = \sigma_{x^\*}^2/(\sigma_{x^\*}^2+\sigma_m^2)\in(0,1)$, the **reliability ratio** = share of
+with $\lambda = \sigma_{x^{*}}^2/(\sigma_{x^{*}}^2+\sigma_m^2)\in(0,1)$, the **reliability ratio** = share of
 the measured regressor's variance that is real signal. The income coefficient is pushed **toward zero**
 (attenuated) — understated. Contrast: **attenuation has a known direction (always toward zero)** regardless
 of the data, because $\lambda$ is a ratio of variances and variances are non-negative; OVB's direction

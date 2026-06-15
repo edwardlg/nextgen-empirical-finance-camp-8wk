@@ -4,7 +4,7 @@ Full worked solutions to `book/weeks/week-02/ps2.5.md`, covering Chapter 2.5. No
 Conventions: the true (long) model is $y = \beta_0 + \beta_1 x + \beta_2 z + \varepsilon$ with
 $\mathbb{E}[\varepsilon \mid x,z] = 0$; the short model is $y = \tilde\beta_0 + \tilde\beta_1 x + u$; the
 auxiliary slope is $\delta_1 = \operatorname{Cov}(x,z)/\operatorname{Var}(x)$; for measurement error
-$x = x^\* + m$ and $\lambda = \sigma_{x^\*}^2/(\sigma_{x^\*}^2 + \sigma_m^2)$. The recurring theme of the
+$x = x^{*} + m$ and $\lambda = \sigma_{x^{*}}^2/(\sigma_{x^{*}}^2 + \sigma_m^2)$. The recurring theme of the
 key: **bias lives in the probability limit and moves the center of the sampling distribution; precision
 lives in the standard error and controls only the spread. No amount of data, and no standard-error
 flavor, fixes a biased center — only a research design does.**
@@ -132,34 +132,34 @@ bias column.
 
 ## Problem 4 — Classical measurement error: derive $\lambda$, predict the attenuated slope (18 pts)
 
-**(a)** [8 pts] Substitute $x^\* = x - m$ into the true model:
+**(a)** [8 pts] Substitute $x^{*} = x - m$ into the true model:
 $$y = \beta_0 + \beta_1(x - m) + \varepsilon = \beta_0 + \beta_1 x + (\varepsilon - \beta_1 m).$$
 We OLS-regress $y$ on the observed $x$, so the probability limit of the slope is
 $\operatorname{Cov}(x,y)/\operatorname{Var}(x)$.
 
-*Numerator.* Using $x = x^\* + m$ and $y = \beta_0 + \beta_1 x^\* + \varepsilon$,
-$$\operatorname{Cov}(x,y) = \operatorname{Cov}(x^\* + m,\ \beta_0 + \beta_1 x^\* + \varepsilon)
-= \beta_1 \operatorname{Var}(x^\*) + \beta_1\operatorname{Cov}(m,x^\*) + \operatorname{Cov}(x^\*,\varepsilon)
+*Numerator.* Using $x = x^{*} + m$ and $y = \beta_0 + \beta_1 x^{*} + \varepsilon$,
+$$\operatorname{Cov}(x,y) = \operatorname{Cov}(x^{*} + m,\ \beta_0 + \beta_1 x^{*} + \varepsilon)
+= \beta_1 \operatorname{Var}(x^{*}) + \beta_1\operatorname{Cov}(m,x^{*}) + \operatorname{Cov}(x^{*},\varepsilon)
 + \operatorname{Cov}(m,\varepsilon).$$
-Under CEV the last three covariances are zero: $\operatorname{Cov}(m,x^\*)=0$ (error uncorrelated with
-the truth), $\operatorname{Cov}(x^\*,\varepsilon)=0$ (long model well-specified), and
+Under CEV the last three covariances are zero: $\operatorname{Cov}(m,x^{*})=0$ (error uncorrelated with
+the truth), $\operatorname{Cov}(x^{*},\varepsilon)=0$ (long model well-specified), and
 $\operatorname{Cov}(m,\varepsilon)=0$ (error uncorrelated with the equation error). So
-$\operatorname{Cov}(x,y) = \beta_1\sigma_{x^\*}^2$.
+$\operatorname{Cov}(x,y) = \beta_1\sigma_{x^{*}}^2$.
 
-*Denominator.* Because $x^\*$ and $m$ are uncorrelated, the variance splits:
-$$\operatorname{Var}(x) = \operatorname{Var}(x^\* + m) = \sigma_{x^\*}^2 + \sigma_m^2.$$
+*Denominator.* Because $x^{*}$ and $m$ are uncorrelated, the variance splits:
+$$\operatorname{Var}(x) = \operatorname{Var}(x^{*} + m) = \sigma_{x^{*}}^2 + \sigma_m^2.$$
 
 *Ratio.*
-$$\hat\beta_1 \xrightarrow{p} \frac{\beta_1 \sigma_{x^\*}^2}{\sigma_{x^\*}^2 + \sigma_m^2}
-= \beta_1 \cdot \lambda, \qquad \lambda = \frac{\sigma_{x^\*}^2}{\sigma_{x^\*}^2 + \sigma_m^2}.$$
+$$\hat\beta_1 \xrightarrow{p} \frac{\beta_1 \sigma_{x^{*}}^2}{\sigma_{x^{*}}^2 + \sigma_m^2}
+= \beta_1 \cdot \lambda, \qquad \lambda = \frac{\sigma_{x^{*}}^2}{\sigma_{x^{*}}^2 + \sigma_m^2}.$$
 Since variances are non-negative, the denominator is at least the numerator, so $0 < \lambda \le 1$
 (strictly less than 1 whenever $\sigma_m^2 > 0$). Multiplying by $\lambda \in (0,1)$ shrinks the magnitude
 toward zero regardless of the sign of $\beta_1$ — this is **attenuation bias**, and its direction (toward
 zero) is always known under CEV.
 
 **(b)** [4 pts] With $\beta_1 = 1.0$ and $\lambda = 0.6$: $\hat\beta_1 \xrightarrow{p} 1.0 \times 0.6 =
-0.6$. Now set $\sigma_m^2 = \tfrac{1}{4}\sigma_{x^\*}^2$. Then
-$$\lambda = \frac{\sigma_{x^\*}^2}{\sigma_{x^\*}^2 + \tfrac14\sigma_{x^\*}^2}
+0.6$. Now set $\sigma_m^2 = \tfrac{1}{4}\sigma_{x^{*}}^2$. Then
+$$\lambda = \frac{\sigma_{x^{*}}^2}{\sigma_{x^{*}}^2 + \tfrac14\sigma_{x^{*}}^2}
 = \frac{1}{1 + 0.25} = \frac{1}{1.25} = 0.8,$$
 so the new probability limit is $1.0 \times 0.8 = 0.8$ — halving the noise variance moved the estimate
 from $0.6$ up toward the truth $1.0$, but it is still attenuated.
@@ -173,7 +173,7 @@ not the noise; $N$ does not touch it.
 **(d)** [3 pts] Threat: *classical measurement error in the activity regressor, biasing its coefficient
 toward zero by the reliability factor $\lambda$.* Fixes: (1) **measurement** — get a less-noisy measure
 of true activity (a more reliable scraper, validated on-chain ground truth); (2) **design** — instrument
-for $x^\*$ (Week 4 IV). A valid instrument would have to be correlated with true activity $x^\*$ but
+for $x^{*}$ (Week 4 IV). A valid instrument would have to be correlated with true activity $x^{*}$ but
 uncorrelated with both the equation error $\varepsilon$ and the measurement error $m$ — for example, a
 *second, independent* measurement of activity, which under CEV provides exactly the leverage to undo
 $\lambda$.
@@ -182,9 +182,9 @@ $\lambda$.
 
 ## Problem 5 — Mismeasured $y$ versus mismeasured $x$: bias versus standard error (16 pts)
 
-**(a)** [6 pts] With clean regressor $x = x^\*$ and observed outcome $y = y^\* + v$, substitute the true
-relation $y^\* = \beta_0 + \beta_1 x^\* + \varepsilon$:
-$$y = y^\* + v = \beta_0 + \beta_1 x^\* + \varepsilon + v = \beta_0 + \beta_1 x + (\varepsilon + v).$$
+**(a)** [6 pts] With clean regressor $x = x^{*}$ and observed outcome $y = y^{*} + v$, substitute the true
+relation $y^{*} = \beta_0 + \beta_1 x^{*} + \varepsilon$:
+$$y = y^{*} + v = \beta_0 + \beta_1 x^{*} + \varepsilon + v = \beta_0 + \beta_1 x + (\varepsilon + v).$$
 The composite error is $\varepsilon + v$. Under the classical assumption $v$ is uncorrelated with $x$,
 and $\varepsilon$ already is, so $\operatorname{Cov}(x,\ \varepsilon + v) = 0$ and
 $\mathbb{E}[\varepsilon + v\mid x] = 0$: the zero-conditional-mean assumption **survives**. Hence
@@ -270,14 +270,14 @@ Two model answers follow; either suffices.
   not its spread. (More replications sharpen the estimate of the center; they do not move it.)
 
 **Model answer — attenuation simulation.**
-- *DGP.* True $\beta_1 = 2$, $\beta_0 = 1$. Draw $x^\* \sim \mathcal{N}(0,1)$ so $\sigma_{x^\*}^2 = 1$,
-  $\varepsilon \sim \mathcal{N}(0,1)$, $y = \beta_0 + \beta_1 x^\* + \varepsilon$. Corrupt the regressor:
-  $x = x^\* + m$, $m \sim \mathcal{N}(0,\sigma_m^2)$ independent of $x^\*$ and $\varepsilon$.
+- *DGP.* True $\beta_1 = 2$, $\beta_0 = 1$. Draw $x^{*} \sim \mathcal{N}(0,1)$ so $\sigma_{x^{*}}^2 = 1$,
+  $\varepsilon \sim \mathcal{N}(0,1)$, $y = \beta_0 + \beta_1 x^{*} + \varepsilon$. Corrupt the regressor:
+  $x = x^{*} + m$, $m \sim \mathcal{N}(0,\sigma_m^2)$ independent of $x^{*}$ and $\varepsilon$.
   $N = 50{,}000$.
-- *Two regressions.* **Clean:** $y$ on $x^\*$ (recovers $\hat\beta_1 \approx 2$). **Mismeasured:** $y$ on
+- *Two regressions.* **Clean:** $y$ on $x^{*}$ (recovers $\hat\beta_1 \approx 2$). **Mismeasured:** $y$ on
   $x$ (recovers $\hat\beta_1 \approx 2\lambda$).
 - *Theoretical prediction.* $\hat\beta_1 \xrightarrow{p} \beta_1\lambda$ with
-  $\lambda = 1/(1 + \sigma_m^2)$ (since $\sigma_{x^\*}^2 = 1$).
+  $\lambda = 1/(1 + \sigma_m^2)$ (since $\sigma_{x^{*}}^2 = 1$).
 - *Sweep.* Run $\sigma_m \in \{0, 0.5, 1.0, 2.0\}$. Predict, before running, that $\hat\beta_1$ slides
   $2.00 \to 1.60 \to 1.00 \to 0.40$ (i.e. $\beta_1\lambda$ for $\lambda = 1, 0.8, 0.5, 0.2$). Plot
   $\hat\beta_1$ against $\lambda$ — a straight line through the origin with slope $\beta_1$.

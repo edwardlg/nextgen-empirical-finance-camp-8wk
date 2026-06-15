@@ -9,8 +9,8 @@ Conventions. The true (long) model is written
 $$y = \beta_0 + \beta_1 x + \beta_2 z + \varepsilon, \qquad \mathbb{E}[\varepsilon \mid x, z] = 0,$$
 the short (misspecified) model is $y = \tilde\beta_0 + \tilde\beta_1 x + u$, and the auxiliary slope of
 the omitted $z$ on the included $x$ is $\delta_1 = \operatorname{Cov}(x,z)/\operatorname{Var}(x)$. For
-the measurement-error problems the true regressor is $x^\*$, the observed one is $x = x^\* + m$, and
-$\lambda = \sigma_{x^\*}^2/(\sigma_{x^\*}^2 + \sigma_m^2)$ is the reliability ratio.
+the measurement-error problems the true regressor is $x^{*}$, the observed one is $x = x^{*} + m$, and
+$\lambda = \sigma_{x^{*}}^2/(\sigma_{x^{*}}^2 + \sigma_m^2)$ is the reliability ratio.
 
 Six problems, escalating, **100 points total**. Each is self-contained. Where a numerical answer is
 asked for, the inputs are supplied so you can work by hand. **The grading rule of this set:** a
@@ -108,23 +108,23 @@ data would and would not fix, and which ledger column that scenario belongs to.
 ## Problem 4 — Classical measurement error: derive $\lambda$, predict the attenuated slope (18 points)
 
 Devon scrapes "on-chain wallet activity" with an imperfect scraper and uses it as a regressor for
-next-week token return. The true model is $y = \beta_0 + \beta_1 x^\* + \varepsilon$ with
-$\mathbb{E}[\varepsilon \mid x^\*] = 0$; Devon observes $x = x^\* + m$. Assume the classical
-errors-in-variables (CEV) conditions: $m$ has mean zero and is uncorrelated with both $x^\*$ and
+next-week token return. The true model is $y = \beta_0 + \beta_1 x^{*} + \varepsilon$ with
+$\mathbb{E}[\varepsilon \mid x^{*}] = 0$; Devon observes $x = x^{*} + m$. Assume the classical
+errors-in-variables (CEV) conditions: $m$ has mean zero and is uncorrelated with both $x^{*}$ and
 $\varepsilon$.
 
 **(a)** [8 pts] Derive the probability limit of the OLS slope of $y$ on the observed $x$. Compute
 $\operatorname{Cov}(x,y)$ and $\operatorname{Var}(x)$ separately under CEV, showing which cross terms die
 and *why*, and conclude
 $$\hat\beta_1 \xrightarrow{p} \beta_1 \cdot \lambda, \qquad
-\lambda = \frac{\sigma_{x^\*}^2}{\sigma_{x^\*}^2 + \sigma_m^2}.$$
+\lambda = \frac{\sigma_{x^{*}}^2}{\sigma_{x^{*}}^2 + \sigma_m^2}.$$
 State why $0 < \lambda \le 1$ and therefore in which direction the estimate is biased, *for any sign of*
 $\beta_1$.
 
 **(b)** [4 pts] Suppose the true effect is $\beta_1 = 1.0$ and the reliability ratio is $\lambda = 0.6$
 (40% of the variance in Devon's measure is scraper noise). What value does Devon's OLS coefficient
 converge to? If Devon instead halved the noise variance so that $\sigma_m^2$ fell to one-quarter of
-$\sigma_{x^\*}^2$, recompute $\lambda$ and the new probability limit.
+$\sigma_{x^{*}}^2$, recompute $\lambda$ and the new probability limit.
 
 **(c)** [3 pts] Explain why no amount of additional data moves the answer in (b): contrast "bias in the
 probability limit" with "sampling noise that averages out." Which one is attenuation?
@@ -132,17 +132,17 @@ probability limit" with "sampling noise that averages out." Which one is attenua
 **(d)** [3 pts] Name the threat in spec-discipline language ("classical measurement error in the activity
 regressor, biasing its coefficient toward zero") and name the *two* fixes — one measurement-based, one
 design-based — pointing to the Week 4 tool. For the design fix, state in one clause what a valid
-instrument for $x^\*$ would have to be.
+instrument for $x^{*}$ would have to be.
 
 ---
 
 ## Problem 5 — Mismeasured $y$ versus mismeasured $x$: bias versus standard error (16 points)
 
 This problem isolates the chapter's crucial asymmetry. Use the same true model as Problem 4,
-$y = \beta_0 + \beta_1 x^\* + \varepsilon$.
+$y = \beta_0 + \beta_1 x^{*} + \varepsilon$.
 
-**(a)** [6 pts] Now suppose the *regressor is clean* ($x = x^\*$) but the **outcome** is measured with
-classical noise: Devon observes $y = y^\* + v$, with $v$ mean-zero and uncorrelated with $x^\*$. Write the
+**(a)** [6 pts] Now suppose the *regressor is clean* ($x = x^{*}$) but the **outcome** is measured with
+classical noise: Devon observes $y = y^{*} + v$, with $v$ mean-zero and uncorrelated with $x^{*}$. Write the
 estimated equation in terms of the observed $y$ and show that the composite error becomes
 $\varepsilon + v$. Argue that the zero-conditional-mean assumption *survives*, so $\hat\beta_1$ stays
 **consistent**. What is the only cost, and to which quantity?

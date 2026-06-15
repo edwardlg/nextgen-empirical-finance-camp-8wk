@@ -131,41 +131,41 @@ Now the second threat. Even with no omitted variable, your coefficient can be bi
 
 **The result, in one sentence:** when your key regressor is a noisy version of the true variable, with noise that is just random static unrelated to anything, the OLS coefficient is biased *toward zero* — a phenomenon called **attenuation bias** — and the shrinkage factor is the share of the regressor's variance that is real signal rather than noise.
 
-Set it up. The true model uses the true regressor $x^\*$:
+Set it up. The true model uses the true regressor $x^{*}$:
 
-$$y = \beta_0 + \beta_1 x^\* + \varepsilon, \qquad \mathbb{E}[\varepsilon \mid x^\*] = 0.$$
+$$y = \beta_0 + \beta_1 x^{*} + \varepsilon, \qquad \mathbb{E}[\varepsilon \mid x^{*}] = 0.$$
 
-But you do not observe $x^\*$. You observe a mismeasured version
+But you do not observe $x^{*}$. You observe a mismeasured version
 
-$$x = x^\* + m,$$
+$$x = x^{*} + m,$$
 
-where $m$ is **measurement error**. The **classical errors-in-variables** (CEV) assumptions are that the error is pure random static: $m$ has mean zero, is uncorrelated with the true value $x^\*$, and is uncorrelated with the equation error $\varepsilon$. (Think of $m$ as a thermometer that reads the true temperature plus an independent jiggle.) You regress $y$ on the observed $x$. What happens?
+where $m$ is **measurement error**. The **classical errors-in-variables** (CEV) assumptions are that the error is pure random static: $m$ has mean zero, is uncorrelated with the true value $x^{*}$, and is uncorrelated with the equation error $\varepsilon$. (Think of $m$ as a thermometer that reads the true temperature plus an independent jiggle.) You regress $y$ on the observed $x$. What happens?
 
-Substitute $x^\* = x - m$ into the true model:
+Substitute $x^{*} = x - m$ into the true model:
 
 $$y = \beta_0 + \beta_1 (x - m) + \varepsilon = \beta_0 + \beta_1 x + \underbrace{(\varepsilon - \beta_1 m)}_{\text{new error } u}.$$
 
-Look at the new composite error $u = \varepsilon - \beta_1 m$. It contains $-\beta_1 m$. And the regressor $x = x^\* + m$ also contains $m$. So the regressor and the error share the term $m$ — they are *mechanically correlated*. The zero-conditional-mean assumption fails again, this time not because we omitted a variable but because the noise in our regressor leaks into the error term. Let us compute the consequence. The probability limit of the OLS slope is
+Look at the new composite error $u = \varepsilon - \beta_1 m$. It contains $-\beta_1 m$. And the regressor $x = x^{*} + m$ also contains $m$. So the regressor and the error share the term $m$ — they are *mechanically correlated*. The zero-conditional-mean assumption fails again, this time not because we omitted a variable but because the noise in our regressor leaks into the error term. Let us compute the consequence. The probability limit of the OLS slope is
 
 $$\hat{\beta}_1 \xrightarrow{p} \frac{\operatorname{Cov}(x, y)}{\operatorname{Var}(x)}.$$
 
 Compute the pieces under the CEV assumptions. The numerator:
 
-$$\operatorname{Cov}(x, y) = \operatorname{Cov}(x^\* + m,\ \beta_0 + \beta_1 x^\* + \varepsilon) = \beta_1 \operatorname{Var}(x^\*),$$
+$$\operatorname{Cov}(x, y) = \operatorname{Cov}(x^{*} + m,\ \beta_0 + \beta_1 x^{*} + \varepsilon) = \beta_1 \operatorname{Var}(x^{*}),$$
 
-because $m$ is uncorrelated with $x^\*$ and with $\varepsilon$, killing every cross term. The denominator, because $x^\*$ and $m$ are uncorrelated, splits cleanly:
+because $m$ is uncorrelated with $x^{*}$ and with $\varepsilon$, killing every cross term. The denominator, because $x^{*}$ and $m$ are uncorrelated, splits cleanly:
 
-$$\operatorname{Var}(x) = \operatorname{Var}(x^\*) + \operatorname{Var}(m) = \sigma_{x^\*}^2 + \sigma_m^2.$$
+$$\operatorname{Var}(x) = \operatorname{Var}(x^{*}) + \operatorname{Var}(m) = \sigma_{x^{*}}^2 + \sigma_m^2.$$
 
 Divide:
 
-$$\boxed{\ \hat{\beta}_1 \xrightarrow{p} \beta_1 \cdot \underbrace{\frac{\sigma_{x^\*}^2}{\sigma_{x^\*}^2 + \sigma_m^2}}_{\text{attenuation factor } \lambda}\ }$$
+$$\boxed{\ \hat{\beta}_1 \xrightarrow{p} \beta_1 \cdot \underbrace{\frac{\sigma_{x^{*}}^2}{\sigma_{x^{*}}^2 + \sigma_m^2}}_{\text{attenuation factor } \lambda}\ }$$
 
-The OLS slope converges not to $\beta_1$ but to $\beta_1$ multiplied by a number $\lambda = \sigma_{x^\*}^2 / (\sigma_{x^\*}^2 + \sigma_m^2)$. Because variances are non-negative, $\lambda$ lies strictly between 0 and 1 (whenever there is any noise, $\sigma_m^2 > 0$). So the estimate is *pulled toward zero* — smaller in magnitude than the truth, regardless of sign. This is **attenuation bias**.
+The OLS slope converges not to $\beta_1$ but to $\beta_1$ multiplied by a number $\lambda = \sigma_{x^{*}}^2 / (\sigma_{x^{*}}^2 + \sigma_m^2)$. Because variances are non-negative, $\lambda$ lies strictly between 0 and 1 (whenever there is any noise, $\sigma_m^2 > 0$). So the estimate is *pulled toward zero* — smaller in magnitude than the truth, regardless of sign. This is **attenuation bias**.
 
-The factor $\lambda$ has a beautiful interpretation: it is the **reliability ratio**, the fraction of the observed regressor's variance that is genuine signal. If half the variance in your measured $x$ is noise ($\sigma_m^2 = \sigma_{x^\*}^2$), then $\lambda = 1/2$ and your coefficient is exactly *half* its true size — a 100% measurement-error variance halves your estimate. If the measurement is nearly perfect ($\sigma_m^2 \approx 0$), $\lambda \approx 1$ and there is no problem. Unlike OVB, the *direction* of classical measurement-error bias is always known: toward zero. A real effect looks weaker than it is; you under-reject; you may miss a relationship that genuinely exists.
+The factor $\lambda$ has a beautiful interpretation: it is the **reliability ratio**, the fraction of the observed regressor's variance that is genuine signal. If half the variance in your measured $x$ is noise ($\sigma_m^2 = \sigma_{x^{*}}^2$), then $\lambda = 1/2$ and your coefficient is exactly *half* its true size — a 100% measurement-error variance halves your estimate. If the measurement is nearly perfect ($\sigma_m^2 \approx 0$), $\lambda \approx 1$ and there is no problem. Unlike OVB, the *direction* of classical measurement-error bias is always known: toward zero. A real effect looks weaker than it is; you under-reject; you may miss a relationship that genuinely exists.
 
-**Maya's self-reported income.** Maya's dataset records applicant income from a self-reported field on the application — and self-reported income is famously noisy (people round, misremember, conflate gross and net, occasionally exaggerate). Treat self-reported income as $x = x^\* + m$ where $x^\*$ is true income. Then the coefficient on income in her approval model is attenuated: it will *understate* how much true income matters for approval. The threat, named per spec discipline: **classical measurement error in income, biasing its coefficient toward zero**; the fix is a better-measured income (verified tax records, pay stubs) or, formally, an instrument for true income (Week 4) — for example, a second independent measurement, which under CEV provides exactly the leverage needed to undo $\lambda$.
+**Maya's self-reported income.** Maya's dataset records applicant income from a self-reported field on the application — and self-reported income is famously noisy (people round, misremember, conflate gross and net, occasionally exaggerate). Treat self-reported income as $x = x^{*} + m$ where $x^{*}$ is true income. Then the coefficient on income in her approval model is attenuated: it will *understate* how much true income matters for approval. The threat, named per spec discipline: **classical measurement error in income, biasing its coefficient toward zero**; the fix is a better-measured income (verified tax records, pay stubs) or, formally, an instrument for true income (Week 4) — for example, a second independent measurement, which under CEV provides exactly the leverage needed to undo $\lambda$.
 
 ---
 
@@ -173,7 +173,7 @@ The factor $\lambda$ has a beautiful interpretation: it is the **reliability rat
 
 The clean attenuation result is for one specific case. Three variations matter, and confusing them is a common error.
 
-**(1) Mismeasured $y$ is harmless to the slope (mostly).** Suppose the *outcome* is measured with classical error: you observe $y = y^\* + v$ with $v$ random static uncorrelated with the regressors. Then the mismeasurement just folds into the equation error: $y = \beta_0 + \beta_1 x + (\varepsilon + v)$. Since $v$ is uncorrelated with $x$, the zero-conditional-mean assumption *survives*, and $\hat\beta_1$ remains **consistent**. The only cost is a larger error variance, which inflates standard errors — a *precision* problem, not a *bias* problem. This is the crucial asymmetry: **classical noise in $x$ biases the slope; classical noise in $y$ does not.** (The catch is "classical": if the outcome's error is *correlated* with a regressor — say, people with higher $x$ systematically over-report $y$ — all bets are off.)
+**(1) Mismeasured $y$ is harmless to the slope (mostly).** Suppose the *outcome* is measured with classical error: you observe $y = y^{*} + v$ with $v$ random static uncorrelated with the regressors. Then the mismeasurement just folds into the equation error: $y = \beta_0 + \beta_1 x + (\varepsilon + v)$. Since $v$ is uncorrelated with $x$, the zero-conditional-mean assumption *survives*, and $\hat\beta_1$ remains **consistent**. The only cost is a larger error variance, which inflates standard errors — a *precision* problem, not a *bias* problem. This is the crucial asymmetry: **classical noise in $x$ biases the slope; classical noise in $y$ does not.** (The catch is "classical": if the outcome's error is *correlated* with a regressor — say, people with higher $x$ systematically over-report $y$ — all bets are off.)
 
 **(2) Mismeasured controls re-open OVB.** Suppose your *control* variable is mismeasured. Maya includes creditworthiness, but her credit proxy is noisy. Then the control only *partially* removes the confounding it was meant to absorb — the regression "controls for" the noisy proxy, not the true confounder, so residual confounding leaks back into the coefficient on $D$. A noisily-measured control is a partially-omitted control. This is why "I controlled for it" and "I controlled for it *well*" are different claims, and why the OVB bet of Section 2.5.5 is even riskier than it first looked.
 
@@ -293,7 +293,7 @@ Now we collect everything. The single most useful habit this chapter can give yo
 | **Omitted variable** (relevant + correlated with $x$) | Yes | sign of $\beta_2\,\delta_1$ (two-sign rule) | **Bias** | Include the control (a *bet*); better: randomization or natural experiment that removes the confounder by design → **Weeks 3–4** |
 | Irrelevant variable omitted ($\beta_2=0$) | No | — | Neither | Nothing needed |
 | Relevant variable, *uncorrelated* with $x$ ($\delta_1=0$) | No | — | **SE** (larger error variance) | Include it to gain precision |
-| **Classical measurement error in $x$** | Yes | toward zero (attenuation, factor $\lambda$) | **Bias** | Better measurement; instrument for $x^\*$ → **Week 4** |
+| **Classical measurement error in $x$** | Yes | toward zero (attenuation, factor $\lambda$) | **Bias** | Better measurement; instrument for $x^{*}$ → **Week 4** |
 | Measurement error in $y$ (classical) | No | — | **SE** (wider intervals) | Live with it / more data |
 | Mismeasured *control* | Yes (re-opens OVB) | partial, in OVB direction | **Bias** | Measure the control well; instrument; better design |
 | Non-classical measurement error | Yes | either direction | **Bias** | Model the error process; validation data |

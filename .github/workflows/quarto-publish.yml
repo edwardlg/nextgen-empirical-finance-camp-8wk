@@ -62,10 +62,16 @@ jobs:
         run: quarto render --to html
 
       - name: Render 8-week book -> _site/ (PDF)
+        # Non-blocking: the HTML site is the primary deliverable and the PDF is
+        # not linked on the site (downloads: []). A PDF/LaTeX hiccup must never
+        # block the Pages deploy.
+        continue-on-error: true
         run: quarto render --to pdf
 
       # ---- Per-week PowerPoint decks (Weeks 1-8, with speaker notes)
       - name: Render decks -> book/decks/*.pptx
+        # Non-blocking: decks are a supplementary artifact, not the site itself.
+        continue-on-error: true
         run: |
           set -e
           mkdir -p _site/decks
