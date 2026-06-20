@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Where This Goes Next
+
+- Part 14 — the machine, aimed at a regression slope
+
+::: notes
+Welcome back to Hypothesis Testing Done Right, part fourteen of fourteen — the finale. In part thirteen we saw how a search across many tests breaks single-test logic, and how pre-registration and corrections defend against it. Now we step back, see the whole machine we built across this chapter, and follow it forward into the regression engine of Week Two.
+:::
+
+## The Machine You Built
+
+- A test statistic = an estimate divided by its standard error
+- The **t** makes it operational when variance is estimated
+- Size and power: the two ways to be wrong, and the levers between
+- The p-value: the data's extremeness under $H_0$, and nothing else
+- A confidence interval: the whole family of un-rejectable nulls
+- **Effect size**, not significance, says whether it matters
+
+::: notes
+Step back and see what you built. A test statistic is an estimate divided by its standard error. The t-statistic is that idea made operational when the variance must itself be estimated — leaning on the Central Limit Theorem from Chapter one-point-four, finite-sample-honest through the t-distribution, and normal again in the limit. Size and power are the two ways to be wrong and the levers that trade between them. The p-value, defined correctly, measures the data's extremeness under the null and nothing else — never the probability the null is true. A confidence interval is the whole family of un-rejectable nulls, the more honest object to report. And effect size, not significance, is what tells you whether any of it actually matters. Six ideas, one coherent machine. Every one of them was built around a single trading rule and a single sobering year of data, but none of them is about Sam — they are the permanent grammar of empirical claims.
+:::
+
+## The Same Machine, Aimed at a Slope
+
+- Recall the t: estimate, minus null, over standard error
+- Week 2 builds the **OLS regression engine**
+- Its core output: a slope $\hat\beta$ relating two variables
+- "Does $X$ move with $Y$, or is it noise?"
+- Compute $t=(\hat\beta-0)/\widehat{\operatorname{se}}(\hat\beta)$ — the same machine
+- Every idea here reappears there
+
+::: notes
+Now look at the t-statistic one more time: estimate, minus the null value, divided by the standard error. In Week Two we build the ordinary-least-squares regression engine, and its core output is a coefficient beta hat that estimates how one variable moves with another. To ask whether X actually moves with Y, or whether it is just noise, you will compute t equals beta hat minus zero, all over the standard error of beta hat — the exact same machine you just built, pointed at a slope instead of a mean. Every idea in this chapter reappears there: the null that the slope is zero, the standard error in the denominator, size and power, the p-value defined correctly, the confidence interval around the coefficient, and the warning that statistical significance is not economic significance. That is why we spent so long getting it right here, on the simplest possible case — a single average — before the regression machinery arrives and starts producing coefficients by the dozen. Great work this week. Open the notebook, build the t-test from scratch on Sam's returns, simulate the power curves, and watch the false-positive rate balloon toward sixty-four percent. That closes Week One. I'll see you in Week Two.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The whole chapter is one machine: a test statistic is an **estimate over its standard error**, made operational by the **t**, read through **size, power, the p-value, the confidence interval, and effect size**. In Week 2 the very same machine is aimed at a regression slope $\hat\beta$ — which is why we got it right here first.
+:::
+
+::: notes
+To summarize the finale, and the chapter: everything you built is one machine. A test statistic is an estimate divided by its standard error; the t makes it work when the variance must be estimated; size and power are the two ways to be wrong; the p-value measures the data's extremeness under the null and nothing more; the confidence interval is the whole family of nulls you cannot reject; and effect size, not significance, is what tells you whether it matters. In Week Two we point that exact machine at a regression slope beta hat, asking whether X moves with Y, and every idea from this chapter returns. That is why we spent so long getting it right on a single average first. Great work closing Week One — open the notebook, build the t-test by hand, plot the power curves, and watch the multiple-testing false-positive rate climb toward sixty-four percent. See you in Week Two.
+:::

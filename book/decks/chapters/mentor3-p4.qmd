@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Complier Population and How to Read One
+
+- Part 4 — the third pillar: compliers, and the full reading checklist
+
+::: notes
+Welcome back to natural experiments, part four of five. In part three we defended the exclusion restriction with institutional facts and a strong first stage. Now the third pillar: the complier population. Even a perfect natural experiment does not measure the effect on everyone — it measures it for the units the lever actually moved. We close by assembling the full checklist for reading and running one.
+:::
+
+## The Lever Only Moves Some Units
+
+- From the LATE theorem (Chapter 3.4), you estimate compliers' effect
+- **Compliers** = the units the lever actually moved
+- Not the **never-takers** — untouched by the rule
+- Not the **always-takers** — already at the limit
+- A constraint-relaxing rule bites only the marginal units
+
+::: notes
+The lever only moves some units, and you estimate the effect for exactly those — the compliers — not for everyone. This is the LATE theorem from Chapter three-point-four, the local average treatment effect. Think of a rule that relaxes a short-sale constraint. It changes nothing for stocks that nobody wanted to short anyway — those are never-takers, untouched. It changes nothing for stocks already shorted to the hilt — those are always-takers, already at the limit. The rule bites only on the marginal stocks, the ones whose short-selling it actually unlocked. Those marginal units are your compliers, and the effect you measure is theirs alone. The estimate is silent about everyone else.
+:::
+
+## Whose Effect, and Is It the Right One?
+
+- Always ask: who are the compliers, can I describe them?
+- Is their effect the policy-relevant one?
+- Two valid experiments, same question, *different* numbers
+- Both correct — they moved different compliers
+- Before generalizing, name the population behind the estimate
+
+::: notes
+So always ask three things. Who are the compliers? Can I describe them concretely? And is their effect the one the policy question actually cares about? This matters more than it first appears. Two perfectly valid natural experiments aimed at the same question can hand you two different numbers — and both can be correct, because each moved a different set of compliers. There is no contradiction; they simply measured different sub-populations. Before you generalize from any natural experiment, before you let the abstract say the constraint causes the outcome to change, you must name the population hiding behind the estimate. An honest sentence says: relaxing the constraint changes the outcome for the firms whose behavior the rule actually moved.
+:::
+
+## How to Read and Run One
+
+- Name the assignment mechanism in one sentence
+- Then ask: was it blind, what else did it do, whose effect?
+- Report **balance**, the **first stage**, the **reduced form**
+- A weak lever needs weak-IV-robust tools, not a confident t-stat
+- Your goal: spot the lever, defend it as a hostile referee would attack it
+
+::: notes
+Here is the full checklist for reading or running a natural experiment. Name the assignment mechanism in one sentence — what force assigned the treatment, to whom, and why. Then ask the three questions: was it blind, what else did it do, and whose effect is this? Report three things: the balance check, the first stage — did the rule actually move the treatment? — and the reduced form — did it move the outcome? And remember honest inference still matters: a weak lever needs the weak-IV-robust tools from Chapter three-point-five, not a confident-looking t-statistic. Your summer goal is simple to state and hard to do: spot the lever nature pulled, and defend it the way a hostile referee would attack it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A natural experiment measures the **complier** effect (LATE) — the units the lever moved — not the never-takers or always-takers. Always name whose effect it is and whether that is the policy-relevant one. To read one: name the mechanism, then check **balance**, **first stage**, **reduced form**, and use weak-IV-robust tools when the lever is faint. Next: a real one from Prof. Gao's own work.
+:::
+
+::: notes
+To summarize part four: a natural experiment measures the complier effect — the local average treatment effect for the units the lever actually moved — not the never-takers or always-takers. So name whose effect it is and ask whether that is the policy-relevant population, because two valid designs can give two different, both-correct numbers. To read or run one, name the assignment mechanism, then report balance, the first stage, and the reduced form, reaching for weak-IV-robust tools when the lever is faint. In part five we make all of this concrete with a real regulatory natural experiment from my own work — short-sale constraints and stock price crash risk.
+:::

@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## A Placebo Is a Prediction; Sensitivity and the Bandwidth Knob
+
+- Part 7 — placebo as prediction; sensitivity and the bandwidth knob
+
+::: notes
+Welcome back to Robustness and Inference Stress-Tests, part seven of fourteen. In part six we ran the three placebos — fake dates, fake units, fake outcomes. Now we land the intellectual-honesty point that ties them together: a placebo is a prediction your theory makes about where you should find nothing. Then we open the third great attack, sensitivity analysis, starting with its sharpest knob — the regression-discontinuity bandwidth.
+:::
+
+## A Placebo Is a Prediction
+
+- A placebo is *where your theory predicts nothing*
+- Reporting a failed placebo is **not optional**
+- Referees run placebos in their heads as they read
+- Omit the obvious one — the paper reads as evasive
+- Report a failed one and grapple — the paper reads as honest
+- You ran it to find the truth, not to collect a pass
+
+::: notes
+The unifying intellectual-honesty point: a placebo test is a prediction your theory makes about where you should find nothing, and reporting a failed placebo is not optional. Referees run placebos in their heads as they read; a paper that omits the obvious one reads as evasive, and a paper that reports a failed one and grapples with it reads as honest. You ran the placebo to find out the truth, not to collect a pass.
+:::
+
+## Sensitivity Analysis: The Sharper Question
+
+- Every analysis has knobs — defensible alone, free in combination
+- Wiggle each across its range, report how the estimate moves
+- Overlaps the specification curve of Chapter 8.1
+- Sharper question: hostage to *this particular* choice?
+- Not "stable across all forks" but "stable to this one"
+
+::: notes
+Now the third attack: sensitivity analysis. Every analysis has knobs — tuning parameters and judgment calls that are individually defensible but, taken together, give you enormous freedom to land on a number you like. Sensitivity analysis wiggles each knob across its defensible range and reports how much the estimate moves. It overlaps with the specification curve of Chapter eight-point-one, but with a sharper question: not "is my result stable across all forks?" but "is my result hostage to this particular arbitrary choice?" Three knobs matter most — the bandwidth, the controls, and the sample. We take the first one now.
+:::
+
+## Bandwidth — The RD Knob
+
+- RD compares units just above and below a cutoff
+- "Just" is set by a bandwidth $h$
+- Too wide imports contaminated units; too narrow, wild and imprecise
+- The bias–variance trade-off Calonico–Cattaneo–Titiunik automates
+- **Pass:** estimate flat and significant from $h/2$ to $2h$
+- **Fail:** significant only in a narrow window you happened to pick
+
+::: notes
+The first knob is bandwidth — the regression-discontinuity knob, for the R-D crowd of Chapter four-point-three. An R-D estimate compares units just above and just below a cutoff, and "just" is set by a bandwidth, h: include units within h of the threshold. Too wide and you import units far from the cutoff whose comparison is contaminated by the very confounding R-D was meant to avoid; too narrow and you have almost no data and a wild, imprecise estimate. That bias–variance trade-off is exactly the one the Calonico–Cattaneo–Titiunik robust bias-corrected procedure automates, but you must still show the estimate is not an artifact of one bandwidth. The standard display is a sensitivity plot: the R-D coefficient and its confidence band as a function of h, from half the optimal bandwidth to twice it. Pass: the estimate is flat and stays significant across the range — not a bandwidth artifact. Fail: the estimate swings wildly, or is significant only in a narrow window of h around the value you happened to pick. That is a result tuned into existence, and a referee who sees a single bandwidth with no sensitivity plot assumes the worst.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A placebo is a **prediction** your theory makes about where you should find nothing — reporting a failure is mandatory. **Sensitivity analysis** then asks whether your result is hostage to one arbitrary knob; the RD bandwidth demands a plot from $h/2$ to $2h$. Next: the controls and sample knobs.
+:::
+
+::: notes
+To summarize part seven: a placebo is a prediction your theory makes about where you should find nothing, so reporting a failed one is mandatory — referees run placebos in their heads, and a paper that grapples with a failure reads as honest. Sensitivity analysis then asks the sharper question: not whether your result is stable across all forks, but whether it is hostage to this one arbitrary choice. The first knob, the regression-discontinuity bandwidth, demands a sensitivity plot from half to twice the optimal h; a result significant only in a narrow window you happened to pick was tuned into existence. In part eight we turn the other two knobs — the controls and the sample, including winsorizing.
+:::

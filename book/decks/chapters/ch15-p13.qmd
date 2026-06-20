@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Multiple Testing and p-Hacking
+
+- Part 13 — many tests break the single-test logic
+
+::: notes
+Welcome back to Hypothesis Testing Done Right, part thirteen of fourteen. In part twelve we named the three mistakes to never make. Now we close the chapter's content with a warning that Week One only previews: the way a search across many tests quietly breaks the single-test logic we worked so hard to build. The full treatment of corrections comes later in the camp; here we want the intuition to stick.
+:::
+
+## Twenty Rules, Not One
+
+- Sam tested *twenty* rules, kept the one with $p<0.05$
+- If all twenty are worthless and independent...
+- $\Pr(\text{at least one passes})=1-0.95^{20}\approx0.64$
+- A **64%** chance a dead rule looks "significant"
+- Test enough junk and a spurious winner is *guaranteed*
+- Per-test $\alpha$ was never built to survive cherry-picking
+
+::: notes
+Return to Sam, but change one detail. Suppose Sam did not test one rule. Sam tested twenty — reversal, momentum, day-of-week, moon phase, the lot — kept the one with p below zero point zero five, and reported only that winner. Has Sam found something? Almost certainly not, and here is the arithmetic. If the null is true for a single rule, the probability of a false positive at alpha equals zero point zero five is, by construction, five percent. Now suppose all twenty rules are truly worthless, and, for the illustration, their tests are independent. The probability that at least one of them crosses p below zero point zero five by pure luck is one minus zero point nine five raised to the twentieth power, which is about one minus zero point three five eight, or zero point six four. There is a sixty-four percent chance — better than a coin flip — that at least one dead rule looks significant, simply because Sam gave luck twenty tries. Test enough worthless ideas and you are guaranteed a spurious winner. The per-test error rate alpha was never designed to survive being applied dozens of times and then cherry-picked.
+:::
+
+## p-Hacking and Two Defenses
+
+- **p-hacking:** run many analyses, report only the winners
+- The reported p is a lie — it hides the silent attempts
+- The "garden of forking paths": every choice is a hidden test
+- **Pre-registration:** commit to hypotheses before seeing data
+- **Corrections:** Bonferroni tests each at $\alpha/m$
+- Or control the **false discovery rate** — the fraction of false finds
+
+::: notes
+This is the heart of p-hacking, also called data dredging: running many analyses — many rules, many variable definitions, many subsamples, many control sets — and reporting only the ones that crossed the significance line, as though that single test had stood alone. The reported p-value is then a lie, because it ignores the nineteen silent attempts behind it. The problem is general; it is sometimes called the garden of forking paths, because even a single analysis involves dozens of small choices, each a hidden test. Two honest defenses, which the camp builds properly later. First, pre-registration — committing to your hypotheses and analysis before seeing the data — removes the ability to fish, because the forking paths are nailed down in advance. Second, multiple-testing corrections adjust the bar when you run many tests. The crude Bonferroni rule tests each of m hypotheses at alpha divided by m, so the chance of any false positive stays near alpha. More refined approaches control the false discovery rate — the expected fraction of your discoveries that are false — which is usually the more sensible target when screening many candidate signals at once, as in finance and genomics.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The false-positive rate of a single test does **not** protect a search across many: twenty dead rules give a $\approx64\%$ chance of a spurious "winner." **p-hacking** reports only the winners and hides the rest. Defend with **pre-registration** and **corrections** (Bonferroni, FDR). Next: stepping back, and on to Week 2.
+:::
+
+::: notes
+To summarize part thirteen: the false-positive rate of a single test does not protect a search across many tests. Twenty worthless rules give a sixty-four percent chance that at least one looks significant by pure luck, so test enough junk and a spurious winner is guaranteed. That is p-hacking — running many analyses and reporting only the ones that crossed the line, which turns the stated p-value into a lie because it hides the silent attempts behind it. The honest defenses are pre-registration, which nails the analysis down before the data are seen, and multiple-testing corrections like Bonferroni and false-discovery-rate control. The takeaway intuition: when you read a paper claiming a trading rule, a risk factor, or a treatment effect, the first question is always how many things did they try before they found this one. In part fourteen, the finale, we step back, see everything we built, and look ahead to the regression engine of Week Two.
+:::

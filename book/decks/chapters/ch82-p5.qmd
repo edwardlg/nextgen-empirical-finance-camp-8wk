@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Reading the Bootstrap Verdict and the Logic of a Placebo
+
+- Part 5 — the bootstrap verdict and the logic of a placebo
+
+::: notes
+Welcome back to Robustness and Inference Stress-Tests, part five of fourteen. In part four we built the wild cluster bootstrap — flipping each cluster's residual sign under the null to get honest inference when treated clusters are few. Now we read its verdict, pass or fail, and then open the second great family of attacks: placebo tests, whose logic the bootstrap already shares.
+:::
+
+## Reading Pass and Fail Honestly
+
+- **Pass:** bootstrap p-value small, agrees with conventional clustered p
+- Significance was not an artifact of too few clusters
+- **Fail:** conventional $p=0.01$ but bootstrap $p=0.18$
+- That is the few-clusters illusion, exposed
+- Report it as *suggestive, not significant* — drop the fake stars
+- When they disagree, **believe the bootstrap**
+
+::: notes
+How do you read pass and fail? Pass: the wild-cluster p-value is small, and roughly agrees with your conventional clustered p-value. Your significance was not an artifact of too few clusters. Fail: the wild-cluster p-value is much larger — say your conventional table said p equals zero-point-zero-one but the bootstrap says zero-point-one-eight. That is the few-clusters illusion exposed, and the honest report is brutal and short: the point estimate is negative one-point-four points, but with few treated clusters, inference is too imprecise to reject zero; we report the result as suggestive, not significant. You do not get to keep the three stars from the conventional standard error once the bootstrap has told you they are fake. The whole reason the wild cluster bootstrap is in your threats table is that, for designs with few treated clusters, it — not the default clustered standard error — is the honest inference. If they disagree, believe the bootstrap.
+:::
+
+## The Logic of a Placebo
+
+- Run the exact analysis where **no effect can exist**
+- Fake treatment date, fake unit, or fake outcome
+- Check that you correctly find nothing
+- A control group raised one level
+- Finds an effect where none can be? Your method manufactures patterns
+- Same idea as Chapter 4.1 permutation inference
+
+::: notes
+The bootstrap already used placebo logic, so let's make placebos a formal weapon. A placebo test runs your exact analysis on a setting where, by construction, there can be no treatment effect — a fake treatment date, a fake treatment unit, or a fake outcome — and checks that you correctly find nothing. The logic is the logic of a control group raised one level: if your method finds an effect where none can exist, then the effect it found in your real analysis is suspect too, because your method is manufacturing patterns out of whatever structure is in the data. Recall the placebo permutation inference of Chapter four-point-one — assign Card and Krueger's treatment to every other state in turn — and the Bertrand–Duflo–Mullainathan placebo of Week Five. This is the same idea, now a standard weapon in your battery.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+If the wild-cluster p-value disagrees with your default SE, **believe the bootstrap** and report the result as suggestive, not significant. The same permutation spirit drives the **placebo test**: run your analysis where no effect can exist and demand you find nothing. Next: fake dates and units.
+:::
+
+::: notes
+To summarize part five: the wild cluster bootstrap passes when its p-value is small and agrees with your conventional clustered p-value, and fails when it is much larger — exposing the few-clusters illusion. When they disagree, you believe the bootstrap and report the result as suggestive, not significant; you do not keep stars the bootstrap has told you are fake. That same permutation spirit defines the placebo test, the second great family of attacks: run your exact analysis where, by construction, no effect can exist, and demand you find nothing. If your method finds an effect where none can be, it is manufacturing patterns. In part six we run the concrete placebos — fake treatment dates, and fake treatment units.
+:::

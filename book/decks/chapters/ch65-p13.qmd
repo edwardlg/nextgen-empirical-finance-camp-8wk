@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## Azure, Audit Logging, and Local Fallback
+
+- Part 13 — Azure gateway, audit logging, local fallback
+
+::: notes
+Welcome back to the AI co-pilot for research, part thirteen of fourteen. In part twelve we wrote the Anthropic Messages A-P-I call with prompt caching. Now we add the rest of the production picture: GMU's Azure gateway as a second provider, audit logging, and a local fallback that keeps licensed data inside GMU.
+:::
+
+## GMU's Azure Deployment
+
+- GMU serves OpenAI-family models through an Azure gateway
+- Same shape: read the key from the environment, never hard-code
+- The endpoint is fixed; the key comes from an environment variable
+- Confirm the deployment name and API version in GMU's portal
+- A wrong name or version is the usual first-call failure
+- Two providers is a **robustness check**, not redundancy
+
+::: notes
+GMU provides OpenAI-family models — G-P-T and related — through an Azure A-P-I management gateway. The pattern is the same shape as Anthropic: read the key from the environment, never hard-code it, using the Azure OpenAI client. The endpoint is fixed, and the key appears nowhere in the source. Confirm the exact deployment name and the API version against GMU's portal before running, since a wrong one is the most common reason a first Azure call fails. Having two providers is not redundancy — it is a robustness check. If your headline result holds up when you re-label your corpus with a different vendor's model, that is real evidence your finding is about the documents and not one model's quirks. If it flips, you have learned something important before a referee does.
+:::
+
+## Audit Logging
+
+- For IRB-style reproducibility, **log every API call**
+- One line of JSON per call, appended to a file
+- Record: timestamp, exact model version, response, token counts
+- The AI-pipeline equivalent of a Stata `.log` file
+- Hash the prompt when the input is **licensed** text
+- The hash proves what you sent without copying the data
+
+::: notes
+For I-R-B-style reproducibility — and for your own sanity when a reviewer asks "what exactly did you send the model?" — log every API call. One line of J-S-O-N per call, appended to a file: the timestamp, the exact model version string, the response, and the input and output token counts. This log is the AI-pipeline equivalent of a Stata dot-log file or a lab notebook. It records which model version produced which label for which input, so anyone can confirm the model never silently changed and can reconstruct your label column. Without it, "I used an LLM to classify the filings" is an unfalsifiable claim. One refinement: when the input is licensed text, log a S-H-A-two-fifty-six hash of the prompt rather than the raw prompt — the hash proves what you sent without copying licensed data into a log. That brings us to the last piece.
+:::
+
+## Local Fallback for Licensed Data
+
+- **Licensed data must not leave GMU infrastructure**
+- Sending CRSP or TRACE to a commercial API may breach the license
+- Run the model *locally*, inside the secured environment
+- **Ollama** serves an 8-billion model on your own machine
+- For scale, a GPU node on GMU's **Hopper** cluster
+- Cost is capability — so validate the local model the same way
+
+::: notes
+The book's conventions and your WRDS and TRACE license agreements are strict on one point: licensed data must not leave GMU infrastructure. Sending raw CRSP, Compustat, or TRACE records to a commercial API may violate the data-use agreement regardless of the vendor's privacy policy — the data simply is not yours to transmit. When the text you classify is licensed, you run the model locally, inside the secured environment, so the data never crosses the boundary. Two routes. For development and small jobs, run a roughly eight-billion-parameter open model on your own machine with Ollama — a tool that serves models locally, so your data never leaves the laptop. For production-scale jobs, run a larger open model on a GPU node — an A-one-hundred on GMU's Hopper cluster — where the licensed data already lives. The cost is capability: an eight-billion local model is weaker than a frontier A-P-I model, so its classifier needs the same out-of-sample validation we built earlier, and you may need the larger Hopper model to clear your F-one bar.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+GMU's **Azure** gateway gives a second provider — a robustness check on your result. **Log every call** as one JSON line (hash the prompt for licensed text). And keep licensed data inside GMU with a **local model** — Ollama or the Hopper cluster — validated the same way. Next: the responsible-use and disclosure checklist for your capstone.
+:::
+
+::: notes
+To summarize part thirteen: GMU's Azure gateway serves OpenAI-family models in the same secret-safe shape as Anthropic, and using two providers is a robustness check — if your result survives re-labeling with a different vendor's model, it is about the documents, not one model's quirks. Log every call as one line of J-S-O-N — timestamp, version string, response, and token counts — hashing the prompt when the input is licensed, so your pipeline is auditable. And keep licensed CRSP or TRACE text inside GMU by running a local model with Ollama for small jobs or on the Hopper cluster for scale, remembering that a weaker local model needs the same validation. In part fourteen, the last one, we close with the disclosure checklist your capstone will be held to.
+:::

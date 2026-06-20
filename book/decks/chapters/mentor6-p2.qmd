@@ -1,0 +1,71 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Instruments, From Transparent to Opaque
+
+- Part 2 — three sensors ranked from transparent to opaque
+
+::: notes
+Welcome back to "Text as data, and AI without fooling yourself," part two of seven. In part one we established the core reframing: a text-derived number is a noisy proxy, a mismeasured regressor, not a fact. Now we rank the three instruments you met this week — the Loughran–McDonald dictionary, Hoberg–Phillips similarity, and the large language model classifier — on the axis that sets how much validation each owes you: transparency.
+:::
+
+## Loughran–McDonald: Fully Transparent
+
+- The rubric *is* a published word list
+- You can see exactly why a filing scored as it did
+- "Liability" counted as gloom is a *visible* bug
+- Transparent does not mean correct
+- But every error is open to inspection
+
+::: notes
+Start at the transparent end with the Loughran–McDonald dictionary, from Chapter six-point-three. Its rubric is a published word list — anyone can open it and read it. So when a filing scores a certain tone, you can trace exactly why: these words, counted this many times. That transparency is what let Loughran and McDonald expose the famous bug in the most popular finance tone tool, which counted ordinary words like "liability" and "tax" as gloom. Notice the lesson: transparent does not mean correct. The dictionary can be wrong. But because the rubric is open, every error is visible and a skeptic can audit it line by line. That is a low burden of proof to clear.
+:::
+
+## Hoberg–Phillips: A Measurement Paper
+
+- Prose becomes geometry: firms as vectors
+- Similarity is a **cosine** you can recompute
+- Maps who competes with whom
+- Judged on "better than what we had, at what?"
+- Not on causal identification
+
+::: notes
+Next, Hoberg and Phillips, from Chapter six-point-two. They turned firms' product descriptions into geometry: each firm becomes a vector, and the similarity between two firms is a cosine you can recompute yourself. Out of that they built a map of who competes with whom. This is what we call a measurement paper. Its job is not causal identification; it is not claiming X causes Y. It is offering a better ruler. So you judge it the way you judge any ruler: better than what we had, at what task, by how much? The cosine is fully reproducible, so like the dictionary, it sits near the transparent end of our axis.
+:::
+
+## LLM Classifier: Powerful and Opaque
+
+- Possibly *more* accurate than a word list
+- Definitely *less* transparent
+- Rubric = your prompt + an opaque model
+- Reasoning you cannot read
+- Less transparency **raises** the validation bar
+
+::: notes
+Now the new instrument, from Chapter six-point-five: the large language model classifier. It will read forty thousand filings overnight and hand back a confident column of labels. It may well be more accurate than a word list. But it is far less transparent. Its rubric is your prompt, plus an opaque model whose reasoning you cannot read. When the dictionary calls a filing negative, you can see why; when the model does, you mostly cannot. And here is the rule that catches people off guard: less transparency raises the bar on validation. It does not lower it. The harder the instrument is to inspect from the inside, the more you owe checking it from the outside — against truth, out of sample.
+:::
+
+## Same Discipline, Different Burden
+
+- All three are sensors producing noisy proxies
+- The measurement discipline is **identical** across them
+- Only the opacity changes
+- And opacity sets the *burden of proof*
+- The opaque instrument owes the most evidence
+
+::: notes
+Step back and see the unity. All three — the dictionary, the cosine, the model — are sensors. Each produces a noisy proxy for a latent quantity you cannot see directly. The discipline you apply is identical: name what it is a proxy for, validate it against truth, disclose what you did. What changes is only the opacity, and opacity sets the burden of proof. The transparent dictionary lets a referee audit the rubric directly, so it carries a light burden. The opaque model hides its rubric, so it carries the heaviest burden — it earns trust only through out-of-sample validation, because there is nothing inside to inspect.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three sensors, one discipline. Loughran–McDonald is a transparent word list; Hoberg–Phillips is a recomputable cosine; the LLM classifier is powerful but opaque — its rubric is your prompt plus a model you cannot read. The measurement discipline is the same for all three; only the opacity changes, and opacity sets the **burden of proof**. The opaque instrument must earn trust out of sample. Next: how to actually validate.
+:::
+
+::: notes
+To summarize part two: the three instruments line up on a transparency axis. Loughran–McDonald is a published word list — fully transparent, every error visible. Hoberg–Phillips is a cosine similarity you can recompute — a measurement paper, judged on whether it is a better ruler. The language model classifier may be more accurate, but it is opaque: its rubric is your prompt plus a model whose reasoning you cannot read. The same discipline governs all three; only the opacity changes, and opacity decides the burden of proof. In part three we make validation concrete — the gold set, the held-out split, and the two numbers you report instead of accuracy.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Monte Carlo: Conventional CIs Under-Cover
+
+- Part 4 — Monte Carlo; conventional CIs under-cover, AR recovers
+
+::: notes
+Welcome back to the weak-instrument lab, part four of six — the heart of the lab. In part three we ran two-stage least squares by hand and saw one draw swing wildly to plus zero-point-four-two. Now we stop reading single draws. We build the Anderson–Rubin interval, run a Monte Carlo over more than a thousand draws, and measure exactly how badly the conventional confidence interval under-covers the truth.
+:::
+
+## Anderson–Rubin by Hand
+
+- Pathology came from *dividing by a weak first stage*
+- So the cure **never divides** by the first stage
+- To test $\beta=\beta_0$: regress $y - \beta_0 x$ on $z$
+- If $\beta_0$ is true, $z$ should have **no** relationship — $F$-test it
+- **Invert the test**: keep every $\beta_0$ not rejected at 5%
+
+::: notes
+The pathology came from one place: dividing by a weak, error-ridden first stage. So the cure is an inference procedure that never divides by the first stage. To test the null that beta equals beta-zero, form the adjusted outcome y minus beta-zero times x, and regress it on z. If beta-zero is the true effect, then z — which only ever touched y through x — should have no relationship with the adjusted outcome, so the coefficient on z must be zero. Test that with an F-test. To get a confidence interval, invert the test: sweep beta-zero over a grid and keep every value the test fails to reject at five percent. A small algebra trick makes the sweep cheap — the pieces are linear in beta-zero, so you compute them once. An accepted set that touches a grid edge is flagged unbounded — the honest signature of a weak instrument.
+:::
+
+## The Monte Carlo Engine
+
+- At fixed $\pi$, redraw the world `reps` times
+- Each draw: record OLS, 2SLS, first-stage $F$
+- Record whether conventional and AR intervals covered $0$
+- **Coverage** = fraction of draws whose interval held the truth
+- A true 95% interval covers about 95% of the time
+
+::: notes
+Now wrap one experiment. At a fixed pi, redraw the world many times — here twelve hundred — and on every draw record the ordinary-least-squares estimate, the two-stage-least-squares estimate, and the first-stage F. Record whether the conventional ninety-five-percent interval, beta-hat plus or minus one-point-nine-six standard errors, covered the true zero, and whether the Anderson–Rubin interval covered it. Coverage is the fraction of draws whose interval contained the truth. A ninety-five-percent interval that earns its name covers about ninety-five percent of the time.
+:::
+
+## What the Weak World Shows
+
+- median OLS $= +0.40$; median 2SLS $= +0.258$ (sits between)
+- 2SLS retains $\approx 65\%$ of OLS's bias — the $1/(F+1)$ pull
+- conventional 95% coverage $= 0.801$ — badly **under**
+- AR coverage $= 0.973$; AR unbounded on 91% of draws
+- mean 2SLS $= -0.561$ — fat tails make the mean useless
+
+::: notes
+On the pinned seed with twelve hundred draws, read every number, because this output is Chapter three-point-five. The median ordinary-least-squares estimate sits at plus zero-point-four-zero — endogeneity, exactly as warned. The median two-stage-least-squares estimate sits at plus zero-point-two-five-eight — strictly between the biased O.L.S. at zero-point-four and the truth at zero. It did not purge the bias; it shrank it partway and stopped, retaining roughly sixty-five percent — the one-over-F-plus-one pull made visible. The conventional ninety-five-percent coverage is zero-point-eight-zero-one — a researcher reporting beta-hat plus or minus one-point-nine-six standard errors is wrong about their own uncertainty about one time in five, not one in twenty. The Anderson–Rubin coverage is zero-point-nine-seven-three, back near the promised ninety-five percent, because it never divided by the weak first stage — at the price of being unbounded on ninety-one percent of draws — not a failure, but the interval honestly refusing to pretend it can pin down an effect this instrument cannot identify. Finally, the mean two-stage estimate is minus zero-point-five-six-one — on the wrong side of zero, nowhere near the median. That is the fat-tail subtlety: a ratio with a near-zero denominator throws enormous values into the average. The mean is not the honest summary. The median is. Lean on it for every central-tendency claim.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Over 1,200 draws the **median 2SLS** ($+0.26$) sits strictly between OLS ($+0.40$) and the truth ($0$), keeping $\approx 65\%$ of the bias. The conventional 95% CI covers only **80%** of the time, while **Anderson–Rubin** recovers $\approx 97\%$ — because AR never divides by the weak first stage. The fat-tailed *mean* ($-0.56$) is meaningless; trust the **median**. Next: diagnose weakness with the effective $F$.
+:::
+
+::: notes
+To summarize part four, the heart of the lab: over twelve hundred draws the median two-stage-least-squares estimate sits strictly between ordinary least squares and the truth, retaining about sixty-five percent of the bias — the one-over-F-plus-one pull. The conventional ninety-five-percent interval covers only about eighty percent of the time, systematically overconfident, while the Anderson–Rubin interval recovers roughly ninety-five percent because it never divides by the weak first stage, at the cost of being unbounded most of the time — honest about what the data cannot answer. And the fat-tailed mean is meaningless; you trust the median. In part five we measure first-stage strength directly with the Olea–Pflueger effective F, and confirm a significant first stage is not a strong one.
+:::

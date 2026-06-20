@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Component Three: Declaring Primary Tests and Families
+
+- Part 6 — component three: primary tests, families, false discovery rate
+
+::: notes
+Welcome back to The Pre-Analysis Plan, part six of twelve. In part five we wrote the primary specification, with exactly one coefficient as the test. But Maya will compute many numbers — a primary gap, a FinTech interaction, subgroups, income bands, years. This is component three: how the army of tests is governed in advance, starting with the cheapest defense and the family idea.
+:::
+
+## Declare Primary vs. Secondary
+
+- The single most powerful multiplicity control — and it is **free**
+- Commit, before seeing anything: H1's coefficient is *the* test
+- Held to strict $\alpha=0.05$, reported as the result
+- Everything else: secondary, reported, explicitly *not* confirmatory
+- Multiplicity for the headline shrinks to **one**
+
+::: notes
+The multiple-testing plan has three moving parts. First, declare primary versus secondary outcomes. This is the single most powerful multiplicity control there is, and it is free. You commit, before seeing anything, that H-one's coefficient on the denial outcome is the test — the one held to the strict alpha of zero-point-zero-five and reported as the result. Everything else is secondary: interesting, reported, but explicitly labeled as not the confirmatory claim. By promoting one test to primary, you have shrunk the multiplicity problem for your headline from "however many things I tried" down to one. Olken stresses this hierarchy precisely because it is the cheapest and most honest defense — most of the multiplicity disappears the moment you say which question is the question.
+:::
+
+## Families and the False Discovery Rate
+
+- Group secondary tests into pre-committed **families**
+- Cannot report each at $\alpha=0.05$ — that is the sixty-four-percent trap
+- **Bonferroni:** test each of $m$ at $\alpha/m$ — controls *any* false positive
+- But brutally conservative when $m$ is large
+- **False discovery rate:** expected fraction of discoveries that are false
+
+::: notes
+Second, group your secondary tests into families and control the false discovery rate within each. When you genuinely have a family of related tests — say the gap measured separately for five income bands, or for Black, Hispanic, and Asian applicants — you cannot report each at zero-point-zero-five and call them all findings; that is the sixty-four percent trap again. You correct for multiplicity. Chapter one-point-five introduced the crude Bonferroni rule: test each of m hypotheses at alpha divided by m, which controls the chance of any false positive but is brutally conservative when m is large — it can leave you unable to detect real effects. The more sensible target when screening a family of candidate effects is the false discovery rate: the expected fraction of your declared discoveries that are false. That is a far more useful contract than Bonferroni's when you are scanning many real candidates at once.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The first two moves of the multiple-testing plan: **declare one primary test** — free, and the strongest control, shrinking the headline's multiplicity to one — and **group the rest into families** governed not by brutally conservative Bonferroni but by the **false discovery rate**, the expected fraction of declared discoveries that are false. Next: the Benjamini–Hochberg recipe.
+:::
+
+::: notes
+To summarize part six: the multiple-testing plan governs the army of tests, and its first two moves are these. Declare one primary test — free, and the strongest multiplicity control there is, because it shrinks your headline's multiplicity to exactly one. Then group the remaining secondary tests into pre-committed families, and within each family control not the chance of any single false positive — Bonferroni's brutally conservative target — but the false discovery rate, the expected fraction of your declared discoveries that are false. In part seven, we make the false discovery rate concrete with the Benjamini–Hochberg recipe, a worked example, and the rule that you must state the families before you see the p-values.
+:::

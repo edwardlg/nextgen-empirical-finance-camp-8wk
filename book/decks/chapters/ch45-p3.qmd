@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## The Construction: Two Ingredients
+
+- Part 3 — building $B_r$ from shares and shifts
+
+::: notes
+Welcome back to Week Four-point-five, part three of twelve. In part two we stated the instrument in one plain sentence — national shifts reweighted by local shares. Now we build the object concretely, indexing regions by r and industries by j, and assembling the instrument from two ingredients measured at two different times.
+:::
+
+## Two Ingredients, Two Times
+
+- **Shares** $s_{rj}$: region $r$'s baseline job fraction in industry $j$
+- For each region the shares sum to one: $\sum_j s_{rj} = 1$
+- **Shifts** $g_j$: national growth of industry $j$ over the period
+- A shift is the **same** national number every region feels
+- Each region absorbs it scaled by its exposure
+
+::: notes
+There are two ingredients, measured at two different times. The shares are local and measured at a baseline period, before the shocks we study. Let s-sub-r-j be the fraction of region r's employment that was in industry j in the baseline year. For each region these fractions sum to one across industries — the sum over j of s-sub-r-j equals one. These are the exposure weights: how much region r rode on each industry. The shifts are national and measured over the period of interest. Let g-sub-j be the national growth rate of industry j's employment over the period — computed leaving out region r, or from the whole country; we will worry about that nuance later. These are the industry shocks: the auto industry shed eight percent of its jobs nationally, finance grew three percent, and so on. Crucially, g-sub-j is a national number; it is the same shock every region feels, scaled by how exposed each region is.
+:::
+
+## The Bartik Instrument
+
+$$B_r \;=\; \sum_{j} s_{rj}\, g_j$$
+
+- The entire object: a **share-weighted sum** of the shifts
+- Read it as a **forecast** of region $r$'s growth
+- "Given my industry mix and how each industry did nationally..."
+- "...here is the growth I'd **predict** from national forces alone"
+
+::: notes
+The Bartik, or shift-share, instrument for region r is the share-weighted sum of the shifts: B-sub-r equals the sum over industries j of s-sub-r-j times g-sub-j. That is the entire object. Read it as a forecast. Given how region r was distributed across industries at baseline, and given how each industry did nationally, here is the employment growth we would predict for region r from national forces alone. It is a prediction built entirely out of the national tide and the region's starting exposure — nothing about the region's own realized year enters it. That is what makes it a candidate instrument: it is a function of national shocks the region did not cause and a baseline mix fixed before those shocks landed.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Two ingredients at two times: **shares** $s_{rj}$ (a region's baseline industry mix, summing to one) and **shifts** $g_j$ (national industry growth). The instrument $B_r = \sum_j s_{rj}\,g_j$ is their share-weighted sum — a **forecast** of a region's shock from national forces alone. Next: run the arithmetic for two of Maya's regions.
+:::
+
+::: notes
+To summarize part three: the instrument has two ingredients measured at two times. The shares are a region's baseline industry mix — local fractions that sum to one. The shifts are the national industry growth rates over the period — the same numbers for every region. The Bartik instrument, B-sub-r, is their share-weighted sum: the sum over industries of share times shift. Read it as a forecast of a region's growth from national forces alone, built only from shocks the region did not cause and a baseline mix fixed before those shocks landed. In part four we make this fully concrete by running the arithmetic for two of Maya's regions with sharply different industrial DNA.
+:::

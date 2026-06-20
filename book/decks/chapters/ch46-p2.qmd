@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## FDR, Romano–Wolf, and the Decision Tree
+
+- Part 2 — false-discovery rate, Romano–Wolf, decision tree
+
+::: notes
+Welcome back to Chapter four-point-six, part two of nine. In part one we saw that running many tests inflates false discoveries, and that Bonferroni and Holm control the family-wise error rate. Now we meet a procedure that controls a different, weaker error rate — the false-discovery rate — then the bootstrap tool that credits correlation among your tests, and finally the small decision tree that picks the right correction for the job.
+:::
+
+## Benjamini–Hochberg Changes the Question
+
+- Controls the **false-discovery rate**, not FWER
+- FDR $=\mathbb{E}[V/\max(R,1)]$: expected fraction of false rejections
+- Sort ascending; largest $k$ with $p_{(k)}\le \frac{k}{m}\alpha$; reject those
+- A **weaker** guarantee — lets through many more rejections
+- Right for **screening** an exploratory family
+- Wrong for the paper's headline
+
+::: notes
+Benjamini and Hochberg, from nineteen ninety-five, change the question itself. Instead of the family-wise error rate, they control the false-discovery rate, written FDR — the expected fraction of false positives among your rejections. Formally, that is the expectation of V over the maximum of R and one, where R is the number of rejections and V the number that are false. The recipe: sort the p-values ascending, find the largest k for which the k-th smallest p is at most k over m times alpha, and reject the smallest k. The false-discovery rate is a weaker guarantee than the family-wise rate, so it lets through many more rejections. That makes it the right framework when you are screening an exploratory family and can tolerate a few false positives — and the wrong framework for the paper's headline. The headline lives or dies under the family-wise error rate.
+:::
+
+## Romano–Wolf Credits Correlation
+
+- Bootstrap step-down controlling FWER
+- **Credits** the correlation among your tests
+- Twelve cuts on one panel move together — fewer effective tests
+- Bootstrap the **joint** null; read quantile of the **max** statistic
+- Co-moving stats $\Rightarrow$ permissive; independent $\Rightarrow$ Bonferroni-like
+- Anderson (2008) popularized it for multi-outcome tables
+
+::: notes
+Romano and Wolf, two thousand five and two thousand sixteen, is the tool a sharp discussant will name. It is a bootstrap step-down that controls the family-wise error rate but credits the correlation among your tests. Bonferroni assumes worst-case independence. When your twelve heterogeneity cuts share the same panel, they move together, so the effective number of independent tests is below twelve and you can afford a looser threshold. Romano and Wolf operationalize this by bootstrapping the joint distribution of the test statistics — recentered so the null is imposed — and reading the quantile of the maximum statistic across the still-active hypotheses. When the statistics co-move, that maximum is barely larger than any one of them, so the procedure is permissive. When they are independent, it recovers Bonferroni-like behavior. Anderson, two thousand eight, popularized it for multi-outcome tests, and it is now standard for the primary heterogeneity or multi-outcome table.
+:::
+
+## The Decision Tree
+
+- Single test? **No adjustment**
+- Family, any false positive a problem? **FWER**
+- Holm for small $m$; Romano–Wolf for $m\gtrsim 10$ correlated
+- Family, exploratory, some false positives OK? **BH (FDR)**
+- Ordering when correlated: Holm $<$ Romano–Wolf $<$ BH
+- The load-bearing phrase: report what survives **"after adjustment"**
+
+::: notes
+The decision tree is small. Single test? No adjustment. A family where any false positive is a problem? Control the family-wise error rate — Holm for small m or unknown correlation, Romano and Wolf for ten or more correlated tests. A family that is exploratory, where some false positives are tolerable? Use Benjamini-Hochberg to control the false-discovery rate. When tests are positively correlated, the number of rejections orders as Holm, less than Romano and Wolf, less than Benjamini-Hochberg: Romano and Wolf beats Holm by crediting correlation, and Benjamini-Hochberg beats it by controlling the weaker error rate. For Maya's twelve cuts, Holm might reject three, Romano and Wolf five, and Benjamini-Hochberg, at ten percent, six. The load-bearing two-word phrase of the whole section is after adjustment: report what survived the correction, not what was significant before it. And remember the families that hide — multiple outcomes, multiple placebos, and subgroups discovered by looking at the data, the garden of forking paths.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **false-discovery rate** (Benjamini–Hochberg) is the weaker, screening-friendly cousin of FWER; **Romano–Wolf** credits correlation and beats Holm. Pick by error rate and family, and always report what survives **after adjustment**. Next: heterogeneity — for whom is the effect large?
+:::
+
+::: notes
+To summarize part two: the false-discovery rate, from Benjamini and Hochberg, is the weaker, screening-friendly cousin of the family-wise error rate, while Romano and Wolf credits the correlation among tests and beats Holm. Choose your correction by which error rate you control and across what family, and always report what survives after adjustment. In part three we turn to the second referee question: is the effect the same for everyone, or — done well — for whom is the effect large?
+:::

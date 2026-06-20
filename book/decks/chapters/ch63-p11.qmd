@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Three Replication Exercises
+
+- Part 11 — three escalating hands-on replication exercises
+
+::: notes
+Welcome back to Chapter six-point-three, part eleven of twelve. In part ten we found the last edges of bag-of-words and the bridge to language models. Now we make the whole paper concrete with three replication exercises that run in notebook six-point-three and seed Problem Set six-point-three. Each one escalates, and together they let you rebuild the paper's argument with your own hands.
+:::
+
+## Exercise 1 — Reproduce the Misclassification
+
+- Take real 10-Ks from EDGAR or the bundled sample
+- Score each for negativity *twice*: Harvard, then LM finance
+- Tabulate the frequent Harvard-negative words in these filings
+- Tag genuinely negative versus benign: tax, cost, capital, liability
+- Reproduce the headline — most "negativity" is accounting vocabulary
+
+::: notes
+Exercise one: reproduce the misclassification — recreate the headline. Take a handful of real ten-Ks from EDGAR, or the notebook's bundled sample. Score each for negativity twice: once with the Harvard-General-Inquirer negative list, once with the Loughran-McDonald finance-negative list. Then do the diagnostic that is the paper. Among the words the Harvard list counts as negative in these filings, tabulate the most frequent ones and tag which are genuinely negative in finance versus benign accounting terms — tax, cost, capital, liability, depreciation. You should reproduce the qualitative headline: a large share of Harvard-flagged negativity comes from neutral accounting vocabulary, and the two negativity scores for the same filing differ substantially. This is the paper's first table, built with your own hands — and the moment its title stops being a riddle.
+:::
+
+## Exercise 2 — Stress the Measure
+
+- Build a deliberately *naive* negative dictionary (generic web list)
+- Score the same filings; find where it most disagrees with LM
+- Then re-score using **tf-idf** weighting, not raw counts
+- Does down-weighting boilerplate change the negativity ranking?
+- Feel both levers: *which* words and *how* you weight
+
+::: notes
+Exercise two: stress the measure — build a naive dictionary and a t-f-i-d-f weighting. Construct a deliberately naive negative dictionary — say, a generic web list of negative words with no finance filtering — and score the same filings with it. Compare its scores to the Loughran-McDonald finance-negative scores: where do they most disagree, and on which words? Then re-score the filings using t-f-i-d-f weighting instead of raw counts, and see whether down-weighting ubiquitous boilerplate words changes the ranking of filings by negativity. This exercise makes you feel both levers we named earlier — which words go on the list, and how you weight them — and it is the heart of Problem Set six-point-three.
+:::
+
+## Exercise 3 — Validate, Then Break It
+
+- Split matched filings into a **build set** and a **held-out test set**
+- On the build set: confirm more LM-negative tone, worse outcomes
+- Re-estimate on held-out filings — is it an artifact?
+- Hand-write sentences with negation, sarcasm, conditionals
+- Watch the scorer misclassify "we are *not* exposed to litigation"
+
+::: notes
+Exercise three: validate out-of-sample, then break it with negation. Split your matched filings into a build set and a held-out test set. Using only the build set, confirm the direction of the validation result — more Loughran-McDonald-negative tone associated with lower abnormal returns, higher volume, and higher volatility around the filing. Then re-estimate on the held-out filings to check the association is not an artifact of the build sample — the out-of-sample discipline from part ten. Finally, hand-construct a dozen sentences with negation, sarcasm, and conditionals — we are not exposed to material litigation — run them through the bag-of-words scorer, and watch it misclassify them. This last step is the vulnerability made concrete on your own screen, and it is the exact failure that motivates the embedding and language-model methods of the next chapter.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three escalating exercises rebuild the paper by hand: **reproduce the misclassification** (most Harvard "negativity" is accounting vocabulary), **stress the measure** with a naive dictionary and tf-idf, then **validate out-of-sample and break it with negation**. Each makes one lesson tangible on your own screen. Next, our last part: where this connects and three referee questions.
+:::
+
+::: notes
+To summarize part eleven. Three exercises rebuild Loughran and McDonald with your own hands, each escalating. One: reproduce the misclassification — score filings with both dictionaries and watch neutral accounting words dominate the Harvard negativity. Two: stress the measure with a naive dictionary and t-f-i-d-f weighting, to feel both levers — which words and how you weight them. Three: validate out-of-sample, then deliberately break the scorer with negation and sarcasm — the failure that motivates the next chapter. In our final part, part twelve, we place this paper in its arc and carry away three referee questions for the notebook.
+:::

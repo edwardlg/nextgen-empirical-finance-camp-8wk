@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## Why We Need the t
+
+- Part 3 — estimating $\sigma$ with $s$, and Student's t
+
+::: notes
+Welcome back to Hypothesis Testing Done Right, part three of fourteen. In part two we built the idealized test statistic — estimate minus null, over the standard error — but it contained sigma, the true population standard deviation, which nobody ever knows. Now we fix that, and the fix gives us the t-statistic you will actually compute, with heavier tails that gracefully thin back to the normal.
+:::
+
+## We Don't Know Sigma
+
+- True $\sigma$ is unknown; estimate it with sample $s$
+- $s=\sqrt{\frac{1}{N-1}\sum(x_i-\bar{x})^2}$ — Bessel's $N-1$
+- The computable **t-statistic**: $t=\dfrac{\bar{x}-\mu_0}{s/\sqrt{N}}$
+- $s/\sqrt{N}$ is the **estimated** standard error
+- Dividing by a *random* $s$ adds uncertainty — fatter tails
+
+::: notes
+The idealized statistic contains sigma, the true population standard deviation of daily returns. Sam does not know it. Nobody ever does. We can only estimate it from the same sample, using the sample standard deviation s — the square root of one over N minus one, times the sum of squared deviations from the mean. The divisor is N minus one, not N: the Bessel correction from Chapter one-point-three, which makes s-squared an unbiased estimator of sigma-squared. We spent one degree of freedom estimating x-bar, so only N minus one pieces of independent information about spread remain. Replacing the unknown sigma with the estimated s gives the statistic we actually compute, the t-statistic: x-bar minus mu-naught, all over s divided by root N, where mu-naught is the null value, here zero. The quantity s over root N is the estimated standard error. But swapping s for sigma is not free. We have replaced a fixed constant with a random quantity — s jiggles from sample to sample just as x-bar does — and dividing by something random adds extra uncertainty, fattening the tails.
+:::
+
+## Student's t, and Why It Becomes Normal
+
+- Gosset (1908), pen name "Student" — Guinness banned publishing
+- When data are normal: $t\sim t_{N-1}$
+- Bell-shaped, symmetric, but **heavier tails** than the normal
+- Fewer degrees of freedom $\Rightarrow$ fatter tails
+- As $N\to\infty$, $s\xrightarrow{p}\sigma$, so $t_{N-1}\xrightarrow{d}N(0,1)$
+- Exact $t$ needs normal data; large-$N$ relies on the CLT
+
+::: notes
+William Gosset worked out the exact consequence in nineteen-oh-eight, publishing under the pen name Student because his employer, the Guinness brewery, forbade staff publications. The result: when the underlying data are normal, the statistic t does not follow a standard normal. It follows Student's t-distribution with N minus one degrees of freedom. The t-distribution is shaped like the normal — symmetric, bell-like, centered at zero — but with heavier tails that account for the extra uncertainty in s. The fewer the degrees of freedom, the fatter the tails: with four degrees of freedom they are noticeably heavy; with thirty, the t is already almost indistinguishable from the normal. And here is the clean bridge back to Chapter one-point-four. As N grows, s converges in probability to sigma, so the random denominator stops being random, and the t converges to the standard normal the CLT promised. One point of rigor: the exact t result requires the underlying data to be normal. Real returns are fat-tailed and skewed. We still use the t because, by the CLT, the numerator x-bar is approximately normal for large N — so the whole statistic is approximately t. With two hundred fifty-two days the approximation is excellent; with eight fat-tailed returns, neither the exact nor the approximate result is trustworthy.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Since $\sigma$ is unknown, replace it with the sample $s$ — giving the **t-statistic** $t=(\bar{x}-\mu_0)/(s/\sqrt{N})$. When data are normal it follows $t_{N-1}$, with heavier tails paying for the uncertainty in $s$; as $N$ grows those tails thin to $N(0,1)$. Next: compute Sam's t and watch sample size decide.
+:::
+
+::: notes
+To summarize part three: because we never know the true standard deviation sigma, we estimate it with the sample standard deviation s, and that swap gives the t-statistic, distributed as Student's t with N minus one degrees of freedom. Its tails are heavier than the normal's to pay for the uncertainty in estimating s, and they thin back to the normal as the sample grows — which is why for large samples people use the words t-statistic and z-statistic almost interchangeably. The exact t-distribution needs normal data, but for large samples the Central Limit Theorem rescues us, making the statistic approximately t even when returns are fat-tailed. In part four we put real numbers in, compute Sam's t, and see the standard error deliver its single most important practical lesson.
+:::

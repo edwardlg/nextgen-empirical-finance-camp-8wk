@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## 13F — Institutional Holdings
+
+- Part 9 — 13F holdings, two routes, and conceptual gotchas
+
+::: notes
+Welcome back to Data Acquisition in Practice, part nine of thirteen. In part eight we covered H-M-D-A, where the throttle is the size. Now we meet Form thirteen-F, the window into what big funds hold — a source whose access is familiar but whose hardest gotchas are conceptual, not technical.
+:::
+
+## 13F — What Big Funds Hold
+
+- Quarterly long positions of large institutional managers
+- Over \$100 million in qualifying US equity assets must file
+- Which stocks, how many shares, what value, at quarter-end
+- Sam: does institutional crowding predict momentum crashes?
+- Holdings identified by **CUSIP**; filer by CIK
+
+::: notes
+Form thirteen-F is the quarterly report that institutional investment managers with over one hundred million dollars in qualifying US equity assets must file with the S-E-C, disclosing their long positions: which stocks, how many shares, what market value, as of quarter-end. It is how you see what the big funds held. Sam could use it to study whether institutional crowding predicts momentum crashes; Priya could track institutional ownership of climate-exposed insurers. Holdings are identified by CUSIP — a nine-character security identifier — and increasingly by the issuer's name and a share count; the filer is identified by C-I-K. CUSIP is a licensed identifier in its full form, a wrinkle that matters for redistribution, which we will come to.
+:::
+
+## Two Routes — Free and Licensed
+
+- Free route: SEC EDGAR, form `13F-HR` — same rules as before
+- The filing's information table lists each holding
+- Licensed route: Thomson/Refinitiv s34 files on WRDS
+- Cleaner identifiers, de-duplicated, historical depth
+- EDGAR for exact filings; WRDS for a clean panel
+
+::: notes
+Two access routes, reflecting two providers. The free, public route is S-E-C EDGAR: thirteen-F filings are just another EDGAR form, thirteen-F-H-R, pulled exactly like the filings in part six — same user-agent rule, same ten-per-second rate limit, same accession-number pinning. The filing's information table, an X-M-L document, lists each holding with one row per position: CUSIP, shares, and value. The licensed, cleaned route is the Thomson Reuters Refinitiv thirteen-F files — the s-thirty-four files — on WRDS: the same holdings, but de-duplicated, with cleaner identifiers and historical depth, under the same WRDS access pattern and licensing as before. Use EDGAR for transparency and exact filings; use the WRDS Thomson version when you need a clean historical panel, and accept the G-M-U-infrastructure rule that comes with it.
+:::
+
+## What 13F Does *Not* Tell You
+
+- **Long positions only** — no shorts, no most derivatives
+- Not the manager's true net exposure
+- Filed with a **45-day lag** — holdings are stale when seen
+- **Confidential treatment** — the disclosed table can be incomplete
+- CUSIP is licensed — do not publish a CUSIP master file
+
+::: notes
+Thirteen-F has three big gotchas, and they are conceptual, not technical. One: it reports long positions only — no shorts, no most derivatives — so it is not the manager's true net exposure. Two: it is filed with a forty-five-day lag after quarter-end, so the holdings are stale when you see them; treating a thirteen-F as real-time positioning is a look-ahead error in reverse. Three: managers can request confidential treatment for some positions, so the disclosed table can be incomplete. None of these are bugs in your code; they are limits in the data that your identification has to respect. On licensing: the filings are public through EDGAR, but the cleaned Thomson panel is licensed, G-M-U-only. And CUSIP itself is a licensed identifier — you can use CUSIPs you obtain to merge your own data, but redistributing a large CUSIP-to-name mapping can violate CUSIP Global Services' license, so do not publish a CUSIP master file. Keep CUSIPs inside your analysis; do not build a product out of them. For the reproducible pull, do the same as the parent source: for EDGAR thirteen-Fs pin the accession number and cache the raw X-M-L; for the WRDS Thomson version pin the snapshot and keep it on G-M-U infrastructure. Log the manager C-I-K or Thomson key, the quarter, and a content hash.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**13F** shows what big funds hold — free through EDGAR or cleaned through WRDS. Its hardest gotchas are conceptual: **long positions only**, a **45-day lag**, and possible **confidential gaps**. And CUSIP is a licensed identifier — use it, but never publish a CUSIP master file. Next: PatentsView, Leah's innovation data.
+:::
+
+::: notes
+To summarize part nine: Form thirteen-F discloses the quarterly long positions of large institutional managers, available free through S-E-C EDGAR or as a cleaned historical panel through Thomson on WRDS. The access is familiar, but the hardest gotchas are conceptual: it shows long positions only, it arrives with a forty-five-day lag, and confidential treatment can leave gaps. And CUSIP, the holding identifier, is licensed — use it to merge, but never publish a master mapping. In part ten we cover Leah's innovation data from USPTO PatentsView, served through a platform that has moved repeatedly.
+:::

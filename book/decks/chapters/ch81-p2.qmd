@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## Maya's Confirmatory Result
+
+- Part 2 — Maya runs the one filed regression and the trap inside it
+
+::: notes
+Welcome back to Execution and the Specification Curve, part two of ten. In part one we stated the job: run the pre-registered primary specification once, and report it whatever it shows. Now Maya runs hers — and we meet the subtle trap inside even a perfectly honest run.
+:::
+
+## Maya's Pre-Registered Specification
+
+- Staggered difference-in-differences, frozen behind `PAP_FILED=True`
+- Outcome: county-year minority–white denial gap
+- Treatment: a state's active fair-lending examination program
+- Controls: never-adopters and not-yet-treated states
+- County and year fixed effects; SEs clustered by state
+
+::: notes
+Maya's filed commit named, in full spec-discipline form, a single staggered difference-in-differences. The outcome is the county-year minority-white denial gap. The treatment is a state's active fair-lending examination program. The clean controls are never-adopters and not-yet-treated states. The model carries county and year fixed effects, with standard errors clustered by state. Her notebook is gated behind a flag — P-A-P underscore filed equals true — that must be asserted before the analysis cell will run, the technological enforcement of "do not peek until the plan is filed." She ran it exactly once.
+:::
+
+## The Number
+
+- $\widehat{\text{ATT}} = -1.89$ percentage points
+- Clustered standard error $= 0.065$
+- $95\%$ CI $= [-2.02,\ -1.75]$
+- Examinations narrow the denial gap by about 1.9 points — her sign
+- The headline number the rest of the paper defends
+
+::: notes
+The pre-registered estimator returned an estimated average treatment effect on the treated of negative one-point-eight-nine percentage points, with a clustered standard error of zero-point-zero-six-five, and a ninety-five-percent confidence interval running from negative two-point-zero-two to negative one-point-seven-five. The examination programs are associated with a roughly one-point-nine percentage-point narrowing of the denial gap — the sign she hypothesized, comfortably away from zero. That is the confirmatory result, the number the rest of the paper defends, reported in her headline table with the clustering labeled and the interval shown.
+:::
+
+## Commit to Report It Either Way
+
+- Commit *in advance* to reporting whatever it showed
+- A wide CI straddling zero = power failure, reported inconclusive
+- A tight CI hugging zero = a genuine, publishable null
+- The disease: treating a bad number as a bug to debug
+- You wrote down its meaning before you knew its value
+
+::: notes
+Now the part that separates a researcher from a result-shopper. Maya must commit, in advance, to reporting that number whichever way it came out. Suppose the run had returned negative zero-point-three points with a wide interval straddling zero. Her plan's falsification clause already told her what to do: a wide interval including zero is a power failure, reported inconclusive; a tight interval hugging zero is a genuine, publishable null. Either way she reports it. The temptation — enormous, because she has spent five weeks wanting the effect to be real — is to treat a disappointing number as a problem to debug rather than a result to report. That instinct is the disease. The whole architecture of Week Seven exists to make the number binding: you wrote down what it would mean before you knew what it would be, so that knowing what it is cannot change what it means.
+:::
+
+## Clean Execution Is Not a Robust Result
+
+- Maya ran one spec and got a starred coefficient
+- Necessary, but not sufficient for a credible finding
+- It is one branch of a tree she could have climbed differently
+- Cluster by county? Add state trends? Trim 2020? All defensible
+- The run answers "what does the pre-reg spec say?" — not "is it an artifact?"
+
+::: notes
+There is a subtle trap even inside an honest confirmatory run: mistaking a clean execution for a robust result. Maya ran exactly one specification and got a starred coefficient. That is necessary but not sufficient, because the one specification she ran was one branch of a tree she could defensibly have climbed differently. Her plan committed her to clustering by state — but clustering by county was also defensible. It committed her to county and year fixed effects — but adding state-specific trends was also defensible. It committed her to a sample window — but trimming the COVID-disrupted year was also defensible. Each alternative is a fork she chose not to walk, and a reader is entitled to ask: if you had walked them, would the negative one-point-nine still be there, or would it dissolve? The confirmatory run answers "what does the pre-registered specification say?" It does not answer "is the answer an artifact of that one specification?" For that, you make the whole garden visible.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Maya's confirmatory estimate is **negative 1.89 points**, CI away from zero — reported whatever it showed, because she committed in advance. But a clean execution is *not* a robust result: it is one branch of a tree she could defensibly have climbed differently. Next: make the entire garden of forking paths visible.
+:::
+
+::: notes
+To summarize part two: Maya ran her gated, pre-registered specification exactly once and got an estimate of negative one-point-eight-nine points, comfortably away from zero. The discipline is that she committed in advance to reporting that number either way — confirmed, an inconclusive power failure, or a clean publishable null. But the trap is real: a clean execution is not a robust result. The one specification she ran is a single branch of a tree she could have climbed many other ways. In part three, we make the entire garden of forking paths visible.
+:::

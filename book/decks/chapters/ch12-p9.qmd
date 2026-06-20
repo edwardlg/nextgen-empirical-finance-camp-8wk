@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Covariance Matrix
+
+- Part 9 — stack covariances into $\mathbf{\Sigma}$; read its structure
+
+::: notes
+Welcome back to Chapter one-point-two, Expectations, Variance, and Covariance as Geometry, part nine of ten. In part eight we saw correlation is a cosine and risk adds like vectors. Two assets needed only three numbers, but a real portfolio holds dozens, and Maya's lender tracks thousands of loans. Writing a separate cross-term for every pair becomes hopeless. So we collect them into one matrix — the covariance matrix Sigma — which is not just storage. It is the very object Week Two's matrix regression multiplies. In this part we build it and read off its two structural facts.
+:::
+
+## Building $\mathbf{\Sigma}$
+
+- $\Sigma_{jk} = \operatorname{Cov}(R_j, R_k)$ — variances on the diagonal, covariances off it
+- Diagonal: $\Sigma_{jj} = \operatorname{Cov}(R_j, R_j) = \operatorname{Var}(R_j)$
+- For Maya: $\mathbf{\Sigma} = \begin{pmatrix} 0.04 & \sigma_{12} \\ \sigma_{12} & 0.01 \end{pmatrix}$
+- $\mathbf{\Sigma} = \mathbb{E}\!\left[(\mathbf{R} - \mathbb{E}[\mathbf{R}])(\mathbf{R} - \mathbb{E}[\mathbf{R}])'\right]$
+- Any portfolio's variance: the single expression $\mathbf{w}'\mathbf{\Sigma}\mathbf{w}$
+
+::: notes
+Here is the result in one sentence. For a vector of random returns, the covariance matrix Sigma stacks every variance on the diagonal and every covariance off it, so that the variance of any portfolio is the single tidy expression w transpose Sigma w. Define Sigma entry by entry: the j-k entry is the covariance of return j and return k. The diagonal entries are a return's covariance with itself, which is just its variance — so variances live on the diagonal. For Maya's two assets, Sigma is a two-by-two matrix with zero point zero four and zero point zero one on the diagonal and sigma one two in both off-diagonal slots. Compactly, Sigma is the expected outer product of the centered return vector with itself. A portfolio with weights w summing to one has return w transpose R, and its variance unpacks as w transpose Sigma w. Check it on Maya's case and you recover, term for term, the weighted variance formula from before.
+:::
+
+## Two Structural Facts
+
+- **Symmetric:** $\Sigma_{jk} = \Sigma_{kj}$, because covariance is
+- **Positive semidefinite:** $\mathbf{w}'\mathbf{\Sigma}\mathbf{w} \ge 0$ — it equals a variance
+- No portfolio can have negative variance — geometry forbids it
+- Perfect correlation or collinearity $\Rightarrow$ columns dependent
+- Then $\mathbf{\Sigma}$ is **singular** — no inverse exists
+
+::: notes
+Two structural facts come along automatically, and both matter later. First, Sigma is symmetric — the j-k entry equals the k-j entry — because covariance is symmetric. Second, it is positive semidefinite: for any weight vector w, the quadratic form w transpose Sigma w equals a variance, and therefore can never be negative. That is just the statement that no portfolio can have negative variance — geometry forbidding the impossible. Now the failure mode to flag. If two assets are perfectly correlated, or one is a linear combination of others — say a fund that is exactly sixty percent of asset one plus forty percent of asset two — then the columns of Sigma become linearly dependent, the matrix is singular, and it has no inverse. That sounds abstract until Week Two, where the ordinary least squares estimator inverts X transpose X — a close cousin of a covariance matrix. When regressors are perfectly collinear, that inverse does not exist and the regression cannot separate their effects: the same singular-matrix wall, met from the other side.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The covariance matrix $\mathbf{\Sigma}$ holds variances on its diagonal, covariances off it; it is **symmetric and positive semidefinite**, and any portfolio's variance is $\mathbf{w}'\mathbf{\Sigma}\mathbf{w}$. Perfect collinearity makes it singular — the wall Week 2's OLS hits. Next: rescaling $\mathbf{\Sigma}$ into the correlation heatmap, and the chapter wrap-up.
+:::
+
+::: notes
+To summarize part nine: the covariance matrix Sigma stacks variances on its diagonal and covariances off it, so any portfolio's variance is the single quadratic form w transpose Sigma w — one line that works for two assets or two thousand. Two structural facts come free: Sigma is symmetric, because covariance is, and positive semidefinite, because its quadratic form is always a variance and no portfolio can have negative variance. The failure mode is singularity: when assets are perfectly correlated or collinear, the columns become dependent, the matrix has no inverse, and Week Two's regression hits exactly that wall. In part ten, our finale, we rescale Sigma into the correlation matrix you actually plot — the heatmap of cosines — and wrap up the whole chapter.
+:::

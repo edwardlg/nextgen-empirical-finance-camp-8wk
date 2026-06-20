@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Validation Table and the Rotated Anatomy
+
+- Part 2 — find the validation table; rotate the reading anatomy
+
+::: notes
+Welcome back to when the data is words, part two of ten. In part one we saw that measurement papers ask "is the measure valid?" rather than "is the effect causal?" Now we make grading concrete. The professional way to grade a measure is to ask whether it predicts something it should predict but was not built to fit — what psychometricians call convergent and predictive validity, and what an economist calls a validation test. The validation table, not the headline table, is where a measurement paper lives or dies.
+:::
+
+## The Validation Test
+
+- A good measure **predicts something it was not built to fit**
+- KPSS: patent value correlates with **citations** — built differently
+- KPSS: and it predicts **future firm growth**
+- A measure that only correlates with itself is a tautology
+- Read the **validation table** second, right after the headline
+
+::: notes
+The professional way to grade a measure is to ask whether it predicts something it should predict but was not built to fit. KPSS do not just assert that their stock-return-based patent value is meaningful; they show it correlates with patent citations — a measure built a completely different way — and that it predicts future firm growth. That external check is the whole ballgame. A measure that only correlates with itself is a tautology dressed as a finding. So in your table-by-table reading order there is still a headline table, but now there is also a validation table you should read second, right after the headline, before any robustness. The validation table is where the paper lives or dies.
+:::
+
+## Three Boxes Rotate
+
+- **Question** → name the *latent concept* before you see the proxy
+- **Identification** → the *construction* plus its *validation*
+- One-sentence test: "this number measures it **as long as** ___"
+- The blank is a validation result, not an exogeneity claim
+- **Data** → every construction step is a *researcher lever*
+
+::: notes
+Apply the same seven-part anatomy from Pack Five, but rotate three boxes. Box one, the research question, becomes: name the latent thing the paper wants a number for — how valuable is this patent, how much do these firms compete — before you look at the proxy, because the gap between concept and proxy is where the paper is vulnerable. Box two, identification, becomes the construction plus its validation. The construction is precisely how raw text or event becomes a number: KPSS use the three-day abnormal return around the grant date, scaled; Loughran and McDonald count negative-dictionary words over total words; Hoberg and Phillips take the cosine of two firms' word-frequency vectors. The validation is what external quantity the measure predicts. The one-sentence test now reads: this number measures the concept as long as blank — and the blank is a validation result, not an exogeneity claim. Box three, data, adds a worry: every construction step is a researcher lever.
+:::
+
+## Construction Choices Are Secretly Levers
+
+- Which dictionary, how to handle negation, what event window
+- Drop boilerplate? Stem words? Lowercase? Scale by size?
+- Loughran–McDonald exist because Harvard mislabels finance words
+- "Liability," "tax," "cost," "capital" — neutral in a 10-K
+- **Self-check:** what outside quantity does it predict — and did it?
+
+::: notes
+Treat each construction choice the way Pack Five taught you to treat a sample filter: a lever someone pulled, which you must check could not have been pulled to manufacture the result. Which dictionary, how to handle negation, what window around the event, whether to scale by firm size, whether to drop boilerplate, stem words, or lowercase. Loughran and McDonald exist precisely because the off-the-shelf Harvard psychology dictionary mislabels finance words: liability, tax, cost, and capital are negative in everyday English but neutral accounting terms in a ten-K. A measure built on the wrong dictionary is a measure of the wrong thing. The single most important self-check for this week: can I state, in one sentence, the external quantity this measure predicts that it was not constructed to fit — and did it? If the paper never validates against anything outside itself, you have found the soft spot, and it is usually fatal.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Grade a measure by whether it **predicts something it was not built to fit**; the validation table is read second and decides the paper. Rotate three anatomy boxes — concept, construction-plus-validation, and construction-as-lever. Next: RAG, where an LLM answers from *your* documents.
+:::
+
+::: notes
+To summarize part two: grade a measure by whether it predicts something external it was not built to fit, and read the validation table second, because that is where the paper lives or dies. Rotate three boxes of the familiar anatomy — name the latent concept before the proxy, treat identification as construction plus validation, and treat every construction choice as a lever someone could have pulled to manufacture a result. In part three we cross from reading papers to building tools: retrieval-augmented generation, the standard way to make a language model answer from your own documents, with citations you can check.
+:::

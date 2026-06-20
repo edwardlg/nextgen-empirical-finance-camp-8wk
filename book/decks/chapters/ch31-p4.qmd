@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Estimands: ATE, ATT, and LATE
+
+- Part 4 — naming the three averages we can target
+
+::: notes
+Welcome back to potential outcomes, part four of eleven. In part three we accepted that individual effects are unrecoverable and turned to population averages. Now we name the three averages — the estimands — that carry the entire week. We have to be careful about which average we mean, because they answer genuinely different questions and reporting one while claiming another is a recurring source of bad policy advice.
+:::
+
+## Estimand vs. Estimator
+
+- An average causal effect we target is an **estimand**
+- Named before we ever touch data — a feature of the world
+- **Estimator** = the formula we apply; **estimate** = the number it gives
+- Estimand = the thing; estimator = the recipe; estimate = the dish
+- Three estimands carry the whole week
+
+::: notes
+When you cannot recover individual effects, you ask about averages, and you must be careful which average. An average causal effect, defined as a feature of the population we want to learn, is called an estimand — the target we name before we ever touch data. Contrast it with an estimator, the formula we apply to data, and an estimate, the number it produces — the trio you met in Chapter one-point-three. The estimand is the thing in the world; the estimator is the recipe; the estimate is the dish. Three estimands carry the entire week, so we name them now and use this notation for the rest of camp.
+:::
+
+## ATE and ATT
+
+- **ATE** $= \mathbb{E}[Y_i(1)-Y_i(0)]$ — effect if we treated *everyone*
+- Answers "what if we made this universal?"
+- **ATT** $= \mathbb{E}[Y_i(1)-Y_i(0)\mid D_i=1]$ — effect on the *treated only*
+- Answers "how much did it help the people who used it?"
+- ATT hides $\mathbb{E}[Y_i(0)\mid D_i=1]$ — the treated's missing counterfactual
+
+::: notes
+The Average Treatment Effect, the ATE, is the mean of the individual effects over the whole population — the expected value of Y-of-one minus Y-of-zero. In words: if we could enroll everyone versus no one, the ATE is the average change in the outcome. It answers the policy question, what if we made this universal? The Average Treatment effect on the Treated, the ATT, restricts the average to the units who actually received treatment — the expected effect conditional on D-sub-i equals one. It answers a different question: for the people who chose to enroll, how much did the program help them? That is often the policy-relevant quantity — the credit union cares what its program does for the people who use it, not for hypothetical universal enrollees. ATE and ATT are equal only when the treated are a representative slice of the population. And notice the subtle term hiding inside the ATT: it needs the expected value of Y-sub-i-of-zero given D-sub-i equals one — the average untreated outcome among the treated, the counterfactual asking how the enrollees would have done had they not enrolled. That is missing data of the worst kind, and exactly where Maya's trouble lives.
+:::
+
+## LATE — Named Now, Earned Later
+
+- **LATE** — effect for the *compliers* an instrument moves
+- An instrument nudges *some* people into treatment without touching outcomes
+- It identifies the effect only for that subset — the compliers
+- "Local" because local to the compliers, not everyone
+- Full treatment waits for Chapter 3.4 on instrumental variables
+
+::: notes
+The Local Average Treatment Effect, the LATE, is the third, and we only name it here — its full treatment waits for Chapter three-point-four on instrumental variables. The teaser: sometimes you can neither randomize nor convincingly control, but you have a lever — an instrument — that nudges some people into treatment without directly touching their outcomes. The catch is that the lever moves only a subset of the population, the people who comply with the nudge, so it identifies the average effect only for that subset, the compliers. That subset-specific average is the LATE. It is local because it is local to the compliers, not the whole population. File the name away; we will earn it properly in three-point-four. So: three estimands, three questions — everyone for the ATE, the treated for the ATT, the compliers for the LATE.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three **estimands**, three questions: **ATE** (effect on everyone), **ATT** (effect on the treated), **LATE** (effect on the compliers). They are different numbers — say *which one you are after* before you estimate anything. The ATT hides the treated's missing counterfactual $\mathbb{E}[Y_i(0)\mid D_i=1]$. Next: decomposing Maya's naive gap.
+:::
+
+::: notes
+To summarize part four: an estimand is the average causal effect we target, named before touching data — distinct from the estimator, the recipe, and the estimate, the number. Three estimands carry the week. The ATE is the effect on everyone; the ATT is the effect on the treated; the LATE, which waits for Chapter three-point-four, is the effect on the compliers an instrument moves. They answer different questions, and the discipline the week enforces is to say which estimand you are after before you estimate anything. Hold onto the term hiding in the ATT — the treated group's untreated outcome — because in part five it is exactly where Maya's twenty-one points start to come apart.
+:::

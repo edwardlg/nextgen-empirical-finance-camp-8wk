@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## Two Routes to the Counterfactual
+
+- Part 7 — treatment-model vs. outcome-model routes to the counterfactual
+
+::: notes
+Welcome back to Chapter three-point-three, part seven of ten. So far every tool has leaned on a model of treatment — the propensity score, or the balancing weights, which is the same job in different clothes. This part introduces a second, completely different route to the counterfactual: a model of the outcome. We will see that each route is consistent under a different modeling bet, which sets up the hedge that the next part delivers.
+:::
+
+## A Second Route: Model the Outcome
+
+- Regress $Y$ on $\mathbf{X}$ separately in treated and control groups
+- Get $\hat\mu_1(\mathbf{X})$ and $\hat\mu_0(\mathbf{X})$ — predicted outcomes
+- Impute each missing counterfactual, average the difference
+- This is **regression imputation** ("g-computation")
+- Consistent under CIA — *if the outcome model is correct*
+
+::: notes
+There is a completely different route to the counterfactual that we have only mentioned: a model of the outcome. Fit a regression of Y on X separately in the treated and control groups, getting predicted outcomes mu-one-hat of X, the expected outcome given X for treated units, and mu-zero-hat of X for controls. Then impute each unit's missing counterfactual with the model's prediction, and average the difference across everyone. This is regression imputation, sometimes called g-computation, and under the conditional-independence assumption it is also consistent — if the outcome model is correctly specified. So now we have two strategies, each consistent under that assumption but each leaning on a different modeling bet.
+:::
+
+## Two Strategies, Two Different Bets
+
+- **IPW / weighting**: consistent if the *propensity* model is correct
+- Does not care whether the outcome is linear in $\mathbf{X}$
+- **Regression imputation**: consistent if the *outcome* model is correct
+- Does not care whether you got the propensity score right
+- In real data, you are never sure either model is correct
+- Wouldn't it be nice to hedge — to use both?
+
+::: notes
+Lay the two side by side. Inverse-probability weighting is consistent if the propensity model is correct; it does not care whether the outcome is linear in X. Regression imputation is consistent if the outcome model is correct; it does not care whether you got the propensity score right. Each is consistent under conditional independence, but each rests on a different functional-form bet. In real data you are never sure either model is correct. So the natural wish: wouldn't it be nice to hedge — to use both models in a way that is forgiving if one of them is wrong? That hedge exists, and it is the centerpiece of this chapter — we build it next.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+There are **two routes** to the missing counterfactual: a **treatment model** (IPW), consistent if the propensity score is right; and an **outcome model** (regression imputation), consistent if the outcome regression is right. Each rests on a *different* bet, and in real data you are sure of neither. Next: an estimator that combines both and is right if *either* one holds.
+:::
+
+::: notes
+To summarize part seven: alongside the treatment-model route we have used all chapter, there is an outcome-model route — regression imputation, also called g-computation — which fits a regression of the outcome on the covariates and imputes each missing counterfactual. It is consistent under conditional independence if the outcome model is correct. So we hold two strategies, each leaning on a different functional-form bet: weighting trusts the propensity model, imputation trusts the outcome model, and in practice you cannot be certain of either. In part eight we build the estimator that combines both — augmented inverse-probability weighting — and prove the remarkable property that earns it the name doubly robust: it is consistent if either model alone is correct.
+:::

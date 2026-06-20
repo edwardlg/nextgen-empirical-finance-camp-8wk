@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## View II — It's the Shifts (BHJ)
+
+- Part 9 — the shifts view and quasi-random shocks
+
+::: notes
+Welcome back to Week Four-point-five, part nine of twelve. In part eight we finished the shares view — exogenous baseline shares, diagnosed with Rotemberg weights. Now the second lens, which at first sounds like a flat contradiction. Borusyak, Hull and Jaravel, in twenty twenty-two, locate identification not in the shares but in the shifts — and they are also right. The resolution is that the two papers make exogeneity assumptions about different ingredients, credible in different data regimes.
+:::
+
+## The Shocks Are a Quasi-Experiment
+
+- Treat the national shifts $g_j$ themselves as the random thing
+- As-good-as-randomly drawn across industries, independent of exposure
+- Then $B_r$ is a region's **exposure-weighted average of random draws**
+- More industries → the average behaves like a clean experiment
+- Shares demoted to **exposure weights** — not required exogenous
+
+::: notes
+Borusyak, Hull and Jaravel ask you to think about the national shifts themselves as the random thing. Imagine the universe drew the industry growth rates — auto down eight percent, finance up three percent, retail down one percent — from some distribution, as-good-as-randomly across the many industries, independent of how exposed any region was to them. If the shifts are essentially a lottery over industries, then a region's predicted shock is an exposure-weighted average of random draws — and the more industries there are, the more this average behaves like a clean experiment at the region level. The shares are now demoted to exposure weights — hence the name, the exposure-weights view. They are not required to be exogenous; they just determine how much of each random shock each region absorbs. The formal engine is a change of perspective: the shift-share moment condition can be rewritten as a regression at the level of the shocks, the industries, exposure-weighted. Exogeneity of the shocks at that level is what you need — and, critically, the shares are allowed to be endogenous.
+:::
+
+## The BHJ Identifying Assumption
+
+- National shocks $g_j$ as-good-as-random across industries
+- Many shocks, with sufficiently **dispersed** exposure
+- Identification becomes a **shock-level** quasi-experiment
+- A region's specialization may be as **loaded** as you like
+- What must hold: the national shock wasn't **picked** to hit those regions
+
+::: notes
+Here is the assumption. The national industry shocks are as-good-as-randomly assigned across industries — mean-independent of industry-level unobservables, conditional on shock-level controls — and there are many shocks whose exposure is sufficiently dispersed. Identification is then a shock-level quasi-experiment: it is as if nature ran a randomized experiment on industries, and regions are bundles of industry bets. The shares are allowed to be endogenous. A region's manufacturing specialization can be as historically loaded as you like; as long as the national manufacturing shock itself was not systematically picked to coincide with manufacturing regions' latent trends, the design holds. This is exactly why the apparent paradox between the two papers dissolves: they put the exogeneity burden on different ingredients, so each can be true when the other is shaky.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Borusyak, Hull & Jaravel (2022):** treat the **shifts** as the random thing. If national shocks are as-good-as-random across **many dispersed** industries, then $B_r$ is an exposure-weighted average of random draws — a **shock-level** quasi-experiment — and the **shares may be endogenous**. The exogeneity burden simply moves to the other ingredient. Next: when this is credible, how many shocks you need, and the inference trap.
+:::
+
+::: notes
+To summarize part nine: Borusyak, Hull and Jaravel locate identification in the shifts. If the national shocks are as-good-as-randomly assigned across many dispersed industries, then each region's predicted shock is an exposure-weighted average of random draws — a shock-level quasi-experiment, as if nature randomized over industries. The shares are demoted to exposure weights and are allowed to be endogenous; a region's specialization can be as historically loaded as you like. The apparent contradiction with the shares view dissolves because the two papers simply place the exogeneity burden on different ingredients. In part ten we ask when quasi-random shifts is credible, how many shocks you actually need, and we meet a third paper — Adão, Kolesár and Morales — whose warning about standard errors bites under both views.
+:::

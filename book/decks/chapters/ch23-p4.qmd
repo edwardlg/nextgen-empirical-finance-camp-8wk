@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## The Punchline: Leftover on Leftover
+
+- Part 4 — residualize patents, regress leftover on leftover
+
+::: notes
+Welcome back to the Frisch–Waugh–Lovell theorem, part four of thirteen. In part three we fixed the target — one point eight three eight — and residualized R and D against size. Now we residualize patents the same way, run the simple slope of leftover on leftover, hit the target exactly, and flag one detail worth pausing on before we prove it.
+:::
+
+## Step Two, And The Punchline
+
+- **Step 2:** residualize patents against size, keep $\tilde{y}_i$
+- $\tilde{y}_i$ = patenting **beyond** what size predicts
+- **Step 3:** simple no-intercept regression $\tilde{y}_i = \beta_1\tilde{x}_i$
+- Slope $= \sum_i \tilde{x}_i\tilde{y}_i \big/ \sum_i \tilde{x}_i^2 = 5.181/2.819$
+- $= \mathbf{1.838}$ — the exact same number as the target
+- A theorem, exactly true for **every** dataset
+
+::: notes
+Step two: do the same to patents. Regress patents on size and the intercept, keep the residual y tilde. These are the part of patenting that size cannot explain — patenting beyond what the firm's size alone would predict. Now the punchline, step three. Run a simple regression of the residualized outcome on the residualized regressor — no intercept needed, since both residual vectors already average to zero. The slope of a simple no-intercept regression is just the sum of x tilde times y tilde, divided by the sum of x tilde squared. Plugging in the two residual columns gives five point one eight one over two point eight one nine, which equals one point eight three eight. There it is — the exact same number as the full multiple-regression coefficient. We never put R and D and size in the same regression. We cleaned size out of both, then ran a two-variable regression on the cleaned versions, and the slope landed precisely on the target. That is not a coincidence of these six numbers; it is a theorem, exactly true for every dataset.
+:::
+
+## One Detail Worth Pausing On
+
+- You should residualize **both** $y$ and $x$ against $z$
+- A shortcut: cleaning only $x$ also gives the right slope
+- Because $\tilde{x}$ is orthogonal to $z$, $z$'s part of $y$ drops out
+- But clean both to get right **residuals**, **standard error**, $R^2$
+- Memorize the symmetric "clean both sides" statement
+- The matrix proof delivers exactly that
+
+::: notes
+One detail worth pausing on before we prove it. You should residualize both patents and R and D against size. A common mistake is to clean size out of R and D only, then regress the raw patents on x tilde. As it happens, that also gives the right slope here — because x tilde is orthogonal to size, the part of patents that size explains is orthogonal to x tilde and contributes nothing to the slope. So you can get away with residualizing only the regressor, for the point estimate. But you must residualize both to get the right residuals, the right standard error, and the right R squared from the short regression. The clean, symmetric statement — clean both sides — is the one to memorize, and the one the proof delivers.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Residualizing patents on size, then a simple no-intercept slope of $\tilde{y}$ on $\tilde{x}$, reproduces the full coefficient **exactly: 1.838** — no three-variable regression, no matrix inversion. Clean *both* sides as your default. Next: the matrix statement and a four-line proof of why this is always true.
+:::
+
+::: notes
+To summarize part four. On Leah's six firms, we residualized both patents and R and D against firm size, then ran a simple no-intercept slope of the leftover columns, and we hit one point eight three eight — exactly the coefficient from the full three-variable regression. No three-variable regression, no matrix inversion bigger than a scalar. For the point estimate you could clean only the regressor, but the safe default is to clean both sides, because that also gives the correct residuals and standard error. In part five we prove this is always true, in matrix language, using the residual-maker matrix we built in Chapter two-point-one.
+:::

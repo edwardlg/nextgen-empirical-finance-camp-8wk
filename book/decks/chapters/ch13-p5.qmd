@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Square Root and the Price of Precision
+
+- Part 5 — the $1/\sqrt{N}$ rate and the price of precision
+
+::: notes
+Welcome back to Chapter one-point-three, part five of eleven. In part four we derived the standard error of the sample mean: sigma over the square root of N. Now we confront that square root head-on. It governs how fast precision improves, it is disappointingly slow, and it carries a real price tag. We also flag the assumption — independence — that the whole clean formula quietly leans on.
+:::
+
+## The Most Consequential Square Root
+
+- $\operatorname{se}$ shrinks like $1/\sqrt{N}$ — **not** $1/N$
+- Halve the error: *quadruple* the sample
+- One more digit of precision: *hundredfold* more data
+- $\sigma=\$12{,}000$, $N=200$: $\operatorname{se}=12{,}000/\sqrt{200}\approx\$849$
+- $N=5{,}000$: $\operatorname{se}\approx\$170$
+
+::: notes
+The standard error shrinks like one over the square root of N — not like one over N. This square root is the most consequential one in statistics, and it is a little disappointing the first time you meet it. To cut your standard error in half, you do not double your sample; you quadruple it. To get one more decimal digit of precision, a tenfold drop in the error, you need a hundredfold increase in data. Priya's boss wants the estimate twice as sharp? That is not four hundred claims, that is eight hundred. Precision is expensive, and it gets expensive at a very specific, predictable rate. Let us make it concrete. Suppose the population standard deviation of claims is twelve thousand dollars — insurance losses are volatile, most small, a few enormous. With N equals two hundred, the standard error is twelve thousand over the square root of two hundred, which is twelve thousand over about fourteen point one four, roughly eight hundred forty-nine dollars. So Priya's estimate carries a standard error of about eight hundred forty-nine dollars. With five thousand claims instead, the standard error would fall to about one hundred seventy dollars — same recipe, same unbiasedness, dramatically less jumpiness, purely because N grew.
+:::
+
+## Independence Is Doing Real Work
+
+- Clean $\sigma^2/N$ assumed claims are *independent*
+- One wildfire files hundreds of correlated claims
+- Positive correlation adds covariance terms — all positive
+- True $\operatorname{Var}(\bar{x})$ is *larger* than $\sigma^2/N$
+- Later "clustered standard errors" plug this leak
+
+::: notes
+One warning before we move on. The clean formula, sigma squared over N, leaned on a single assumption from Chapter one-point-two: that the claims are independent, so the variance of their sum is the sum of their variances with no cross-terms. That assumption is not free, and in insurance it is precisely the one to worry about. A single wildfire does not file one claim — it files hundreds, all correlated, all driven by the same fire weather. When observations are positively correlated, the variance of the sum picks up extra covariance terms, those terms are positive, and the true variance of x bar is larger than sigma squared over N. The naive standard error then understates the real wobble — Priya would think her estimate is sharper than it actually is. We will not chase this down now, but file it away: the day you see clustered standard errors later in the book, this is the leak they are plugging. The one-over-root-N rate is a best case that assumes your observations carry genuinely independent information.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The standard error improves only at the $1/\sqrt{N}$ rate — halving the error means *quadrupling* the data, and one more digit costs a *hundredfold* increase. With $\sigma=\$12{,}000$ and $N=200$, the standard error is about $\$849$. The clean formula assumes **independent** observations; correlation makes the true wobble larger. Next: a single scorecard for bias and variance together.
+:::
+
+::: notes
+To summarize part five: the standard error improves only at the one-over-root-N rate, so halving it costs a fourfold increase in data and one more digit of precision costs a hundredfold — precision is expensive at a predictable rate. With a standard deviation of twelve thousand dollars and two hundred claims, the standard error is about eight hundred forty-nine dollars. And the clean formula assumes independent observations; positive correlation, like many claims from one wildfire, inflates the true wobble beyond sigma squared over N. We now have two virtues — aiming true and being steady — that sometimes pull against each other. In part six we combine them into a single scorecard: the mean squared error, and its beautiful decomposition.
+:::

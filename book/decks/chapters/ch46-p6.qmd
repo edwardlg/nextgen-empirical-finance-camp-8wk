@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## Sequential-g and Honest Mechanisms
+
+- Part 6 — sequential-g and three modes that ask less
+
+::: notes
+Welcome back to Chapter four-point-six, part six of nine. In part five we saw the bad-controls collider break a Baron-Kenny mediation regression by nearly a factor of two. Now we learn what you can honestly do instead: the controlled direct effect via the sequential-g estimator, and three modes that often beat it because they ask less of the data.
+:::
+
+## The Honest Estimand and Estimator
+
+- ABS estimand: **controlled direct effect**, $\text{CDE}(m)$ — hold $M$ at $m$
+- Weakest assumptions of the mediation estimands; what policy wants
+- **Sequential-g:** de-mediate the outcome, never condition on $M$
+- Step 1: estimate $\hat\delta$, the effect of $M$ on $Y$
+- Step 2: $\tilde Y=Y-\hat\delta(M-m^{*})$, regress on $D$ and **pre-treatment** controls
+- Collider never opened; inference by cluster bootstrap
+
+::: notes
+Acharya, Blackwell, and Sen offer a way out. Their estimand is the controlled direct effect, CDE of m — the effect of D if the mediator were held fixed at m for everyone — because it needs the weakest assumptions of the mediation estimands and is what most policy questions actually want. Their sequential-g estimator avoids the collider by de-mediating the outcome rather than conditioning on M. Step one: estimate delta-hat, the effect of M on Y, from a regression that includes post-treatment intermediates on other channels. Step two: form the de-mediated outcome, Y minus delta-hat times the quantity M minus m-star, and regress that on D and pre-treatment controls only, reading the coefficient as the controlled direct effect. The mediator is never on the right-hand side of the D-coefficient equation, so the collider is never opened. Inference is by cluster bootstrap.
+:::
+
+## The Price: Sequential Ignorability
+
+- Needs **sequential ignorability** — no unobserved $M$–$Y$ confounder given controls
+- *Very* strong in observational finance
+- Lenders who adopt training likely adopt other unobserved practices
+- Pair the CDE with a **sensitivity analysis** — Oster $\delta$, Cinelli–Hazlett
+- Report: "share stays in the 40–60% range across plausible violations"
+- Name the assumption, then stress-test it
+
+::: notes
+The price of sequential-g is an assumption called sequential ignorability: no unobserved confounder of the mediator and the outcome, once you condition on the controls. This is very strong in observational finance — lenders who adopt a training program likely adopt other unobserved practices too, and those practices move the outcome through channels you never see. So the honest report names the assumption and pairs the controlled direct effect with a sensitivity analysis, using tools like the Oster delta or Cinelli and Hazlett. The form of the report is: "sequential-g delivers the controlled direct effect under sequential ignorability; we show the implied mediation share stays in the forty-to-sixty-percent range across plausible violations." Name the assumption, then stress-test it — that is the whole Week Four reflex applied to mechanism.
+:::
+
+## Three Modes That Ask Less
+
+- **Heterogeneity-as-mechanism:** pre-treatment moderator proxies the channel
+- Maya's intensity dose-response is exactly this — no extra machinery
+- **Instrument-for-mediator:** clean, but exclusion rarely credible
+- **Design-based:** a separate quasi-experiment — gold standard, rare
+- Template: Gao, Han, Kim & Pan (2024) — no Baron–Kenny regression
+- Often "leave the channel to future work" beats pretending
+
+::: notes
+Three more-defensible modes often beat sequential-g because they ask less. Heterogeneity-as-mechanism is the cleanest: if a pre-treatment moderator that proxies the channel predicts the largest effects, the heterogeneity is the mechanism evidence — Maya's intensity dose-response is exactly this, identified under the same assumption as the headline, with no extra machinery. Instrument-for-mediator uses an instrument that shifts M but is excluded from the outcome, recovering a causal M-to-Y effect by two-stage least squares — clean, but the exclusion restriction is rarely credible. Design-based mechanism uses a separate quasi-experiment that moves only one channel — the gold standard, rarely available. The real-world template is Gao, Han, Kim, and Pan, two thousand twenty-four, on overlapping institutional ownership: their mechanism section leans on heterogeneity-as-mechanism — the effect is stronger when the overlapping owner holds a board seat at both firms, and when it is an active rather than passive investor — and never runs a Baron-Kenny regression. The mature judgment: many papers are stronger doing no mechanism analysis at all. If no channel can be honestly identified, "we leave the channel question to future work" beats a Baron-Kenny regression that pretends.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Sequential-g** recovers the **controlled direct effect** by de-mediating the outcome — never conditioning on $M$ — but only under **sequential ignorability**, which demands a sensitivity analysis. Modes that ask less, especially **heterogeneity-as-mechanism**, are often stronger. Next: external validity.
+:::
+
+::: notes
+To summarize part six: sequential-g recovers the controlled direct effect by de-mediating the outcome instead of conditioning on the mediator, so the collider is never opened — but it costs you sequential ignorability, a strong assumption that demands a paired sensitivity analysis. The modes that ask less, especially heterogeneity-as-mechanism, are often stronger, and sometimes the most honest move is no mechanism analysis at all. In part seven we turn to the last referee question: would any of this replicate somewhere, or sometime, else — external validity and transportability.
+:::

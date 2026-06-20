@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## Why Entropy Balancing Is Steadier — Maya and Priya
+
+- Part 6 — why entropy balancing beats IPW and matching
+
+::: notes
+Welcome back to Chapter three-point-three, part six of ten. In part five we set up entropy balancing as a direct solve for flat weights that exactly balance chosen moments. Now we see why that has made it a workhorse in empirical finance: it delivers the balance I-P-W only promises without the wild weights I-P-W inflicts, and it keeps every unit instead of discarding like matching. Then we put it to work for Maya, and for a second student, Priya, to show it generalizes.
+:::
+
+## The Punchline: Balance Without Wild Weights
+
+- IPW balances *only* if the propensity model is correct — and pays with exploding weights
+- Entropy balancing **guarantees exact balance**, every sample, by construction
+- Simultaneously keeps weights as close to uniform as constraints allow
+- Gives the thing IPW promises, without the thing IPW inflicts
+- Deep link: equivalent to a logit fit to *balance*, not to predict treatment
+
+::: notes
+Here is the punchline, and the reason entropy balancing has become a workhorse in empirical finance. Plain I-P-W gets balance only if the propensity model is correctly specified, and even then only approximately in any finite sample — and it pays for misspecification with exploding weights. Entropy balancing guarantees exact balance on the moments you chose, in every sample, by construction, while simultaneously keeping the weights as close to uniform as the constraints allow. It gives you the thing I-P-W only promises, balance, without the thing I-P-W inflicts, wild weights. There is even a deep connection: entropy balancing is equivalent to a particular logistic propensity model — but one fit to target covariate balance directly rather than predictive likelihood. It is what you get when you stop asking the propensity model to predict treatment well and ask it to balance covariates well instead.
+:::
+
+## Versus Matching: Keep Every Unit
+
+- Matching *discards* units — Maya lost a third of her controls
+- Entropy balancing *keeps* every unit, giving some small weights
+- Nothing thrown away → more information, more precision
+- No "which caliper, with replacement?" menu to agonize over
+- Sidesteps the specification-search suspicion
+
+::: notes
+The practical contrast with matching is just as sharp. Matching discards units — the unmatched controls outside the caliper. Maya lost a third of her control group. Entropy balancing keeps every unit and simply gives some of them small weights; nothing is thrown away, so you retain more information and more precision. And it sidesteps the specification-search problem. There is no "which algorithm, which caliper, with or without replacement" menu to agonize over and to invite reviewer suspicion that you picked the spec giving the prettiest answer. You state your balance moments openly, and the solve does the rest.
+:::
+
+## Maya and Priya, Reweighted
+
+- Maya reweights non-enrollees to match enrollees' four covariate means
+- Balance table is mechanically perfect; effective N $\approx 410$ of 600
+- ATT $= 8.4 - 9.1 = -0.7$ points; barely moves when adding variance matching
+- Priya: did parametric drought insurance change irrigation investment?
+- She entropy-balances uninsured farms to insured means and variances
+- Weights stay tame even for farms in unusual rainfall zones
+
+::: notes
+Back to Maya. She wants the effect on the treated. She reweights her non-enrollees so their weighted means of income, credit, age, and prior-account count exactly match the enrollees' means, keeping weights flat. After solving, her balance table is perfect — every covariate difference is mechanically zero — and her effective sample size among controls is, say, four-hundred-ten out of six-hundred, a mild, honest cost. Her entropy-balanced effect is minus zero-point-seven percentage points. Crucially, when she re-runs adding variance matching, the number barely moves — a reassurance the I-P-W wobble never gave her, because the estimate no longer rides on a fragile functional form. That turns "I have a result" into "I have a result I trust." A Priya variant shows it generalizes. Priya studies climate insurance: did buying drought insurance change a farm's irrigation investment? Insured and uninsured farms differ on rainfall variability, farm size, distance to a bank, and prior losses — classic selection. Rather than fit a logit, Priya entropy-balances the uninsured farms to share the insured farms' means and variances, then compares irrigation spending. The weights stay tame even though a few insured farms sit in unusual rainfall zones — the very units that would have blown up an I-P-W estimator.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Entropy balancing delivers **exact balance with tame weights in every sample**, keeps every unit (unlike matching), and removes the specification-search menu referees distrust. For both Maya and Priya, it produces a stable effect that barely moves when you add more moments — robustness IPW never offered. Next: a method that hedges across *two* models at once — doubly-robust AIPW.
+:::
+
+::: notes
+To summarize part six: entropy balancing is steadier than both rivals. Against I-P-W, it guarantees exact balance in every sample with weights kept close to uniform, giving the balance I-P-W only promises without the explosions it inflicts. Against matching, it keeps every unit rather than discarding, retaining information and avoiding the caliper menu that invites cherry-picking suspicion. Maya's effect barely moves when she adds variance matching, and Priya's weights stay tame where I-P-W would have exploded. In part seven we open the third tool — doubly-robust augmented I-P-W — which combines a weighting model and an outcome model so the answer is right if either one is correct.
+:::

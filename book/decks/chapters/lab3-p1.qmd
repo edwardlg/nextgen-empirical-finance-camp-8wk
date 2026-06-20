@@ -1,0 +1,63 @@
+---
+date: "2026-06-22"
+---
+
+## Building the Weak-IV Disaster: Framing the Lab
+
+**Learning objectives.** By the end you can:
+
+- Build a tunable-strength endogenous-regressor DGP
+- Show OLS bias; run just-identified 2SLS by hand
+- Measure conventional CI under-coverage; Anderson–Rubin recovers
+- Compute the Olea–Pflueger effective $F$
+
+::: notes
+Welcome to Week Three, the capstone lab — Reproduce a Weak-Instrument Pathology. This is part one of six. Across this week, Chapter three-point-four built instrumental variables from the ground up, and Chapter three-point-five turned on the lights and showed you the dark room I.V. can become. In this lab you do not read about that disaster — you build it. This opening part frames the mission, states the learning goals, and sets up the environment.
+:::
+
+## What You Will Build
+
+- Chapter 3.4 built IV; Chapter 3.5 showed its dark room
+- Weak first stage: 2SLS biased back toward OLS
+- Conventional confidence interval gets *too narrow*
+- Bound, Jaeger, Baker fed a *random* instrument in
+- You set the truth, then dial instrument strength
+
+::: notes
+Chapter three-point-four built instrumental variables from the ground up — relevance, exclusion, the Wald ratio, two-stage least squares, the local-average-treatment-effect reading, and the first-stage F. Chapter three-point-five then showed the failure mode. When the first stage is weak, two-stage least squares does not merely get noisy — it gets biased back toward the very ordinary-least-squares estimate you reached for I.V. to escape, and its conventional confidence interval gets too narrow. Confidently, precisely wrong. Bound, Jaeger, and Baker taught the profession this the hard way: they fed a random instrument into a famous design and watched two-stage least squares manufacture a plausible, significant, completely fake causal effect. In this lab you construct a world where you set the true effect to exactly zero, plant an endogeneity that biases ordinary least squares, and dial one knob — the instrument's first-stage strength — from weak to strong.
+:::
+
+## The Habit This Lab Drills
+
+- A single draw is an anecdote, not evidence
+- Pathology is about the *sampling distribution*
+- So almost everything here is a Monte Carlo
+- Redraw the universe a thousand-plus times
+- Read averages, coverage rates, distributions — never one sample
+
+::: notes
+The single most important habit this lab drills is the one Chapter three-point-five insisted on: a single draw is an anecdote, not evidence. One simulated dataset might, by luck, hand you a two-stage-least-squares estimate near the truth and an interval that covers it. The pathology is a statement about the sampling distribution of these estimators, and you cannot see a distribution from one point. So almost everything here is a Monte Carlo: redraw the universe more than a thousand times, and read averages, coverage rates, and distributions — never one lucky sample. A close cousin of that habit is a fat-tail subtlety you will meet head-on. Because two-stage least squares is a ratio with a near-zero denominator, its sampling distribution has heavy tails, so its mean is thrown around by a handful of wild draws. The honest summary of where the estimate typically lands is the median, and you will see exactly why.
+:::
+
+## Goals and Setup
+
+- Build a tunable-strength DGP; name endogeneity vs relevance
+- Show OLS bias; run 2SLS by hand
+- Measure conventional CI under-coverage; Anderson–Rubin recovers
+- Compute Olea–Pflueger effective $F$
+- Pure simulation — no WRDS, runs anywhere
+
+::: notes
+By the end of this lab you will be able to build an endogenous-regressor data-generating process with a tunable instrument strength, and explain which line creates the endogeneity and which creates the relevance. You will demonstrate in numbers that ordinary least squares is biased, run just-identified two-stage least squares by hand, and watch it sit between O.L.S. and the truth as the instrument weakens. You will run a Monte Carlo and measure that the conventional ninety-five-percent confidence interval under-covers badly, while the Anderson–Rubin interval recovers roughly ninety-five percent. You will compute the Olea–Pflueger effective F and contrast weak versus strong instruments. For setup, create a conda environment with numpy, pandas, scipy, statsmodels, linearmodels, and matplotlib. Pin a seed using numpy's modern generator, and draw all randomness from that one generator. This lab is pure simulation — no licensed data, no credentials, no WRDS — because you are the one building the universe.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+You will not read about the weak-instrument disaster — you will **build** it: set the true effect to zero, plant an endogeneity, and dial one knob from weak to strong. The discipline is to read **averages and coverage** over a thousand draws, never one lucky sample. Next: build the DGP and watch OLS go wrong.
+:::
+
+::: notes
+To summarize part one: this lab makes you the architect of a weak-instrument disaster. You set the true effect to exactly zero, plant an endogeneity that biases ordinary least squares, and dial one knob — first-stage strength — from weak to strong. The discipline running through every step is that a single draw is an anecdote, so you read averages, coverage rates, and distributions over more than a thousand draws, and you trust the median over the mean for a fat-tailed ratio estimator. In part two we build the data-generating process and confirm the first disease: ordinary least squares biased upward by endogeneity.
+:::

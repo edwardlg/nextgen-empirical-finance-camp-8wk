@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Road to Your Capstone
+
+- Part 7 — reading and writing as one act; the capstone
+
+::: notes
+Welcome back to How to Read an Empirical Paper, part seven of seven — the last part. In part six we ran the eight-question self-check rubric. Now we close the pack with the deeper point: reading a stranger's paper and writing your own defensible one are the same skill, pointed in opposite directions. And that skill is exactly what your capstone in Weeks Seven and Eight will demand.
+:::
+
+## Reading and Writing Are the Same Act
+
+- The spec-discipline rule was written so the *authors* cannot fool you
+- The template points that same rule **outward** at other authors
+- Box one is outcome and key regressor; box two the identifying assumption
+- Reading a paper and writing a defensible spec: same act, opposite directions
+- The skeptic and the honest author are the same person
+
+::: notes
+You may have noticed this pack and the conventions file say the same thing from two directions. The spec-discipline rule demands that every specification this book writes name, explicitly, its outcome, treatment or key regressor, controls, fixed effects, clustering, sample, and the identifying assumption in one sentence — no hand-wavy appeals to "controlling for endogeneity." That rule was written so that we, the authors, cannot fool you. The seven-part template is the same rule pointed outward: it is how you hold other authors to the standard we hold ourselves to. Box one is the outcome and key regressor; box two is the identifying assumption; box three is the sample; the fixed-effects and clustering rows are what the rule forces every author to state. Reading a paper well and writing a defensible spec are the same act, performed in opposite directions. The skeptic who reads a stranger's table and the author who builds an honest one are the same person.
+:::
+
+## The Road to Your Capstone
+
+- Weeks Seven and Eight: you write your own empirical paper
+- Real question, real data — CRSP, Compustat, EDGAR
+- Chapter 7.5: an identification memo and threats-and-responses table
+- Chapter 8.2: stress it with placebos and alternative standard errors
+- Read every paper as though you must one day defend its tables
+
+::: notes
+This is why Week Five sits where it does. In Weeks Seven and Eight you write a capstone — your own empirical paper, with a real question, a real dataset like CRSP, Compustat, or EDGAR, an identification strategy you can defend, and tables you build yourself. Chapter seven-point-five asks for an identification memo — the one-paragraph statement of your identifying assumption and the threats-and-responses table the whole project defends. Chapter eight-point-two stress-tests it with placebos and alternative standard errors. Every box of the template you practice this week becomes a section of that paper. When a capstone mentor reads your draft, she will read it exactly as you are learning to read Fama and French this week: tables first, identifying assumption second, the prose last and skeptically.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Reading a stranger's table and building an honest one are **the same act**, pointed in opposite directions — and that act is your capstone. So pick up Monday's paper, go straight to the tables, find the headline, then tell us in one sentence what it would take to be wrong.
+:::
+
+::: notes
+To close the pack: reading a paper well and writing a defensible specification are the same act in opposite directions — the skeptic who reads a stranger's table and the author who builds an honest one are the same person. That act is the heart of the capstone you write in Weeks Seven and Eight, where the seven-part template becomes the sections of your own paper, defended with an identification memo and stress-tested with placebos and alternative standard errors. So read every paper as though you will one day have to defend its tables in a seminar — because in eight weeks, with your own tables, you will. Now pick up Monday's paper, go straight to the tables, find the headline, and come back and tell us, in one sentence, what it would take to be wrong.
+:::

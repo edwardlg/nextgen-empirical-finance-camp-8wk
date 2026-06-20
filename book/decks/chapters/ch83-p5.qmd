@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## Data and Design
+
+- Part 5 — the data section and the design section
+
+::: notes
+Welcome back to Writing the Empirical Paper, part five of nine. In part four we calibrated the contribution sentence and learned to position the literature. Now we enter the body of the paper, where the promise of the introduction is redeemed with actual evidence. This part covers the first two body sections — data and design. Each carries a specific load and has a specific failure mode to avoid.
+:::
+
+## The Data Section: Reproducible, Not Bloated
+
+- Names source and **vintage** — a pinned snapshot date
+- Sample: years, units, filters, and **why** each filter
+- Every exclusion is a potential **selection threat** — disclose it
+- Near-mandatory: a **summary-statistics table**
+- Does **not** narrate your cleaning ordeal
+
+::: notes
+The data section makes the work reproducible without burying the argument. It names the source and vintage — a pinned snapshot date, not just "the data." It names the sample: which years, which units, which filters, and why each filter was applied. Every exclusion is a potential selection threat, so disclose it. It gives the unit of observation and the construction of the key variables. It carries one near-mandatory artifact: a summary-statistics table — means, standard deviations, counts, by treatment status where relevant — that lets a reader sanity-check the sample before trusting anything built on it. What the data section does not do is narrate your cleaning ordeal. The reader does not need to know that the twenty-eighteen file had a malformed column; they need the final sample and how to rebuild it. Put the ordeal in the replication packet and the appendix, not the paper.
+:::
+
+## The Design Section: Assumption Front and Center
+
+$$\text{Gap}_{ct} = \sum_{k \neq -1} \beta_k \,\mathbb{1}[t - G_s = k] + \boldsymbol{\delta}'\mathbf{X}_{ct} + \alpha_c + \lambda_t + \varepsilon_{ct}$$
+
+- Largely your **identification memo** turned into prose
+- Write the **estimating equation** explicitly
+- State the **identifying assumption in one sentence**
+- Name the threat and the design feature in one breath
+
+::: notes
+The empirical design section puts the identifying assumption front and center. This section is, in large part, your identification memo turned into prose — by design. State the specification in standard form: outcome, treatment, controls, fixed effects, clustering, sample, and the identifying assumption in one sentence. Write the estimating equation explicitly. For Maya, the staggered group-time formulation reads: the county-year gap equals a sum over event-time k of beta-sub-k times an indicator that the time minus the adoption year equals k, plus delta-prime times the controls X, plus county fixed effects alpha-sub-c, plus year fixed effects lambda-sub-t, plus the error term epsilon. Standard errors are clustered by state. Then — the heart of the section — state the assumption that makes beta-sub-k for k at least zero a causal effect rather than a correlation: absent the programs, adopting and never-adopting states' denial gaps would have moved in parallel. Name the threat and the design feature that addresses it in the same breath.
+:::
+
+## The Failure Mode to Avoid
+
+- "We control for confounders" names **nothing**
+- It throws away the one thing that makes the paper credible
+- The assumption is what a referee **attacks** — so state it
+- This is the ethic of the identification memo, now load-bearing
+- The design section is where credibility lives or dies
+
+::: notes
+Here is the failure mode that quietly sinks design sections. A design section that says "we control for confounders" instead of naming the assumption has thrown away the one thing that makes the paper credible. Controlling for confounders is a procedure; the identifying assumption is the claim that the procedure is enough — that absent the treatment, treated and untreated units would have moved together. That assumption is precisely what a referee attacks, so you must state it openly and then show the design feature that defends it. This is the entire ethic of the identification memo you wrote back in Week Seven, now load-bearing in the paper itself. The design section is where the paper's credibility lives or dies, and it lives only if the assumption is on the page in one clear sentence, not hidden behind a list of control variables.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **data** section makes the work reproducible — source, vintage, sample, a summary-statistics table — without narrating the ordeal. The **design** section writes the equation and states the **identifying assumption in one sentence**, front and center. Next: results and robustness.
+:::
+
+::: notes
+To summarize part five: the data section makes the work reproducible — source, vintage, sample, filters with reasons, and a summary-statistics table — without narrating your cleaning ordeal. The design section is your identification memo turned into prose, with the estimating equation written explicitly and the identifying assumption stated in one sentence, front and center. The failure to avoid is writing "we control for confounders" instead of naming the assumption, because that assumption is exactly what a referee attacks. In part six we present the results, leading with the headline table, and begin converting the threats table into persuasion.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Worked Case Two — A Project That Travels the Whole Funnel
+
+- Part 8 — Rainbow of Credits: an idea traveling years
+
+::: notes
+Welcome back to how I pick and kill a project, part eight of nine. In part seven we walked the CSR paper as the case where a clean shock made a project viable. Now the case where an idea travels the whole funnel over years — the Rainbow of Credits. As before, I reason about the life cycle and feasibility, never reciting the working paper's actual magnitudes or data sources.
+:::
+
+## Run the Puzzle Through Three Filters
+
+- Puzzle: munis pay **different borrowing costs** — not only risk
+- *So what:* a **treasurer, regulator, or investor** acts differently
+- *Who cares:* the **municipal-borrowing-cost** conversation
+- *What's new:* most plausibly new **data** or new **identification**
+- Citation: Gao, Liu, and Wang; AEA 2025, target *JF*
+
+::: notes
+Use The Rainbow of Credits as the worked case for a project's life cycle — Gao, Liu, and Wang, Evidence from Municipal Borrowing, presented at the American Economic Association meetings, twenty twenty-five, target the Journal of Finance. The puzzle is something like: municipalities seem to pay very different borrowing costs, and not only because some are riskier. Run that puzzle through yesterday's three filters. So what — who acts differently if either answer is true? A city treasurer choosing how to issue, a regulator weighing disclosure rules, a bond investor pricing risk. Who cares — whose conversation does municipal borrowing cost sit inside? The public-finance and asset-pricing conversation about why otherwise-similar issuers pay different rates. What's new — which flavor of novelty would a project like this most plausibly offer? Most likely new data, or new identification, on a question where the raw correlation has long been known but not cleanly explained.
+:::
+
+## The Funnel's Destructive Half
+
+- A broad question has **many possible versions**
+- Most must be **killed** to reach one
+- Carve narrower questions — then ask **what kills each**
+- A missing **data source**? A confounder you **can't break**?
+- An **audience that doesn't exist**?
+
+::: notes
+Now the funnel's destructive half. A question this broad — why do munis borrow at different costs — has many possible versions, and most must be killed to get to one. Name two narrower questions a researcher might carve out, and for each, say what would most likely kill it. One narrower version might focus on a specific channel, say differences in how issuers are rated or disclosed; what kills it could be a confounder you cannot break, because the channel is tangled with underlying creditworthiness. Another might focus on a specific group of issuers; what kills that could be a missing data source, or an audience too narrow to care. The point is not the particular versions — it is that you generate several, then point the so-what test and the fatal-flaw checklist at each, and let most of them burn.
+:::
+
+## Feasibility and the Long Road
+
+- Multi-year projects **revisit data** and **wait** for it
+- They can chase a **harder identification** strategy
+- Your **five-week capstone cannot** afford either
+- The principle that still makes it real research:
+- A **defensible, honest** small question, finished
+
+::: notes
+Feasibility and the long road. This project went from idea to an American Economic Association presentation to a Journal of Finance target over a span of years, not a summer. Name two concrete things a multi-year academic project can afford that your five-week capstone cannot. One: it can wait — for data approvals, for a cleaner sample, for a revision cycle. Two: it can chase a harder identification strategy, building an instrument or assembling a dataset over months. Your capstone cannot do either. So what principle from today lets a five-week project still be real research despite that gap? This: a defensible, honest, small question that you finish is real research, where a brilliant question you cannot feasibly answer in the time is not. Scope to what the clean variation and the available data will support, and own it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The Rainbow of Credits shows an idea traveling the funnel **over years** — most versions killed to reach one survivor, each judged by the so-what filter and the fatal-flaw checklist. A multi-year project can **wait** and chase **hard identification**; your capstone can't — so **finish a defensible small question** instead.
+:::
+
+::: notes
+To summarize part eight: the Rainbow of Credits is the worked case for a project's whole life cycle — a broad puzzle run through the so-what, who-cares, and what's-new filters, then narrowed by killing most of its possible versions. A multi-year project can afford to wait for data and to chase a harder identification strategy; your five-week capstone cannot, so the principle that keeps it real research is to finish a defensible, honest, small question rather than chase a brilliant one you cannot answer in time. In part nine, the last, you make your own kill decision and write the memo.
+:::

@@ -1,0 +1,57 @@
+---
+date: "2026-06-22"
+---
+
+## Stating the Central Limit Theorem
+
+- Part 4 — stating the CLT and the standardized sample mean
+
+::: notes
+Welcome back to Chapter one-point-four, the Law of Large Numbers and the Central Limit Theorem, part four of ten. In part three we watched a running mean settle onto the truth — that told us where the sample mean lands. Now we ask about the shape of the cloud of possible values around that landing spot. The answer is one of the most surprising facts in mathematics: the Central Limit Theorem.
+:::
+
+## Standardize First
+
+- The sample mean has mean $\mu$, standard deviation $\sigma/\sqrt{N}$
+- **Standardize**: subtract the mean, divide by the standard deviation
+- $\displaystyle z_N=\frac{\bar{x}-\mu}{\sigma/\sqrt{N}}$
+- Now measured in "standard errors away from the truth"
+
+::: notes
+The Law of Large Numbers told us where the sample mean ends up. It said nothing about the shape of the cloud of possible sample-mean values around that destination. That shape is the Central Limit Theorem's job. Take the same independent draws from a population with mean mu and finite variance sigma squared. We saw that the sample mean has mean mu and standard deviation sigma over the square root of N. Now standardize it — subtract its mean and divide by its standard deviation — and call the result z-sub-N. What we are left with is a quantity measured in standard errors away from the truth: how many standard deviations of the sample mean is this particular estimate from mu. Standardizing is the right lens because it strips away the shrinking and lets us watch the pure shape.
+:::
+
+## State the CLT
+
+$$\frac{\bar{x}-\mu}{\sigma/\sqrt{N}}\;\xrightarrow{d}\;N(0,1)$$
+
+- $\xrightarrow{d}$ = convergence in **distribution** — the whole silhouette
+- The astonishing clause: **regardless of the population's shape**
+- Skewed, lumpy, bounded, discrete, U-shaped — does not matter
+- Only need finite mean and finite variance
+
+::: notes
+Here is the statement. As N grows, the distribution of that standardized sample mean converges to the standard normal — the bell curve with mean zero and standard deviation one. The arrow with a little d means convergence in distribution: the entire shape of the histogram — not just its center or width, but its whole silhouette — approaches the standard normal. And here is the astonishing clause: this happens regardless of the shape of the original population, as long as it has a finite mean and a finite variance. The raw data can be skewed, lumpy, bounded, discrete, U-shaped — it does not matter. Average enough of it, standardize, and you get the same universal bell.
+:::
+
+## Why the Normal Is Everywhere
+
+- Not because nature *loves* bell curves
+- Because we spend our lives looking at **averages and sums**
+- Averages of many small independent pieces look normal
+- The CLT is the reason the normal distribution is ubiquitous
+
+::: notes
+That universality is why the normal distribution is everywhere in statistics. It is not that nature loves bell curves. It is that we spend our lives looking at averages and sums of many small independent pieces — and the Central Limit Theorem says averages of almost anything look normal. Whenever you see a quantity that is really an aggregate of many small, roughly independent contributions, you should expect a bell, and the theorem tells you why. That is a profound reframing: the normal distribution is not a special law of nature, it is a mathematical consequence of the act of averaging.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **Central Limit Theorem** says the standardized sample mean $\frac{\bar{x}-\mu}{\sigma/\sqrt{N}}$ converges in distribution to $N(0,1)$ — the whole silhouette becomes the bell — for *almost any* population with finite mean and variance. That universality is why the normal is everywhere. Next: *why* it must be true.
+:::
+
+::: notes
+To summarize part four: standardize the sample mean — subtract mu, divide by sigma over the square root of N — and the Central Limit Theorem says that standardized quantity converges in distribution to the standard normal, the bell with mean zero and standard deviation one. Convergence in distribution means the whole silhouette becomes the bell, and it happens regardless of the population's shape, as long as the mean and variance are finite. That universality is why the normal distribution is everywhere: we spend our lives looking at averages of many small independent pieces. In part five we build the intuition for why this must be true, and why the bell is the only possible destination.
+:::

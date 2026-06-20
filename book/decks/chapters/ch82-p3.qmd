@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Reading the Clustering Table and Serial Correlation
+
+- Part 3 — reading Maya's clustering table and serial correlation
+
+::: notes
+Welcome back to Robustness and Inference Stress-Tests, part three of fourteen. In part two we met the sandwich estimator and saw that the clustering level is the standard-error choice that bites hardest. Now we read Maya's clustering table top to bottom — and watch the whole drama of Chapter two-point-four in one column — then handle the second standard-error threat: serial correlation over time.
+:::
+
+## Reading the Clustering Table
+
+| Clustering | SE | t | 95% CI |
+|---|---|---|---|
+| Classical | 0.18 | 7.8 | [−1.75, −1.05] |
+| County (unit) | 0.31 | 4.5 | [−2.01, −0.79] |
+| **State (primary)** | **0.55** | **2.5** | **[−2.48, −0.32]** |
+| State + Year (two-way) | 0.61 | 2.3 | [−2.60, −0.20] |
+
+- Coarser, more honest clustering roughly **triples** the SE
+- Result passes: two-way interval still excludes zero
+
+::: notes
+Read the table top to bottom and you see the whole drama of Chapter two-point-four in one column. The classical standard error is a fantasy — zero-point-one-eight, treating every county-year as independent information, reporting a t of seven-point-eight that no one should believe. Move to county clustering and the standard error rises to zero-point-three-one, a t of four-point-five. State clustering, her primary, gives zero-point-five-five and a t of two-point-five. Two-way, state and year, gives zero-point-six-one and a t of two-point-three. As you move to coarser, more honest clustering, the standard error roughly triples and the t falls from absurd to merely solid. The right reading: Maya's result passes, because even under the most conservative defensible clustering, the two-way interval, it still excludes zero. Had the two-way row crossed zero, the honest report would be "significant under state clustering but not under two-way clustering" — and then the result is fragile, and you say so.
+:::
+
+## Serial Correlation Over Time
+
+- Denial gaps are sticky — high this year, high next year
+- That within-unit serial correlation is what HAC was built for
+- Ignored, Bertrand–Duflo–Mullainathan show a 45% false-positive rate
+- Clustering by unit already absorbs arbitrary serial correlation
+- HAC is the tool for **one** long series you cannot cluster
+
+::: notes
+The second standard-error threat is serial correlation over time. Maya's panel runs over many years, and denial gaps are sticky — a county high this year tends to be high next year. That is exactly the within-unit serial correlation the HAC, or Newey–West, estimator was built for, and that Bertrand, Duflo and Mullainathan, two-thousand-four, showed will, if ignored, give a difference-in-differences a false-positive rate near forty-five percent instead of five. We treat their specific placebo construction shortly. For the standard-error flavor itself, the rule is that cluster-robust errors clustering by the unit already absorb arbitrary within-unit serial correlation — that is the whole point of the block-diagonal omega — so a panel clustered by state is generally serial-correlation-robust without a separate HAC step. HAC is the tool when you have one long time series and cannot cluster.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Maya's t falls from a fantasy $7.8$ under classical errors to a solid $2.3$ under two-way clustering — and still excludes zero, so she passes. Clustering by unit already absorbs serial correlation; HAC is for a lone time series. Next: the hard case — few clusters.
+:::
+
+::: notes
+To summarize part three: reading the clustering table top to bottom shows the classical standard error as a fantasy, with a t of seven-point-eight no one should believe, while coarser and more honest clustering roughly triples the standard error and drops the t to a solid two-point-three that still excludes zero — so Maya passes, and a row crossing zero would mean fragile. On serial correlation, clustering by the unit already absorbs arbitrary within-unit correlation, so a state-clustered panel needs no separate HAC step; HAC is for a single long time series you cannot cluster. In part four we face the threat the table silently hides: too few treated clusters, and the wild cluster bootstrap built to expose it.
+:::

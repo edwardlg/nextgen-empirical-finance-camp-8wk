@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Running the Identification Catalog Backwards
+
+- Part 4 — finding identification by running the Weeks 3–4 catalog backwards
+
+::: notes
+Welcome back to the Idea-Generation Workshop, part four of eight. In part three we ran ideas through so-what, who-cares, and what's-new. Now we get specific about the treatment slot — where Weeks Three and Four come back with full force. What turns a story with a regression attached into real research is identification, and we find it by running the catalog backwards.
+:::
+
+## Identification Is The Spine
+
+- Identification: the correlation you measure **is** the causal effect
+- Not confounding, not reverse causality, not selection
+- Recall Maya: a 21-point gap, *some blend* of program and head start
+- Weeks 3–4 were a catalog for making that blend **legible**
+- Matching, IV, DiD, event studies, RD, synthetic control, shift-share
+
+::: notes
+A sharp, consequential, novel hypothesis is necessary but not sufficient. The thing that turns it into empirical research, rather than a plausible story with a regression attached, is identification: a credible argument that the correlation you measure is the causal effect you claim, and not the confounding, reverse causality, or selection that Week Three taught you to fear. Recall the spine of Weeks Three and Four. You never see the same unit both treated and untreated, so every causal claim leans on an assumption about the counterfactual. Maya's financial-literacy example was the lesson — a twenty-one-point approval gap that was some unknown blend of the program's effect and the head start that the kind of person who enrolls already had. The whole toolkit that followed — matching and weighting, instrumental variables, difference-in-differences and event studies, regression discontinuity, synthetic control, and shift-share — was a catalog for making that blend legible.
+:::
+
+## Run The Catalog Backwards
+
+- Don't pick a method, then hunt a question
+- Pick a question, then find the **variation** in your treatment
+- Variation plausibly *unrelated* to the confounders you fear
+- That source of variation **is** your identification
+- The highest-leverage thing you do all of Week 7
+
+::: notes
+The practical move for project design is to run this catalog backwards. Do not pick a method and go looking for a question. Pick a question, then ask: where, in the world that generates my data, is there a source of variation in my treatment that is plausibly unrelated to the confounders I fear? That source of variation is your identification, and finding it is the single highest-leverage thing you will do all of Week Seven. Three patterns are realistic for a high-schooler's project. A sharp rule or cutoff gives you regression discontinuity essentially for free — the loan-approval credit-score threshold, the Russell one-thousand, two-thousand boundary; institutions that randomize for you, just above and below a line. A dated policy or shock that hits some units and not others gives you difference-in-differences. And a natural event with a clear timestamp — a depeg, an earnings announcement, a hurricane landfall — gives you an event study.
+:::
+
+## When There's No Design
+
+- A fourth pattern — **found or built instrument** — is hardest in five weeks
+- Weak-instrument pathology can quietly poison inference
+- Reach for IV only if you'd convince a skeptic in *one sentence*
+- No cutoff, no policy, no event, no instrument? Be **descriptive**
+- A described correlation in causal language is **forbidden** by CONVENTIONS §4
+
+::: notes
+A fourth pattern, a found or built instrument — instrumental variables, or shift-share — is real but the hardest in five weeks, because a valid instrument is found rarely and defended with difficulty, and the weak-instrument pathology of Chapter three-point-five can quietly poison your inference. Reach for it only if the instrument is so clean you could explain it to a skeptic in one sentence; otherwise prefer a cutoff, a policy date, or an event. If none is available — if your treatment varies for reasons hopelessly tangled with the outcome — then be honest: your project is descriptive, not causal. That is allowed, and for a first project it is often wise. A careful description of a new phenomenon is a real contribution. What is not allowed is a correlation dressed in causal language. CONVENTIONS section four forbids exactly this: name the threat and the design that addresses it, or do not make the causal claim.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Identification** is what separates research from a story. Run the Weeks 3–4 catalog *backwards*: pick the question, then find variation in your treatment unrelated to your feared confounders. A **cutoff** gives RD, a **dated policy** gives DiD, a **timestamped event** gives an event study. No design? Be honestly **descriptive** — never dress a correlation as causation. Next: feasibility.
+:::
+
+::: notes
+To summarize part four: identification is the credible argument that your measured correlation is the causal effect, not confounding or selection — and it separates empirical research from a story with a regression attached. The professional move is to run the Weeks Three and Four catalog backwards: pick the question first, then find variation in your treatment plausibly unrelated to your feared confounders. A sharp cutoff hands you regression discontinuity; a dated policy hands you difference-in-differences; a timestamped event hands you an event study. And if no design is available, be honestly descriptive — never dress a correlation in causal language. In part five we turn to the filter students skip and then regret: feasibility.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Cure: Anderson–Rubin Inference
+
+- Part 7 — inference that never divides by the first stage
+
+::: notes
+Welcome back to Reading instrumental variables in the wild, part seven of thirteen. In part six the quarter-of-birth saga taught us that a significant first stage is not a strong one. Here is the cure that survives a weak instrument: Anderson–Rubin inference. The whole idea is to never divide by the first stage at all.
+:::
+
+## Never Divide by the First Stage
+
+- The pathology came from **dividing** by a weak first stage
+- So: design inference that never divides by it
+- Anderson–Rubin, published 1949 — a curiosity for fifty years
+- Rediscovered in the late 1990s as the gold standard
+- Test each candidate $\beta_0$ through the reduced form
+
+::: notes
+The weak-instrument pathology came from one place: dividing by a weak, error-ridden first stage. So the cure is to design an inference procedure that never divides by the first stage at all. That is the whole idea of the Anderson–Rubin test, which, remarkably, was published in nineteen-forty-nine — decades before anyone understood how badly weak instruments could bite. It sat as a curiosity for fifty years and was rediscovered in the late nineteen-nineties as the gold standard for weak-instrument-robust inference. Instead of estimating beta and dividing by a shaky first stage, the Anderson–Rubin approach tests each candidate value of beta directly through the reduced form, building a confidence interval out of all the candidate values it cannot reject. Because it never divides by the first stage, it stays valid no matter how weak the instrument is.
+:::
+
+## The Mechanism
+
+- Test $H_0: \beta = \beta_0$. Form $y - \beta_0 x$
+- This removes the hypothesized effect of $x$
+- Under exclusion, $z$ should **not** predict it
+- Regress $y - \beta_0 x$ on $z$; test the coefficient is zero
+- An ordinary $F$-test — **no first stage anywhere**
+
+::: notes
+Here is the mechanism, and it is genuinely clever. Suppose you want to test the hypothesis that the true effect equals some specific number, beta-naught. If that hypothesis were true, then the quantity y minus beta-naught times x — the outcome with the hypothesized treatment effect subtracted out — would be free of the causal effect of x. Under exclusion, the instrument z should then have no relationship with this adjusted outcome, because z only ever touched y through x, and we have just removed x's effect. So the test is: form y minus beta-naught times x, regress it on the instrument z and the controls, and if beta-naught is the true effect, the coefficient on z must be zero. Test that with an ordinary F-test. That is it. No first stage appears anywhere — just a plain reduced-form regression of a constructed variable on the instrument. There is no ratio, no denominator hugging zero, no division by a weak quantity.
+:::
+
+## Inverting the Test
+
+- The $F$-test stays exactly valid — strong or weak instrument
+- A 5% test rejects a true null exactly 5% of the time
+- For a CI, **sweep** $\beta_0$ across a grid
+- Keep every $\beta_0$ the test **fails to reject**
+- That set is the 95% Anderson–Rubin interval
+
+::: notes
+The F-test on z is exactly valid in finite samples under the usual regression assumptions, regardless of whether the instrument is strong or weak. The Anderson–Rubin test keeps its promised size — a five-percent test rejects a true null exactly five percent of the time. To build a confidence interval, you invert the test: sweep beta-naught across a grid of candidate values, run the F-test at each one, and collect every beta-naught the test fails to reject at the five-percent level. That set is the ninety-five-percent Anderson–Rubin confidence interval — by construction it contains the true beta in ninety-five percent of samples, weak instrument or not. The price of this honesty is that the interval can take strange shapes the conventional one never does — and those shapes are the procedure telling you the truth.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Anderson–Rubin** cures the pathology by never dividing by the first stage. Test each candidate $\beta_0$: subtract its effect, regress $y - \beta_0 x$ on $z$, and check the coefficient is zero with an ordinary $F$-test. Invert across a grid to get a CI valid however weak the instrument. Next: the strange shapes that interval can take.
+:::
+
+::: notes
+To summarize part seven: Anderson–Rubin inference cures the weak-instrument pathology by refusing to divide by the first stage. To test whether the true effect equals a candidate value, you subtract that effect from the outcome — forming y minus beta-naught times x — and check whether the instrument still predicts the residual; under exclusion it should not, so an ordinary F-test of a zero coefficient does the job, with no ratio and no near-zero denominator. That F-test keeps its promised size whether the instrument is strong or weak. Sweep the candidate values across a grid, keep every one the test fails to reject, and you have a confidence interval valid no matter how weak the first stage. The price is that the interval can take strange shapes — which, in part eight, we learn to read. Then comes the overidentification test.
+:::

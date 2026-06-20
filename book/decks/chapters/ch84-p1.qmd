@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## What a Referee Is Actually For
+
+**Learning objectives.** By the end you can:
+
+- Referee a peer's paper concern-first, not typo-first
+- Reconstruct a claim and judge whether to believe it
+- Write an R&R memo in quote-change-evidence shape
+- Stay tough on the work, kind to the person
+
+::: notes
+Welcome to Week Eight, Chapter eight-point-four, part one of six: Peer Review and Revision. You have spent three chapters building your own paper. This chapter teaches the skill on the other side of the desk — how to referee someone else's paper, and how to respond when someone referees yours. The trick, stated once: refereeing and writing are the same skill aimed in opposite directions, and you already learned it in Weeks Five and Six. A referee is just a Week-Five reader with a deadline. In this part we ask the foundational question — what is a referee actually for?
+:::
+
+## The Two Jobs of a Referee
+
+- **Gatekeeping:** should this paper exist in the record?
+- **Improvement:** how does it become its best self?
+- The mindset is not "find what is wrong"
+- Reconstruct the claim, decide whether to believe it
+- Then say exactly what would make you believe it more
+
+::: notes
+Strip away the ceremony and a referee does two jobs. The first is a gatekeeping verdict — should this paper, in some form, exist in the record? The second, and far more important for you, is improvement — how does this specific paper become the best version of itself? The mindset that makes a referee useful is not find what is wrong. It is: figure out what the paper is claiming, decide whether to believe it, and tell the author exactly what would make you believe it more. Notice this is the Week-Five self-check rubric — the question, the identifying assumption, the threat, the headline table — turned into a service you perform for someone else. A referee who only catches typos has read the abstract. A referee who reconstructs the identifying assumption, names the one alternative explanation that would sink the headline result, and says precisely what evidence would rule it out has done the job.
+:::
+
+## Referee the Paper They Wrote
+
+- Your job is **not** to rewrite it into your paper
+- It is their question, their design, their choice
+- A beginner failure: three paragraphs on your approach
+- That is not refereeing — it is hijacking
+- One sentence on alternatives is fine; demands are not
+
+::: notes
+There is an asymmetry worth internalizing now. Your job is not to rewrite the paper into the one you would have written. It is the author's paper, their question, their design. A common failure of beginner referees is to spend three paragraphs explaining how they would have approached the topic — a different dataset, a different identification strategy, a different framing entirely. That is not refereeing; it is hijacking. The referee's question is narrower and harder: given the paper the author chose to write, is the claim credible, and what is the shortest path to making it more so? You may, in one sentence, note that an alternative design exists. You may not demand the author become a different researcher. Throughout this chapter our running example is Maya's fair-lending difference-in-differences from Chapter seven-point-five, with a classmate, Devon, wearing his referee hat.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A referee does two jobs — **gatekeeping** and **improvement** — and the second matters more. Refereeing is Week-Five reading turned into a service: reconstruct the claim, decide whether to believe it, and say what would make you believe it more. Referee the paper they wrote, not the one you would have written.
+:::
+
+::: notes
+To summarize part one: a referee does two jobs — a gatekeeping verdict and, far more important, improvement of the paper in front of them. Refereeing is the Week-Five reading skill turned into a service: reconstruct what the paper claims, decide whether to believe it, and say what would make you believe it more. And referee the paper they actually wrote, not the one you would have written. In part two we open the report itself and learn its fixed skeleton — the order that makes a report an author can act on.
+:::

@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Fabricated Data and the Taxonomy
+
+- Part 4 — why fabricated data is the point, and the taxonomy table
+
+::: notes
+Welcome back to lesson five-point-four, part four of eight. In part three we saw how comparing the true standard error to each method's estimate turns simulation into proof, and we met the three correlation structures. Now we look at the data section — unusual because the workhorse dataset is fabricated on purpose — and the taxonomy table you should memorize for life.
+:::
+
+## The Data Is Fabricated — On Purpose
+
+- For a methods paper, this is a **feature, not a flaw**
+- Simulated panels: $N$ firms over $T$ years, dimensions varied
+- The error = firm component + time component + idiosyncratic noise
+- The three variances are the **knobs he turns**
+- Every table reports the *true* SE beside each method's *estimated* SE
+
+::: notes
+For a methods paper, the data section is unusual: the workhorse dataset is fabricated on purpose, and that is a feature, not a flaw. The simulated panels are the heart of the paper. Each is a balanced panel of N firms over T years, and Petersen explores a range of dimensions to show the conclusions are not knife-edge in N or T. The data-generating process is transparent: a true slope beta, plus an error built from a firm component, a time component, and an idiosyncratic component — and the variances of those three pieces are the knobs he turns. Because the process is known, every table can report the true standard error in one column and the estimated standard error from each method in adjacent columns. That side-by-side comparison is the entire engine of proof. Alongside the simulations, he shows the methods on actual finance data, so the reader sees the stakes in the wild — the same regression, the same beta hat, standard errors that swing by a factor of two as you change the method.
+:::
+
+## The Taxonomy Is the Real Data Structure
+
+| Correlation lives... | it is a | cluster by |
+|---|---|---|
+| in a firm's residuals over time | firm effect | firm |
+| across firms within a period | time effect | time |
+| in both directions at once | both | firm and time |
+
+::: notes
+The conceptual payload of the data section is the firm-effect versus time-effect distinction itself. This is the lens through which you classify your own panel before you ever choose a standard error. If the correlation lives in a firm's residuals over time, it is a firm effect, and you cluster by firm. If it lives across firms within a period, it is a time effect, and you cluster by time, or you use time fixed effects. If it lives in both directions at once, it is both, and you cluster by firm and time — two-way. Memorize that table. It is Week Two's recipe, and it is the diagnostic you will apply for the rest of your empirical life. Notice what has happened: the abstract object — the shape of the error covariance matrix — has been turned into a concrete question you can answer about your own data: where are my residuals correlated?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The fabricated data is the **point**: known truth lets every table place the *true* SE beside each method's *estimate*. And the firm-effect / time-effect / both **taxonomy** is the real data structure — memorize it, because it is the diagnostic you apply to your own panels.
+:::
+
+::: notes
+To summarize part four: the fabricated data is the whole point, because known truth lets every table place the true standard error beside each method's estimate — the side-by-side comparison that proves the case. And the firm-effect versus time-effect versus both taxonomy is the real data structure: it turns the abstract shape of the covariance matrix into a concrete question — where are my residuals correlated? — with a one-to-one map to the fix. Memorize it. In part five we put on a professional's reading order and read the simulation tables column by column, where the most famous gotcha in the paper is waiting.
+:::

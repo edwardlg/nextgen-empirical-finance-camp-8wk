@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## What's Vulnerable: Mechanism and Measurement Error
+
+- Part 8 — subtler attacks: mechanism and measurement error
+
+::: notes
+Welcome back to the Reader's Guide for Fama and French, part eight of nine. In part seven we opened the referee's attack with data-snooping and survivorship. This part covers the two subtler joints: the risk-versus-mispricing interpretation debate, where the descriptive design hits its hard limit, and errors-in-variables in beta, the objection that cuts in the paper's favor while still deserving scrutiny.
+:::
+
+## Risk Versus Mispricing
+
+- Believe the *facts*: value and small stocks earn more. **Why?**
+- **Risk story** (authors lean): proxies for distress risk
+- — extra return is fair compensation; CAPM too crude
+- **Mispricing story**: over-love glamour, under-price value
+- A descriptive design **can't** settle the mechanism
+
+::: notes
+Third line of attack: risk versus mispricing, the interpretation debate. Suppose you fully believe the facts — value and small stocks earn higher average returns. Why? Two camps, never reconciled. The risk story, which the authors lean toward: size and book-to-market proxy for exposures to systematic risks the single market beta misses, like distress risk, so the extra return is fair compensation for bearing real risk, and the Capital Asset Pricing Model was simply too crude a risk model. The mispricing story: investors irrationally over-love glamorous growth firms and under-price beaten-down value firms, so the value premium is a behavioral mistake the market slowly corrects, not a risk premium at all. The nineteen ninety-two paper documents the pattern but cannot settle which story generates it — and this is exactly where the genre point pays off. Because the design is descriptive, not causal, it has no leverage to adjudicate mechanism. A referee accepts the cross-sectional fact and refuses to accept either interpretation as established by this paper alone.
+:::
+
+## Errors-in-Variables in Beta
+
+- Beta is **estimated** in Pass 1, with noise
+- Random error in a regressor causes **attenuation** toward zero
+- Skeptic: maybe beta's flat slope is *just* attenuation
+- The fix: portfolio betas, far less noisy — anticipated
+- Premium so near zero that attenuation is a strained rescue
+
+::: notes
+Fourth line of attack: errors-in-variables in beta, from Weeks Two and Three. This is the subtle one, and it cuts in the paper's favor while still deserving scrutiny. Beta is not observed; it is estimated in pass one, with noise. From the measurement-error discussion you have met, a regressor measured with random error suffers attenuation bias — its estimated slope is pulled toward zero. So a skeptic could object: maybe beta's flat slope is just attenuation, and beta really does matter, the noise is hiding it. Fama and French anticipate this — it is the reason they assign betas via portfolios rather than individual stocks, since portfolio betas are far less noisy. A careful referee asks whether that fix is enough, and whether the residual measurement error in beta is large enough to explain away a premium that should have been large. The honest reading: portfolio grouping shrinks the problem a lot, and the beta premium is so close to zero that attenuation alone is a strained rescue — but you should see why the objection is the right one to raise before you decide it fails.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Two subtler attacks. **Risk versus mispricing**: both camps fit the facts, and a descriptive design has no leverage to settle *why* the premium exists. **Errors-in-variables**: estimated beta suffers attenuation toward zero — the portfolio fix shrinks it, but the premium is so near zero that attenuation is a strained rescue.
+:::
+
+::: notes
+To summarize part eight: the two subtler referee attacks. Risk versus mispricing — believe that value and small stocks earn more, and you still cannot say why. The risk camp reads the premium as fair compensation for distress-type risk the market beta misses; the mispricing camp reads it as a behavioral error the market slowly corrects. The descriptive design documents the pattern but has no leverage to adjudicate the mechanism, so a referee accepts the fact and withholds the interpretation. Errors-in-variables — estimated beta suffers attenuation toward zero, so a skeptic might say beta's flat slope is just noise hiding a real effect. The portfolio assignment anticipates this and shrinks it, and the premium is so near zero that attenuation alone is a strained rescue. In part nine we close by rebuilding pieces of the paper ourselves and reading like a referee.
+:::

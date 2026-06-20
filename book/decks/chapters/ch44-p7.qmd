@@ -1,0 +1,60 @@
+---
+date: "2026-06-22"
+---
+
+## No Interference, No Anticipation
+
+- Part 7 — no-interference and no-anticipation, plus conventions
+
+::: notes
+Welcome back to synthetic control, part seven of twelve. In part six we set the first two donor-pool rules: donors must stay untreated, and they must be comparable without being shock-ridden. Now we tackle the two subtler assumptions that protect the estimate, no interference and no anticipation, and then we log the entire design in the conventions form this camp uses for every causal study.
+:::
+
+## No-Interference: Treatment Must Not Spill Over
+
+- Synthetic counterfactual uses donors' **untreated** outcomes
+- Legitimate only if unit 1's treatment didn't spill onto donors
+- Mandate spooks national reinsurance $\Rightarrow$ donor premiums rise
+- Donors no longer show $Y_{jt}^{N}$ — their path is bent
+- Synthetic inherits the bend; the gap shrinks
+- Result: you **understate** the true effect
+
+::: notes
+Third rule, the subtle one: no-interference, the SUTVA stable-unit assumption from Chapter three-point-one. The synthetic counterfactual is the donors' untreated potential outcomes. That is only legitimate if the treatment of unit one did not spill over onto the donors. Suppose the treated state's disclosure mandate spooked the national reinsurance market and nudged premiums up everywhere, including in the donor states. Then the donors are no longer showing you Y-j-t superscript N, their no-treatment path; they are showing a path partly bent by the treated state's policy. Your synthetic control inherits that bend, the gap between real and synthetic shrinks, and you understate the true effect. This is the no-interference requirement, the same stable-unit assumption from Chapter three-point-one, now demanding that the donor pool be insulated from the treated unit's treatment. Priya defends it by arguing one state's disclosure rule is too small to move the national reinsurance market, and by checking that geographically distant donors, which should be most insulated, behave like the nearby ones.
+:::
+
+## No-Anticipation: Clean Pre-Period Outcomes
+
+- Pre-period fit assumes pre-outcomes are truly untreated
+- Insurers reprice in 2017, anticipating the 2018 mandate
+- Then $Y_{1,2017}$ is already partly treated
+- The synthetic is matched to a contaminated target
+- The effect is biased **toward zero**
+- Fix: set $T_0$ when expectations could first move
+
+::: notes
+One more, shared with difference-in-differences: no-anticipation. The pre-treatment fit assumes the treated unit's pre-period outcomes are genuinely untreated. If insurers, anticipating the two thousand eighteen mandate, started repricing in two thousand seventeen, the last pre year, then Y-one comma two thousand seventeen is already partly treated, the synthetic control is matched to a contaminated target, and the estimated effect is biased toward zero, because some of the effect has leaked backward into the matching window. The fix is the same as in event studies: define T-naught at the moment expectations could first have moved, often the announcement date, not the effective date, and inspect the last pre-periods for a suspicious early divergence. A clean synthetic-control study, like a clean event study, shows a flat gap right up to T-naught and a break only after.
+:::
+
+## State It in Conventions Form
+
+- **Outcome:** average homeowner premium $Y_{it}$
+- **Treatment:** the 2018 disclosure mandate, on from 2018
+- **Matching variables:** pre-premiums plus predictors
+- **Donor pool:** clean, comparable, never-adopting states
+- **Comparison unit:** the convex-weighted synthetic state
+
+::: notes
+State all of this in the conventions section-four form, the way every Week Four design is logged. Outcome: average homeowner premium Y-i-t. Treatment: the two thousand eighteen climate-risk disclosure mandate, on for the treated state from two thousand eighteen. Controls, or matching variables: pre-period premiums plus predictors, namely fire-zone density, median home value, a reinsurance cost index, and coastal share, all entered through the X matrix. Donor pool: US states never adopting such a mandate in-sample, excluding any hit by idiosyncratic catastrophes. Comparison unit: the convex-weighted synthetic state. And the identifying assumption in one sentence: absent the mandate, the treated state's premium would have continued to track its pre-period-matched synthetic control, which requires no anticipation, no interference from the policy onto donors, and a donor pool of clean, comparable, untreated states. Write it this way every time, and the assumptions become a checklist you can defend.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Two subtler rules complete the pool: **no interference** (the treatment must not spill onto donors, or you understate the effect) and **no anticipation** (pre-period outcomes must be untreated, or the effect biases toward zero). Log everything in **conventions form**. Next: what failure actually looks like.
+:::
+
+::: notes
+To summarize part seven: two subtler assumptions complete the protection of the donor pool. No interference means the treated unit's policy must not spill over onto the donors; if it does, the donors stop showing their untreated path, the synthetic inherits the bend, and you understate the effect. No anticipation means the treated unit's pre-period outcomes must be genuinely untreated; if insurers reprice early, the matching target is contaminated and the effect biases toward zero, so you set T-naught at the moment expectations could first move. Log the whole design, outcome, treatment, matching variables, donor pool, comparison unit, and one-sentence identifying assumption, in conventions form. In part eight we ask the reveal-the-trick question: what does failure look like, and how does the pre-period fit confess it?
+:::

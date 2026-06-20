@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Ceiling They Share — and the Door to Instruments
+
+- Part 10 — the shared CIA ceiling and the door to instruments
+
+::: notes
+Welcome back to Chapter three-point-three, part ten of ten, the finale. Across this chapter we built three reweighting engines and, with last chapter's matching, four ways to exploit selection-on-observables. Now we confront the one ceiling every one of them shares — the conditional-independence assumption — and see why an unobserved confounder breaks them all, silently. That failure is the door into the next chapter.
+:::
+
+## The Ceiling: Conditional Independence
+
+- All four methods bolt to the same chassis: **CIA**
+- CIA fails when an **unobserved confounder** drives selection *and* outcome
+- Example: unmeasured conscientiousness lowers rates *and* drives enrollment
+- Then every estimator here is biased — with a clean balance table
+- Balancing observables does nothing about the confounder you lack
+
+::: notes
+Stand back and see the boundary. Inverse-probability weighting, entropy balancing, augmented I-P-W, and matching are four engines bolted to the same chassis, and that chassis is the conditional-independence assumption: that once we condition on, balance on, or reweight on the observed covariates X, treatment is as good as random. Every method here is a way to use X more cleverly, more stably, more efficiently. Not one can rescue you if conditional independence is false. And it is false exactly when there is an unobserved confounder — a variable that drives both selection into treatment and the outcome, that you did not measure. Suppose the students who enrolled were also more conscientious in a way no dataset captures, and conscientiousness independently lowers interest rates. Then enrollees would have gotten lower rates even without the program, no amount of balancing on income and credit removes it, and every estimator in this chapter is biased — silently, with a clean-looking balance table and a confident standard error. Balancing the observables you have does nothing about the confounder you don't.
+:::
+
+## The Door Out: Instruments
+
+- This is the unbreakable ceiling of selection-on-observables
+- Always ask: what unobserved thing could drive both?
+- When you can't defend CIA, you need a different source of variation
+- Not richer controls — an **instrument** that shoves units into treatment
+- Ch 3.4 introduces **instrumental variables** as the escape hatch
+
+::: notes
+This is the unbreakable ceiling of selection-on-observables, and it is why a careful researcher always asks: what is the unobserved thing that could be driving both treatment and outcome? That question is the doorway to the next chapter. When you cannot defend conditional independence — when you fear an unobserved confounder you cannot measure — you need a fundamentally different source of identifying variation. Not a richer set of controls, but an instrument: a variable that shoves units into treatment for reasons unrelated to the outcome. Chapter three-point-four introduces instrumental variables as the escape hatch for precisely the situation this chapter cannot handle. Everything in Week Three up to now has assumed selection-on-observables; the rest of the week is about what to do when that assumption finally breaks.
+:::
+
+## Your Turn With the Notebook
+
+- Run IPW, entropy balancing, and AIPW side by side on known-effect data
+- Watch entropy weights stay tame where IPW weights explode
+- Break one model at a time — AIPW survives each single failure
+- Break *both* — and watch it finally drift
+- "One wrong is survivable, both wrong is not"
+
+::: notes
+Before we close, a look ahead to your notebook for this chapter. You will take a single simulated dataset with a known treatment effect and selection on observables, and run all three estimators side by side. You will build stabilized I-P-W weights and inspect their distribution and effective sample size; solve for entropy-balancing weights that exactly match covariate means, then means and variances, and confirm the balance table comes out mechanically perfect; and compute the augmented I-P-W estimate. Then you will deliberately break the propensity model, then instead break the outcome model, and watch the doubly-robust estimator survive each single failure — but not their conjunction. One model wrong at a time is survivable; both wrong is not. The goal is to see, with your own data, why entropy weights stay tame where I-P-W weights explode, and why doubly robust is more than a slogan.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+All four methods — matching, IPW, entropy balancing, AIPW — share one ceiling: **conditional independence**. An **unobserved confounder** that drives both treatment and outcome breaks every one of them, silently, behind a clean balance table. No amount of balancing observables can fix the confounder you lack. That is why **Ch 3.4 turns to instrumental variables** — a new source of variation when CIA cannot be defended.
+:::
+
+::: notes
+To close Chapter three-point-three: all four methods — matching, inverse-probability weighting, entropy balancing, and augmented I-P-W — ride on conditional independence, and an unobserved confounder that drives both treatment and outcome breaks every one of them silently, behind a clean balance table. That is the limit selection-on-observables cannot cross. In Chapter three-point-four we walk through the door it opens, trading richer controls for an instrument — a source of variation that shoves units into treatment for reasons unrelated to the outcome. You now have, across this chapter and the last, four defensible ways to exploit selection-on-observables, the judgment to choose among them, and the honesty to name the ceiling they share. Well done; that completes the chapter.
+:::

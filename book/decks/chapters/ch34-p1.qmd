@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## Instrumental Variables: The Escape Hatch
+
+**Learning objectives.** By the end you can:
+
+- Identify a causal effect despite an unobserved confounder
+- State the relevance and exclusion conditions for an instrument
+- Build a Wald estimate and a 2SLS estimate
+- Read off the LATE and diagnose weak instruments
+
+::: notes
+Welcome to Week Three, Chapter three-point-four, part one of ten: instrumental variables. For three chapters we lived inside one generous assumption — conditional independence, the idea that once you condition on enough observed covariates, treatment is as good as randomly assigned. Matching, propensity scores, entropy balancing, doubly-robust estimation all squeezed that assumption dry. But every one of them dies the same death the moment a confounder you did not measure walks into the room. This chapter is the escape hatch. In this opening part we frame the lesson and state the whole idea in one plain sentence.
+:::
+
+## Where Conditioning Dies
+
+- CIA tools compare units identical on *measured* variables
+- They fail when an *unmeasured* confounder sits in $\varepsilon$
+- Then $\mathbb{E}[\varepsilon \mid D] \neq 0$ — $D$ is **endogenous**
+- Conditioning on observed covariates cannot save you
+- The damage is, by definition, not among them
+
+::: notes
+Let us be precise about the death. Every tool from Chapters three-point-two and three-point-three compares treated and untreated units who look identical on the variables you measured. That is their power and their limit. The moment a relevant, correlated variable sits in the error term — so that the expected value of epsilon given D is not zero — the regressor D is endogenous, and no amount of conditioning on the observed covariates can save you. Why? Because the thing doing the damage is, by definition, not among the things you observed. Maya still wants to know whether financial-literacy training helps people manage debt. But the people who sign up for a free class are more motivated, more organized, more worried about money, in ways no dataset fully records. That unobserved motivation is the confounder. Conditional independence fails. She needs an instrument.
+:::
+
+## IV Stated Plainly
+
+- Find a variable $Z$ that shoves the treatment $D$
+- $Z$ must have **no other path** to the outcome $Y$
+- Then the effect of $D$ on $Y$ is a ratio
+- Numerator: how much $Y$ moves with $Z$
+- Denominator: how much $D$ moves with $Z$
+
+::: notes
+Here is the entire idea in one sentence. If you can find a variable Z that shoves the treatment D around but has no other path to the outcome Y, then the causal effect of D on Y is the ratio of two things you can measure: how much Y moves with Z, divided by how much D moves with Z. Read that ratio as leverage. You cannot move D yourself in a clean way — every natural shove on D in the data drags the confounder along with it. But Z can shove D cleanly, and the only way that shove can reach Y is through D. So whatever response you see in Y when Z changes must have traveled the one open road: Z to D to Y. Divide the Y-response by the D-response, the units of Z cancel, and you are left with the effect of D on Y per unit of D. The instrument is a lever. The denominator tells you how hard the lever pushed the treatment. The numerator tells you how far the outcome moved. The ratio is the mechanical advantage.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+IV identifies a causal effect **without observing the confounder**. Find an instrument $Z$ that shoves $D$ but reaches $Y$ only through $D$; the effect is the ratio of $Y$'s response to $Z$ over $D$'s response to $Z$. Everything else in this chapter elaborates that ratio.
+:::
+
+::: notes
+To summarize part one: instrumental variables is the first design in this book that does not require you to observe and condition on the confounder. It requires something else — an instrument Z that wiggles the treatment for reasons unrelated to the confounder, and then reads the causal effect off how the outcome responds to that exogenous wiggle. The whole idea is a ratio: Y's response to Z over D's response to Z. The Wald estimator is that ratio for a binary instrument; two-stage least squares is that ratio with controls; the local average treatment effect is the discovery of whose effect it really is; and weak instruments are what happens when the denominator gets dangerously close to zero. In part two we get exact about what is broken — the endogenous regressor — and its three classic faces.
+:::

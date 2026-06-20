@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Packet: One Command, Six Parts
+
+- Part 9 — the packet's first four parts: data, code, README, environment
+
+::: notes
+Welcome back to The Eight-Minute Presentation and the Replication Packet, part nine of twelve. In part eight we drew the line between fatal and survivable critiques. Now the second surface — the one the skeptic touches alone. After the talk, the most serious members of your audience rebuild your headline number on a machine that has never seen your project. Let us assemble the packet.
+:::
+
+## One Command, Everything, From Raw
+
+- The bar: a stranger, a fresh machine, *one* command
+- Every table and figure regenerates from raw data to PDF
+- Not "mostly," not "after I email a fix" — everything
+- It is the Week 7 repository, finished — not a new thing
+- Six load-bearing parts assemble into the deliverable
+
+::: notes
+The bar is exact and unforgiving: a stranger runs one command and watches every table and figure in your paper regenerate from raw data to final P-D-F. Not "mostly." Not "after I email them a fix." One command, everything, byte-for-byte. That is the difference between a result and an assertion, and it is the entire reason Lab seven made you stand up the repository in Week seven — the packet is not a new thing you build now, it is the repository you have been committing into all along, finished. It has six load-bearing parts. We cover the first four here, and the last two, the parts this chapter makes non-negotiable, in the next segment. The whole point is that the answer to "how do I run this?" has collapsed to a single line, and everything in the packet exists to make that line work on a machine that is not yours.
+:::
+
+## Data and Code in Run-Order
+
+- **Public data** ships in the packet — cached, vintage-pinned
+- **Licensed data** (WRDS, CRSP, Compustat) does *not* ship
+- Instead: a pinned data-access script that reconstructs it
+- **Code in run-order:** `01_pull`, `02_build`, `03_analysis`
+- Logic in `src/`, story in `notebooks/`
+
+::: notes
+Part one is the data, or a data-access script. Public data ships in the packet, cached, with its vintage pinned, so it is fully re-runnable. Licensed data — anything from W-R-D-S, C-R-S-P, Compustat — does not ship, because the license forbids redistribution; it stays on GMU infrastructure. What ships instead is the data-access script in source: the bounded, pinned query that reconstructs the licensed data for anyone with the same access, plus a pulls log with content hashes so a reviewer can re-pull and verify identical bytes. That is the asymmetry: public data is fully re-runnable, licensed data is recipe-reproducible, and your README says which is which. Part two is code in run-order — scripts and notebooks numbered so the order is unambiguous: zero-one pull, zero-two build, zero-three analysis. Logic in source, story in notebooks. A reviewer should never guess which script runs first.
+:::
+
+## README and a Pinned Environment
+
+- **README:** what / why / how-to-run from Lab 7
+- Names data sources, secrets to `export`, the licensed split
+- But "how to run" is now a single line
+- **Environment:** human-readable `environment.yml`
+- Plus machine-exact `environment.lock.yml`
+
+::: notes
+Part three is a README — the what, why, and how-to-run document from Lab seven. But now the how-to-run section has collapsed to almost nothing, because the whole point of the packet is that the answer is one command. The README still names the data sources, the secrets a user must export, and the licensed-versus-public split — but the run instructions are now a single line. Part four is a pinned environment file: both the human-readable environment dot yaml, which is Python three-point-one-one plus the conventions stack, and the machine-exact environment lock dot yaml, every package at the version the solver chose. This is the answer to "it worked on my machine" — your machine and the reviewer's become the same machine. The sentence to say out loud: my results were produced under the lock file; rebuild that and you rebuild my numbers.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The bar is **one command** rebuilding every table and figure from raw to PDF on a stranger's machine — the Week-7 repository, finished. The first four parts: **data** (public ships, licensed gets a pinned access script), **code in run-order**, a **README** whose run section is now one line, and a pinned **`environment.lock.yml`** so two machines become one. Next: the fixed SEED and the single `run_all` entry point.
+:::
+
+::: notes
+To summarize part nine: the replication packet is the Week-seven repository finished, and the bar is one command that rebuilds every table and figure from raw data to a compiled P-D-F on a stranger's machine. Its first four parts are these. The data, or a data-access script — public data ships cached and vintage-pinned, while licensed data from W-R-D-S or Compustat stays put and ships only a pinned query that reconstructs it. Code in run-order, so a reviewer never guesses which script runs first. A README whose how-to-run has collapsed to one line. And a pinned environment, both human-readable and machine-exact, so your machine and the reviewer's become the same machine. In part ten we add the two parts this chapter makes non-negotiable: the fixed seed and the single run-all entry point.
+:::

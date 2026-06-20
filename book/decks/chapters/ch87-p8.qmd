@@ -1,0 +1,60 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Absorbing Rejection and the R&R
+
+- Part 8 — absorbing a desk-reject and the revise-and-resubmit
+
+::: notes
+Welcome back to Chapter eight-point-seven, part eight of nine. In part seven we walked the reviewer wait and the four possible decisions. Now the two outcomes that demand the most skill: absorbing a desk-reject without losing momentum, and handling the revise-and-resubmit — the most consequential outcome short of acceptance, and the central craft of a publishing career.
+:::
+
+## Absorbing a Desk-Reject
+
+- Do **not** respond emotionally
+- Parse the little feedback against the journal's recent issues
+- **Send to the next venue** — have a ladder set in advance
+- Learn **in aggregate**: one is noise, three in a row is signal
+- Many top papers absorbed several rejects first
+
+::: notes
+Absorbing a desk-reject is hard because the feedback is minimal — often three sentences, "not a good fit at this time." The moves: do not respond emotionally; parse what little there is against the journal's recent issues; send the paper to the next venue without delay — have a stretch, then next-tier, then safety ladder set before the first decision, so the reject triggers no paralysis; and learn in aggregate, because one reject is noise, three in a row is signal — ask two trusted readers, "what are editors seeing that I'm not?" Do not let any single reject change your view of the paper's value. Many top-journal papers had several rejects before they landed — the Krueger and Mas tire-recall paper before its eventual home, and a well-known high-frequency-trading paper desk-rejected three times before the Review of Financial Studies.
+:::
+
+## The Revise-and-Resubmit
+
+- The most consequential outcome short of acceptance — an **option to continue**
+- The central artifact: the **response letter**, often 30–80 pages
+- **Quote exactly**, answer with a *specific* change, not "we addressed this"
+- **Disagree carefully** — agreeing with everything is weakness
+- The editor reads the **tone** — never surface antagonism
+
+::: notes
+The revise-and-resubmit is the most consequential outcome short of acceptance — an option to continue, judged at a stricter standard the second round because the referees have now invested. The central artifact is the response letter, which for a top-finance revise-and-resubmit runs thirty to eighty pages, sometimes longer than the manuscript: a cover summary, then a point-by-point response to the editor and each referee, quoting every comment verbatim and naming the section, page, and table where the change appears. The principles: quote exactly; answer with a specific change — "re-estimated with state-level clustering; the point estimate is unchanged, the t-statistic falls from four-point-seven to three-point-three but stays significant at one percent" — never a vague "we have addressed this." Disagree when you should, but carefully, because agreeing with everything is weakness. Be honest about the infeasible and offer the feasible substitute, and never surface antagonism, because the editor reads the tone.
+:::
+
+## Budgeting the R&R
+
+- **Weeks 1–2** — read the reports twice; find each referee's *main* critique
+- **Weeks 3–4** — triage at full scale
+- **Weeks 5–12** — do the empirical work
+- **Weeks 13–16** — rewrite
+- **Weeks 17–22** — write the response letter
+- **Weeks 23–24** — verify and resubmit
+
+::: notes
+A six-month revise-and-resubmit budgets roughly like this. Weeks one and two: read the reports twice and find each referee's main critique — not every comment, the load-bearing one. Weeks three and four: triage, the feedback-ledger discipline from earlier in the camp, now at full scale. Weeks five through twelve: do the empirical work, the longest stretch. Weeks thirteen through sixteen: rewrite the manuscript around the new results. Weeks seventeen through twenty-two: write the response letter itself, the artifact the editor weighs most heavily. Weeks twenty-three and twenty-four: verify everything and resubmit. The shape matters — most of the calendar is real work, and the letter, though written last, is what carries it. Treat the R&R as the central craft of a publishing career, because it is.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Absorb a desk-reject without drama: **send to the next venue on a pre-set ladder**, and learn only in aggregate. The **R&R** is an option to continue — answer with **specific changes**, disagree carefully, watch your tone, and budget six months of mostly empirical work. Next: the five-year research identity.
+:::
+
+::: notes
+To summarize part eight: absorb a desk-reject without drama — do not answer emotionally, send the paper to the next venue on a ladder you set before the first decision, and learn only in aggregate, because one reject is noise and three in a row is signal. The revise-and-resubmit is an option to continue, won through a response letter that quotes exactly, answers with specific changes, disagrees carefully, and keeps its tone clean. Budget a six-month revision as mostly empirical work, with the response letter written last but weighing most. In part nine we step back to the whole picture — the five-year research identity, and what these eight weeks actually built.
+:::

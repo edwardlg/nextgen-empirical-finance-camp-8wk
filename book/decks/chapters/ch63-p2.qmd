@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## A Measurement Paper and Its Question
+
+- Part 2 — the paper's genre and its research question
+
+::: notes
+Welcome back to Chapter six-point-three, part two of twelve. In part one we met the raw material — a fifty-thousand-word ten-K — and the trick: a general dictionary mislabels accounting words as negative. Now we name the genre of this paper and state its research question, anchored on the riddle in its title.
+:::
+
+## A Measurement Paper
+
+- Last week Petersen was a *methods* paper
+- This is a **measurement** paper — a fact about a tool
+- The villain is a dictionary; the evidence is a word count
+- Moral: a word's meaning depends on the room
+- That moral reaches all the way to large language models
+
+::: notes
+Frame the genre. Last week, Petersen was a methods paper — about how to compute standard errors. This week, Loughran and McDonald is a measurement paper. Its finding is not a fact about markets; it is a fact about a tool. The villain is a dictionary, the evidence is a word count, and the moral — that the meaning of a word depends on the room it is spoken in — reaches all the way to the large language models you will meet in Chapter six-point-five. Keep that genre in mind: when the punchline is about a measuring instrument, you read for whether the instrument is trustworthy, not for a number about the world.
+:::
+
+## The Research Question
+
+- Does a general dictionary *misclassify* financial tone?
+- Can a finance-specific list relate better to outcomes?
+- **Outcome:** the tone score we assign a document
+- **Key regressor:** the *choice of dictionary itself*
+- Two analysts, same 10-K, two different lists
+
+::: notes
+Now the research question in plain English. Does scoring financial text with a general-English sentiment dictionary misclassify the tone of that text — and can a finance-specific dictionary do better at relating to outcomes investors care about, like returns and volatility? Name the two pieces. The outcome here is not a stock return in the usual sense; it is a measurement — the sentiment, or tone, score we assign to a document. The key right-hand-side variable, the thing whose effect we are really testing, is the choice of dictionary itself. Two analysts read the same ten-K. One scores it with the Harvard General Inquirer, the standard general-purpose dictionary of the era. The other scores it with words chosen because they are negative in a financial context. The authors ask: do these two scores disagree, do they disagree systematically, and which one actually picks up signal in market data?
+:::
+
+## The Title Is the Question
+
+- *When is a liability not a liability?*
+- In English: "liability" is a burden, a bad thing
+- In a 10-K: deferred tax liability, current liabilities
+- Each neutral mention counted as a dose of negativity
+- Diagnose the mismeasurement, then repair and validate
+
+::: notes
+The motivating observation is almost embarrassingly concrete — it is the title. When is a liability not a liability? In general English, liability is a burden, a bad thing; he was a liability to the team. So the Harvard dictionary files it under negative words. But in a ten-K, liability appears thousands of times as a neutral accounting term: deferred tax liability, current liabilities, liability insurance. Every one of those mentions gets counted as a dose of negative sentiment, even though no human reader would call the sentence gloomy. The same is true of tax, cost, capital, board, vice, crude, depreciation, and a long tail of others. So the question has the two-part shape of any good measurement paper. Part a, diagnosis: how badly does the off-the-shelf tool mismeasure financial tone? Part b, repair and validation: if we build a domain-specific tool, does it carry more genuine signal? The answer to a is badly, and the answer to b is yes.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+This is a **measurement paper**: the finding is about a *tool*, not a market. The question has two parts — **diagnose** how badly a general dictionary mismeasures financial tone, then **repair and validate** with a finance-specific list. The key regressor is the *choice of dictionary itself*. Next: the bag-of-words model every score is built on.
+:::
+
+::: notes
+To summarize part two. This is a measurement paper — the villain is a dictionary, the evidence is a word count, and the finding is about a tool, not the market. The research question is two-part: diagnose how badly the general-English dictionary mismeasures financial tone, then repair and validate with a finance-specific list. The key regressor is the choice of dictionary itself. In part three we open the engine — the bag-of-words model that every one of these scores, Harvard and finance alike, is built upon.
+:::

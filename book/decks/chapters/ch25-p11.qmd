@@ -1,0 +1,62 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Bias-Consistency Ledger
+
+- Part 11 — the checklist that organizes every threat
+
+::: notes
+Welcome back to Week Two-point-five, part eleven of twelve. We have now met all three threats: omitted variable bias, measurement error, and functional-form misspecification. Now we collect everything into a single ledger that, for any threat, answers three questions — does it bias the coefficient, is it a bias or a standard-error problem, and what fixes it. This checklist is the most useful habit the chapter can give you, and it reveals the line that organizes the whole camp.
+:::
+
+## The Checklist Habit
+
+- For any regression, silently run a checklist
+- Does this threat **bias** $\hat\beta$, or just inflate the SE?
+- Bias and precision are different diseases, different cures
+- Conflating them is the signature beginner error
+- The last column is often a *design*, not a regression tweak
+
+::: notes
+The single most useful habit this chapter can give you is to look at any regression and silently run down a checklist: for each thing that could be wrong, does it bias my coefficient, or merely inflate my standard error? And what would fix it? Bias and precision are different diseases with different cures, and conflating them is the signature error of the beginner. The ledger is that checklist. The heart of it is the last two columns — and notice how often the honest fix is not a regression tweak but a research design, which is the door into Weeks three and four.
+:::
+
+## The Bias-Consistency Ledger
+
+| Problem | Bias or SE? | Fix / design |
+|---|---|---|
+| Omitted variable (relevant + correlated) | **Bias** | Control (a bet); design → Wk 3-4 |
+| Measurement error in $x$ | **Bias** | Better measure; instrument → Wk 4 |
+| Mismeasured control | **Bias** | Measure well; re-opens OVB |
+| Wrong functional form | **Bias** | Polynomials, logs; RESET |
+| Heteroskedasticity, clustering | **SE** | Robust / clustered SEs |
+| Simultaneity / reverse causality | **Bias** | Instrument → Wk 4 |
+
+::: notes
+Here is the ledger in spoken form. Omitted variable that is relevant and correlated with x: yes, it biases the coefficient, the direction given by the two-sign rule, and the fix is to include the control as a bet, or better, a design that removes the confounder. An irrelevant omitted variable, with beta-two zero, does no harm. A relevant variable uncorrelated with x is a standard-error issue only — include it for precision. Classical measurement error in x: bias, toward zero by the reliability ratio lambda, fixed by better measurement or an instrument. Measurement error in y, classical: standard-error only, wider intervals. A mismeasured control: bias, because it re-opens omitted variable bias. Non-classical measurement error: bias, in either direction. Wrong functional form: bias, fixed with polynomials, logs, and interactions, and diagnosed with RESET. Heteroskedasticity and clustering, from Chapter two-point-four: standard-error only, fixed with robust or clustered standard errors. And simultaneity, where y also causes x: bias, in either direction, needing an instrument.
+:::
+
+## The Pattern That Organizes the Camp
+
+- Chapter 2.4 problems live in the **SE** column only
+- They change the *wobble*, never the *center*
+- This chapter's problems live in the **bias** column
+- They move the center; no SE adjustment can touch them
+- Bigger samples, fancier SEs — none rescue a biased $\hat\beta$
+
+::: notes
+Read the ledger top to bottom and a pattern jumps out. The Chapter two-point-four problems — heteroskedasticity, clustering — live entirely in the standard-error column: they change how much your estimate wobbles, never where it is centered. Robust and clustered standard errors are the right and complete fix for them. The problems of this chapter live in the bias column: they move the center, and no standard-error adjustment can touch them. Bigger samples, fancier standard errors, more decimal places — none of it helps a biased coefficient. That is the line this chapter draws, and it is the line that organizes the rest of the camp.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The ledger asks three questions of every threat: does it **bias** $\hat\beta$, is it bias or SE, and what fixes it? Chapter 2.4 problems live in the **SE** column — wobble only; this chapter's three threats live in the **bias** column — they move the *center*, and no standard error can touch them. Next: the bridge to causal inference.
+:::
+
+::: notes
+To summarize part eleven: the bias-consistency ledger is a checklist you run silently on every regression — for each possible problem, ask whether it biases the coefficient or merely inflates the standard error, and what would fix it. Reading it top to bottom reveals the organizing line of the camp. The Chapter two-point-four problems, heteroskedasticity and clustering, live entirely in the standard-error column: they move the wobble, never the center, and robust or clustered standard errors cure them completely. This chapter's three threats — omitted variables, measurement error, and wrong functional form — live in the bias column: they move the center, and no standard-error adjustment, no larger sample, can rescue a biased coefficient. In part twelve, the finale, we cross the bridge into causal inference and preview your lab.
+:::

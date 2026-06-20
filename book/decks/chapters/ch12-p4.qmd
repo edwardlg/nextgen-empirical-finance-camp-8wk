@@ -1,0 +1,45 @@
+---
+date: "2026-06-22"
+---
+
+## The Variance of a Sum
+
+- Part 4 — the variance-of-a-sum cross-term, and its limits
+
+::: notes
+Welcome back to Chapter one-point-two, Expectations, Variance, and Covariance as Geometry, part four of nine. In part three we collected scaling, bilinearity, and symmetry. Now we combine them into the fourth rule — the variance of a sum — which is the equation Maya's whole problem rides on. The headline: the variance of a sum is not just the sum of variances. It carries a cross-term, twice the covariance, and that term is where diversification comes from. We close with the classic trap — uncorrelated does not mean independent.
+:::
+
+## Variance of a Sum: the Cross-Term
+
+- $\operatorname{Var}(X + Y) = \operatorname{Var}(X) + \operatorname{Var}(Y) + 2\operatorname{Cov}(X, Y)$
+- The variance of a sum is **not** just the sum of variances
+- Move together $\Rightarrow$ risk compounds; oppositely $\Rightarrow$ cancels
+- Weighted: $\operatorname{Var}(aX{+}bY) = a^2\operatorname{Var}(X){+}b^2\operatorname{Var}(Y){+}2ab\operatorname{Cov}(X,Y)$
+
+::: notes
+Combine the three rules and you get the fourth, the one Maya's whole problem rides on: the variance of X plus Y equals the variance of X, plus the variance of Y, plus two times the covariance of X and Y. That deserves a slow look. The variance of a sum is not just the sum of variances. There is a cross-term, two times the covariance, and it can be positive, negative, or zero. If the two variables tend to move together, risk compounds. If they tend to move oppositely, risk cancels. Derive it once: write the variance of X plus Y as the expected squared deviation, push the expectation inside using linearity, and expand the square into a deviation-in-X squared, a deviation-in-Y squared, and a cross-product. Those three pieces are exactly the variance of X, the variance of Y, and two times the covariance. The general weighted version, which is what a portfolio needs, follows from scaling plus bilinearity: the variance of a X plus b Y is a squared times the variance of X, plus b squared times the variance of Y, plus two a b times the covariance.
+:::
+
+## Uncorrelated Is Not Independent
+
+- $\operatorname{Cov}(X,Y) = 0 \Rightarrow$ **uncorrelated**; then variance adds cleanly
+- Independence implies uncorrelated — but **not** the reverse
+- Take $X$ symmetric, $Y = X^2$: tightly linked, yet $\operatorname{Cov} = 0$
+- Covariance senses only **linear** co-movement
+- The same blind spot linear regression inherits in Week 2
+
+::: notes
+When does the cross-term vanish? If the covariance of X and Y is zero, we call X and Y uncorrelated, and only then does variance add cleanly: the variance of X plus Y equals the variance of X plus the variance of Y. Independence implies uncorrelatedness — independent variables have the expected product equal to the product of expectations, which kills the covariance. But the reverse is the classic failure mode: uncorrelated does not imply independent. Take X symmetric about zero and let Y equal X squared. They are tightly linked — Y is a deterministic function of X — yet the covariance of X and X squared is zero when the distribution is symmetric, because covariance only senses linear co-movement. Covariance is blind to curved relationships. Hold onto that; it is exactly the limitation that linear regression inherits in Week Two.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+$\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)+2\operatorname{Cov}(X,Y)$. The cross-term can compound or cancel risk — it is the seat of diversification. And **uncorrelated is not independent**: covariance sees only straight lines. Next: Maya's two-asset budget, worked end to end.
+:::
+
+::: notes
+To summarize part four: the variance of a sum is the sum of variances plus twice the covariance. That cross-term, which can compound or cancel risk, is the entire seat of diversification — when assets move together risk piles up, and when they move oppositely it cancels. The weighted version is what a real portfolio uses. Finally, uncorrelated means the covariance is zero, but it does not mean independent, because covariance only senses straight lines — the symmetric X and X-squared example are dependent yet uncorrelated. In part five, we put all of this to work on Maya's two-asset budget, running three scenarios and watching her portfolio's risk drop below its safest ingredient.
+:::

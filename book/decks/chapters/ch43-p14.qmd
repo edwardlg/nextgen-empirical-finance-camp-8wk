@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Validity Threats: Sorting, Imbalance, Compound Treatments
+
+- Part 14 — validity threats: sorting, imbalance, compound treatments
+
+::: notes
+Welcome back to regression discontinuity, part fourteen of seventeen. In part thirteen the McCrary test policed one threat — manipulation. But a careful R-D analyst runs a whole checklist, because R-D's credibility rests on one claim: the cutoff is the only thing that changes at the cutoff. Lee and Lemieux, in two thousand ten, systematized this discipline — the single best thing to read after this chapter. Here are the first three threats.
+:::
+
+## Threats 1 and 2: Sorting and Imbalance
+
+- **Threat 1 — manipulation:** McCrary test plus eyeball the histogram
+- A density jump at $c$ means the design is in trouble
+- **Threat 2 — covariate imbalance:** pre-determined traits should balance
+- *Test:* run the *same RD* with each covariate as the outcome
+- The treatment should jump; *nothing predetermined* should
+
+::: notes
+Lee and Lemieux is the survey that systematized this discipline. The citation: Lee and Lemieux, Regression Discontinuity Designs in Economics, in the Journal of Economic Literature. Threat one is manipulation, or sorting, which we just covered. The test is the McCrary density test plus an eyeball of the histogram; if the density jumps at the cutoff, the design is in trouble. Threat two is covariate imbalance at the cutoff. Local randomization implies that pre-determined characteristics — things fixed before treatment, which the treatment cannot have caused — should be balanced across the cutoff, just as in a real experiment. The test: run the same R-D with each pre-determined covariate as the outcome, and confirm there is no jump. If a stock's pre-reconstitution book-to-market ratio, or prior-year return, jumps discontinuously at the rank cutoff, something other than index membership is sorting at the cutoff and your continuity assumption is suspect. This is the R-D analog of a balance table: the treatment should jump, and nothing predetermined should.
+:::
+
+## Threat 3: Compound Treatments
+
+- The most insidious — passes density *and* balance tests
+- The *same* threshold $c$ triggers *more than one* thing
+- Six-sixty might flip approval, rate tier, down payment, securitization
+- Your jump is then the effect of a *compound treatment*
+- *Defense:* argue from institutions — no statistical test can detect it
+
+::: notes
+Threat three is other policies changing at the same cutoff — compound treatments. This is the most insidious threat, because it passes the density test and the covariate-balance test and still breaks the design. The danger is that the same threshold triggers more than one thing at once. Cutoffs are administratively convenient, so institutions love to reuse them: a credit score of six hundred sixty might flip not only loan approval but also the interest-rate tier, the required down payment, and whether the loan is eligible for securitization — all at six sixty. Then your R-D jump in default rates is the combined effect of all of those changes bundled together, and you cannot attribute it to loan approval alone. The estimand is a real causal effect of crossing the threshold, but it is the effect of a compound treatment, not the clean single treatment you wanted. The defense: this one cannot be tested statistically — it must be argued from institutional knowledge, exactly like the exclusion restriction in Week three. You must establish, from how the rule actually works, that the cutoff you study governs only the treatment you claim. For fuzzy R-D this is literally the exclusion restriction.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Audit three threats: **manipulation** (McCrary), **covariate imbalance** (run the same RD on pre-determined traits — they should not jump), and **compound treatments** — the most dangerous, because it passes both tests and must be *argued* from institutions, never tested. Next: donut robustness, specification stability, and the through-line.
+:::
+
+::: notes
+To summarize part fourteen: R-D's credibility rests on the claim that crossing the cutoff changes one thing only, and Lee and Lemieux systematized how to audit it. Threat one, manipulation, is policed by the McCrary density test. Threat two, covariate imbalance, is checked by running the same R-D with pre-determined covariates as outcomes — the treatment should jump, nothing predetermined should. Threat three, compound treatments, is the most insidious: the same cutoff triggering several policies at once, which passes both statistical tests and must be argued from institutional knowledge. In part fifteen we finish the checklist with donut robustness and specification stability, and draw out the through-line of all five threats.
+:::

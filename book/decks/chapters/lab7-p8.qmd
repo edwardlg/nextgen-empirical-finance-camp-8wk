@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Verifying the .gitignore and Defense in Depth
+
+- Part 8 — prove the `.gitignore` works; defense in depth
+
+::: notes
+Welcome back to Lab Seven, your data reproducibly, part eight of ten. In part seven we built the gitignore and its two non-negotiable rules. Now we prove it works — because an untested gitignore is a hope, not a guarantee — and we pair the automatic guard with the deliberate habit that makes a leak something that should never happen to you.
+:::
+
+## Verify It — A Hope Is Not a Guarantee
+
+- An untested `.gitignore` is a hope, not a guarantee
+- Make dummy files that **must** be blocked: a fake parquet and `.env`
+- `git check-ignore -v` prints any ignored path and the rule that caught it
+- `git add -A` then `git status --short` — the real proof
+- You should see `.gitignore` and `.gitkeep` staged; **neither dummy**
+
+::: notes
+Now verify it, because an untested gitignore is a hope, not a guarantee. Git ships a tool that tells you exactly whether a path is ignored. Create a couple of dummy files that should be blocked — a fake CRSP parquet inside data-raw and a secrets file — and confirm Git refuses them. Git check-ignore with the verbose flag prints any path that is ignored and exits zero; silence means not ignored. It should name both files with the gitignore rule that caught them. Then the real proof: stage everything with git add dash-A and run git status with the short flag to see what Git would actually track. You should see the gitignore and the gitkeep placeholders staged, and neither the fake parquet nor the secrets file anywhere in the list. Then remove the dummies.
+:::
+
+## If There Is a Hole, Stop
+
+- If `git status --short` shows the parquet or `.env` staged, **stop**
+- Your `.gitignore` has a hole — fix it before you ever `push`
+- This two-minute check is the cheapest insurance in the camp
+- Then commit the working `.gitignore` with the `.gitkeep` files
+- Untested is how a license violation or leaked key actually happens
+
+::: notes
+If git status short shows the parquet or the secrets file staged for commit, stop — your gitignore has a hole, and you fix it before you ever push. Remember the asymmetry: once a bad file is in a pushed commit it is in the history forever, so the cheap moment to catch it is now, locally, before the push. This two-minute check is the cheapest insurance in the entire camp; it is the difference between knowing your guard works and merely hoping it does. Once the check passes and the dummies are removed, commit the working gitignore alongside the gitkeep placeholders, with a clear message that says you are blocking licensed data and secrets. That commit is itself part of the honest record: it shows you set up the guard deliberately, up front.
+:::
+
+## Two Independent Layers
+
+- The `.gitignore` is the **automatic** guard
+- The **deliberate** guard is staging by name, not `git add .`
+- A machine rule plus a human habit
+- Each layer alone is good; together they turn "unlikely" into "should never"
+- That is why a leak should never happen to you
+
+::: notes
+One last habit worth internalizing: the gitignore is the automatic guard, but the deliberate guard is staging files by name — git add README dot md, not git add dot. Two independent layers, a machine rule and a human habit, are why a leaked key or a committed CRSP file should never happen to you, not merely rarely happen. The automatic layer catches what you forget; the deliberate layer means you rarely put yourself in a position to need it. Defense in depth is the whole idea: each layer alone is good, but the two together are what turn "unlikely" into "should never." Think of the gitignore as the seatbelt and deliberate staging as careful driving — you want both, and you do not rely on either one alone.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**An untested `.gitignore` is a hope.** Prove it with dummy files, `git check-ignore -v`, and `git status --short` — neither the fake parquet nor `.env` should be staged. If there is a hole, **stop and fix it before pushing**. Pair the automatic guard with **staging by name**: two layers turn "unlikely" into "should never." Next: file the plan as a tag.
+:::
+
+::: notes
+To summarize part eight: an untested gitignore is a hope, not a guarantee, so you proved yours with dummy files — a fake parquet and a secrets file — checking them with git check-ignore and then with a staged git status short, where neither dummy should appear. If there is a hole, you stop and fix it before pushing, because a bad file in a pushed commit lives forever; this two-minute check is the cheapest insurance in the camp. And you paired the automatic guard with the deliberate habit of staging by name — two independent layers that turn "unlikely" into "should never." In part nine we file your pre-analysis plan as a tagged commit, the cryptographic time-stamp that ties this lab back to Chapter seven-point-three.
+:::

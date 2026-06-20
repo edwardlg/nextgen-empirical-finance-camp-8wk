@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Build Script and the Row-Count Log
+
+- Part 9 — make every decision reproducible and auditable
+
+::: notes
+Welcome back to Building the Analysis Dataset, part nine of ten. Across the last several parts we made a dozen decisions: which links to trust, whether to keep delisted firms, what lag to impose, whether to winsorize, how to handle missing income. Every one can change the sign of a result. The final discipline is to make them reproducible and auditable — to put them in a script with a row-count log, not in the scrollback of a notebook you ran out of order. Let's build the pipeline and learn to read its log like a detective.
+:::
+
+## A One-Way Pipeline
+
+- **`raw/`** — exactly what came off WRDS, never modified
+- Your ground truth; re-derive from here if a build breaks
+- **`intermediate/`** — linked, lagged, typed tables, saved as Parquet
+- **`analysis/`** — the single panel, one row per `(permno, month)`
+- You **never edit a file in place**
+
+::: notes
+The organizing principle is a one-way pipeline through three stages; you never edit a file in place. The raw folder holds exactly what came off WRDS or EDGAR, never modified — this is your ground truth, and if a build goes wrong you re-derive from here. Per the camp conventions, licensed extracts stay read-only on GMU infrastructure, with the snapshot date pinned. The intermediate folder holds the linked, lagged, typed tables — CRSP joined to the CCM link, Compustat with availability dates — each saved as Parquet so you can inspect them. And the analysis folder holds the single rectangular panel your regression consumes, one row per PERMNO and month. That one-way flow is what lets you trust the result.
+:::
+
+## Row-Count Logging at Every Step
+
+- Each step prints **rows in, rows out, and why**
+- A tiny `step()` helper logs shape, returns the frame unchanged
+- The log **is** your audit trail
+- "Where did the other 4,000 firm-months go?" — point at the log
+- A build with no log is a build no one should believe
+
+::: notes
+The non-negotiable feature is row-count logging at every step. Each transformation prints how many rows entered, how many left, and why the difference exists. This log is your audit trail; when a coauthor or a referee asks where the other four thousand firm-months went, you point at the log. A tiny logging helper makes this painless — a step function that logs the row count and unique-firm count after each stage, then returns the frame unchanged so you can chain it. Wrap every build line in that helper, so each becomes one auditable decision: load raw CRSP, apply delisting returns, link the CCM table, filter the date window, merge the lag, drop negative book equity, winsorize, and apply the listwise deletion. A build with no row-count log is a build no one should believe, including you, three months from now.
+:::
+
+## Read the Log Like a Detective
+
+- Link step: dropped firms with no Compustat link — confirm the rate
+- Date-window step: removed observations outside a valid window
+- Negative-book-equity step: dropped by the stated screen
+- Listwise step: the largest cut — justify it in the memo
+- Each gap between two lines is a decision someone can question
+
+::: notes
+Running the pipeline produces a log that reads like the autobiography of your dataset — raw CRSP at a few million rows, then each step shaving the count. Read it like a detective. The link step drops firms with no Compustat link — expected ADRs and funds, but confirm the rate. The date-window filter trims observations outside any valid link window. The negative-book-equity step drops firm-years per the stated screen. The listwise-deletion step is usually the largest single cut, the one you must justify in the memo. The counts are illustrative — yours will differ by snapshot vintage. Every number in that log is a sentence you can defend, and the gap between any two adjacent lines is a decision someone can question. A final reproducibility note: seed any randomness, pin your snapshot date in the header, read secrets from environment variables, and make the whole thing runnable top to bottom.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Make decisions reproducible with a one-way `raw → intermediate → analysis` pipeline you **never edit in place**. The non-negotiable feature is **row-count logging at every step** — it is your audit trail, and every gap between two lines is a decision someone can question. Pin the snapshot, seed any randomness, and make it runnable top to bottom. Next: the finale — why the panel *is* the argument.
+:::
+
+::: notes
+To summarize part nine: the final discipline is reproducibility. Use a one-way pipeline — raw, intermediate, analysis — that you never edit in place, with the raw folder as untouchable ground truth and the analysis folder as the single rectangular panel your regression consumes. The non-negotiable feature is row-count logging at every step: each transformation reports rows in, rows out, and why, so the log becomes your audit trail. Wrap every build line in a tiny step helper, and read the log like a detective — every gap between two lines is a decision someone can question. Then add reproducibility hygiene: seed any randomness, pin the snapshot date, and make the build runnable top to bottom. In part ten, the finale, we see why this panel is the foundation of your argument.
+:::

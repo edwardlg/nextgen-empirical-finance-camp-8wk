@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## From Itch to Sharp Question
+
+- Part 2 — the first link: sharpening an itch into a question
+
+::: notes
+Welcome back to the anatomy of a Journal of Finance paper, part two of five. In part one we said a paper is a chain of four links, and that a referee attacks the weakest one. Now we build the first link: the question. Every project starts as a vague itch — something is going on, somewhere — and the hard, unglamorous work is sharpening that itch into a question narrow enough that data could plausibly settle it.
+:::
+
+## A Topic Is Not a Question
+
+- Every project starts as a vague itch — that is a *topic*
+- "I study municipal bonds" — a referee's eyes glaze
+- A question is **one sentence**, ending in a question mark
+- It names an **outcome** and one **key right-hand-side variable**
+- And it implies a **counterfactual**: same unit, one thing changed
+
+::: notes
+First, the difference between a topic and a question. A topic is a vague itch — something is going on with municipal borrowing. "I study municipal bonds" is a topic, and a referee's eyes glaze over. A question is one sentence ending in a question mark, and it does three things. It names an outcome — the thing being explained. It names the one right-hand-side variable whose effect you care about. And it implies a counterfactual: the same unit, with only that one variable changed. If you cannot write that counterfactual, your question is still a topic. Naming the outcome and the one key regressor is what turns the itch into something testable.
+:::
+
+## A Worked Example
+
+- Topic: "a city's borrowing cost." Vague.
+- Question: does a state's **social and political climate** change the **interest rate** a city pays — even with identical finances?
+- Outcome: the city's **borrowing cost**
+- Key regressor: the **social / political factor**
+- Counterfactual: the *same* city under a *different* climate
+
+::: notes
+Here is the example we will carry through today. The vague version is: something about a city's borrowing cost. The sharp version is a question: does a state's social and political climate change the interest rate a city pays to borrow, even when the city's finances are identical? Watch what that sentence carries. The outcome is the borrowing cost — the yield the city must pay. The key regressor is the social and political factor. And the implied counterfactual is the same city under a different climate — finances held fixed, only the climate changed. That counterfactual is exactly the potential-outcomes language from Chapter Three point one: one unit, one variable toggled, everything else frozen.
+:::
+
+## Why Narrowness Is a Feature
+
+- A sharp question is **testable** and **falsifiable**
+- It is narrow enough that **data could settle it**
+- A referee can **restate it** in one sentence
+- The papers you read this week each answer **one small question** cleanly
+- That is why they are cited thirty years later
+
+::: notes
+Now, why is narrowness a virtue rather than a limitation? Because a sharp question is testable — it is falsifiable, and it is narrow enough that data could plausibly settle it. A referee can read your question and restate it back in one sentence; if they cannot, you have not yet sharpened it. The narrowness is a feature, not a bug. The papers you read this week — Fama and French, Jegadeesh and Titman — each answer one small question cleanly. They do not try to explain everything. That discipline is precisely why they are still cited thirty years later. A question that tries to answer everything answers nothing a referee can check.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A **topic** is a vague itch; a **question** is one sentence ending in a question mark, naming an **outcome**, one **key regressor**, and the **counterfactual** it implies — the same unit, one variable changed. Narrowness is a feature. Next: the design, the link referees break papers on.
+:::
+
+::: notes
+To summarize part two: the first link is the question, and a topic is not a question. A real research question is one sentence ending in a question mark, it names an outcome and one key right-hand-side variable, and it implies a counterfactual — the same unit with only that one variable changed. Our running example asks whether a state's social and political climate moves a city's borrowing cost, holding finances fixed. Narrowness is a feature; the cleanest, longest-cited papers each answer one small question. In part three, we build the second link — the design — which is the link referees break papers on.
+:::

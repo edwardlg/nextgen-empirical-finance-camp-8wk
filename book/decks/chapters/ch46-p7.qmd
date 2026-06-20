@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## External Validity: Transport, Not Sampling
+
+- Part 7 — transport error, not sampling, and four threats
+
+::: notes
+Welcome back to Chapter four-point-six, part seven of nine. Part six asked through what channel the effect works. Now the last referee question: would this replicate somewhere, or sometime, else? Your estimate is internally valid — it survived the placebos, the multiple-testing adjustment, the heterogeneity and mechanism checks. The number is real in the data you have. External validity is identification all over again: different threats, different remedies, the same discipline of stating an assumption and saying what you would see if it broke. This part kills the huge-N instinct and names the four threats.
+:::
+
+## A Huge N Does Not Settle It
+
+- Kill the instinct that a billion observations answers it
+- External validity is **transport error**, not sampling error
+- $N=47{,}000$ shrinks the SE — not the source-to-target gap
+- Source: U.S. county-years, 2008–2024; target: 2030, new regime
+- That gap is **structural** — Lalonde (1986), Manski (1990)
+- Right answer: "**conditional on** these features holding…"
+
+::: notes
+First, kill the instinct that a huge sample settles the question. External validity is about transport error, not sampling error. With forty-seven thousand county-years your standard error around the average effect for this population is tiny, and a billion observations would shrink it further — but none of that closes the gap between the source population, U.S. county-years from two thousand eight to two thousand twenty-four, and the target a policymaker cares about, county-years in twenty thirty under a different demographic, technological, and regulatory regime. That gap is structural, not statistical. This is the Lalonde gap, from nineteen eighty-six, and the Manski partial-identification problem, from nineteen ninety. The right answer to "would this replicate?" is never "yes, my standard error is small." It is "conditional on these specific features of the twenty twenty-six setting also holding in twenty thirty, yes; and if they change in the following ways, the effect changes as follows."
+:::
+
+## Four Threats to Transport
+
+- **Sample–population mismatch:** source covariates differ — SMD table
+- **Period non-stationarity:** the effect is a function of the era
+- **Institutional drift:** the institutions that mediate the effect change
+- **Non-transporting heterogeneity:** the effect distribution may not transport
+- Each parallels an internal-validity threat — diagnose, don't assume
+- State the assumption; say what you'd see if it broke
+
+::: notes
+Four threats parallel the internal-validity threats of the identification memo. First, sample-population mismatch: the source covariate distribution differs from the target's — diagnose with a standardized-mean-difference table. Second, period non-stationarity: the effect is a function of the era, so examinations in post-crisis twenty ten may differ from twenty thirty under AI underwriting — diagnose by checking whether the per-year effect on the treated is stable across your window. Third, institutional drift: the institutions that mediate the effect change, so if federal pre-emption weakens state examination authority, the very channel the effect runs through may not exist in twenty thirty — diagnose by listing the load-bearing institutions from your mechanism analysis and asking which survive. Fourth, non-transporting heterogeneity: even if average effects coincide by luck, the distribution of effects across subgroups may not transport if source and target differ on your moderator. For each, you state the assumption and say what you would see if it broke.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+External validity is **transport error, not sampling error** — no sample size closes the structural source-to-target gap (Lalonde, Manski). Four threats — sample mismatch, period non-stationarity, institutional drift, non-transporting heterogeneity — each get a diagnostic. Next: the transportability diagram and re-weighting.
+:::
+
+::: notes
+To summarize part seven: external validity is about transport error, not sampling error, so no sample size — not forty-seven thousand, not a billion — closes the structural gap between the source population and the target a policymaker cares about. That is the Lalonde gap and the Manski partial-identification problem. Four threats organize the worry: sample-population mismatch, period non-stationarity, institutional drift, and non-transporting heterogeneity, and each comes with its own diagnostic. In part eight we make this operational with the transportability diagram, the re-weighting estimator, and the full "would this replicate in twenty thirty" stress test.
+:::

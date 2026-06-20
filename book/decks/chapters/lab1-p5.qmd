@@ -1,0 +1,57 @@
+---
+date: "2026-06-22"
+---
+
+## Done-When Checklist and Where This Travels
+
+- Part 5 — lock the done-when checklist; see where this travels
+
+::: notes
+Welcome back to Lab one, building a coin-flip universe, part five of five — the final part. Across the lab you built a Bernoulli universe, reconstructed the sampling distribution, wrote a one-proportion test, measured its size and its power, and ran a p-hacking experiment. In this closing part we lock in the checklist that proves you are done, and then look ahead to where every piece of this machinery returns later in the camp.
+:::
+
+## You're Done When…
+
+- A box checks only when a **number or figure** proves it
+- $\hat{p}$ pins $p$ ever tighter as $N$ goes $10 \to 100 \to 10{,}000$
+- Empirical SD matches the $\sqrt{p(1-p)/N}$ theory column
+- Measured size within $\approx 2$ MC SEs of $0.05$
+- Power curves bottom at $\approx 0.05$, rise toward $1$
+
+::: notes
+First, the done-when checklist. The discipline here is strict: a box is checked only when you can point to the number or the figure that proves it. For Step one, p-hat pins the true p ever more tightly as N goes ten, then one hundred, then ten thousand. For Step two, your empirical standard-deviation column matches the square-root of p times one minus p over N theory column, the spread roughly halves each time N quadruples, and you can also exhibit a small-N, near-edge case where the bell has not yet arrived. For Step three, your test uses p-naught, not p-hat, in the standard error, and its p-value agrees with binomtest at N equal to two hundred. For Step four, measured size lands within about two Monte Carlo standard errors of zero-point-zero-five, and the fair-coin p-values are roughly uniform. For Step five, your power curves are valleys bottoming near zero-point-zero-five and rising toward one. And reproducibility: every figure regenerates identically from one pinned seed and one generator.
+:::
+
+## Where This Connects
+
+- The sampling distribution became a histogram *you* built
+- The CLT became a bell that assembled itself
+- Size and power became fractions you counted
+- The habit: unsure a tool works? **Build a universe and check**
+
+::: notes
+Step back and see what changed. You have now done, with your own hands, the thing the chapters could only describe. The sampling distribution stopped being a definition and became a histogram you built. The Central Limit Theorem stopped being a theorem and became a bell that assembled itself on your screen. Size and power stopped being Greek letters and became fractions you counted. Most importantly, you learned the simulation habit that runs through the rest of the camp: when you are unsure whether a statistical tool does what it claims, build a universe where you know the truth, and check. That habit, not any single number, is the real deliverable of Week One.
+:::
+
+## What's Next: Week 2
+
+- The object becomes a regression coefficient $\hat{\beta}$
+- Statistic: $t = (\hat{\beta} - 0)/\widehat{\operatorname{se}}(\hat{\beta})$ — same machine
+- Size-and-power simulator returns to stress-test OLS errors
+- p-hacking grows into the false discovery rate
+- Keep this notebook — you will reuse its skeletons
+
+::: notes
+Finally, where this travels. In Week Two the object under test changes from a proportion to a regression coefficient, beta-hat, and the test statistic becomes t equals beta-hat minus zero, over the estimated standard error of beta-hat — the same estimate-minus-null-over-standard-error machine you just built and audited here. The size-and-power simulator you wrote will return, almost unchanged, to stress-test whether ordinary least squares standard errors are honest under heteroskedasticity, clustering, and serial correlation. And the p-hacking experiment will grow into the full treatment of multiple-testing corrections and the false discovery rate. So keep this notebook — you will reuse its skeletons all camp long. That closes Lab one, and Week One. Well done.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+You are done when **every claim points to a number or figure** and everything regenerates from one seed. The lab's real lesson is a habit: *unsure a tool works? Build a universe where you know the truth and check.* In Week 2 the same machine tests a regression coefficient $\hat{\beta}$ — keep this notebook.
+:::
+
+::: notes
+To summarize part five, and the lab: you are done when every claim points to a concrete number or figure, and the whole notebook regenerates identically from a single pinned seed. But the lasting lesson is a habit, not a result — when you are unsure whether a statistical tool does what it claims, build a universe where you know the truth, and check it. In Week Two the very same estimate-minus-null-over-standard-error machine will test a regression coefficient, beta-hat, so keep this notebook close. That completes Lab one and Week One of the NextGen camp. Great work — we will see you in Week Two.
+:::

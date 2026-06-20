@@ -1,0 +1,71 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Data and the First Two Tables
+
+- Part 4 — the data and the first two tables, in argument order
+
+::: notes
+Welcome back to the Fama–French ninety-three reader's guide, part four of seven. In part three we wrote down the one regression — each test portfolio's excess return on the market, S-M-B, and H-M-L — and learned to read it for common variation via R squared and for pricing via the intercepts, tested jointly with G-R-S. Now we ground that in the actual data, then read the first two tables, in the order the argument runs.
+:::
+
+## The Data
+
+- Returns and market caps from **CRSP** — NYSE, AMEX, NASDAQ
+- Book equity from **Compustat** annual files, merged to CRSP
+- Stock sample: **July 1963 through December 1991** (~342 months)
+- Start date avoids thin early Compustat coverage
+- June re-sort with a lag = a **look-ahead guard**
+
+::: notes
+The data are the standard pair you have used all camp. Stock returns and market caps come from C-R-S-P, the Center for Research in Security Prices, covering N-Y-S-E, AMEX, and NASDAQ common stocks. Book equity comes from the Compustat annual files, merged to C-R-S-P by firm. The stock sample period is July nineteen sixty-three through December nineteen ninety-one — roughly three hundred forty-two monthly observations. The start date is not arbitrary: book-equity coverage in Compustat is thin before the early sixties, so beginning in mid sixty-three avoids the worst survivorship and backfill problems. The annual June re-sort with a lag — accounting data from the prior fiscal year matched to returns starting the following July — makes sure the book-equity number was actually public before the returns it predicts. It is a look-ahead guard, and we revisit it later.
+:::
+
+## A Word on the Bonds
+
+- FF93's ambition: **one model** for stocks *and* bonds
+- Adds a **term** factor — long government minus short rate
+- Adds a **default** factor — corporate minus government
+- Bond factors price bonds; stock factors price stocks
+- We focus on the **three stock factors** and **25 stock portfolios**
+
+::: notes
+A brief word on the bonds. The paper's larger ambition is one model for both stocks and bonds, so it adds two bond-market factors: a term factor — long-term government minus the short rate, capturing the yield-curve slope — and a default factor — long-term corporate minus long-term government, capturing credit risk. The headline is that the bond factors do most of the work for bonds while the stock factors do most for stocks; the two markets are largely segmented here. For our purposes, we focus on the three stock factors and the twenty-five stock portfolios, where the paper's lasting influence lives.
+:::
+
+## Table One: Define the Factors
+
+- Find the table defining SMB, HML, market
+- Check: do SMB and HML have **positive** average returns?
+- Check: are they only **weakly correlated** with each other?
+- Low correlation $\Rightarrow$ interpretable loadings, small standard errors
+- Glance at magnitudes: feel for "a unit of HML"
+
+::: notes
+A professional does not read this paper top to bottom. Read it in the order the argument runs: factor definitions, then common variation, then pricing. First, the factor-definition and summary table that reports the average returns, standard deviations, and correlations of S-M-B, H-M-L, and the market. Check three things. One: do S-M-B and H-M-L have positive average returns — did small and value actually pay? Two: are they only weakly correlated with each other and with the market? They should be roughly orthogonal by construction — the point of the two-by-three averaging — and low correlation keeps the loadings interpretable and the standard errors small. Three: glance at the magnitudes so you have a feel for what "a unit of H-M-L" means before you read any loadings.
+:::
+
+## Table Two: The Pattern to Explain
+
+- Average excess returns on the **25 portfolios**
+- Read as a 5×5 grid — the *explanandum*
+- Across BE/ME (growth $\to$ value): returns **rise**
+- Down size (small $\to$ big): returns **fall**
+- Small-value = highest corner; small-growth = problem child
+
+::: notes
+Second, the table of average excess returns on the twenty-five portfolios. This is the pattern to be explained — the explanandum. Read it as a five-by-five grid. Across book-to-market, growth to value, average returns should rise: the value effect. Down the size dimension, small to big, they should fall: the size effect. The most extreme cell — small-value — is the highest-returning corner, and small-growth is the notorious problem child. Burn this grid into your memory, because every later table asks the same question: did the model reproduce this?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Data are the standard **CRSP × Compustat** merge, July 1963–December 1991, with a lagged June re-sort as a look-ahead guard. Read the factor-summary table first (positive, weakly-correlated SMB and HML), then the **25-portfolio average-return grid** — the pattern every later table must reproduce.
+:::
+
+::: notes
+To summarize part four: the data are the standard C-R-S-P and Compustat merge, July sixty-three through December ninety-one, with a lagged June re-sort guarding against look-ahead. Then we read two tables in argument order. The factor-summary table: check that S-M-B and H-M-L are positive and only weakly correlated. The twenty-five-portfolio grid: returns rising toward value, falling toward big, with small-value the high corner and small-growth the trouble spot. That grid is the pattern to be explained. In part five we read the heart of the paper — the time-series regression tables — in three disciplined passes.
+:::

@@ -1,0 +1,68 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Auditing the Packet and the Questions Matrix
+
+- Part 2 — finish the pre-flight: audit the packet, build the matrix
+
+::: notes
+Welcome back to The Talk, the Poster, the Defense, part two of seven. In part one we froze the deck and started hardening instead of improving. Now we finish the pre-flight with its two load-bearing acts: auditing the replication packet on a machine that is not yours, and building the anticipated-questions matrix that turns your threats table into a script you read under pressure.
+:::
+
+## Audit the Packet on a Stranger's Machine
+
+- Standard from Chapter eight-point-five: stranger runs one command
+- Step one: `make clean && make all` on your machine, daily
+- Step two: clean clone into a temp dir, fresh locked env
+- Step three: a peer on a **different OS** runs `make all`
+- Mismatched PDF hash means **non-determinism** — kill it now
+
+::: notes
+The replication standard is from Chapter eight-point-five: a stranger runs one command and watches every table and figure regenerate. In the pre-flight, you become that stranger, in three steps. First, run make clean and make all on your own machine, daily, to catch the dumb stuff. Second, do a clean clone into a temporary directory with a fresh environment built from your locked environment file — this catches the failures that worked only because of something your machine happened to have. Third, hand it to a peer on a different operating system who runs make all and reports back. One student did that third step and found her build had silently skipped the data pull for a month, relying on a stale cached file — and she found this at sixty hours out, not under the spotlights. If the fresh-clone PDF's hash does not match your committed one, you have non-determinism — a missing seed, a timestamp in a caption, a build-tool version skew — and you kill it before Saturday.
+:::
+
+## Build the Anticipated-Questions Matrix
+
+- The questions Saturday were **written down by you, weeks ago**
+- One row per question; columns in the order you say the answer:
+
+| col | name | what goes here |
+|-----|------|----------------|
+| 1 | Question | As a hostile-but-competent attendee phrases it |
+| 2 | What it attacks | The threat-ID from your Ch 7.5 table |
+| 3 | Why it's fair | One sentence granting the worry |
+| 4 | What you did | The specific test; slide / appendix pointer |
+| 5 | Residual concern | What you can't rule out, with a bound |
+| 6 | Retreat position | If the critique is fatal, what claim survives |
+
+- Write twelve to twenty rows; **rehearse the fatal rows out loud**
+
+::: notes
+The load-bearing pre-flight artifact is the anticipated-questions matrix. The reveal: the questions you will get on Saturday were already written down, by you, weeks ago. One row per anticipated question, with columns in the exact order you say the answer. Column one, the question as a hostile-but-competent attendee would phrase it. Column two, what it is attacking — the threat identifier from your Chapter seven-point-five table, so the lookup is mechanical. Column three, why it is fair: one sentence granting the worry. Column four, what you did — the specific test, with a slide or appendix pointer. Column five, the residual concern you still cannot rule out, with a bound. Column six, the retreat position: if the critique is fatal and right, what claim survives? Write twelve to twenty rows — one per threat, plus the predictable methodological questions about clustering, sample, fixed effects, and bootstrap seed, three so-what questions, three generalization questions, and one trap that is fatal if the attacker is right. Tag each row survivable or fatal-if-right, and rehearse the fatal rows out loud, because column six, the retreat sentence, is the hardest thing in the talk to say.
+:::
+
+## Close With a Pre-Mortem, Then Sleep
+
+- Twenty-minute pre-mortem in prose: imagine the talk went badly
+- Name three causes; mark which you can still fix
+- Projector mangled the PDF — bring USB and cloud, test aspect ratio
+- Ran out of time — pre-decide the cut line
+- Adapter did not fit — bring charger and both video adapters
+- **Five rehearsals on seven hours' sleep beat ten on four**
+
+::: notes
+Finish with a twenty-minute pre-mortem in prose: imagine the talk went badly, name three causes, and mark which you can still fix. The usual culprits each have a pre-day fix. The projector mangled the PDF — bring it on USB and cloud, arrive early, test the aspect ratio. You ran out of time — pre-decide the cut line so you know what to drop live. The adapter did not fit — bring the charger and both video adapters. Then sleep, because five rehearsals on seven hours of sleep beat ten rehearsals on four.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Become the stranger: **audit the packet** in three steps — your machine, a fresh clone, a peer on another OS. Then build the **anticipated-questions matrix**, twelve to twenty rows from your threats table, and **rehearse the fatal rows out loud**. Next: the eight-minute talk, decomposed into six beats.
+:::
+
+::: notes
+To summarize part two: finish the pre-flight by auditing the packet on a machine that is not yours, in three steps — your own machine daily, a fresh clone with a locked environment, and a peer on a different operating system — and if the PDF hash does not match, you have non-determinism to kill. Then build the anticipated-questions matrix, twelve to twenty rows that turn your threats table into a script, and rehearse the fatal rows out loud. In part three we open the talk itself: eight minutes as a different object with room for one idea, decomposed into six beats.
+:::

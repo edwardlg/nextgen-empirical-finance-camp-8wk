@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Sensitivity: The Controls Knob and the Data Knob
+
+- Part 8 — sensitivity to the controls knob and the data knob
+
+::: notes
+Welcome back to Robustness and Inference Stress-Tests, part eight of fourteen. In part seven we landed that a placebo is a prediction, and we turned the first sensitivity knob — the regression-discontinuity bandwidth. Now we turn the other two knobs: the controls you add or drop, and the data choices buried in construction, including winsorizing. Each can quietly hold your result hostage.
+:::
+
+## Controls — The Specification Knob
+
+- How does the estimate move as you add or drop controls?
+- Diagnostic: coefficient stability across control sets
+- **Pass with a caveat:** coefficient barely moves — but wait for Oster
+- **Fail:** coefficient halves or flips sign with one control
+- Justify the right control set on substance, not stars
+- Never control for a post-treatment **bad control**
+
+::: notes
+The second knob is controls — the specification knob. How does the estimate move as you add or drop control variables? This is more subtle than "more controls is more rigorous," and the Oster logic later in the chapter will make the subtlety precise. For now the diagnostic is coefficient stability: report your estimate with no controls, with your primary controls, and with an aggressive battery of extra controls. Pass with a caveat: the coefficient barely moves as controls are added. That is suggestive of robustness — but wait for the Oster test before you celebrate, because stability alone can be a trap. Fail: the coefficient halves, or flips sign, when you add a control. Then the result depends entirely on a modeling choice, and you must justify which control set is correct on substantive grounds, not pick the one that keeps the stars. A special trap: never control for a variable that is itself an outcome of the treatment — a post-treatment variable, a bad control — because that bleeds the effect away, and the resulting instability is an artifact of the bad control, not evidence against your result.
+:::
+
+## Sample and Winsorizing — The Data Knob
+
+- Choices buried in data construction (Chapter 7.4)
+- Survive dropping the most extreme observations?
+- Winsorize: cap at, say, the 1st and 99th percentiles
+- Re-run at 0%, 1%, 5%; drop crisis years, largest state, first cohort
+- **Pass:** estimate stable across all of these
+- **Fail:** narrow the claim — that is the job, not a defeat
+
+::: notes
+The third knob is sample and winsorizing — the data knob, the choices buried in data construction from Chapter seven-point-four. Does the result survive dropping the most extreme observations? Financial data is fat-tailed, and a single county or firm-year can move a coefficient; the conventional defense is winsorizing — capping each variable at, say, its first and ninety-ninth percentiles so extreme values are pulled to the cap rather than deleted. Sensitivity here means re-running at zero percent, raw, then one percent, then five percent winsorizing, and also dropping defensible subsamples: excluding the crisis years two-thousand-eight and two-thousand-nine, excluding the largest state, excluding the earliest adoption cohort. Pass: the estimate is stable across these. Fail: the result lives or dies on a handful of outliers, or on one influential state, or on the crisis window. Then the honest claim is narrower than the one you wanted — for instance, "the effect holds outside the financial crisis but is not separately identified within it." Narrowing the claim to what the data actually support is not a defeat; it is the entire job.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **controls knob** demands coefficient stability — but stability alone is a trap, and never use a post-treatment bad control. The **data knob** demands survival across winsorizing levels and subsamples; when it fails, narrow the claim honestly. Next: multiple-testing corrections.
+:::
+
+::: notes
+To summarize part eight: the controls knob asks how your estimate moves as you add or drop covariates, with coefficient stability as the diagnostic — but stability alone is a trap that the Oster test will sharpen, and you must never control for a post-treatment bad control that bleeds the effect away. The data knob asks whether the result survives winsorizing at zero, one, and five percent and dropping defensible subsamples like the crisis years or the largest state; when it does not, you narrow the claim to what the data actually support, which is the job, not a defeat. In part nine we leave sensitivity behind and count how many tests you ran at once — the multiple-testing problem, done right.
+:::

@@ -1,0 +1,63 @@
+---
+date: "2026-06-22"
+---
+
+## Finding the Coin Nature Already Flipped
+
+**Learning objectives** — by the end you can:
+
+- Recognize a natural experiment as a found "coin"
+- Defend as-good-as-random assignment with a balance check
+- State and stress-test the exclusion restriction
+- Name the complier population behind any estimate
+
+::: notes
+Welcome to Week Three, Mentor Session three, part one of five: natural experiments — finding the lever nature pulled. This week you built the framework that organizes all of causal inference. Potential outcomes, the selection-bias term that contaminates the easy comparison, and the four designs that chase it down — matching, weighting, and the one we live inside today, instrumental variables. Chapter three-point-four taught you that an instrument is a lever that shoves the treatment around for reasons unrelated to the confounder. Chapter three-point-five taught you how that lever can betray you when it is weak. Today we ask where these levers actually come from, and the three questions that decide whether one is credible.
+:::
+
+## You Rarely Flip the Coin Yourself
+
+- Most finance questions cannot be randomized
+- Ethics, cost, law, or the event already happened
+- You cannot assign firms to short-sale constraints
+- Nor families to debt, nor countries to crisis
+- The craft is *finding* a coin already flipped
+
+::: notes
+Start with the hard truth. You almost never get to flip the coin yourself. Most of the questions we care about in finance cannot be randomized — because of ethics, because of cost, because of the law, or simply because the event you care about already happened, sitting frozen in the historical record. You cannot randomly assign firms to face short-sale constraints. You cannot assign families to take on debt. You cannot assign countries to suffer a financial crisis. So the empiricist's real craft is not running the experiment. It is finding the coin that someone else already flipped — a rule change, an accident of geography, a regulatory experiment, a quirk of timing that splits the world into treated and control as-if at random.
+:::
+
+## What a Natural Experiment Is
+
+- A piece of the real world that *behaves like* a trial
+- Some outside force assigned the treatment
+- A legislature, a regulator, a weather pattern, a calendar rule
+- It split the world treated versus control as-if random
+- Recognizing that lever is the real skill
+
+::: notes
+That is what we mean by a natural experiment. It is a piece of the real world that behaves like a randomized trial, even though no researcher ever ran one. Some force outside the system — a legislature passing a law, a regulator launching a pilot, a weather pattern, a calendar rule — assigned a treatment to some units and not to others. And it did so, you will argue, in a way unrelated to the things that would otherwise confound your comparison. The skill is not in the statistics; once the lever is shown to be clean, the statistics are the easy part. The skill is in recognizing the lever in the first place, and then arguing, against a hostile referee, that it really is as-if random.
+:::
+
+## The Three Questions That Decide Credibility
+
+- A credible natural experiment defends three things in plain language
+- One: as-good-as-random assignment — was the force blind?
+- Two: the exclusion restriction — did it do anything *else*?
+- Three: the complier population — whose effect is this?
+- Each part of today builds one of these
+
+::: notes
+A credible natural experiment is one where you can defend three things in plain language. First, as-good-as-random assignment: was the force that assigned the treatment blind to the outcome? Second, the exclusion restriction: did that force reach the outcome only through the treatment, or did it do something else along the way? Third, the complier population: even a perfect natural experiment does not measure the effect on everyone, so whose effect did you actually estimate? These three questions are the spine of today's session. We take them one at a time.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+You rarely flip the coin; you **find one already flipped**. A *natural experiment* is a real-world force that assigned treatment as-if at random. Its credibility rests on three defenses: **as-good-as-random assignment**, the **exclusion restriction**, and the **complier population**. Next: the first pillar — balance and as-if-random assignment.
+:::
+
+::: notes
+To summarize part one: in finance you rarely get to flip the coin, so the craft is finding one already flipped — a rule, an accident, a regulatory pilot that assigned treatment as-if at random. That is a natural experiment. Its entire value rests on three defenses you must make out loud: as-good-as-random assignment, the exclusion restriction, and the complier population. In part two we take the first pillar — what as-good-as-random really claims, and how the balance check lets you test part of it.
+:::

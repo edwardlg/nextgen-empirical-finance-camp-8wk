@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Where the Trap Is Set
+
+- Part 4 — the residualized treatment, and why the bias hid 30 years
+
+::: notes
+Welcome back to Chapter four-point-two, part four of twelve. In part three we saw why the pooled regression looks innocent — the fixed effects sweep out unit and time means, and beta rides on the within variation. Now we open the algebra and find the trap: the residualized treatment, and how it quietly drafts an already-treated unit into control duty. Then we ask why this stayed hidden for thirty years.
+:::
+
+## The Trap: Residualized Treatment
+
+- OLS sweeps out unit means and time means (Frisch–Waugh–Lovell)
+- The residualized $\tilde D_{it}$ carries all identifying weight
+- An *already-treated* unit's $\tilde D_{it}$ keeps varying
+- It gets pressed into service as a comparison group
+- OLS can't tell "informative" from "contaminated"
+
+::: notes
+Here is the trap. To identify beta, ordinary least squares removes the unit means and the time means from both the treatment and the outcome, then regresses the residualized outcome on the residualized treatment — this is the Frisch–Waugh–Lovell logic from Chapter two-point-three, the engine under every fixed-effects regression. The residualized treatment, D-tilde, carries all the identifying weight. And D-tilde does something you would never design on purpose: because it is the treatment with the unit and time averages swept out, a unit that is already treated has a residualized treatment that keeps varying relative to the changing time average as later cohorts switch on. In the algebra, an already-treated unit gets pressed into service as a comparison group for a not-yet-treated unit. OLS does not know the difference between untreated-and-informative and already-treated-and-contaminated. It sees only numbers, and uses every scrap of variation it can find — including the forbidden kind.
+:::
+
+## Why It Stayed Hidden Thirty Years
+
+- Bias **vanishes** in two common cases
+- (1) No staggering — one common date: no already-treated controls
+- (2) Homogeneous effect — contamination is just $\beta$, cancels
+- Disease needs **both** staggered timing *and* heterogeneous effects
+- Priya's problem has both turned on
+
+::: notes
+Why did this stay hidden for thirty years? Because the bias vanishes in two very common situations, and those cover most textbook examples. First, if treatment is not staggered — one common adoption date for everyone — there are no already-treated units to misuse as controls during anyone else's switch-on, and the regression is fine. Second, if the treatment effect is homogeneous — the same constant beta for every unit at every horizon — then even when an already-treated unit is used as a control, the contamination it injects is itself just beta, which cancels cleanly, and the regression still recovers beta. The disease requires both staggered timing and heterogeneous, or dynamic, effects to bite. Chapter four-point-one's worked examples had one or the other safely switched off. Priya's real problem has both turned on at once — staggered adoption and an effect that grows over time — which is the single most common situation in modern policy data, and exactly the case where the textbook breaks.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The trap is the **residualized treatment**: after sweeping out unit and time means, an already-treated unit's $\tilde D_{it}$ keeps varying, so OLS uses it as a control — blind to contamination. The bias vanishes if timing is common *or* effects are homogeneous, which is why it hid for 30 years. Priya has **both** turned on.
+:::
+
+::: notes
+To summarize part four: the trap is the residualized treatment. After OLS sweeps out the unit and time means, an already-treated unit's residualized treatment keeps varying as later cohorts switch on, so the regression presses it into service as a control — blind to whether it is clean or contaminated. The bias hid for thirty years because it vanishes when timing is common, removing already-treated controls entirely, or when effects are homogeneous, making their contamination cancel. It bites only when both staggered timing and dynamic effects are present — Priya's exact situation. In part five, we make this concrete: the smallest possible world where the sign comes out wrong, with numbers you can check by hand.
+:::

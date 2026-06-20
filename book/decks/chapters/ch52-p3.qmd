@@ -1,0 +1,72 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Regression, the 25 Portfolios, and GRS
+
+- Part 3 — the regression, the 25 test portfolios, and GRS
+
+::: notes
+Welcome back to the Fama–French ninety-three reader's guide, part three of seven. In part two we manufactured the three factors as portfolios — the market excess return, S-M-B, and H-M-L — and saw how the two-by-three sort keeps the size and value bets clean. Now we finish the identification strategy: we pick the assets the model has to price, write down the one regression, and learn the two ways to read it. The second reading leads to the test that decides whether the model passes.
+:::
+
+## The Test Portfolios: 25 of Them
+
+- Need assets to **price** — the patients
+- Famous **25 portfolios**: a 5×5 size × book-to-market sort
+- Five size quintiles crossed with five BE/ME quintiles
+- **Not** the six portfolios that built SMB and HML
+- Six = ingredients; twenty-five = patients to cure
+
+::: notes
+You need things to price. The ninety-three paper's test assets are the famous twenty-five portfolios, formed on a five-by-five sort of size and book-to-market: five size quintiles crossed with five book-to-market quintiles. Keep one distinction sharp: these twenty-five are not the same as the six portfolios used to build S-M-B and H-M-L. The six are the ingredients of the factors; the twenty-five are the patients the model has to cure. If you blur those two sets together, nothing in the rest of the paper will read correctly, so fix it now: six ingredients, twenty-five patients.
+:::
+
+## One Regression Per Portfolio
+
+$$R_{it}-R_{ft} = \alpha_i + b_i(R_{Mt}-R_{ft}) + s_i\,\text{SMB}_t + h_i\,\text{HML}_t + \varepsilon_{it}$$
+
+- Plain multiple OLS over $T$ monthly observations
+- $\hat b_i, \hat s_i, \hat h_i$ = the portfolio's **factor loadings**
+- $\hat\alpha_i$ = the **pricing error**
+- $R^2$ = variance the three factors soak up
+
+::: notes
+For each of the twenty-five portfolios, indexed by i, regress its monthly excess return on the three factors over the whole sample. In words: portfolio i's return minus the risk-free rate equals an intercept alpha-sub-i, plus a market loading b-sub-i times the market excess return, plus a size loading s-sub-i times S-M-B, plus a value loading h-sub-i times H-M-L, plus an error term. This is just multiple ordinary least squares with capital-T monthly observations. The estimated slopes — b-hat, s-hat, and h-hat — are the portfolio's factor loadings: how strongly it co-moves with market, size, and value. The intercept, alpha-hat, is the pricing error. And the R squared is how much of that portfolio's variance the three factors soak up.
+:::
+
+## Read It Two Ways
+
+- **Common variation** — the $R^2$ question
+- Right factors $\Rightarrow$ every regression has high $R^2$
+- **Pricing** — the $\alpha$ question, more demanding
+- Real test is **joint**: are all 25 intercepts zero at once?
+- Can't eyeball 25 *t*-stats — multiple testing bites
+
+::: notes
+Read the regression two ways. Common variation is the R squared question. If the three factors are the right common factors, every one of the twenty-five regressions should have a high R squared — the factors should explain most of each portfolio's month-to-month wiggle. That shared movement is the "common risk factors" of the title. Pricing is the alpha question, and it is more demanding. Even with high R squared, the average return might not be fully explained — the intercepts could be systematically nonzero. So the real test is joint: are all twenty-five intercepts simultaneously zero? You cannot just eyeball twenty-five t-statistics, because with twenty-five tests some will look significant by chance. That is Week One's multiple-testing problem, hitting you head on.
+:::
+
+## The GRS Test
+
+- **GRS** = Gibbons, Ross & Shanken (1989)
+- A single $F$-statistic for $H_0: \alpha_1=\cdots=\alpha_{25}=0$
+- Accounts for correlated residuals across portfolios
+- Model passes when GRS **fails to reject**
+- We name it and use it — we don't derive it
+
+::: notes
+The right instrument is the G-R-S test — Gibbons, Ross, and Shanken, nineteen eighty-nine — a single F-statistic for the joint null that alpha-one through alpha-twenty-five are all zero. The intuition is exactly the joint-hypothesis logic from Week Two: instead of twenty-five separate questions, ask one question about all the intercepts at once, accounting for the fact that the portfolios' residuals are correlated. A model passes the asset-pricing bar when G-R-S fails to reject — when the pricing errors are jointly indistinguishable from zero. We name it and use it; we do not derive it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Identification in one line: **build factors as portfolios, regress the 25 test portfolios on them in time series, read $R^2$ for common variation and the intercepts — jointly, via the GRS $F$-test — for pricing.** Separating co-movement from average level is the engine of the paper.
+:::
+
+::: notes
+To summarize part three: the test assets are the twenty-five size-by-book-to-market portfolios — the patients, distinct from the six factor ingredients. For each, run one multiple regression of excess return on the three factors. Read the R squared for common variation, and read the intercepts for pricing — jointly, with the G-R-S F-statistic, because twenty-five separate t-tests would fall into the multiple-testing trap. The clean separation between explaining co-movement and explaining average level is the engine of the paper. In part four we turn to the data and start reading the actual tables, in the order the argument runs.
+:::

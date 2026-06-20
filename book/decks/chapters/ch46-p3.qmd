@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## Heterogeneity: Estimands and Simple Tools
+
+- Part 3 — heterogeneity estimands plus the two simplest tools
+
+::: notes
+Welcome back to Chapter four-point-six, part three of nine. In parts one and two we kept our p-values honest across a family of tests. Now we ask the most-common question after any talk: is the effect the same for everyone? Done well, heterogeneity finds for whom the effect is large. Done badly, it is fishing for whichever subgroup has a small p-value. The discipline that separates the two is pre-registration. This part lays out the estimands and the two simplest tools.
+:::
+
+## Three Estimands, Rising Resolution
+
+- **ATE** $=\mathbb{E}[Y(1)-Y(0)]$, **ATT** conditions on treated — single numbers
+- **CATE** $\tau(\mathbf{x})=\mathbb{E}[Y(1)-Y(0)\mid\mathbf{X}=\mathbf{x}]$ — a **function**
+- **GATE** $\tau_g$ coarsens CATE to subgroups — a number
+- CATE is the object of heterogeneity analysis
+- The function is what makes the argument legible
+- Honesty requires moderators chosen **before** the data spoke
+
+::: notes
+Done well, heterogeneity turns "the policy cut denial gaps by one-point-four percentage points on average" into "by three-point-one where examinations are intense and zero-point-four elsewhere — and that is where the policy story lives." Three estimands climb in resolution. The average treatment effect and the average effect on the treated are single numbers; Maya's Callaway and Sant'Anna estimate from Chapter four-point-two is an effect on the treated. The conditional average treatment effect, tau of x, is the expected effect given covariates equal x — a function, and the true object of heterogeneity analysis. Coarsening that function to a finite list of subgroups gives the group average treatment effect, a number. CATE is a function; GATE is a number; the function is what makes the argument legible. And a claim is honest only to the extent the subgroups were committed before the data spoke.
+:::
+
+## The Cautious Tool: Subgroup Regression
+
+- Split by a **pre-specified** discrete moderator, re-estimate
+- Maya finds $-0.4,\ -1.5,\ -3.1$pp across light/moderate/intense
+- The headline $-1.4$ was an average of three different numbers
+- A **monotone dose-response** is positive identification evidence
+- A confounder would have to vary in lockstep with intensity
+- This is more than robustness — it is evidence *for* the design
+
+::: notes
+The cautious tool is the subgroup regression: split by a pre-specified discrete moderator and re-estimate. Maya runs Callaway and Sant'Anna separately on light-, moderate-, and intense-examination states and finds minus zero-point-four, minus one-point-five, and minus three-point-one percentage points. The headline minus one-point-four was the average of three meaningfully different numbers. A monotone dose-response like this is not merely a robustness check; it is positive identification evidence, because a confounder would have to vary in lockstep with examination intensity to mimic it. That is a demanding thing for a confounder to do, so the dose-response argues for the design itself, not just against one alternative.
+:::
+
+## The One-Model Tool: Interaction
+
+- Keep the whole sample; let effect slope with continuous $M$
+- $Y_{it}=\alpha_i+\gamma_t+\beta_0 D_{it}+\beta_1 D_{it}M_i+\dots$
+- Implied effect is the line $\tau(M)=\beta_0+\beta_1 M$
+- Trap one: linearity in $M$ is an **assumption** — bin into terciles
+- Trap two: unit FE absorb a time-invariant $M_i$ main effect
+- Only the **interaction** with treatment survives the fixed effects
+
+::: notes
+The one-model tool is the interaction regression. It keeps the whole sample and lets the effect slope with a continuous moderator M. Write the outcome with unit fixed effects alpha-i, time fixed effects gamma-t, a main treatment term beta-zero times D, and an interaction beta-one times D times M. The implied effect is then the line tau of M equals beta-zero plus beta-one times M. Two traps. First, the linearity in M is an assumption — check it by binning M into terciles and seeing whether the three coefficients line up. Second, with unit fixed effects you cannot identify the main effect of a time-invariant moderator M-i, because it is absorbed by alpha-i; only its interaction with treatment survives. So the interaction regression tells you how the effect tilts with the moderator, but is silent on the moderator's own level effect.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Heterogeneity's object is the **CATE**, a function of covariates; subgroups coarsen it to **GATEs**. The cautious subgroup split delivers a **monotone dose-response** that is itself identification evidence, and the interaction regression slopes the effect with a moderator under a linearity assumption. Next: the causal forest.
+:::
+
+::: notes
+To summarize part three: the object of heterogeneity analysis is the conditional average treatment effect, a function of covariates, which subgroups coarsen into group average effects. The cautious subgroup split can deliver a monotone dose-response that is itself positive identification evidence, and the one-model interaction regression slopes the effect with a continuous moderator under a linearity assumption you must check. In part four we meet the modern tool — the causal forest — and the pre-registration discipline that keeps the whole exercise honest.
+:::

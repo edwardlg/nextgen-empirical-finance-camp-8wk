@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Master Decomposition: ATT Plus Selection Bias
+
+- Part 6 — naive difference equals ATT plus selection bias
+
+::: notes
+Welcome back to potential outcomes, part six of eleven. In part five we added and subtracted the treated's missing counterfactual. Now we group the terms and read off the decomposition the whole week pivots on — the naive difference equals the ATT plus a selection-bias term. Then we put Maya's real numbers through it.
+:::
+
+## The Master Decomposition
+
+$$\underbrace{\mathbb{E}[Y_i\mid D_i{=}1] - \mathbb{E}[Y_i\mid D_i{=}0]}_{\text{naive }\Delta} = \underbrace{\text{ATT}}_{\text{what we want}} + \underbrace{\mathbb{E}[Y_i(0)\mid D_i{=}1] - \mathbb{E}[Y_i(0)\mid D_i{=}0]}_{\text{selection bias}}$$
+
+- Naive difference $=$ **ATT** $+$ **selection bias**
+- Bias compares the two groups' $Y(0)$ — how different they *already* were
+- If enrollees were more approvable anyway, the bias is **positive**
+
+::: notes
+There it is — the decomposition the whole week pivots on. The naive difference in means equals the causal effect on the treated, the ATT, plus a selection-bias term. The first grouped pair is the ATT — the expected Y-of-one minus the expected Y-of-zero, both among the treated. The second pair is the selection bias: the expected Y-of-zero among the treated, minus the expected Y-of-zero among the untreated. Read what that bias is. It is the difference in the untreated potential outcome between the two groups — how the enrollees would have done without the program, versus how the non-enrollees actually did without it. It measures how different the groups already were, before the program touched anyone. If the enrollees would have had higher approval anyway — exactly Maya's worry — then this term is positive, and her twenty-one points overstate the true effect. This is Week Two's omitted-variable bias, stated sharply: the comparison group's outcome is a bad stand-in for the treated group's missing counterfactual. The naive difference always decomposes this way; the only question is whether the bias term is zero.
+:::
+
+## Maya's 21 Points, Split Open
+
+- Enrollees with program (observed): $\mathbb{E}[Y(1)\mid D{=}1]=0.62$
+- Enrollees' counterfactual (unseen): $\mathbb{E}[Y(0)\mid D{=}1]=0.55$
+- Non-enrollees (observed): $\mathbb{E}[Y(0)\mid D{=}0]=0.41$
+- $\Delta = (0.62-0.55) + (0.55-0.41) = 0.07 + 0.14 = 0.21$
+- **7 points** real effect, **14 points** selection bias
+
+::: notes
+Let us put numbers on it. Suppose — and we can only suppose, because counterfactuals are unobserved — the truth is this. The enrollees' average approval with the program is zero-point-six-two; this we observe. Had they not enrolled, their average would have been zero-point-five-five; this is the counterfactual we do not see. So the program's true effect on the enrollees, the ATT, is zero-point-six-two minus zero-point-five-five, which is zero-point-zero-seven. The non-enrollees' observed approval without the program is zero-point-four-one. Run the decomposition: Delta equals zero-point-zero-seven of ATT, plus zero-point-five-five minus zero-point-four-one, which is zero-point-one-four of selection bias — and that sums to twenty-one hundredths. It checks. Maya's headline splits cleanly into seven points of real program effect and fourteen points of selection bias. Two-thirds of her effect is not the program at all — it is the simple fact that enrollees were already fourteen percentage points more approvable, before the program did anything. The program helped, a genuine seven points, but her naive number overstates that help threefold.
+:::
+
+## Identification, Not Estimation
+
+- Nothing in Maya's data reveals the split
+- The $0.55$ counterfactual is missing — by the Fundamental Problem
+- A bigger sample sharpens $0.62$ and $0.41$, never recovers $0.55$
+- A robust standard error tightens a *biased* number
+- The mission: **make the selection-bias term go to zero**
+
+::: notes
+And here is the cruelty that connects back to Week Two: nothing in Maya's data reveals the split. She observes zero-point-six-two and zero-point-four-one. The number zero-point-five-five — the enrollees' counterfactual — is missing, structurally, by the Fundamental Problem. She cannot compute the selection bias, so she cannot subtract it off. A bigger sample makes the two observed numbers more precise; it does nothing to recover the hidden zero-point-five-five. A robust standard error just tightens the interval around a biased number. The problem is not estimation, it is identification — whether the quantity we can compute even equals the quantity we want. So the entire enterprise of causal inference reduces to one mission: make the selection-bias term go to zero, estimate it, or design around it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **master decomposition**: naive $\Delta = \text{ATT} + $ selection bias, where bias $= \mathbb{E}[Y_i(0)\mid D_i{=}1]-\mathbb{E}[Y_i(0)\mid D_i{=}0]$ measures how different the groups already were. Maya's $0.21 = 0.07$ real $+ 0.14$ bias — and the split is invisible in her data. The whole mission: zero that bias. Next: the assumption hiding in the notation, SUTVA.
+:::
+
+::: notes
+To summarize part six: the master decomposition says the naive difference in means equals the ATT plus a selection-bias term — the difference in the untreated potential outcome between the two groups, how different they already were before treatment. On Maya's numbers, her twenty-one points split into seven points of genuine effect and fourteen points of selection bias, and nothing in her data reveals the split. The problem is identification, not estimation. The whole enterprise reduces to one mission: zero that selection-bias term. But before we meet the cleanest tactic, part seven makes explicit the assumption the framework has been quietly leaning on the entire time — SUTVA.
+:::

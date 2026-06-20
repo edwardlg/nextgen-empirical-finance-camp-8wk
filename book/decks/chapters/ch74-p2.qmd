@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Crosswalk Problem
+
+- Part 2 — identify a firm across two datasets that disagree
+
+::: notes
+Welcome back to Building the Analysis Dataset, part two of ten. In part one we learned that a dataset is a sequence of decisions. Now we meet the very first decision, and most students never realize they are making it: how do you identify a firm? Sam assumes he merges CRSP and Compustat on "the company." But the two datasets were built by different people, for different purposes, decades apart, and they do not even use the same kind of identifier. This is the crosswalk problem, and getting it wrong glues the wrong firms together.
+:::
+
+## Nobody Agrees What to Call a Firm
+
+- CRSP identifies a **security** by PERMNO
+- Compustat identifies a **company** by GVKEY
+- One company can have many share classes
+- **Tickers are nicknames, not identifiers** — they get recycled
+- "C" meant Chrysler before it meant Citigroup
+
+::: notes
+Here is the surprise. CRSP tracks securities trading on exchanges, and identifies each by a PERMNO — a permanent number that stays attached even when the ticker changes. Compustat tracks companies' financial statements, and identifies each by a GVKEY — a permanent company key. A PERMNO is a security; a GVKEY is a company; they are not even the same kind of object. One company can have multiple share classes trading as multiple securities — think of Alphabet's Class A and Class C shares. So Sam cannot merge on a ticker. Tickers are not identifiers; they are nicknames. The ticker "C" meant Chrysler before it meant Citigroup. Merge on ticker and you silently glue one firm's returns to an unrelated firm's fundamentals. The merge succeeds and produces numbers — which is exactly what makes it dangerous.
+:::
+
+## The Solution: A Date-Aware Crosswalk
+
+- A **crosswalk** maps one identifier system to another
+- For CRSP–Compustat: the CCM link table on WRDS
+- `LINKTYPE` — keep only the confirmed, researched links
+- `LINKPRIM` marks the **primary** security — no double-counting
+- `LINKDT`, `LINKENDDT` — the **date window** the link is valid
+
+::: notes
+The solution is a crosswalk — also called a concordance or link table — an external, authoritative table mapping one identifier to another. For CRSP and Compustat it is the CRSP/Compustat Merged link table, the link-history file on WRDS. Its job: for each GVKEY, tell you which PERMNO it corresponds to, and during which span of dates. The link carries four things you must respect. LINKTYPE is the quality of the link — codes like L-U, link used, and L-C, link confirmed, are the reliable ones, and the standard practice keeps only the researched, confirmed links. LINKPRIM is the primary-link flag, which resolves the multiple-share-class problem so you do not double-count a company. And LINKDT and LINKENDDT are the start and end dates over which the link is valid.
+:::
+
+## Why You Cannot Use a Simple Dictionary
+
+- The map is **time-varying** — not a fixed `{PERMNO: GVKEY}`
+- Merge on identifier **and** require the date inside the window
+- Skipping the date filter is a classic silent error
+- CUSIP tempts as a shortcut — **resist** it
+- Different truncations and reassignments make it fail like a ticker
+
+::: notes
+That date window is why you cannot collapse the crosswalk to a simple PERMNO-to-GVKEY dictionary — the map is time-varying. To merge correctly you join on identifier and require that your observation's date falls inside the link window. Outside that window, the same PERMNO may belong to a different GVKEY, or the link simply did not exist. Skipping the date filter is one of the most common silent errors in student work, and it produces exactly the Chrysler-Citigroup pathology — returns matched to the wrong company in the years before or after the link was valid. One more temptation: CUSIP, a security identifier both datasets carry. Resist the easy version. CUSIPs come in different truncations — six, eight, or nine characters — they get reassigned over time, and a historical CUSIP differs from a current one. A naïve CUSIP merge fails the same way a ticker merge does, just less obviously. Use the purpose-built link when one exists.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Never join financial datasets on a human-readable name or a recycled code. Join on a **researched, date-aware identifier crosswalk** — like the CCM link — keep only confirmed links, mark the primary security, and respect the validity window `[LINKDT, LINKENDDT]`. The map is time-varying, so a plain dictionary won't do. Next: once you *have* the pieces, how do you merge them without silently corrupting the panel?
+:::
+
+::: notes
+To summarize part two: never join financial datasets on a human-readable name or a recycled code. Join on a researched, date-aware crosswalk, keep only the confirmed links, mark the primary security so you do not double-count, and respect the validity window. The map is time-varying, so a plain dictionary will not do — you must filter on the date. The same caution applies to CUSIP shortcuts and to other crosswalks in this camp, like mapping SEC EDGAR's C-I-K identifier to CRSP returns. In part three we install the single most valuable habit in this entire chapter: making every merge prove its own cardinality instead of hoping you guessed right.
+:::

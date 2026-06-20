@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Oster's δ: The Untestable Confounder and the R² Insight
+
+- Part 11 — Oster's untestable confounder and the $R^2$ insight
+
+::: notes
+Welcome back to Robustness and Inference Stress-Tests, part eleven of fourteen. In part ten we corrected for testing a whole family of outcomes with Benjamini–Hochberg. Now the deepest attack, with the most beautiful logic, because it confronts the threat that cannot be tested directly: an omitted variable you never measured. This part sets up Oster's reframing of that unanswerable question, and the R-squared insight that fixes naive coefficient stability.
+:::
+
+## The Threat You Cannot Test Directly
+
+- The weakest assumption: selection on **unobservables**
+- No balance table reaches the confounder not in the table
+- "Is there an unobserved confounder?" — always *maybe*
+- Oster's reframe: how strong would it have to be?
+- Relative to the selection on observables you *can* see
+- Implausibly strong $\Rightarrow$ robust; barely as strong $\Rightarrow$ fragile
+
+::: notes
+Maya's weakest design assumption — the one in her threats table with the residual concern "unobserved creditworthiness differences could still shift the gap" — is selection on unobservables. No balance table can reach it, because the confounder you fear is by definition the one not in the table. So the question can never be "is there an unobserved confounder?" — there always could be. Oster, two-thousand-nineteen, reframes it into a question you can answer: how strong would selection on unobservables have to be, relative to the selection on observables you can see, to explain away your entire result? If the answer is "implausibly strong — stronger than the observables, which you already control for," your result is robust to the threat you cannot test. If the answer is "barely as strong as the observables," it is fragile.
+:::
+
+## Coefficient Stability Plus R²
+
+- Naive: coefficient barely moves with controls $\Rightarrow$ robust
+- Oster: only half the story — the missing half is $R^2$
+- Stable coefficient, two opposite reasons
+- Either control truly doesn't matter — reassuring
+- Or control matters but barely correlates with treatment
+- Movement is meaningful only relative to $R^2$ gained
+
+::: notes
+The argument builds on the coefficient-stability intuition from the sensitivity section, but fixes its fatal flaw. The naive idea is: if my coefficient barely moves when I add controls, it must be robust to omitted variables too. Oster shows this is only half the story, and the missing half is the R-squared. Adding a control can leave the coefficient stable for two opposite reasons: either the control truly does not matter, which is genuinely reassuring, or the control matters but is nearly uncorrelated with treatment — the coefficient is stable but the controls explain a lot of outcome variance, and an unobservable as predictive as those controls could still move the coefficient a lot. Coefficient movement is only meaningful relative to how much explanatory power the controls added. A coefficient that stays put while R-squared jumps from zero-point-one-zero to zero-point-five-five is far more reassuring than one that stays put while R-squared barely rises — because in the first case the controls were powerful and the coefficient shrugged them off, while in the second the controls were toothless and proved nothing.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Oster's $\delta$** reframes the untestable confounder: how strong must unobserved selection be, relative to observed, to kill your effect? The key insight — a stable coefficient is only reassuring if $R^2$ rose a lot, meaning powerful controls were shrugged off. Next: the three ingredients and the two uses.
+:::
+
+::: notes
+To summarize part eleven: Oster's delta confronts the confounder you cannot test by reframing the unanswerable "is there one?" into "how strong would it have to be, relative to the observables you control for, to explain away the result?" — implausibly strong means robust, barely as strong means fragile. The deep insight fixes naive coefficient stability: a coefficient that barely moves is only reassuring if the R-squared rose a lot, because then the controls were powerful and the coefficient shrugged them off; if the R-squared barely rose, the controls were toothless and stability proves nothing. In part twelve we make this operational — the three ingredients you read off two regressions, and the two ways to use the delta parameter.
+:::

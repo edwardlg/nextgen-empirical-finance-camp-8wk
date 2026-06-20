@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Path A — Pin the Vintage, Query the API
+
+- Part 2 — pull real HMDA from the CFPB Data Browser API
+
+::: notes
+Welcome back to the Week Four lab, part two of ten. In part one we framed the mission: a clean difference-in-differences on real mortgage denial rates under a staggered state fair-lending policy, with two paths through it. Now we begin Path A — pulling real HMDA from the CFPB Data Browser. You do not have to run Path A to finish the lab, because Path B is self-contained, but you should understand it, because this is how you would build the panel for Capstone One, Fair Lending on HMDA.
+:::
+
+## Pin a Vintage, Know the Size
+
+- HMDA is **free, public** data from the FFIEC and CFPB
+- Tens of millions of records per year
+- **Pin the vintage**: HMDA is revised and re-published
+- The 2018 reform added many fields
+- **Never** pull the national file to a laptop
+- Aggregate *down* on GMU infrastructure first
+
+::: notes
+HMDA is free, public data published by the FFIEC and the CFPB. Under the Home Mortgage Disclosure Act, most lenders must report nearly every application they receive, with the action taken — originated, approved-not-accepted, denied, withdrawn — the loan amount, the property location, and applicant demographics. It is one of the largest public microdatasets in U.S. finance: tens of millions of records per year. That size shapes everything. First, pin the data vintage. HMDA is revised — a given application year is published, then re-published with corrections, and the schema changed across reform years; the twenty-eighteen expansion under Dodd-Frank added many fields. Any reproducible pull must state which year and which snapshot it used; record that string in your notebook. Second, the register is too large to pull whole — a single year nationwide is multiple gigabytes. Never download the full national file to a laptop. Use filtered application-programming-interface pulls for a handful of states, or the FFIEC bulk files for the whole country, mirrored on the container. Either way, aggregate down to a county-year panel on GMU infrastructure before doing anything else.
+:::
+
+## The Data Browser Query Pattern
+
+- Use the **aggregation endpoint** — server counts for you
+- Group by state, year, and `actions_taken`
+- Code 1 = originated; code 3 = denied
+- You never move the multi-gigabyte microdata
+- County identifier is the 5-digit **FIPS** code
+- Confirm parameter names against the live API docs
+
+::: notes
+The CFPB HMDA Data Browser exposes an HTTP application programming interface that returns either raw records or server-side aggregations. For building a panel, the aggregation endpoint is what you want: ask CFPB to count actions by the dimensions you care about, so you never move the microdata at all. The pattern is a base URL plus query parameters naming the years, the states, and the variables to group by. You request, for each year, a set of states and the actions taken — code one for loan originated, code three for application denied — and the server returns a tidy table with one row per state-by-year-by-action cell and a count. For a finer panel — county-year, which is what you want for a DiD with many units — add the county group-by parameters. The county identifier in HMDA is the five-digit FIPS code; the tract identifier is the eleven-digit census-tract code. One caution: confirm the exact parameter names against the live API docs for your pinned vintage, because CFPB has renamed fields across releases. The snippet is the pattern, not a guaranteed-stable contract.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Path A starts with discipline: **pin the HMDA vintage** and record it, then query the CFPB **aggregation endpoint** so the server counts actions by state, year, and action code — you never move the gigabytes. Aggregate down on GMU infrastructure; never pull the national file to a laptop. Next: turning those counts into a denial-rate panel and defining treatment.
+:::
+
+::: notes
+To summarize part two: Path A begins with two disciplines. Pin the HMDA vintage — which year, which snapshot — and record that string, because HMDA is revised and the schema changed across reform years. Then query the CFPB aggregation endpoint, which counts actions server-side by state, year, and action code, so you never move the multi-gigabyte microdata; for a finer panel, add county group-by parameters keyed on the five-digit FIPS code. Aggregate down on GMU infrastructure — never the national file on a laptop — and confirm parameter names against the live docs, because the pattern is not a stable contract. In part three we turn those counts into a denial-rate panel and define the staggered treatment.
+:::

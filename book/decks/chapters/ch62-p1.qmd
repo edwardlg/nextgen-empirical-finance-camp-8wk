@@ -1,0 +1,64 @@
+---
+date: "2026-06-22"
+---
+
+## Words as Data: The Research Question
+
+**Learning objectives.** By the end you can:
+
+- Explain why SIC/NAICS codes misclassify real competitors
+- Read a firm's 10-K product description as data
+- Describe how the cosine turns prose into geometry
+- Judge this as a *measurement* paper, not causal
+
+::: notes
+Welcome to Week Six, Chapter six-point-two, part one of eight. This is our reader's guide to Hoberg and Phillips, two thousand sixteen — "Text-Based Network Industries and Endogenous Product Differentiation," published in the Journal of Political Economy. In this opening part we ask the deceptively simple question that drives the whole paper: what industry is a company in? And we set up the one big idea — that the words a firm uses to describe itself are data, in the same hard sense a stock price is data.
+:::
+
+## A Question You Never Had to Ask
+
+- *What industry is a company in?*
+- "Apple is tech, Coca-Cola is beverages" — easy
+- But: *who exactly competes with Amazon?*
+- A bookseller? A grocer? A cloud provider? All three
+- Amazon's cloud rival differs from its grocery rival
+
+::: notes
+Here is a question you have never had to ask, because someone answered it for you decades ago and you never noticed: what industry is a company in? You think you know. Apple is technology, Coca-Cola is beverages. But ask a precise version — who exactly competes with Amazon? — and the easy answer falls apart. A bookseller? A grocery chain? A cloud provider? Amazon is all of those. And the firm it fights hardest on cloud, Microsoft, is not the firm it fights on groceries, Walmart. So the right list of Amazon's competitors is not one tidy box. It is a neighborhood that overlaps with several others without coinciding with any of them.
+:::
+
+## The Convention This Paper Overthrows
+
+- Official answer: a four-digit **SIC** or six-digit **NAICS** code
+- Slots each firm into one box of a fixed government tree
+- Forces Amazon into a *single* box
+- Defect one: **transitive** — shared box means mutual rivals
+- Defect two: **time-invariant** — code rarely changes
+- Both are false about real competition
+
+::: notes
+The official answer is a four-digit SIC code or a six-digit NAICS code — a number slotting each firm into one box of a fixed, government-maintained tree. That convention forces Amazon into a single box and declares everyone sharing the box a competitor, everyone outside it not. Economists dislike this system because it has two defects you can feel. First, it is transitive: if firm A shares a box with B, and B with C, then A, B, and C are all declared mutual competitors — clean partitions, no overlaps. Second, it is time-invariant: a firm's code rarely changes even as the firm reinvents itself. Both are false about real competition. Netflix fought Blockbuster, then HBO, then Disney — a moving neighborhood, not a fixed box — and its rival set overlaps but does not coincide with Disney's.
+:::
+
+## The One Big Idea
+
+- A firm's **product description** in its 10-K is data
+- Turn each description into a vector of numbers
+- Map who-competes-with-whom from what firms *say they do*
+- The trick: prose becomes geometry — the **cosine**
+- Measurement paper, *not* causal: judged on a better measure
+
+::: notes
+This is the cleanest example in finance of one idea: the words a firm uses to describe itself are data. Every U.S. public firm is legally required to write a product-description section in its annual report. Hoberg and Phillips take that section, turn each into a vector of numbers, and use those vectors to draw a map of who-competes-with-whom — built from what firms say they do, rather than from a code assigned decades ago. Reveal the trick early: the paper rests on turning prose into geometry, and the geometry is the cosine you met in Chapter one-point-two, when we said correlation is a cosine. One warning before we go further. The Week-Five papers were causal — they claimed X causes Y. This paper is mostly not causal. Its contribution is a measurement: a new way to define an industry. So we judge it differently — not "is the identifying assumption true?" but "is the measure better than what we had, and better at what?"
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Industries need not come from a fixed government code. Hoberg and Phillips define them from what firms **say they do** in their 10-K product descriptions — turning prose into geometry via the **cosine**. It is a *measurement* paper: judged on whether the new measure beats SIC, not on a causal claim. Next: how the measure is built, step by step.
+:::
+
+::: notes
+To summarize part one. Hoberg and Phillips ask whether we can define industries from what firms say they do — the product descriptions in their ten-K filings — rather than from fixed SIC or NAICS codes. The official codes have two fatal defects: they are transitive, forcing everyone in a box to be mutual rivals, and time-invariant, frozen as firms reinvent themselves. The fix is to treat words as data, turn each description into a vector, and measure competition with the cosine from Chapter one-point-two. And remember: this is a measurement paper, not a causal one, so we hold it to a different standard. In part two we build the measure the slow way — text, to vectors, to cosine, to a network.
+:::

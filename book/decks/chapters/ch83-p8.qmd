@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Tables That Stand Alone
+
+- Part 8 — table and figure craft, and where the standard lives
+
+::: notes
+Welcome back to Writing the Empirical Paper, part eight of nine. In part seven we closed the paper's argument with the conclusion and the causal-language discipline. Now we turn to craft: the tables and figures that a referee reads before any of your prose. As a producer, the implication is stark — your tables must stand alone. This part states the principles of self-contained tables and points you to where the binding standard lives.
+:::
+
+## Your Tables Must Stand Alone
+
+- Referees read tables **before** prose — sometimes read *only* tables
+- Main table intelligible without leaving it for the prose
+- Informative **title**, complete **notes** define everything
+- Standard errors in parentheses; **name the flavor** and cluster
+- Define **stars**; sensible digits; disclose FE and sample
+
+::: notes
+Referees read tables before they read prose. You learned this as a consumer in Week Five — go to the tables first, find the headline number, read the prose last and skeptically. As a producer, the implication is stark: your tables must stand alone, because they are read first and sometimes read only. A reader should understand your main table — what the sample is, what the coefficient means, what the stars and parenthetical numbers indicate, what fixed effects and clustering were used — without leaving the table to hunt through your prose. That self-containment comes from a few craft elements: an informative title and complete notes that define the sample, units, estimator, and every symbol; standard errors or t-statistics in parentheses beneath each coefficient, with the flavor named — classical, robust, or clustered, and clustered on what; significance stars defined in the notes; a consistent and sensible number of significant digits; and the fixed effects, controls, sample size, and within R-squared disclosed in dedicated rows.
+:::
+
+## Figures Follow the Same Ethic
+
+- Show point estimates **and** confidence intervals
+- Label axes in **real units**, not raw indices
+- Mark the **reference period** on an event study
+- Legible in **grayscale** — a printed referee may not see color
+- A table needing the prose to be read **fails** its first reader
+
+::: notes
+Figures follow the same ethic as tables. An event-study plot shows point estimates and confidence intervals together, so the reader sees both the effect and its precision at a glance. It labels its axes in real units — percentage points and years, not raw indices. It marks the reference period, the omitted event-time against which every other coefficient is measured. And it is legible in grayscale, because a referee may print your paper in black and white, and a finding that vanishes without color is a finding they cannot evaluate. The unifying principle, for tables and figures alike: a table that requires the surrounding paragraphs to be intelligible is a table that fails its first and most important reader. Build it so that someone who reads only the exhibit still learns what you found.
+:::
+
+## Where the Standard Lives
+
+- This chapter tells you **why** tables stand alone and lead
+- **Appendix D** tells you **exactly how** — the binding spec
+- D.1 layout and notes; D.2 coefficients, FE, cluster, sample
+- D.3 robustness; D.4 replication; D.5 prose and causal language
+- Do not hand-format — the **notebook generates** tables
+
+::: notes
+Here I state the principles and then point you to where the detailed standard lives. The full standard — exact table layout, notes versus main text, how to report R-squared versus within R-squared, how many digits for which number, the precise fixed-effect and cluster disclosure lines, and the prose-style rules for hedging and citation — lives in Appendix D, the style guide, the binding spec for your manuscript. D-one covers table layout and notes; D-two covers which coefficients to report and the fixed-effect, cluster, and sample disclosure; D-three covers robustness sections and the threats-and-responses table; D-four covers the replication packet; D-five covers prose style and causal-language discipline. This chapter tells you why tables must stand alone and lead; Appendix D tells you exactly how. Do not reinvent the standard — point your manuscript at D and follow it. And do not hand-format your tables in a text editor; the notebook does it for you, reproducibly, which is where this chapter is headed.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Tables must stand alone** — read first, sometimes only — with self-defining titles, notes, named standard errors, defined stars, and disclosed fixed effects. Figures follow the same ethic. *Why* lives here; *how* lives in **Appendix D**. Next: a fully worked introduction.
+:::
+
+::: notes
+To summarize part eight: your tables must stand alone, because referees read them first and sometimes only. Self-containment comes from an informative title, complete notes, standard errors with their flavor named, defined significance stars, sensible digits, and disclosed fixed effects, clustering, and sample. Figures follow the same ethic — point estimates and confidence intervals, real-unit axes, a marked reference period, legible in grayscale. This chapter tells you why tables stand alone and lead; Appendix D is the binding spec for exactly how. In part nine, the last part, we assemble everything into a fully worked introduction skeleton and send you into the notebook.
+:::

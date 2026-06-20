@@ -1,0 +1,65 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Fama–French 1993: From Cross-Section to Factor Model
+
+**Learning objectives.** By the end you can:
+
+- Distinguish FF92's cross-section from FF93's time series
+- Read a factor regression's $R^2$ for common variation
+- Read its intercept $\alpha$ as a pricing error
+- Explain why FF93 became finance's workhorse model
+
+::: notes
+Welcome to Week Five, lesson five-point-two: a reader's guide to Fama and French's nineteen ninety-three paper, "Common Risk Factors in the Returns on Stocks and Bonds," in the Journal of Financial Economics. Part one of seven. Yesterday's guide covered their nineteen ninety-two paper, which put a knife into CAPM beta and announced that two firm characteristics — size and book-to-market — did the explaining instead. But that paper left a job unfinished. It showed that sorting stocks by size and book-to-market lines average returns up with those characteristics. It told you the characteristics are priced. It did not tell you why, and it did not hand you a model. Today we see how the ninety-three paper fills that gap — and why this paper became the single most-used regression in empirical finance.
+:::
+
+## Two Papers, Same Characters
+
+- Both explain one fact: small and value stocks beat CAPM
+- FF92: do characteristics **predict** the cross-section?
+- FF93: can **factors** explain co-movement and price stocks?
+- Same two characters, different machinery
+- Students conflate them constantly — don't
+- Read tables first, in argument order
+
+::: notes
+Here is the cleanest way to hold the two papers apart. Both are about the same empirical fact: small stocks and high book-to-market — value — stocks have earned higher average returns than CAPM says they should. The difference is the shape of the question. The ninety-two paper asks: do these characteristics predict the cross-section of average returns? The ninety-three paper asks something structurally different: can a small set of factor returns explain the common month-to-month movement in stock returns, and price them with no leftover? Same two characters, different machinery. Students conflate these papers constantly, and the conflation hides the cleverest move in the literature. We read this paper the professional way — tables first, in an order that reveals the argument. Keep Week Two loaded; this paper is nothing but time-series ordinary least squares, read for its R squared and its intercepts.
+:::
+
+## The Shape of the Question
+
+- **FF92 — cross-sectional:** firms within a date
+- Output: a risk premium per characteristic
+- **FF93 — time-series:** time within a portfolio
+- Watch one portfolio move month after month
+- Decompose its return into common pieces plus remainder
+
+::: notes
+Freeze a single month. You have a few thousand firms, each with a return, a size, and a book-to-market. The cross-sectional regression asks: across firms, on this date, does the return slope on the characteristic? Do it every month and average the slopes. The output is a risk premium per characteristic. The unit of variation is firms within a date. Now flip it. Freeze a single portfolio — say, small-cap value stocks — and watch it move through time. The time-series regression asks: when the small-value portfolio's excess return goes up this month, what moved with it? The market? A "small stocks did well" factor? A "value stocks did well" factor? The unit of variation is time within a portfolio. You are decomposing each portfolio's return stream into common pieces plus an idiosyncratic remainder.
+:::
+
+## Why Time-Series Wins Two Prizes
+
+- **R squared:** fraction of variance the factors explain
+- High R squared = factors capture **common variation**
+- **Intercept alpha:** average return left over
+- Complete model $\Rightarrow$ alpha should be **zero**
+- Nonzero alpha = a **pricing error**
+
+::: notes
+Why does going time-series matter so much? A time-series regression hands you two things the cross-section cannot. First, the R squared: the fraction of a portfolio's month-to-month variance that the factors explain. A high R squared means the factors capture the common variation — the part many stocks share, that cannot be diversified away. Second, the intercept, alpha. If your factors are the complete description of priced risk, a portfolio's average excess return should be entirely accounted for by its exposures, and the intercept — the average return left over after the factors have done their work — should be zero. A nonzero alpha is a pricing error: money the model cannot explain. The cross-section never produces an alpha in this sense; the time-series regression does, and that single number is the whole ballgame.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+FF93 turns size and value into **factors** and asks a sharper question than FF92: is there a small set of factors whose time-series regression on any test portfolio has a **high R squared** (captures common variation) and an **intercept near zero** (no priced risk left over)? That replaces a vague claim with an operational model.
+:::
+
+::: notes
+To summarize part one: the ninety-three paper asks whether a small set of factors — the market, a size factor, and a value factor — gives every test portfolio a time-series regression with two properties. One: a high R squared, capturing common variation. Two: an intercept indistinguishable from zero, meaning no priced risk is left on the table. If yes, you have replaced a vague claim with an operational model: a three-line regression anyone can run. In part two we build the machinery, starting with the cleverest piece: manufacturing each factor as a real, tradeable portfolio.
+:::

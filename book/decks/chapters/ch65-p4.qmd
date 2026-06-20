@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## Prompt Patterns — Code Review and Rubrics
+
+- Part 4 — code review and rubric-based classification
+
+::: notes
+Welcome back to the AI co-pilot for research, part four of fourteen. In part three we built precise extraction and cite-or-decline. Here are the last two prompt patterns: code review, which fights the model's tendency to agree with you, and rubric-based classification, the pattern your capstone will lean on hardest.
+:::
+
+## Pattern 3 — Code Review
+
+- **Bad:** "Is this code good?" — vague praise from an agreeable model
+- **Good:** name the bug categories you care about
+- Off-by-one, wrong pandas axis, look-ahead bias
+- Wrong missing-value handling, non-unique merge keys
+- For each: quote the exact line, one-sentence explanation
+- "If none, say so — don't invent suggestions to seem useful"
+
+::: notes
+Pattern three, code review. The bad prompt — "is this code good?" — leaves "good" undefined, so you get vague praise, and the model, tuned to be agreeable, leans toward praise; agreeableness is a real failure mode, where a model asked "is this right?" leans toward "yes." The good prompt names the categories of bug that actually matter in empirical code: off-by-one errors, the wrong axis in a pandas operation, look-ahead bias in feature construction, incorrect handling of missing values, and merge keys that do not uniquely identify rows — the silent killer of panel datasets. For each issue, quote the exact line and explain the bug in one sentence; and if there are no correctness bugs, say so, and do not invent stylistic suggestions to seem useful. Naming the categories focuses the model on the failure modes that matter, and that final clause counteracts the agreeableness bias directly. Notice the symmetry with cite-or-decline: in both, you make "nothing to report" an acceptable, even rewarded, answer.
+:::
+
+## Pattern 4 — Rubric-Based Classification
+
+- Assign each document to one fixed category — *consistently*
+- **Bad:** "Is the tone positive or negative?" — undefined, drifts
+- **Good:** a written rubric with boundary examples
+- Pins the categories so the model's definitions match yours
+- Handles ambiguity with an explicit default (choose NEUTRAL)
+- A disclosable artifact for your appendix
+
+::: notes
+Pattern four, rubric-based classification — the one your capstone leans on hardest. You assign each document to one of a fixed set of categories, consistently, across thousands of documents. Consistency is the whole game: a classifier that uses a slightly different definition of "negative" on document five-thousand than on document five has injected measurement error into your data. The bad prompt — "is this filing's tone positive or negative?" — leaves the terms undefined, so the model supplies its own definitions, which drift across documents. The good prompt is a rubric: an explicit written decision rule with examples for boundary cases. Negative emphasizes new or worsening threats — litigation, liquidity, going-concern doubt; neutral restates standard boilerplate; positive notes a previously disclosed risk that has been resolved. Boilerplate is neutral, not negative, and if genuinely ambiguous, choose neutral. A rubric does three things a one-liner cannot: it pins down the categories so the model's definitions match yours, it handles the ambiguous case with an explicit default rather than a coin flip, and it is a written artifact you put in your appendix. A rubric is to LLM classification what a variable definition is to a regression.
+:::
+
+## One Discipline for All Four
+
+- Keep the **stable instruction** separate from the **volatile input**
+- The rubric is identical for all 40,000 filings
+- Only the document text changes
+- Fixed part first, variable part last
+- This is what makes prompt caching work
+- And guarantees *identical* judging across documents
+
+::: notes
+One more discipline applies to all four patterns: keep the stable instruction separate from the volatile input. The rubric is the same for all forty thousand filings; only the filing text changes. Writing the prompt so the fixed part comes first and the variable part comes last is not just tidy — it is what makes prompt caching work, which we will see later, and, more importantly, what guarantees every document is judged by identical instructions. That single ordering choice ties the four patterns together and connects them forward to the production pipeline.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Code review** names the bug categories and rewards "nothing to report," defeating the agreeableness bias. A **rubric** pins down categories, defaults the ambiguous case, and is disclosable like a variable definition. Across all four patterns: **stable instruction first, volatile input last.** Next: retrieval-augmented generation, to ground answers in real source text.
+:::
+
+::: notes
+To summarize part four: code review names the categories of correctness bug that matter and explicitly rewards "no bugs found," defeating the model's agreeableness bias. Rubric-based classification pins down the categories so definitions match yours, handles ambiguity with an explicit default, and gives you a disclosable artifact for your appendix — a rubric is to a classifier what a variable definition is to a regression. And across all four patterns, one discipline: stable instruction first, volatile input last, which guarantees identical judging and enables caching. In part five we close the obvious hole in cite-or-decline — it only works if the model has the right source text — with retrieval-augmented generation.
+:::

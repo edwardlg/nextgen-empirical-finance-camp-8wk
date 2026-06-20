@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## A Clean Design in Real Lending Data
+
+- Part 4 — the same-sex-borrower design in HMDA mortgage data
+
+::: notes
+Welcome back to the Week Four mentor session, part four of five. In part three we defined discrimination as a counterfactual and saw that a design must construct the comparison the data hides. Now we make it concrete with a worked case from my own work — a paper my coauthor and I wrote, detecting discrimination against same-sex borrowers in real lending data. The citation is Gao and Sun, two-thousand-nineteen, "Lending practices to same-sex borrowers," in the Proceedings of the National Academy of Sciences. Let us walk through the design.
+:::
+
+## The Setting: HMDA
+
+- U.S. lenders report under the **Home Mortgage Disclosure Act (HMDA)**
+- A near-census of mortgage applications at covered institutions
+- Loan amount, applicant characteristics, income, action taken, pricing
+- Crucially, HMDA records the *sex of each of two co-applicants*
+- So you can identify **same-sex** versus **different-sex** co-borrowers
+- Compare the two, holding the rest of the application fixed
+
+::: notes
+The setting is the one this whole session is built around. U.S. mortgage lenders report, under the Home Mortgage Disclosure Act — HMDA — a near-census of mortgage applications: the loan amount requested, the applicant and co-applicant characteristics, income, the action taken — approved, denied, withdrawn — and pricing information, for essentially every application at covered institutions. Crucially for this design, HMDA records the sex of each of two co-applicants. That lets you identify applications from same-sex co-borrowers — two co-applicants of the same recorded sex — and compare them to different-sex co-borrowers, holding the rest of the application fixed. The question is whether same-sex couples are treated differently, in approval or pricing, for reasons that cannot be explained by creditworthiness.
+:::
+
+## From Disparity to Differential Treatment
+
+- The counterfactual: for an application of given quality, effect of co-borrowers being *same-sex* vs *different-sex*
+- A raw difference in approval rates is *not* that effect
+- The workhorse regression: outcome on a same-sex indicator, plus income, credit factors, loan-to-value, location fixed effects
+- A nonzero coefficient shows the gap survives those controls — not discrimination outright
+- The blocking threat is **omitted-variable bias**
+
+::: notes
+Now run the logic from earlier in the session. The counterfactual this design wants is: for an application of a given creditworthiness, what is the effect of the co-borrowers being same-sex rather than different-sex on the outcome — approval, or price? A raw difference in approval rates between same-sex and different-sex applicants is not that effect, for all the reasons we have rehearsed. The workhorse regression puts the outcome on a same-sex indicator plus income, credit factors, loan-to-value, and location fixed effects. A nonzero coefficient on the same-sex indicator establishes that the disparity survives the controls you have — and it does not establish discrimination outright. The threat that prevents you from calling it discrimination is omitted-variable bias: some determinant of the outcome the underwriter sees and you do not.
+:::
+
+## The Missing Credit Score Cuts Both Ways
+
+- HMDA does *not* contain the applicant's credit score
+- This makes the control-for-creditworthiness argument harder here
+- A key legitimate factor is simply absent from your regression
+- So a design that differences out *fixed unobservables* is more valuable
+- More valuable than in a setting where you actually had the score
+
+::: notes
+Here is a subtlety specific to HMDA: it does not contain the applicant's credit score. That omission cuts both ways. On one hand it makes the control-for-creditworthiness argument harder, because a central legitimate factor is simply missing from your regression — you cannot adjust for what you cannot see. On the other hand, precisely because you cannot control your way to credibility, a design that differences out fixed unobservables becomes more valuable here than it would be in a setting where you did have the score. When controls are weak, design carries more of the weight — and that is the right response, not a longer wish list of variables you do not have.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The Gao and Sun (2019, *PNAS*) study uses **HMDA**'s record of each co-applicant's sex to compare **same-sex** and **different-sex** co-borrowers. A same-sex coefficient that survives controls shows a *surviving disparity*, not discrimination outright — **omitted-variable bias** blocks the leap. And because HMDA omits credit score, a *design* that differences out fixed unobservables earns its keep. Next: what a DiD adds, and reading the result responsibly.
+:::
+
+::: notes
+To summarize part four: the Gao and Sun two-thousand-nineteen study in PNAS uses HMDA's record of each co-applicant's sex to compare same-sex and different-sex co-borrowers, holding the application fixed. A same-sex coefficient that survives income, credit factors, loan-to-value, and location fixed effects shows a surviving disparity, not discrimination outright — omitted-variable bias still blocks the leap. And because HMDA omits the credit score, a design that differences out fixed unobservables earns its keep more than usual. In part five we add a difference-in-differences, state its parallel-trends assumption, and talk about reading the result responsibly when a number is headed for Congressional testimony.
+:::

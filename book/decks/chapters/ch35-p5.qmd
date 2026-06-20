@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## The Deadly Tilt Toward OLS
+
+- Part 5 — the correlation that tilts 2SLS, and the $1/(F+1)$ formula
+
+::: notes
+Welcome back to Reading instrumental variables in the wild, part five of thirteen. In part four we saw the first catastrophe: IV is a ratio, and a near-zero denominator makes the standard error too small. Now the second, subtler catastrophe — the one that gives the bias its direction — and a single memorable formula that captures the whole story.
+:::
+
+## Second Catastrophe: The Deadly Correlation
+
+- Endogeneity links the **denominator** and the numerator's error
+- Same chance fluctuations push both the same way
+- The ratio inherits a systematic **tilt**
+- The tilt points, provably, **toward the OLS limit**
+- Weaker instrument $\Rightarrow$ stronger pull
+
+::: notes
+Here is the second catastrophe, and it is the subtle, deadly part. The denominator — the estimated covariance of z and x — and the error in the numerator are correlated in finite samples, through the endogeneity itself. When x is endogenous, the same chance fluctuations that make the estimated covariance of z and x land high or low also push the numerator the same way, and so the ratio inherits a systematic tilt. That tilt points, provably, toward the ordinary least squares probability limit. This is not random noise that washes out; it is a directional contamination, baked into the ratio whenever the first stage is faint and the regressor is endogenous. The weaker the instrument, the smaller and noisier that denominator, and the stronger the pull toward OLS. So a weak instrument does not just widen your true uncertainty — it drags your estimate, systematically, back to the very bias you were fleeing.
+:::
+
+## The Bias Formula
+
+$$\frac{\mathbb{E}[\hat\beta_{\text{2SLS}}] - \beta}{\mathbb{E}[\hat\beta_{\text{OLS}}] - \beta} \approx \frac{1}{F + 1}$$
+
+- $F$ = population analog of the first-stage statistic
+- Huge $F$: ratio near zero — 2SLS sheds OLS's bias
+- $F = 1$: ratio near one-half — **half of OLS's bias**
+- The engine behind the famous "$F > 10$" rule
+
+::: notes
+There is an exact, memorable way to summarize the bias. In an over-identified model, the approximate bias of two-stage least squares relative to the bias of ordinary least squares is about one over the quantity F plus one, where F is the population analog of the first-stage F-statistic. This relationship is the engine behind the famous F greater than ten rule. When the first-stage F is enormous, one over F plus one is approximately zero, and two-stage least squares has shed essentially all of OLS's bias — the instrument is strong, IV works. When F is small — say F equals one — the ratio is about one-half: two-stage least squares carries half of OLS's bias. And critically, the sign is toward OLS. The very bias you fled is the bias a weak instrument hands back to you. This is why a weak instrument is worse than no instrument at all: no instrument leaves you with honest OLS and an honest worry; a weak instrument gives you contaminated OLS dressed up as a clean causal estimate.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The bias has a **direction**: endogeneity correlates the first-stage denominator with the numerator's error, tilting 2SLS **toward the OLS limit**. The pull is about $1/(F+1)$ — half of OLS's bias at $F = 1$. A weak instrument is worse than none: contaminated OLS dressed as a clean causal estimate. Next: the cautionary tale that taught the field to fear this.
+:::
+
+::: notes
+To summarize part five: the weak-instrument bias has a direction, and that is what makes it deadly. Through the endogeneity, the first-stage denominator and the numerator's error are correlated in finite samples, so the ratio inherits a systematic tilt toward the ordinary least squares probability limit — the weaker the instrument, the stronger the pull. The one-over-F-plus-one formula captures it: a huge first-stage F sheds essentially all of OLS's bias, while an F of one leaves you carrying half of it, in the OLS direction. That is why a weak instrument is worse than no instrument — it is contaminated OLS dressed up as a clean causal estimate. In part six, we meet the famous cautionary tale that burned this lesson into the profession: the quarter-of-birth instrument and the Bound, Jaeger, and Baker critique.
+:::

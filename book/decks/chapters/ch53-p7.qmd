@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Three More Threats: Seasonality, Mechanism, Inference
+
+- Part 7 — seasonality, mechanism, and overlap inference
+
+::: notes
+Welcome back to Week Five, lesson three, part seven of eight. In part six we credited what is clever about the paper and pressed on the first two threats — transaction costs and data-snooping. Now we finish the referee's job with three more live threats: the seasonality vulnerability, the genuinely unresolved risk-versus-behavioral debate, and the overlap-inflated t-statistics that send us straight back to Newey–West.
+:::
+
+## Threat Three: Seasonality Cuts Both Ways
+
+- Annual profit hinges on **eleven months minus January**
+- Exposed to anything that shifts the seasonal pattern
+- Tax-loss-selling rule changes, rise of index investing
+- A clue to **mechanism**, not a clean robustness check
+- Cannot simply wave it away
+
+::: notes
+The third threat is seasonality, which cuts both ways. Even though momentum is an anti-January phenomenon, a strategy whose entire annual profit depends on eleven months minus a January loss is exposed to anything that shifts that seasonal pattern — tax-loss-selling rule changes, the rise of index investing, anything that alters who is selling losers in December and buying them back in January. So the seasonal structure is a clue to mechanism, not a clean robustness check you can wave away. It tells you something real about why momentum works, but it also means the profit has a structural dependence on the calendar that a careful reader has to flag rather than dismiss.
+:::
+
+## Threat Four: Risk vs. Behavioral
+
+- Granting the profits are real — **why** do they exist?
+- **Behavioral:** underreact to news, later overreact
+- **Risk-based:** momentum loads on priced macro risk
+- The **2009 crash** — losers rocketed, short leg blew up
+- JT93 predates the evidence; interpretation stays **open**
+
+::: notes
+The fourth threat is interpretation, and it is genuinely unresolved. Even granting the profits are real and net-positive, why do they exist? The behavioral camp says investors underreact to news — prices drift toward fundamentals slowly — and later overreact, which produces the eventual long-run reversal. The risk-based camp says momentum loads on some priced, time-varying macro risk, and points to the spectacular two thousand nine momentum crash — when beaten-down losers rocketed in the recovery and the short leg blew up — as evidence that momentum carries crash risk you are compensated for. Jegadeesh and Titman cannot adjudicate this; the paper predates the evidence on both sides. A careful reader reports the anomaly and labels the interpretation as open, rather than picking a winner the data of nineteen ninety-three cannot support.
+:::
+
+## Threat Five: Overlap Inference, Again
+
+- $t$-stats must correct for $K-1$ induced autocorrelation
+- Uncorrected, they are **overstated**
+- A $t$ of six survives; a marginal one can **sink**
+- First thing to recompute: **Newey–West**, lag $\geq K-1$
+- This is why Week Two came before Week Five
+
+::: notes
+The fifth threat is overlapping-portfolio inference, the same issue from part three. If the paper's t-statistics do not correct for the K-minus-one induced autocorrelation, they are overstated — the standard errors are too small. This does not erase a t of, say, six, but it can sink a marginal one. So the first thing to recompute in any replication is the Newey–West t-statistics with lag length at least K minus one. This is exactly why Week Two came before Week Five — the overlapping-observations machinery we built earlier is the tool that decides how much of this paper's significance you are allowed to believe. The result is strong enough that the headline survives the correction, but you must do the correction to know that, rather than assume it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three more threats round out the referee's job: **seasonality** is a structural dependence on January, not a free pass; the **risk-versus-behavioral** mechanism is genuinely unresolved and JT93 cannot settle it; and **overlap-inflated** $t$-stats must be recomputed with Newey–West, lag at least $K-1$. Next: three replication exercises that make all of this visible.
+:::
+
+::: notes
+To summarize part seven: the referee's job finishes with three more threats. Seasonality cuts both ways — the profit depends structurally on the January pattern, so it is a clue to mechanism, not a free robustness pass. The risk-versus-behavioral debate is genuinely unresolved, and this paper predates the evidence, so the honest move is to label the interpretation open. And overlap-inflated t-statistics must be recomputed with Newey–West, lag at least K minus one, before you trust any single starred cell. In part eight, the last part, we turn all of this into action — three replication exercises that rebuild the grid, layer on costs, and test out of sample, plus the three referee questions every momentum claim must answer.
+:::

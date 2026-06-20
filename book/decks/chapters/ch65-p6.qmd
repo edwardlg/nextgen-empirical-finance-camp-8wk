@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Why RAG Reduces, Not Eliminates, Hallucination
+
+- Part 6 — where grounding still fails, and the fix
+
+::: notes
+Welcome back to the AI co-pilot for research, part six of fourteen. In part five we built the four-stage retrieval pipeline and saw the model's job shift from recall to reading comprehension. Now the honest accounting: grounding sharply reduces hallucination, but it does not eliminate it, and you must know exactly where it can still fail before you trust it.
+:::
+
+## Two New Ways to Go Wrong
+
+- RAG removes the **recall** failure mode
+- But introduces two new ones
+- **Retrieval can fail** — right chunk not in the top $k$
+- A model handed wrong passages still answers confidently
+- **Model can misread** — invent a near number, stitch passages
+- A large improvement, not a guarantee
+
+::: notes
+Why does retrieval-augmented generation reduce hallucination rather than eliminate it? Because it removes the recall failure mode — the model is no longer guessing facts from blurry memory — but it introduces two new ways to go wrong. First, retrieval can fail: if the relevant chunk is not in the top k, the model answers from incomplete information, and a model handed the wrong passages can still produce a confident, wrong answer. Second, the model can still misread or over-extrapolate from the passages it was given — inventing a number that is close to one in the text, or stitching two passages into a claim that neither supports. So retrieval is a large improvement, not a guarantee. Removing one failure mode does not mean removing all of them, and the two that remain are exactly the ones a confident tone will hide from you.
+:::
+
+## The Discipline That Makes It Trustworthy
+
+- **Every claim must cite a retrievable source**
+- And you spot-check those citations
+- A claim citing passage three — open passage three, falsify it
+- A claim with no citation is one you cannot trust
+- The prompt should forbid uncited claims
+- Same discipline runs through the whole chapter
+
+::: notes
+So what makes retrieval trustworthy despite those two failure modes? The same discipline that runs through this whole chapter: every claim must cite a retrievable source, and you spot-check those citations. A claim that cites passage three is a claim you can falsify by opening passage three; a claim with no citation is a claim you cannot trust, and the prompt should forbid it outright. This is why the grounding instruction demands a passage number after every sentence and an explicit "not answerable from the provided passages" when the text does not support an answer. Retrieval does not buy you the right to stop checking — it buys you citations that make checking fast. You will build a small retrieval pipeline over real 10-Ks in the notebook, and the discipline you practice there is the one that protects every later use of the model.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+RAG removes the **recall** failure but adds two: **retrieval can fail**, and the model can **misread** the passages it was given. It is a large improvement, not a guarantee. The fix is the chapter's running discipline — **every claim cites a retrievable source, and you spot-check it.** Next: the heart of the chapter — an LLM label is a measurement.
+:::
+
+::: notes
+To summarize part six: retrieval-augmented generation removes the recall failure mode but introduces two new ones — retrieval can fail, leaving the model to answer from incomplete or wrong passages, and the model can still misread or over-extrapolate from the passages it did get. So it is a large improvement, not a guarantee. What makes it trustworthy is the chapter's running discipline: every claim must cite a retrievable source, and you spot-check those citations, because a claim that points to a specific passage is one you can falsify in seconds, and an uncited claim is one the prompt should forbid. In part seven we reach the heart of the chapter — the single most important idea in it: an LLM-produced label is a measurement, not the truth.
+:::

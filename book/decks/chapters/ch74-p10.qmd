@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Panel Is the Argument's Foundation
+
+- Part 10 — why the panel is your argument's foundation
+
+::: notes
+Welcome back to Building the Analysis Dataset, part ten of ten — the finale. In part nine we made every decision reproducible with a build script and a row-count log. Now we step back. Sam started with two clean files and a simple question, and across this chapter we turned them into one panel. Along the way we made a dozen decisions, and not one of them was cleaning in the janitorial sense. Each can change the sign of a result. Let's see why that makes the panel the foundation of the entire argument — and what questions to carry into the lab.
+:::
+
+## Every Decision Could Flip a Sign
+
+- A dozen decisions, each able to flip a result's **sign**
+- Identification assumptions are claims about **the data you built**
+- A contaminated panel makes the cleverest design estimate an artifact
+- The build script is the **first chapter** of the analysis
+- The row-count log is its **first table**
+
+::: notes
+Step back and count what we decided: which LINKTYPE codes to trust, whether to keep delisted firms — yes, survivorship — what lag to impose — six months, look-ahead — whether to winsorize book-to-market — yes, by date — whether to winsorize Priya's catastrophe losses — no, that is the signal — and how to handle Maya's missing income — probe, then decide and log. None of these is cleaning in the janitorial sense. Each one can change the sign of a result, and a hostile referee will ask about every single one. That is why this chapter sits between the acquisition of Chapter seven-point-two and the identification memo of Chapter seven-point-five. The memo will argue that your design identifies a real effect. But identification assumptions are claims about the data you built — this panel, these firms, lagged this way, cleaned by these rules. If the panel is contaminated by survivorship or look-ahead, the cleverest identification strategy in the world is estimating an artifact. The build script is not a preliminary to the analysis; it is the first chapter of the analysis, and the row-count log is its first table.
+:::
+
+## Three Questions for the Lab
+
+- **Match rate is a finding** — name reasons a row fails to link
+- ...and which way each biases the value premium
+- **Look-ahead is invisible** — what structural checks stop it?
+- Write the one assertion you'd never ship without
+- **Winsorize or not?** State the principle; apply it to crypto
+
+::: notes
+Carry three questions into the lab and the Chapter seven-point-five memo. First, the match rate is a finding, not a footnote. Suppose your CCM link matches only seventy-two percent of CRSP rows to a GVKEY. Before you analyze the seventy-two percent, name three distinct reasons a row might fail to link, and for each, say which direction it biases a value-premium estimate — and when a low match rate is a bug in your code versus an honest feature of the data. Second, look-ahead is invisible in your results, because the bug improves every backtest statistic. Since you cannot detect it in the output, what structural checks — assertions, date audits, the merge-as-of direction — would you build so the bug cannot survive a clean run? Write the one assertion you would never ship without. Third, winsorize or not. State the principle that decides whether an outlier is noise to be capped or signal to be preserved, and apply it to Devon's daily crypto returns, where one day can move forty percent — cap it, model it, or leave it, and defend the choice.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The panel is not a preliminary to the analysis — it **is** the first chapter of the analysis, and the row-count log is its first table. Every decision (links, survivorship, lag, winsorizing, missing data) could flip a sign, so identification rests on the panel you built. Master the build and you have a defensible foundation; skip it and you have a number you cannot explain — which, in this field, is the same as no number at all.
+:::
+
+::: notes
+To summarize part ten, and the whole chapter: a dataset is a sequence of decisions, and the decisions are the dataset. We turned two clean files into one analysis panel by joining on a date-aware crosswalk, asserting every merge's cardinality and checking its match rate, keeping the firms that died to defeat survivorship, dating accounting data point-in-time to defeat look-ahead, winsorizing by date, handling missing data by asking why not how much, and logging every row count in a reproducible build script. Each of those decisions could flip the sign of a result, which is why the panel is the foundation of your argument — identification assumptions are claims about the data you built. Master the build and you have a defensible foundation. Skip it and you have a number you cannot explain, which in this field is the same as no number at all. Next week, in Chapter seven-point-five, you turn this panel into a credible identification memo. Excellent work.
+:::

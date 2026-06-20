@@ -1,0 +1,53 @@
+---
+date: "2026-06-22"
+---
+
+## How Much Should We Trust DiD? The Question
+
+**Learning objectives.** By the end you can:
+
+- Explain why conventional DiD standard errors are too small
+- Run the placebo-law experiment to measure true test size
+- Apply the three fixes: cluster, block bootstrap, collapse
+- Recognize the few-clusters caveat on those fixes
+
+::: notes
+Welcome to Week Five, lesson five, part one of five. This week we read one paper the way a professional reads a paper. Bertrand, Duflo, and Mullainathan, two thousand four, in the Quarterly Journal of Economics, titled "How Much Should We Trust Differences-in-Differences Estimates?" You already met it as a footnote. In Week Four, when Priya clustered her wildfire-regulation standard errors by state and watched the t-statistic fall from a triumphant five-point-zero to a sobering one-point-eight, the footnote said: this is the lesson of B-D-M. Back then it was a rule you obeyed. Today we read it as an argument someone had to win. And it is one of the most unsettling arguments in empirical economics, because it is not about any single study being wrong. It is about a whole method of computing standard errors being wrong, in a way that made hundreds of published difference-in-differences results look far more certain than the data ever justified.
+:::
+
+## The Paper in One Sentence
+
+- Standard DiD standard errors are **too small** — often dramatically
+- Cause: the outcome is **serially correlated** within each unit
+- The conventional formula **pretends it is not**
+- Too-small SEs $\Rightarrow$ too-large $t$ $\Rightarrow$ reject too often
+- You "discover" effects that **are not there**
+- A *methods* paper — it studies how economists study the world
+
+::: notes
+Here is the whole paper in one sentence, and we spend the lesson unpacking it. When you run a standard difference-in-differences regression on a long panel and report the usual standard errors, those standard errors are too small, often dramatically, because the outcome is serially correlated over time within each unit, and the conventional formula pretends it is not. Too-small standard errors mean too-large t-statistics, which mean you reject the null too often, which means you discover effects that are not there. B-D-M did not just assert this. They measured it, with a trick so clean you will run it yourself by the end of the week. This is a methods paper, also called a credibility paper. It studies not the world but the way economists study the world. Read it as the empirical equivalent of an auditor showing up at a firm reporting suspiciously smooth profits.
+:::
+
+## A Question About Size
+
+- DiD setup: $Y_{ist}=\alpha_s+\lambda_t+\beta D_{st}+\varepsilon_{ist}$
+- Report $\hat\beta$, its SE, $t=\hat\beta/\mathrm{SE}$; significant if $|t|>1.96$
+- Honest inference hinges on that SE
+- Bad assumption: residuals **independent** across time within a state
+- Reality: high wages this year $\Rightarrow$ high wages last year
+- A **size** question: is the true Type-I rate really 5 percent?
+
+::: notes
+Recall the anatomy of a DiD study. A state-year panel, women's wages in each of the fifty states observed annually for twenty-some years. The researcher fits the two-way fixed-effects regression you carried all last week: Y for individual i in state s in year t equals a state fixed effect alpha-s, plus a year fixed effect lambda-t, plus beta times the treatment dummy D-s-t, plus an error. The dummy turns on when state s has the law in year t. Beta is the policy effect; the researcher reports beta-hat, a standard error, computes t equals beta-hat over its standard error, and declares significance if the absolute value of t exceeds one-point-nine-six. Everything hinges on that standard error being honest. B-D-M's suspicion is that it rests on an assumption the data flatly violate: that the residuals are independent across time within a state. The reality, for slow-moving outcomes, is that a state with high women's wages this year almost certainly had high wages last year. That is serial correlation, the within-unit autocorrelation you met as a disease in Chapter two-point-four. Notice the kind of question this is. It is a size question, in the exact sense of Week One. The size of a test is the probability it rejects a true null, the Type-One error rate, the alpha you set to zero-point-zero-five. B-D-M ask: when DiD researchers say significant at five percent, is the true size really five percent, or something far worse?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**B-D-M's thesis:** conventional DiD standard errors are too small because they ignore serial correlation, so the test that advertises a 5% false-positive rate may fire far more often on pure noise. This is a *size* question — and, crucially, an **answerable** one.
+:::
+
+::: notes
+To summarize part one. Bertrand, Duflo, and Mullainathan argue that conventional difference-in-differences standard errors are too small, because they ignore the serial correlation that slow-moving economic outcomes genuinely have. Too-small standard errors inflate t-statistics, so a test advertising a five-percent false-positive rate may actually fire far more often on pure noise. This is a size question in the precise Week-One sense, and the beautiful part is that it is answerable. In part two we see exactly how they answer it, with the placebo-law experiment that made the paper famous.
+:::

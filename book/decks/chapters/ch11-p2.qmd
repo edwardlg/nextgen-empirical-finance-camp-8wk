@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Marginals and Conditioning
+
+- Part 2 — collapse the table to margins, then condition
+
+::: notes
+Welcome back to Joint, Conditional, and the Two Laws That Run Everything — part two of eight. In part one we built Sam's joint table of momentum return and market regime. Now we do two things: collapse the table into its margins, and then make the central move of the whole subject — conditioning. Conditioning is the mathematical name for using what you know. It is the move a trader, a lender, or a risk manager actually makes — acting not on the average day, but on the information in front of them right now.
+:::
+
+## Marginals: Collapsing One Variable
+
+- Margins of the table = the **marginal distributions**
+- $\displaystyle p_Y(y)=\sum_x p(x,y)$ — sum across a row
+- $\Pr(Y{=}1)=0.70$, $\Pr(Y{=}2)=0.30$: calm twice as common
+- $\Pr(X)$: $0.20,\,0.45,\,0.35$ — sum down each column
+- "Marginal" is literal — just row-and-column bookkeeping
+
+::: notes
+The numbers in the margins of the table — the row and column totals — are the marginal distributions. The marginal of Y tells you how often each regime occurs, ignoring the return. You get it by summing across the row, which collapses the X dimension away. From the row totals, the probability Y equals one is zero point seven zero, and Y equals two is zero point three zero: calm days are about twice as common as stormy. Likewise, the marginal of X comes from summing down each column: minus two percent has probability zero point two zero, zero percent zero point four five, and plus two percent zero point three five. The word marginal is literal — these distributions live in the margins, and the operation is exactly what a clerk did to total rows and columns. Nothing deep yet; just bookkeeping. The deep idea is next.
+:::
+
+## Conditioning on a Stormy Day
+
+- Marginal asks: "what does a random day look like?"
+- Conditional asks: "given a stormy day, what then?"
+- Stormy row: $0.15,\;0.10,\;0.05$ — sums to $0.30$, not $1$
+- $\displaystyle p_{X\mid Y}(x\mid y)=\frac{p(x,y)}{p_Y(y)}$, when $p_Y(y)>0$
+- Divide the row by $0.30$ to rescale to a distribution
+
+::: notes
+A marginal answers, what does a random day look like? A conditional answers a sharper question: given that today is stormy, what does the return look like? That is the question people act on. Here is the mechanics. To condition on Y equals two, stormy, walk into the stormy row. The three joint probabilities there are zero point one five, zero point one zero, and zero point zero five. They describe stormy days, but they only add to zero point three zero, not one — because stormy days are only thirty percent of all days. To turn them into a proper distribution over the stormy world, divide each by that row total, zero point three zero. In general, the conditional distribution of X given Y equals the joint divided by the marginal of Y, valid whenever that marginal is positive.
+:::
+
+## What Conditioning Reveals
+
+- Stormy: $\Pr(X)=0.50,\;0.333,\;0.167$
+- Calm: $\Pr(X)\approx 0.071,\;0.50,\;0.429$
+- Up $2\%$ on $43\%$ of calm days, only $17\%$ of stormy days
+- Regime genuinely shifts the return distribution
+- Multiplication rule: $p(x,y)=p_{X\mid Y}(x\mid y)\,p_Y(y)$
+
+::: notes
+Doing the division for the stormy row gives zero point five zero, about zero point three three three, and about zero point one six seven — three numbers that now sum to one. Repeat for the calm row, dividing by zero point seven zero: about zero point zero seven one, zero point five zero, and about zero point four two nine. Look at what conditioning revealed. Unconditionally, the portfolio is up two percent about thirty-five percent of the time. But given a calm day, it is up two percent about forty-three percent of the time, and given a stormy day, only about seventeen percent. The regime genuinely shifts the return distribution. Rearranging the definition gives the multiplication rule: a joint probability equals the probability of the condition times the probability of the outcome given the condition. We lean on it constantly.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Marginals** collapse one variable by summing rows or columns. **Conditioning** restricts the joint to one row and rescales it to a valid distribution: $p_{X\mid Y}=p(x,y)/p_Y(y)$. Sam's return distribution genuinely depends on the regime. Next: conditioning runs **both directions** — that is Bayes' rule.
+:::
+
+::: notes
+To summarize part two: marginals collapse one variable away by summing across rows or down columns — pure bookkeeping. Conditioning takes the joint table, restricts it to a single row, and rescales it into a valid distribution by dividing by the marginal. It revealed that Sam's return distribution genuinely depends on the regime, which is the empirical content of momentum behaving differently across volatility regimes. In part three we show conditioning runs both directions — return given regime, or regime given return — and that second direction is Bayes' rule in table form.
+:::

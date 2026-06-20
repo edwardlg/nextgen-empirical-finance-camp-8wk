@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Referee's Ledger and Where This Connects
+
+- Part 6 — the referee's ledger and where this connects
+
+::: notes
+Welcome back to the weak-instrument lab, part six of six — the wrap-up. In part five we diagnosed weakness with the effective F and watched a strong instrument make every pathology evaporate. Now we close: the completion checklist, the referee's ledger of questions you have now built the world to answer, and where this lab connects.
+:::
+
+## You're Done When…
+
+- Step 1: `simulate` has both endogeneity and relevance terms
+- Step 2: OLS $\approx +0.4$; you can predict the bias *sign*
+- Step 3: hand-rolled 2SLS matches `linearmodels` to $\sim 10^{-16}$
+- Step 4: median 2SLS between $0$ and OLS; conventional $\approx 0.80$, AR $\approx 0.97$
+- Steps 5–6: effective $F\approx 1.2$ weak, $\approx 54$ strong; strong fixes everything
+
+::: notes
+Use the checklist; a box is checked only when you can point to the number that proves it. Step one: your simulate function builds x with both an endogeneity term and a relevance term, and you can name which is which. Step two: ordinary least squares recovers a slope around plus zero-point-four against a truth of zero, and you can predict the sign of the bias. Step three: your hand-rolled two-stage least squares matches linearmodels to about ten-to-the-minus-sixteen. Step four: over twelve hundred draws the median two-stage estimate sits strictly between the truth and the median ordinary-least-squares estimate, conventional coverage is well below ninety-five percent while Anderson–Rubin is near ninety-five, and you can say why the median beats the mean. Steps five and six: the effective F is about one-point-two weak and fifty-four strong, and turning the knob to strong fixes everything — every number regenerating identically from the one pinned seed.
+:::
+
+## The Referee's Ledger
+
+- Weak-IV bias: map a $0.26$, OLS $0.40$, $F=4$ onto your output
+- Honest inference: demand an AR interval; expect it unbounded
+- Significance ≠ strength: an $F$ of $12$ can be a lucky draw
+- Fat tails: median $\approx +0.26$ is honest; mean $\approx -0.56$ is not
+- Establish by averaging: distrust any weak-IV claim from one estimate
+
+::: notes
+Chapter three-point-five left you a ledger of questions to run on any I.V. result, and you have now built the world those questions police. First, weak-instrument bias: a two-stage coefficient of zero-point-two-six near an O.L.S. coefficient of zero-point-four-zero with a first-stage F of four is exactly what the one-over-F-plus-one heuristic predicts, not a coincidence. Second, honest inference: when only a conventional standard error is reported, demand an Anderson–Rubin interval, and expect it unbounded — the signature of weakness. Third, significance is not strength: a classmate who drew an F of twelve and declared victory met a lucky draw; the effective F is not fooled. Fourth, fat tails: the median around plus zero-point-two-six is honest; the mean around minus zero-point-five-six is meaningless for a ratio estimator. Fifth, establish it by averaging — the same rule Lab one drilled. Distrust any weak-instrument claim built on a single estimate, however significant.
+:::
+
+## Where This Connects
+
+- You reproduced the Bound–Jaeger–Baker disaster by hand
+- Two cures work: effective $F$ flags it, AR stays honest
+- The habit: build a world where you know the truth, then average
+- Used it in Lab 1 (size, power) and Lab 2 (Fama–MacBeth)
+- Week 4: difference-in-differences, RD, synthetic control — same stress test
+
+::: notes
+You have now reproduced, with your own hands, the disaster Bound, Jaeger, and Baker made famous: a valid but weak instrument that drags two-stage least squares back toward the ordinary-least-squares bias it was meant to cure, reports a confidence interval far too narrow to be honest, and clears the F-above-ten bar by luck just often enough to fool someone. And you watched the two cures work — the Olea–Pflueger effective F that flags the weakness, and the Anderson–Rubin interval that stays honest however weak the first stage is, even when honesty means confessing, through an unbounded interval, that the data simply cannot answer. The habit underneath it runs through every lab: when unsure whether a tool does what it claims, build a universe where you know the truth and check, establishing the answer by averaging over many draws, never one. You used it in Lab one to audit size and power, in Lab two to confirm Fama–MacBeth recovers a planted premium, and here to catch instrumental variables lying. Week four hands you design-based methods — difference-in-differences, regression discontinuity, synthetic control — and you stress-test those the same way. Keep this notebook; the Monte Carlo skeleton and the inversion trick will return.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Before believing any 2SLS number — yours or a published paper's — run the **referee's ledger**: check the first-stage $F$, the **effective $F$**, and the **Anderson–Rubin** interval, because a 2SLS standard error can never tell you whether the instrument is strong enough to trust it. The deeper habit carries to Week 4: **plant a truth, simulate the world, and average** — never trust one lucky draw.
+:::
+
+::: notes
+To close the lab: before believing any two-stage-least-squares number, run the referee's ledger. Check the first-stage F, the effective F, and the Anderson–Rubin interval, because a two-stage standard error can never tell you whether the instrument is strong enough to trust it. You built the world that proves why. And the deeper habit carries into Week four: plant a truth, simulate the world, and read averages over many draws — never one lucky sample. That is the discipline of empirical finance. Well done.
+:::

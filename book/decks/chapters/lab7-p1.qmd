@@ -1,0 +1,64 @@
+---
+date: "2026-06-22"
+---
+
+## Your Data, Reproducibly — The Repository as Deliverable
+
+**Learning objectives — by the end you can:**
+
+- Lay out a research repository from a sensible template
+- Pin a conda environment so reruns are reproducible
+- Write a README and a data card per source
+- File your pre-analysis plan as a tagged commit
+
+::: notes
+Welcome to Week Seven, Lab Seven, part one of ten. This is the lab where your project stops being a pile of notebooks on your laptop and becomes a research repository — a single version-controlled folder a stranger could clone and understand. In this opening part we frame why the repository itself is the deliverable and lay out what the whole lab will install.
+:::
+
+## Why This Lab Exists
+
+- Project becomes a **research repository**, not loose notebooks
+- A stranger can clone it and understand it
+- Licensed data stays where the license requires
+- A cryptographic time-stamp dates your pre-analysis plan
+- **This repo is your capstone deliverable** — Weeks 7 and 8 live in it
+
+::: notes
+Everything Week Seven has built points here. Chapter seven-point-two taught you to pull data so the same command run a year from now gives the same answer — pinned, cached, logged. Chapter seven-point-three taught you to write a pre-analysis plan and insisted it only constrains you if you can date it, naming the mechanism: a tagged Git commit. This lab is where you build the thing those chapters described, and it is not a throwaway exercise. The repository you stand up today is your capstone deliverable. Weeks Seven and Eight both live inside it — the dataset build, the identification memo, the first-look regressions frozen until your plan is filed, and next week's full analysis and write-up all commit into this same repo. Get the scaffolding right now and the rest of the camp is building on rock.
+:::
+
+## The Discipline It Drills
+
+- **Reproducibility is a property of the repository, not a script**
+- An un-rerunnable analysis is, to a skeptic, just an assertion
+- We make your project the opposite of an assertion
+- The "result" is operational: can a fresh clone rebuild and verify?
+- That yes-or-no is what the final checklist tests
+
+::: notes
+The discipline this lab drills is the one a referee, a replication team, or future-you cares about most: reproducibility is a property of the repository, not of any single script. A brilliant analysis whose data pull cannot be re-run, whose environment cannot be reconstructed, or whose pre-registration cannot be dated is, to a skeptic, just an assertion. We are going to make your project the opposite. There is no synthetic-data simulation here and no estimator to recover. The result you are checking is operational: can a fresh clone of your repo, on a machine that has never seen your project, reconstruct the environment, read what the project does, and verify that the licensed bytes and the secrets never left your control? That is a yes-or-no you can actually test, and the checklist at the end is how you test it.
+:::
+
+## What You Will Be Able To Do
+
+- Lay out a research repository from a sensible template
+- Use the GitHub Classroom workflow end to end
+- Pin your environment in a conda file
+- Write a README and a data card per source
+- Practice `.gitignore` discipline; verify with `git check-ignore`
+- File your plan as a tagged commit; audit against a checklist
+
+::: notes
+By the end of this lab you will be able to do seven things. Lay out a research repository from a sensible template — a data folder that is git-ignored, plus source, notebooks, paper, and the key files — and explain what each directory is for. Use the GitHub Classroom workflow end to end: accept, clone, commit, push. Pin your environment in a conda environment file with Python three-point-eleven and the exact camp stack, and explain why pinning is the difference between "it ran on my laptop" and "it runs anywhere." Write a README answering what, why, and how-to-run, plus a data card per source. Practice gitignore discipline so licensed data and secrets cannot be committed, and verify it with git check-ignore. File your pre-analysis plan as a tagged commit so the registration timestamp is immutable. And audit your own repo against a "you're done when" checklist a referee could run.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Reproducibility is a property of the repository, not of any single script.** This lab builds your capstone deliverable: a version-controlled folder a stranger can clone, rebuild, and verify. The "result" is operational — can a fresh clone reconstruct everything? Next: the three tools and where you are allowed to work.
+:::
+
+::: notes
+To summarize part one: reproducibility is a property of the repository, not of any single script, and the repository you build today is your capstone deliverable for both Weeks Seven and Eight. The test is operational — can a fresh clone, on a machine that has never seen your project, rebuild and verify it — and the seven learning goals are the pieces that make that yes possible. In part two we confirm the three tools you need, set your Git identity, and pin down the one rule about where licensed work is allowed to happen.
+:::

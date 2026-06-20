@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## What's Clever: Three Moves to Steal
+
+- Part 6 — three clever moves you can steal for your own work
+
+::: notes
+Welcome back to the Fama–French ninety-three reader's guide, part six of seven. In part five we read the regression tables in three passes — R squared for common variation, loadings that march with the sorts, and small intercepts tested jointly by G-R-S — and distilled the two-column literacy: R squared near one, alpha near zero, a working model. Now we step back and ask what is genuinely clever in this paper. Three moves, each of which you can lift directly into your own work.
+:::
+
+## Move 1 — The Factor-Mimicking Portfolio
+
+- "Risk factor" sounds unobservable — so **make it a portfolio**
+- A long-short basket has a return you compute every month
+- An investor could actually **hold** it
+- The factor is itself a traded excess return
+- So the factor must **price itself** — zero intercept on itself
+
+::: notes
+Move one, the master stroke: the factor-mimicking portfolio. A "risk factor" sounds like an abstraction you can never observe. The ninety-three paper's answer: make it a portfolio. A long-short basket of real stocks has a return you can compute every month, put on the right-hand side of a regression, and — crucially — that an investor could actually hold. That last point is not cosmetic. Because the factor is itself a traded excess return, asset-pricing theory says the factor must price itself: a regression of S-M-B on the three factors should have a zero intercept too. Turning an abstraction into a portfolio is what makes the whole thing testable with nothing fancier than ordinary least squares.
+:::
+
+## Move 2 — Splitting the Problem in Two
+
+- FF92 had only the cross-sectional pricing question
+- FF93 cleaves it: co-movement ($R^2$) vs average returns ($\alpha$)
+- These are genuinely **different** — one can hold without the other
+- High $R^2$, zero premium: co-moves but doesn't price
+- Demanding **both** makes the test far more informative
+
+::: notes
+Move two: separating common variation from cross-sectional pricing. The ninety-two paper only had the cross-sectional pricing question. The ninety-three paper cleaves the problem into two: do the factors capture co-movement — the R squared — and do they capture average returns — the alpha? These are genuinely different; you can have one without the other. A factor could co-move with everything, giving high R squared, yet carry no premium, so it does not help price anything. Or it could carry a premium but explain little co-movement. By insisting on both, the time-series test is far more demanding than the cross-section alone, and far more informative about what kind of object size and value really are.
+:::
+
+## Move 3 — Building the Ruler Everyone Uses
+
+- FF93 packaged size and value as **downloadable** monthly factors
+- Ken French has hosted them publicly for decades
+- Gave every researcher a **common yardstick**
+- New anomaly? First question: "what's its **three-factor alpha**?"
+- The paper built the ruler the whole field measures with
+
+::: notes
+Move three is clever in a sociological sense that matters for how you read everything afterward: it became the workhorse benchmark. By packaging size and value as downloadable monthly factor returns — Ken French has hosted them publicly for decades — the ninety-three paper gave every subsequent researcher a common yardstick. When someone in Week Six claims a new anomaly — a strategy that earns abnormal returns — the first question a referee asks is: what is its three-factor alpha? That is, regress the strategy's returns on the market, S-M-B, and H-M-L, and see if the intercept survives. The paper did not just answer a question; it built the ruler everyone now measures with. That is why it is your Week Five anchor and not the ninety-two paper.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three reusable moves: **(1)** make an abstract factor concrete by building it as a tradeable portfolio; **(2)** split "does it explain co-movement?" ($R^2$) from "does it price?" ($\alpha$) and demand both; **(3)** package the result as a public benchmark — the **three-factor alpha** the whole field now measures against.
+:::
+
+::: notes
+To summarize part six: three clever moves you can steal. One, the factor-mimicking portfolio — turn an unobservable abstraction into a real, holdable, long-short basket whose return goes straight into a regression, so the factor even prices itself. Two, split the problem — co-movement measured by R squared versus average returns measured by alpha — and demand both, which makes the test far more demanding and informative than a cross-section. Three, the sociological win — packaging size and value as public, downloadable factors gave the field the three-factor alpha, the common ruler every later anomaly is measured against. In part seven, the final part, we turn the praise into scrutiny: where a sharp referee pushes back, and the replication exercises that make you confront it.
+:::

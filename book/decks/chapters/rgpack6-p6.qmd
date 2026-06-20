@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Prompt Patterns: Cite, Review, Summarize — and Two Rules
+
+- Part 6 — cite, review, summarize patterns; two cross-cutting rules
+
+::: notes
+Welcome back to when the data is words, part six of ten. In part five we covered extraction and classification. Now the remaining three patterns — cite-or-abstain, code review, and summarize-with-quotes — and the two rules that cut across all five. The through-line stays constant: constrain the output and demand grounding.
+:::
+
+## Cite-or-Abstain
+
+- The non-negotiable pattern for any RAG question
+- Answer using **only** the context passages
+- After each claim, **cite the passage id** in brackets
+- If the context lacks the answer: "Not supported by the provided context"
+- "Do not use outside knowledge"
+
+::: notes
+Cite-or-abstain is the non-negotiable pattern for any RAG question over your documents, because it kills hallucination: the model must quote a source or say it cannot. The template says: answer the question using only the context passages below; after each claim, cite the passage id in brackets; if the context does not contain the answer, reply exactly "Not supported by the provided context"; and do not use outside knowledge. The context is supplied as numbered passages, each carrying its source — firm, filing, year, section. This is the prompt-side enforcement of the RAG discipline from part four: every claim is anchored to a passage you can open and check, and the model is given explicit permission to say the answer is not there.
+:::
+
+## Code Review and Summarize-with-Quotes
+
+- **Code review:** flag look-ahead, train/test leakage, silent drops
+- Also chained-indexing and copy-versus-view bugs
+- "If you are unsure, say so rather than inventing a problem"
+- **Summarize-with-quotes:** n bullets, each with a ≤25-word quote
+- "Do not state anything the document does not say"
+
+::: notes
+Code review checks your own analysis script before you trust its numbers — a second reader for the look-ahead and leakage bugs we will warn about. The template reviews a snippet for empirical-research bugs and checks specifically: look-ahead bias — does any feature at time t use information from t or later; leakage between train and test; silent sample changes on a merge or dropna; and chained-indexing or copy-versus-view bugs. It lists each issue with the line, why it is wrong, and a fix, and if unsure says so rather than inventing a problem. Summarize-with-quotes digests a long filing or paper without losing traceability: it produces n bullet points, each followed by a verbatim quote of at most twenty-five words with its location, and states nothing the document does not say, noting any ambiguity.
+:::
+
+## Two Cross-Cutting Rules
+
+- **Give the model an exit:** UNCLEAR / null / "Not supported"
+- A model with no permission to abstain will **fabricate to comply**
+- A forced wrong label is worse than an honest blank
+- **Constrain the output format:** JSON, fixed labels, a quote
+- Machine-parseable means checkable **at scale**
+
+::: notes
+Two cross-cutting rules tie the catalog together. First, give the model an exit. Every classification or extraction template offers UNCLEAR, or null, or "Not supported," because a model with no permission to abstain will fabricate to comply, and a forced wrong label is worse than an honest blank. Second, constrain the output format — JSON, a fixed label set, a quote — so the result is machine-parseable and checkable. A free-text answer you cannot parse is an answer you cannot validate at scale. Notice the through-line of all five patterns and both rules: constrain the output and demand grounding. You are not asking the model to be clever; you are forcing it into a shape you can check.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Cite-or-abstain** kills hallucination, **code review** hunts look-ahead and leakage, **summarize-with-quotes** keeps traceability. Two rules bind all five patterns: **give the model an exit**, and **constrain the output format**. Next: scoring those labels like any estimator.
+:::
+
+::: notes
+To summarize part six: the remaining three patterns complete the catalog. Cite-or-abstain answers only from the context and cites every claim, killing hallucination. Code review hunts look-ahead bias, train-test leakage, silent sample drops, and indexing bugs. Summarize-with-quotes anchors every bullet to a verbatim quote. Two rules cut across all five patterns. Give the model an exit — UNCLEAR, null, or "Not supported" — because a model that cannot abstain will fabricate to comply. And constrain the output format so the result is machine-parseable and checkable at scale. In part seven we take the labels a classifier produces and treat them the way Week One taught us to treat any estimator: we validate them against a gold standard and report how often they are wrong.
+:::

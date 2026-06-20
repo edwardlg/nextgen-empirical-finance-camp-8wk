@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Maya Answers Devon — Closing the Loop
+
+- Part 6 — Maya's reply, and the loop back to Week Five
+
+::: notes
+Welcome back to Peer Review and Revision, part six of six and the finale. In part five we learned the response memo's quote-change-evidence shape and the choice among conceding, defending, and bounding. Now we watch Maya answer Devon's three major points — one bounded threat, one concession, one defense — and then close the loop back to Week Five, where this skill began.
+:::
+
+## Bound, Then Concede
+
+- **Point 1, bound:** adds the event study as new Figure 2
+- Four pre-leads jointly insignificant, joint F-test p-value 0.41
+- Flat leads refute anticipation but cannot confirm the counterfactual
+- **Point 2, concede:** re-estimates with Callaway–Sant'Anna
+- Robust −1.5 points near the −1.4 TWFE; the agreement costs nothing
+
+::: notes
+Maya has revised. Major point one was anticipation and pre-trends. She quotes Devon, then bounds the untestable threat: we added an event study as new Figure Two. The four pre-period leads are individually and jointly insignificant — joint F-test p-value of zero-point-four-one — with no downward drift before adoption; the effect emerges in the examination year and grows over two years. She reads this as consistent with, though not proof of, parallel trends, and adds a sentence to the limitations noting flat leads cannot confirm the counterfactual, only fail to refute it. That is bounding. Major point two was the forbidden comparison. She concedes cleanly: we re-estimated using Callaway and Sant'Anna against never- and not-yet-treated controls only, in new Table Three. The robust estimate is minus one-point-five percentage points, very close to the minus one-point-four two-way fixed-effects estimate, suggesting the negative-weights problem is not material here. Because the numbers agree, the concession cost her nothing and bought enormous credibility.
+:::
+
+## Defend by Doing the Work
+
+- **Point 3, defend:** she believes it is not a small-cell artifact
+- And checks directly, as the referee suggested
+- New column 4 weights by volume: −1.3 points
+- New column 5 drops counties below 50 applications: −1.5 points
+- Stable estimate; the disagreement is settled by evidence
+
+::: notes
+Major point three was the small-cell denominator. Maya defends — respectfully, with evidence. We respectfully believe the result is not a small-cell artifact, and we checked directly as the referee suggests. New columns four and five of Table Two weight by application volume, giving minus one-point-three points, and drop counties below fifty minority applications per year, giving minus one-point-five points. The estimate is stable across both. Notice the move: she does the requested work first, then states the conclusion, so the disagreement is settled by evidence, not argument. Every one of her three responses quotes, states the change, and points to a specific new table or figure with a specific number — and every change she claims, the revised paper actually contains. Devon, re-reading, can verify each in under a minute, and his next note to the editor will recommend acceptance.
+:::
+
+## The Same Skill as Week Five
+
+- Referee report = the threats table about someone else's paper
+- R&R memo = your own threats table, made public
+- A referee reads tables-first, asks identification first
+- You rebuild credibility table-by-table, evidence-by-evidence
+- The only losing move is the dishonest one
+
+::: notes
+Close the loop, because the symmetry is the point. In Week Five you learned to read a paper tables-first and ask what is the identifying assumption and what threatens it. In Chapter seven-point-five you wrote that assumption down for your own paper and listed its threats in a four-column table. The referee report is that same threats table, written about someone else's paper. The response memo is your own threats table, promoted from a private worksheet into a public defense, with the referee's concerns slotted beside the ones you anticipated. A referee asks the identification question first because that is how credibility is decided; you respond evidence-by-evidence because that is how credibility is rebuilt. The student who internalizes this stops experiencing peer review as a hazing ritual and starts experiencing it as the engine it is. A good referee makes your paper better whether you agree or not — if they are right you fix a flaw, if they are wrong you produce the evidence that proves it. There is no losing move except the dishonest one.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Maya's memo shows all three moves — **bound**, **concede**, **defend** — each in quote-change-evidence shape, each backed by a real change in the paper. Peer review is Week-Five reading aimed both ways: the referee report is the threats table about another's paper; the R&R memo is yours, made public. The only losing move is dishonesty.
+:::
+
+::: notes
+To summarize the chapter: Maya answered Devon's three majors with all three moves — bounding the untestable pre-trend, conceding the staggered-design gap, and defending the small-cell concern by doing the work — each backed by a real change in the paper. The loop closes: peer review is the Week-Five reading skill aimed in both directions. This is the engine of the Week-Eight peer-review workshop and Problem Set eight-point-four. Next, in Chapter eight-point-five, you defend the revised paper and replication packet — which should already reflect what your memo promised. Do what you said you did.
+:::

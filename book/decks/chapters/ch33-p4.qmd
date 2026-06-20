@@ -1,0 +1,71 @@
+---
+date: "2026-06-22"
+---
+
+## When IPW Explodes — and What to Do About It
+
+- Part 4 — the weight-explosion hazard and three defenses
+
+::: notes
+Welcome back to Chapter three-point-three, part four of ten. In part three we built the Hájek estimator and watched it recover Maya's effect by leaning on rare units. But leaning on rare units is also where I-P-W gets dangerous. In this part we meet the explosion problem — the central practical hazard of inverse-probability weighting — and three standard defenses, in increasing order of how hard you should reach for them.
+:::
+
+## The Explosion Problem
+
+- Student C's weight was 5 at $\hat e = 0.2$
+- If $\hat e = 0.02$ instead, her weight is $1/0.02 = 50$
+- One student carries the weight of fifty
+- As $\hat e \to 0$ (treated) or $\to 1$ (control), weight $\to \infty$
+- Typical whenever overlap is thin — not a rare edge case
+- The symptom is quiet: no error is thrown
+
+::: notes
+Look again at student C's weight of five, and imagine her propensity score had been estimated at zero-point-zero-two instead of zero-point-two. Her weight becomes one over zero-point-zero-two, which is fifty. One student would carry the weight of fifty, and the entire treated mean would be hostage to that single observation. This is the I-P-W explosion problem, the central practical hazard of the method: as the estimated propensity score goes to zero for a treated unit, or to one for a control, the weight goes to infinity and the estimator's variance blows up. This is not a rare edge case; it is the typical situation whenever overlap is thin. A unit whose covariates make treatment nearly certain or nearly impossible gets an astronomically large weight, and a handful of such units can swamp everything. Worse, the symptom is quiet — you get an estimate and a standard error, nothing throws an error — so you have to look for it.
+:::
+
+## Defense 1 — Trimming
+
+- Drop units with extreme scores, e.g. $\hat e < 0.01$ or $\hat e > 0.99$
+- Or restrict to the region of common support
+- Changes the estimand slightly — now the trimmable subpopulation
+- Report how many units you dropped
+- Re-run without trimming as a robustness check
+
+::: notes
+Three standard defenses, in increasing order of how much you should reach for them. The first is trimming: drop, or set aside, units with extreme estimated propensity scores. A common rule is to discard observations with a score below zero-point-zero-one or above zero-point-nine-nine, or to restrict to the region of common support where treated and control scores overlap. Trimming changes the estimand slightly — you are now estimating the effect on the trimmable subpopulation — so you must report how many units you dropped and re-run without trimming as a robustness check.
+:::
+
+## Defense 2 — Stabilized Weights
+
+- Treated: use $\hat p \,/\, \hat e(\mathbf{X})$ instead of $1/\hat e$
+- Controls: use $(1-\hat p)\,/\,(1 - \hat e)$
+- $\hat p = \Pr(D=1)$ is the marginal treatment share
+- Shrinks weight variance without changing the estimand
+- Essentially free — most modern IPW uses it by default
+
+::: notes
+The second defense is stabilized weights. Instead of one over the estimated score, use p-hat over the estimated score for the treated, and one-minus-p-hat over one-minus-the-score for controls, where p-hat is the overall marginal probability of treatment — the share of everyone who got treated. Multiplying by the marginal probability shrinks the variance of the weights without changing what they estimate. The giant weights get tamed by a constant factor, and it is essentially free. Most modern I-P-W uses stabilized weights by default, and you should too.
+:::
+
+## Defense 3 — Just Diagnose the Weights
+
+- Always print the weight distribution: max, 99th percentile
+- **Effective sample size** $= \big(\sum_i w_i\big)^2 / \sum_i w_i^2$
+- Tells you how many "real" observations you have
+- 600 students worth only 40 means no fix will save you
+- IPW is beautiful in theory, treacherous in practice
+
+::: notes
+The third defense is simply to diagnose the weights. Always print their distribution: the maximum, the ninety-ninth percentile, and the effective sample size — the square of the sum of the weights, divided by the sum of the squared weights. That number tells you how many real observations your weighted sample is worth. If your six-hundred-student sample has an effective sample size of forty because three units carry half the weight, no trimming will save you — your data simply do not contain a credible counterfactual, and you should say so. The honest summary: I-P-W is beautiful in theory and treacherous in practice, and the treachery is entirely about extreme weights born of thin overlap. That is precisely what the next method was invented to avoid.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+IPW's central hazard is **weight explosion**: as $\hat e \to 0$ or $\to 1$, weights blow up and one unit can hijack the estimate — quietly, with no error thrown. Defend with **trimming**, **stabilized weights**, and above all by **diagnosing the weights** (max, 99th percentile, effective sample size). Next: a method that guarantees balance *without* wild weights — entropy balancing.
+:::
+
+::: notes
+To summarize part four: inverse-probability weighting's defining hazard is weight explosion. As an estimated propensity score approaches zero for a treated unit or one for a control, its weight blows up, and a handful of such units can swamp everything — silently, since nothing throws an error. Defend by trimming extreme scores, by using stabilized weights that shrink weight variance for free, and above all by diagnosing the weights: the max, the ninety-ninth percentile, and the effective sample size. In part five we meet entropy balancing, which gives you the balance I-P-W only promises without the wild weights it inflicts.
+:::

@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Where the Co-Pilot Helps, and Where It Hurts
+
+- Part 2 — the five safe uses and the three hazards
+
+::: notes
+Welcome back to the AI co-pilot for research, part two of fourteen. In part one we framed the model as a co-pilot — it accelerates work you can verify, and is a hazard when it replaces judgment you do not check. Now we get concrete: the five places it genuinely helps, all sharing one property, and the three places it becomes a hazard.
+:::
+
+## Five Places It Genuinely Helps
+
+- **Literature triage** — sort, summarize, flag; you read the top few
+- **Parsing documentation** — CRSP, Compustat, WRDS syntax
+- **Code review and debugging** — the verifier is the interpreter
+- **Drafting and rewriting prose** — you own every word you keep
+- **Classifying text at scale** — powerful *and* most dangerous
+- Shared property: output is **cheap to verify**, or errors are cheap
+
+::: notes
+Five places the co-pilot genuinely helps, each sharing one property — the output is cheap to verify, or an occasional error is cheap. First, literature triage: it sorts two hundred abstracts into directly relevant, tangential, and off-topic, and flags the three closest to your design, so your limited reading time lands on the right papers; miscategorize one and you lose little. Second, parsing data dictionaries and documentation — the CRSP variable definitions, the WRDS query syntax, the ways Compustat encodes a missing value — dense reference material it reads well, and answers you can check against the manual in thirty seconds. Third, code review and debugging: paste the function and the traceback; the model is often right, and when wrong you find out immediately, because the verifier is a Python interpreter, not your own credulity — the safest use of all. Fourth, drafting and rewriting prose — turning rough bullets into a paragraph, tightening a methods section — where you own every word you keep, so the only risk is laziness. Fifth, and the one this chapter treats most seriously, classifying or extracting structured information from text at scale: reading forty thousand filings and labeling each one's tone. This is genuinely new and powerful, and also most dangerous, because the output is a column of numbers flowing straight into a regression that you cannot eyeball.
+:::
+
+## Three Places It Is a Hazard
+
+- **Facts you can't check** — invented numbers, confident and specific
+- **Knowing your answer for the wrong reason** — the future leaking in
+- **Results you keep only because you like them** — a closed loop
+- Hazard when verification is costly *and* errors are costly
+
+::: notes
+Now the dangerous places, just as plainly. An LLM is a hazard whenever you cannot cheaply verify the output and an error is costly. Three patterns recur. First, facts you cannot check at a glance — what was the 2008 default rate on subprime adjustable-rate mortgages — where the model produces a specific, confident number that may be invented. Second, anything where the model may know your answer for the wrong reason — most insidiously, knowing the future relative to your sample, which is a fatal bias in backtests we will meet later. Third, anything you would be tempted to keep only because you like the result — using the model to generate the framing, the hypothesis, and the supporting evidence is a closed loop with no contact with reality. The rest of the chapter is a set of techniques for staying in the safe column and detecting when you have drifted into the dangerous one.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The co-pilot helps where output is **cheap to verify**: triage, documentation, debugging, drafting, and classification at scale. It is a hazard where verification is costly *and* errors are costly: uncheckable facts, knowing the future, and closed-loop confirmation. Next: prompt patterns that constrain the model instead of inviting it to improvise.
+:::
+
+::: notes
+To summarize part two: the co-pilot helps in five places that share one property — the output is cheap to verify, or an occasional error is cheap — literature triage, parsing documentation, code review and debugging, drafting prose, and classifying text at scale, the last being both the most powerful and the most dangerous. It is a hazard in three: facts you cannot check, knowing your answer for the wrong reason, and keeping a result only because you like it. The watchword is verification cost. In part three we start building the guardrails with prompt patterns that constrain the model instead of inviting it to improvise.
+:::

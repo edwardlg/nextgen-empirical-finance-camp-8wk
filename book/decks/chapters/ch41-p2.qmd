@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## Potential Outcomes and the Parallel-Trends Assumption
+
+- Part 2 — DiD in potential outcomes, and the parallel-trends bet
+
+::: notes
+Welcome back to difference-in-differences, part two of six. Last time we built the two-by-two table and got seventy dollars as the regulation's effect. But Week Three trained you not to trust a number until you write it in potential outcomes. This part shows what counterfactual the seventy dollars imputes, and states the one assumption every version leans on — parallel trends — which can never be tested.
+:::
+
+## The Estimand: ATT, and the Missing Counterfactual
+
+- Panel now: each state $i$ at each time $t$
+- $Y_{it}(1),\,Y_{it}(0)$ — treated and untreated potential outcomes
+- Target: $\text{ATT}=\mathbb{E}[Y_{it}(1)-Y_{it}(0)\mid \text{treated, post}]$
+- $\mathbb{E}[Y_{it}(1)\mid\text{treated, post}]=\bar Y_T^{\text{post}}=\$1{,}680$ — happened
+- $\mathbb{E}[Y_{it}(0)\mid\text{treated, post}]$ — never happened
+
+::: notes
+We are now in a panel: each state observed at each time, so potential outcomes carry two subscripts. Y-i-t of one is the outcome unit i would have if treated; Y-i-t of zero, if untreated. The estimand difference-in-differences targets is the average treatment effect on the treated, in the post period — the effect of the regulation on the state that actually got it. The first piece, the treated-and-post outcome under treatment, is just the observed post premium, one thousand six hundred eighty dollars. That world happened. The villain is the second piece: the outcome under no treatment, for the treated state, in the post period — what its premium would have been had the regulation never passed. That world did not happen. It is the missing counterfactual, and supplying a credible value for it is the entire job.
+:::
+
+## DiD's Smarter Counterfactual
+
+$$\widehat{\mathbb{E}[Y_{it}(0)\mid\text{treated, post}]}=\underbrace{1{,}500}_{\text{own pre}}+\underbrace{110}_{\text{control's growth}}=\$1{,}610$$
+
+- Naive before-after: assumes treated stays **flat** — wrong
+- Cross-section: assumes same **level** — wrong
+- DiD: own pre level **plus the control's change**
+- $\widehat{\text{ATT}}=1{,}680-1{,}610=\$70$
+
+::: notes
+Watch the four cells try to reconstruct that counterfactual. The naive before-after comparison uses the treated state's own pre level, one thousand five hundred — assuming premiums stay flat absent treatment. Wrong: premiums rose everywhere. The cross-sectional comparison uses the control's post level — assuming the two states had the same level. Also wrong: the treated state was three hundred dollars higher. Difference-in-differences is smarter. It takes the treated state's own pre level and lets it grow by the amount the control grew. The control's growth, one hundred ten dollars, estimates the common trend. So the imputed counterfactual is one thousand five hundred plus one hundred ten, equals one thousand six hundred ten dollars. The actual post premium was one thousand six hundred eighty. The gap is the estimated treatment effect on the treated: seventy dollars — precisely the double difference. The arithmetic and the potential-outcomes story are the same calculation in two costumes.
+:::
+
+## Parallel Trends — and Why It's Untestable
+
+- Absent treatment, treated would move **like** control
+- Not same level — same **trend**, same change over time
+- Weaker than Week 3's "same level" — allows fixed differences
+- Forbids only a **differential trend**
+- The post-period term is a counterfactual — **never observed**
+
+::: notes
+Here is the identifying assumption, the load-bearing wall: parallel trends. Absent treatment, the average untreated outcome of the treated group would have changed over time by the same amount as the control group's. In English: had the regulation never happened, the treated state's premiums would have moved in lockstep with the control's — not at the same level, but with the same trend, staying parallel. That is what lets us add the control's one hundred ten dollar change to the treated state's pre level. Compare it to Week Three. Selection-on-observables demanded the same level — no fixed unobserved difference. Parallel trends asks much less: the treated state can be permanently three hundred dollars more expensive for unseen reasons, and that fixed difference does no harm, because differencing over time subtracts it away. What it forbids is a differential trend. But underline this three times: parallel trends is an assumption about a counterfactual, and the counterfactual is unobservable. The treated group's post-period untreated outcome is a world that never happened, so the assumption can never be tested for the post-period.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+DiD imputes the treated unit's missing $Y(0)$ by **starting from its own pre level and adding the control's change**. The bet that this is right is **parallel trends** — the groups would have moved together absent treatment. It relaxes Week 3's "same level" to "same trend," but it is a counterfactual and is **untestable** for the post-period. Next: writing DiD as one regression coefficient, and event studies.
+:::
+
+::: notes
+To summarize part two: difference-in-differences imputes the treated unit's missing untreated outcome by starting from its own pre level and adding the control group's change. The bet that this is right is parallel trends — that absent treatment, the two groups would have moved together. It is weaker and more credible than Week Three's same-level demand, allowing a permanent fixed difference and forbidding only a differential trend. But it is a statement about a counterfactual, so it is untestable for the post-period. In part three we make difference-in-differences scale: a single regression coefficient using two-way fixed effects, then the event study.
+:::

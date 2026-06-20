@@ -1,0 +1,60 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Decade-Long Arc
+
+- Part 5 — the seven-to-twelve-year arc to a top journal
+
+::: notes
+Welcome back to Chapter eight-point-seven, part five of nine. In part four we handled the D-O-I question and versioning discipline. Some camp papers stop at the Schar submission — the result was solid, the credential earned, the student moves on. The unusual ones keep going, and it helps to see how far "keep going" runs. The journey from a working-paper draft to a top-journal publication is not a straight line; it is a seven-to-twelve-year sequence of revisions, conferences, rejections, and reworkings that bears almost no resemblance to the journey from a course paper to a course grade.
+:::
+
+## An Honest Case Study
+
+- Prof. Gao's in-progress paper: *Rainbow of Credits*
+- Does county political composition affect **municipal borrowing**?
+- Presented at **AEA 2025**; being prepared for the *Journal of Finance*
+- **Not yet published** — the arc is **not yet complete**
+- Real research is messy in the middle — where the lessons are
+
+::: notes
+The honest case study is Prof. Gao's own in-progress paper, Rainbow of Credits, on whether U.S. counties' political-ideological composition affects municipal borrowing after controlling for fiscal fundamentals, by Lei Gao, Sicong Liu, and Yu Wang. As of twenty-twenty-six it has been presented at the American Economic Association meetings in twenty-twenty-five and is being prepared for submission to the Journal of Finance. It is not yet published, and the arc is not yet complete — which is the point. Most methods-book case studies are retrospective and clean; real research is messy in the middle, and the middle is where the lessons are. Papers that publish at top venues typically absorb two or three desk-rejects, three to five referee rounds, and dozens of conference presentations.
+:::
+
+## The Phases, Roughly
+
+- **Idea** (months 0–6) — the first idea is usually three; narrow
+- **First circulation** (6–18) — first SSRN post, first feedback
+- **Conferences** (12–36) — five-to-fifteen talks reshape each revision
+- **First submission** (24–36) — aim at the **stretch journal**
+- **R&R cycle** (36–84) — the slowest, most invisible phase
+- **Acceptance, proof, then the citation long tail**
+
+::: notes
+The phases run roughly as follows. Phase one, the idea, months zero to six: the first version of an idea is usually three ideas. The Rainbow draft conflated borrowing levels, costs, and composition; a colleague said, "There are three papers here. Pick one." They picked levels. Narrowing is the discipline. Phase two, first circulation, months six to eighteen: the first SSRN posting, the first brown-bag, the first advisor feedback; the paper is named, dated, and claimed for priority. Phase three, conferences, months twelve to thirty-six: five to fifteen presentations, each reshaping the next revision. Rainbow grew from thirty-eight to sixty-two pages. Phase four, first submission, months twenty-four to thirty-six: choose the stretch journal, one notch above where you think it should land. Phase five, the revise-and-resubmit cycle, months thirty-six to eighty-four — the slowest, most invisible phase. Phase six, acceptance and proof. Phase seven, citation and the long tail.
+:::
+
+## The Arc Is Non-Linear
+
+- Conferences run **during** R&R; journals run **serially**
+- Each rejection adds **eight-to-twelve months**
+- Method shifts force rework — Callaway and Sant'Anna cost nine months
+- Honest odds: **50%** top target in seven years, **35%** lower, **15%** never
+- **Portfolios beat individual papers** — keep several in flight
+
+::: notes
+The arc is non-linear. Conferences run during the revise-and-resubmit; journals run serially, each rejection adding eight to twelve months; papers split, merge, and get renamed; and methodological shifts force rework. Rainbow's strategy was partly redone when the Callaway and Sant'Anna staggered difference-in-differences literature reset the standards, costing nine months. Some papers run a shorter arc, three to five years, when identification is unusually clean, the topic hot, or the author established. Maya's fair-lending paper has clean identification — staggered difference-in-differences on a regulatory rollout — and a moderately hot topic, so a placement in a strong field journal in her college years is feasible. The honest odds for any single ambitious paper: perhaps fifty percent at the top target within seven years, thirty-five percent lower, fifteen percent never. Hence the load-bearing lesson — portfolios beat individual papers. No single paper carries a career; keep several in flight.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Top-journal publication is a **seven-to-twelve-year, non-linear arc** — desk-rejects, referee rounds, and dozens of talks. Odds for one ambitious paper: about **50% top, 35% lower, 15% never**. So **portfolios beat individual papers**: keep several in flight. Next: the conference circuit.
+:::
+
+::: notes
+To summarize part five: the journey from working-paper draft to top-journal publication is a seven-to-twelve-year, non-linear sequence — two or three desk-rejects, three to five referee rounds, dozens of conference talks, and methodological shifts that force rework. Prof. Gao's Rainbow paper is the honest, still-incomplete case study, because the middle is where the lessons are. The odds for any single ambitious paper are roughly fifty percent at the top target within seven years, thirty-five percent lower, fifteen percent never. The load-bearing conclusion is that portfolios beat individual papers — keep several in flight so no one project carries the load. In part six we look closely at the conference circuit.
+:::

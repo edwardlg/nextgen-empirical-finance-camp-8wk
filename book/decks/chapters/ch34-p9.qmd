@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Measuring Instrument Strength: The First-Stage F
+
+- Part 9 — the first-stage F and its robust effective-F replacement
+
+::: notes
+Welcome back to instrumental variables, part nine of ten. In part eight we cataloged the three pathologies a weak instrument inflicts — bias back toward OLS, untrustworthy variance, and amplified exclusion violations. Now the good news: because relevance is testable, weak-instrument strength is testable too. We meet the standard measure, the first-stage F-statistic, the famous rule of thumb behind it, and the robust replacement you actually need for finance data.
+:::
+
+## The First-Stage F
+
+- **F**: joint significance of the *excluded instruments*
+- One instrument $\Rightarrow$ squared t-statistic on $Z$
+- Large F: $Z$ explains a lot of $D$ — a strong lever
+- Small F: the lever is loose
+- A measurable diagnostic — the one piece of good news
+
+::: notes
+Since relevance is testable, weak-instrument strength is too — the one piece of good news in the whole weak-IV story. The standard measure is the first-stage F-statistic: the F-statistic for the joint significance of the excluded instruments — the Z's, not the controls — in the first-stage regression. With a single instrument it is just the squared t-statistic on Z in the first stage. A large F says Z explains a lot of D beyond the controls — a strong lever. A small F says the lever is loose. Because it is built from observable variables, you can compute it, report it, and compare it against a threshold. That is the asymmetry from part three paying off: relevance is testable, and strength is the quantitative version of relevance.
+:::
+
+## The "F > 10" Rule
+
+- Stock–Yogo (2005): how strong to bound 2SLS bias?
+- Critical value for "bias $\leq 10\%$ of OLS" $\approx 10$
+- That is where the rule of thumb comes from — real theory
+- But derived under **homoskedastic, non-clustered** errors
+- Critical value **rises** with more instruments
+
+::: notes
+How large is large enough? The famous rule of thumb is F greater than ten, and it comes from real theory. Stock and Yogo, in two thousand five, made the question precise: how strong must the first stage be to guarantee the 2SLS bias is no more than, say, ten percent of the OLS bias? They tabulated critical values for the first-stage F, as a function of the number of instruments and the tolerance you choose. For one regressor and one instrument, that critical value is right around ten — which is where the rule of thumb comes from. But treat F greater than ten as a smoke alarm, not a certificate. It was derived under homoskedastic, non-clustered errors. With heteroskedasticity or clustering — almost every finance dataset, as Chapter two-point-four taught you — the standard F does not match the Stock–Yogo guarantee, and ten can badly understate weakness. The critical value also rises with the number of instruments. And recent work argues that to keep the t-test honest, you may need F values far above ten.
+:::
+
+## The Olea–Pflueger Effective F
+
+- Olea–Pflueger (2013): fixed the homoskedasticity hole
+- **Effective F** uses robust, cluster-robust variance estimates
+- Measures strength under the messy errors real data have
+- Report it — not the classical F — when errors are non-classical
+- `linearmodels` computes it; Chapter 3.5 shows it catch a weak case
+
+::: notes
+Olea and Pflueger, in two thousand thirteen, writing in the Journal of Business and Economic Statistics, fixed the homoskedasticity hole. They derived an effective F-statistic — built from heteroskedasticity- and cluster-robust variance estimates — that measures first-stage strength under the messy error structures real data actually have, with matching critical values for your chosen bias tolerance. When your errors are heteroskedastic or clustered — the default assumption in finance — the Olea–Pflueger effective F is the statistic to report and compare against its critical value, not the classical first-stage F. The library linearmodels computes it for you, and Chapter three-point-five's pathology lab shows a case where the classical F looks reassuring while the effective F correctly flags the instrument as dangerously weak. The lesson generalizes Chapter two-point-four: once you admit your errors are not classical, every diagnostic built on classical errors needs a robust replacement, and the first-stage F is no exception.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **first-stage F** measures strength because relevance is testable. Clear Stock–Yogo's "$F>10$" comfortably, but distrust it: it assumes classical errors and bounds *bias*, not inference. For clustered, heteroskedastic finance data, report the **Olea–Pflueger effective F**.
+:::
+
+::: notes
+To summarize part nine: strength is measurable because relevance is testable. The first-stage F is the joint significance of the excluded instruments — for one instrument, the squared t-statistic on Z. The Stock–Yogo rule of F greater than ten bounds the 2SLS bias, but it assumes homoskedastic, non-clustered errors and bounds bias, not inference. For the clustered errors real finance data have, report the Olea–Pflueger effective F instead, and compare it to its critical value rather than eyeballing ten. In part ten, the finale, we run the whole chapter in code and gather the four things to carry forward.
+:::

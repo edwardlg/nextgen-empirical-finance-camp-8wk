@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## The Fatal-Flaw Checklist — and Why Killing Is a Win
+
+- Part 3 — fatal flaws that mean stop now; killing wins
+
+::: notes
+Welcome back to how I pick and kill a project, part three of nine. In part two we met the inert project, caught by the so-what test. Now the third enemy: a checklist of fatal flaws — failure modes that do not weaken a project but end it, the way a cracked engine block ends a car. Unlike weaknesses you can patch, a fatal flaw means stop now. Then the liberating part: why killing one is a win, not a loss.
+:::
+
+## Enemy Three: The Fatal-Flaw Checklist
+
+- **No variation** in the treatment — nothing to compare
+- **Unmeasurable outcome** — no number for the y column
+- **Hopeless confounding** — no cutoff, no event, no instrument
+- **Data you can't get in time** — the most common killer
+- **Reverse causality** or a sample too small
+- Each is diagnosable **before you run anything**
+
+::: notes
+The third enemy is a checklist of fatal flaws. First: no variation in the treatment. If your key regressor barely moves across your units — every firm got the same shock on the same day — there is nothing to compare, and no design rescues a comparison that does not exist. Second: the outcome cannot be measured. If you cannot say what number goes in the y column, you have a mood, not a study. Investor confidence is not an outcome until you have named the series. Third: unbreakable confounding — the identification is hopeless. If your treatment varies for reasons hopelessly tangled with the outcome, and there is no cutoff, no dated policy, no clean event, and no defensible instrument, then the causal version is dead. The descriptive version may live — but only if you say so honestly, per our conventions. Fourth, and most common of all: the data does not exist, or you cannot get it in time — behind a paywall, an approval board you cannot clear, or a wait longer than the camp. Fifth: reverse causality you cannot break, or a sample so small the standard errors will swallow any effect. Both are diagnoses you can make before running anything.
+:::
+
+## Killing Is a Win, Not a Loss
+
+- Every idea killed on paper saves a **wasted month**
+- We all have **mostly bad ideas** — that is normal
+- Productive researchers run the **furnace hot**
+- Only the survivors ever see daylight
+- For each candidate: where's the variation, who's the audience?
+- And: what's the **one fatal flaw** likely to kill it?
+
+::: notes
+Here is the liberating part, the thing it took me years to believe: killing an idea is a win, not a loss. Every idea you kill on paper in an afternoon is a month you did not waste in the data. The researchers who look productive are not the ones who never have bad ideas — we all have mostly bad ideas — they are the ones whose furnace runs hot enough that only the survivors ever see daylight. So as you read today's stretch questions, hold one reflex sharp: for each of my own candidate questions, where is the variation, who is the audience, and what is the single fatal flaw most likely to kill it — and can I kill it this week, on paper, for free?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **fatal-flaw checklist** names the endings: no variation, unmeasurable outcome, hopeless confounding, ungettable data, reverse causality or too-small samples — all diagnosable **before any regression**. And killing is a **win**: every idea burned cheaply on paper is a month not wasted in the data.
+:::
+
+::: notes
+To summarize part three: the fatal-flaw checklist names the cracks that mean stop now — no variation, unmeasurable outcome, hopeless confounding, data you cannot get in time, and reverse causality or too-small samples. Each is diagnosable on paper, before you run anything, which is exactly what makes killing cheap. And the reframe that took me years: killing is a win, because every idea burned in an afternoon is a month saved in the data. In part four we put the three reflexes to work on the warm-up questions you brought.
+:::

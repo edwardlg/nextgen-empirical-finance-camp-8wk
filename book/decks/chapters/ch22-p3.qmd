@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Contract, Part Two: Homoskedasticity and Normality
+
+- Part 3 — clauses 4 and 5, plus the three-tier ladder
+
+::: notes
+Welcome back to Gauss–Markov, part three of eight. Part two gave us the first three clauses, ending on the all-important zero-conditional-mean assumption. Now we finish the contract with assumptions four and five — homoskedasticity and normality — and then stack all five into a clean three-tier picture of exactly what each one buys you.
+:::
+
+## Assumption 4 — Homoskedasticity
+
+- $\operatorname{Var}(\boldsymbol{\varepsilon}\mid\mathbf{X}) = \sigma^2\mathbf{I}$
+- Same error variance $\sigma^2$ everywhere (constant diagonal)
+- Errors uncorrelated across observations (zeros off-diagonal)
+- Fails $\to$ **heteroskedasticity**: wider scatter for low earners
+- Doesn't bias $\hat{\boldsymbol{\beta}}$; **wrecks the standard errors**
+
+::: notes
+Assumption four: homoskedasticity. The variance of epsilon given X equals sigma-squared times the identity matrix. Two claims again. The errors all have the same variance, sigma-squared, regardless of X — that's the constant sigma-squared on the diagonal; homoskedastic is Greek for same scatter. And they are uncorrelated across observations — that's the zeros off the diagonal, which make the matrix sigma-squared times identity. In Maya's data the scatter of rates around the line is almost surely larger for low-income borrowers — more lender discretion, more risk-based pricing — and tighter for high earners. That is heteroskedasticity: the diagonal isn't constant. It does not bias beta hat, but it wrecks the standard errors, so every t-statistic and confidence interval from Chapter one-point-five becomes untrustworthy. That is exactly Chapter two-point-four, where robust standard errors come to the rescue. And when loans cluster — same branch, same month — the off-diagonal zeros turn positive, and we'll need clustered standard errors, also Chapter two-point-four.
+:::
+
+## Assumption 5 — Normality (the Add-On)
+
+- $\boldsymbol{\varepsilon}\mid\mathbf{X} \sim \mathcal{N}(\mathbf{0}, \sigma^2\mathbf{I})$
+- **Not** part of Gauss–Markov — the first four are enough
+- Buys **exact** finite-sample $t$ and $F$ inference
+- Fails $\to$ surprisingly little, for large samples
+- The CLT makes $\hat{\boldsymbol{\beta}}$ approximately normal anyway
+
+::: notes
+Assumption five: normality. The errors given X are normally distributed with mean zero and variance sigma-squared times identity. This one is not part of Gauss–Markov, and it's important to know that. The first four assumptions are all the theorem needs. Normality is an extra we bolt on later when we want exact finite-sample inference — the exact t and F distributions of Chapter one-point-five, valid even at small N. What goes wrong if it fails? Surprisingly little, for large samples. Even without normality, the Central Limit Theorem from Chapter one-point-four makes beta hat approximately normal as N grows, so our t-tests are approximately valid anyway. Normality is a convenience for small samples, not a pillar. We lean on it lightly and flag it whenever we do.
+:::
+
+## Three Tiers of What You Buy
+
+- **1–3** buy you **unbiasedness**
+- Adding **4** buys you **BLUE**
+- Adding **5** buys you **exact small-sample inference**
+- Increasingly demanding, each delivering more
+- Next two parts cash in the first two tiers
+
+::: notes
+Here is the cleanest way to hold all five in your head. Assumptions one through three buy you unbiasedness — O-L-S aims at the truth. Adding assumption four buys you BLUE — minimum variance among linear unbiased estimators. And adding assumption five buys you exact small-sample inference — the precise t and F distributions even at tiny N. Three tiers, increasingly demanding, each delivering more. Keep that ladder in mind, because the rest of the chapter climbs it. The next two parts cash in the first two tiers: first unbiasedness, then the variance formula and what best really means.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Homoskedasticity** ($\operatorname{Var}(\boldsymbol{\varepsilon}\mid\mathbf{X})=\sigma^2\mathbf{I}$) and **normality** complete the contract. The ladder: **1–3 = unbiased, +4 = BLUE, +5 = exact inference.** Normality is an add-on, not a pillar — the CLT covers for it in large samples. Next: proving unbiasedness.
+:::
+
+::: notes
+To summarize part three: homoskedasticity says the errors share one variance and are uncorrelated — the variance of epsilon given X is sigma-squared times identity. Break it and you get heteroskedasticity, which leaves beta hat unbiased but ruins the standard errors. Normality is the optional add-on that buys exact small-sample inference, and the Central Limit Theorem mostly covers for it anyway. The ladder to memorize: one through three give unbiasedness, plus four gives BLUE, plus five gives exact inference. In part four we prove the first rung — that O-L-S is unbiased — in just a few lines.
+:::

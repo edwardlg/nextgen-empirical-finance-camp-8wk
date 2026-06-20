@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## The Gold Standard, and When You Cannot Randomize
+
+- Part 10 — the gold standard, and controlling for X
+
+::: notes
+Welcome back to potential outcomes, part ten of eleven. In part nine we watched randomization zero the selection-bias term, so the naive difference equals the ATE. Now we say why that makes a randomized trial the gold standard, note its two honest caveats, and bridge to the world empirical finance actually lives in — where you usually cannot randomize and must instead control for X, a bet that powers the rest of the week.
+:::
+
+## Why It's the Gold Standard
+
+- A **randomized controlled trial** prevents bias from *existing*
+- Credibility comes from the coin, not a clever estimator
+- It balances even the unobservables you could never name
+- RCTs everywhere: clinical trials, A/B tests, field experiments
+- Caveat: residual imbalance is *sampling variation* — shrinks with $N$
+- Bigger caveat: **most of the time you cannot randomize**
+
+::: notes
+This is why a randomized controlled trial, an R-C-T, is the gold standard. It does not measure the selection bias and subtract it; it prevents it from existing, by design, before any data is collected. The credibility comes not from a clever estimator but from the coin — the physical act of randomizing assignment, which severs the link between who gets treated and who they are. You see RCTs everywhere serious money cares about causation: clinical trials, A-B tests at fintech companies, field experiments in development economics. Two honest caveats. First, randomization zeroes bias only in expectation; in any one finite sample the coin might, by bad luck, deal a few more savvy applicants to treatment. That residual imbalance is sampling variation — it shrinks with sample size, the good kind of problem standard errors quantify. Second, and far more important: most of the time you cannot randomize. You cannot randomly assign families to take on student debt, firms to adopt ESG standards, or countries to suffer financial crises — for reasons of ethics, cost, law, or because the event already happened. The data you get is observational, and the selection-bias term is alive and nonzero.
+:::
+
+## The Bridge: "Controlling for X" Is a Bet
+
+- When you can't randomize, you "control for $X$" — credit, income, age
+- Hope: within matched groups, treatment is as-good-as-random
+- **Conditional independence:** $\big(Y_i(0),Y_i(1)\big)\perp\!\!\!\perp D_i \mid X_i$
+- An *assumption* the data cannot verify — one unobserved confounder ruins it
+- Randomization needs no such bet — the coin balances unobservables too
+
+::: notes
+So what do you do when you cannot randomize? When you control for X in a regression — add credit score, income, age, employment — you are trying to manufacture the comparability randomization gives for free. The hope is that within groups of applicants who match on all the X's, treatment is as good as randomly assigned, and the bias vanishes conditional on X. This assumption has a name we use all week — conditional independence, also called unconfoundedness or selection on observables: the pair Y-of-zero and Y-of-one is independent of D-sub-i, given X-sub-i. Read it as randomization holds within each value of X. It is randomization's poorer cousin: instead of a coin guaranteeing independence, you assume it once you have conditioned on enough observed characteristics. And there is the rub. Conditional independence is an assumption, not a fact, and the data cannot verify it. If one unobserved confounder remains — applicant motivation, soft information the loan officer saw — it fails, and your controlled estimate is biased, exactly as in Week Two. Randomization needs no such assumption; the coin balances the unobservables too, the ones you could never name. That is the deep reason randomization is the gold standard and controlling for X is a bet — the same bet, now in the language of potential outcomes.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A **randomized controlled trial** is the gold standard because the coin balances *even unmeasured* confounders — but usually you cannot randomize. Then you "control for $X$" and assume **conditional independence**, a bet the data can't verify; one unobserved confounder and it fails. Next: how the rest of Week 3 builds on this bet.
+:::
+
+::: notes
+To summarize part ten: a randomized controlled trial is the gold standard because credibility comes from the coin, which balances even the unobservables you could never name — but most of the time you cannot randomize, so the data is observational and selection bias is alive. Then you control for X and lean on conditional independence — randomization's poorer cousin, an assumption the data cannot verify, ruined by a single unobserved confounder. That is the cliff this chapter leaves you on. In the final part, part eleven, we look ahead: how the next four chapters of Week Three are each a different way of chasing the same selection-bias term.
+:::

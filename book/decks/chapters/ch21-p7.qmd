@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## OLS as Projection, and Pythagoras
+
+- Part 7 — drop the perpendicular and split variation by Pythagoras
+
+::: notes
+Welcome back to Lesson two-point-one, part seven of eleven. In part six we found that the fitted values must live in the column space of X — a plane — while the outcome y lies outside it. OLS asks which point in the plane is closest to y. This part answers that question with a perpendicular, and then reads off the decomposition that every R-squared rests on.
+:::
+
+## OLS Drops a Perpendicular
+
+- Closest point = **orthogonal projection** of $\mathbf{y}$ onto the plane
+- That projected point is $\hat{\mathbf{y}}$, the fitted values
+- Residual $\hat{\mathbf{e}} = \mathbf{y} - \hat{\mathbf{y}}$ is the perpendicular itself
+- $\mathbf{y}$ splits: explained part $\hat{\mathbf{y}}$, unexplained part $\hat{\mathbf{e}}$
+- The two pieces meet at a right angle
+
+::: notes
+The answer, from plane geometry scaled up, is the orthogonal projection of y onto the plane — the foot of the perpendicular dropped from y to the column space. That projected point is y hat, the fitted values. The leftover, e hat equals y minus y hat, is the perpendicular itself, sticking straight out of the plane. This is the same orthogonality from part five, now drawn as a picture. The outcome y splits into a piece lying in the regressor space — what the regressors can explain, y hat — and a piece perpendicular to it — what they cannot, e hat. And these two pieces meet at a right angle. That right angle is not a coincidence; it is the defining property of the least-squares fit. OLS is, geometrically, nothing more and nothing less than dropping a perpendicular from the data onto the space the regressors span.
+:::
+
+## Pythagoras and R-squared
+
+- Right angle $\Rightarrow$ Pythagorean theorem on the lengths
+- $$\lVert\mathbf{y}\rVert^2 = \lVert\hat{\mathbf{y}}\rVert^2 + \lVert\hat{\mathbf{e}}\rVert^2$$
+- Equivalently $\hat{\mathbf{y}}'\hat{\mathbf{e}} = 0$
+- Variation splits into explained and unexplained legs
+- No cross-term contaminates the split
+
+::: notes
+Because the angle is right, the Pythagorean theorem applies to the lengths, and we get the decomposition every R-squared you have ever seen rests on. The squared length of y equals the squared length of y hat plus the squared length of e hat — or equivalently, y hat transpose e hat equals zero: fitted values and residuals are orthogonal. The variation in y partitions cleanly into an explained leg and an unexplained leg of a right triangle, and no cross-term contaminates the split. This is exactly the Pythagorean risk reduction Maya saw last week when her two assets were perpendicular, now telling us how regression accounts for variation. When you later compute R squared as the explained share of variance, you are reading off the legs of this very triangle.
+:::
+
+## The Same Idea, Three Ways
+
+- **Calculus:** the gradient of the bowl vanishes
+- **Geometry:** the residual is perpendicular to the regressors
+- **Picture:** $\mathbf{y}$ projected onto the regressor plane
+- All three are one act: find the shortest residual
+
+::: notes
+Step back and see that we have now described the same single act three different ways. By calculus, beta hat is where the gradient of the sum-of-squares bowl vanishes. By geometry, beta hat is the coefficient vector whose residual is perpendicular to every regressor. And as a picture, beta hat produces the orthogonal projection of y onto the plane the regressors span. These are not three facts that happen to agree — they are one fact wearing three costumes. Minimizing a squared length, demanding orthogonality, and dropping a perpendicular are the same operation. Whichever costume is most comfortable in a given moment, reach for it; they will never disagree, because under the surface they are identical.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+OLS is the **orthogonal projection** of $\mathbf{y}$ onto $\text{col}(\mathbf{X})$: $\hat{\mathbf{y}}$ is the shadow on the plane, $\hat{\mathbf{e}}$ is the perpendicular. They meet at a right angle, so Pythagoras splits $\mathbf{y}$ into explained and unexplained legs — the basis of $R^2$. Next: the matrices that do the projecting.
+:::
+
+::: notes
+To summarize part seven: OLS picks the point in the regressor plane closest to y, which is the orthogonal projection — the foot of the perpendicular dropped from y. The fitted values y hat are the shadow on the plane, the residuals e hat are the perpendicular sticking out, and because they meet at a right angle, Pythagoras splits the squared length of y cleanly into an explained leg and an unexplained leg, the foundation of R squared. Calculus, geometry, and the projection picture are one act in three costumes. In part eight we notice that this projection is itself a fixed matrix — the hat matrix — with a twin called the residual maker.
+:::

@@ -1,0 +1,71 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Replication and Reading Like a Referee
+
+- Part 9 — rebuilding the paper and reading like a referee
+
+::: notes
+Welcome back to the Reader's Guide for Fama and French, part nine of nine. In part eight we finished the referee's attack — risk versus mispricing, and errors-in-variables in beta. Now we close the only way that truly cements a paper: by rebuilding pieces of it. Three escalating replication exercises, then three referee questions to carry away.
+:::
+
+## Exercise 1 — A Univariate Size Sort
+
+- Rank firms into **size deciles** each year
+- Form ten portfolios; average each decile's monthly return
+- Plot average return against the size decile
+- The line should slope **down** — small firms, higher returns
+- Then break it: re-sort on *contemporaneous* market equity
+
+::: notes
+You do not understand a paper until you have rebuilt a piece of it. These escalate, and all three live in notebook five-point-one. Real CRSP and Compustat stay read-only on GMU infrastructure; the notebook ships a seeded synthetic fallback with the same schema so every step runs on your laptop. Exercise one: reproduce a univariate size sort. Rank firms into size deciles each year, form the ten portfolios, and compute each decile's average monthly return. Plot average return against the size decile. You should see the line slope down — small firms, higher returns. This is the gentlest possible replication: one sort, one picture, and you have recreated the paper's simplest live fact. Then break it on purpose: re-sort using contemporaneous market equity instead of lagged, and watch how look-ahead contamination changes the picture.
+:::
+
+## Exercise 2 — The Size-BE/ME Double Sort
+
+- Build the $5\times5$ grid on size and book-to-market
+- Honor the July-to-June **timing gap**
+- Print the table of average returns
+- Returns rise across BE/ME within each size row
+- Returns rise down size within each BE/ME column
+
+::: notes
+Exercise two: build the size-book-to-market double sort. Construct the five-by-five grid — or decile by decile — sorted on size and book-to-market, honoring the July-to-June timing gap from the data section. Print the table of average returns. Read it the way the reading order taught: returns rising across book-to-market within each size row, and rising down size within each book-to-market column. The deliverable is the headline table, in miniature, built by your own hands — and a one-paragraph note on exactly where you applied the timing lag and why.
+:::
+
+## Exercise 3 — The Fama-MacBeth Horse Race
+
+- Reuse your **Lab-2** machine
+- Pass 1: portfolio-level pre-formation betas
+- Pass 2: monthly regress returns on beta, log size, log BE/ME
+- Average slopes; standard errors from the scatter
+- Three specs: beta alone; size and BE/ME; all three
+
+::: notes
+Exercise three: run the Fama-MacBeth horse race. Reuse your Lab-Two machine. Pass one: estimate portfolio-level pre-formation betas. Pass two: each month, regress returns on beta, log size, and log book-to-market; collect the monthly slopes; average them; and compute the Fama-MacBeth standard errors from the slope scatter. Run three specifications — beta alone, size and book-to-market alone, and all three together. Confirm with your own t-statistics that beta's slope collapses while size and book-to-market survive. This is the moment the abstract sentence "beta adds little once you control for size and book-to-market" becomes a number on your own screen.
+:::
+
+## Read Like a Referee — Three Questions
+
+- **Snooping**: what would prove size and BE/ME are *real*?
+- **Mechanism**: design a test favoring risk over mispricing
+- — why can a descriptive design never settle it?
+- **The dog that didn't bark**: why is beta near zero?
+- True? Attenuation? Or sort and sample masking it?
+
+::: notes
+Before you leave this paper, sit with three questions — the kind a referee writes in the margin. First, snooping: if size and book-to-market are the survivors of a field-wide search, what evidence would convince you they are real and not two lucky winners of a multiple-testing lottery? Second, mechanism: the paper shows value and small stocks earn more but cannot say why. Design, in words, a test that would push you toward the risk story over the mispricing story — and ask why a descriptive design can never fully settle this. Third, the dog that didn't bark: beta's premium should be large under the Capital Asset Pricing Model and isn't. List every reason it could be near zero — beta truly doesn't matter, measurement error attenuating it, or the sort and sample masking it — and say what you would check to tell them apart.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three escalating replications — a **size sort**, the **size-BE/ME double sort**, and the **Fama-MacBeth horse race** — turn the paper's claims into numbers on your own screen. Then read like a referee: interrogate snooping, mechanism, and the dog that didn't bark. Next stop: **notebook 5.1**, where you build the sorts.
+:::
+
+::: notes
+To summarize part nine and the whole chapter: you cement a paper by rebuilding it. Exercise one reproduces a size sort and breaks it with contemporaneous data to feel look-ahead bias. Exercise two builds the size-book-to-market double sort, honoring the timing gap. Exercise three reruns the Fama-MacBeth horse race and watches beta's slope collapse while size and book-to-market survive. Then you read like a referee, sitting with three margin questions about snooping, mechanism, and the dog that didn't bark. That is the whole muscle of Week Five: accept the robust fact, refuse the unproven interpretation, and check the build yourself. Next stop is notebook five-point-one, where you stop reading about the sorts and build them.
+:::

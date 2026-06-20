@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Registering Before You Peek: The Hold-Out Sample
+
+- Part 9 — the hold-out sample that makes "don't peek" mechanical
+
+::: notes
+Welcome back to The Pre-Analysis Plan, part nine of twelve. The five components are *what* you write. The next two parts are the discipline that makes them work: *when* you write them — before you have seen your outcomes — and *how* you handle surprises. The first mechanic, and the most powerful, is a hold-out sample.
+:::
+
+## Split Exploratory From Confirmatory
+
+- Never let the confirmatory data touch your eyes during design
+- **Prospective** studies need no split — the future is your hold-out
+- Maya's HMDA data already exists, so she uses a **hold-out sample**
+- Partition: 30% exploration, 70% confirmation, split on a hashed key
+- Play freely in exploration — even p-hack — nothing there is confirmatory
+
+::: notes
+Split exploratory from confirmatory, mechanically. The cleanest way to stay honest is to never let the confirmatory data touch your eyes during the design phase. Two routes. The first, available whenever your study is prospective — you write the plan before the data even exist — needs no split: the future is your hold-out, because you cannot peek at data that does not exist. Maya's HMDA study is not like that; the data already exist and she could peek. So she uses the second route, a hold-out sample. She randomly partitions her extract — say a thirty percent exploration set and a seventy percent confirmation set, splitting on a stable key, a hash of the loan identifier, so the split is reproducible and pinned. She is free to play in the exploration set: run regressions, look at coefficients, discover patterns, tune her specification, find the controls that matter, even p-hack to her heart's content — because nothing she finds there is a confirmatory result. The exploration set is the laboratory where she designs the experiment.
+:::
+
+## The Hold-Out Makes "Don't Peek" Mechanical
+
+- Freeze the PAP, file it, *then* run the spec **once** on 70%
+- Whatever that one run produces is the confirmatory answer
+- She *could not* tune the spec to data she never saw
+- Same train/test discipline as 6.5's classifier validation
+- nb7.5 first-look regressions are *frozen until the PAP is filed*
+
+::: notes
+She then freezes the plan, files it, and only then runs the frozen primary specification once on the untouched seventy percent confirmation set. Whatever that one run produces is the confirmatory answer. The hold-out converts "don't peek" from a request for superhuman willpower into a mechanical fact: she could not have tuned the specification to the confirmation data because she never saw it. This is the same train-test discipline you met in Chapter six-point-five's classifier validation — develop on a development set, report on a touched-once held-out test set — applied now to the whole research design rather than to one classifier. And it is the discipline behind the camp's own workflow: notebook seven-point-five, "First-look regressions," is frozen until the plan is filed. The notebook of confirmatory regressions does not run until the plan that governs it is a committed, time-stamped artifact.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A **hold-out sample** makes "don't peek" mechanical instead of a test of willpower: design freely on a 30% exploration set — even p-hack there — then file the plan and run the frozen spec **once** on the untouched 70%. You physically cannot tune a spec to data you never saw. Next: the time-stamp and the deviation log.
+:::
+
+::: notes
+To summarize part nine: the five components are what you write; this part begins the when and how. The most powerful mechanic is a hold-out sample. If your study is prospective the future is your hold-out, but Maya's data already exists, so she splits it — thirty percent exploration, seventy percent confirmation, on a hashed loan identifier. She designs and even p-hacks freely on the exploration set, because nothing there is confirmatory, then files the plan and runs the frozen specification once on the untouched seventy percent. That makes don't-peek a mechanical fact, the same train-test discipline as last week's classifier validation. In part ten, the two remaining mechanics: time-stamping the plan, and the deviation log.
+:::

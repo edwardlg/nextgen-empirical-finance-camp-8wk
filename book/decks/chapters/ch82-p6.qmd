@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Placebo Tests: Fake Dates, Fake Units, Fake Outcomes
+
+- Part 6 — placebos with fake dates, fake units, fake outcomes
+
+::: notes
+Welcome back to Robustness and Inference Stress-Tests, part six of fourteen. In part five we defined the placebo test — run your analysis where no effect can exist, and demand you find nothing. Now we run the three concrete placebos on Maya's study: a fake treatment date in the pre-period, fake treatment units assigned to never-adopters, and a fake outcome the program cannot touch. Each probes a different threat from her table.
+:::
+
+## Fake Treatment Dates — The In-Time Placebo
+
+- Pick a year *well before* any real adoption
+- Pretend the programs switched on then; drop the true post-period
+- Re-run the whole Callaway–Sant'Anna estimator on fake timing
+- Probes the **differential pre-trend** threat — row one
+- **Pass:** placebo ATT small, indistinguishable from zero
+- **Fail:** placebo ATT large — design can't separate trend from treatment
+
+::: notes
+First, fake treatment dates — the in-time placebo. Maya picks a year well before any state actually adopted a program — say three years before the earliest real adoption — and pretends the programs switched on then, leaving the true post-period out entirely so the fake effect cannot be contaminated by the real one. She re-runs the entire Callaway–Sant'Anna estimator on this fictional timing. What it probes: whether her estimator detects a treatment effect purely from the trend structure of the data — exactly the differential-pre-trend threat in row one of her table. If adopting states were already on a different denial-gap trajectory, a fake treatment placed in the pre-period will catch that trajectory and report a spurious effect. Pass: the placebo A-T-T is small and statistically indistinguishable from zero — real, if asymmetric, support for parallel trends. Fail: the placebo A-T-T is itself large and significant, perhaps similar in size to the real estimate. That is close to fatal: your method finds one-point-four-point effects in years when nothing happened, so the real one carries no special weight. There is no spin that survives a failed in-time placebo; conclude the design cannot separate treatment from a pre-existing trend, and either redesign or report the result as uninterpretable.
+:::
+
+## Fake Units and Fake Outcomes
+
+- In-space placebo: assign fake adoption to never-adopters
+- Re-estimate across many reassignments — build a placebo distribution
+- **Pass:** real effect in the extreme tail, permutation $p<0.05$
+- **Fail:** real effect buried in the middle of the cloud
+- Fake outcome: one the program can't mechanically touch
+- **Fail there** signals a broad confounder is driving everything
+
+::: notes
+Next, fake units — the in-space placebo, or permutation. Assign fake adoption to states that never actually adopted, re-estimate, and repeat across many random reassignments to build a distribution of placebo effects. Locate the real effect in that distribution. What it probes: whether an effect of Maya's magnitude shows up routinely when treatment is assigned at random — the synthetic-control-style inference of Chapter four-point-four, and the right inference when clusters are too few for the t-approximation. Pass: the real effect sits in the extreme tail — more extreme than ninety-five percent of placebos — a permutation p-value below zero-point-zero-five. Fail: the real effect is buried in the middle of the placebo cloud, so it is not distinguishable from noise. Finally, fake outcomes. Pick an outcome the treatment should have no plausible channel to move, but that shares the same data structure — Maya might use the denial gap for a loan category exempt from fair-lending examination. Pass: no effect on the placebo outcome, which rules out a broad confounder that would have moved everything. Fail: the program moves an outcome it cannot mechanically affect — a tell that something other than the program is driving adopting states, and your effect is riding on it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three placebos, three threats: a **fake date** exposes differential pre-trends, **fake units** test whether your effect is unusual under random assignment, and a **fake outcome** rules out a broad confounder. A failed placebo is close to fatal. Next: why a placebo is a prediction.
+:::
+
+::: notes
+To summarize part six: the in-time placebo plants a fake treatment date in the pre-period and demands the estimator find nothing, exposing differential pre-trends — the threat in row one of Maya's table. The in-space placebo permutes treatment across never-adopters to build a distribution and asks whether the real effect sits in the extreme tail or is buried in the cloud. The fake-outcome placebo checks an outcome the program cannot mechanically move, ruling out a broad confounder that would have shifted everything. Each pass supports the design; each failure is close to fatal and must be reported. In part seven we land why a placebo is a prediction your theory makes, and open sensitivity analysis with the first knob: the regression-discontinuity bandwidth.
+:::

@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## The Identification Memo: The Page You Write First
+
+**Learning objectives.** By the end you can:
+
+- State an identifying assumption in the fixed three-blank template
+- Pull named threats off each design's standard menu
+- Build the four-column threats-and-responses table
+- Match each threat: test it, or argue it
+
+::: notes
+Welcome to Week Seven, Chapter seven-point-five, part one of nine. This week you turned a question into a feasible dataset, filed a pre-analysis plan, and built a clean analysis dataset. This chapter distills all of that into the single page that matters more than any other in your capstone — the identification memo. In this opening part we frame what the memo is, and why you write it before the regression the paper is about.
+:::
+
+## The Page You Write First
+
+- Not the abstract, table, or conclusion — the **memo**
+- Written *before* you run the paper's main regression
+- Tells you in advance if the project is worth finishing
+- Two parts only: one **assumption paragraph**, one **threats table**
+- The bridge from your pre-analysis plan to the paper
+
+::: notes
+There is one page in your capstone that matters more than any other, and it is not the abstract, not the headline table, not the conclusion. It is a page you write before you run the regression the paper is about — a page that, if you write it honestly, tells you in advance whether the project is worth finishing. It is called the identification memo, and it has exactly two parts: one paragraph stating your identifying assumption, and one table — the threats-and-responses table — listing every reason a skeptic might doubt you and what you intend to do about each. This chapter is short on new machinery, because there is none. You already have every design from Weeks Three and Four, you already know how to read a paper's identification section against a checklist from Week Five, and you already filed a pre-analysis plan that pins your primary specification. The memo is the bridge between that plan and the paper.
+:::
+
+## The Move the Chapter Turns On
+
+- The identifying assumption is the **single sentence** your claim rests on
+- Data work, controls, robustness — all serve that sentence
+- If the sentence is false, no clustering or winsorizing saves you
+- Can't *state* it? You have a regression and a hope
+- Write it in public, before the data can seduce you
+
+::: notes
+Here is the move the whole chapter turns on, so you have it before the details. The identifying assumption is the single sentence on which your entire causal claim rests. Everything else in the paper — the data work, the controls, the robustness checks — is in service of making that one sentence believable. If the sentence is false, no amount of clustering or winsorizing saves you. If you cannot state the sentence, you do not yet have a design; you have a regression and a hope. The memo forces you to write the sentence down, in public, before the data can seduce you into believing whatever the first significant coefficient happens to say. The memo is where you stop saying "I will run a difference-in-differences" and start saying "my estimate is the causal effect as long as this one thing is true, and here is how I will convince you it is." This is reveal-the-trick, one last time — but now the trick is yours, and the audience is a referee who has read a thousand of these and is not in a charitable mood.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **identification memo** is one page — an identifying-assumption paragraph and a threats-and-responses table — written *before* the main regression, so it can tell you in advance whether the project is worth finishing. Its core idea: your whole causal claim rests on a single sentence, and everything else serves that sentence. Next: how to write the sentence itself.
+:::
+
+::: notes
+To summarize part one: the identification memo is the one page your whole paper defends — an identifying-assumption paragraph and a threats-and-responses table — and you write it before you run the main regression, so that it can warn you early whether the project is real. The move the chapter turns on is that your entire causal claim rests on a single sentence, and the data work, controls, and robustness all serve to make that sentence believable. If you cannot even state it, you have a regression and a hope, not a design. In part two we write the sentence itself, using a fixed template with three blanks.
+:::

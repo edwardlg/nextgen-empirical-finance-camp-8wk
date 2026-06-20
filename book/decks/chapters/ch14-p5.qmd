@@ -1,0 +1,55 @@
+---
+date: "2026-06-22"
+---
+
+## Why the Bell Must Appear
+
+- Part 5 — intuition for why the bell is the only limit
+
+::: notes
+Welcome back to Chapter one-point-four, the Law of Large Numbers and the Central Limit Theorem, part five of ten. In part four we stated the Central Limit Theorem: the standardized sample mean converges to the bell, regardless of the population's shape. A full proof is beyond us, but the intuition is reachable and worth owning. We build it two ways — why the bell forms, and why it is the only possible destination.
+:::
+
+## Why It Works: The Intuition
+
+- Each draw adds a quirky deviation from $\mu$
+- Two forces: deviations **cancel**, and **no single one dominates**
+- Many small independent contributions $\Rightarrow$ histogram smooths to a bell
+- Lumps and skews of any one source get averaged away
+
+::: notes
+Why should this be true? A full proof uses a device called the characteristic function and is beyond us here, but the intuition is reachable. Think about what an average does. Each draw contributes some quirky deviation from mu — maybe far above, maybe just below. When you add up many such deviations, two forces act. First, the deviations partly cancel — that is the Law of Large Numbers force. Second, and this is the Central Limit Theorem's secret, the particular combination of pluses and minuses that survives is built from a huge number of independent little contributions, no single one of which dominates. Mathematics has a strong tendency: whenever a quantity is a sum of many small independent influences of comparable size, the histogram of that sum smooths toward the normal curve. The lumps and skews of any one source get averaged away in the aggregation; the only thing that survives the limit is the smooth, symmetric bell.
+:::
+
+## Why the Bell Is the *Only* Destination
+
+- Average $N$, then another $N$, then combine into $2N$
+- The shape shouldn't care how you **batched** it
+- Normal is **stable**: a normal averaged with a normal is normal
+- Self-consistency forces any limit into the normal form
+
+::: notes
+A second angle on the same intuition explains why the bell is the unique destination rather than one of many. Suppose you average N draws, then separately average another N draws, and combine the two groups into one average of two-N. The shape of the sampling distribution should not care whether you did it in one batch or two — averaging is averaging. The normal distribution is essentially the only shape with finite variance that is stable under this kind of self-combination: a normal averaged with a normal is again normal, just narrower. Any distribution flexible enough to be the limit of repeated averaging is forced, by this self-consistency, into the normal form. You do not have to make that argument rigorous to feel its pull: the bell is not an arbitrary fixed point, it is the only one the algebra of summing-and-rescaling will tolerate.
+:::
+
+## Hold On to One Phrase
+
+- "No single one of which dominates" is doing quiet, crucial work
+- It is the hidden hinge the whole theorem swings on
+- Remember it — crypto returns will **violate** it
+- That violation is the cautionary tale of this chapter
+
+::: notes
+The phrase no single one of which dominates is doing quiet but crucial work. It is the hidden hinge the entire theorem swings on. The bell forms only because every contribution to the sum is small relative to the whole, so no one term can throw the average around by itself. Hold onto that phrase, because it is exactly the clause that crypto returns will violate later in this chapter. When one observation — one catastrophic or euphoric day — is comparable in size to the sum of everything around it, the clause fails, and the bell never gets a chance to form. That failure is one of the most important cautionary tales in all of empirical finance, and we will meet it head-on.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The bell forms because an average is a sum of many small independent contributions, **no single one of which dominates** — and the normal is the only shape *stable* under repeated averaging. Hold onto that phrase: crypto returns will violate it. Next: watch the bell emerge from a skewed population.
+:::
+
+::: notes
+To summarize part five: the Central Limit Theorem holds because an average is a sum of many small independent contributions, no single one of which dominates, and such sums are forced toward the bell. A second angle confirms the bell is the only destination: the normal is the unique finite-variance shape that is stable under repeated averaging, so any limit of averaging is forced into normal form. Hold onto that phrase — no single one dominates — because it is the hinge the whole theorem swings on, and crypto returns will violate it. In part six we stop asserting and start showing: we watch the bell emerge from a violently skewed population.
+:::

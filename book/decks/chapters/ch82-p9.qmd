@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Multiple Testing: The Family Problem and Bonferroni
+
+- Part 9 — the multiple-testing family problem and Bonferroni
+
+::: notes
+Welcome back to Robustness and Inference Stress-Tests, part nine of fourteen. In part eight we turned the controls and data knobs to see which one our result was hostage to. Now a different threat entirely. Maya does not have one outcome; like most real projects she has a family of them, and when you test a whole family at once, the false-positive rate of any single test no longer protects you. This part states the problem and gives the first correction: Bonferroni.
+:::
+
+## A Family of Outcomes Inflates False Positives
+
+- Maya tests a *family*: denial gap, approval rate, spreads, amounts
+- Test eight outcomes, two come back significant — impressed?
+- Chapter 1.5: one test's false-positive rate protects only one test
+- All eight null: $1-(1-0.05)^8 \approx 0.34$
+- A one-in-three chance of a fluke "discovery"
+- She owes the reader an adjustment for family size
+
+::: notes
+Maya does not have one outcome. Like most real projects she has a family: the denial gap overall, but also the gap in approval rates, in interest-rate spreads, in loan amounts, broken out by minority subgroup. Suppose she tests eight outcomes and two come back significant at the five percent level. How impressed should you be? Recall the hard lesson of Chapter one-point-five: the false-positive rate of a single test does not protect a search across many tests. If all eight outcomes were truly null, the chance that at least one clears the five percent bar is one minus quantity zero-point-nine-five raised to the eighth power — about zero-point-three-four, a one-in-three chance of a false discovery from pure noise. Run enough outcomes and a significant result is expected, not impressive. Maya owes the reader an adjustment for the size of her family.
+:::
+
+## Bonferroni Controls the Family-Wise Error Rate
+
+- FWER: probability of *even one* false positive across the family
+- Rule: test each of $m$ hypotheses at $\alpha/m$
+- Equivalently, multiply each p-value by $m$, cap at 1
+- Maya's bar: $0.05/8 = 0.00625$
+- **Use when:** a single false positive is costly — drug-approval mindset
+- **Cost:** conservative; kills power, misses real effects
+
+::: notes
+The first correction is Bonferroni, which controls the family-wise error rate — the probability of even one false positive across the whole family. The rule is brutal and simple: test each of m hypotheses at alpha divided by m instead of alpha, or equivalently, multiply each p-value by m and cap at one. For Maya's eight outcomes, the per-test bar becomes zero-point-zero-five divided by eight, which is zero-point-zero-zero-six-two-five. When to use it: when a single false positive is costly and you must be able to say every starred result here is almost surely real — a drug-approval mindset. The cost: Bonferroni is conservative to the point of bluntness; with a large family it kills statistical power, and you will fail to flag real effects, Type Two errors, to buy near-certainty against any false one.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Across a family of $m$ tests, a lone star is *expected* from noise — eight null outcomes give a $34\%$ chance of a fluke. **Bonferroni** controls the chance of *any* false positive by testing each hypothesis at $\alpha/m$, but it is blunt and kills power. Next: Benjamini–Hochberg.
+:::
+
+::: notes
+To summarize part nine: when you test a family of outcomes, the single-test false-positive rate no longer protects you — with eight truly null outcomes, the chance of at least one false discovery is about thirty-four percent, so a lone star is expected, not impressive, and you owe the reader an adjustment for family size. Bonferroni controls the family-wise error rate, the probability of even one false positive, by testing each of m hypotheses at alpha over m. It is the right tool when a single false positive is costly, but it is conservative to the point of bluntness and kills statistical power. In part ten we meet the more sensible alternative for screening many signals — Benjamini–Hochberg — and work Maya's family through it.
+:::

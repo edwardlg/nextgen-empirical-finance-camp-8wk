@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Capstone and the One Sentence
+
+- Part 12 — Assessment 8 mapping and the one sentence
+
+::: notes
+Welcome back to Lab Eight, part twelve of twelve — the final part of the final lab. In part eleven we walked the submission checklist and saw the repo is the submission. Now we close the camp: how this lab maps directly to Assessment Eight, and the single sentence this whole camp existed to let you say truthfully.
+:::
+
+## Connecting to Assessment 8
+
+- This lab is the build bench; Assessment 8 is the capstone
+- Assessment 7 graded the design half on a rubric
+- Assessment 8 grades the execution half on that same rubric
+- Does `make all` reproduce your headline number?
+- Does your talk survive, and do you concede honestly?
+
+::: notes
+This lab is the build bench; Assessment Eight is the capstone itself — the graded deliverable the whole camp pointed at. Assessment Seven graded the design half of your project — the pre-analysis plan plus the identification memo, filed as a tagged commit — against a rubric it told you the Week Eight capstone would be graded against too. Assessment Eight grades the execution half on that same rubric: the analysis you ran after the plan was filed, the robustness battery that survived, the paper written so a referee believes it, the peer review you incorporated, and the two surfaces this lab built. The mapping is direct, so treat the checklist as a pre-grade audit. Does make-all on a fresh clone reproduce your headline number? Does your paper state its specification in the conventions form and name what it does not claim? Does your talk survive the threats-table questions, and do you concede the fatal critique honestly rather than bluff it?
+:::
+
+## Read the Gallery for Its Seams
+
+- The capstone gallery: finished student papers
+- Each with its talk and its one-click packet
+- Read one not for its result but for its seams
+- Find its identification slide and its residual concern
+- Run its `make all` to watch the headline emerge
+
+::: notes
+Then look at the capstone gallery — finished student papers, each with its talk and its one-click packet, as exemplars of the bar you are clearing. When the gallery is populated, read one paper not for its result but for its seams: find its identification slide, find the residual concern its threats table admits, and run its make-all to watch its headline emerge from raw data. That is how you will read every empirical paper from now on, and how you want yours read — not as a number to accept, but as a chain of choices you can inspect, attack, and rebuild for yourself. Reading for seams is the habit this camp was training all along.
+:::
+
+## The One Sentence
+
+- You once computed an average return — thought it an answer
+- It was the first question
+- Now: a question, a defensible design, honest uncertainty
+- "Here is what I found, here is why you should believe it"
+- "And here is the command that lets you check me"
+
+::: notes
+You started this camp computing that the average return was eight percent and thinking it was an answer. It was the first question. What you have now — a question nobody had cleanly answered, attacked with a design you can defend sentence by sentence, estimated with honest uncertainty, robust to the choices you worried about, written so a referee believes it, and packaged so a skeptic can rebuild every claim with one command — is an original empirical paper. The single sentence this whole camp existed to let you say truthfully is: "Here is what I found, here is exactly why you should believe it, and here is the command that lets you check me." Compile the paper, finish the packet, rehearse the defense. Then go say it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Assessment 8 grades the **execution half** on the same rubric as the design half — `make all` reproduces the headline, the talk survives, the fatal critique is conceded honestly. Read the gallery for its seams. Then say the sentence the camp existed for: *"Here is what I found, here is why you should believe it, and here is the command that lets you check me."*
+:::
+
+::: notes
+To summarize part twelve, and the whole lab: this lab is the build bench, and Assessment Eight is the capstone it built toward — the execution half graded on the same rubric as the design half. Does make-all reproduce your headline, does your paper name what it does not claim, does your talk survive the threats-table questions and concede the fatal critique honestly? Read the capstone gallery for its seams, not its results — the identification slide, the residual concern, the make-all that rebuilds the headline. You built three artifacts in this camp: a paper, a packet, and a defense. They exist so you can finally say the one sentence truthfully — here is what I found, here is why you should believe it, and here is the command that lets you check me. Go say it.
+:::

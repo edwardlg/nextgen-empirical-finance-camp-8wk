@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Same Equations, by Orthogonality
+
+- Part 5 — same normal equations from one geometric demand
+
+::: notes
+Welcome back to Lesson two-point-one, part five of eleven. In part four we ground out the normal equations by calculus: differentiate the bowl, set the gradient to zero. Calculus is reliable, but it can feel like symbol-pushing. This part reaches the exact same destination by pure geometric reasoning — no derivatives — and this is the version worth remembering, because it reveals what OLS really is: an orthogonality machine.
+:::
+
+## The Geometric Demand
+
+- $\hat{\boldsymbol\beta}$ minimizes length of residual $\hat{\mathbf{e}} = \mathbf{y} - \mathbf{X}\hat{\boldsymbol\beta}$
+- Claim: $\hat{\mathbf{e}}$ must be perpendicular to every column of $\mathbf{X}$
+- If not, nudge the fit along that column — shave the leftover off
+- A shorter residual contradicts having minimized
+- Shortest drop from a point to a line is the **perpendicular**
+
+::: notes
+Suppose beta hat truly minimizes the squared length of the residual, e hat equals y minus X beta hat. I claim e hat must be orthogonal to every column of X. Why? Suppose it were not — suppose the residual still had some component lying along one of the regressors, say column x sub j. Then we could nudge our fit a little in the x sub j direction and shave off that leftover component, making the residual strictly shorter — which contradicts our having minimized its length. The only way no such improving nudge exists is if the residual has zero component along every column of X. That is, e hat is perpendicular to the entire column space. This is the exact analogue of the most familiar fact in plane geometry: the shortest path from a point to a line is the perpendicular dropped to it. Any non-perpendicular drop is longer.
+:::
+
+## Writing It in One Stroke
+
+- "Perpendicular to every column" means $\mathbf{X}'\hat{\mathbf{e}} = \mathbf{0}$
+- Substitute $\hat{\mathbf{e}} = \mathbf{y} - \mathbf{X}\hat{\boldsymbol\beta}$:
+- $$\mathbf{X}'(\mathbf{y} - \mathbf{X}\hat{\boldsymbol\beta}) = \mathbf{0} \;\Rightarrow\; \mathbf{X}'\mathbf{X}\hat{\boldsymbol\beta} = \mathbf{X}'\mathbf{y}$$
+- The identical normal equations — no derivative taken
+- "Uncorrelated *is* orthogonal" — OLS is an orthogonality machine
+
+::: notes
+Perpendicular to every column of X is a statement we can write in one stroke. Stacking the dot products of e hat with each column means X transpose e hat equals the zero vector. Now substitute the definition of the residual: X transpose times the quantity y minus X beta hat equals zero. Distribute, and you get X transpose y minus X transpose X beta hat equals zero; rearrange, and X transpose X beta hat equals X transpose y. These are the identical normal equations from part four, with not one derivative taken. The calculus route and the geometry route are two faces of the same coin: minimizing a squared length and dropping a perpendicular are the same act. This is why last week's punchline — uncorrelated is orthogonal — matters so much. OLS hunts for coefficients that leave a residual uncorrelated with, that is orthogonal to, every regressor. The estimator is, at its heart, an orthogonality machine.
+:::
+
+## Two Free Facts About Residuals
+
+- With an intercept, first equation reads $\sum_i \hat{e}_i = 0$
+- OLS residuals sum to **exactly** zero — an algebraic identity
+- Other equations: $\sum_i x_{ij}\hat{e}_i = 0$ for each regressor $j$
+- Residuals uncorrelated with every regressor by construction
+- Not assumptions or luck — what least squares mechanically forces
+
+::: notes
+One concrete consequence drops out immediately, and it is a fact people quote constantly. Because the first column of X is all ones, the first equation in X transpose e hat equals zero reads: the sum of the residuals equals zero. Whenever the regression includes an intercept, the OLS residuals sum to exactly zero. Not approximately — exactly, as an algebraic identity, no matter what the data look like. The other equations say the sum over i of x sub i j times e hat sub i equals zero for each regressor j: the residuals are uncorrelated with every regressor by construction. These are not assumptions, and they are not lucky outcomes. They are what least squares mechanically forces, and you can use them to sanity-check any regression output you ever see.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The normal equations fall out of one geometric demand: the residual $\hat{\mathbf{e}}$ must be perpendicular to every column of $\mathbf{X}$, written $\mathbf{X}'\hat{\mathbf{e}} = \mathbf{0}$. OLS is an orthogonality machine. With an intercept, residuals sum to exactly zero. Next: solve the equations and see the projection.
+:::
+
+::: notes
+To summarize part five: the same normal equations fall out of a single geometric demand — the residual e hat must be perpendicular to every column of X, written X transpose e hat equals the zero vector. Minimizing a squared length and dropping a perpendicular are the same act, so OLS is at heart an orthogonality machine. Two facts come free: with an intercept the residuals sum to exactly zero, and they are uncorrelated with every regressor by construction — algebraic identities, not assumptions. In part six we finally solve the normal equations to get the famous formula for beta hat, and we begin to see the geometry whole.
+:::

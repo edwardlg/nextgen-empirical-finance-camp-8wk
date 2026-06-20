@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Major, Minor, and the Verdict
+
+- Part 3 — sort points, render a verdict, hold the norm
+
+::: notes
+Welcome back to Peer Review and Revision, part three of six. In part two we learned the report's skeleton — summary, biggest concern, identification, specification, exposition. Now we sort every point into major or minor, attach evidence to each major point, render an honest verdict, and state the norm that holds the whole enterprise together.
+:::
+
+## Major or Minor — and the Contract
+
+- **Major:** resolution could change the conclusion or your belief
+- **Minor:** improves the paper without touching the verdict
+- Label them — it guides the author and disciplines you
+- For every major point, say what would **change your mind**
+- That turns a complaint into a contract the author can act on
+
+::: notes
+Inside the report, sort every point into major or minor, and label them — most reports use two numbered lists. A major point is one whose resolution could change the paper's conclusion or your belief in it: an unaddressed identification threat, a standard-error flavor that inflates the t-statistics, a sample filter that might drive the result. A minor point improves the paper without touching the verdict: a clearer figure, a missing citation, a confusing sentence. The labeling is a courtesy and a discipline — it tells the author where to spend revision energy, and forces you to decide whether each comment could really change the result. Now the rule that separates a generous referee from a lazy one: for every major point, say what evidence would change your mind. Do not write I am not convinced parallel trends holds. Write: an event-study plot of the denial gap with at least four pre-period leads would let me judge, and flat, insignificant leads would substantially reassure me. The first is a complaint; the second is a contract — it tells the author exactly what to produce and that producing it will move you.
+:::
+
+## Render an Honest, Calibrated Verdict
+
+- A separate, confidential note to the editor
+- Reject, major revision, minor revision, or near-ready
+- Clean design, real data, stress-tested: a revision, even with ten fixes
+- A design that cannot identify the claim: **reject as identified**
+- Plain honesty beats a vague "promising but needs work"
+
+::: notes
+Then, separate from the report, comes your confidential note to the editor with the verdict. In the camp workshop this is the line at the top of your report: is this a reject, a major revision, a minor revision, or near-ready? Be honest and calibrated. A student paper that ran a clean design on real data, found a result, and stress-tested it is a major or even minor revision even if you found ten things to fix — the bones are sound. A paper whose headline rests on a design that cannot identify the claimed effect is a reject as currently identified, no matter how clean the prose. Saying so plainly is kinder than a vague promising but needs work that wastes the author's next month.
+:::
+
+## Tough on the Work, Kind to the Person
+
+- Criticize the paper as hard as the evidence demands
+- Never criticize the author at all
+- "The section does not rule out anticipation" — not "you didn't think"
+- Assume competence and good faith; calibrate warmth to toughness
+- False reassurance is the true cruelty — tough is the kindness
+
+::: notes
+This is the norm that holds the whole enterprise together. Criticize the paper as hard as the evidence demands; never criticize the author at all. The conflation is corrosive — it makes the author defensive, which makes them argue instead of fix. The mechanics are concrete. Write about the paper, not the person: the identification section does not rule out anticipation, not you didn't think about anticipation. Attribute claims to the text: Table Three reports robust standard errors on panel data, which Petersen (2009) shows understates the true sampling variability. Assume competence and good faith. And calibrate warmth to toughness: the harder a point, the more carefully you phrase it, so it is accepted for its content, not rejected for its tone. None of this means going easy. The kindest thing you can do for a peer is find the fatal flaw before the grader does, and find it so clearly they can fix it. False reassurance is the true cruelty — a referee who waves through a broken design has guaranteed a harsher audience breaks it later, when it costs more. Tough on the work is the kindness.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Sort every point into **major** or **minor**, and for every major point state the evidence that would change your mind. Render an honest, calibrated **verdict**. And hold the governing norm: **tough on the work, kind to the person** — false reassurance is the true cruelty.
+:::
+
+::: notes
+To summarize part three: sort every comment into major and minor, and for each major point state, like a contract, the evidence that would change your mind. Render a verdict that is honest and calibrated. And govern it all with the norm: tough on the work, kind to the person, because false reassurance is the true cruelty. In part four we watch this in action as Devon writes his real report on Maya's fair-lending paper.
+:::

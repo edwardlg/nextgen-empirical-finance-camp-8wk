@@ -1,0 +1,56 @@
+---
+date: "2026-06-22"
+---
+
+## Why Naive Standard Errors Lie
+
+- Part 2 — why naive SEs fail, and which way they fail
+
+::: notes
+Welcome back to "the standard error is the whole ballgame," part two of six. In part one, the same beta hat, zero point four two, gave Maya two opposite verdicts depending on her story about Omega. Now we ask the mechanical question: why does naive inference go wrong, and which way does it fail? The answer is a single false assumption and one brutal piece of arithmetic.
+:::
+
+## The Assumption That Fails
+
+- Classical formula assumes $\boldsymbol\Omega = \sigma^2 \mathbf{I}$
+- Equal variances, **zero** correlation between any two errors
+- In finance, that assumption is essentially always false
+- Errors are heteroskedastic, grouped, and time-correlated
+
+::: notes
+Why does this happen, mechanically? Because the classical formula assumes Omega equals sigma-squared times the identity matrix. In plain words: every error has the same variance, and no two errors are correlated. In finance, that assumption is essentially always false. Errors are heteroskedastic — bigger loans bring bigger surprises. They are correlated within groups — firms, lenders, states share shocks. And they are correlated across time — this month echoes last month. Each of those is a different shape for Omega, and each makes the naive standard error wrong. The classical formula is the sandwich computed for a fantasy diet, a world that does not exist in financial data.
+:::
+
+## Almost Always Too Small
+
+- Positive within-group correlation $\Rightarrow$ less independent information than $N$ suggests
+- Moulton arithmetic: true Var $\approx$ naive Var $\times\,[\,1 + (n-1)\rho_x\rho_\varepsilon\,]$
+- Damage scales with **cluster size** $n$
+- A t-stat of $6.0$ can honestly be a $1.8$
+- More obs *inside* clusters don't buy evidence; more *clusters* do
+
+::: notes
+And here is the direction it fails: the naive standard error is almost always too small. Positive within-group correlation means your observations carry less independent information than the raw count N suggests. If loans inside a lender move together, you do not really have nine thousand independent loans — you have something closer to the number of lenders. The Moulton-style arithmetic from Chapter two-point-four makes this precise and brutal. The true variance is approximately the naive variance times the quantity one plus, open bracket, n minus one, times rho-x times rho-epsilon. Here n is the cluster size, and the two rhos measure correlation in the regressor and in the errors. The key feature: the damage scales with cluster size. With clusters of size n and even mild within-cluster correlation, the true variance can be many times the naive one. A t-statistic of six point zero can honestly be a one point eight. The practical lesson follows immediately: more observations inside your existing clusters do not buy you evidence — only more clusters do.
+:::
+
+## The Mental Shift
+
+- Stop treating the SE as a technical afterthought
+- The standard error **is** the result
+- It separates "I computed a number" from "I'm entitled to believe it"
+- A referee spends 30 seconds on $\hat\beta$, 30 minutes on the SE
+
+::: notes
+So here is the mental shift for today. Stop thinking of the standard error as a small technical afterthought you append to a result. The standard error is the result, in the sense that it is the only thing standing between "I computed a number" and "I am entitled to believe it." A referee will spend thirty seconds on your point estimate and thirty minutes on how you computed its uncertainty — what level you clustered at, whether you had enough clusters, whether you confused fixed effects with clustering. Today we learn to think the way that referee thinks, by making the same beta hat tell two different stories and deciding which one is honest.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The classical SE assumes $\boldsymbol\Omega = \sigma^2 \mathbf{I}$ — a fantasy. Positive within-group correlation makes the naive SE **too small** and the t-stat **too big**, and the damage scales with **cluster size**. Overconfidence is the default failure mode.
+:::
+
+::: notes
+To summarize part two: the classical standard error assumes Omega equals sigma-squared times the identity — equal variances and zero correlation — which financial data essentially never satisfies. Positive within-group correlation means each observation carries less independent information than the count suggests, so the naive standard error comes out too small and the t-statistic too big. By the Moulton arithmetic, the damage grows with cluster size, so overconfidence is the default failure mode. In part three we sharpen this with three Socratic warm-up questions — the honest answers and the dishonest ones.
+:::

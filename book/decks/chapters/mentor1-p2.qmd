@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Gate Two: Big Enough To Matter?
+
+- Part 2 — significance versus effect size, and the honest report
+
+::: notes
+Welcome back to Mentor Session one, part two of four. In part one we framed the gauntlet — three gates a number must clear to become a finding — and walked through gate one, where the t-statistic asks only whether an estimate is too far from zero to be zero. Now gate two, where a result can pass gate one with flying colors and still be worthless. This is where statistical significance and real-world importance part company.
+:::
+
+## Significance Is Not Importance
+
+- A result can be significant and economically **trivial**
+- Scale Sam's edge to $100{,}000$ days
+- Eight ten-thousandths of a percent becomes "wildly significant"
+- A t-statistic of $5$, a microscopic p-value
+- Still worthless — dies to the first basis point of costs
+- Significance = *precision*; effect size = *magnitude*
+
+::: notes
+Gate two asks: is the effect big enough to matter? A result can be statistically significant and economically trivial at the same time. Watch this. Take Sam's backtest and scale it to one hundred thousand days. Now an edge of eight ten-thousandths of a percent — a truly microscopic number — becomes, in the language of significance, wildly significant: a t-statistic of five, a vanishingly small p-value. And it is still completely worthless, because it dies to the very first basis point of trading costs. So what went wrong? Nothing went wrong with the statistics. The problem is that statistical significance is a statement about *precision* — how sharply you can distinguish the estimate from zero — while effect size is a statement about *magnitude*, how big the thing actually is. They answer different questions, and they can disagree in both directions. A huge sample can make a meaningless edge look certain. A small sample can leave a real, important edge looking unconvincing.
+:::
+
+## The Four Cases, and the Honest Report
+
+- Significant + large — the dream
+- Significant + tiny — huge $N$, worthless edge
+- Insignificant + large — *the dangerous one*
+- Insignificant + small — little there, weakly measured
+- Always report estimate **and** confidence interval
+- Asterisks are not findings
+
+::: notes
+It helps to lay out all four cases. Significant and large — that is the dream, a real effect you can also see clearly. Significant and tiny — that is the huge-sample trap we just saw, a worthless edge dressed up as certainty. Insignificant and large — this is the dangerous one, and the one people misread most often: there may be a real, important signal sitting in your data, but it is too noisy to confirm with the sample you have, and a failure to reject is not proof it is absent. And insignificant and small — not much there, and weakly measured anyway. The discipline that protects you across all four cases is simple: always report the estimate *and* its confidence interval, never just a verdict. A confidence interval shows you the magnitude and the honest range around it in one glance — it tells you both whether you can rule out zero and how big the effect plausibly is. A finding comes with a number, in the units of the problem, and an honest range around it. Asterisks are not findings.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Gate two** separates *significance* (precision — can I tell it apart from zero?) from *effect size* (magnitude — is it large enough to act on?). A huge sample makes trivial edges "significant"; a small sample leaves real edges unconfirmed. Report the **estimate and its confidence interval**, never a bare verdict — asterisks are not findings. Next: gate three, the question that kills most findings.
+:::
+
+::: notes
+To summarize part two: gate two asks whether the effect is big enough to matter, and it forces apart two ideas that beginners constantly fuse. Statistical significance is about precision — whether you can tell the estimate apart from zero. Effect size is about magnitude — whether it is large enough to act on. A giant sample can make a trivial edge look wildly significant; a small sample can leave a genuinely large edge looking inconclusive. The defense is to always report the estimate together with its confidence interval, never a bare verdict, because asterisks are not findings. In part three we face gate three — the gate that sends most so-called findings to the graveyard.
+:::

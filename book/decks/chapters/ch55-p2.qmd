@@ -1,0 +1,60 @@
+---
+date: "2026-06-22"
+---
+
+## The Placebo-Law Experiment
+
+- Part 2 — measuring test size with a known-null fake law
+
+::: notes
+Welcome back to lesson five, part two of five. In part one we framed B-D-M's question: when DiD researchers say significant at five percent, is the true false-positive rate really five percent, or something far worse? It is a size question, and it is answerable. Now we see how they answer it. The placebo-law experiment is the heart of the paper, and it is almost mischievous in its simplicity.
+:::
+
+## You Cannot Just Stare at a Standard Error
+
+- A SE is a claim about a **sampling distribution**
+- It asks how $\hat\beta$ would bounce if you reran history
+- B-D-M's move: **rerun history on purpose, under a known null**
+- Take a real panel — actual state-year data, real serial correlation
+- Invent a **fake law**: random states, random start year
+- True effect is, by construction, exactly **zero**
+
+::: notes
+How do you test whether a standard error is honest? You cannot just stare at one. A standard error is a claim about a sampling distribution, about how much beta-hat would bounce around if you could rerun history. B-D-M's move is to rerun history on purpose, under a null they control, and count how often the test misbehaves. The recipe: take a real panel, actual state-year data on some outcome like women's wages, with all its real serial correlation baked in. Now invent a fake law. Pick a random subset of states and declare they were treated starting in some random year. There was no real law; nothing actually happened to those states. So the true effect of this placebo intervention is, by construction, exactly zero.
+:::
+
+## Count How Often the Test Cries Wolf
+
+- Run standard DiD, conventional SE, get the placebo $t$
+- Ask the Week-One question: did $|t|$ cross **1.96**?
+- Repeat hundreds or thousands of times, fresh random law each run
+- Fraction "significant" = the **true size** of the test
+- Same logic as the Week-One coin-flip lab — a known-null universe
+- Industrialized into a **referendum on the method**
+
+::: notes
+Then run the standard DiD regression with the conventional standard error, compute the t-statistic on the placebo treatment, and ask the Week-One question: did it cross one-point-nine-six? Now repeat. Draw a new random set of placebo states and a new random year, run it again, check significance again. Do this hundreds or thousands of times. Each run is a draw from a world where the null, no effect, is known to be true, because you made it true. So the fraction of runs that come back significant is a direct, brute-force estimate of the true size of the test. This is exactly the simulation logic from the Week-One coin-flip lab, where you built a universe with a genuinely fair coin and counted how often your test wrongly called it biased. B-D-M build a universe with a genuinely null law and count how often DiD wrongly calls it real. Note the kinship with Week Four's permutation inference for Priya's one-treated-state design: there you assigned the fake treatment to each control state to build a null distribution for one study. B-D-M industrialize the same idea into a referendum on the method itself.
+:::
+
+## The Punchline Waiting to Be Sprung
+
+- Honest SEs $\Rightarrow$ placebo rejection rate near **5 percent**
+- That is what "5 percent" *means*
+- Reject far more than 5 percent $\Rightarrow$ SE **caught red-handed**
+- Too small, $t$ inflated, the test is **crying wolf**
+- Abstract worry $\rightarrow$ **a single number off a table**
+
+::: notes
+And here is the whole experiment's punchline, waiting to be sprung. If the standard errors were honest, the placebo rejection rate would come back at about five percent, because that is exactly what five percent means. Reject five percent of the time on data you know is null, and the machinery is working as advertised. Reject far more than five percent, and you have caught the standard error red-handed: it is too small, the t-statistics are inflated, and the test is crying wolf. The placebo design converts an abstract worry about serial correlation into a single number you can read off a table, the empirical size of the test. That conversion, from "I suspect the standard errors are wrong" to "here is the false-positive rate, measured," is the identification strategy of the entire paper.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **placebo law** has a true effect of exactly zero by construction, so every rejection is a false positive. Run it thousands of times and the rejection rate *is* the test's true size. Honest SEs give ~5%; anything far higher convicts the standard error.
+:::
+
+::: notes
+To summarize part two. The placebo-law experiment invents fake laws on random states in random years, so the true effect is zero by construction and every rejection is a false positive, no ambiguity. Run it thousands of times and the fraction significant is a direct estimate of the test's true size. If the standard errors are honest you get about five percent; anything far higher convicts the conventional standard error of being too small. In part three we look at the data this runs on, and the order in which a professional reads the paper's tables.
+:::

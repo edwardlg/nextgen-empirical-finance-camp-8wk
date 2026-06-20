@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## The Wald Estimator
+
+- Part 4 — IV as a reduced-form-over-first-stage ratio
+
+::: notes
+Welcome back to instrumental variables, part four of ten. In part three we established the two conditions — relevance, testable, and exclusion, only arguable — and met Maya's random mailer. Now we turn the magic ratio into a transparent formula for the simplest case: a binary instrument, a binary treatment, no controls. This is exactly Maya's setup, and it is called the Wald estimator.
+:::
+
+## The Formula
+
+- Binary $Z \in \{0,1\}$, binary $D \in \{0,1\}$, no controls
+- "Moves with $Z$" becomes a **difference in means**
+- $\hat{\beta}_1^{\text{Wald}} = \dfrac{\overline{Y}_{Z=1} - \overline{Y}_{Z=0}}{\overline{D}_{Z=1} - \overline{D}_{Z=0}}$
+- Numerator = **reduced form**: mailer's effect on $Y$
+- Denominator = **first stage**: mailer's effect on completion
+
+::: notes
+Start with the simplest case, because the formula is transparent and the intuition is total. Recall the magic ratio: the effect is how Y moves with Z over how D moves with Z. With a binary instrument, "moves with Z" is just a difference in means between the Z-equals-one and Z-equals-zero groups. So the Wald estimator is the mean outcome among the mailed minus the mean outcome among the unmailed, divided by the share completing among the mailed minus the share completing among the unmailed. The numerator is the reduced form — the raw effect of the mailer on debt, ignoring the course entirely; it is exactly the difference-in-means from a randomized experiment where the treatment is the offer. The denominator is the first stage — the effect of the mailer on completion. The Wald estimator scales up the reduced form by the first stage.
+:::
+
+## A Number
+
+| Group | Share completing $\overline{D}$ | Mean balance change $\overline{Y}$ |
+|---|---|---|
+| Mailed | $0.40$ | $-\$120$ |
+| Not mailed | $0.10$ | $-\$30$ |
+
+- First stage: $0.40 - 0.10 = 0.30$
+- Reduced form: $-120 - (-30) = -\$90$
+- $\hat{\beta}_1^{\text{Wald}} = \dfrac{-90}{0.30} = -300$
+
+::: notes
+Suppose Maya's data look like this. Among the mailed, forty percent completed the course and the mean balance change was negative one hundred twenty dollars. Among the unmailed, ten percent completed and the mean balance change was negative thirty dollars — and remember, lower is better here. The first stage is forty percent minus ten percent, which is zero-point-three-zero. The reduced form is negative one hundred twenty minus negative thirty, which is negative ninety dollars. The Wald estimate is negative ninety divided by zero-point-three, which equals negative three hundred. Read it carefully. The mailer improved balances by ninety dollars on average, but it only got an extra thirty percent of people into the course. If the only way the mailer helped was by getting people in, then that ninety-dollar improvement came entirely from the thirty percent who enrolled because of it. So the per-completer effect must be ninety divided by zero-point-three — three hundred dollars.
+:::
+
+## Why This Beats OLS
+
+- OLS compares **all** completers to all non-completers
+- That sweeps in motivated always-takers — contaminated
+- Wald compares only **mailed vs. unmailed** — random groups
+- Identical in motivation, so the contrast is clean
+- Price: "\$300" is the effect for a **specific subgroup**
+
+::: notes
+Why does this beat OLS? OLS would compare all completers to all non-completers — including the highly motivated people who would have completed the course no matter what, and whose great debt outcomes have nothing to do with the course. The Wald estimator never makes that contaminated comparison. It only ever compares the mailed group to the unmailed group, and since mailing was random, those two groups are identical in motivation. The contrast is clean. The price — and it is the central subtlety of all IV — is that three hundred dollars is the effect for a specific subpopulation: the people the mailer actually moved. One more reading locks it in. The reduced form equals the first stage times the effect-per-complier; dividing recovers it. The instrument's job is to deliver a dose of treatment; the Wald ratio strips the offer back down to the effect of the dose. We unpack who those responders are shortly.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **Wald estimator** is the reduced form divided by the first stage: $(\overline{Y}_{Z=1}-\overline{Y}_{Z=0})$ over $(\overline{D}_{Z=1}-\overline{D}_{Z=0})$. It compares only the random mailed-versus-unmailed groups, so motivation cancels — but the answer is the effect for the people the instrument moved, not everyone.
+:::
+
+::: notes
+To summarize part four: the Wald estimator is IV for a binary instrument — the reduced form, the mailer's effect on the outcome, divided by the first stage, the mailer's effect on completion. In Maya's numbers, negative ninety dollars over zero-point-three gives negative three hundred dollars per completer. It beats OLS because it only ever contrasts the randomly mailed and unmailed groups, which are identical in motivation, so the comparison is clean. But the estimate belongs to a specific subgroup — the responders. In part five we generalize from one binary instrument and no controls to the real workhorse: two-stage least squares, seen through the Frisch–Waugh–Lovell lens you built in Chapter two-point-three.
+:::

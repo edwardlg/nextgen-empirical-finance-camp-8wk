@@ -1,0 +1,53 @@
+---
+date: "2026-06-22"
+---
+
+## The Funnel Is Mostly a Furnace
+
+**Learning objectives.** By the end you can:
+
+- Treat the research funnel as a furnace that destroys ideas
+- Kill ideas early, on paper, without grief
+- Spot fatal flaws before running any regression
+- Commit hard to one defensible question
+
+::: notes
+Welcome to Week Seven's mentor session, part one of nine: how I pick a project, and how I kill one. Yesterday's chapter handed you a machine for turning a mood into a sentence — the puzzle, the so-what filter, the four-slot hypothesis grammar, the scoring rubric. I use a version of it every week. But it leaves out the part of the job no rubric can do for you, because it is emotional rather than technical: the killing. By the time a paper of mine reaches a journal, I have abandoned somewhere between ten and thirty ideas. Today is the unglamorous half of the funnel.
+:::
+
+## Generating Is Easy — Killing Is Hard
+
+- A funnel: many ideas in, **one project** out
+- Its real job is not to select — it is to **destroy**
+- Roughly **ten ideas burned** per survivor
+- Finishers kill ideas they already love, early
+- I abandon **ten to thirty ideas** per paper
+- That is the process working, not failing
+
+::: notes
+Picture the research process as a funnel: wide at the top where ideas go in, narrow at the bottom where one project comes out. Beginners imagine the funnel's job is to select — to recognize the one good idea among the noise. That is half right. Its real job is to destroy: it is a furnace that burns roughly ten ideas for every one it lets through, and the heat is the point. An idea that has not survived a serious attempt to kill it is not a good idea, it is an untested one, and untested ideas are where months go to die. The biggest difference between people who finish good research and people who do not is not cleverness at generating ideas; almost everyone can generate ideas. It is the willingness to kill the ones they have already fallen in love with, early, before the love becomes sunk cost and the sunk cost becomes a year you cannot get back. So the discipline I want you to learn today is not how to fall in love — you already know how — it is how to fall out of love quickly and cheaply, on paper, before the data and the deadline make the breakup expensive.
+:::
+
+## Enemy One: Sunk Cost
+
+- Cleaned data starts **arguing for its own survival**
+- "I can't quit — I already cleaned forty thousand rows"
+- Those rows are **gone whether you continue or not**
+- The only honest question is **forward-looking**
+- From here, is this the best use of weeks left?
+- Write the cost off; **decide from here**
+
+::: notes
+The first enemy of cheap killing is a bias you will recognize from any decision you have ever regretted: sunk cost. Once you have spent a week scraping a dataset, the dataset starts arguing for its own survival — I cannot quit now, I have already cleaned forty thousand rows. But the rows you have already cleaned are gone whether you continue or not; they are not a reason to continue, they are a reason you wish you had a reason. The only honest question at every checkpoint is forward-looking: given what I know now, and ignoring everything I have already spent, is this still the best use of the weeks I have left? I make myself answer that question on purpose, because my instincts will not ask it — my instincts will defend the work I have done. Write the cost off. Decide from here.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The research funnel's real job is to **destroy** — burning about ten ideas per survivor. The first enemy of cheap killing is **sunk cost**: spent time argues for itself, but the only honest question is forward-looking — *from here, is this the best use of the weeks I have left?*
+:::
+
+::: notes
+To summarize part one: the funnel is mostly a furnace, and its job is to destroy roughly ten ideas for every one that survives. The discipline is falling out of love cheaply, on paper, before the data and deadline make it expensive. The first enemy is sunk cost — the work you have already done will defend itself, but spent time is gone either way; decide from here. In part two we add the second enemy: the inert project, caught by the so-what test pointed at your own work.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## How to Read an RD Plot
+
+- Part 12 — how to read an RD plot like a referee
+
+::: notes
+Welcome back to regression discontinuity, part twelve of seventeen. In part eleven we automated the bandwidth and reached for robust intervals. Now we step away from regressions. R-D is the most visual design in this book, and a good R-D plot is half the argument. Before any regression, plot the data — because the human eye is an excellent jump-detector, and an even better fraud-detector.
+:::
+
+## The Binned Scatter
+
+- Chop the running variable into bins, say every two ranks
+- Compute the *mean* outcome within each bin
+- Plot one dot per bin against the bin's center
+- Raw scatterplots are too noisy; binning averages out the noise
+- Dots should trace a smooth trend on each side of $c$
+
+::: notes
+A canonical R-D plot has three elements layered together. The first is the binned scatter. Chop the running variable into bins — say, every two ranks — compute the mean outcome within each bin, and plot one dot per bin against the bin's center. Raw scatterplots of individual observations are too noisy to read; binning averages away the idiosyncratic noise and reveals the shape of the conditional mean of Y given X. Each dot is a local average, and the dots should trace out a smooth trend on each side of the cutoff. The number of bins is itself a choice — too few hides the shape, too many re-introduces noise — and r-d-robust's companion plotting tool, r-d-plot, picks a sensible default for you.
+:::
+
+## The Fitted Curves and the Jump
+
+- Overlay the local polynomial fit: two curves, one each side
+- Each extrapolated *to* $c$ but not across it
+- Show them only over the bandwidth you actually used
+- At $c$, the two curves meet at two different heights
+- The vertical gap is $\hat\tau$ — and it should be *visible*
+
+::: notes
+The second element is the fitted curves. Overlay the local polynomial fit — two separate curves, one on each side of the cutoff, each extrapolated to the cutoff but not across it. These are the lines whose boundary heights you are differencing. Show them only over the bandwidth you actually used, so the reader sees the window your estimate rests on. The third element is the jump itself. At the cutoff, the two fitted curves meet the boundary at two different heights, and the vertical gap between them is tau-hat. A convincing sharp-R-D plot shows a clear, visible step at the cutoff with smoothly-trending dots approaching from both sides. The jump should be obvious to the naked eye, not something only a regression can find. If you cannot see the discontinuity in a well-binned plot, be deeply skeptical of a regression that claims one.
+:::
+
+## Read It Like a Referee
+
+- Is there a visible jump *at the cutoff, and only there*?
+- A jump elsewhere warns of a functional-form artifact
+- Are the side-trends smooth, or is a high-order wiggle fit?
+- For fuzzy: plot the *treatment* too — confirm the first stage
+- Plot pre-determined covariates — they should *not* jump
+
+::: notes
+Here is how to read an R-D plot like a referee. First, is there a visible jump at the cutoff, and only at the cutoff? A jump somewhere other than the cutoff is a warning that your effect might be an artifact of functional form. Second, are the trends on each side smooth and gentle, or is a high-order wiggle being fit? Gentle, near-linear trends are reassuring; a curve doing gymnastics to hit the boundary is the Gelman–Imbens pathology made visible. Third, for a fuzzy design, plot the treatment too — make a second R-D plot with the treatment probability on the vertical axis and confirm there is a real jump in treatment at the cutoff, which is your first stage. Fourth, plot pre-determined covariates the same way — they should not jump. A good R-D paper is a wall of these plots, and learning to read them is learning to audit the design.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A canonical RD plot layers three things: a **binned scatter**, **two fitted curves** extrapolated to $c$, and the **visible jump** between them. If you cannot *see* the step in a well-binned plot, distrust any regression that claims one. Plot the treatment and the covariates too. Next: the McCrary density test for manipulation.
+:::
+
+::: notes
+To summarize part twelve: R-D is the most visual design in this book, and the plot is half the argument. A canonical R-D plot layers three things — a binned scatter that averages away noise, two fitted local-polynomial curves each extrapolated to the cutoff, and the visible vertical jump between them. Read it like a referee: a jump at the cutoff and only there, gentle side-trends rather than high-order gymnastics, a real first-stage jump for fuzzy designs, and no jumps in pre-determined covariates. If you cannot see the step, distrust the regression. In part thirteen we turn to the local-randomization story's one fatal enemy — manipulation — and the McCrary density test that hunts for it.
+:::

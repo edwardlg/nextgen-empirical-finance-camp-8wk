@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Sign Flip, Traced by Hand
+
+- Part 6 — TWFE comes out positive, and the forbidden comparison traced
+
+::: notes
+Welcome back to Chapter four-point-two, part six of twelve. In part five we built a two-state world where every treatment effect is negative and the true average is about minus three-point-five. Now we run the regression on those sixteen observations, watch the coefficient come out positive — the wrong sign — and trace, by hand, exactly the forbidden comparison that does it.
+:::
+
+## The Coefficient Comes Out Positive
+
+- Run TWFE on these sixteen observations
+- $\hat\beta = +0.40$ — **the wrong sign**
+- A policy that helped every treated state-year reads as harmful
+- Not imprecise — *wrong*
+- How can demeaning all-negative effects give a positive?
+
+::: notes
+Now run the two-way fixed-effects regression on these sixteen observations. You can do it by hand — it is just two-way demeaning — or trust the arithmetic: the coefficient comes out positive, beta hat equals plus zero-point-four-zero. A policy that lowered non-renewals in every single treated state-year produces a regression coefficient saying it raised them. The sign is wrong. Not imprecise — wrong. How can demeaning a table of all-negative effects produce a positive number? The intuition is everything here, and we trace it now.
+:::
+
+## The Forbidden Comparison, Traced
+
+- Years 5–8: to estimate L, TWFE needs a control
+- Only candidate is State E — **already treated** throughout
+- E's effect still deepening: $-4$ down to $-7$
+- E slides *faster* than freshly-treated L
+- So L looks like it *rises* relative to E — sign flips
+
+::: notes
+Focus on years five through eight, when State L is treated. To estimate L's effect, the regression wants a control — a unit whose status did not change when L switched on. With no never-treated state, the only available comparison is State E, and State E is already treated throughout years five to eight, stuck at treatment equals one. So the regression has no choice but to use already-treated State E as the control for newly-treated State L. And what is State E doing? Its own effect is still deepening, dropping from minus four to minus seven — for reasons that have nothing to do with L. When the regression differences L's change against E's change, E is not a flat baseline; it is sliding downward under its own still-growing effect, and sliding faster than the freshly-treated L. So L's outcome looks like it is rising relative to E, even though L's own non-renewals are falling. The forbidden comparison subtracts E's still-growing effect from L's, and the differenced quantity flips positive. With no clean control to dilute it, that forbidden comparison dominates, and beta hat comes out the wrong sign. Add even one never-treated state and the catastrophe is contained — the coefficient stays negative but badly attenuated, around minus one-point-two instead of the truth.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+TWFE used **already-treated** State E — whose own effect was still deepening from $-4$ to $-7$ — as the control for **newly-treated** State L. E's motion got subtracted from L's, flipping $\hat\beta$ to $+0.40$ on data where every true effect is negative. With no never-treated state to dilute it, that one forbidden comparison wins.
+:::
+
+::: notes
+To summarize part six: that one table is the entire crisis. Hold the mechanism. The regression used an already-treated unit, State E, whose own effect was still changing — deepening from minus four to minus seven — as a control for a newly-treated unit, State L. The changing effect of the contaminated control got subtracted from the thing you were trying to measure. Because there was no never-treated state to provide a clean comparison and dilute the poison, that single forbidden comparison dominated the pooled average and flipped beta hat to plus zero-point-four-zero, on data where every true effect is negative and the true average is about minus three-point-five. In part seven, we stop hand-tracing and make this exact: the Goodman-Bacon decomposition, which proves the pooled coefficient is, identically, a weighted average of every possible two-by-two.
+:::

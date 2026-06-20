@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## The PSM Workflow on Maya's Program
+
+- Part 6 — the full four-step workflow on simulated numbers
+
+::: notes
+Welcome back to selection on observables, part six of nine. In part five we built nearest-neighbor matching with its three knobs. Now we run the whole pipeline on a simulated version of Maya's question — simulated so we know the truth — and watch the selection bias dissolve in front of us.
+:::
+
+## The Setup We Can Grade
+
+- 4,000 simulated applicants
+- Three confounders: **creditworthiness**, **income**, **age**
+- Savvier applicants enroll more *and* get approved more — the selection
+- We engineer a true effect $\tau = 0.8$ on the approval index
+- We observe only one outcome per person
+
+::: notes
+Let us run the whole thing on a simulated version of Maya's question. We build four thousand applicants. Three observed confounders drive both enrollment and approval: a standardized creditworthiness index, income, and age. Savvier applicants enroll more and get approved more regardless — that is the selection. We engineer a true program effect, a shift of point-eight on the approval index, so we can grade ourselves against a known answer. Each applicant has both potential outcomes by construction, but we observe only the one matching their treatment — just like real data. From this we compute two benchmarks: the true effect on the treated, and the contaminated naive comparison.
+:::
+
+## Truth Versus the Naive Lie
+
+- **True ATT** $= 0.322$: about 32 points of real benefit
+- **Naive difference** $= 0.629$ — nearly *double* the truth
+- Gap $0.629 - 0.322 = 0.307$ is the **selection bias**
+- Enrollees would be approved more *even without the course*
+- The naive number is a textbook lie
+
+::: notes
+Running it, the true effect on the treated is point-three-two-two: the program raises the approval rate of enrollees by about thirty-two percentage points. The naive difference between enrollees and non-enrollees is point-six-two-nine — nearly double the truth. The gap, point-three-zero-seven, is the selection bias made of flesh: enrollees would have been approved at much higher rates even without the course, because they are the higher-credit, higher-income applicants. The naive number is a textbook lie. Our job now is to see whether propensity-score matching can recover the true thirty-two points from the contaminated data.
+:::
+
+## The Four-Step PSM Workflow
+
+- **Step 1:** estimate $\hat e(\mathbf{X})$ by logistic regression of $D$ on $\mathbf{X}$
+- **Step 2:** 1:1 nearest-neighbor match, with replacement, with a caliper
+- **Step 3:** ATT $=$ mean within-pair outcome difference
+- **Step 4:** **check balance** — not optional
+- The outcome $Y$ never enters the matching
+
+::: notes
+Now the workflow, in four steps. Step one: estimate the propensity score by a logistic regression of D on credit, income, and age. Step two: do one-to-one nearest-neighbor matching on the score, with replacement, applying a caliper of point-two times the score's standard deviation, dropping any treated unit whose nearest control falls outside it. Step three: the effect estimate is the mean within-pair outcome difference — each matched enrollee's outcome minus its control's. Step four, not optional and the whole subject of part seven: check that the matching actually balanced the covariates. Notice the firewall: at no point does the outcome Y enter the matching. The score was built from X and D only.
+:::
+
+## The Payoff and Why ATT
+
+- Matched estimate $\approx 0.31$ — essentially the true $0.322$
+- A world away from the naive $0.629$
+- Each enrollee compared to an equally-likely-to-enroll control
+- **ATT** only needs counterfactuals for the **treated**
+- Plenty of untreated units to match — the path of least resistance
+
+::: notes
+The payoff: this recovers an effect estimate of about point-three-one — essentially the true point-three-two-two, and a world away from the naive point-six-two-nine. Matching on the single estimated score stripped out the selection bias, because it compared each enrollee to a non-enrollee just as likely to have enrolled — same credit, income, and age, on average — and so just as likely to have been approved anyway. The leftover difference is the program. And now the reason the effect on the treated is the natural target becomes visible. We matched every treated unit to a control, reusing controls freely; we never had to find a treated twin for each control. The effect on the treated only needs counterfactuals for the treated, and there are usually plenty of untreated units to draw from. The full effect on everyone would also require imputing the treated outcome for the untreated, demanding overlap in the other direction. Matching's asymmetry makes the effect on the treated the path of least resistance.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+On simulated data, the true ATT is $0.322$ but the **naive gap is $0.629$** — a textbook lie made of selection bias. The four-step workflow — estimate $\hat e$, match with caliper, take the mean pair difference, **then check balance** — recovers $\approx 0.31$. Matching reused controls freely, which is exactly why **ATT** is the natural target. Next: the balance check that makes $0.31$ believable.
+:::
+
+::: notes
+To summarize part six. On simulated data where we know the truth, the real effect on the treated is point-three-two-two, but the naive comparison reads point-six-two-nine — nearly double, the gap being pure selection bias. The four-step workflow — estimate the score, do caliper nearest-neighbor matching, take the mean within-pair difference, then check balance — recovers about point-three-one, essentially the truth, because each enrollee was compared to a control just as likely to enroll. But step four licenses belief in the number — so in part seven, we study balance diagnostics, and the iron rule that you check balance, never the outcome.
+:::

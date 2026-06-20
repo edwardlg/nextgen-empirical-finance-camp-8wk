@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Cluster-Robust Sandwich
+
+- Part 9 — block-diagonal $\boldsymbol\Omega$ and the few-clusters trap
+
+::: notes
+Welcome back to heteroskedasticity, clustering, and HAC, part nine of twelve. In part eight we saw why ignoring within-group correlation is catastrophic — the Moulton factor turned Maya's t-stat of six into a true one point eight. Now we build the cluster-robust sandwich that repairs Omega, see that White SEs are just a special case of it, and confront the few-clusters trap that can bring the overconfidence right back.
+:::
+
+## The Cluster-Robust Sandwich
+
+- Within correlated, across zero $\Rightarrow$ $\boldsymbol\Omega$ **block-diagonal**
+- One dense block per cluster, zeros elsewhere
+- Middle sums over $G$ clusters: $\sum_g \mathbf{X}_g'\hat{\boldsymbol\varepsilon}_g\hat{\boldsymbol\varepsilon}_g'\mathbf{X}_g$
+- Outer product keeps within-cluster covariances White threw away
+- White SEs = cluster SEs with every cluster of size one
+- Same machine, zoomed out from points to groups
+
+::: notes
+The fix is the same sandwich, with a middle built from whole clusters instead of single points. If errors are correlated within cluster g but uncorrelated across clusters, then Omega is block-diagonal — a big matrix with dense blocks down the diagonal, one block per cluster capturing all the within-cluster covariances, and zeros everywhere else. The middle of the sandwich becomes a sum over the G clusters of X-g prime, times epsilon-hat-g, times epsilon-hat-g prime, times X-g, where X-g is the block of regressor rows for cluster g and epsilon-hat-g is its vector of residuals. Compare this to White's HC0: there the middle summed each observation's squared residual times x-i x-i prime; here it sums over whole clusters, and the outer product epsilon-hat-g times epsilon-hat-g prime deliberately keeps the within-cluster covariances — the products of residuals for two loans in the same lender — that White's version threw away. White SEs are just cluster SEs where every cluster has size one. It is the same machine, zoomed out from points to groups.
+:::
+
+## Naming the Level, and the Few-Clusters Trap
+
+- You must **name the clustering level** — an economic claim about $\boldsymbol\Omega$
+- "By lender" vs "by state": which off-diagonal blocks exist
+- Consistent as $G \to \infty$, **not** as $N \to \infty$
+- Few clusters $\Rightarrow$ SE noisy and biased **downward** — overconfident again
+- Rule of thumb: want $\gtrsim 30$–$50$ clusters
+- Fewer? Use $t$ with $G-1$ df, or the wild cluster bootstrap
+
+::: notes
+Two practical points finish the story. First, the empirical-spec discipline now has teeth: when you write a spec you must name the clustering level, and that choice is an economic claim about where Omega's off-diagonal blocks live. Clustered by lender asserts that two loans from the same lender have correlated errors and two loans from different lenders do not. If you believe the correlation actually lives at the state level — shared regulation, shared economy — you cluster by state, and the blocks get bigger. Second, there is a catch that bites hard in finance. The cluster-robust estimator is consistent as the number of clusters G goes to infinity, not as N goes to infinity. The asymptotics live in G, not in N. If Maya clusters by state she has at most fifty clusters; by broad industry, maybe twelve. With few clusters the cluster-robust SE is itself noisy and biased downward — overconfident again, the very disease we are treating. The rough rule of thumb is that you want at least thirty to fifty clusters before you trust the cluster-robust normal-approximation t-test at face value. Below that, you reach for fixes: the small-sample t-distribution with G minus one degrees of freedom rather than the normal, or the wild cluster bootstrap of Cameron, Gelbach and Miller, two thousand eight, which resamples whole clusters and is the current standard remedy for the few-clusters problem.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+With within-group correlation, $\boldsymbol\Omega$ is **block-diagonal**, and the cluster-robust sandwich sums over whole clusters — keeping the covariances White discarded. White SEs are just cluster SEs with clusters of size one. But the estimator is consistent in the **number of clusters** $G$: want $\gtrsim 30$–$50$, or use the wild cluster bootstrap.
+:::
+
+::: notes
+To summarize part nine. When errors correlate within groups, Omega is block-diagonal, and the cluster-robust sandwich rebuilds the filling from whole clusters, deliberately keeping the within-cluster covariances that White discarded. White SEs are just the special case with clusters of size one. Naming the clustering level is an economic claim about Omega, and the estimator's asymptotics live in the number of clusters, not the number of observations — so with fewer than thirty to fifty clusters you become overconfident again and should use the t-distribution with G minus one degrees of freedom or the wild cluster bootstrap. In part ten we extend the same machine to correlation across time: the HAC, or Newey–West, estimator.
+:::

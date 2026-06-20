@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Conditional Expectation
+
+- Part 4 — build conditional expectation, itself a random variable
+
+::: notes
+Welcome back to Joint, Conditional, and the Two Laws That Run Everything — part four of eight. In part three we defined independence and warned that uncorrelated is not the same as independent. Now we combine conditioning with averaging to build the single most useful object in the course: the conditional expectation. We compute Sam's expected return in each regime, then make the conceptual leap that everything later depends on — this object is itself a random variable, the very thing regression estimates.
+:::
+
+## The Unconditional Mean
+
+- Mean of a discrete variable: $\mathbb{E}[X]=\sum_x x\,p_X(x)$
+- $\mathbb{E}[X]=(-2)(0.20)+(0)(0.45)+(2)(0.35)$
+- $=-0.40+0+0.70=0.30\%$
+- On an average day, Sam earns $0.30\%$
+- But Sam never trades an "average day"
+
+::: notes
+First, recall the expectation, or mean, of a discrete random variable — its probability-weighted average value, the sum of each value times its probability. For Sam's portfolio, using the marginal of X, the unconditional expected daily return is minus two times zero point two zero, plus zero times zero point four five, plus two times zero point three five. That is minus zero point four zero, plus zero, plus zero point seven zero, which equals zero point three zero percent. So on an average day Sam's strategy earns zero point three zero percent. Fine — but Sam never trades on an average day. Sam wakes up and sees the regime. So the relevant object is not this blend; it is the expected return conditional on what Sam knows.
+:::
+
+## Conditional Mean in Each Regime
+
+- $\displaystyle \mathbb{E}[X\mid Y{=}y]=\sum_x x\,p_{X\mid Y}(x\mid y)$
+- Calm: $(-2)(0.071)+(0)(0.50)+(2)(0.429)=0.714\%$
+- Stormy: $(-2)(0.50)+(0)(0.333)+(2)(0.167)=-0.667\%$
+- Earns $+0.71\%$ calm, loses $0.67\%$ stormy
+- The blended $0.30\%$ hid two opposite stories
+
+::: notes
+The conditional expectation of X given Y equals y is the mean of X inside the conditional distribution from part two — each value times its conditional probability. On calm days, with conditional probabilities about zero point zero seven one, zero point five zero, and zero point four two nine, it is minus two times zero point zero seven one, plus two times zero point four two nine, which works out to plus zero point seven one four percent. On stormy days, with conditional probabilities zero point five zero, zero point three three three, and zero point one six seven, it is minus two times zero point five zero, plus two times zero point one six seven, which is minus zero point six six seven percent. So Sam's strategy earns about plus seven-tenths of a percent on a calm day and loses about two-thirds of a percent on a stormy day. The single unconditional number, zero point three zero percent, was a blend that hid two opposite stories.
+:::
+
+## It Is Itself a Random Variable
+
+- $\mathbb{E}[X\mid Y]$ conditions on random $Y$, not a value
+- Outputs $0.714\%$ if $Y{=}1$, $-0.667\%$ if $Y{=}2$
+- A function of $Y$ alone — random before the day starts
+- "Best forecast of $X$ using only $Y$"
+- This is exactly what **regression estimates**
+
+::: notes
+Here is the conceptual jump everything later depends on, so slow down. We computed two numbers, one per regime. But the regime Y is itself random — before the day starts, Sam does not know which it will be. So the expected return for whatever regime today turns out to be is not a fixed number; it is a random variable. We write it as the expectation of X given capital Y — conditioning on the random variable, not a specific value. Concretely, it outputs zero point seven one four percent when Y is one and minus zero point six six seven percent when Y is two. It is a function of Y alone — once you know the regime, you know its value. That is the precise sense in which it is the best forecast of X you can make using only Y. This object — the conditional expectation function — is, quite literally, what regression estimates. Hold that thought all the way to Week Two.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **conditional expectation** $\mathbb{E}[X\mid Y]$ is the mean of $X$ inside each regime — and because the regime is random, it is itself a **random variable**: the best forecast of $X$ from $Y$, and exactly what regression estimates. Next: the first law tying these conditional means back to the overall mean.
+:::
+
+::: notes
+To summarize part four: the unconditional mean of Sam's return is zero point three zero percent, but that bland number hides a plus seven-tenths on calm days and a minus two-thirds on stormy days. The key leap is that because the regime is random, the conditional expectation is itself a random variable — the best forecast of the return from the regime, and the very thing regression estimates. In part five we prove the first great law connecting these conditional means back to the overall mean: the Law of Iterated Expectations.
+:::

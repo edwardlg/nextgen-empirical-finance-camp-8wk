@@ -1,0 +1,52 @@
+---
+date: "2026-06-22"
+---
+
+## A Disparity Is Not a Finding of Discrimination
+
+### Learning objectives
+
+- Tell a disparity apart from a finding of discrimination
+- Explain why controls are necessary but never sufficient
+- Define discrimination as a counterfactual comparison
+- Use a design — DiD, RD, matching — to detect it
+
+::: notes
+Welcome to the Week Four mentor session, part one of five. This week you learned a family of designs that manufacture comparability out of the structure of the world — difference-in-differences, regression discontinuity, and their staggered and synthetic-control cousins. Today we point all of that machinery at a question that is harder than it looks and matters more than almost anything else you will study: does a lender treat two otherwise-identical applicants differently because of who they are? This is the heart of my own fair-lending work, and a wonderful teacher, because the naive approach is so tempting and so wrong. In this opening part we draw the single most important distinction in the whole field: the gap between a disparity and a finding of discrimination.
+:::
+
+## The Setup
+
+- You have lending data: who applied, who was approved, on what terms
+- Plus a protected characteristic: race, sex, couple composition
+- You see one group approved less often, or charged more
+- Is that discrimination? Not yet
+- The gap from "a disparity" to "discrimination" is the whole field
+
+::: notes
+Start with what you actually hold. You have lending data: who applied, who got approved, on what terms, and a protected characteristic — race, sex, the composition of a borrowing couple. You look at it and you see that one group is approved less often, or charged more. The instinct is to call that discrimination. But it is not yet, and the gap between the sentence "I found a disparity" and the sentence "I found discrimination" is the entire intellectual content of fair-lending empirics. Everything we do today lives inside that gap. So let us be precise about why a raw difference in approval rates, sitting in your spreadsheet, has not yet told you anything about how the lender behaves.
+:::
+
+## Two Rival Stories, One Disparity
+
+- A raw gap confounds two very different worlds
+- **Story one:** the *same* rule, applied to groups that differ in legitimate factors
+- Income, credit score, debt-to-income, loan-to-value differ across groups
+- **Story two:** a *different* rule applied to the two groups
+- Only the second is discrimination
+- A raw gap cannot tell you which world you are in
+
+::: notes
+A raw disparity confounds two completely different stories. In the first story, the lender applies the same rule to everyone, but the two groups differ in the things that rule legitimately uses — income, credit score, debt-to-income, loan-to-value. Apply one fair rule to two groups that genuinely differ on those inputs, and you get different approval rates with no discrimination anywhere. In the second story, the lender applies a different rule to the two groups — weighing the protected characteristic itself. Only the second story is discrimination. And here is the painful part: a difference in approval rates, all by itself, cannot tell you which of these two worlds produced it. The same observed gap is consistent with a perfectly fair lender and with a blatantly biased one. That is why we need everything that follows.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A **disparity** — one group approved less or priced higher — is not yet a **finding of discrimination**. The same gap is produced by *one fair rule* applied to groups that differ in legitimate factors, or by *a different rule* applied to each group. Only the second is discrimination, and a raw gap cannot separate them. Next: why "control for creditworthiness" is necessary but never sufficient.
+:::
+
+::: notes
+To summarize part one: a disparity is not a verdict. One group being approved less often, or priced higher, is consistent with two rival stories — one fair rule applied to groups that differ in legitimate factors, or a different rule applied to each group — and only the second is discrimination. A raw gap cannot separate them. In part two we take up the standard fix, controlling for creditworthiness, and ask carefully what it does and does not buy you.
+:::

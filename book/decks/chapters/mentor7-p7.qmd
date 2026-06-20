@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Worked Case One — Why the Clean Shock Makes It Viable
+
+- Part 7 — the CSR paper: clean shock rescues identification
+
+::: notes
+Welcome back to how I pick and kill a project, part seven of nine. In part six we put up the fatal-flaw checklist and named two of my own funnels. Now we walk the first in full — the CSR paper — as a live worked case. I will reason about idea-selection, identification, and feasibility only. I will not recite specific magnitudes, coefficients, or sample sizes from the project — I frame everything as how a clean source of variation makes a project viable.
+:::
+
+## The Naive Question Is Fatally Confounded
+
+- Naive: do firms whose **stock moves a lot** do more CSR?
+- Confounder: **firm quality** moves both at once
+- Good firms do good things — and **their prices move too**
+- That alone makes CSR and price comove
+- No causal arrow — a **hopeless correlation**
+
+::: notes
+Start with the CSR paper's central design problem. The exact citation: Gao, He, and Wu, Standing Out from the Crowd via CSR Engagement: Evidence from Non-Fundamental-Driven Price Pressure, Journal of Financial and Quantitative Analysis, twenty twenty-three. The naive version of the question — do firms whose stock price moves a lot engage in more corporate social responsibility? — is fatally confounded, and you should be able to say exactly how. Name one confounder that would make CSR and price movement move together even if neither caused the other. Firm quality is the obvious one: good firms tend to do good things, and good firms also have distinctive price behavior. So CSR and price movement comove for a reason that has nothing to do with one causing the other. That is a hopeless correlation — no causal arrow you can defend.
+:::
+
+## The Non-Fundamental Shock Rescues It
+
+- A piece of price movement **unrelated to the business**
+- Mechanical, like **flows into and out of an index**
+- Not news about the firm's prospects
+- Identifying assumption: the shock is **unrelated to firm quality**
+- That turns a correlation into a **defensible design**
+
+::: notes
+Now the rescue, in the language of today's session. A source of price pressure that is non-fundamental — that moves the price for reasons unrelated to the firm's business prospects, something mechanical like flows into and out of an index or a fund rather than news about the business — is what rescues the project from that fatal flaw. The whole project hinges on one move you should study closely: isolating a piece of price movement that is plausibly unrelated to the firm's underlying quality, so the relationship you measure is not just good firms do good things. The identifying assumption, in one sentence: the non-fundamental variation in price is unrelated to the firm's fundamental quality, so it can stand in for an exogenous push on price. That assumption is what turns a hopeless correlation into something with a defensible design. Note that I am reasoning about what kind of variation the design needs — not asserting the paper's exact instrument as a fact.
+:::
+
+## Apply the Funnel Backwards
+
+- No clean shock found? **Kill the causal project** — or redesign
+- The honest **descriptive** version may still live
+- It may only claim a **correlation**, stated as such
+- Per conventions: say **descriptive, not causal**, out loud
+- Never let a correlation **wear a causal costume**
+
+::: notes
+Now apply the funnel backwards, the way Chapter seven-point-one taught. Suppose you are a student who had the puzzle — maybe stock prices affect firm behavior — but you could not find any clean, non-fundamental source of price variation. Would you kill the causal project, or redesign it as descriptive? You redesign honestly: the descriptive version is allowed to claim that CSR and price movement are correlated in the data, full stop, with no claim that one causes the other and an explicit acknowledgment of the confounders you could not break. That is the move our conventions, section four, demand — say descriptive, not causal, out loud. Never let a correlation wear a causal costume. The descriptive paper is smaller, but it is honest, and honest-and-small beats hopeless-and-grand every time.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The naive CSR question is fatally confounded by **firm quality**. A **non-fundamental price shock** — mechanical, unrelated to the business — rescues it, on the identifying assumption that the shock is unrelated to firm quality. No clean shock? **Redesign as honestly descriptive**, never causal in disguise.
+:::
+
+::: notes
+To summarize part seven: the naive CSR question is fatally confounded — firm quality moves both CSR and prices, so the raw correlation has no defensible causal arrow. The rescue is a non-fundamental price shock, mechanical and unrelated to the business, valid under the assumption that the variation is unrelated to firm quality; that turns a correlation into a design. And if no such clean shock exists, you do not force it — you redesign as an honestly descriptive project that claims only correlation, per our conventions. In part eight we walk the Rainbow of Credits as a project that traveled the whole funnel over years.
+:::

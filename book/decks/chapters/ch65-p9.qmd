@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## Precision, Recall, and Honest Reporting
+
+- Part 9 — precision, recall, F1, and why accuracy lies
+
+::: notes
+Welcome back to the AI co-pilot for research, part nine of fourteen. In part eight we built a random gold set, split off a held-out test set, and tallied the confusion matrix. Now we turn those four counts into the metrics that actually matter — precision, recall, and F-one — see why accuracy alone lies, and lock down how to report performance honestly.
+:::
+
+## Precision, Recall, F1
+
+- $\text{Precision} = \dfrac{TP}{TP+FP}$ — when it says negative, is it right?
+- Penalizes false alarms
+- $\text{Recall} = \dfrac{TP}{TP+FN}$ — of all true negatives, how many caught?
+- Penalizes misses
+- $F_1 = 2\cdot\dfrac{\text{Precision}\cdot\text{Recall}}{\text{Precision}+\text{Recall}}$
+- The harmonic mean — high only when *both* are high
+
+::: notes
+Step four, compute precision, recall, and F-one — not just accuracy. Precision is true positives over true positives plus false positives: when the LLM says negative, how often is it right — it penalizes false alarms. Recall, also called sensitivity, is true positives over true positives plus false negatives: of all the truly negative filings, how many did the LLM catch — it penalizes misses. F-one is two times precision times recall, over precision plus recall — the harmonic mean of the two, a single summary that is high only when both are high. A classifier can have lovely precision and terrible recall, or the reverse; F-one refuses to be fooled by either, because the harmonic mean is dragged down hard by the smaller of the two numbers.
+:::
+
+## Why Accuracy Lies
+
+- Accuracy is $(TP+TN)/N$ — fraction of all labels correct
+- It lies under class imbalance
+- Financial text is almost always imbalanced
+- Suppose only 5% of filings are truly negative
+- "Label everything not-negative" scores 95% accuracy — useless
+- Same trap as a fraud detector when fraud is rare
+
+::: notes
+Why not just report accuracy — the fraction of all labels correct, true positives plus true negatives over the total? Because accuracy lies under class imbalance, and financial text is almost always imbalanced. Suppose only five percent of filings are truly negative. A lazy classifier that labels everything not-negative scores ninety-five percent accuracy — and is useless, because its recall on the class you care about is zero; it never once flags a negative filing. This is the same trap you would fall into reporting the accuracy of a fraud detector when fraud is rare: ninety-nine percent accurate and catches no fraud. Precision and recall expose the lie that accuracy hides, so report them — with their confidence intervals, because a precision of zero-point-eight-zero measured on just twenty-five predicted positives has a very wide interval.
+:::
+
+## Step 5 — Report Honestly
+
+- Tune the rubric on the **development set** all you like
+- The paper's numbers come from the **held-out test set**
+- Evaluated exactly once, after the prompt is frozen
+- High enough? You may apply it to all 40,000 filings
+- Not? You have noise, not a measurement
+- Never trust a raw accuracy claim — even the model's own
+
+::: notes
+Step five, report performance on the held-out test set, and report it honestly. Tune the rubric on the development set as much as you like — try different wordings, add boundary examples, fix systematic errors you see. But the numbers that go in your paper are the precision, recall, and F-one computed on the fifty test documents you set aside, evaluated exactly once, after the prompt is frozen. Those out-of-sample numbers are your honest estimate of how the classifier performs on the forty thousand documents you did not hand-label. If they are high enough, you may apply the classifier to the full corpus and use its labels in a regression; if not, you do not have a measurement, you have noise. And the deepest point: never trust a raw accuracy claim, including a model's claim about itself. "This model achieves ninety-four percent accuracy on sentiment" is meaningless without the task, the base rate, and whether the number is in-sample. Produce your own out-of-sample precision, recall, and F-one on your own gold set, and report it next to your main result.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Report **precision** (false alarms), **recall** (misses), and **F1** (high only when both are) — never bare **accuracy**, which lies under class imbalance. Freeze the prompt, evaluate the **held-out test set once**, and report those out-of-sample numbers next to your result. Next: four failure modes that wreck AI-assisted studies.
+:::
+
+::: notes
+To summarize part nine: from the confusion matrix, compute precision — when the model says negative, how often is it right — recall — of all truly negative filings, how many it caught — and F-one, their harmonic mean, high only when both are high. Never report bare accuracy, because under the class imbalance typical of financial text a lazy classifier can score ninety-five percent and catch nothing. Tune on the development set, then evaluate the frozen prompt on the held-out test set exactly once, and report those out-of-sample numbers next to your main result so a referee can judge how much label error your conclusion tolerates. And never trust a raw accuracy claim, including the model's own. In part ten we turn to four failure modes that can wreck even a well-validated study.
+:::

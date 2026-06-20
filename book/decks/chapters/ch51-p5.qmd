@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Reading Order: Watch Beta Die
+
+- Part 5 — the referee's table-reading order, watching beta die
+
+::: notes
+Welcome back to the Reader's Guide for Fama and French, part five of nine. In part four we covered the data — CRSP and Compustat stitched together with a timing lag that blocks look-ahead bias. Now we learn how an experienced referee actually reads the paper: tables first, in a deliberate order. A good paper's tables tell the whole story if you know which to take, and in what sequence. Here is the sequence for this one.
+:::
+
+## Read Tables First — Start With the Sorts
+
+- New readers drown in the intro; referees read **tables first**
+- Start with the **sort tables**, not the regressions
+- Read the **size-beta double sort** to *watch beta die*
+- Hold size fixed, slide across beta — return stays nearly **flat**
+- CAPM says it must climb steeply; it doesn't
+
+::: notes
+New readers read a paper front to back and drown in the introduction. Experienced readers read tables first. The prose is the author's argument; the tables are the evidence. Here is the order. Start with the sort tables — not the regressions. These are nearly the first exhibits, and they are the most honest thing in the paper because they assume almost nothing. Read the size-beta double sort first, for one specific purpose: to watch beta die. Within a row of roughly constant size, slide across the beta columns, from low-beta to high-beta portfolios, and look at whether average return climbs. The Capital Asset Pricing Model says it must climb steeply. What you see is close to flat: holding size fixed, sorting on beta buys you little or no spread in average return. That flat row is the headline of the entire paper, and you found it in a table with not a single regression coefficient.
+:::
+
+## Then the Regression Horse Races
+
+- The **size-BE/ME sort**: value beats growth, small beats big
+- Then Fama-MacBeth tables — let characteristics fight
+- **Beta alone**: slope small, near zero, often wrong sign
+- **Size alone, BE/ME alone**: large, strongly significant
+- **Kitchen sink**: beta loses; size and BE/ME survive
+
+::: notes
+Now read the size-book-to-market sort. Slide across book-to-market and watch average return rise — value, meaning high book-to-market, beats growth — and slide down size and watch average return rise toward small firms. Two live patterns, one dead one. You now know the result before reading a word of regression output. Then go to the Fama-MacBeth regression tables, and read the columns as a sequence of horse races. A column with beta alone is the formal CAPM test; its slope is small and statistically indistinguishable from zero, frequently the wrong sign, once betas are measured carefully. A column with log size alone, and one with log book-to-market alone: both slopes are large and strongly significant — size negative, book-to-market positive. The kitchen-sink column puts beta, size, and book-to-market together. This is the decisive cell. Size and book-to-market keep their large slopes; beta's slope stays near zero. When beta competes against size and book-to-market, beta loses.
+:::
+
+## Spot the Headline With Your Fingertip
+
+- Find the row for the **market-beta coefficient**
+- Scan its **t-statistic** across the columns
+- Big alone, collapsing toward zero once size and BE/ME enter
+- The number that *should* be big — isn't
+- That **absence** is the finding
+
+::: notes
+Here is a trick for spotting the headline in a table you have never seen before. Find the row for the market-beta coefficient, then scan its t-statistic across the columns. If it is large when beta runs alone but collapses toward zero the moment size and book-to-market enter, you have found the paper's thesis with your fingertip. The number that should be big under the reigning theory is the number that isn't — and that absence is the finding. This is a habit worth generalizing: in any horse-race table, locate the coefficient the dominant theory predicts should be large, and watch what happens to it as honest competitors enter the regression. Often the whole story of a paper lives in one row that goes quiet.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Read **tables first**: the **size-beta sort** to watch beta go flat, the **size-BE/ME sort** to see value and small win, then the **Fama-MacBeth horse races** where beta collapses while size and book-to-market survive. Spot the headline by scanning beta's t-statistic across columns — the absence is the finding.
+:::
+
+::: notes
+To summarize part five: read tables before prose. Start with the sort tables, which assume almost nothing. The size-beta double sort lets you watch beta die — hold size fixed, slide across beta, and average return stays nearly flat, against everything the Capital Asset Pricing Model predicts. The size-book-to-market sort shows the two live patterns: value beats growth, and small beats big. Then the Fama-MacBeth horse races quantify it: beta alone is near zero, size and book-to-market alone are large and significant, and in the kitchen-sink column beta loses while the other two survive together. To find the headline fast, scan beta's t-statistic across columns and watch it go quiet. In part six we step back and ask what makes this paper genuinely clever.
+:::

@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Relevance and Exclusion
+
+- Part 2 — the two gatekeeping questions: relevance and exclusion
+
+::: notes
+Welcome back to Reading instrumental variables in the wild, part two of thirteen. In part one we named the instrument as a triple — instrument, treatment, outcome — and learned to watch the instrument, not the coefficient. Now we ask the two questions that decide whether the instrument is even allowed to do its job: question two, is it relevant, and question three, is exclusion plausible. One the data can answer cleanly; the other the data cannot answer at all.
+:::
+
+## Question Two: Is It Relevant?
+
+- Does $z$ actually move $x$? The data can answer this
+- Hunt the **first-stage $F$-statistic** on the instrument
+- Rough rule: $F$ comfortably above ten
+- $F$ in the single digits is a klaxon
+- $R^2$ reported instead of $F$? Be very suspicious
+
+::: notes
+Question two: is it relevant? Does the instrument z actually move the treatment x? This is the one question the data can answer cleanly, and the paper must report the answer — the first-stage regression of x on z, plus controls, and its strength. The single number to hunt for is the first-stage F-statistic on the excluded instrument. From Chapter three-point-four you know the rough rule of thumb: F comfortably above ten, the old Staiger–Stock benchmark, or above the relevant critical value. An F in the single digits is a klaxon. If a paper does not report a first-stage F, or reports the first-stage R-squared instead — which is not the right object — and hopes you will not notice, be very suspicious. The first-stage strength is the load-bearing diagnostic of the entire enterprise, and this whole chapter is about what happens when it is weak.
+:::
+
+## Question Three: Is Exclusion Plausible?
+
+- Does $z$ affect $y$ **only** through $x$?
+- The data **cannot** answer — untestable when just-identified
+- Look for the **back door**: a channel skipping $x$
+- Cash machines cluster in dense, young, affluent areas
+- Those neighborhoods trade more of *everything*
+
+::: notes
+Question three: is exclusion plausible? Does the instrument affect the outcome only through the treatment? This is the question the data cannot answer — exclusion is fundamentally untestable in the just-identified case, an assumption you defend with argument, not with a statistic. So the referee reads the authors' defense and looks for the back door: a channel by which the instrument touches the outcome without going through the treatment. For Devon's cash-machine-distance instrument, ask: does living near a crypto cash machine correlate with anything else that affects trading behavior? Crypto cash machines cluster in dense, young, tech-forward, financially-active neighborhoods. People there trade more of everything for reasons that have nothing to do with whether they personally hold crypto — income, financial literacy, smartphone penetration, peer effects. If so, distance violates exclusion: it is correlated with trading through a back door, neighborhood affluence, not only through crypto-holding. A good paper anticipates this and controls for it or argues it away; a bad paper pretends the back door does not exist. Exclusion is where most IV papers actually live or die, and it is an argument, not a test.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Relevance** is the one thing the data answers — hunt the first-stage $F$; single digits is a klaxon. **Exclusion** is untestable when just-identified — defend it by arguing away **back-door channels**, not with a statistic. Most IV papers live or die on exclusion. Next: who the instrument actually moves, and counting instruments.
+:::
+
+::: notes
+To summarize part two: relevance and exclusion are the two gatekeeping questions. Relevance — does the instrument move the treatment — is the one thing the data can answer cleanly, through the first-stage F-statistic; comfortably above ten is reassuring, single digits is a klaxon, and an R-squared reported in place of the F is a red flag. Exclusion — does the instrument touch the outcome only through the treatment — the data cannot answer at all when the model is just-identified; you defend it by arguing away back-door channels, like the neighborhood affluence that lurks behind cash-machine distance. Most IV papers live or die on exclusion. In part three, we finish the referee's checklist: who are the compliers, and is the model just- or over-identified?
+:::

@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Two Questions, and a New Meaning of Identification
+
+- Part 2 — diagnosis, cost of error, and identification by construction
+
+::: notes
+Welcome back to lesson five-point-four, part two of eight. In part one we framed the research question: in a finance panel, which standard error is correct, and how costly is the wrong choice? Now we sharpen that into two precise sub-questions, and then meet a surprising new meaning of the word identification.
+:::
+
+## Two Questions, One Paper
+
+- **(a) Diagnosis:** which method has *correct coverage*?
+- A 95% interval should trap the true $\beta$ about 95% of the time
+- **(b) Cost of error:** how badly does a wrong method mislead?
+- The answer is almost always "**too small** — overconfident"
+- That is the dangerous direction
+
+::: notes
+Petersen's framing, in the mid two-thousands, was sociological as much as statistical. He surveyed published finance papers and found a chaos of incompatible methods — OLS standard errors, White heteroskedasticity-robust standard errors, Fama–MacBeth, Newey–West, clustering by firm, clustering by time — often with no stated reason, producing standard errors that differed by factors of two or more on identical data. If the same dataset and the same regression can give a t-statistic of five under one method and one-point-eight under another, then half the profession's significance stars were decorative. So the question splits in two. Part a, diagnosis: which method has correct coverage — when it builds a ninety-five percent confidence interval, does that interval actually contain the true beta about ninety-five percent of the time? Part b, cost of error: if you use a method whose assumptions are violated, by how much does your standard error mislead you, and in which direction? The answer is almost always too small, so you are overconfident — the dangerous direction.
+:::
+
+## "Identification" Means Something New
+
+- In Weeks 3 and 4, identification meant **causal** identification
+- Petersen's paper is **not causal** — no treatment, no counterfactual
+- No exclusion restriction either
+- So what is being *identified*?
+- The answer: **Petersen identifies the truth by building it himself**
+
+::: notes
+Stop and notice that the word identification means something unusual here. In Weeks Three and Four, identification meant causal identification — the argument that a coefficient measures a treatment effect rather than a correlation. Petersen's paper is not causal. There is no treatment, no counterfactual, no exclusion restriction. So what is being identified? The answer is the cleverest move in the paper, and it is worth slowing down for. Petersen identifies the truth by building it himself. This is a Monte Carlo simulation study: he generates artificial panels in which he sets the true beta and he sets the true error-correlation structure. Because he created the data-generating process, he knows the right answer with certainty — both the true coefficient and, crucially, the true standard deviation of beta-one hat across repeated samples. He then runs each candidate standard-error method on these simulated panels and asks one simple question: does the method's reported standard error match the true sampling variability of beta-one hat?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The question splits in two: **diagnosis** (which method covers at 95%?) and **cost of error** (how badly does the wrong one mislead — almost always *overconfident*). And identification here is not causal: Petersen **builds worlds where he already knows the answer.**
+:::
+
+::: notes
+To summarize part two: the research question has two halves — diagnosis, which method actually covers the true beta about ninety-five percent of the time, and cost of error, how badly a wrong method misleads, almost always by making the standard error too small and you overconfident. And the word identification takes on a new meaning: not causal identification, but identification by construction. Petersen builds Monte Carlo worlds where he sets the true coefficient and the true correlation structure, so he knows the right answer. In part three we make that machinery explicit — the exact logic of comparing the true standard error to each method's estimate — and meet the three correlation structures the whole paper turns on.
+:::

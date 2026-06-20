@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## A Live Paper, and Your Capstone in Miniature
+
+- Part 5 — all four links on a live paper, plus your capstone
+
+::: notes
+Welcome back to the anatomy of a Journal of Finance paper, part five of five — the finale. We have built all four links: a sharp question, a credible design, transparent tables, honest robustness. Now I put them together on a real working paper of mine, one still being built, so you see a live paper mid-flight rather than a museum piece. Then I tie it to what you do in Weeks Seven and Eight.
+:::
+
+## The Running Case: Rainbow of Credits
+
+- *The Rainbow of Credits* (Gao, Liu, and Wang, AEA 2025; target *JF*)
+- Setting: the U.S. **municipal bond market**
+- Public bodies borrow by issuing bonds for roads, schools, water
+- Unit: a **bond issue** (or an issuer in a given year)
+- Outcome: the **yield** an issuer must offer investors
+
+::: notes
+The running case is a working paper my coauthors and I are still building: The Rainbow of Credits, by Gao, Liu, and Wang, presented at the American Economic Association meetings in twenty twenty-five, with the Journal of Finance as the target. The setting is the U.S. municipal bond market — the market through which states, cities, counties, school districts, and other public bodies borrow money by issuing bonds to build roads, schools, and water systems. The natural unit of observation is a bond issue, or an issuer in a given year. The outcome is the yield an issuer must offer investors — the price of that borrowing.
+:::
+
+## The Question, Built Live
+
+- Does a state's **social and political climate** move the yield?
+- Holding the issuer's actual **finances fixed**
+- A factor with nothing **mechanical** to do with the balance sheet
+- Data from municipal issuance and secondary-market trade records
+- I won't quote magnitudes — the paper is still in motion
+
+::: notes
+The broad question is whether a state's social and political climate — the kind of factor that has nothing mechanical to do with a city's balance sheet — moves the interest rate that local governments pay to borrow, holding the issuer's actual finances fixed. Data of this kind comes from municipal-bond issuance and secondary-market trade records. I will not give you our reported magnitudes — partly because the paper is still in motion, and mostly because the point today is to practice the judgment, not to memorize a coefficient. Reason about question-formation, identification, and table-reading; do not invent specific numbers you cannot verify. Frame every answer as "how I would design this, how I would read this."
+:::
+
+## Why This Is Your Capstone in Miniature
+
+- You are seeing a **real paper mid-flight**, not a finished one
+- Weeks Seven and Eight: you write your **own** paper
+- Real data — CRSP, Compustat, EDGAR, municipal records
+- A design you can **defend**, tables you **build** yourself
+- The outward template, now run **inward** on your own draft
+
+::: notes
+Here is why this matters for you. You are seeing a real paper mid-flight, not a museum piece — false starts and unfinished robustness and all. In Weeks Seven and Eight you write your own paper: a real question, real data drawn from sources like CRSP, Compustat, EDGAR, or municipal records, a design you can defend, and tables you build yourself. The seven-part template you read outward this week, on strangers' papers, is exactly what I run inward on every project of mine before I commit two years to it. So read every paper — including your own draft — as though you will defend its tables in a seminar. Name, for each link, the comparison, the threat, and the check that would make a skeptic stop arguing.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A real paper is a **chain run inward**: sharpen the question, defend the design, build honest tables, try to kill your own result. *Rainbow of Credits* is one such paper, mid-flight. In eight weeks you build yours — so look as hard at **your own** design as you looked at Fama and French's.
+:::
+
+::: notes
+To bring Mentor Session Five home: a publishable paper is a chain of four links — a sharp question, a credible design, transparent tables, honest robustness — and the same seven-part anatomy you ran outward on strangers' papers this week is what you run inward when you build your own. We watched it on a live working paper, Rainbow of Credits, still being built toward the Journal of Finance. In Weeks Seven and Eight you write yours: real question, real data, a design you can defend, tables you build. The whole point of today, and of the weeks ahead, is one reflex: look as hard at your own design as you spent all week looking at Fama and French's. That is the camp. I will see you there.
+:::

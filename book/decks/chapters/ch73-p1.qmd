@@ -1,0 +1,63 @@
+---
+date: "2026-06-22"
+---
+
+## The Pre-Analysis Plan: The Trap It Stops
+
+**Learning objectives.** By the end you can:
+
+- Explain how a pre-analysis plan separates confirmatory from exploratory work
+- Write the five components of a short-form PAP
+- Govern multiple tests with families and the false discovery rate
+- Use a hold-out and deviation log to register before peeking
+
+::: notes
+Welcome to Week Seven, Chapter seven-point-three, part one of twelve. Maya has a question, a dataset, and a problem she has not noticed yet. This lesson is about a short document that will save her honest project from herself: the pre-analysis plan. In this opening part we meet the trap, and we name the device that stops it.
+:::
+
+## Maya's Dangerous Afternoon
+
+- Question: do minority applicants face higher denial rates?
+- Does the gap shrink for algorithmic lenders?
+- Data: a real HMDA extract, documented in 7.2
+- She is excited — and that is the problem
+- She will run the regression, then *try things*
+
+::: notes
+Maya's question is the one she has circled since Week Six. Holding creditworthiness fixed as well as the public data allow, do minority applicants face higher mortgage denial rates than otherwise-similar white applicants, and does the gap shrink when the lender is algorithmic rather than face-to-face? Her data is a HMDA extract she pulled and documented in Chapter seven-point-two — millions of loan applications, public, real, hers. She is excited, and that excitement is the problem. Here is what happens if no one stops her. She loads the data, runs her main regression, and stares at the race coefficient. Suppose it comes out small and insignificant. She frowns, and being a good and resourceful student, she starts trying things.
+:::
+
+## P-Hacking Without a Dishonest Thought
+
+- Drop small lenders? Winsorize income? Quadratic in LTV?
+- Purchase loans only? Cluster by county not lender?
+- Each choice is defensible *in isolation*
+- The search happened *after* she saw the outcomes
+- Result: an honest project, p-hacked into worthlessness
+
+::: notes
+Maybe she drops the smallest lenders. Maybe she winsorizes income at the first and ninety-ninth percentiles. Maybe she adds a quadratic in loan-to-value, restricts to purchase loans, clusters by county instead of by lender because that tightens the standard error. Somewhere in that thicket of reasonable choices, a specification appears where the coefficient is large and starred. She feels relief, writes it up, and reports that one specification as if it were the only one she considered. She is not lying, exactly. Every choice was defensible on its own — and that is precisely what makes the result worthless. She has p-hacked her own honest project, without a single dishonest thought, because the search happened after she saw the outcomes and was steered, choice by choice, toward the answer she hoped for.
+:::
+
+## The Device That Stops It
+
+- A **pre-analysis plan** (PAP): written, time-stamped *before* outcomes
+- Commits hypotheses, primary spec, multiple-testing plan, falsification
+- Frame: Olken (2015), *Journal of Economic Perspectives*
+- He holds both the **promises** and the **perils** in one hand
+- Our structure: state it, see the failure, see when it fails
+
+::: notes
+This chapter is the device that stops her. A pre-analysis plan is a short document, written and time-stamped before you look at your outcomes, that commits you to your hypotheses, your primary specification, your multiple-testing plan, and what would prove you wrong. Our intellectual frame is Benjamin Olken's paper, "Promises and Perils of Pre-Analysis Plans," in the Journal of Economic Perspectives, twenty-fifteen. We name the chapter after his paper, not a cheerleading one, because he takes both the promises and the perils seriously. We follow the reveal-the-trick structure the book always uses: state what a plan does and why, see exactly the failure it prevents, see when it itself fails or over-promises, then write a real one for Maya. In part two, we go to the cold arithmetic of why pre-registration has to exist.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A **pre-analysis plan** is a dated document, written *before* you see your outcomes, that commits you to your hypotheses, your primary specification, and what would prove you wrong. It stops *honest* p-hacking — the kind Maya does without one dishonest thought. Next: the arithmetic of why it is necessary.
+:::
+
+::: notes
+To summarize part one: a pre-analysis plan is a short, dated document written before you see your outcomes, committing you to your hypotheses, your primary specification, your multiple-testing plan, and your falsification conditions. The trap it stops is the most dangerous kind — honest p-hacking, where every individual choice is defensible but the search was steered by the answer. Our guide is Olken, who holds the promises and the perils in the same hand. In part two, we go back to Chapter one-point-five and the cold arithmetic that shows why this device is not optional.
+:::

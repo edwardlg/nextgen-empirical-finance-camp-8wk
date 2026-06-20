@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Consistency — Getting It Right Eventually
+
+- Part 8 — defining consistency as the data grow
+
+::: notes
+Welcome back to Chapter one-point-three, part eight of eleven. Everything so far has been about a fixed sample size — bias, variance, and the mean squared error scorecard. Now we let the data grow without bound and ask a more aspirational question: as we pour in more and more data, does the estimate home in on the truth and stay there? That virtue is consistency, the bridge to the great limit theorems of the next chapter. In this part we define it and see it hiding in formulas we already have.
+:::
+
+## Defining Consistency
+
+- As $N\to\infty$, the estimate should home in on $\mu$
+- $\hat{\mu}_N\xrightarrow{p}\mu$, equivalently $\operatorname{plim}_{N\to\infty}\hat{\mu}_N=\mu$
+- "Converges in probability" — treated intuitively here
+- Pick any tolerance; for large $N$, probability inside $\to 1$
+- Reliably close, not just close on average
+
+::: notes
+So far everything has been about a fixed N. But there is a second, more aspirational virtue we want from a recipe: as we pour in more and more data, the estimate should home in on the truth and stay there. That virtue is consistency. We say an estimator mu hat sub N — now subscripted by sample size, to emphasize it changes as N grows — is consistent for mu if it converges in probability to mu as N goes to infinity. We write that with an arrow carrying a little p over it, or equivalently with the operator p-lim, the probability limit, equals mu. We will treat converges in probability intuitively here, and not prove the underlying theorem — that is the job of the very next chapter. The intuition is exactly what the words say. Pick any tolerance you like, say within ten dollars of the truth. For a large enough N, the probability that mu hat sub N lands inside that window is as close to one, certainty, as you want. The estimate does not just get close on average — it gets reliably, almost surely close, and the window can be made arbitrarily tight.
+:::
+
+## You Can See It in the Formulas
+
+- Sample mean is unbiased: always centered on $\mu$
+- Its variance is $\sigma^2/N$, which marches to $0$
+- Centered, with spread collapsing $\Rightarrow$ squeezed onto $\mu$
+- That squeezing *is* consistency
+- The Law of Large Numbers will license it — next chapter
+
+::: notes
+You can actually see consistency hiding inside the two formulas we already have. The sample mean is unbiased — its expectation is mu — so it is always centered on the truth. And its variance is sigma squared over N, which marches to zero as N goes to infinity. An estimator that is centered on the target with a spread collapsing to zero has nowhere to go but the target: the distribution of x bar is being squeezed onto the single point mu. That squeezing is consistency. The formal theorem that licenses this argument — the Law of Large Numbers — is the first thing we prove in Chapter one-point-four. There is even a name for the precise statement, zero-limiting-bias plus zero-limiting-variance implies consistency: it is called convergence in mean square, and you have effectively just seen why it works.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+An estimator is **consistent** if it converges in probability to $\mu$ as $N\to\infty$ — reliably close, not merely close on average. The sample mean qualifies: centered on $\mu$, with variance $\sigma^2/N\to 0$, it is squeezed onto a point. The **Law of Large Numbers** will license this next chapter. Next: two warnings that keep you honest.
+:::
+
+::: notes
+To summarize part eight: an estimator is consistent if it converges in probability to the true mean as the sample size grows without bound — reliably close, with the window made as tight as you like, not merely close on average. The sample mean qualifies because it is centered on mu with a variance, sigma squared over N, that collapses to zero; the distribution is squeezed onto a single point. The theorem that makes this rigorous is the Law of Large Numbers, the first result of the next chapter. But before we celebrate, consistency is easy to over-learn. In part nine we draw two sharp warnings: that consistency and unbiasedness are independent, and that neither one can rescue a broken sampling assumption.
+:::

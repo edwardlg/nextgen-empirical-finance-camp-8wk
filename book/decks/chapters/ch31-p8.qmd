@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## How Finance Breaks SUTVA
+
+- Part 8 — three ways markets and networks break SUTVA
+
+::: notes
+Welcome back to potential outcomes, part eight of eleven. In part seven we stated SUTVA's two parts — no interference, and no hidden versions of treatment. Now we see why finance is unusually good at breaking both, because financial actors are connected through markets, prices, networks, and competition — exactly the ways SUTVA forbids. Three examples, one for each kind of failure, and then the practical discipline you should carry into every causal claim.
+:::
+
+## Spillovers and General Equilibrium
+
+- **Spillovers (interference):** enrollees teach roommates and siblings
+- A control living with an enrollee gets treated *second-hand*
+- Her $Y_i(0)$ is contaminated; the program's reach is understated
+- **General equilibrium:** Devon's crypto tax credit, at national scale
+- The demand surge moves the *price* — everyone faces a new market
+- Non-recipients' $Y_i(0)$ shifts through *others'* treatment
+
+::: notes
+First, spillovers, which are a form of interference, in Maya's own program. Suppose enrollees teach their roommates and siblings what they learned — how to dispute a credit-report error, how to time an application. Then a non-enrollee living with an enrollee gets some of the treatment second-hand. Her Y-of-zero, supposedly the outcome with no program, is contaminated by her neighbor's treatment. That is interference. The control group is no longer a clean no-treatment world, and the naive comparison understates the program's reach because the untreated were partly treated. Second, general equilibrium — interference at market scale — Devon's case. Devon studies a tax credit that subsidizes first-time crypto-asset purchases, and wants its effect on adoption. If a few people get the credit, no problem; but if it scales nationwide, the surge in demand moves the price. Now everyone — recipients and non-recipients alike — faces a different market. The non-recipients' Y-of-zero shifts because of other people's treatment, operating through the price. This is the classic general-equilibrium failure of SUTVA: a treatment harmless to study at small scale, because it leaves prices alone, can have completely different and harder-to-study effects at large scale, where it moves the equilibrium everyone trades at. The partial-equilibrium estimate does not extrapolate to the policy.
+:::
+
+## Hidden Versions, and the Discipline
+
+- **Hidden versions:** Priya's "adopting an ESG disclosure standard"
+- One firm: audited, detailed report; another: vague two-paragraph box-check
+- Coding both $D_i=1$ — no single $Y_i(1)$; an uninterpretable blend
+- Every causal claim sits on a SUTVA assumption — **state it out loud**
+- Randomization does **not** fix SUTVA — it must hold first
+
+::: notes
+Third, hidden versions of treatment — Priya's case. Priya evaluates whether adopting an ESG disclosure standard lowers a firm's cost of capital. But adopting the standard is not one thing: one firm publishes an audited, detailed report; another files a vague two-paragraph statement to check the box. Coding both as D-sub-i equals one violates SUTVA's second part — there is no single Y-of-one, because treated hides a spectrum of intensities. Priya's estimate is an uninterpretable blend of effects from genuinely different treatments masquerading as one. The practical upshot: every causal claim you make or read sits on a SUTVA assumption, and you should be able to state it out loud. I am assuming no spillovers between units, and that the treatment is the same well-defined thing for everyone. Often it is fine — a small pilot program with unconnected participants rarely moves markets or leaks across people. Sometimes it is fatally wrong. Either way, name it, the way the empirical-spec discipline our conventions demand insists. And here is the crucial warning that sets up part nine: SUTVA failures cannot be fixed by randomization, the tool we turn to next. Randomizing who gets treated does nothing about treatments spilling across units or meaning different things. SUTVA has to hold — or be designed for, via cluster-level treatment or scale limits — before randomization can do its job.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Finance breaks SUTVA three ways: **spillovers** (controls treated second-hand), **general equilibrium** (treatment at scale moves prices), and **hidden versions** (one $D_i=1$ secretly several treatments). State your SUTVA assumption out loud for every causal claim — and remember randomization *cannot* fix it. Next: the design that zeroes selection bias.
+:::
+
+::: notes
+To summarize part eight: finance breaks SUTVA in three ways. Spillovers, where enrollees teach non-enrollees and contaminate the control group's untreated outcome. General equilibrium, where a treatment at national scale moves the price so that everyone's untreated outcome shifts through other people's treatment. And hidden versions, where coding genuinely different treatments as one makes the treated potential outcome ambiguous. Every causal claim rests on a SUTVA assumption, so name it out loud. And crucially, randomization cannot repair a SUTVA failure — the assumption must hold first. In part nine we finally reach the payoff: the one design, randomization, that makes the selection-bias term provably vanish, and why it is the gold standard everything else is measured against.
+:::

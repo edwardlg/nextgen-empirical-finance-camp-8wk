@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+---
+
+## The Threats-and-Responses Table
+
+- Part 5 — build the four-column table that forces honesty
+
+::: notes
+Welcome back to the identification memo, part five of nine. In part four we finished the standard menu of threats. Now we build the operational heart of the memo — the four-column threats-and-responses table — and learn why its rigid shape is the thing that forces you to be honest.
+:::
+
+## Four Columns That Force Honesty
+
+| Column | What goes in it |
+|---|---|
+| **Threat** | The named failure, one phrase — *not* "endogeneity" |
+| **Why it's plausible** | The concrete story under which it's real |
+| **What we do about it** | The specific test or design choice |
+| **Residual concern** | The honest leftover after everything |
+
+- Write it as a literal Markdown table — rigid shape forces honesty
+
+::: notes
+Now build the table. It is the operational heart of the memo, with exactly four columns. Write it as a literal Markdown table in your paper, because its rigid shape is what forces honesty: every threat must have a response, and every response must end in a residual concern, so you cannot quietly drop the threats you have no answer for. Column one, the threat: the named failure of the identifying assumption, from the menu, stated in one phrase — not the word endogeneity. Column two, why it's plausible: one sentence on the concrete story under which this threat is real in your setting. If you cannot tell a plausible story, the threat is a strawman and does not belong. Column three, what we do about it: the specific test, design choice, or robustness check that addresses it, with the expected result that would reassure a reader. Column four, the residual concern: what still worries you after you have done everything in column three. The honest leftover.
+:::
+
+## The Column Students Want to Leave Empty
+
+- A good mentor reads the **Residual-concern** column first
+- All "none" is *less* credible — you didn't look hard enough
+- The point: show you've *seen*, *engaged*, *bounded* what remains
+- Order rows in **descending danger** — lead with the worst
+- Burying your worst threat reads as evasion; leading reads as confidence
+
+::: notes
+The fourth column is the one students want to leave empty, and it is the one a good mentor reads first. A threats table whose residual-concern column is all "none" is not a stronger paper — it is a less credible one, because every real design has residual concerns, and a reader who sees none assumes you have not looked hard enough. The point of the table is not to pretend the threats are vanquished; it is to show you have seen them, engaged them, and bounded what remains. That is what intellectual honesty looks like on a page, and it is the single trait that most distinguishes a paper a referee trusts from one they do not. A practical note on ordering: put your rows in descending order of danger. The first row should be the threat that, if true, would most cleanly kill the paper — the one a seminar audience asks about in the first ninety seconds. Burying your most serious threat in row four reads as evasion; leading with it reads as confidence. You are signaling that you are not afraid of your own hardest question.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **threats-and-responses table** has four columns — threat, why plausible, what we do, residual concern — and its rigid shape forces honesty: every response must end in a residual concern, so you cannot drop the threats you can't answer. An all-"none" residual column reads as *less* credible, not more. Order rows in descending danger and lead with your hardest question. Next: the distinction that organizes columns three and four — test it, or argue it.
+:::
+
+::: notes
+To summarize part five: the threats-and-responses table is the operational heart of the memo, four columns wide — the named threat, why it's plausible, what you do about it, and the residual concern. Its rigid shape forces honesty, because every response must end in a leftover worry, and an all-"none" residual column makes you less credible, not more — it signals you have not looked hard enough. The point is to show you have seen, engaged, and bounded the threats, not vanquished them. Order your rows by descending danger, and lead with the threat that could most cleanly kill the paper, because burying it reads as evasion. In part six we learn the distinction that organizes columns three and four: some threats you can test, and some you can only argue.
+:::

@@ -1,0 +1,57 @@
+---
+date: "2026-06-22"
+---
+
+## Seeing the Law: One Running Mean
+
+- Part 3 — watching the LLN in a single running average
+
+::: notes
+Welcome back to Chapter one-point-four, the Law of Large Numbers and the Central Limit Theorem, part three of ten. In part two we proved the Law of Large Numbers with Chebyshev's inequality. Now we watch it happen on screen — not with last chapter's ten-thousand-histograms picture, but by following a single sample as it grows and plotting its running average.
+:::
+
+## The Setup: A Running Average
+
+- Follow a *single* sample as it grows
+- Fair die rolls — population mean $\mu=3.5$
+- Draw one, then two, then three... recompute the average each time
+- Plot the running average against the number of rolls
+- Use a log x-axis so early wildness is visible
+
+::: notes
+The cleanest way to watch the Law of Large Numbers is to follow a single sample as it grows and plot the running mean. Imagine Sam simulating fair die rolls, where the population mean is three point five. We draw one die, then a second, then a third, and after each new roll we recompute the average of everything so far. Then we plot that average against the number of rolls. In the notebook we pin a random seed so the run is reproducible, draw five thousand rolls uniform on one through six, take the cumulative sum divided by the running count to get the running mean, and draw a dashed horizontal line at three point five for the true mu. We put the horizontal axis on a log scale so the early wildness, when only a handful of rolls have landed, stays visible instead of being crushed against the left edge.
+:::
+
+## What You See
+
+- Starts jagged: after 3 rolls the average might be $2.0$ or $5.3$
+- As $N$ climbs into the hundreds, it flattens
+- Presses against the dashed line at $3.5$
+- Never lands exactly and stays — tiny corrections forever
+- The wandering shrinks, visibly, like $1/\sqrt{N}$
+
+::: notes
+What you see is a curve that starts out jagged and undisciplined — after three rolls the average might be two point zero or five point three, anything is possible — and then, as N climbs into the hundreds and thousands, flattens out and presses against the dashed line at three point five. It never lands exactly on three point five and stays there; it keeps making tiny corrections forever. But the size of the wandering shrinks, visibly, like one over the square root of N. That picture is the Weak Law made of pixels: not a promise that the sample mean equals mu, but a promise that the room it has to wander in keeps closing as more data arrive.
+:::
+
+## The Destination Is Fixed, the Route Is Random
+
+- Sanity check: change the seed
+- A *different* jagged path settles onto the **same** dashed line
+- The destination is a property of the **population**
+- Only the **route** is random
+
+::: notes
+Here is a useful sanity check you can run yourself: change the seed and watch a different jagged path settle onto the same dashed line. The destination is a property of the population — it is mu, three point five, fixed and waiting. Only the route there is random. One seed gives you a path that overshoots early and drifts down; another undershoots and climbs; but both funnel toward the same horizontal line and the funnel narrows in the same way. That separation — a fixed destination reached by a random route — is the whole emotional content of the Law of Large Numbers. The truth is not up for negotiation; only how long your particular sample takes to reveal it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The running-mean plot is the Weak Law made of pixels: a jagged path that flattens and presses against $\mu$, with the wandering shrinking like $1/\sqrt{N}$. Change the seed and a new path finds the *same* line — the destination is fixed, only the route is random. Next: the **shape** of the cloud.
+:::
+
+::: notes
+To summarize part three: the running-mean plot makes the Law of Large Numbers visible. A single sample's average starts jagged, then flattens and presses against the true mean, with the room it has to wander in shrinking like one over the square root of N. It never lands and stays; it keeps making tiny corrections forever. Change the seed and a different path finds the same dashed line — the destination is fixed by the population, only the route is random. The Law of Large Numbers tells us where the sample mean ends up. It says nothing about the shape of the cloud of possible values around that destination. That shape is the next theorem's job. In part four we state the Central Limit Theorem.
+:::

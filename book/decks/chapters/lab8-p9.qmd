@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Fatal vs. Survivable: The Distinction
+
+- Part 9 — tell a fatal critique from a survivable one
+
+::: notes
+Welcome back to Lab Eight, part nine of twelve. In part eight we turned each threats-table row into a prepared four-part answer. Now the distinction that lets you keep your composure when a question lands hard: a survivable critique attacks a number; a fatal critique attacks the comparison. This part draws the line; the next handles the live moves.
+:::
+
+## The Core Distinction
+
+- A survivable critique attacks a *number*
+- A fatal critique attacks the *comparison*
+- Knowing which is which keeps your composure
+- Survivable: a choice that might move the estimate
+- Fatal: the identifying assumption itself
+
+::: notes
+This is the distinction that lets you keep your composure when a question lands hard: a survivable critique attacks a number; a fatal critique attacks the comparison. A survivable critique asks whether a choice changes the answer — cluster differently, winsorize at one percent not five, did you control for firm size. The estimate might move a little; it does not vanish. A fatal critique attacks the identifying assumption itself — your treated and control groups were already diverging before treatment, your instrument plausibly affects the outcome directly, the same cutoff switches eligibility for a different program. If the attacker is right there, no amount of re-clustering saves you, because the comparison was never clean.
+:::
+
+## Survivable Critiques
+
+- "Cluster differently," "winsorize at 1% not 5%"
+- "Did you control for firm size?"
+- Answer: "we checked; it doesn't"
+- Point at the robustness slide
+- These are the *testable* threats — you wrote a test
+
+::: notes
+A survivable critique asks whether a choice changes the answer: cluster differently, winsorize at one percent not five percent, did you control for firm size. These you answer with "we checked; it doesn't" — and you point at the robustness slide — or with "fair, let me re-run it and report back." The estimate might move a little; it does not vanish. These map exactly to the testable threats from Chapter seven point five — the ones you could write a test for. Because you could test them, you did, and the robustness slide is your prepared answer waiting on screen.
+:::
+
+## Fatal Critiques
+
+- Attacks the identifying assumption itself
+- "Your groups were already diverging before treatment"
+- "Your instrument affects the outcome directly"
+- No re-clustering saves you — the comparison was never clean
+- These are the *arguable*, not testable, threats
+
+::: notes
+A fatal critique attacks the identifying assumption itself: your treated and control groups were already diverging before treatment, your instrument plausibly affects the outcome directly, the same cutoff switches eligibility for a different program. If the attacker is right, no amount of re-clustering saves you — the comparison was never clean. These are the arguable, not testable, threats from Chapter seven point five, and they are fatal precisely because you can only argue them, not test them. You cannot point at a robustness slide, because there is no test that settles the question; there is only the strength of your design's logic.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**A survivable critique attacks a number; a fatal one attacks the comparison.** Survivable critiques are the *testable* threats — answer "we checked; it doesn't" and point at the robustness slide. Fatal critiques are the *arguable* threats — no re-clustering saves them. Next: the three live moves when one lands.
+:::
+
+::: notes
+To summarize part nine: the distinction that keeps you composed is whether a question attacks a number or the comparison. A survivable critique attacks a choice — cluster differently, winsorize differently, add a control — and the estimate may shift but does not vanish; these are the testable threats, answered with "we checked; it doesn't" and a robustness slide. A fatal critique attacks the identifying assumption itself — diverging pre-trends, a direct instrument channel, a coincident program — and no re-clustering saves it; these are the arguable threats, settled only by the logic of your design. In part ten we handle the live moves: what to do when a fatal critique lands and the attacker is right, and how to say "I don't know" with structure.
+:::

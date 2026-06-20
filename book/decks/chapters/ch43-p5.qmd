@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## Sharp RD: A Local Effect, and a Number
+
+- Part 5 — the RD analog of LATE, with a worked number
+
+::: notes
+Welcome back to regression discontinuity, part five of seventeen. In part four we wrote the sharp-R-D estimand as a difference of two one-sided limits. Now we interpret what kind of effect it is — the R-D analog of LATE — and read a concrete number off a worked Russell example.
+:::
+
+## The RD Analog of LATE
+
+- $\tau_{\text{SRD}}$ is the average effect *for units with* $X = c$
+- *Not* the effect for everyone, the treated, or those far from $c$
+- A loan's effect may be large at the margin, small deep-subprime
+- RD reports only the *marginal* number
+- For "where to set the cutoff?" — that is exactly the right number
+
+::: notes
+There is one subtlety in the interpretation, and it is the R-D analog of LATE. The estimand tau-S-R-D is the average treatment effect for units with X equal to c — the firms right at rank one thousand, the borrowers right at score six hundred sixty. It is not the average effect for all borrowers, nor for the treated, nor for anyone whose score is far from the cutoff. If the effect of a loan is large for marginal borrowers but small for deep-subprime applicants far below the line, R-D will report only the marginal number, because the marginal units are the only ones whose treatment status the cutoff actually pins down. As in Week three, you must always ask: is the effect at the cutoff the effect I care about? For policy questions about where to set the cutoff — should the threshold be six-sixty or six-forty? — the effect at the margin is exactly the right number, which is part of why R-D is beloved by regulators.
+:::
+
+## A Number, to Make It Concrete
+
+| Rank distance from cutoff | Side | Mean passive ownership (%) |
+|---|---|---|
+| $-6$ to $-4$ (just inside R1000) | control | $5.1$ |
+| $-3$ to $-1$ (just inside R1000) | control | $5.3$ |
+| $+1$ to $+3$ (just inside R2000) | treated | $5.9$ |
+| $+4$ to $+6$ (just inside R2000) | treated | $6.0$ |
+
+- Extrapolate: control $\to \approx 5.4$, treated $\to \approx 5.8$
+- $\hat\tau_{\text{SRD}} \approx 5.8 - 5.4 = 0.4$ percentage points
+- Read the *limit of each side's trend*, not two raw bins
+
+::: notes
+Here is a number to make it concrete. Suppose Sam bins stocks by their reconstitution rank distance from the cutoff and computes average next-year passive-fund ownership in each bin. On the control side, just inside the Russell one thousand, the bins read about five point one and then five point three percent — climbing gently toward the cutoff. Extrapolated to the cutoff, the control curve sits around five point four. On the treated side, just inside the Russell two thousand, the bins read about five point nine and six point zero. Extrapolated back to the cutoff, the treated curve sits around five point eight. The jump is roughly tau-hat equals five point eight minus five point four, which is zero point four percentage points of passive ownership, caused by landing in the Russell two thousand rather than the bottom of the one thousand. Notice we did not just difference the two nearest bins blindly. We read off the limit of each side's trend at the boundary. Getting that extrapolation right is what local polynomial estimation, coming up, is for.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+$\tau_{\text{SRD}}$ is the effect *for units right at $c$* — the RD analog of LATE, exactly the right number for "where to set the cutoff?" In a worked Russell example, extrapolating each side's trend to $c$ gives a jump of about $0.4$ percentage points of passive ownership. Next: fuzzy RD, where the cutoff only *nudges* treatment.
+:::
+
+::: notes
+To summarize part five: the sharp-R-D estimand is a local effect, for units right at the cutoff — the R-D analog of LATE. It is not the average effect for everyone, and for policy questions about where to set the cutoff, the marginal number is exactly what you want. In a worked Russell example, extrapolating each side's gently-trending bins to the boundary gave a jump of about zero point four percentage points of passive ownership — read off the limit of each side's trend, not two raw bins. In part six we relax the deterministic step: fuzzy R-D, where the cutoff only nudges the treatment probability, and Week three comes roaring back.
+:::

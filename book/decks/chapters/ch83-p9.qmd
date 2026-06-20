@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## A Worked Introduction and Your Turn
+
+- Part 9 — a fully worked intro, then into the notebook
+
+::: notes
+Welcome back to Writing the Empirical Paper, part nine of nine, the final part. In part eight we covered table and figure craft and pointed you to Appendix D. Now we assemble everything from this chapter into a fully worked introduction skeleton — Maya's fair-lending design — and then hand you to the notebook that turns your frozen results into publication-quality tables and figures.
+:::
+
+## A Worked Intro: Maya's Fair-Lending DiD
+
+- **Hook:** a real fact and a tension, not "the literature"
+- **Contribution:** "first quasi-experimental estimate" — calibrated
+- **Preview:** the number, human magnitude, timing, robustness fact
+- **Positioning:** constructs the gap by contrast — one bridge sentence
+- **Roadmap:** functional, no drama
+
+::: notes
+Let us assemble the four moves into an actual introduction skeleton, for the staggered difference-in-differences asking whether state fair-lending examination programs reduced the county-level minority-white mortgage-denial gap. The hook opens with a fact and a tension: in twenty-twenty-three, applicants in majority-minority neighborhoods were denied at nearly twice the rate of those in majority-white neighborhoods, a gap that narrows but does not vanish once income and loan size are held fixed. The contribution claims the "first quasi-experimental estimate" job, exploiting the staggered timing of adoption as plausibly exogenous variation. The "we find" preview gives the number — about one-point-eight percentage points, one-fifth of the pre-adoption gap — the timing, the key robustness fact, then names the assumption it rests on: consistent with parallel trends. The positioning sentence constructs the gap by contrast between a descriptive literature and an audit-study literature that have not met. The roadmap is functional.
+:::
+
+## Every Verb Is Honest
+
+- Contribution: "exploiting plausibly exogenous variation," not "we prove"
+- Preview names the **assumption** it rests on
+- Positioning **constructs** the gap by contrast, not a list
+- Hook leads with a fact, not "the literature"
+- Verbs **bounded by parallel trends** — never bare "causes"
+
+::: notes
+Read that skeleton against the discipline of the whole chapter. The contribution sentence uses the verb "exploiting plausibly exogenous variation" — a calibrated claim, not "we prove discrimination." The preview gives the number, the magnitude in human units, and the timing, then immediately names the assumption it rests on: consistent with the parallel-trends assumption. The positioning sentence constructs the gap by contrast, not by listing. The hook leads with a fact and a tension, not with "the literature." And every verb is bounded by the weakest assumption — parallel trends, untestable beyond the pre-period — so nowhere does the prose say "causes" without the conditional attached. That is the discipline of this entire chapter, compressed into five paragraphs. Your introduction will be longer and fuller, but if it makes these five moves, in this order, with verbs this honest, it will do its one job: promise a reader something worth their twenty minutes, and promise only what your design can deliver.
+:::
+
+## Your Turn
+
+- Open **notebook 8.3** — publication-quality tables and figures
+- Renders your 8.1 and 8.2 results to LaTeX, built to Appendix D
+- Tables are **generated**, never retyped — they cannot drift
+- Write and **stress-test** your one-sentence contribution
+- **Audit your verbs**; make your **headline table stand alone**
+
+::: notes
+Your turn. Open notebook eight-point-three, publication-quality tables and figures. It takes the regression objects you produced in Chapters eight-point-one and eight-point-two — your results, your event-study coefficients — and renders them into the publication-quality tables and figures your paper needs, both exported to LaTeX, both built to the Appendix D standard. You will not hand-format a single table; the notebook does it, reproducibly, from the frozen results, so the tables can never silently drift from the numbers they report. Three reflection prompts to write up alongside. First, write your one-sentence contribution and stress-test it on a classmate — which recognizable job does it claim, and does your literature review support it? Second, audit your verbs against your weakest assumption: read only the verbs on your main result and force each down to the level the design permits. Third, make your headline table stand alone — cover the prose, list everything a reader cannot determine from the table alone, then fix it in the notes, following Appendix D.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Maya's worked intro shows all four moves with **every verb honest** — bounded by parallel trends. The whole chapter, compressed: a paper is an **argument**, say the important thing **first**, claim **exactly** what your design supports. Now build your tables in **notebook 8.3**.
+:::
+
+::: notes
+To summarize part nine, and the chapter: Maya's worked introduction shows all four moves — hook, contribution, preview, positioning, and roadmap — with every verb bounded by the weakest assumption. That is the whole chapter compressed: a paper is an argument, not a transcript; say the important thing first; claim exactly what your design supports. Now open notebook eight-point-three and build your tables and figures — generated from the frozen results, never retyped, so they can never drift. That is how you turn a folder full of tables into a paper a referee reads in one sitting and comes away believing.
+:::

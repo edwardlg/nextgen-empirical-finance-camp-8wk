@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## Two Paths: Real CRSP and Synthetic
+
+- Part 4 — the two paths in code: real CRSP and synthetic
+
+::: notes
+Welcome back to the Fama–MacBeth lab, part four of seven. In part three we saw why the design clusters by time and what it misses. Now we move from paper to code. We cover Path A — the real CRSP pull, run only on GMU infrastructure — and Path B, the synthetic fallback every student runs. Both paths feed the same two-pass code, because the synthetic panel gets the same column names as the real data.
+:::
+
+## Path A — Real CRSP via WRDS
+
+- Run only on GMU infrastructure, read-only
+- Never copy CRSP rows into notes or the repo
+- Pull `permno`, month-end `date`, return `ret` from `crsp.msf`
+- Join Fama–French `mktrf` and `rf` for the market proxy
+- Pin a snapshot date — CRSP revises history
+
+::: notes
+Path A is how you pull the actual data on the WRDS Cloud or Hopper. Do not run this off GMU infrastructure, and never copy CRSP rows into your notes — licensed data stays read-only per the Conventions. We show the pattern; we print no output and invent no numbers. The w-r-d-s package opens an authenticated connection, with credentials in a dot-p-g-pass file on the GMU machine, never in code. You query the CRSP Monthly Stock File for the permanent identifier permno, the month-end date, and the holding-period return, restricting to common stocks on the major exchanges. Then you join the Fama–French market and risk-free series to build excess returns. Critically, pin the snapshot date in your write-up — a CRSP pull is not reproducible without it, because CRSP revises historical data.
+:::
+
+## Path A — Build Excess Returns
+
+- Drop missing returns, key on month period
+- Merge stock returns with `mktrf`, `rf` on month
+- `ret_excess = ret − rf`; rename `mktrf` to `mkt_excess`
+- Real data: unbalanced, missing values, must use rolling beta
+- Same columns as Path B — shared downstream code
+
+::: notes
+After the pull, you align the month keys, drop missing returns, and merge with the Fama–French series. You compute each stock's excess return as return minus the risk-free rate, and rename the market factor to mkt-excess. From here, Path A and Path B share the same two-pass code, because we gave the synthetic panel the same column names: permno, month, the excess return, and the market excess return. The only differences on real data: returns have missing values, handled by dropping them; stocks enter and exit, so the panel is unbalanced and you require a minimum number of months per stock; and you must use a rolling beta to avoid look-ahead. Otherwise, the machinery is identical.
+:::
+
+## Path B — A Universe You Control
+
+- Build a one-factor world with a known premium
+- 300 stocks, 360 months, true monthly premium $\lambda = 0.006$
+- Each stock has a fixed true beta, drawn once
+- Market excess return: mean is the premium $\lambda$
+- DGP is CAPM: $r_{it} = \gamma_0 + \beta_i\, r_{m,t} + e_{it}$
+
+::: notes
+Now the version every student runs. We build a one-factor universe with a known risk premium, generate a CRSP-shaped panel, and recover the planted premium with the exact two-pass machine. Because you set the truth, you can grade the procedure — the same build-the-universe-to-check-the-tools move as Lab one. We use three hundred stocks over three hundred sixty months — thirty years. The true monthly market risk premium, lambda, is zero-point-zero-zero-six, that is zero-point-six percent a month. Each stock has a fixed true beta, drawn once and frozen. The market delivers an excess return each month whose long-run mean is that premium. And the data-generating process is the CAPM itself: a stock's return equals gamma-zero plus its beta times the market return plus idiosyncratic noise.
+:::
+
+## Path B — The Tidy Panel
+
+- Reshape into columns `permno`, `month`, `ret`, `mkt_excess`
+- $300 \times 360 = 108{,}000$ stock-months
+- Same schema as Path A — code runs unchanged
+- Hidden truth: `true_beta` and `LAMBDA_TRUE` off to the side
+- The procedure is not allowed to see them
+
+::: notes
+Finally you reshape the simulated returns into a tidy panel with the same schema as Path A: permno, month, return, and market excess return. That is three hundred stocks times three hundred sixty months — one hundred eight thousand stock-months. Because the columns match, the two-pass code runs unchanged on either path. And off to the side, held back, sits the secret truth: each stock's true beta and the planted lambda. The procedure is not allowed to see them — but you are, which is the whole point. After estimating, you compare your recovered numbers against that hidden truth and grade how well the machine worked.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Path A** pulls real CRSP via WRDS — licensed, read-only, snapshot pinned, no numbers exported. **Path B** simulates a CAPM universe with a *known* premium $\lambda = 0.006$ and the *same schema*, so identical code recovers a truth you planted. Next: Pass 1 and Pass 2 in code.
+:::
+
+::: notes
+To summarize part four: Path A pulls real CRSP through WRDS — licensed and read-only, snapshot pinned, no numbers exported. Path B simulates a CAPM universe with a known monthly premium of zero-point-zero-zero-six and the identical schema, so the same code recovers a truth you planted. Both paths hand the two-pass machine a panel of permno, month, return, and market excess return. In part five, we run that machine: Pass one for a beta per stock, then Pass two, one cross-sectional regression every month.
+:::

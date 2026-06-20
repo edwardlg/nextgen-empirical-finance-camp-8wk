@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+---
+
+## The IV Reader's Ledger
+
+- Part 12 — the IV reader's ledger and the deep moral
+
+::: notes
+Welcome back to Reading instrumental variables in the wild, part twelve of thirteen. In part eleven we watched the weak-instrument disaster unfold in a simulation, and watched Anderson–Rubin and the effective F catch the lie. Now we collect the whole chapter into one checklist — the IV reader's ledger — and draw the deep moral that connects it back to where Week two left off.
+:::
+
+## The Ledger
+
+| What to check | How to check it | A bad answer |
+|---|---|---|
+| **Relevance** | First-stage / effective $F$ vs. critical value | Single-digit $F$; $R^2$ in place of $F$ |
+| **Exclusion** | Argue back-door channels; overid test if over-identified | No alternative channels; $J$ test as "proof" |
+| **Compliers** | Who does the instrument move? | Universal claim from a complier estimate |
+| **Weak bias** | $1/(F+1)$ pull toward OLS; effective $F$ | 2SLS near OLS with a low $F$ |
+| **Inference** | Anderson–Rubin CI (valid when weak) | Only a conventional 2SLS SE |
+| **AR shape** | Bounded / unbounded / empty | Unbounded or empty hidden behind a point |
+
+::: notes
+Collect the chapter into a checklist, the IV analog of Chapter two-point-five's bias ledger. Confronting any IV result — in a paper or in your own output — run down the table. Relevance: check the first-stage and effective F against the critical values; a single-digit F, or a significant first stage in a huge sample, is the Bound–Jaeger–Baker trap. Exclusion: argue about back-door channels, and lean on the overidentification test only if you are over-identified. Compliers: ask who the instrument moves and whether the abstract claims a universal effect from a complier-specific estimate. Weak-instrument bias: watch for the one-over-F-plus-one pull toward ordinary least squares — a two-stage estimate sitting suspiciously close to OLS with a low F. Honest inference: demand the Anderson–Rubin interval, valid even when the instrument is weak. And read the interval's shape — bounded, unbounded, or empty — because an unbounded or empty interval hidden behind a tidy point estimate is the real story. The point of the ledger is that most entries are answered by design and argument, only a few by a statistic.
+:::
+
+## The Deep Moral
+
+- Week 2: a regression cannot tell you its coefficient is biased
+- Parallel: a **2SLS standard error** cannot tell you the instrument is strong
+- The diagnostics live **outside** the point estimate
+- First-stage $F$, effective $F$, Anderson–Rubin interval
+- Devon's tight standard error told him **nothing**
+
+::: notes
+The deep moral connects back to where Week two left off. In Chapter two-point-five the lesson was that a regression cannot tell you whether its own coefficient is biased — the diagnostics live outside the regression, in the research design. IV is a design that, when it works, manufactures the exogenous variation ordinary least squares lacked. But IV has its own failure modes, and this chapter's lesson is the exact parallel: a two-stage least squares standard error cannot tell you whether the instrument is strong enough to trust it. The first-stage F, the effective F, and the Anderson–Rubin interval are the diagnostics that live outside the two-stage point estimate. Devon's confident crypto paper, with its tight standard error and its three-star coefficient, told him nothing about whether its instrument was strong. Only the first-stage F and an Anderson–Rubin interval could.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Run the **IV reader's ledger** on every result — most entries are answered by design and argument, not a statistic. The deep moral parallels Week 2: a **2SLS standard error cannot certify its own instrument**. The diagnostics — first-stage and effective $F$, Anderson–Rubin interval, overid test — live *outside* the point estimate. Next: where Week 3 leaves you, and the design-based methods of Week 4.
+:::
+
+::: notes
+To summarize part twelve: the IV reader's ledger gathers every check into one table — relevance, exclusion, compliers, just- versus over-identification, weak-instrument bias, honest inference, and interval shape — and the point of the table is that most entries are answered by design and argument, only a few by a statistic. The deep moral parallels Week two: just as a regression cannot certify its own coefficient, a two-stage least squares standard error cannot certify its own instrument. The diagnostics live outside the point estimate — the first-stage F, the effective F, and the Anderson–Rubin interval. Devon's confident crypto paper told him nothing about whether its instrument was strong; only those diagnostics could. In part thirteen, the finale, we step back to see the shape of Week three and look ahead to the design-based methods of Week four.
+:::

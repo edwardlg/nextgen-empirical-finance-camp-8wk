@@ -1,0 +1,84 @@
+---
+date: "2026-06-22"
+---
+
+## The Three-Strand Literature Review
+
+- Part 5 — braid the review into three converging strands
+
+::: notes
+Welcome back to the manuscript build, part five of five. In part four we built the five-paragraph introduction, whose final paragraph claims one contribution to each of three literatures. Section two has to earn those claims. In this part we braid the review into three strands, learn the two principles that govern every citation, and close by seeing how all four artifacts report the same number.
+:::
+
+## An Argument, Not a List
+
+- Not a list of papers — an argument that earns the contribution
+- By its end, the contribution sentences are recitable
+- A **three-strand braid**: each strand one literature
+- Each: foundational work, recent extensions, the gap
+- Interwoven so the reader sees them converge
+
+::: notes
+The contribution paragraph names three literatures and claims one contribution to each. Section two has to earn those claims. The reveal: a literature review is not a list of papers, it is an argument that, by its end, has earned the contribution sentences — so completely that a reader could recite the contribution paragraph without having read it. The load-bearing structure is a three-strand braid: each strand is one literature, each with a beginning, foundational work; a middle, recent extensions; and an end, the gap your paper fills — interwoven so the reader sees them converge on your question.
+:::
+
+## Maya's Three Strands
+
+- **A** — fair-lending disparities; deepest strand
+- **B** — real effects of bank supervision
+- **C** — staggered DiD and disciplined heterogeneity; briefest
+- Strands are unequal; proportions track each contribution
+- Chronological-but-thematic: group into intellectual moves
+
+::: notes
+For Maya, the strands are these. Strand A, fair-lending disparities — from Munnell, Tootell, Browne, and McEneaney, through Bayer, Ferreira, and Ross, to Gao and Sun — with the gap being no credibly identified estimate of a regulatory intervention's effect. Strand B, the real effects of bank supervision — Berger and Bouwman, and Hirtle, Kovner, and Plosser — with the gap being a focus on safety-and-soundness, not distributional outcomes. Strand C, the methods literature on staggered designs. The strands are unequal — A deepest, C briefest — and their proportions track the contribution each earns. Each strand groups citations into intellectual moves, not a flat year-by-year list.
+:::
+
+## Two Principles for Every Citation
+
+- Cite what the paper **finds**, not just that it exists
+- A finding makes the citation contribute to the argument
+- Characterize so the cited author would recognize it
+- Otherwise the neighbor becomes the angry referee
+- Trim ruthlessly: Maya went from $43$ papers to $28$
+
+::: notes
+Two principles govern every citation. First, cite what the paper finds, not just that it exists. Bayer, Ferreira, and Ross study mortgage disparities wastes the citation; the same authors show that thirty to forty percent of the Black–White origination gap is driven by the concentration of high-cost lenders in minority neighborhoods makes it contribute. Second, characterize accurately enough that the cited author would recognize it; otherwise the neighboring scholar becomes the angry referee writing the author has mischaracterized. Six pathologies recur: the Annotated Bibliography, the Kitchen-Sink Review, Self-Citation Inflation, the Stale Review, Mischaracterization, and the Disconnected Methodological Section. Maya trimmed from forty-three cited papers to twenty-eight.
+:::
+
+## Same Thing, Same Number
+
+- Each artifact credibilizes the contribution, at its own detail
+- Abstract delivers the contract; tables and figures, the evidence
+- Intro restates with evidence; lit review earns credibility
+- The $1.4$ in the abstract is the $1.4$ in Table 2
+- And in Figure 1, and in paragraph 4
+- A reader who catches them disagreeing stops trusting all
+
+::: notes
+The through-line across all five artifacts is one idea: each does the same job — credibilizing the contribution — at a different level of detail. The abstract delivers the contract; the tables and figures deliver the evidence; the introduction restates the contract; the literature review establishes why it is credible. The discipline is making all four say the same thing in different registers — and, crucially, the same number. The one-point-four in the abstract is the one-point-four in Table two, Figure one, and paragraph four. A reader who catches them disagreeing stops trusting all of them.
+:::
+
+## Where This Goes Next
+
+- You now hold the second half of the project
+- Abstract, tables and figures, intro, lit review
+- **Week 8**: execute and defend
+- Each threat-and-response row becomes a robustness result
+- Peer review reads it the way you learned to read papers
+- Leave no row they can ambush you on
+
+::: notes
+You now have the second half of the project: an abstract, tables and figures engineered for the one-glance test, a five-paragraph introduction, and a three-strand review. In Week eight you execute and defend. Chapter eight-point-two turns each row of your threats-and-responses table into a robustness result. Peer review then hands your manuscript to another student who reads it tables first, assumption second, prose last and skeptically. Write the manuscript so there is no row they can ambush you on.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A literature review is **a three-strand braid that earns the contribution sentences** — each strand begins, extends, and names a gap; cite what a paper *finds*, accurately. All four artifacts credibilize one contribution at different detail, and report the *same* number. Next, in Week 8: execute and defend.
+:::
+
+::: notes
+To summarize part five, and the whole lesson: a literature review is a three-strand braid that earns the contribution sentences — each strand begins with foundational work, extends, and names a gap, and you cite what each paper finds. The through-line across all five artifacts: each credibilizes the same contribution at a different level of detail, and they must report the same number — the one-point-four everywhere. In Week eight you execute and defend. Write the manuscript so there is no row they can ambush you on.
+:::

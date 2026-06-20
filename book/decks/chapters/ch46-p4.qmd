@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## Causal Forests and Pre-Registration
+
+- Part 4 — the causal forest and the pre-registration discipline
+
+::: notes
+Welcome back to Chapter four-point-six, part four of nine. In part three we estimated heterogeneity with subgroup splits and an interaction regression. Now we meet the modern tool — the causal forest — and the pre-registration discipline that decides whether any heterogeneity claim is honest or just fishing dressed up.
+:::
+
+## The Modern Tool: Causal Forest
+
+- **Causal forest** (Wager–Athey 2018) estimates $\tau(\mathbf{x})$ at high dimension
+- Splits on **heterogeneity in the effect**, not in $Y$
+- **Honesty:** the half that picks splits is disjoint from the half that estimates
+- Feature **list** is pre-registered; the forest decides which matter
+- Report CATE histogram, feature importance, and the **BLP test**
+- BLP p $<0.05$: real heterogeneity; p $>0.10$: over-fitting flag
+
+::: notes
+The modern tool is the causal forest, from Wager and Athey, two thousand eighteen, which estimates tau of x over a high-dimensional x with a random-forest architecture adapted for causal inference. Two ideas keep it legitimate rather than a fishing expedition. It splits on heterogeneity in the treatment effect, not in the outcome Y. And it enforces honesty: the half-sample that selects the splits is disjoint from the half that estimates the leaf effects, which is what delivers valid pointwise confidence intervals. Crucially, the list of candidate features is pre-registered even though the forest decides which matter. You report three things: the CATE histogram — how spread out are the per-unit effects — the feature-importance plot, and a formal Best-Linear-Predictor test, from Chernozhukov and coauthors, two thousand eighteen, that asks whether the forest found any real heterogeneity. A best-linear-predictor p below zero-point-zero-five is the green light to discuss disaggregated predictions; p above zero-point-one-zero is a red flag for over-fitting.
+:::
+
+## Pre-Registration in Three Levels
+
+- **Level 1:** PAP names exact subgroups — gold standard
+- **Level 2:** PAP names feature list, forest decides — modern compromise
+- **Level 3:** split discovery half vs confirmation half — costs half your power
+- Wrong move: claiming Level 1 when you had Level 3
+- Run Level 1 with **Romano–Wolf** across the family
+- The forest's sample-splitting is what makes Level 2 honest
+
+::: notes
+The pre-registration discipline comes in three levels. Level one: the pre-analysis plan names the exact subgroups — the gold standard, run with Romano and Wolf across the family. Level two: the plan names the feature list and a causal forest decides what matters — the modern compromise, made honest by the forest's sample-splitting. Level three: split the sample into a discovery half you explore freely and a confirmation half you report, manufacturing a pre-registration after the fact at the cost of half your power. The wrong move — and it is the common one — is claiming level one when you really had level three: pretending you named the subgroups in advance when in fact you found them by looking. Be honest about which level you are at, and the reader can price your heterogeneity claim correctly.
+:::
+
+## Every Cut Is a Separate Causal Claim
+
+- Each heterogeneity claim is its **own** causal claim
+- Inherits the headline's identification only if moderator is **pre-treatment**
+- Check the event-study **leads within each subgroup**
+- Worry about composition and reverse causality in the moderator
+- If heterogeneity **vanishes**, report it as a finding
+- **Quantify the null** — don't let wide CIs masquerade as uniformity
+
+::: notes
+One more discipline. Every heterogeneity claim is a separate causal claim that inherits the headline's identification only when the moderator is pre-treatment. So check the event-study leads within each subgroup — the parallel-trends evidence must hold cut by cut, not just on average — and worry about composition and reverse causality in the moderator itself. Finally, the symmetric honesty: if heterogeneity vanishes, report that as a finding, and quantify the null. Say something like "the confidence intervals rule out per-subgroup effects more than one percentage point from the average," rather than letting wide, uninformative intervals masquerade as genuine uniformity. A precisely estimated zero spread is a result; a noisy one that merely fails to reject is not.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **causal forest** estimates the CATE honestly via sample-splitting, with the **BLP test** confirming real heterogeneity. Pre-registration has three levels — never claim Level 1 when you had Level 3 — and every cut is a separate causal claim needing a **pre-treatment** moderator. Next: mechanism analysis.
+:::
+
+::: notes
+To summarize part four: the causal forest estimates the conditional average treatment effect over many features while staying honest through sample-splitting, with the best-linear-predictor test confirming whether real heterogeneity exists. Pre-registration comes in three levels, and the cardinal sin is claiming level one when you had level three. Every cut is a separate causal claim that needs a pre-treatment moderator and its own pre-trend check, and a vanishing effect should be quantified, not waved away. In part five we turn to the third referee question: through what channel does the effect actually work — and the single most common identification mistake in empirical work.
+:::

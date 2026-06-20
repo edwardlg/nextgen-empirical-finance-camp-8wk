@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Conference Circuit
+
+- Part 6 — the stratified conference circuit and the discussant
+
+::: notes
+Welcome back to Chapter eight-point-seven, part six of nine. In part five we traced the decade-long arc, and saw that conferences sit in its middle. Phase three runs through conferences, and the circuit is not one thing — it is a stratified ecosystem of venues with different audiences, selection standards, and rewards. The discipline is to enter at the level you are ready for and climb deliberately. A presentation serves four functions: feedback, dominant for an early-stage paper; credentialing, whose value comes from the selection rate; networking, invisible short-term but dominant long-term; and visibility, feeding the citation long tail.
+:::
+
+## The Hierarchy of Venues
+
+- **Majors' main programs** (AEA, AFA, WFA, EFA) — 12–30%, not yet open
+- Their **pipeline tracks** — like the AEA Summer Pipeline — are open
+- **Second-tier nationals** — the SFS Cavalcade and its undergrad symposium
+- **Regionals** (Eastern, Midwest, Western FMAs) — the workhorse venues
+- **Undergraduate-specific** — the FMA poster, the Carroll Round
+
+::: notes
+The hierarchy runs from most-selective to most-accessible. The majors' main programs — the American Economic Association, the American Finance Association, the Western and European Finance Associations, with twelve-to-thirty-percent acceptance — are not yet open to precollege presenters, but their undergraduate and pipeline tracks are, chiefly the AEA Summer Pipeline Program, the canonical credentialing program for underrepresented students entering economics PhDs. The second-tier nationals include the SFS Cavalcade, the Society for Financial Studies conference — about twelve percent for the main program, with an Undergraduate Research Symposium beneath it, around thirty-five percent, whose discussant feedback is among the best anywhere. The regionals — the Eastern, Midwest, and Western Finance Associations, forty-to-seventy percent — are the workhorse venues. The undergraduate-specific entry tier is led by the FMA Undergraduate Poster Session and the Carroll Round at Georgetown.
+:::
+
+## Climbing Deliberately
+
+- FMA Undergraduate Poster the **fall after camp**
+- A regional by **spring of freshman year**
+- SFS Cavalcade undergrad symposium by **junior year**
+- AEA Pipeline by **senior year**; majors in graduate school
+- The FMA poster is the **must-do** credential
+
+::: notes
+The plan for a camp graduate is to climb deliberately: the FMA Undergraduate Poster the fall after camp, a regional by spring of freshman year, the SFS Cavalcade undergraduate symposium by junior year with the second or third paper, the AEA Pipeline by senior year, and the majors' main programs in graduate school. The FMA Undergraduate Poster Session is the must-do credential: submit an extended abstract in mid-June, present a thirty-six-by-forty-eight-inch poster — six panels covering title, abstract, question, data and design, results, and implications — in October, and give the same ninety-second pitch fifteen-to-twenty times while judges score a rubric. You get the credential plus ninety minutes of dense feedback. Maya's plan: the FMA poster in October twenty-twenty-six, attend the AEA as a registered student in January, a regional in spring, the Carroll Round application in February, and the SFS Cavalcade symposium by twenty-twenty-eight.
+:::
+
+## The Discussant
+
+- A faculty member assigned to **engage your paper** formally
+- When the discussant speaks, your job is to **listen** — not defend
+- Record every point in your notebook, not on your face
+- The discussant's critique often becomes the **referee's** critique
+- Send a specific thank-you **within 48 hours**
+
+::: notes
+The structural feature that distinguishes academic conferences is the discussant — a faculty member assigned to engage your paper formally before the audience. When the discussant speaks, your job is to listen — not defend, not interrupt — and record every point in your notebook, not on your face. Then take your one-to-two minutes to acknowledge what is right, push back gently on what is mistaken, and commit to following up. The audience judges your judgment, not your debating skills. The discussant's main critique often becomes a referee's main critique six months later, so addressing it now is months of work saved. Save the written comments, treat them as a referee report, and send a short, specific thank-you within forty-eight hours — the person who discussed your paper in twenty-twenty-seven may referee it, or recommend you, in twenty-thirty-one.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The circuit is a **stratified ecosystem** — climb from the FMA poster up to the majors. A talk gives feedback, credentialing, networking, and visibility. The **discussant** is the key feature: *listen*, log every point, and thank them within **48 hours** — today's discussant is tomorrow's referee. Next: after submission.
+:::
+
+::: notes
+To summarize part six: the conference circuit is a stratified ecosystem, from the FMA Undergraduate Poster up through the regionals and the SFS Cavalcade to the majors' main programs, and the discipline is to climb deliberately. A presentation delivers feedback, credentialing, networking, and visibility. The defining feature is the discussant: when they speak, listen rather than defend, log every point in your notebook, and respond briefly and graciously, because the discussant's main critique often previews the referee's, and that person may referee or recommend you years later. Send a specific thank-you within forty-eight hours. In part seven we face what comes after you submit — the reviewer wait and the four possible first decisions.
+:::

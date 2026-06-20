@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Negative-Weights Problem, in Full Generality
+
+- Part 9 — de Chaisemartin–D'Haultfœuille's negative-weights generalization
+
+::: notes
+Welcome back to Chapter four-point-two, part nine of twelve. In part eight we saw the Goodman-Bacon weights, and how forbidden comparisons can carry negative weight. That result is exact but built for a binary, absorbing, staggered treatment. de Chaisemartin and D'Haultfœuille prove the same disease in far more generality — and state it in the form that became the rallying cry of the literature. We state their result, its two alarming consequences, and how it relates to Goodman-Bacon.
+:::
+
+## The Negative-Weights Result
+
+- de Chaisemartin & D'Haultfœuille (2020), *American Economic Review*
+- Any two-way panel; treatment can switch on *and off*
+- $\hat\beta^{\text{TWFE}}\xrightarrow{p}\sum_{(i,t):D_{it}=1} w_{it}\cdot\text{ATT}_{it}$
+- Weights sum to one but are **not guaranteed positive**
+- All ATTs negative + some negative weights $\Rightarrow$ sum positive
+
+::: notes
+de Chaisemartin and D'Haultfœuille, twenty-twenty, in the American Economic Review, strip the problem to its essence. Their setup: any panel with two-way fixed effects, treatment that can switch on, and even off, at different times for different units. They prove the pooled coefficient converges in probability to a weighted average of the treatment effects across all treated unit-time cells — the sum, over cells where treatment equals one, of a weight w-sub-i-t times the genuine treatment effect, the average treatment effect on the treated for unit i at time t. The weights sum to one but are not guaranteed to be positive. That is the whole result, and it is devastating in its simplicity. A weighted average with some negative weights is not a sensible average of anything. If every cell-level effect is negative — disclosure helps everyone, always — but some weights are negative, the weighted sum can be positive. That is exactly the sign flip we built by hand, now derived in complete generality.
+:::
+
+## Two Alarming Consequences
+
+- Weights depend on **design only**, not on the effects
+- So compute them from your data *before* estimating anything
+- Count negative weights; if many, $\hat\beta$ is uninterpretable
+- $\hat\beta$ can oppose *every* individual $\text{ATT}_{it}$ in sign
+- Qualitatively wrong about direction — the thing policy most needs
+
+::: notes
+Two consequences make this more alarming than Goodman-Bacon's already-bad news. First, the weights depend only on the design — how many units are treated when — and not at all on the treatment effects. So you can compute the weights from your data alone, before estimating a single effect. de Chaisemartin and D'Haultfœuille hand you a diagnostic: count how many of your weights are negative, and how much total negative weight there is. If a meaningful share is negative, the coefficient is uninterpretable. Second, they show the failure can be so severe that the coefficient and every individual cell-level effect can have opposite signs — there exist data-generating processes where all true effects are strictly positive yet the probability limit of the coefficient is strictly negative. The estimator is not merely noisy or hard to interpret; it can be qualitatively wrong about the direction of the effect, which is the one thing a policymaker most needs to get right.
+:::
+
+## Two Views of One Object
+
+- Goodman-Bacon: decompose by **pairs of cohorts**
+- de Chaisemartin–D'Haultfœuille: decompose by **individual cells**
+- Same culprit: already-treated units doing control duty
+- Same cure for both
+- Two diagnostics, one disease
+
+::: notes
+It helps to see these two results as two views of one object. Goodman-Bacon decomposes the coefficient by pairs of cohorts and shows the forbidden later-versus-already-treated pairs are the culprits. de Chaisemartin and D'Haultfœuille decompose the same coefficient by individual treated cells and show the culprits manifest as negative cell weights. Same disease, two diagnostics. Both point to the identical cause — already-treated units doing control duty — and both point to the identical cure, which is the subject of the rest of the chapter.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+de Chaisemartin–D'Haultfœuille (2020): $\hat\beta\to$ a cell-weighted average of ATTs whose weights sum to one but **can be negative** — and are computable from the **design alone**. So $\hat\beta$ can oppose *every* true effect in sign. Same disease as Goodman-Bacon, viewed by cells instead of cohort pairs — and the same cure awaits.
+:::
+
+::: notes
+To summarize part nine: de Chaisemartin and D'Haultfœuille generalize the crisis — the pooled coefficient converges to a cell-weighted average of true effects, with weights that sum to one but can be negative, and that you can compute from the design alone before estimating anything. With negative weights, an all-negative set of effects can produce a positive coefficient — the sign flip, in full generality. The estimator can be qualitatively wrong about direction, the one thing policy most needs right. Goodman-Bacon by cohort pairs and de Chaisemartin–D'Haultfœuille by cells are two views of one disease, with one cure. In part ten, we state that shared cure precisely — clean controls plus transparent aggregation.
+:::

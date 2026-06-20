@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## The Counterfactual, and Why Design Beats Controls
+
+- Part 3 — defining discrimination cleanly, why design beats controls
+
+::: notes
+Welcome back to the Week Four mentor session, part three of five. In part two we found that controlling for creditworthiness is necessary but never sufficient — omitted-variable bias lingers, and over-controlling can erase the effect. So what is the honest target? In this part we write down the counterfactual that defines lending discrimination cleanly, confront the Fundamental Problem of Causal Inference, and see why a design — not a longer list of controls — is what rescues you. This is the whole lesson of this week, pointed at one question.
+:::
+
+## Discrimination, Defined Cleanly
+
+- Take a single application of a given quality
+- Ask: what *would have* happened had only the protected trait been different?
+- Same income, same score, same collateral — vary *only* what the law forbids
+- The difference in outcomes is the causal effect on the lender's decision
+- That is discrimination, in Chapter 3.1's potential-outcomes language
+
+::: notes
+Here is discrimination defined cleanly, written in the potential-outcomes language of Chapter three-point-one. Take a single application of a given quality and ask what would have happened to it had only the protected characteristic been different — same income, same score, same collateral, same everything a fair underwriter is allowed to weigh, varying only the thing the law forbids the lender to weigh. The difference in outcomes between that applicant and her unchanged self is the causal effect of the characteristic on the lender's decision. That is discrimination, defined cleanly. Not a residual disparity, not a coefficient — a comparison between one application and its own counterfactual self.
+:::
+
+## The Fundamental Problem
+
+- You never observe the same application *both* ways
+- The Fundamental Problem of Causal Inference, in full force
+- So you cannot read the effect off the data — you must *construct* the comparison
+- Design, not controls, builds the missing counterfactual
+- This is the lesson of the whole week, aimed at one question
+
+::: notes
+And immediately the Fundamental Problem of Causal Inference applies in full force: you never observe the same application both ways. You see her as a same-sex couple or as a different-sex couple, as one race or another — never both. The counterfactual self is unobservable by construction. So you cannot simply read the effect off your data, however rich it is. You must construct the comparison. And this is exactly why design, not a longer list of controls, is what rescues you — it is the lesson of this whole week, aimed at the single hardest question we could ask of it.
+:::
+
+## How Each Design Builds the Counterfactual
+
+- **Audit studies:** randomize the trait on identical applications
+- Bertrand and Mullainathan's résumé-callback experiment is canonical
+- Can't experiment in mortgage markets? Use the week's natural experiments
+- **DiD** on a policy shock differences away fixed unobserved between-group gaps
+- **RD** at an underwriting cutoff compares near-identical applicants across a line
+- Reflex: *what same-quality applicant is this comparing her to?*
+
+::: notes
+So how do our designs build that missing counterfactual? The audit-study tradition builds it directly — Bertrand and Mullainathan's résumé-callback experiment is the canonical example. You send paired applications identical except for a name that signals the protected trait, so the trait is randomized and everything else is held fixed by construction. But in mortgage markets you usually cannot run an experiment, so you reach for the week's natural-experiment designs. A difference-in-differences built on a policy that changed the rules for one group and not another differences away the fixed, unobserved between-group differences that plague the cross-section, isolating the change in differential treatment the policy caused. A regression discontinuity at an underwriting cutoff compares near-identical applicants on either side of a mechanical line. The move is the one you have practiced all week: stop asking the data to be honest after the fact, and instead find a comparison where the protected characteristic varies for reasons unrelated to creditworthiness. Keep one reflex sharp — what is the same-quality applicant this design is comparing her to, and what makes that comparison clean?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Discrimination is the **causal effect** of the protected trait on the lender's decision — vary *only* that trait, hold creditworthiness fixed. The Fundamental Problem means you never see the application both ways, so you must *construct* the comparison. Audit studies randomize the trait; when you can't experiment, **DiD** and **RD** reconstruct it from the world. Next: a real paper that did exactly this — same-sex borrowers in HMDA data.
+:::
+
+::: notes
+To summarize part three: discrimination is the causal effect of the protected trait on the lender's decision — vary only that trait, hold creditworthiness fixed. Because you never observe the same application both ways, you cannot read this off the data; you must construct the comparison. Audit studies randomize the trait on identical applications; when you cannot experiment, difference-in-differences and regression discontinuity reconstruct the counterfactual from the world. In part four we make this concrete with a paper my coauthor and I wrote — detecting discrimination against same-sex borrowers in real mortgage data.
+:::

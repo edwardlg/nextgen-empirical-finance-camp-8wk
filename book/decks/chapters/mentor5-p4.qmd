@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Tables That Hide Nothing
+
+- Part 4 — the last two links: transparent tables, honest robustness
+
+::: notes
+Welcome back to the anatomy of a Journal of Finance paper, part four of five. We have built the first two links — a sharp question and a credible design. Now the last two: transparent tables, where the result actually lives, and honest robustness, the months you spend trying to kill your own result before a referee does. These are the two links that turn a clever claim into a believable one.
+:::
+
+## An Honest Table Hides Nothing
+
+- The result lives in the **tables**, not the prose
+- Key coefficient **marches across columns** as controls pile on
+- Reader watches whether it **survives or collapses**
+- Sample size $N$ at the **bottom of every column**
+- A note states the SE flavor — on panels, **clustered**
+
+::: notes
+The result lives in the tables, and an honest table hides nothing. It shows the key coefficient marching across columns as controls and fixed effects pile on, so the reader can watch with their own eyes whether it survives or collapses. It reports the sample size — N — at the bottom of every column, so the reader can catch the sample silently changing underneath them. And it states, in a note, the standard-error flavor. On panel data that note had better say clustered, at the level the key variable varies — exactly Petersen, this week — or a Petersen-literate referee will not read past it. The table is where credibility is won or lost, line by line.
+:::
+
+## Reading the Table in Sixty Seconds
+
+- Tables first: headers, rows, the **one** carrying coefficient, then $N$
+- Stable across columns $\Rightarrow$ the result is **robust**
+- Shrinks toward zero once controls enter $\Rightarrow$ it was an **artifact**
+- A table showing only the spec that worked is a **magic trick**
+- Referees are **trained magicians**
+
+::: notes
+Now read it the way Pack Five trained you — tables first. Before any prose: what is in the column headers, what is in the rows, what is the one coefficient that carries the paper, and where is the sample size. Then watch that key coefficient as controls and fixed effects are added. If it stays stable across columns, the result is robust — it was not an artifact of what was left out. If it shrinks toward zero once issuer-finance controls and state fixed effects go in, then what looked like a finding was an artifact of omission. And beware the table that reports only the one specification that worked. That is not transparency; it is a magic trick — and referees are trained magicians who know exactly where to look.
+:::
+
+## Robustness Is You, Doing the Referee's Job First
+
+- The gap between a working paper and a published one
+- Re-run: different controls, window, SE flavor
+- A **placebo** where the effect should be zero — check it is
+- Confront the **most threatening** alternative head-on
+- Report the checks that **failed**, not only those that passed
+
+::: notes
+The difference between a working paper and a published one is mostly the robustness section — the months spent trying to kill your own result before a referee does. You re-run with different controls, a different sample window, a different standard-error flavor. You run a placebo where the effect should be zero and check that it is. You confront the most threatening alternative explanation head-on and show the data does not support it. Honest robustness is not decoration. It is you, the author, doing the referee's job to yourself first, in public — and reporting the checks that failed as well as the ones that passed. That honesty is exactly what makes the headline believable. For every claim, keep one reflex sharp: what is the comparison, what is the threat, and what check would make a skeptic stop arguing?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+An honest **table** marches the key coefficient across columns, reports $N$ at the bottom, and notes **clustered** standard errors. Stable means robust; shrinking means artifact. **Robustness** is you doing the referee's job first — placebos, alternative specs, reporting the checks that *failed*. Next: the live worked case.
+:::
+
+::: notes
+To summarize part four: the last two links are tables and robustness. An honest table hides nothing — it marches the key coefficient across columns, reports the sample size at the bottom of every column, and notes its standard-error flavor, which on panel data must be clustered at the level the key variable varies. A coefficient that stays stable as controls enter is robust; one that shrinks toward zero was an artifact. And honest robustness is you doing the referee's job to yourself first — placebos, alternative specifications, reporting what failed. In part five, we put all four links together on a real working paper of mine, and tie it to your own capstone.
+:::

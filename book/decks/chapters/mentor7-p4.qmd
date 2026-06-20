@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Three Warm-Ups: Sunk Cost, So-What, Fatal vs. Fixable
+
+- Part 4 — three warm-ups drilling the kill reflexes
+
+::: notes
+Welcome back to how I pick and kill a project, part four of nine. In part three we finished the three enemies — sunk cost, the inert project, and the fatal-flaw checklist — and learned that killing is a win. Now we put those reflexes to work on the three warm-up questions you brought. These have honest answers and dishonest ones, not right and wrong ones.
+:::
+
+## Warm-Up One: Sunk Cost, Made Personal
+
+- You spent **ten days** building a dataset
+- A cleaner version needs a **different** dataset
+- Write the checkpoint question — **forward-looking only**
+- The ten days must **not appear** in that question
+- What is the **smallest signal** to kill it anyway?
+
+::: notes
+Warm-up one makes sunk cost personal. You have spent ten days building a dataset for a project, and you now suspect a cleaner, more answerable version of the question would require a different dataset you do not yet have. In one or two sentences, write the question you should ask yourself at that checkpoint — and explain why the ten days you already spent must not appear anywhere in that question. The honest question is purely forward-looking: from here, ignoring the ten days, which version is the best use of the weeks I have left? The ten days are gone either way. And then name the smallest signal that would tell you to kill it anyway — often it is the moment you notice the cleaner version answers the so-what better, and you are only defending the old one out of loyalty to your own labor.
+:::
+
+## Warm-Up Two: So What, Both Ways
+
+- Take your **favorite** PS 7.1 candidate
+- "If A, someone should ___; if B, someone should ___"
+- Be honest: did **both halves** fill in?
+- Or only the result you were **hoping for**?
+- One-sided consequences signal a **wish**, not a question
+
+::: notes
+Warm-up two is the so-what, run for both answers. Take your favorite of the candidate questions you scored in problem set seven-point-one. Write the sentence: if I find result A, then someone should do something; if I find result B, the opposite, then someone should do something. Now be honest — did both halves fill in, or did only the result you are hoping for have consequences? If only the answer you want matters, and the opposite answer leaves the world unchanged, that is a tell. You have a wish, not a research question. A real question is one where both possible findings move somebody — the treasurer, the regulator, the investor — to think or act differently. If only one side has stakes, you are not testing a hypothesis; you are hoping to confirm one.
+:::
+
+## Warm-Up Three: Fatal vs. Fixable
+
+- (i) Sample has only **forty observations**
+- (ii) Cluster errors by **firm or industry?**
+- One is potentially **fatal**; one is a **Tuesday fix**
+- The test: can you **patch it with more work**?
+- Or is the patch **impossible given your data's world**?
+
+::: notes
+Warm-up three separates a fatal flaw from a fixable weakness. Two project troubles: one, my sample has only forty observations; two, I have not decided whether to cluster my standard errors by firm or by industry. Say which is which and why. The clustering choice is a Tuesday-afternoon fix — a judgment call you settle with a robustness check. The forty observations may be fatal: if that is all the world will ever give you, the standard errors will swallow any effect, and no amount of work conjures more data. So the general test that distinguishes them: can you patch it with more work, or is the patch impossible given the world your data comes from? A weakness you can fix slows you down. A flaw you cannot fix ends the project.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The warm-ups drill three reflexes: ask the **forward-looking** question (the spent days appear nowhere), run **so-what both ways** (one-sided stakes mean a wish), and test **fatal vs. fixable** — *can more work patch it, or is the patch impossible given your data's world?*
+:::
+
+::: notes
+To summarize part four: the warm-ups rehearse the reflexes in your own hands. Sunk cost made personal — write the checkpoint question forward-looking, with the spent days nowhere in it. So-what both ways — if only the answer you want has consequences, you have a wish, not a question. Fatal versus fixable — the clustering choice is a Tuesday fix, but forty immovable observations may be fatal, and the deciding test is whether more work can patch it. In part five we open the speak-from deck — the scaffold I actually talk over in the room — starting with its first two slides.
+:::

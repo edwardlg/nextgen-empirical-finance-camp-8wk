@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Fast Literature Scan — AI on a Leash
+
+- Part 6 — a fast scan for "what's new," AI co-pilot on a leash
+
+::: notes
+Welcome back to the Idea-Generation Workshop, part six of eight. In part five we worked through feasibility. Now we answer "what's new" — not from your armchair, and not with a six-week reading marathon, but with a fast scan that tells you whether your question already has a settled answer, what the live arguments are, and which two or three papers you must read. We learn the procedure, and where the AI co-pilot helps and where it will hurt you.
+:::
+
+## The Procedure: Scholar, Cited-By, Read Three
+
+- Start broad in **Google Scholar**: outcome and treatment in plain words
+- "mortgage denial race HMDA," "stablecoin depeg contagion"
+- Use **"cited by"** to walk *forward* to the current edge
+- Read the right paper's intro — a curated map by an expert
+- Read the **right three**, the way Week 5 taught: question, data, identification, punchline
+
+::: notes
+Start broad with Google Scholar: search your outcome and treatment in plain words — "mortgage denial race HMDA," "stablecoin depeg contagion" — sort by relevance, and skim titles and abstracts for ten minutes to map the terrain. Use the "cited by" link on any paper that looks central; it walks you forward in time to who built on it, which is how you find the current edge of a conversation rather than its history. When you find a paper squarely on your question, read its introduction's literature review, a curated map drawn by an expert. This is the reading skill Week Five built: you read the right three, the way Chapter Five taught — find the question, the data, the identification, and the punchline first.
+:::
+
+## Where The AI Co-Pilot Helps
+
+- Genuinely excellent at **literature triage** — §6.5.1's first safe use
+- Paste twenty abstracts: sort into on-topic, adjacent, off-topic
+- Summarize each method in one line; a miscategory costs little
+- Great at explaining a half-remembered method, parsing a data dictionary
+- Use the *cite-or-decline* discipline: "summarize only what I paste; flag misfits"
+
+::: notes
+Now the AI co-pilot, where Chapter six-point-five earns its place in Week Seven. A large language model is genuinely excellent at literature triage — the first of the five safe uses from section six-point-five-point-one. Paste twenty abstracts and ask it to sort them into directly-on-my-question, adjacent, or off-topic, and summarize each method in one line. You lose almost nothing if it miscategorizes one, because you were going to skim the borderline cases anyway. It is excellent at explaining a method you half-remember, parsing a data dictionary, and suggesting search terms. A good prompt borrows the cite-or-decline discipline of section six-point-five-point-two: ask it to summarize only the abstracts you paste, and if one doesn't address your question, to say so rather than guessing — constraining it to the text you supply, not its parametric memory.
+:::
+
+## The Non-Negotiable Rule
+
+- **An LLM will fabricate citations that look perfect and don't exist**
+- Flawless authors, titles, years, journals — some real, some invented
+- You *cannot tell which* from the page
+- **Verify every citation** against a real index — CONVENTIONS §6
+- Treat the model as a *suggestion engine for what to verify*, never the source
+
+::: notes
+But here is the non-negotiable rule, lifted from Chapter six-point-five's first critical limit: a language model will fabricate citations that look perfect and do not exist. Ask it what papers study stablecoin depegs and it will hand you author lists, titles, years, and journals in flawless bibliographic format — some real, some pure invention, and you cannot tell which from the page. This has already embarrassed lawyers and students who trusted the output. So the rule for your scan, also CONVENTIONS section six: verify every single citation against a real index — Google Scholar, the journal's own site, a DOI lookup — before it enters your proposal. If you cannot find the paper, it does not exist, no matter how confident the model sounded. Treat the model as a suggestion engine for what to verify, never as the citation itself, and never as the source of a specific number — a number it offers is a hypothesis to check, not a fact to cite. The point of a leash is that the dog still does the hunting; you just decide what's real.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Scan fast: **Google Scholar**, the **"cited by"** trail, and the **right three** papers read for question, data, identification, punchline. Let the AI do **triage** of abstracts you paste — but never trust it for citations. **It fabricates references that look perfect.** Verify every one against a real index (CONVENTIONS §6) before it enters your proposal. Next: five feasible projects from the cast.
+:::
+
+::: notes
+To summarize part six: answering "what's new" needs a fast scan, not a reading marathon. Start broad in Google Scholar, follow the "cited by" trail forward to the current edge, then read the right three papers for question, data, identification, and punchline. The AI co-pilot is excellent at triaging abstracts you paste in — use the cite-or-decline discipline to keep it honest. But the non-negotiable rule is that it fabricates citations that look perfect and do not exist, and you cannot tell which from the page. Verify every citation against a real index before it enters your proposal — CONVENTIONS section six. In part seven we make this concrete: five feasible projects mapped to the cast, two worked end-to-end.
+:::

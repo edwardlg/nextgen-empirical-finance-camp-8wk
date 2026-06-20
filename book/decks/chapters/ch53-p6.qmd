@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## What's Clever, and the First Two Threats
+
+- Part 6 — what's clever, plus costs and snooping threats
+
+::: notes
+Welcome back to Week Five, lesson three, part six of eight. In part five we finished the reading order — risk, sub-periods, the anti-January seasonality, and long-run reversal. Now we judge the paper the way a referee does. First, three things that are genuinely clever about its design. Then, the first two of five live threats: transaction costs, and data-snooping across the grid.
+:::
+
+## What's Clever
+
+- **Brutal simplicity** — only past returns, nowhere to hide
+- A simple rule that works damages a theory **more**
+- **Overlap trick** squeezes a data-poor design into data-rich
+- Frames momentum as an **efficiency anomaly**, not a tip
+- Authors do the **skeptic's work first**, shifting the burden
+
+::: notes
+Three things are clever. First, the strategy design is brutally simple, and that is the point. There is no parameter to tune beyond J and K, no firm characteristic to construct, no accounting data to clean. You need only past returns — the one input weak-form efficiency swears is useless. A simple rule that works is far more damaging to a theory than a complicated one, because there is nowhere to hide a degree of freedom; the elegance is the evidence. Second, the overlapping-portfolio trick squeezes the data — re-forming every month and averaging across K cohorts turns a data-poor design into a data-rich monthly series, and the averaging smooths idiosyncratic noise — provided you respect the serial dependence it creates. Third, the authors frame momentum as an efficiency anomaly, not just a trading tip. They pre-empt the obvious rebuttal — you are just being paid for risk — by running the risk adjustment themselves. By doing the skeptic's work first, they shift the burden onto the defender of efficiency to name the missing risk factor.
+:::
+
+## Threat One: Transaction Costs
+
+- Momentum is a **high-turnover** strategy
+- Re-rank and trade a fresh slice every month
+- Losers are small, illiquid, expensive to **short**
+- ~1%/month gross can be eaten by round-trip costs
+- Net profit shrinks; by some accounts can **vanish**
+
+::: notes
+Now the threats. The first and biggest is transaction costs. Momentum is a high-turnover strategy: every month you re-rank and trade a fresh slice of the portfolio, and the losers you short are disproportionately small, illiquid, low-priced stocks with wide bid-ask spreads — the most expensive names to trade. A gross spread of roughly one percent per month can be eaten alive by round-trip costs, the short-sale costs of borrowing hard-to-borrow losers, and price impact. The paper engages this, but the honest verdict from later work is contested: net profitability shrinks substantially and, by some accounts of the short leg in small caps, can vanish. Any claim of momentum profits must be quoted net of a credible cost model — which is precisely the exercise the problem set forces.
+:::
+
+## Threat Two: Data-Snooping
+
+- Sixteen $J \times K$ cells is **sixteen tests**
+- Crown the best cell and you reported a **maximum**
+- Multiple-comparisons problem from Week One
+- Defense: a **broad region**, not one isolated cell
+- **Predicted ex ante**; replicates **out of sample**
+
+::: notes
+The second threat is data-snooping — Week One's multiple testing. Sixteen J-by-K cells is sixteen strategies. If you stare at a four-by-four grid and crown the most significant cell, you have run sixteen tests and reported the winner — a textbook multiple-comparisons problem. A single t of two-point-five means much less when it is the maximum over sixteen correlated tries. But the mitigating facts here are real and worth crediting. The result is not one isolated cell but a broad region of the grid. It was predicted ex ante by the overreaction literature. And it has since replicated out of sample — other countries, other asset classes, and the decades after eighty-nine. Out-of-sample survival is the strongest answer to a snooping charge, and momentum has it. Still, the reader should mentally discount any single starred cell.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The design is clever precisely because it is *simple*, squeezes the data, and pre-empts the risk rebuttal. But weigh the threats: **transaction costs** (the losers are expensive to trade and short) and **data-snooping** across sixteen cells — answered best by a broad-region, out-of-sample result. Next: three more threats — seasonality, mechanism, and inference.
+:::
+
+::: notes
+To summarize part six: the paper is clever because it is brutally simple, squeezes the data with the overlap trick, and does the skeptic's risk work first to shift the burden. But a referee presses on the threats. The first is transaction costs — momentum is high-turnover, and the losers are the most expensive names to trade and to short, so net profit can shrink dramatically. The second is data-snooping across sixteen cells, answered best by the fact that momentum is a broad-region effect, predicted in advance, that survives out of sample. In part seven we cover the remaining three threats: the seasonality vulnerability, the unresolved risk-versus-behavioral debate, and the overlap-inflated t-statistics.
+:::

@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Credible Shares and Rotemberg Weights
+
+- Part 8 — when shares are credible, and Rotemberg weights
+
+::: notes
+Welcome back to Week Four-point-five, part eight of twelve. In part seven we learned the shares view: the Bartik is a recipe of share-instruments, so the baseline shares must be exogenous. Now we ask when that assumption is actually credible, when it fails, and the diagnostic that tells you which shares your estimate truly rides on — the Rotemberg weights.
+:::
+
+## When Is "Exogenous Shares" Credible?
+
+- Fails if **initial specialization** correlates with later outcome trajectory
+- Maya's danger: auto regions also had fragile household balance sheets
+- Trade-literature version: manufacturing regions were **already** declining
+- Credible when baseline mix is unrelated to the outcome's **other** drivers
+- Defend with institutional argument, balance tests, pre-trends, dropping suspects
+
+::: notes
+This is a strong, very checkable-feeling assumption, and stating it this way surfaces the threats. A region's baseline industry mix is not a coin flip; it is the product of history, geography, and policy. Exogeneity of shares fails whenever a region's initial specialization is correlated with its later outcome trajectory for reasons other than the shock channel. Maya's danger is concrete. Suppose regions heavily specialized in auto manufacturing at baseline were also regions with historically loose lending standards or fragile household balance sheets — features that would drive up delinquency regardless of the auto cycle. Then the auto share is correlated with the error, exclusion fails on the share side, and the estimate is contaminated. The famous version in the trade literature: manufacturing-heavy regions were on a long secular decline for reasons predating the China shock, so their high manufacturing shares predict bad outcomes through a back door, not just through the import channel. So exogenous shares is credible when baseline composition is plausibly unrelated to the outcome's other determinants — and you defend it the way you defend any exclusion restriction: with institutional argument, balance tests of shares against pre-period covariates and pre-trends, and robustness to dropping suspect industries.
+:::
+
+## Diagnosing With Rotemberg Weights
+
+$$\hat{\beta}_1^{\text{Bartik}} = \sum_j \hat{\alpha}_j\, \hat{\beta}_{1,j}, \qquad \sum_j \hat{\alpha}_j = 1$$
+
+- $\hat{\beta}_{1,j}$ = IV estimate using only industry $j$'s share
+- Weight $\hat{\alpha}_j$ = how much industry $j$ moves the headline
+- A few high-weight industries typically **dominate**
+- Cousin of the negative-weights story in DiD (Chapter Four-point-two)
+- Rank by $|\hat{\alpha}_j|$ — aim your skepticism there
+
+::: notes
+Here is the diagnostic you must remember. If the Bartik instrument is secretly a weighted combination of share-instruments, then some industries get more weight than others — and the whole estimate could be riding on just a few. Goldsmith-Pinkham, Sorkin and Swift show how to compute Rotemberg weights, alpha-hat-sub-j, one per industry, that decompose the Bartik estimate as a weighted average of the just-identified estimates from each industry-share instrument alone. So beta-hat-one Bartik equals the sum over j of alpha-hat-sub-j times beta-hat-one-j, where the weights sum to one, and beta-hat-one-j is the estimate using only industry j's share as the instrument. The weight measures how much that industry can move the headline number; a few high-weight industries typically dominate. This is the shift-share cousin of the negative-weights story you saw for difference-in-differences in Chapter Four-point-two — same spirit, different design. The recipe: rank industries by the absolute value of the weight; for the top few, sanity-check that the share is plausibly exogenous, that its estimate is not an outlier, and that the result survives dropping it. If your whole causal claim rests on the auto share and you cannot defend its exogeneity, you do not have a result — you have a story about Rustville.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Exogenous shares is credible when **baseline industry mix** is unrelated to the outcome's other drivers — and fragile when specialization tracks latent trends (the trade-literature back door). **Rotemberg weights** decompose the headline into per-industry IV estimates: $\hat{\beta}_1 = \sum_j \hat{\alpha}_j\,\hat{\beta}_{1,j}$. Rank by $|\hat{\alpha}_j|$ and aim your share-exogeneity skepticism at the few that dominate. Next: the rival view — it's the shifts.
+:::
+
+::: notes
+To summarize part eight: exogenous shares is credible when a region's baseline industry mix is plausibly unrelated to the outcome's other determinants, and it is fragile when initial specialization tracks latent trends — the trade-literature back door, where manufacturing regions were already declining. You defend it with institutional argument, balance tests, pre-trends, and dropping suspect industries. The key diagnostic is Rotemberg weights, which decompose the headline estimate into a weighted average of per-industry IV estimates, the weights summing to one. Rank industries by the absolute value of their weight and aim your share-exogeneity skepticism at the few that dominate, because that is where the result actually lives. In part nine we meet the rival lens, which at first sounds like a flat contradiction: Borusyak, Hull and Jaravel say identification comes from the shifts.
+:::

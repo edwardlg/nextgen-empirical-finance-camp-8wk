@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## Responsible Use, Disclosure, and the Lab
+
+- Part 14 — the disclosure checklist and the lab
+
+::: notes
+Welcome back to the AI co-pilot for research, part fourteen of fourteen — the last one. In part thirteen we wired up Azure, logging, and a local fallback. Now we close with the checklist your capstone, and the Week Six assessment, will be held to. Treat AI assistance the way you treat any other part of the method: disclose it, validate it, and make it replicable.
+:::
+
+## Disclosure and Validation
+
+- State *where and how* you used an LLM, specifically
+- Name the exact model *version strings* and providers
+- Separate writing aid (you own the words) from data generation
+- Disclose every prompt that produced data — especially the rubric
+- For any label: out-of-sample **precision, recall, F1** table
+- Report the class you care about, with gold and test set sizes
+
+::: notes
+First, disclosure — say what you did. In a methods or acknowledgments paragraph, state where and how you used an LLM: literature triage, code review, prose editing, and-or producing data. Name the exact model version strings and providers, and the date range. Distinguish AI used as a writing aid, where you own every word, from AI used to generate data — the second demands validation; the first demands only that the words are true and yours. And disclose every prompt that produced data, verbatim, in an appendix — especially the classification rubric. Second, validation — prove the measurement. For any LLM-generated label, include an out-of-sample precision, recall, and F-one table against a gold set, with the gold-set and test-set sizes stated. Report the class you care about, never bare accuracy, and state the gold-labeling procedure — one coder or two, and how disagreements were resolved.
+:::
+
+## Reproducibility and Integrity
+
+- Commit the **audit log** so the exact calls are on record
+- Pin the model version, API version, and any seed
+- Save labels to disk; don't re-query inside the analysis
+- Verify every citation and figure against a primary source
+- **Freeze the prompt** against the gold set before the result
+- Address leakage; report robustness, don't hide it
+
+::: notes
+Third, reproducibility — make it re-runnable. Commit the audit log so the exact calls are on record. Pin the model version, the API version, and any seed or temperature setting, noting where determinism is not guaranteed. Save LLM-generated labels to disk and treat that file as your dataset. And verify every citation and figure against a primary source before it enters the paper. Fourth, integrity — don't fool yourself, or the referee. Freeze your classification prompt against the gold set before looking at the downstream regression, to avoid prompt-induced p-hacking. For forward-looking tasks, address training-data leakage explicitly: state the model's cutoff and why your sample is not contaminated, or test on post-cutoff data. And if you tried multiple prompts or models, report the robustness — do not hide it.
+:::
+
+## Go to the Lab
+
+- The unifying idea: an LLM is an instrument *you* own
+- **Co-pilot** — accelerate verifiable work, with guardrails
+- **Autopilot** — trusted to think — flies your paper into a mountain
+- Open **nb6.5**: a RAG pipeline, an OOS-validated classifier
+- Both APIs, the JSONL logger, the Ollama fallback
+- Carries forward to Mentor Session 6 and your capstone
+
+::: notes
+The unifying idea to carry into Mentor Session Six: an LLM is a measurement and drafting instrument that you, the researcher, remain fully responsible for. Used as a co-pilot — accelerating verifiable work, with validation and logging as the guardrails — it makes you faster and lets you tackle text-as-data questions that were out of reach a few years ago. Used as an autopilot — trusted to think, recall, and decide on your behalf — it will, sooner or later, fly your paper into a mountain with total confidence. The difference is entirely in the guardrails, and the guardrails are your job. Now open notebook six-point-five, the AI co-pilot lab, where you run the reproducible versions of everything: a retrieval pipeline over real 10-K filings, an out-of-sample-validated 8-K event classifier with a full precision, recall, and F-one report, calls to both the Anthropic and GMU Azure deployments, the J-S-O-N-L audit logger, and the Ollama local-fallback path. That work flows into Mentor Session Six and your capstone. This completes Chapter six-point-five.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Disclose** where you used AI and name the versions; **validate** every label with an out-of-sample precision/recall/F1 table; make the pipeline **reproducible** — pin, log, freeze. An LLM is an instrument *you* remain responsible for: a co-pilot with guardrails, never an autopilot. Now open nb6.5 and calibrate it yourself.
+:::
+
+::: notes
+To summarize part fourteen and the chapter: your AI-assisted work must be disclosed, validated, and reproducible. Disclose where you used an LLM and name the exact versions. Validate every label that enters a regression with an out-of-sample precision, recall, and F-one table against a gold set, reporting the class you care about, not bare accuracy. Make the pipeline reproducible — commit the audit log, pin the versions, save the labels to disk, freeze the prompt before the result, and verify every citation. The unifying idea is that an LLM is an instrument you remain fully responsible for: a co-pilot with guardrails, never an autopilot. Now open notebook six-point-five and calibrate that instrument yourself.
+:::

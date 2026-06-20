@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## SUTVA: The Assumption Hiding in the Notation
+
+- Part 7 — the two-part assumption behind the notation
+
+::: notes
+Welcome back to potential outcomes, part seven of eleven. In part six we split Maya's naive comparison into the ATT plus a selection-bias term, and named the mission: zero that bias. But the whole framework has been quietly leaning on an assumption so basic it is easy to miss, and it is load-bearing for everything above. It is called SUTVA, the Stable Unit Treatment Value Assumption. This part makes it explicit and states its two parts precisely.
+:::
+
+## What the Notation Smuggled In
+
+- We wrote $Y_i(1)$, $Y_i(0)$ — depending only on *unit $i$'s own* treatment
+- That is **SUTVA** — the Stable Unit Treatment Value Assumption
+- Two distinct parts you must check **separately**
+- Fail either, and $Y_i(1)$, $Y_i(0)$ lose their *meaning*
+- The foundation under the foundation
+
+::: notes
+Go back to the very first move, where we wrote down Y-sub-i-of-one and Y-sub-i-of-zero for unit i. That notation smuggled in an assumption so basic it is easy to miss, and it is load-bearing for everything above. We wrote unit i's potential outcome as depending only on unit i's own treatment — a single number for treated and a single number for untreated. That is SUTVA, the Stable Unit Treatment Value Assumption, and it has two distinct parts you must check separately. When both hold, the potential-outcomes notation is legitimate and the decomposition of part six stands. When either fails, the framework does not just lose precision — it loses meaning, because the objects Y-of-one and Y-of-zero are no longer well-defined. SUTVA is not a minor technical footnote; it is the foundation under the foundation.
+:::
+
+## The Two Parts
+
+- **Part 1 — No interference:** others' treatment doesn't change $Y_i$
+- Lets us write $Y_i(d)$ from $i$'s own $d$, not everyone's vector
+- **Part 2 — No hidden versions:** one well-defined treatment, one control
+- "Enrolling" means the *same* thing for everyone — no secret intensities
+- Otherwise $Y_i(1)$ is ambiguous: *which* version of $1$?
+
+::: notes
+Here are the two parts. Part one, no interference: one unit's treatment does not affect another unit's potential outcomes. Maya's applicant seven's loan outcome depends on whether she took the program, not on whether applicant eight did. Formally, this is what lets us write the potential outcome Y-sub-i-of-d as a function of i's own treatment d alone, rather than a function of the entire vector of everyone's treatments. Without it, the potential outcome under treatment is not even well-defined for a single unit, because it would depend on what everybody else did. Part two, no hidden versions of treatment: there is only one treatment and one control, consistently defined. Enrolling in the program means the same thing for everyone — not a watered-down version for some and an intensive version for others. If treatment is secretly several different treatments, then Y-sub-i-of-one is ambiguous: which version of one? SUTVA insists treatment is a single, well-defined condition so that Y-sub-i-of-one is a single, well-defined number. Keep these two parts separate in your mind, because finance breaks them in different ways — which is exactly where part eight goes.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**SUTVA** is the assumption hiding in $Y_i(d)$: **Part 1 — no interference** (one unit's treatment doesn't affect another's outcomes) and **Part 2 — no hidden versions** (one well-defined treatment and control). Fail either and $Y_i(1), Y_i(0)$ lose their meaning. Next: the three ways finance breaks SUTVA.
+:::
+
+::: notes
+To summarize part seven: SUTVA, the Stable Unit Treatment Value Assumption, is hiding in the very notation we use. It has two parts you must check separately. Part one, no interference: one unit's treatment does not affect another unit's potential outcomes, which is what lets us write the potential outcome from a unit's own treatment alone. Part two, no hidden versions: there is one well-defined treatment and one control, so that Y-of-one is a single, well-defined number. When either fails, the framework loses meaning, not just precision. In part eight we see how finance — through markets, prices, and networks — is unusually good at breaking both parts, with three concrete examples.
+:::

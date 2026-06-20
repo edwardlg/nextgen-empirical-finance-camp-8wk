@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## What's Vulnerable, and What You'll Replicate
+
+- Part 7 — where referees push back, and what you'll replicate
+
+::: notes
+Welcome back to the Fama–French ninety-three reader's guide, the finale, part seven of seven. A guide that only praises is useless, so now we turn to where a sharp referee pushes back, then close with the replication exercises that make you confront these weaknesses by hand.
+:::
+
+## Risk or Mispricing?
+
+- The deepest critique — **unsettled to this day**
+- FF93 frames size and value as compensation for **risk**
+- Rival camp: the premia reflect **mispricing** / behavior
+- The regression **cannot distinguish** the two
+- Great *description* of co-movement; **silent** on the economics
+
+::: notes
+First, the deepest critique, unsettled to this day: are S-M-B and H-M-L risk or mispricing? The paper frames size and value as compensation for risk — value stocks are riskier in some state-of-the-world sense, distress, say, so they must pay more. But the rival camp says the premia reflect mispricing: investors over-extrapolate the glamour of growth firms and under-price beaten-down value firms, and the premium is just the correction. The regression cannot distinguish these. A high R squared and a zero intercept are equally consistent with "H-M-L is a risk factor" and "H-M-L captures a systematic behavioral mistake." The model is an excellent description of co-movement; it is silent on why the premium exists. Hold that humility.
+:::
+
+## The Factor Zoo and Look-Ahead
+
+- Same recipe run on **hundreds** of characteristics — the factor zoo
+- Test hundreds, report the winners = Week 1 multiple testing
+- Were size and value **found by searching**?
+- They've held up out-of-sample better than most — real evidence
+- **Backfilling** in Compustat can sneak in look-ahead bias
+
+::: notes
+Second, the factor zoo and data-snooping. The same recipe — sort on a characteristic, build a long-short portfolio, check the alpha — has since run on hundreds of characteristics, the so-called factor zoo. Test hundreds of candidate factors and report the ones with significant alphas, and you are running the multiple-comparisons gauntlet from Week One: with enough tries, some clear the bar by chance. So were size and value found by searching? The honest reading: S-M-B and H-M-L held up far better out-of-sample and across countries than most zoo entries — real evidence they are not flukes — but the method is a data-snooping machine if you are not disciplined. Third, Compustat's backfilling — adding data for firms only after they succeeded — can sneak look-ahead bias into the early sample if your lag is sloppy.
+:::
+
+## Sensitivity to Construction Choices
+
+- 2×3 sort, NYSE breakpoints, value-weighting, 30/40/30 cutoffs
+- Every one is a researcher **choice**
+- Value- vs equal-weighting changes how small stocks drive results
+- All-stock breakpoints load portfolios with micro-caps
+- A robust finding shouldn't hinge on **30% vs 33%**
+
+::: notes
+Fourth, sensitivity to portfolio-formation choices. The two-by-three sort, the N-Y-S-E breakpoints, the value-weighting, the thirty-percent cutoffs, the June rebalance — every one is a researcher choice, and the factor returns shift if you change them. Value- versus equal-weighting changes how much small stocks drive the result. All-stock breakpoints instead of N-Y-S-E-only load the small portfolios with thousands of micro-caps. None of these break the paper, but they mean "the" size and value premia are really the premia under these specific rules. A robust finding should not hinge on a cutoff at thirty versus thirty-three percent, and checking that it does not is part of an honest replication.
+:::
+
+## What You'll Replicate in nb5.2
+
+- **Build the factors** and correlate with Ken French's series (aim > 0.9)
+- **Run the 25 regressions**; make the two-column table; add CAPM
+- **Run GRS** for both models; stress-test one construction choice
+- Referee questions: risk vs mispricing, factor survivorship, small-growth
+
+::: notes
+That brings us to the hands-on companion, notebook five-point-two. Three exercises. One: build the factors from your C-R-S-P–Compustat merge, then correlate your monthly S-M-B and H-M-L with Ken French's official series — aim above zero point nine and diagnose any month you diverge. Two: run the twenty-five regressions, assemble the two-column table of R squared and alpha, and run a C-A-P-M-only version to show how the R squareds rise and intercepts shrink when size and value are added. Three: compute the G-R-S F-statistic for both models, then change one construction choice — N-Y-S-E for all-stock breakpoints, or value- for equal-weighting — and report how much everything moves. Carry three referee questions: is it risk or mispricing, would the factors survive a multiple-testing correction, and is small-growth a tolerable blemish or a missing fourth factor? That closes Week Five-point-two. Next, you take this machine into the lab and build it yourself.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+FF93 is an excellent **description** of co-movement, but it cannot say whether size and value are **risk or mispricing**, it lives under the **factor-zoo** multiple-testing shadow, and its premia depend on **construction choices**. In nb5.2 you build the factors, run the 25 regressions and GRS, and stress-test those choices yourself.
+:::
+
+::: notes
+To summarize the finale: four places a referee pushes. Risk or mispricing — the regression cannot tell them apart. The factor zoo — the same recipe on hundreds of characteristics is a multiple-testing machine, though size and value survived better than most. Look-ahead from Compustat backfilling. And sensitivity to construction choices, so the premia are really "the premia under these rules." In notebook five-point-two you confront all of it. That is the whole reader's guide — now go build the workhorse yourself.
+:::

@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## The Bag-of-Words Model
+
+- Part 3 — the bag-of-words model every score is built on
+
+::: notes
+Welcome back to Chapter six-point-three, part three of twelve. In part two we named the genre and the question: does a general dictionary mismeasure financial tone, and can a finance list do better? There is no instrument here, no difference-in-differences. The strategy is construction plus validation, and it rests on a model you must understand in its own right — the bag-of-words model, which we open now.
+:::
+
+## The Bag-of-Words Model
+
+- Take a document; throw away order, grammar, structure
+- What remains: a *multiset* — a bag — of words and counts
+- "Company expects continued losses" = "Losses continued company expects"
+- Score by counting words from a pre-specified list
+- Same object to the model, despite different order
+
+::: notes
+The bag-of-words model, stated plainly. Take a document; throw away word order, grammar, and sentence structure. What remains is a multiset — a bag — of the words that appeared and how many times each appeared. The company expects continued losses, and continued losses the company expects, are, to a bag-of-words model, the very same object. You then score the document by counting how many of its words fall into a pre-specified list. If you have a list of negative words, the document's negativity is the count of negative-list words it contains. That is the whole mechanism. Crude, but it scales to fifty thousand words effortlessly, and it is the foundation every sentiment measure in this paper sits on.
+:::
+
+## The Negativity Score
+
+$$\text{NegScore}_d \;=\; \frac{\#\{\text{negative-list words in }d\}}{\#\{\text{total words in }d\}}$$
+
+- Negativity = *share* of document made of negative words
+- Harvard score and finance score have this **same form**
+- Only difference: **which words are on the list**
+- That is why the dictionary *is* the treatment
+
+::: notes
+Here is the score as a formula. Negativity of document d equals the number of negative-list words in document d, divided by the total number of words in document d. In words: negativity is the share of the document made of negative-list words. Now the crucial observation. Every sentiment measure in this paper — both the Harvard one and the finance one — is a count of exactly this form. The arithmetic is identical. The only thing that differs between two competing measures is which words are on the list. That is precisely why, in this paper, the choice of dictionary is the treatment. You hold the document fixed, you hold the formula fixed, you swap the word list, and you watch the score move. Everything turns on the list.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Bag-of-words** throws away order and grammar, keeping a bag of word counts. Negativity is the *share* of a document made of negative-list words — and both the Harvard and finance scores share this exact form. So the only thing that changes between them is **which words are on the list**, which makes the dictionary the treatment. Next: how the finance lists were built.
+:::
+
+::: notes
+To summarize part three. The bag-of-words model discards order, grammar, and structure, keeping only a bag of word counts. A negativity score is the share of a document made of negative-list words, and crucially every score in the paper has this identical form. So the only thing that varies between two competing measures is which words are on the list — which is exactly why the choice of dictionary is the treatment in this study. In part four we watch Loughran and McDonald build the finance-specific lists, see why they span several categories, and reach the validation step that is the real identification.
+:::

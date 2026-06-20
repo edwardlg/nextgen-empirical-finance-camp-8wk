@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Free Alternatives — yfinance, Stooq, Tiingo
+
+- Part 11 — free price sources and matching source to standard
+
+::: notes
+Welcome back to Data Acquisition in Practice, part eleven of thirteen. In part ten we covered PatentsView and its moving platform. Now we cover the free and freemium price sources — yfinance, Stooq, and Tiingo — useful for prototyping, but with limits that matter, because the gap between free price data and research-grade price data is exactly where naive backtests go to die.
+:::
+
+## yfinance — Convenient, Risky
+
+- Unofficial wrapper around Yahoo Finance — free, no key
+- Scrapes an undocumented endpoint Yahoo can change anytime
+- A script that works today may break tomorrow
+- Has **survivorship bias** — delisted tickers vanish
+- Occasional bad ticks and adjustment quirks
+
+::: notes
+Not everyone has WRDS access for every task, and sometimes you just want a quick price series to prototype before committing to the licensed pull. yfinance is an unofficial Python wrapper around Yahoo Finance: free, no key, dead simple — you download a ticker with a start and end date and an auto-adjust flag. The conveniences are real, and so are the dangers. yfinance is unofficial: it scrapes an undocumented endpoint that Yahoo can and does change without warning, so a script that works today may break tomorrow — a reproducibility hazard in itself. More seriously for research, Yahoo data has survivorship bias: delisted tickers often vanish, so a backtest on today's tickers silently drops the losers — exactly the bias CRSP's delisting returns fix. It also has occasional bad ticks and adjustment quirks, and no point-in-time integrity. It is fine for learning and prototyping; it is not what you submit a finance paper on if CRSP is available.
+:::
+
+## Stooq and Tiingo
+
+- **Stooq:** free daily prices for global stocks, indices, FX
+- Reachable through `pandas-datareader`; no key
+- A useful **cross-check** against yfinance
+- **Tiingo:** freemium API with a free tier and a key
+- Cleaner end-of-day prices, explicit terms and rate limits
+
+::: notes
+Two more free or freemium sources. Stooq is a free source of historical daily prices for global stocks, indices, and foreign exchange, reachable through pandas-datareader — you read, for example, a-a-p-l-dot-u-s from the stooq source. No key. Coverage is decent, and it is a useful cross-check against yfinance: if two free sources disagree on a price, you have found a data-quality problem before it found you. The same survivorship and point-in-time caveats apply. Tiingo is a freemium A-P-I with a free tier and a key. It offers cleaner, better-documented end-of-day prices and some fundamentals, with explicit terms of service and rate limits on the free tier — a modest number of requests per hour or day. The key, of course, comes from the environment, passed in an authorization header.
+:::
+
+## Match the Source to the Standard
+
+- Prototyping or no WRDS coverage — free is the right call
+- Publishable equity study with CRSP — use CRSP
+- CRSP is survivorship-bias-free and point-in-time correct
+- **Match the data source to the standard your conclusion must meet**
+- Instability makes caching *more* important, not less
+
+::: notes
+How to choose, and the honest comparison. For a teaching or prototyping task, or where the asset has no WRDS coverage — some crypto, some foreign small-caps, relevant to Devon — a free source is the right call: fast and good enough to develop the pipeline. For a publishable equity study where CRSP is available, use CRSP: it is survivorship-bias-free and point-in-time correct, which the free sources are not. The general principle, the theme of this whole chapter, is to match the data source to the standard your conclusion must meet. A result you would defend to a referee needs research-grade data; a Tuesday-afternoon prototype does not. Knowing the difference, and disclosing which you used, is the mark of someone who has internalized the craft. And whatever you choose, the reproducible-pull discipline is identical: pin the date, cache the raw response, log the request. A free source's instability makes caching more important, not less, because your own cached copy is the only guarantee the numbers will not move.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Free price sources** — yfinance, Stooq, Tiingo — are fast and great for prototyping, but carry **survivorship bias** and no point-in-time guarantee; cross-check them against each other. The governing rule: **match the data source to the standard your conclusion must meet** — and cache always, because instability makes it matter more. Next: the eight-step skeleton.
+:::
+
+::: notes
+To summarize part eleven: the free and freemium price sources — yfinance, Stooq, and Tiingo — are convenient and genuinely useful for learning and prototyping, and for assets WRDS does not cover. But they carry survivorship bias and no point-in-time guarantee, so cross-check them against each other, and when your conclusion must meet a referee's standard, use CRSP. The unifying rule is to match the data source to the standard your conclusion must meet — and whatever you pick, pin, cache, and log, because a free source's instability makes your own cached copy more important, not less. In part twelve we step back and assemble everything into the eight-step anatomy of a defensible pull.
+:::

@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Compliers and Identification
+
+- Part 3 — finishing the checklist: compliers and identification count
+
+::: notes
+Welcome back to Reading instrumental variables in the wild, part three of thirteen. In part two we checked relevance through the first-stage F and learned that exclusion is an argument, not a test. Now we finish the referee's checklist with the last two questions: who are the compliers the instrument actually moves, and is the model just-identified or over-identified? Then we point at the deepest failure mode, the one hiding inside relevance, which the rest of the chapter unpacks.
+:::
+
+## Question Four: Who Are the Compliers?
+
+- IV estimates the **Local Average Treatment Effect**
+- Only for compliers — units the instrument actually flips
+- Here: convenience-driven marginal adopters
+- Not the whales (always-takers), not the averse (never-takers)
+- Does the abstract overclaim a **universal** effect?
+
+::: notes
+Question four: who are the compliers? Recall from Chapter three-point-four that IV does not estimate the average treatment effect for everybody. It estimates the Local Average Treatment Effect — the effect for compliers, the subpopulation whose treatment status the instrument actually flips. For cash-machine distance, the compliers are people who would hold crypto if a machine were nearby but would not if it were far — marginal, convenience-driven adopters. They are not the crypto whales, who hold regardless of machines — the always-takers — nor the crypto-averse, who never hold — the never-takers. So even if the design is perfect, the number answers a narrow question: the trading effect of crypto-holding for convenience-driven marginal adopters. Ask of every IV paper: who are the compliers, are they an interesting population, and does the abstract overclaim by describing a complier-specific effect as if it were universal? Most do.
+:::
+
+## Question Five: Just- or Over-Identified?
+
+- Count instruments against endogenous regressors
+- One each = **just-identified** — exactly enough, no more
+- More instruments = **over-identified** — a testable implication
+- Surplus instruments can be checked against each other
+- A double-edged sword: also where many-instruments bias lurks
+
+::: notes
+Question five: just-identified or over-identified? Count the instruments and the endogenous regressors. If there is one instrument per endogenous regressor, the model is just-identified — exactly enough information to pin down the parameter, no more. If there are more instruments than endogenous regressors, it is over-identified, and you get something extra: a testable implication. With surplus instruments, each one implies its own IV estimate, and if they all point to the same place, that is reassuring; if they disagree wildly, at least one is violating exclusion. That is the overidentification test, which we will meet later. It is also where the many-instruments bias lurks — over-identification is a double-edged sword. Just-identified IV is cleaner to reason about but offers no internal check on exclusion; over-identified IV offers a check but introduces new ways to go wrong. Run these five questions on every IV paper and you will read them better than most graduate students.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+IV recovers only the **complier** effect — the Local Average Treatment Effect — so watch for abstracts that overclaim a universal number. Counting instruments against regressors tells you **just- versus over-identified**; the surplus buys a testable check but opens new failure modes. Next: the deepest one — the weak-instrument pathology.
+:::
+
+::: notes
+To summarize part three: the last two referee questions complete the checklist. Question four asks who the compliers are — IV recovers only the Local Average Treatment Effect, the effect for the units the instrument actually flips, here the convenience-driven marginal adopters, not the always-taking whales or never-taking averse — so beware abstracts that dress a complier-specific number as a universal effect. Question five counts instruments against endogenous regressors: just-identified gives exactly enough information with no internal check, while over-identified buys a testable implication but opens the door to many-instruments bias. With the five questions in hand, you read IV papers like a referee. In part four, we open the deepest failure mode, the one hiding inside relevance: the weak-instrument pathology.
+:::

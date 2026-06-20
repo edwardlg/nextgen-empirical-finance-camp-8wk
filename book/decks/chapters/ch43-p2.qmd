@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Local Randomization at the Cutoff
+
+- Part 2 — why units near $c$ are comparable
+
+::: notes
+Welcome back to regression discontinuity, part two of seventeen. In part one we stated the design: the jump in the outcome at the cutoff is the causal effect. Now we build the deepest justification for why that works — an analogy to a randomized experiment called local randomization.
+:::
+
+## What Sets a Stock's Exact Rank?
+
+- Fundamental size is controlled over *years*
+- But rank to the precise dollar on one day is buffeted by noise
+- A rival's earnings surprise, a block trade, microstructure noise
+- Two identical firms can land on opposite sides of rank one-thousand
+- Which side, near $c$, is *as good as a coin flip*
+
+::: notes
+Think about what determines a stock's exact reconstitution rank. It is its market capitalization on the ranking date, measured to the dollar. A company's fundamental size — its true economic footprint — is something it controls over years. But its rank to the precise dollar on one particular day in late spring is buffeted by a thousand tiny, essentially random forces: a rival's earnings surprise that nudged sentiment that morning, a block trade by some unrelated pension fund, microstructure noise in the closing auction. Two companies of genuinely identical fundamental size can end up on opposite sides of rank one thousand because of this fine-grained noise. And which side they land on, in the immediate neighborhood of the cutoff, is as good as a coin flip.
+:::
+
+## Local Randomization Is the Heart of RD
+
+- *Far* from $c$: treated and untreated differ systematically
+- You would never compare Apple to a micro-cap
+- *In a small window* around $c$: assignment is noise-driven
+- Units just above and below are balanced on everything
+- The cutoff manufactures a tiny local experiment
+
+::: notes
+This is the local randomization intuition, and it is the heart of R-D. Far from the cutoff, treated and untreated units differ systematically — the Russell one thousand is full of genuinely enormous firms, the bottom of the two thousand full of genuinely tiny ones, and you would never compare Apple to a micro-cap. But in a small window around the cutoff, the assignment to one side or the other is dominated by noise that no firm can finely control. So the units just above and just below are balanced on everything — observed and unobserved — exactly as randomization would make them balanced. The cutoff manufactures a tiny local experiment. The treated group is the units that happened to land just above; the control group is the units just below; and because the landing was noise-driven, the two groups are exchangeable.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Near the cutoff, which side a unit lands on is *as good as a coin flip*, because fine-grained noise no one can control decides it. So units just above and below $c$ are exchangeable — the cutoff manufactures a tiny local experiment. Next: the formal version, the continuity assumption.
+:::
+
+::: notes
+To summarize part two: near the cutoff, which side a unit lands on is dominated by noise no one can finely control, so units just above and just below are exchangeable. The cutoff manufactures a tiny local experiment, exactly as randomization would. In part three we make this rigorous with the formal continuity assumption — and see why it is weaker than the conditional independence we leaned on in Week three.
+:::

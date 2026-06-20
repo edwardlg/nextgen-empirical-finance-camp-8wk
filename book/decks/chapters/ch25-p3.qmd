@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Deriving the OVB Formula: A Product of Two Slopes
+
+- Part 3 — derive the OVB formula from partialling-out
+
+::: notes
+Welcome back to Week Two-point-five, part three of twelve. In part two we built the intuition for omitted variable bias and previewed it on numbers: a fifteen-point penalty from zero discrimination. Now we make it exact. We derive the famous formula using the partialling-out logic from Chapter two-point-three, and read off the single most useful sentence in econometrics — that the bias is a product of two slopes.
+:::
+
+## Deriving the Formula
+
+- Long model: $y = \beta_0 + \beta_1 x + \beta_2 z + \varepsilon$, well-specified
+- Short regression omits $z$: $y = \tilde\beta_0 + \tilde\beta_1 x + u$
+- Short slope $=\widehat{\operatorname{Cov}}(x,y) / \widehat{\operatorname{Var}}(x)$
+- Substitute the true model; the $\varepsilon$ cross-term vanishes
+- $\dfrac{\operatorname{Cov}(x,y)}{\operatorname{Var}(x)} = \beta_1 + \beta_2 \dfrac{\operatorname{Cov}(x,z)}{\operatorname{Var}(x)}$
+
+::: notes
+Now the derivation. Suppose the true, long model is y equals beta-zero plus beta-one x plus beta-two z plus epsilon, and the zero-conditional-mean assumption holds in this long model. But you do not have z, so you run the short regression, y on x alone, and get the short slope. The simple-regression slope of y on x is, by definition, the covariance of x and y divided by the variance of x. Substitute the true model for y into that covariance. Because covariance is linear and the constant contributes nothing, the covariance of x with y equals beta-one times the variance of x, plus beta-two times the covariance of x and z, plus the covariance of x with epsilon. That last term is zero because the long model is well-specified. Divide through by the variance of x, and you get: the short slope equals beta-one plus beta-two times the covariance of x and z over the variance of x.
+:::
+
+## The Bias Is a Product of Two Slopes
+
+$$\hat{\tilde\beta}_1 \xrightarrow{p} \beta_1 + \beta_2\,\delta_1, \qquad \delta_1 = \frac{\operatorname{Cov}(x,z)}{\operatorname{Var}(x)}$$
+
+- $\delta_1$ = slope of regressing **omitted on included**
+- Bias $= \beta_2 \times \delta_1$ — effect-on-$y$ times auxiliary slope
+- **Both** factors must be nonzero for bias to exist
+- Relevant *and* correlated is the poison; either alone is harmless
+
+::: notes
+Recognize that last fraction. The covariance of x and z over the variance of x is exactly the slope from regressing the omitted variable z on the included variable x. Call it delta-one, the auxiliary regression coefficient. Taking probability limits — sample covariances converge to population ones by the Law of Large Numbers — we arrive at the omitted variable bias formula: the short slope converges to beta-one plus beta-two times delta-one. The short regression does not estimate beta-one. It estimates beta-one plus a bias term, beta-two times delta-one. Read that term in plain English: the bias is the effect of the omitted variable on y, times the slope of the omitted variable on the included one. The bias is a product of two slopes. For it to be nonzero, both factors must be nonzero. The omitted variable must actually matter for y, and it must be correlated with your regressor. If either is zero, the short regression is fine. A variable that affects y but is uncorrelated with x costs you precision but does not bias beta-one hat. A variable correlated with x but irrelevant to y does no harm either. It is the intersection — relevant and correlated — that is poison.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**The OVB formula:** $\hat{\tilde\beta}_1 \xrightarrow{p} \beta_1 + \beta_2\delta_1$. The bias is a *product of two slopes* — the omitted variable's effect on $y$ times its correlation with your regressor — and both must be nonzero. The short error $u = \beta_2 z + \varepsilon$ now correlates with $x$: OVB *is* endogeneity. Next: which way does it push?
+:::
+
+::: notes
+To summarize part three: the omitted variable bias formula says the short slope converges to beta-one plus beta-two times delta-one. The bias is a product of two slopes — the omitted variable's effect on the outcome, times its correlation with your regressor — and both must be nonzero to cause harm. Connect this to Chapter two-point-two: the short-model error is beta-two z plus epsilon; it has swallowed the omitted term, and since z correlates with x, that error now correlates with x. The expected error given x is no longer zero. Omitted variable bias is not separate from endogeneity; it is the canonical example of it. In part four we ask the practical question — which direction does the bias push? — and meet the two-sign rule.
+:::

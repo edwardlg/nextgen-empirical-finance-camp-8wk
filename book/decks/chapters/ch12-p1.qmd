@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## Linearity of Expectation
+
+**Learning objectives.** By the end you can:
+
+- Compute a portfolio's variance by hand
+- See why mixing assets can lower risk
+- Draw correlation as an angle between vectors
+- Write the covariance matrix $\mathbf{\Sigma}$
+
+::: notes
+Welcome to Week One, Chapter one-point-two: Expectations, Variance, and Covariance as Geometry. Last chapter you met the expectation operator, conditioning, and the laws of iterated expectations and total variance. This chapter is narrower and, in the long run, more useful. It nails down the algebra of expectation, variance, and covariance, then reveals that this algebra is secretly geometry — correlation will turn out to be the cosine of an angle. We anchor everything in Maya's question: she has money to split between two investments, and wants to know how risky the combination is. In this opening part, we start with the one rule that never asks permission — linearity of expectation.
+:::
+
+## The One Rule That Never Asks Permission
+
+- $\mathbb{E}[aX + bY] = a\,\mathbb{E}[X] + b\,\mathbb{E}[Y]$
+- True **whether or not** $X$ and $Y$ are related
+- Most operations need independence — this one does not
+- Expectation is a weighted average, and averaging is linear
+- Cross-terms wash out over the joint distribution
+
+::: notes
+Here is the result in one sentence. Expectation passes straight through sums and constants: the expected value of a times X plus b times Y equals a times the expected value of X plus b times the expected value of Y. And this is true whether or not X and Y have anything to do with each other. That last clause is the trick, and it is the most overlooked fact in all of probability. Most operations you know require independence. Linearity of expectation does not. X and Y can be the same coin flip counted twice, two assets that move in lockstep, or two unrelated numbers. Why is it true? Expectation is a weighted average, and averaging is linear. Summing over the joint distribution, the cross-terms never needed independence — each value just got weighted by how often the pair actually occurs. The joint structure is fully accounted for, and it simply drops out.
+:::
+
+## Expectation Forgives, Variance Does Not
+
+- Worst case: let $Y = X$, perfectly dependent
+- $\mathbb{E}[X + X] = 2\mathbb{E}[X]$ — rule still holds
+- But $\operatorname{Var}(X + X) = 4\operatorname{Var}(X)$, not $2\operatorname{Var}(X)$
+- Expectation forgives dependence; variance does not
+- That contrast is the hinge of this whole chapter
+
+::: notes
+To see that the cross-terms really do vanish, take the most adversarial case: let Y equal X, two perfectly dependent variables. Then the expected value of X plus X equals the expected value of two X, which is two times the expected value of X — exactly the expected value of X plus the expected value of Y. The rule holds even though X and Y could not be less independent. Now compare variance. The variance of X plus X equals the variance of two X, which is four times the variance of X. That is emphatically not the variance of X plus the variance of X, which would be only two times the variance. Expectation forgives dependence; variance does not. That contrast is the hinge of the whole chapter, and it is why the variance section is not a one-liner.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Linearity of expectation** — $\mathbb{E}[aX+bY]=a\mathbb{E}[X]+b\mathbb{E}[Y]$ — holds even for perfectly dependent variables. It never needs independence. But the free pass stops at nonlinear functions: variance involves a square. Next, we apply linearity to Maya's portfolio and then define variance.
+:::
+
+::: notes
+To summarize part one: linearity of expectation says the expected value of a weighted sum is the weighted sum of expected values, and it holds even when the variables are perfectly dependent. It never asks permission. But that free pass does not extend to nonlinear functions. The expected value of X times Y is generally not the product of the expectations, and the expected value of a nonlinear function is generally not that function of the expectation — that gap is Jensen's inequality. Variance involves a square, so it is one of these nonlinear functions. In part two, we use linearity to price Maya's expected portfolio return, then define variance and covariance — where dependence stops being free.
+:::

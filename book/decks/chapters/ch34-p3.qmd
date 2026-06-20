@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Two Conditions for a Valid Instrument
+
+- Part 3 — relevance versus exclusion, and their asymmetry
+
+::: notes
+Welcome back to instrumental variables, part three of ten. In part two we diagnosed the endogenous regressor and saw the cure is clean variation in the treatment. Now we make an instrument earn its name. It must satisfy two conditions — relevance and exclusion — and the most important lesson is that these two are not symmetric in how you defend them. One is testable; one is only arguable.
+:::
+
+## Condition 1 — Relevance
+
+- The instrument must actually move the treatment
+- $\operatorname{Cov}(Z, D) \neq 0$
+- No connection $\Rightarrow$ the ratio's denominator is zero
+- **Testable**: $Z$ and $D$ are both observed
+- Estimate the **first stage** — regress $D$ on $Z$
+
+::: notes
+The first condition is relevance: the instrument must actually move the treatment, so the covariance of Z and D is not zero. The instrument has to be connected to D, or there is no lever at all — the denominator of our magic ratio is zero and the whole thing is undefined. The good news is that relevance is a statement about two variables you both observe, so it is testable. You estimate the first stage — the regression of D on Z — and look at whether the coefficient is real. Later we ask how strong that connection must be, because "nonzero" turns out to be a dangerously low bar.
+:::
+
+## Condition 2 — Exclusion
+
+- $Z$ affects $Y$ **only through** $D$, unrelated to the confounder
+- Formally: $\operatorname{Cov}(Z, \varepsilon) = 0$
+- Picture: $Z \to D \to Y$, no arrow bypassing $D$
+- Bundles two ideas: random $Z$, **and** no direct channel
+- **Untestable** — $\varepsilon$ is unobserved, so no diagnostic
+
+::: notes
+The second condition is exclusion, or exogeneity: the instrument must affect the outcome only through the treatment, and must be unrelated to the confounder. Formally, Z is uncorrelated with the structural error — the covariance of Z and epsilon is zero. Pictorially, the only arrow leaving Z goes into D, with no arrow from Z to Y that bypasses D. This bundles two ideas worth separating. First, as-good-as-random assignment of Z: the instrument must not be tangled up with the confounder. Second, the exclusion restriction proper: even granting Z is random, it must have no direct channel to Y. And here is the brutal part — exclusion is fundamentally untestable. You cannot check that the covariance of Z and epsilon is zero, because epsilon is unobserved; that is the very reason you are doing IV. There is no test, no p-value. Exclusion must be argued from institutional knowledge and economic logic.
+:::
+
+## Maya's Instrument: The Random Mailer
+
+- Nonprofit randomly mailed a promotional sign-up offer
+- $Z_i = 1$ if mailed, $0$ otherwise
+- **Relevance**: the nudge raised completion — testable
+- **Exclusion**: randomization buys independence from motivation
+- The *no-direct-path* half she must still **argue**
+
+::: notes
+Maya's nonprofit ran a recruitment campaign. A limited budget meant they could not mail everyone, so — and this is the design that makes IV possible — they randomly selected which households received a glossy promotional mailer with a sign-up link and a small incentive. Let Z-sub-i be one if household i was mailed, zero otherwise. Mailing is the instrument. Relevance: did the mailer raise completion? Almost certainly — a nudge and an incentive make people more likely to enroll. That is the first stage, and Maya can test it. Exclusion: the randomization buys the hardest half directly — because mailing was a coin flip, Z is independent of motivation and every other confounder, by design. The other half — no direct path — she must argue. Could a person read the brochure's tips and improve without ever enrolling? If so, Z reaches Y around D, exclusion fails, and her estimate is contaminated. She defends it by arguing the mailer was content-light — a sign-up link, not a lesson. She cannot prove this; she can only make it credible.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Relevance is testable; exclusion is arguable.** Check the first stage to confirm $\operatorname{Cov}(Z,D)\neq 0$. But $\operatorname{Cov}(Z,\varepsilon)=0$ can never be tested — defend it with institutions and logic. Random assignment of $Z$, as in Maya's mailer, buys the hardest half of exclusion for free.
+:::
+
+::: notes
+To summarize part three: an instrument earns its name with two conditions. Relevance — the covariance of Z and D is nonzero — is testable, because both variables are observed; check and report the first stage. Exclusion — the covariance of Z and epsilon is zero — is fundamentally untestable, because epsilon is unobserved; it must be argued. Hold that asymmetry firmly: a weak instrument is a statistical problem you can measure and partly fix, but an invalid instrument poisons your estimate without leaving a fingerprint. The classic natural experiments work the same way — rainfall for crop income, quarter of birth for schooling — each living or dying on the same untestable exclusion claim. In part four we turn the ratio into a formula: the Wald estimator.
+:::

@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## Computing Sam's t
+
+- Part 4 — real numbers; sample size flips the verdict
+
+::: notes
+Welcome back to Hypothesis Testing Done Right, part four of fourteen. In part three we built the t-statistic — estimate minus null, over the estimated standard error — and saw why its tails are a little heavier than the normal's. Now we put real numbers in. We compute Sam's t, and then we change one thing — the sample size — and watch the verdict flip while the average return stays exactly the same.
+:::
+
+## Plug In Sam's Numbers
+
+- $\bar{x}=0.08\%$, $s=0.75\%$, $N=252$
+- $\sqrt{N}=\sqrt{252}\approx15.87$
+- $\widehat{\operatorname{se}}=0.75\%/15.87\approx0.0473\%$
+- $t=0.08\%/0.0473\%\approx 1.69$
+- Sam sits about **1.69 standard errors** above zero
+
+::: notes
+Let's put numbers in. Say Sam's two hundred fifty-two daily returns have a mean of eight basis points and a sample standard deviation of seventy-five basis points. First, the square root of N: the square root of two hundred fifty-two is about fifteen point eight seven. The estimated standard error is the sample standard deviation divided by that — seventy-five basis points divided by fifteen point eight seven, which is roughly zero point zero four seven three percent. Now the t-statistic is the estimate minus the null, all over that standard error: eight basis points minus zero, divided by zero point zero four seven three percent, which comes out to about one point six nine. So Sam's average return sits about one point six nine estimated standard errors above zero. That is the single number we will judge against the skeptic's world. Hold onto it — one point six nine — because everything from here is just a different way of asking how impressive it really is.
+:::
+
+## Same Return, Opposite Verdict
+
+- Re-run on one quarter: $N=63$, same $\bar{x}$, same $s$
+- $\widehat{\operatorname{se}}=0.75\%/\sqrt{63}\approx0.0945\%$
+- $t=0.08\%/0.0945\%\approx 0.85$
+- Less than half as large — nowhere near significant
+- *Identical average return, opposite conclusion*
+- A result is only as convincing as the $N$ beneath it
+
+::: notes
+Now watch the role of the sample size in that denominator. Suppose Sam had run the rule for only one quarter — sixty-three days — and got the exact same average of eight basis points with the exact same spread of seventy-five basis points. The square root of sixty-three is about seven point nine four, so the estimated standard error is now seventy-five basis points divided by that, roughly zero point zero nine four five percent — twice as large as before, because we have one quarter the data and the standard error scales with one over the square root of N. The t-statistic is then eight basis points divided by zero point zero nine four five percent, about zero point eight five. That is less than half the t we got from the full year, and it is nowhere near significant. Stop and feel how strange this is: identical average return, opposite conclusion — purely because of how much data backed it. This is the single most important practical lesson of the standard error: a result is only as convincing as the sample size beneath it. The same eight basis points can be a discovery or a shrug, and the only thing that changed was N. Is one point six nine far enough to overturn the skeptic? To answer, we need to decide how surprised we must be before we act.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+With $\bar{x}=0.08\%$, $s=0.75\%$, $N=252$, the standard error is $\approx0.0473\%$ and Sam's $t\approx1.69$. The very same average over $N=63$ days gives $t\approx0.85$ — *identical return, opposite verdict*. A result is only as convincing as the sample size beneath it. Next: the two ways a test can be wrong.
+:::
+
+::: notes
+To summarize part four: plugging in Sam's numbers — an eight-basis-point average, a seventy-five-basis-point standard deviation, and two hundred fifty-two days — gives an estimated standard error of about zero point zero four seven three percent and a t-statistic of about one point six nine. Sam's average sits one point six nine standard errors above the skeptic's zero. The punchline is what happens when we shrink the sample: the very same average return, measured over a single quarter instead of a full year, yields a t of only about zero point eight five — identical return, opposite verdict. The standard error's square root of N is doing all the work, and the lesson is permanent: a finding is only as convincing as the data beneath it. In part five we ask what would make one point six nine far enough to act on, by laying out the two distinct ways any test can be wrong: size and power.
+:::

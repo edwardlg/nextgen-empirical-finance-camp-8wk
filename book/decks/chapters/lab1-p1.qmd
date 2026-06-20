@@ -1,0 +1,62 @@
+---
+date: "2026-06-22"
+---
+
+## Building a Coin-Flip Universe: Why Simulate?
+
+**Learning objectives.** By the end you can:
+
+- Build a Bernoulli universe with a known parameter $p$
+- Reconstruct a sampling distribution by Monte Carlo
+- Write a one-proportion test and measure its size
+- Trace a power curve and expose p-hacking
+
+::: notes
+Welcome to Week One, Lab one — the capstone of the week. This is part one of five. Everything you read across Chapters one-point-three through one-point-five — estimators, sampling distributions, the Law of Large Numbers, the Central Limit Theorem, and the machinery of a hypothesis test — was about quantities you cannot see. A population mean, the spread of an estimator across hypothetical re-draws of the universe, the true error rate of a decision rule. In a real study you get one sample, and you must reason about the infinity of samples you did not get. In this part we frame the whole lab and set up our tools.
+:::
+
+## A Simulation Lets You Cheat
+
+- Real study: one sample, infinity of unseen ones
+- Simulation: you *build* the universe, fix the truth
+- Draw from it as many times as you like
+- Because you know the answer, you can *audit* the tools
+
+::: notes
+A simulation lets you cheat, in the best possible way. You will build the universe yourself, fix its true parameter, and then draw from it as many times as you like. Because you know the true answer, you can check whether the tools actually do what the chapters claim. You will watch a sampling distribution tighten like one over the square root of N and go normal. You will write a one-proportion test from scratch, and then measure — not assume — its false-positive rate and its power. And you will run a small p-hacking experiment that shows, in numbers, why a lone significant result pulled from many tries means almost nothing.
+:::
+
+## The Coin Is the Perfect Universe
+
+- Sam asks: is a coin (or a signal) fair?
+- A flip is a **Bernoulli trial**: one with prob $p$, zero with $1-p$
+- Mean of a Bernoulli is exactly $p$
+- Variance is $p(1-p)$ — clean, known structure
+- Every quantity you estimate has a writeable true value
+
+::: notes
+The running object is the simplest random thing there is — a coin. Sam wants to know whether a coin, or a trading signal that is right with some probability p, or a fair-lending audit asking whether an approval rate is really one-half, is fair. A coin flip is a Bernoulli trial: an experiment with two outcomes, one for heads with probability p, and zero for tails with probability one minus p. The mean of a Bernoulli is exactly p, and its variance is p times one minus p. That clean, known structure is what makes the coin the perfect teaching universe — every quantity you estimate has a true value you can write down.
+:::
+
+## Setup: Two Rules of Reproducibility
+
+- Create a conda env; install numpy, scipy, matplotlib
+- **Pin the seed:** `rng = np.random.default_rng(SEED)`
+- Draw *all* randomness from that one generator
+- Same seed gives bit-for-bit identical figures
+- Monte Carlo estimates are themselves random
+
+::: notes
+Before you start, set up cleanly. Create and activate a conda environment, then install numpy, scipy, and matplotlib. Then follow two rules of reproducibility without exception. First, pin the seed: use numpy's modern generator, r-n-g equals numpy default generator of a fixed seed — not the old global functions. A pinned seed means anyone who reruns your code gets your exact figures. Second, draw all randomness from that one generator; do not mix in a second source. One honest caveat. Monte Carlo estimates are themselves random. When you measure a size and get zero-point-zero-four-eight-seven instead of exactly zero-point-zero-five, that gap is not a bug — it is sampling error in the measurement of the procedure. The fix is more reps. Reruns with the same seed will be identical; with a different seed, they will wobble.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A simulation lets you **build a universe where you know the truth**, then audit whether your tools deliver. The coin is ideal: a Bernoulli has mean $p$ and variance $p(1-p)$, so every target has a known value. Pin one seed; draw all randomness from it. Next: build the universe and watch the sampling distribution form.
+:::
+
+::: notes
+To summarize part one: a simulation lets you build a universe where you already know the truth, then audit whether the statistical tools deliver what the chapters promised. The coin is the ideal universe because a Bernoulli has mean p and variance p times one minus p, so every quantity you estimate has a known value to check against. Pin one seed, and draw all of your randomness from that single generator, so every figure is reproducible. In part two we build the coin universe and watch the sampling distribution of the estimator form before our eyes.
+:::

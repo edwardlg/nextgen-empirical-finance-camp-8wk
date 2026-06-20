@@ -1,0 +1,57 @@
+---
+date: "2026-06-22"
+---
+
+## Pre-Trends Do Not Prove Parallel Trends
+
+- Part 4 — why flat leads cannot confirm parallel trends
+
+::: notes
+Welcome back to difference-in-differences, part four of six. Last time we built the event study and read its two halves: lags for the dynamic effect, leads for the pre-trend check. This part delivers the deep caution that separates a sophisticated reader from a naive one. It is tempting to look at flat lead coefficients and announce that parallel trends holds — that you tested it. You did not, and it does not. Two distinct problems sit underneath that overconfidence: one logical, one statistical.
+:::
+
+## The Logical Problem
+
+- Parallel trends concerns the **post-period** counterfactual
+- That world never happened — cannot be measured
+- Leads concern the **pre-period** — a world that *did* happen
+- Flat leads are **consistent with**, not the same as, parallel trends
+- A coincident shock could fake clean leads
+
+::: notes
+The first problem is logical, and it is the point we already insisted on. Parallel trends is an assumption about the treated group's post-period untreated outcome — a world that never happened. The pre-period leads are about the pre-period, a world that did happen and that you can therefore measure. Flat leads tell you the groups moved together before treatment. They are consistent with parallel trends continuing to hold afterward, and they are reassuring, but they are not the same statement. Something could have changed the treated group's trajectory at exactly the moment of treatment for reasons other than the treatment — a coincident shock, a policy bundled with the regulation — and the pre-trends would look pristine while the post-period assumption is false. Pre-trends are a necessary-looking symptom, not the disease itself. A clean pre-period is evidence, not proof, and you should present it as the former.
+:::
+
+## The Statistical Problem: Low Power
+
+- Power = chance of detecting a violation that truly exists
+- Few pre-periods, noisy data $\Rightarrow$ **wide** confidence bands
+- "Failed to reject" $\neq$ "no pre-trend"
+- The **worst** data is most likely to look reassuring
+- Slogan: pre-trends can **refute** parallel trends, never **confirm**
+
+::: notes
+The second problem is statistical, and it is more insidious because it can make a bad design look good: pre-trend tests have low power. Power is the probability of detecting a violation when one truly exists. With only a few pre-periods and noisy state-level data, the confidence intervals on the lead coefficients are wide — wide enough to contain both zero and an economically meaningful differential trend. So failing to reject a zero pre-trend can mean either there is no pre-trend, or there is one but your data is too noisy to see it. Those are very different worlds, and a wide, zero-spanning lead coefficient cannot tell them apart. The danger is exactly backwards from what you want: the worst datasets — small, noisy, few periods — are the ones most likely to hand you a falsely reassuring flat pre-trend, because they cannot detect anything. A well-powered test that finds flat leads is genuine evidence; an underpowered one is mostly evidence that the test was weak.
+:::
+
+## What Modern Practice Does
+
+- Report the confidence bands **honestly** — tight enough?
+- Supplement the eyeball test with **sensitivity analysis**
+- Ask: how large a violation would overturn the result?
+- Do not pretend the violation is exactly zero
+
+::: notes
+This is why modern practice does not stop at "the pre-trends look fine." It reports the confidence bands honestly — are they tight enough to rule out a worrying slope? — and increasingly supplements the eyeball test with formal sensitivity analysis: asking how large a violation of parallel trends would have to be to overturn the result, rather than pretending the violation is exactly zero. The slogan to carry, again, is that pre-trends can refute parallel trends, but they can never confirm it. So when you write up an event study, the honest sentence is: the leads are flat, which is consistent with parallel trends, but parallel trends in the post-period remains an untestable assumption.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Flat leads are **evidence, not proof**. Logically, parallel trends concerns a post-period counterfactual the leads can never reach. Statistically, **low-power** tests let the worst data look falsely reassuring. So **pre-trends can refute parallel trends but never confirm it** — report the bands honestly and use sensitivity analysis. Next: getting the standard errors right, and the Bertrand–Duflo–Mullainathan warning.
+:::
+
+::: notes
+To summarize part four: flat lead coefficients are reassuring but not proof. Logically, parallel trends concerns a post-period counterfactual the pre-period leads can never reach. Statistically, low-power tests with few periods and noisy data let the worst datasets look the cleanest — so pre-trends can refute parallel trends but can never confirm it. Report the confidence bands honestly and lean on sensitivity analysis rather than the eyeball test. In part five we turn to inference, where getting the standard error right is subtler in difference-in-differences than anywhere you have seen, and where one of the most cited methods papers in empirical economics — Bertrand, Duflo, and Mullainathan — delivers a brutal warning.
+:::

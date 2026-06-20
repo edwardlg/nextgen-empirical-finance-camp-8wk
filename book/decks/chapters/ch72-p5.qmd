@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## WRDS — Licensing, Gotchas, the Pull
+
+- Part 5 — WRDS licensing, silent biases, the reproducible pull
+
+::: notes
+Welcome back to Data Acquisition in Practice, part five of thirteen. In part four we met the WRDS datasets and learned to query them like a guest. Now we finish the WRDS story: the licensing rule that makes it the central case of our G-M-U infrastructure rule, the gotchas that silently bias results, and the cache-then-log pattern that is the spine of every pull in this chapter.
+:::
+
+## Licensing — The Central Case
+
+- The connection is **read-only**; data is licensed to GMU
+- WRDS Cloud: data never leaves Wharton's servers
+- Hopper: data stays inside GMU's licensed environment
+- Never pull CRSP to your laptop and push it to GitHub
+- Cache to git-ignored `data/raw/`; commit code and log only
+
+::: notes
+WRDS data is the reason rule two exists. The connection is read-only — you cannot write to WRDS — and the data it returns is licensed to G-M-U. On WRDS Cloud itself, a JupyterHub-like environment WRDS hosts, the data never leaves Wharton's servers, which is the cleanest place to work. If you instead pull into G-M-U's Hopper cluster, the data stays inside G-M-U's licensed environment. What you must not do is pull CRSP to your laptop and push it to GitHub. So the CRSP or Compustat DataFrame is cached to a data raw directory on G-M-U infrastructure, that directory is git-ignored, and only your query code and pull log are committed.
+:::
+
+## Rate Limits and Silent Biases
+
+- No published rate limit, but practical ones are enforced
+- A reckless `SELECT *` is antisocial on a shared cluster
+- Pull in bounded chunks — by year, by exchange
+- **RET includes dividends; RETX excludes them** — pick right
+- Delisting returns live in a *separate* table
+
+::: notes
+WRDS does not publish a hard request-rate limit, but it enforces practical ones: a query that scans an unindexed full table can run for many minutes and may be killed, and the cluster is shared, so a reckless select-star is antisocial as well as slow. Pull in bounded chunks — by year, by exchange — for the very large tables. The subtlest gotcha is which CRSP variable you use: R-E-T includes dividends and is what you almost always want for a total-return study, while R-E-T-X excludes them — using the wrong one silently biases every return-based result. And remember, delisting returns are in a separate table, crsp dot m-s-e-delist; ignoring them is the survivorship bias you will study in Chapter seven-point-four.
+:::
+
+## The Reproducible Pull
+
+- Pin the WRDS snapshot date you pulled
+- `if raw.exists():` read the cached Parquet — never re-hit WRDS
+- Else run the bounded query, write Parquet, then `log_pull`
+- The log stores the SQL with no secrets, plus a content hash
+- **Check the cache, pull on a miss, then log** — the spine
+
+::: notes
+For the reproducible pull, you pin the snapshot date — WRDS labels each data vintage, so record the date you pulled and the snapshot if your group uses one — then cache to Parquet, and log. The pattern in code: a raw path points at a Parquet file in the git-ignored directory. If that file exists, you read the cached Parquet and never re-hit WRDS. If it does not, you run the bounded query from part four, write the Parquet, and call log pull with the source name including the snapshot date, the S-Q-L string with no secrets, and the DataFrame, which records the row count and content hash. That if-raw-exists pattern — check the cache, pull only on a miss, then log — is the spine of every reproducible pull in this chapter. We will reuse it for every source.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+WRDS is the **central case** of the GMU rule: read-only, licensed, cached to a git-ignored folder, with only code and log committed. Watch **RET versus RETX** and the separate delisting table. The reproducible pull is one pattern — check the cache, pull on a miss, then log — reused for every source. Next: SEC EDGAR.
+:::
+
+::: notes
+To summarize part five: WRDS is the central case of the G-M-U infrastructure rule. The connection is read-only and the data is licensed, so it lives only in a git-ignored data raw folder on G-M-U infrastructure, and you commit only the query code and the log. The gotchas are quiet but costly — pull in bounded chunks on the shared cluster, choose R-E-T over R-E-T-X for total returns, and remember delisting returns sit in a separate table. And the reproducible pull is one reusable pattern: check the cache, pull only on a miss, then log. In part six we move to a free, public workhorse: S-E-C EDGAR.
+:::

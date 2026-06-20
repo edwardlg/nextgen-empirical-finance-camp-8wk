@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Why It Collapses: The Partialling-Out Intuition
+
+- Part 2 — why a multivariate problem collapses to a bivariate slope
+
+::: notes
+Welcome back to the Frisch–Waugh–Lovell theorem, part two of thirteen. In part one we stated the result: controlling means residualizing out, then taking a simple slope of the leftovers. Now we build the intuition for why a multivariate problem can collapse to a two-variable slope — before any algebra touches the page.
+:::
+
+## A Regression Does Two Jobs At Once
+
+- For each regressor, the fit does **two jobs** simultaneously
+- Use $x$ to explain $y$
+- Deny $x$ any credit the other regressors deserve
+- Those two jobs **interfere** with each other
+- That is why the multiple slope $\ne$ the simple slope of $y$ on $x$
+- The interference is the whole difficulty
+
+::: notes
+Why should a multivariate problem collapse to a bivariate one? Here is the intuition. A multiple regression is doing two jobs at once for each regressor. It is using x to explain y, and at the same time it is making sure x does not get credit for anything the other regressors could have explained. Those two jobs interfere with each other. That interference is precisely why the coefficient on x in a multiple regression is generally not the same as the simple-regression slope of y on x. If the controls overlap with x, the simple slope lets x take credit that really belongs to the controls; the multiple regression has to claw that credit back. The interference between explaining and crediting is the whole difficulty — and partialling-out is the maneuver that dissolves it.
+:::
+
+## Partialling-Out Separates the Two Jobs
+
+- First settle bookkeeping: what can controls account for in $x$?
+- Set that aside; keep only what they cannot — $\tilde{x}$
+- Do the same to $y$, keeping $\tilde{y}$
+- Now controls are **paid in full** — no interference is left
+- Clean question: do the leftovers in $y$ and $x$ line up?
+- A simple slope of the leftovers answers it **exactly**
+
+::: notes
+The genius of partialling-out is to separate the two jobs. First, settle the bookkeeping: figure out how much of x the other regressors can account for, and set it aside; keep only the part they cannot, which we write x tilde. Do the same to y, giving y tilde. Now the bookkeeping is done — the other regressors have been paid in full — and what remains is a clean, uncontaminated question: of the variation in y the controls did not claim, how much lines up with the variation in x the controls did not claim? No interference is left, because everything the controls could touch has already been removed. So a simple slope of the leftovers answers the partial question exactly. The word partialling-out names this maneuver: you partial the other regressors out of both variables, then regress.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A regression does two interfering jobs per regressor: **explain $y$**, and **deny $x$ borrowed credit**. **Partialling-out** separates them — clean the controls out of *both* $x$ and $y$ first, and the leftover slope answers the partial question with no interference. Next: watch the trick reproduce a real coefficient on six firms, by hand.
+:::
+
+::: notes
+To summarize part two. A multiple regression does two interfering jobs for each regressor: it uses x to explain y, and it denies x any credit the other regressors deserve. Partialling-out separates those jobs by cleaning the controls out of both x and y first; once that bookkeeping is settled, the leftover slope answers the partial question with no interference left. That is the whole idea behind Frisch–Waugh–Lovell. In part three we stop asserting and start computing: we watch the trick reproduce a multiple-regression coefficient exactly, on a tiny dataset of six firms small enough to do by hand.
+:::

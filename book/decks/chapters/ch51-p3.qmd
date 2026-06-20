@@ -1,0 +1,60 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Fama-MacBeth Machine and Honest Standard Errors
+
+- Part 3 — the Fama-MacBeth machine and its honest standard errors
+
+::: notes
+Welcome back to the Reader's Guide for Fama and French, part three of nine. In part two we named the genre — descriptive and predictive — and met portfolio sorts, the first piece of machinery. This part covers the second piece: the Fama-MacBeth cross-sectional regression, which is Lab Two verbatim. We see how it works, why its standard error is the honest one, and one subtlety about beta you must carry forward.
+:::
+
+## Piece Two: Fama-MacBeth Regressions
+
+- This is **Lab 2, verbatim** — the two-pass machine
+- Pass 1: each stock's beta from a time-series regression
+- Pass 2: a cross-sectional regression **each month**
+- Average monthly slopes; standard error *for free*
+
+$$\hat\gamma_j = \frac{1}{T}\sum_{t=1}^{T}\hat\gamma_{j,t}, \qquad \widehat{\operatorname{se}}(\hat\gamma_j) = \frac{\operatorname{sd}_t(\hat\gamma_{j,t})}{\sqrt{T}}$$
+
+::: notes
+Piece two: Fama-MacBeth cross-sectional regressions. This is Lab Two, verbatim. Recall the two-pass machine. Pass one estimates each stock's beta from a time-series regression of its returns on the market. Pass two runs, separately in each month, a cross-sectional regression of that month's stock returns on the characteristics — beta, log size, log book-to-market, and others — producing a time series of monthly slope estimates, gamma hat sub j comma t. You then average each slope over the months to get the Fama-MacBeth point estimate: gamma hat sub j equals one over T times the sum over t of gamma hat sub j comma t. And you get its standard error for free from the month-to-month scatter: the estimated standard error of gamma hat sub j equals the standard deviation across months of the slopes, divided by the square root of T.
+:::
+
+## Why This Standard Error Is Honest
+
+- Each month, every stock feels the **same** market shock
+- Within-month errors are violently correlated — "time effect"
+- Pooling would treat them as independent — SE too small
+- Fama-MacBeth collapses each month to **one slope**
+- The paper's t-statistics *are* these standard errors
+
+::: notes
+Remember why this standard error is the honest one. In any single month every stock is shoved by the same market-wide shock, so the within-month cross-sectional errors are violently correlated — the time effect of Chapter two-point-four. Pooling all stock-months into one giant ordinary least squares would treat correlated observations as independent and report a standard error far too small. Fama-MacBeth dissolves that by never comparing across months inside a regression: it collapses each month to one slope, then treats the slopes as a little time series. When you read the paper's t-statistics, you are reading Fama-MacBeth standard errors — the same object you computed in Lab Two.
+:::
+
+## A Subtlety: Beta Is an Estimate
+
+- Pass-1 beta is *estimated*; single-stock betas are noisy
+- Fix: assign betas using **portfolios**, not single stocks
+- Estimate them on data *before* the return month
+- The regressor must not peek at the outcome
+- Hold "beta is an estimate" — it returns with teeth later
+
+::: notes
+One subtlety the paper handles carefully. A stock's beta is itself an estimate from pass one, not a known number, and individual-stock betas are noisy. Fama and French assign betas using portfolios — a stock inherits the beta of the size-beta portfolio it belongs to, estimated on the portfolio's longer, less noisy return series — and they estimate those betas on data from before the return month being explained, so the explanatory variable does not peek at the outcome. Hold onto the phrase beta is an estimate; it returns with teeth when we attack the paper. In our Week-One discipline: the outcome is a stock's monthly return; the key regressors are market beta, log size, and log book-to-market; standard errors are Fama-MacBeth; and the identifying claim, in the causal sense, is none — these are predictive associations in the cross-section of returns.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Fama-MacBeth** runs one cross-sectional regression per month, averages the slopes, and reads the standard error off the **month-to-month scatter** — honest because it never treats correlated within-month errors as independent. And remember: **beta is an estimate**, assigned via portfolios and lagged so it can't peek at the outcome.
+:::
+
+::: notes
+To summarize part three: the second piece of machinery is Fama-MacBeth, exactly the Lab-Two two-pass machine. Pass one estimates betas; pass two runs a fresh cross-sectional regression each month and collects the slopes. Average the slopes for the point estimate, and take the standard deviation of the slopes divided by the square root of T for the standard error. That standard error is honest because it never pools correlated within-month errors as if independent — it collapses each month to a single number first. And the subtlety to carry forward: beta is an estimate, not a known number, so it is assigned through portfolios and lagged behind the returns it explains. In part four we turn to the data — the two databases stitched together, and the timing lag that guards against look-ahead bias.
+:::

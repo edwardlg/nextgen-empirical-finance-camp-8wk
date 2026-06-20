@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## The TWFE Regression and the Event Study
+
+- Part 3 — DiD as one TWFE coefficient, then event studies
+
+::: notes
+Welcome back to difference-in-differences, part three of six. So far we have the double difference and parallel trends, but the two-by-two table does not scale and gives no standard error. This part fixes both by writing difference-in-differences as a single regression coefficient using two-way fixed effects — the equation the rest of Week Four builds on. Then the event study lets the effect breathe across many periods, and lets us check whether parallel trends was even plausible.
+:::
+
+## DiD as One Coefficient: TWFE
+
+$$Y_{it}=\alpha_i+\lambda_t+\beta\,D_{it}+\varepsilon_{it}$$
+
+- $\alpha_i$ — unit fixed effect: absorbs fixed group differences
+- $\lambda_t$ — time fixed effect: absorbs common time shocks
+- $D_{it}=1$ in exactly one cell: treated, post
+- $\hat\beta=\$70$ — identical to the double difference
+
+::: notes
+For the canonical two-group, two-period case, the difference-in-differences estimate is exactly the coefficient beta in the two-way fixed-effects regression: Y-i-t equals alpha-i plus lambda-t plus beta times D-i-t plus the error. Alpha-i is a unit fixed effect, one intercept per state, absorbing everything constant over time about that unit — the permanently higher price level, the fixed fire geography — doing, automatically, the differencing across groups. Lambda-t is a time fixed effect, one intercept per period, common to all units, absorbing everything hitting every unit equally — the reinsurance shock, common inflation — the differencing across time. With those two soaking up fixed unit differences and common shocks, the only variation left for D-i-t is what varies across both unit and time: the treated state in the post period. D-i-t is one in precisely that one cell and zero in the other three, so beta is the double difference: seventy dollars. The fixed effects are not controls thrown in for good measure; they are the regression encoding of the two differencings.
+:::
+
+## The Older Interaction Form
+
+$$Y_{it}=\beta_0+\beta_1\text{Treat}_i+\beta_2\text{Post}_t+\beta_3(\text{Treat}_i\times\text{Post}_t)+\varepsilon_{it}$$
+
+- $\beta_1$ — fixed treated-vs-control gap
+- $\beta_2$ — common before-after change
+- $\beta_3$ — the **interaction** = the DiD estimate = \$70
+- Same model; TWFE keeps working with many units, periods
+
+::: notes
+A point of vocabulary that matters next chapter: the older way used explicit dummies. Let Treat-i equal one for the treated unit, Post-t equal one for the post period, and interact them. Beta-one is the fixed treated-versus-control gap, what alpha-i generalizes; beta-two is the common before-after change, what lambda-t generalizes; and the interaction coefficient, beta-three, is the difference-in-differences estimate — identical to seventy dollars. The interaction term is D-i-t here. Same model — but the fixed-effects form keeps working with many units and periods, when you cannot write a single interaction but can still write one intercept per unit and one per period. Carry the boxed form forward — it is the equation Chapter four-point-two will interrogate.
+:::
+
+## The Event Study: Leads and Lags
+
+$$Y_{it}=\alpha_i+\lambda_t+\sum_{k\neq -1}\beta_k\,\mathbb{1}\{t-t_i^\ast=k\}+\varepsilon_{it}$$
+
+- Event time $k=t-t^\ast$; one $\beta_k$ per relative period
+- **Omit $k=-1$** — baseline, so $\beta_{-1}=0$
+- Lags ($k\geq 0$): the **dynamic effect** as it evolves
+- Leads ($k<0$): the **pre-trend check**
+
+::: notes
+The two-by-two collapses all of before into one number and all of after into one. Real data has several periods per side, letting us ask two questions the single beta cannot: does the effect grow, fade, or jump? And were the groups already drifting apart before treatment? The event study answers both. Replace the single dummy with one dummy per period relative to when treatment switched on. Define event time k as t minus t-star, where t-star is the period treatment begins, and estimate one coefficient beta-k per event-time period. We must omit one or the model is collinear with the fixed effects — the dummy-trap reason. By convention we drop k equals minus one, the period just before treatment, so beta at minus one is zero by construction and every other coefficient reads as the gap relative to that last pre-treatment period. The lags, k at least zero, trace the dynamic effect: maybe thirty, then fifty-five, then seventy as policies renew. The leads, k below zero, are the pre-trend check: under parallel trends the groups should not have diverged before treatment, so the leads should hug zero.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+In the canonical $2\times 2$, DiD is exactly the coefficient $\beta$ on $D_{it}$ in the two-way fixed-effects regression $Y_{it}=\alpha_i+\lambda_t+\beta D_{it}+\varepsilon_{it}$. The **event study** swaps the single dummy for leads and lags, normalized to $k=-1$: the **lags** show the dynamic effect, the **leads** check pre-trends. Next: why flat leads do *not* prove parallel trends.
+:::
+
+::: notes
+To summarize part three: in the canonical two-by-two, difference-in-differences is exactly the coefficient beta on the treatment indicator in the two-way fixed-effects regression, where unit fixed effects difference across groups and time fixed effects difference across time. The event study swaps the single dummy for leads and lags, normalized to the period just before treatment: the lags trace the dynamic effect, the leads inspect pre-trends. In part four: the deep caution — flat leads do not prove parallel trends.
+:::

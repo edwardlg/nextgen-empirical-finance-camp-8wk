@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Scaffolding the Research Repository
+
+- Part 3 — scaffold the layout and the `.gitkeep` trick
+
+::: notes
+Welcome back to Lab Seven, your data reproducibly, part three of ten. In part two we confirmed the tools and the rule about where licensed data lives. Now we build the actual layout — a small number of directories, each with one job — and we learn the gitkeep trick that lets an empty folder travel in a fresh clone.
+:::
+
+## Start From a Layout, Not a Blank Folder
+
+- `README.md`, `environment.yml`, `.gitignore`, `PRE-ANALYSIS-PLAN.md`
+- `data/raw/` and `data/processed/` — both **git-ignored**
+- `src/` importable code; `notebooks/` exploration; `paper/` write-up
+- `logs/pulls.jsonl` — one line per pull, with content hash
+- `data-cards/` — one spec sheet per source
+
+::: notes
+Start from a layout, not a blank folder. A research repo has a small number of directories, each with one job, and putting things in the right place from day one is what keeps a six-month project navigable. The data folder holds inputs and built datasets, split into raw — your untouched ground-truth pulls — and processed, what your cleaning code produces. The entire data tree is git-ignored. Source holds reusable code you import, separated from notebooks where you explore and narrate; the rule of thumb is logic in source, story in notebooks, so a function you depend on is tested and importable rather than buried in a cell. Paper is where Week Eight's write-up, figures, and tables go. Logs holds the append-only pull log from Chapter seven-point-two. And data-cards holds one spec sheet per source.
+:::
+
+## Build It With Plain Shell
+
+- `mkdir my-capstone && cd my-capstone`, then `git init`
+- `git init` makes the hidden `.git/` — every version stored there
+- `mkdir -p data/raw data/processed src notebooks paper logs data-cards`
+- `touch data/raw/.gitkeep data/processed/.gitkeep`
+- A template repo ("Use this template") lands you on the same layout
+
+::: notes
+Build it with plain shell commands. Make the directory, change into it, and run git init — that turns the folder into a repository, creating the hidden dot-git directory where Git stores every version of every file. Then make the directory skeleton in one make-directory command with the dash-p flag, and touch a gitkeep file in each empty data subfolder. If your camp distributes a template repository — a GitHub repo marked "Template" — you can skip the manual scaffolding: click "Use this template" on GitHub, or use the GitHub command-line tool with the template flag. Either way you land on the same layout. But doing it once by hand is worth it, so you know what each piece is for rather than treating it as a black box.
+:::
+
+## The .gitkeep Trick
+
+- Git tracks **files, not directories**
+- An empty `data/raw/` would simply not exist in a fresh clone
+- A zero-byte `.gitkeep` gives Git something to track
+- The name is convention, not magic
+- The folder is recreated on clone — so your cache has somewhere to land
+
+::: notes
+The gitkeep trick is a small but important convention, so let us be precise about why it is needed. Git tracks files, not directories. That means an empty data-raw folder would simply not exist in a fresh clone — Git has nothing to record about an empty directory, so it records nothing, and the folder vanishes. A zero-byte gitkeep file — the name is convention, not magic, you could call it anything — gives Git something to track so the folder is recreated when someone clones. Why does that matter concretely? Because your code writes its cache into data-raw, and it would fail with a missing-directory error if the folder were not there. So you commit the empty placeholder to make the structure travel, even though the contents — the actual data — never do. Structure travels, contents stay home: the gitkeep is the smallest expression of that idea.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Start from a layout, not a blank folder** — each directory has one job: logic in `src/`, story in `notebooks/`, data git-ignored. `git init` creates the repo; `mkdir -p` scaffolds it. The `.gitkeep` trick makes empty folders travel a clone because **Git tracks files, not directories**. Next: the GitHub Classroom workflow.
+:::
+
+::: notes
+To summarize part three: you start from a layout, not a blank folder, with each directory carrying one job — logic in source, story in notebooks, the write-up in paper, and the entire data tree git-ignored. You built it with plain shell: git init to create the repository, one make-directory command to scaffold the tree, and gitkeep placeholders in the empty data folders. And you learned why the placeholders are needed — Git tracks files, not directories, so an empty folder would not survive a clone, and your cache needs somewhere to land. In part four we connect this layout to GitHub through the Classroom workflow: accepting the assignment, cloning, and the commit-and-push loop the whole capstone runs on.
+:::

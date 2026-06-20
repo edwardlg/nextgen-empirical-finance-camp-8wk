@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## Three Data Sources, Stitched Together
+
+- Part 5 — USPTO, CRSP, and the public dataset
+
+::: notes
+Welcome back to KPSS, part five of twelve. In part four we finished the measure: the abnormal grant-window return, filtered, scaled to dollars, and inflated for surprise, gives a per-patent value, summed to a firm-year panel. Now we ask where the raw materials come from. Three sources are stitched together — patents, returns, and a public dataset — and the stitching is itself a contribution. Let us take them one at a time, and watch how the grant date ties the whole design together.
+:::
+
+## Patents from the USPTO
+
+- The **universe** of U.S. patents over a long span
+- Each patent carries a **grant date** — the linchpin
+- Grant date = the **event date** the study fires on
+- Also: application date, assignee, technology class
+- The grant date makes the market reaction **datable**
+
+::: notes
+Patents come from the U.S. Patent and Trademark Office. K-P-S-S use the universe of U.S. patents over a long span, reaching back decades for the grant-based measure and into the citation-rich modern era for the validation work. Each patent carries a grant date — the day the office officially issued it — and this date is the linchpin of the whole design, because it is the event date the event study fires on. A patent also carries an application date, an assignee, which is the owner, and the technology class. But it is the grant date that makes the market reaction datable: without a precise day, you cannot define a three-day window, and the whole machine stops.
+:::
+
+## Returns from CRSP
+
+- Needs **daily** returns — window is a few days wide
+- Monthly Fama-French returns are too coarse
+- Must match each assignee to its **CRSP-listed** firm
+- Name-matching is non-trivial: firms rename, merge, spin off
+- Restricts the measure to **publicly traded** firms
+
+::: notes
+Stock returns come from CRSP — the same daily-return database Sam and Leah have used since Week One. K-P-S-S need daily returns, not the monthly returns of Fama-French, because the event window is only a few trading days wide; you cannot read a three-day reaction off monthly data. The merge requires matching each patent's assignee to its CRSP-listed firm, a non-trivial name-matching job, because firms change names, merge, and spin off. And it mechanically restricts the value measure to patents owned by publicly traded firms — a selection issue we will return to in the vulnerabilities section.
+:::
+
+## The Public KPSS Dataset
+
+- Authors **released** the patent-value estimates publicly
+- Downloadable, regularly extended
+- Dozens of later papers use "the KPSS measure" off the shelf
+- A *dataset* contribution, not just a finding
+- Influence and citations **decouple** — people cite because they *use*
+
+::: notes
+The third piece is what made the paper infrastructure rather than just a result. Having built the firm-by-year value panel, the authors released it publicly — the patent-level dollar-value estimates, downloadable and regularly extended. Dozens of later papers in finance, economics, and management use the K-P-S-S measure off the shelf. When a paper hands the profession a dataset and not just a finding, its citation count and its influence decouple from any single table: people cite it because they use it. Keep this in mind when we get to what is clever — the dataset is half the contribution.
+:::
+
+## Watch the Unit of Observation
+
+- Measure built at the **patent level** — one row per patent
+- Economics done at the **firm-year level**
+- Growth analysis at the **aggregate** level
+- Unit changes what standard errors cluster on
+- Filter: value exists *only* for public firms' granted patents
+
+::: notes
+The unit of observation depends on which part of the paper you are reading. The measure is built at the patent level — one row per granted patent, with its dollar value. The economic analysis is at the firm-year level, aggregating patents to firms. And for growth, it moves to the aggregate, economy level. Watch which unit a given table is using, because it changes what the standard errors should be clustered on. And flag one filter now, because filters are levers: the value measure exists only for patents granted to public firms with usable CRSP returns around the grant date. Private firms, universities, and foreign assignees without a U.S. listing drop out. That is not a bug the authors hid — it is intrinsic to a market-based measure — but it bounds the population the panel describes.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three sources stitched: **USPTO** patents (the grant date is the event date), **CRSP** daily returns (forcing the public-firm filter), and a **public dataset** that became standard infrastructure. Watch the unit — patent, firm-year, or aggregate — because it changes your clustering. Next: the table-by-table reading order.
+:::
+
+::: notes
+To summarize part five: three sources are stitched together. U-S-P-T-O patents supply the grant date, the linchpin event date. CRSP supplies the daily returns you need for a three-day window, and forces the public-firm filter. And the publicly released dataset turned the measure into shared infrastructure the whole profession builds on. Always watch the unit of observation — patent level, firm-year level, or aggregate — because it changes what your standard errors should cluster on. In part six we put the exhibits in the right reading order: validate the measure first, read the economics second.
+:::

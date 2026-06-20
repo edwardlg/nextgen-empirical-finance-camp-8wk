@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Setup — Tools, Identity, and Where You Work
+
+- Part 2 — tools, Git identity, and where licensed data lives
+
+::: notes
+Welcome back to Lab Seven, your data reproducibly, part two of ten. In part one we framed the repository as your capstone deliverable. Now we get you ready to build: the three tools you need, the one-time identity step Git requires, and the non-negotiable rule about where licensed data is allowed to live while you work.
+:::
+
+## Three Tools
+
+- Need **Git**, a **GitHub account**, and **conda** (Miniconda/Anaconda)
+- Git is version control; conda builds the pinned environment
+- Camp container has all three already
+- On your own machine, install Miniconda and Git first
+- Confirm with a one-line version check each
+
+::: notes
+You need three tools. Git, for version control. A GitHub account, which you almost certainly created in Week Six. And conda — Miniconda or Anaconda — for the pinned environment we build later. The camp container has all three; if you are on your own machine, install Miniconda and Git first. Confirm they are present before you start, with a one-line version check each: git version, conda version, and optionally gh version for the GitHub command-line tool, which is convenient for Classroom but not required. Two minutes of checking now saves an hour of confusion when a command turns out to be missing halfway through.
+:::
+
+## One Identity Step Per Machine
+
+- Set your name and email once: `git config --global`
+- `git config --global user.name  "Your Name"`
+- `git config --global user.email "you@gmu.edu"`
+- Git **refuses to commit** without it
+- Your time-stamp is only meaningful carrying your name
+
+::: notes
+Then one identity step, once per machine, so your commits are attributed to you. Set your user name and your user email with git config and the global flag — your real name and your GMU email. Two reasons this is not optional. First, Git literally refuses to commit without it; it will stop and ask. Second, and more important for this lab, your pre-analysis-plan timestamp is only meaningful if it carries your name. A registration that does not say who registered it proves nothing. So do this once, up front, and every commit you make for the rest of the camp is properly signed.
+:::
+
+## Where You Work
+
+- Licensed data binds the rule from CONVENTIONS section five
+- **Licensed bytes live only on GMU infrastructure** — never a laptop
+- WRDS Cloud or the Hopper cluster, not your personal machine
+- The repository travels freely; the licensed data stays home
+- The repo's job: be the recipe that reconstructs the data
+
+::: notes
+A note on where you work. If your project touches licensed data — CRSP, Compustat, IBES, TRACE, anyone doing the equities or fundamentals capstones — the rule from CONVENTIONS section five and Chapter seven-point-two binds: the licensed bytes live only on GMU infrastructure, WRDS Cloud or the Hopper cluster, never on a personal laptop. Your repository — the code, the README, the data cards, the logs, the plan — can live on your laptop and on GitHub, because none of those contain licensed data. The gitignore you build later is what enforces that wall. So the mental model is simple: the repo travels freely; the licensed data stays home; the repo's job is to be the recipe that reconstructs the data on GMU infrastructure for anyone who has the same access. Hold that picture — repo as recipe, data stays home — because every later step is an instance of it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Confirm **three tools** — Git, a GitHub account, conda — then set your Git identity **once per machine**, because Git refuses to commit without it and your time-stamp must carry your name. The governing rule: **licensed bytes live only on GMU infrastructure**; the repo travels as a recipe. Next: scaffold the layout.
+:::
+
+::: notes
+To summarize part two: you confirmed your three tools — Git, a GitHub account, and conda — with one-line version checks, and you set your Git identity once per machine, because Git refuses to commit without it and a time-stamp only means something when it carries your name. And you locked in the governing rule of the whole lab: licensed bytes live only on GMU infrastructure, while the repository travels freely as the recipe that reconstructs the data. In part three we start building — scaffolding the repository layout directory by directory, and learning the gitkeep trick that lets an empty folder survive a clone.
+:::

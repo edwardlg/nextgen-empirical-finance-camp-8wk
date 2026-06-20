@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Estimator and the Column Space
+
+- Part 6 — solve for $\hat{\boldsymbol\beta}$ and locate the fitted values
+
+::: notes
+Welcome back to Lesson two-point-one, part six of eleven. In part five we earned the normal equations from geometry: the residual must be perpendicular to every regressor. Now we solve those equations to get the one formula on the front of every econometrics course — and then begin the geometry, by asking where the fitted values are even allowed to live.
+:::
+
+## Solving for Beta Hat
+
+- Multiply normal equations on the left by $(\mathbf{X}'\mathbf{X})^{-1}$
+- The matrix on the left of $\hat{\boldsymbol\beta}$ collapses to the identity
+- $$\boxed{\hat{\boldsymbol\beta} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}}$$
+- The formula on the front of every econometrics course
+- Meaning: coefficients whose residual is perpendicular to regressors
+
+::: notes
+If the K by K matrix X transpose X has an inverse — and we pin down exactly when later in the lesson — multiply both sides of the normal equations on the left by that inverse. The matrix on the left of beta hat collapses to the identity, and we are left with beta hat equals the inverse of X transpose X, times X transpose y. There it is, the formula on the front of every econometrics course. It is worth seeing this not as a magic incantation but as the unique solution to a sentence: find the coefficients whose residual is perpendicular to the regressors. Everything else in this book is built on top of this one line. So commit it to memory — beta hat equals X transpose X inverse, times X transpose y — but commit the meaning along with the symbols.
+:::
+
+## Where Fitted Values Live
+
+- $$\hat{\mathbf{y}} = \mathbf{X}\hat{\boldsymbol\beta} = \mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}$$
+- $\hat{\mathbf{y}}$ is a **linear combination of the columns of $\mathbf{X}$**
+- All such combinations = the **column space** $\text{col}(\mathbf{X})$
+- For Sam: a 2-D plane inside 4-D space
+- The all-ones column and the market-return column span it
+
+::: notes
+Now the geometry, which is where intuition lives. The fitted values are y hat equals X beta hat, which equals X times the inverse of X transpose X, times X transpose, times y. Think about what y hat equals X beta hat can possibly be. It is X times some vector of coefficients, which is to say a linear combination of the columns of X. The set of all such combinations — every vector you can build by weighting and adding the regressor columns — is a flat subspace of N-dimensional space called the column space of X. For Sam's example, where K equals two, the column space is the two-dimensional plane inside four-dimensional space spanned by the all-ones column and the market-return column. Anything OLS can possibly predict has to live somewhere in that plane.
+:::
+
+## y Is Not in the Plane
+
+- The outcome $\mathbf{y}$ is a point in 4-D space
+- It almost never lies *in* $\text{col}(\mathbf{X})$
+- Recall: no line fit Sam's four points exactly
+- So OLS asks: which point in the plane is closest to $\mathbf{y}$?
+
+::: notes
+Here is the tension. The outcome y is a point in that same four-dimensional space, but it almost never lies in the plane. Recall from the setup that no line fit Sam's four points exactly — two days shared a market return but had different stock returns, so no line could hit both. That means y sticks up out of the regressor plane; the regressors simply cannot reproduce it. So OLS faces a clean geometric question: among all the points the regressors can reach — every point in the column space — which one is closest to y? That single question, closest point in the plane, is the whole of least squares, and in the next part we answer it and watch the perpendicular appear.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Solving the normal equations gives $\hat{\boldsymbol\beta} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}$. The fitted values $\hat{\mathbf{y}} = \mathbf{X}\hat{\boldsymbol\beta}$ must be a combination of $\mathbf{X}$'s columns — a point in the **column space**. But $\mathbf{y}$ lies outside it. Next: OLS picks the closest point — the projection.
+:::
+
+::: notes
+To summarize part six: multiplying the normal equations by the inverse of X transpose X solves them, giving the estimator beta hat equals the inverse of X transpose X, times X transpose y — the one formula every course puts on its front page. The fitted values, y hat equals X beta hat, are forced to be a linear combination of the columns of X, so they live in the column space — a flat plane inside the data's high-dimensional space. But the outcome y lies outside that plane, because no exact fit exists. In part seven we resolve the tension: OLS drops a perpendicular and picks the closest point in the plane, and Pythagoras splits the variation.
+:::

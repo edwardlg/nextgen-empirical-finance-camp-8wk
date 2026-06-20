@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Bridge to Causal Inference
+
+- Part 12 — why design, not estimation, is the cure
+
+::: notes
+Welcome back to Week Two-point-five, part twelve of twelve — the finale. In part eleven we built the bias-consistency ledger and drew the line that separates bias from precision. Now we step back and see what just happened to the regression you trusted, why the cure is research design rather than estimation, and how the next two weeks deliver that cure. Then your lab assignment puts every threat into your own hands.
+:::
+
+## The Bridge to Causal Inference
+
+- Whether $\hat\beta$ is causal asks: where does $x$'s variation come from?
+- Regression alone cannot answer that question
+- Week 3: potential outcomes and randomization
+- Week 4: instruments, diff-in-diff, regression discontinuity
+- Maya's fair-lending question returns with tools that identify it
+
+::: notes
+This is not a counsel of despair — it is the motivation for everything that follows. In Chapter two-point-one ordinary least squares looked like a finished machine: feed in data, turn the crank, read off beta hat. Chapters two-point-two through two-point-four sharpened it. And now Chapter two-point-five has shown that the machine's central output can be pointed at the wrong target by any of three everyday problems, that add controls and cluster cannot rescue it, and that the regression cannot even tell you it has been fooled. The deep lesson is that whether beta hat is causal is a question about where the variation in x comes from, and that is a question regression alone cannot answer. If x varies because of confounders, or because of noise, or because y feeds back into x, then ordinary least squares faithfully estimates a contaminated quantity. To get a causal number, you need x to vary for reasons unrelated to the error term — and arranging that is the job of research design, not estimation. Week three starts over from the potential-outcomes framework, defining a causal effect as the difference between what would happen to a unit under treatment versus under no treatment. From there, randomization in Week three and quasi-experimental designs in Week four — instrumental variables, difference-in-differences, regression discontinuity — are revealed as machines for manufacturing the exogenous variation these threats destroy. Maya's fair-lending question returns in Week four with the tools to actually identify the effect of D holding creditworthiness genuinely fixed.
+:::
+
+## Your Turn
+
+- Open the biased-estimator lab notebook, nb2.5
+- Simulate OVB; verify the short slope hits $\beta_1 + \beta_2\delta_1$
+- Flip $\delta_1$; watch the bias flip with the two-sign rule
+- Simulate attenuation; confirm $\hat\beta_1 \to \beta_1\lambda$
+- Build Maya's case: spurious gap, then control it away
+
+::: notes
+Your turn. Open the biased-estimator lab, notebook two-point-five. You will do three things. First, simulate omitted variable bias end to end: generate data from a known long model with z correlated with x, run both the long and short regressions, and verify that the short slope lands on beta-one plus beta-two times delta-one — then flip the sign of delta-one and watch the bias flip with the two-sign rule. Second, simulate attenuation: corrupt a regressor with rising measurement-error variance and confirm the estimate converges to beta-one times lambda, plotting it against the reliability ratio. Third, build Maya's case: simulate approvals where the true demographic effect is zero but creditworthiness confounds, show the short regression finds a spurious gap, show that controlling for well-measured creditworthiness removes it, then re-run with a noisily-measured control and watch the bias partially return.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Whether $\hat\beta$ is causal depends on *where the variation in $x$ comes from* — a question only research **design** can answer, not estimation. Maya's $t = 4.1$ was real; the number it certified was not the one she wanted. You now know the diseases; Weeks 3 and 4 — potential outcomes, randomization, instruments — are the cure.
+:::
+
+::: notes
+To summarize part twelve and the whole chapter: the regression you trusted can be pointed at the wrong target by three everyday problems — omitted variables, measurement error, and wrong functional form — and no standard error, no larger sample, can fix a biased coefficient, nor can the regression even warn you. Whether your coefficient is causal depends on where the variation in your regressor comes from, and that is a question only research design can answer. Maya's t-statistic of four-point-one was real; the number it certified was not the one she wanted. You now know the diseases. The next two weeks — potential outcomes, randomization, instruments, difference-in-differences, and regression discontinuity — are the cure. That completes Week Two-point-five.
+:::

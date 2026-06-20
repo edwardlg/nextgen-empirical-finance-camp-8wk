@@ -1,0 +1,62 @@
+---
+date: "2026-06-22"
+---
+
+## The Conditional Independence Assumption
+
+- Part 2 — the assumption that makes comparing look-alikes work
+
+::: notes
+Welcome back to selection on observables, part two of nine. In part one we found the enemy: a selection-bias term in the naive comparison, the gap in untreated outcomes between enrollees and non-enrollees. Now we state the single assumption that makes that term vanish — the Conditional Independence Assumption — and we prove, on real numbers, why comparing look-alikes recovers the effect we want.
+:::
+
+## State the Assumption
+
+- Hold observed covariates $\mathbf{X}_i$ fixed
+- Within a group sharing $\mathbf{X}_i$, treatment is "as good as random"
+- **CIA:** $\{Y_i(1), Y_i(0)\} \perp\!\!\!\perp D_i \mid \mathbf{X}_i$
+- Also called **unconfoundedness** or selection on observables
+- All the correlation runs *through* $\mathbf{X}_i$
+
+::: notes
+Here is the result in one sentence: if treatment is as good as randomly assigned once you hold a set of observed characteristics, capital X sub i, fixed, then within any group of applicants who share the same X sub i, the difference in average outcomes between treated and untreated is the causal effect. Written formally, this is the Conditional Independence Assumption, or C-I-A, also called unconfoundedness or selection on observables. Read the double-perpendicular symbol as "is independent of." It says: once you condition on the observed covariates X sub i, whether or not someone got treated carries no further information about their potential outcomes. Treatment may be wildly correlated with outcomes overall — savvier people both enroll and get approved — but the assumption says that correlation runs entirely through X sub i. Fix X sub i, and the leftover variation in D sub i is as good as a coin flip.
+:::
+
+## CIA Versus a Randomized Trial
+
+- A trial gives independence **unconditionally** — no $\mathbf{X}$ needed
+- CIA asks for *less*: independence only **within** cells of $\mathbf{X}$
+- CIA asks for *more*: you must have **measured the right $\mathbf{X}$**
+- "Randomization, conditional on the covariates"
+- Nature ran a stratified experiment — on variables you observe
+
+::: notes
+It helps to compare C-I-A to a randomized trial. There, the coin flip guarantees independence between potential outcomes and treatment unconditionally — no covariates needed, because randomization makes the groups identical in expectation on everything, observed and unobserved. C-I-A asks for less and more at once. Less, because it only needs independence within cells of X. More, because it demands you have actually measured the right X. C-I-A is "randomization, conditional on the covariates" — the claim that nature ran a stratified experiment, stratified on exactly the variables you happen to observe. That second demand is where all the danger lives, and we return to it at the end of the chapter.
+:::
+
+## A Two-Cell Worked Example
+
+- One confounder: prior checking account, yes or no
+
+| Cell | $D{=}1$ | rate | $D{=}0$ | rate | effect |
+|---|---:|---:|---:|---:|---:|
+| account | 600 | $0.80$ | 400 | $0.65$ | $+0.15$ |
+| no account | 200 | $0.50$ | 800 | $0.40$ | $+0.10$ |
+
+- Naive gap ignores cells: $0.725 - 0.483 = 0.242$
+- ATT weights by **treated** counts: $0.1375$
+
+::: notes
+A number before the Greek letters. Suppose Maya's only confounder is whether the applicant already had a checking account. Account-holders are savvier and would be approved more often regardless. In the account cell, six hundred enrolled at an eighty percent approval rate, four hundred did not enroll at sixty-five percent — a within-cell effect of plus fifteen points. In the no-account cell, the effect is plus ten points. The naive comparison ignores the cells: enrollee approval works out to seventy-two-and-a-half percent, non-enrollee approval to about forty-eight percent, a gap of twenty-four-point-two points. But that gap is inflated, because enrollees are disproportionately account-holders, the higher-baseline cell. Exact matching instead averages each within-cell effect, weighting by the treated counts, since the effect on the treated averages over the covariate mix of the treated. That gives six hundred times point-one-five plus two hundred times point-one-zero, all over eight hundred — thirteen-point-seven-five percentage points, barely half the naive number. The difference, about ten points, is the selection bias, removed by conditioning on one confounder.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**CIA** says: conditional on observed $\mathbf{X}$, treatment is as good as random. Then the within-cell treated-minus-untreated difference is a clean causal effect, and averaging those over the treated's mix of $\mathbf{X}$ gives $\tau_{\text{ATT}}$. The whole engine: **compare like with like, then average.** Next: the second assumption — overlap — and why exact matching collapses in high dimensions.
+:::
+
+::: notes
+To summarize part two. The Conditional Independence Assumption says that, conditional on observed covariates X, treatment is as good as randomly assigned. Under it, the within-cell difference between treated and untreated is a clean causal effect, because the selection-bias term is zeroed out inside each cell. Average those within-cell effects over the distribution of X among the treated, and you get tau ATT. That is the entire engine of selection on observables: compare like with like, then average. Everything else — matching, calipers, propensity scores — is machinery for doing that comparison well when X is high-dimensional. In part three we meet the second assumption hiding in the argument, overlap, and watch exact matching collapse under the curse of dimensionality.
+:::

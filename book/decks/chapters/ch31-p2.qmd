@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Two Parallel Worlds and the Switch
+
+- Part 2 — one person, two worlds, and the switch between them
+
+::: notes
+Welcome back to potential outcomes, part two of eleven. In part one we saw Maya's twenty-one-point gap compare two different kinds of people. Now we build the framework that makes that precise, starting from one person and two imagined worlds. We define potential outcomes, the switch that picks which world we see, and the cleanest possible definition of a causal effect.
+:::
+
+## One Person, Two Parallel Worlds
+
+- Take one applicant — unit $i$ — with treatment "enroll"
+- World where she enrolls: outcome $Y_i(1)$, the "if treated" outcome
+- World where she does not: outcome $Y_i(0)$, the "if untreated" outcome
+- These are her **potential outcomes** — fixed properties of the person
+- Code approval as $1$, denial as $0$; at most **one** is realized
+
+::: notes
+The central move of the framework is to imagine, for one person, two parallel worlds. Take one applicant, call her unit i. In one world she enrolls; her loan outcome there is a number we write Y-sub-i-of-one — the outcome for unit i if treated. In the other world the very same person does not enroll; her outcome there is Y-sub-i-of-zero — the outcome if untreated. For a yes-or-no outcome like approval, we code approved as one and denied as zero, so each of these is either one or zero; for a continuous outcome like a credit score it is just a real number. These two numbers are unit i's potential outcomes. They are properties of the person, fixed in advance, that exist before anyone decides whether she enrolls. The word potential is doing real work: both numbers are real features of the world — what would occur in each scenario — but at most one of them will ever actually happen.
+:::
+
+## The Switch and the Effect
+
+- Treatment indicator $D_i = 1$ if she enrolls, $D_i = 0$ if not
+- Observation rule: $Y_i = D_i\,Y_i(1) + (1 - D_i)\,Y_i(0)$
+- The switch selects *which* world we observe
+- Individual treatment effect: $\tau_i = Y_i(1) - Y_i(0)$
+- A clean, assumption-free definition — no statistics yet
+
+::: notes
+Now define the treatment indicator D-sub-i: it equals one if unit i enrolls, and zero if not. The treatment acts like a switch selecting which of the two parallel worlds actually happens. The outcome we observe — the one that lands in Maya's dataset — is whichever potential outcome the switch points to. We write the observed Y-sub-i equals D-sub-i times Y-sub-i-of-one, plus one-minus-D-sub-i times Y-sub-i-of-zero. Stare at it: if D-sub-i is one, this collapses to Y-sub-i equals Y-sub-i-of-one, her treated outcome; if D-sub-i is zero, it collapses to her untreated outcome. This is called the observation rule, or the consistency link. It is not an assumption about the world — it is the definition of how the world we observe relates to the two we imagine. With this, the individual treatment effect writes itself: tau-sub-i equals Y-sub-i-of-one minus Y-sub-i-of-zero, the gap between what happens to her with the program and without it, holding the person fixed. If her outcome is binary and tau-sub-i equals one, the program flips her from denied to approved; if it is zero, the program does nothing for her. No regression, no error term — just two numbers and their difference.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Each unit has **two potential outcomes**, $Y_i(1)$ and $Y_i(0)$. The switch $D_i$ selects which we observe, via $Y_i = D_i Y_i(1) + (1-D_i)Y_i(0)$. The causal effect on one person is the difference $\tau_i = Y_i(1)-Y_i(0)$ — clean and assumption-free. Next: why we can *never* compute it.
+:::
+
+::: notes
+To summarize part two: every unit has two potential outcomes — Y-sub-i-of-one if treated, Y-sub-i-of-zero if untreated — and the treatment switch D-sub-i selects which one we observe through the observation rule. The causal effect on one person is the difference of those two worlds, tau-sub-i. This is a clean, assumption-free definition of a causal effect — no regression, no error term, no statistics at all yet. And now the trap springs. In part three we discover the catch that makes causation hard: for any single person, we can only ever see one of the two worlds, and the other is gone forever.
+:::

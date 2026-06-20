@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Law of Total Variance: Setup
+
+- Part 6 — state Total Variance, compute within-regime variances
+
+::: notes
+Welcome back to Joint, Conditional, and the Two Laws That Run Everything — part six of eight. In part five we proved the Law of Iterated Expectations, which rebuilds the overall mean from conditional means. Now we get to the result Sam actually wants. A trader cares not just about average return but about risk — the variance — and crucially, where that risk comes from. The Law of Total Variance splits a portfolio's total variance into the risk inside the regimes plus the risk across them. In this part we state the law and compute the within-regime variances; in the next we combine the pieces and read off the answer.
+:::
+
+## Variance, and the Law in One Sentence
+
+- Variance: $\operatorname{Var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2$
+- $\operatorname{Var}(X)=\underbrace{\mathbb{E}[\operatorname{Var}(X\mid Y)]}_{\text{within}}+\underbrace{\operatorname{Var}(\mathbb{E}[X\mid Y])}_{\text{across}}$
+- **Within**: average day-to-day variance inside each regime
+- **Across**: variance of the regime means
+- Nothing double-counted; nothing leaks
+
+::: notes
+First, the variance of a random variable measures how spread out it is around its mean; the form we compute with is the mean of the square minus the square of the mean. Now the law. Total variance splits into two pieces. The within-regime piece is the expectation of the variance of X given Y — the average, over regimes, of the day-to-day variance inside each regime. Even among calm days, some are up two percent and some down, so there is variance within. The across-regime piece is the variance of the conditional mean — the variance of those regime averages, plus zero point seven one versus minus zero point six seven. Just by switching regimes, the portfolio's center of gravity moves. The law says total risk is exactly the risk you would still face if you knew the regime, plus the risk that comes purely from not knowing which regime you are in. Nothing is double-counted; nothing leaks.
+:::
+
+## Why Sam Cares
+
+- If **across** dominates: forecast the regime, kill the variance
+- If **within** dominates: knowing the regime barely helps
+- Tells Sam *which kind of problem* they have
+- Same picture explains a regression's residual variance later
+- Generalizes to continuous $X$ via integrals — law unchanged
+
+::: notes
+Why does this matter to Sam? If the across-regime piece dominates, the smart move is regime forecasting — predict the storm and you have killed most of the variance. If the within-regime piece dominates, knowing the regime barely helps, and Sam needs a different edge. The decomposition tells Sam which kind of problem they have. The same picture will explain, in Week Two, what a regression's residual variance is measuring. And note: everything here generalizes to continuous variables by swapping sums for integrals and mass functions for densities — the law reads identically.
+:::
+
+## Step 1 — Within-Regime Variances
+
+- Use $\operatorname{Var}(X\mid Y)=\mathbb{E}[X^2\mid Y]-(\mathbb{E}[X\mid Y])^2$
+- Calm: $\mathbb{E}[X^2\mid Y{=}1]=4(0.071)+4(0.429)=2.000$
+- $\operatorname{Var}(X\mid Y{=}1)=2.000-(0.714)^2=1.490$
+- Stormy: $\mathbb{E}[X^2\mid Y{=}2]=4(0.50)+4(0.167)=2.667$
+- $\operatorname{Var}(X\mid Y{=}2)=2.667-(0.667)^2=2.222$
+
+::: notes
+We need three ingredients. Step one: the within-regime variances, using the mean of the square minus the square of the mean inside each regime. On calm days, the mean of X squared is four times zero point zero seven one plus four times zero point four two nine, which is two point zero zero zero. Subtract the square of the calm mean, zero point seven one four squared, about zero point five one zero, and the calm variance is one point four nine zero. On stormy days, the mean of X squared is four times zero point five zero plus four times zero point one six seven, which is two point six six seven. Subtract the square of minus zero point six six seven, about zero point four four four, and the stormy variance is two point two two two. So stormy days are not only worse on average, they are also wider.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **Law of Total Variance** splits total risk into a **within-regime** piece, $\mathbb{E}[\operatorname{Var}(X\mid Y)]$, and an **across-regime** piece, $\operatorname{Var}(\mathbb{E}[X\mid Y])$. We computed the within-regime variances: $1.490$ calm, $2.222$ stormy. Next: combine the pieces, check against the direct variance, and read off what it means for Sam.
+:::
+
+::: notes
+To summarize part six: the Law of Total Variance splits total variance into a within-regime piece — the average variance inside each regime — and an across-regime piece — the variance of the regime means. The within piece is the risk you would still face knowing the regime; the across piece is the risk from not knowing which regime you are in. Which one dominates tells Sam whether regime forecasting can help. We computed the two within-regime variances: one point four nine zero on calm days and two point two two two on stormy days. In part seven we weight and combine these, add the across-regime piece, and check the total against the direct variance — then read off the actionable answer.
+:::

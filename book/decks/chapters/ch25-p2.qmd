@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Omitted Variable Bias: The Result and the Intuition
+
+- Part 2 — intuition and numerical preview of OVB
+
+::: notes
+Welcome back to Week Two-point-five, part two of twelve. In part one we saw that bias is the failure of the zero-conditional-mean assumption, and that no standard error can detect it. Now we meet the canonical example: omitted variable bias. We build the intuition on Maya's case, then preview the whole result on a single set of real numbers before deriving the formula in part three.
+:::
+
+## The Result in One Sentence
+
+- Leave out a variable that belongs and correlates with $x$
+- The kept coefficient absorbs part of the omitted effect
+- Contamination $=$ omitted effect $\times$ slope of omitted on included
+- Maya omits **creditworthiness** $C$ from her approval model
+- $C$ affects approval *and* differs across demographic groups
+
+::: notes
+The result, in one sentence: when you leave out a variable that belongs in the model and is correlated with a variable you kept, the coefficient on the variable you kept absorbs part of the omitted variable's effect. Maya regresses approval on the demographic indicator D, but leaves out creditworthiness C — a composite of credit score, debt-to-income ratio, and payment history. Creditworthiness obviously affects approval: lenders approve creditworthy applicants. And — this is the load-bearing fact — for reasons rooted in decades of unequal access to wealth, credit, and stable employment, creditworthiness is not evenly distributed across demographic groups in her sample. So when Maya's regression sees that group D is approved less often, it cannot tell whether that is because of D itself, meaning discrimination, or because D is correlated with lower measured creditworthiness, which the lender is legally allowed to price on. Her coefficient on D blends the two. It is the discrimination effect plus a smear of the creditworthiness effect, channeled through the correlation between D and C.
+:::
+
+## A Numerical Preview
+
+- Suppose true discrimination effect is exactly **zero**
+- Credit raises approval by $0.30$ per SD: $\beta_2 = 0.30$
+- Group $D=1$ averages $0.50$ SD lower credit: $\delta_1 = -0.50$
+- Short slope $\to \beta_1 + \beta_2\delta_1 = 0 + (0.30)(-0.50) = -0.15$
+- A 15-point penalty in a world with **zero** discrimination
+
+::: notes
+A quick numerical preview to fix ideas before the algebra. Imagine the true effect of being in group D-equals-one on approval is exactly zero — no discrimination at all. But suppose creditworthiness raises the approval probability by zero-point-three-zero per standard deviation of credit, so beta-two equals zero-point-three. And suppose group D-equals-one has, on average, creditworthiness zero-point-five standard deviations lower than group D-equals-zero, so the slope of credit on D, call it delta-one, is negative zero-point-five. Then the short regression's coefficient on D converges to beta-one plus beta-two times delta-one, which is zero plus zero-point-three times negative zero-point-five, equals negative zero-point-one-five. Maya would read a fifteen-percentage-point approval penalty against group D-equals-one — a damning-looking, highly significant number — in a world with literally zero discrimination. The entire effect is borrowed from creditworthiness through the correlation. That is omitted variable bias in a single line, and it is why we now derive the formula carefully.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Omitted variable bias:** omit a variable that both affects $y$ and correlates with $x$, and the kept coefficient absorbs a smear of the omitted effect. In Maya's preview, a $15$-point approval penalty appears with *zero* true discrimination — the whole "effect" borrowed from creditworthiness. Next: the exact formula.
+:::
+
+::: notes
+To summarize part two: omitted variable bias arises when you leave out a variable that both affects the outcome and is correlated with the regressor you kept. The kept coefficient absorbs a smear of the omitted variable's effect, channeled through their correlation. In Maya's numerical preview, a fifteen-percentage-point approval penalty appeared in a world with exactly zero discrimination, the entire apparent effect borrowed from creditworthiness. In part three we make this exact: we derive the omitted variable bias formula and see that the bias is a product of two slopes.
+:::

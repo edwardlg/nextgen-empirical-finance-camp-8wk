@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Benjamini–Hochberg and Pre-Committed Families
+
+- Part 7 — the Benjamini–Hochberg recipe and pre-committed families
+
+::: notes
+Welcome back to The Pre-Analysis Plan, part seven of twelve. In part six we declared one primary test and grouped the rest into families targeting the false discovery rate. Now we make that rate concrete: the Benjamini–Hochberg recipe, a worked example, and the rule that the families must be fixed before you see the p-values.
+:::
+
+## The Benjamini–Hochberg Recipe
+
+- Sort the $m$ p-values ascending: $p_{(1)}\le p_{(2)}\le\dots\le p_{(m)}$
+- Find the *largest* rank $k$ with $p_{(k)}\le \dfrac{k}{m}\,\alpha$
+- Reject every hypothesis with rank $\le k$
+- Lenient where Bonferroni is harsh: later ranks get a friendlier bar
+- "I tolerate that ~5% of my discoveries are flukes"
+
+::: notes
+The Benjamini–Hochberg procedure controls the false discovery rate with a simple, mechanical recipe you can do by hand. Take your m p-values from the family and sort them ascending. Find the largest rank k for which the k-th smallest p-value is less than or equal to k over m, times alpha. Reject — declare a discovery for — every hypothesis with rank k or smaller. The genius of the threshold k-over-m-alpha is that it is lenient where Bonferroni is harsh. The smallest p-value is held to one-over-m-alpha, exactly Bonferroni's bar, but the k-th smallest is allowed up to k-over-m-alpha, so a family with several genuinely significant effects lets the later ones in at a much friendlier threshold. The false discovery rate says, in effect, "I am willing to tolerate that five percent of the things I call discoveries are flukes."
+:::
+
+## A Worked Example
+
+- Five income-band p-values: $\{0.008, 0.012, 0.039, 0.041, 0.330\}$
+- BH thresholds $\frac{k}{5}(0.05)$: $\{0.01, 0.02, 0.03, 0.04, 0.05\}$
+- Top-down: rank 5,4,3 fail; rank 2, $0.012\le 0.02$ — yes, $k=2$
+- Declare the $0.008$ and $0.012$ bands as discoveries
+- Bonferroni keeps only $0.008$ — BH keeps the $0.012$ too
+
+::: notes
+A worked example. Take five income-band p-values: zero-point-zero-zero-eight, zero-point-zero-one-two, zero-point-zero-three-nine, zero-point-zero-four-one, and zero-point-three-three-zero, with alpha at zero-point-zero-five. The Benjamini–Hochberg thresholds, k over five times zero-point-zero-five, are zero-point-zero-one, zero-point-zero-two, zero-point-zero-three, zero-point-zero-four, and zero-point-zero-five. Compare from the top down. Rank five: zero-point-three-three is above zero-point-zero-five, no. Rank four: zero-point-zero-four-one above zero-point-zero-four, no. Rank three: zero-point-zero-three-nine above zero-point-zero-three, no. Rank two: zero-point-zero-one-two is at or below zero-point-zero-two, yes — so k equals two, and you declare the two smallest bands as discoveries. Bonferroni would have held every band to zero-point-zero-five over five, which is zero-point-zero-one, and declared only the zero-point-zero-zero-eight band, throwing away the zero-point-zero-one-two effect that Benjamini–Hochberg keeps. That is the cost of conservatism, and why the false discovery rate is the modern default for families.
+:::
+
+## State the Families Now
+
+- Declare families and procedure *before* you have the p-values
+- Otherwise you can grow or shrink a family until your favorite survives
+- "Family A = H1, $\alpha=0.05$, single primary, no correction"
+- "Family B = {Black, Hispanic, Asian}, BH-FDR at 0.05"
+- "Family C = five income bands, BH-FDR at 0.05" — automatic, unspoofable
+
+::: notes
+Third, and this is the part the plan exists to enforce: state the families and the procedure now, before you have the p-values. The reason is the same one that makes everything in this chapter work. If you decide after seeing the numbers which tests count as a family, you can shrink or grow the family until your favorite effect survives correction. The family must be a pre-committed list. Write it out: Family A is the primary denial gap, H-one, reported at zero-point-zero-five, no correction needed because it is a single primary test. Family B is the gap by Black, Hispanic, and Asian applicants — three tests, Benjamini–Hochberg false-discovery-rate control at zero-point-zero-five. Family C is the gap by five income bands, again Benjamini–Hochberg at zero-point-zero-five. Now the correction is automatic and unspoofable.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Benjamini–Hochberg** sorts the family's p-values, finds the largest rank $k$ with $p_{(k)}\le\frac{k}{m}\alpha$, and rejects down to it — keeping real effects Bonferroni's harshness throws away. The catch: **fix the families before you see the p-values**, or you can spoof the correction. Next: falsification and planned robustness.
+:::
+
+::: notes
+To summarize part seven: the Benjamini–Hochberg procedure sorts a family's p-values ascending, finds the largest rank k whose p-value is at or below k over m times alpha, and rejects every hypothesis down to that rank — keeping genuinely significant effects that Bonferroni's conservatism would discard, as the worked example showed when it kept the zero-point-zero-one-two band Bonferroni dropped. The catch is that you must state the families and the procedure before you see the p-values; otherwise you can grow or shrink a family until your favorite survives. That completes component three. In part eight, we write the two components beginners skip: falsification and planned robustness.
+:::

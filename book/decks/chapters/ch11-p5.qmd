@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## The Law of Iterated Expectations
+
+- Part 5 — prove and apply the Law of Iterated Expectations
+
+::: notes
+Welcome back to Joint, Conditional, and the Two Laws That Run Everything — part five of eight. In part four we built the conditional expectation of X given Y and saw it is itself a random variable. Now we prove the first of our two great laws, the one that ties those conditional averages back to the overall average: the Law of Iterated Expectations. It is the formal license for the single most common phrase in econometrics — control for Y.
+:::
+
+## The Law in One Sentence
+
+- Average of the conditional averages = the overall average
+- $\mathbb{E}[X]=\mathbb{E}\big[\mathbb{E}[X\mid Y]\big]$
+- Also called the **tower property**
+- Inner $\mathbb{E}[X\mid Y]$: random variable from part four
+- Outer $\mathbb{E}[\cdot]$: averages it over $Y$
+
+::: notes
+Here is the law in one sentence: the average of the conditional averages, weighted by how often each condition occurs, equals the overall average. In symbols, the expectation of X equals the expectation of the expectation of X given Y. It is sometimes called the tower property. So you compute an overall average in two stages: first average within each group, then average those group averages, weighting each by how often it occurs. A school's average test score equals the enrollment-weighted average of its classrooms' averages. The law says these two routes always land on the same number — splitting into groups and recombining loses nothing.
+:::
+
+## Worked Example
+
+- Conditional means: $0.714\%$ (calm), $-0.667\%$ (stormy)
+- Regime weights: $0.70$ and $0.30$
+- $(0.714)(0.70)+(-0.667)(0.30)=0.500-0.200$
+- $=0.30\%$ — exactly $\mathbb{E}[X]$ from before
+- Two-stage and one-stage routes agree to the penny
+
+::: notes
+Let us check it on Sam's numbers. Take the two conditional means from part four and average them over the regime frequencies, zero point seven zero and zero point three zero. The first term is zero point five zero zero; the second is minus zero point two zero zero. They sum to zero point three zero percent — exactly the unconditional mean we computed the direct way. The two-stage route and the one-stage route agree, to the penny. That is not a coincidence; it is a theorem.
+:::
+
+## The Algebra — Three Honest Lines
+
+- Write outer expectation as a sum over values of $Y$
+- Substitute $\mathbb{E}[X\mid Y{=}y]=\sum_x x\,p_{X\mid Y}(x\mid y)$
+- Multiplication rule: $p_{X\mid Y}(x\mid y)\,p_Y(y)=p(x,y)$
+- Sum the joint over $y$ to recover $p_X(x)$
+- Land on $\mathbb{E}[X]=\sum_x x\,p_X(x)$
+
+::: notes
+The proof is three honest lines. Start from the outer expectation, written as a sum over the values of Y: each conditional mean times the probability of that regime. Substitute the definition of conditional expectation — the inner sum over x of x times the conditional probability. Now push the marginal of Y inside. The product, conditional probability times marginal of Y, is exactly the multiplication rule from part two, and it collapses to the joint. Sum the joint over y first, and that recovers the marginal of X. What is left is the sum over x of x times the marginal of X, which is just the expectation of X. Conditioning splits the sum into groups; iterating expectations puts the groups back together.
+:::
+
+## Why You Use This Constantly
+
+- Formal license for "control for $Y$"
+- Average within groups, recombine — mean unchanged
+- Engine behind regression estimating $\mathbb{E}[X\mid Y]$
+- Behind "no omitted-variable bias" in Week 2
+- Fails only if $\mathbb{E}[X]$ doesn't exist (heavy tails)
+
+::: notes
+Why use this constantly? The law is the formal license for control for Y. When you average within groups and then ask what it implies on average, the law guarantees you have not accidentally changed the overall mean. It is the engine behind regression's claim to estimate the conditional expectation, behind the no-omitted-variable-bias arguments of Week Two, and behind the causal logic of Weeks Three and Four. A surprising number of proofs in this book are: apply the law, then simplify. When does it fail? Essentially never — provided the expectation of X exists. For sufficiently heavy-tailed variables the mean can be infinite, and then there is no finite number for the two routes to agree on. You will meet that pathology later, with crypto returns. For any variable with a finite mean, the law holds with no further assumptions.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **Law of Iterated Expectations** says $\mathbb{E}[X]=\mathbb{E}\big[\mathbb{E}[X\mid Y]\big]$ — splitting into groups and recombining loses nothing. It is the backbone of every "control for $Y$" argument you'll make this camp. Next: the second law, which decomposes **risk** into within- and across-group pieces.
+:::
+
+::: notes
+To summarize part five: the Law of Iterated Expectations says the expectation of X equals the expectation of the conditional expectation of X given Y — average within groups, then average the group averages, and you recover the overall mean exactly. Both routes gave Sam zero point three zero percent, and we proved it in three honest lines. This law is the backbone of every control-for-Y argument, and the engine behind regression. In part six we turn from averages to risk and prove the second great law — the Law of Total Variance.
+:::

@@ -1,0 +1,65 @@
+---
+date: "2026-06-22"
+---
+
+## The Joint Distribution
+
+**Learning objectives.** By the end you can:
+
+- Read joint, marginal, and conditional distributions from a table
+- Define independence and conditional expectation precisely
+- Prove the Laws of Iterated Expectations and Total Variance
+- Split a portfolio's risk across versus within regimes
+
+::: notes
+Welcome to Week One, Lesson one-point-one — Joint, Conditional, and the Two Laws That Run Everything. This is part one of eight. Almost every finding in empirical finance is, once you strip the jargon away, a statement about how one random thing behaves once you know something else. Does next month's return depend on whether the market was calm or stormy? Does default risk depend on income? Each is a question about a conditional distribution. Nearly every tool you build this camp — regression, causal inference, standard errors — is a way to estimate a conditional expectation and argue about how much to trust it. So we start at the bottom of the stack with two random quantities measured together.
+:::
+
+## What We Build This Lesson
+
+- Joint, marginal, and conditional distributions
+- Independence and conditional expectation, carefully
+- Two identities that power everything downstream
+- **Law of Iterated Expectations**, **Law of Total Variance**
+- Anchor: splitting a portfolio's risk by market regime
+
+::: notes
+Here is the road map. We introduce joint, marginal, and conditional distributions. We define independence and conditional expectation carefully. Then we prove the two identities that quietly run everything later — the Law of Iterated Expectations and the Law of Total Variance. We anchor it all in a problem our trader Sam cares about: decomposing the variance of a momentum portfolio's return into the part from being in different market regimes and the part inside each regime. By the end you can look at a messy source of risk and say, precisely, this much of the wobble is across regimes and this much is within.
+:::
+
+## Two Random Quantities at Once
+
+- $X$ = momentum portfolio return that day, in percent
+- $Y$ = regime: $1$ for calm, $2$ for stormy
+- **Joint** $p(x,y)=\Pr(X=x,\,Y=y)$ — every combination
+- Treat $X$ as discrete first; integrals come later
+- Valid joint: every entry $\ge 0$, all entries sum to $1$
+
+::: notes
+A random variable is a number whose value is not yet determined. We write random variables with capital letters, capital X and capital Y, and specific values with lowercase. Sam studies momentum — the tendency for recent price moves to extend over short horizons. Each trading day Sam records two things. Capital Y is the market regime: one for a calm, low-volatility day, two for a stormy, high-volatility day. Capital X is the return on Sam's momentum portfolio that day, in percent. The joint distribution of X and Y describes how the pair behaves — the probability of every combination of regime and return together. We pretend X is discrete so the arithmetic stays visible; everything generalizes to continuous X by replacing sums with integrals. A valid joint obeys two rules: every entry is at least zero, and all entries sum to one.
+:::
+
+## Reading the Joint Table
+
+|  | $X=-2\%$ | $X=0\%$ | $X=+2\%$ | row |
+|---|---|---|---|---|
+| **calm** | $0.05$ | $0.35$ | $0.30$ | $0.70$ |
+| **stormy** | $0.15$ | $0.10$ | $0.05$ | $0.30$ |
+| **col** | $0.20$ | $0.45$ | $0.35$ | $1.00$ |
+
+- Gains cluster on calm days; losses on stormy days
+
+::: notes
+Suppose Sam has enough history to estimate this table. Each cell is a joint probability — the chance the portfolio earns that return and the day is in that regime. The six cells add to one, so this is a legitimate little universe. Read it like a map of co-occurrence. The calm row under plus two percent is zero point three zero: on thirty percent of all days, the market is calm and the portfolio is up two percent. The stormy row under minus two percent is zero point one five: on fifteen percent of days, it is stormy and the portfolio is down two percent. Already the story's shape is visible — gains cluster on calm days, losses cluster on stormy days. The rest of the lesson turns that impression into exact statements.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **joint distribution** $p(x,y)$ describes the pair $(X,Y)$ together — one probability for every combination of return and regime. The table already hints that returns depend on the regime. Next: **marginals**, then **conditioning** — the move that makes finance possible.
+:::
+
+::: notes
+To summarize part one: the joint distribution describes the pair of random variables together, one probability for every combination of return and regime, with all entries nonnegative and summing to one. Sam's table already whispers the real story — gains cluster on calm days and losses on stormy days, which means the regime carries information about the return. In part two we collapse the table into its margins and then make the central move of the whole subject: conditioning.
+:::

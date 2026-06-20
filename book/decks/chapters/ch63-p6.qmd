@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## A Reading Order for the Tables
+
+- Part 6 — filters, traps, and the smart order to read tables
+
+::: notes
+Welcome back to Chapter six-point-three, part six of twelve. In part five we saw the data — public ten-Ks from EDGAR, matched to market reactions — and the Master Dictionary deliverable. Now I give you the filters to watch and the order to read the paper's tables, because reading this one front to back is a mistake. The misclassification evidence comes first.
+:::
+
+## Filters and Traps
+
+- Watch which filings are dropped: tiny firms, financials, parse failures
+- Ask whether parsing rules quietly change the sample
+- Flag a **look-ahead** worry up front
+- A list tuned to returns *in-sample* grades itself
+- Same vigilance you used on any sample
+
+::: notes
+Filters and traps to note. Watch the same things you watched in any sample: which filings are dropped — very small firms, financials, filings that fail to parse — and whether the parsing rules quietly change the sample. And flag a look-ahead worry right up front, which we develop fully later in the lesson. A dictionary tuned to relate to returns in the same sample it is later tested on would be using the answer to grade itself. Keep that suspicion alive as you read. The discipline you built in Week One against data-snooping applies word for word here.
+:::
+
+## Read the Misclassification First
+
+- Do *not* read this paper front to back
+- First: which Harvard-negative words actually appear in 10-Ks
+- The frequent ones: tax, cost, capital, liability, depreciation
+- The number that carries the paper: the *share* that is benign
+- Read this, and the rest is just consequences
+
+::: notes
+Now the reading order. Do not read this paper front to back. Read the misclassification evidence first — it is the whole point. Find the table or list that shows which Harvard-negative words actually appear in ten-Ks and how often. You are looking for the result that the most frequent negative words in filings, by the Harvard list, are words like tax, cost, capital, liability, board, vice, crude, depreciation — words no one would call negative in a financial sentence. The number that carries the paper is the share of Harvard-flagged negativity that comes from such benign words: a large fraction. Read this first, and the rest of the paper is just consequences. If a large share of your negative signal is the word tax, your sentiment measure is mostly an accounting-density measure wearing a costume.
+:::
+
+## Then Construction, Then the Horse Race
+
+- Second: the construction table — how many words per list
+- Third: validation regressions — returns, volume, volatility
+- Read sign, magnitude, t-stat, and what is held fixed
+- Pattern: finance measure cleaner; Harvard weakens
+- Last: **tf-idf** weighting — *how* you count matters too
+
+::: notes
+Then, second, skim the construction summary — the table describing the finance-specific lists, how many words are in the negative list, the positive list, and the rest. You do not need to memorize counts; you need to see that the categories are finance-shaped. Uncertainty and litigious are not standard psychology categories — they exist because finance has lawsuits and forward-looking statements. Third, the validation regressions, the horse race: filing-period abnormal returns, trading volume, and return volatility regressed on the tone score, run once with Harvard and once with the finance measure. Read these the way Week Five taught you — sign, magnitude, t-statistic, and what is held fixed across columns. The pattern: the finance measure shows a cleaner association, and Harvard's apparent power weakens once you account for misclassified words. Read the table; do not quote magnitudes from memory. Last, the robustness tables explore term weighting — instead of raw counts, weighting words by how distinctive they are, using a scheme called t-f-i-d-f, term frequency times inverse document frequency. It down-weights words appearing in almost every filing and up-weights words rare across filings but frequent in this one. How you count, not just what you count, affects the signal.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Watch which filings are dropped and whether parsing changes the sample; flag **look-ahead** up front. Then read out of order: **misclassification evidence first** (it is the whole argument), then construction, then the validation **horse race** read like any Week 5 table, then **tf-idf** weighting. Next: what is genuinely clever about this paper.
+:::
+
+::: notes
+To summarize part six. Watch the usual sample filters — dropped small firms, financials, parse failures — and flag the look-ahead worry up front. Then read the paper out of order: the misclassification evidence first, because it is the whole argument; then the construction summary to see the finance-shaped categories; then the validation horse race, read sign, magnitude, t-statistic, and what is held fixed, exactly as Week Five taught; and finally the t-f-i-d-f weighting tables as a refinement of how you count. In part seven we step back and name what is genuinely clever about this paper — the moves you will want to reuse.
+:::

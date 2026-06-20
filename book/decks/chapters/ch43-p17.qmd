@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Code, and What to Carry Forward
+
+- Part 17 — the code in action, and what to carry forward
+
+::: notes
+Welcome back to regression discontinuity, part seventeen of seventeen — our finale. In part sixteen we saw the Russell design is genuinely fuzzy. Now we watch the bias–variance trade-off run in code, gather the five things from this chapter that will do real work later, and point you to the notebook.
+:::
+
+## The Code: Trade-off in Numbers
+
+- Simulate a true jump $\tau = 0.6$ on a smooth trend
+- Triangular-kernel local-linear at several bandwidths
+- For contrast, a global quartic on all six-thousand points
+- Local linear: honest at small $h$, biased at large $h$
+- Global quartic: tight SE around a *biased* $\approx 0.41$ — the trap
+
+::: notes
+Here is the whole sharp-R-D idea in one runnable block. Simulate a world where landing in the Russell two thousand jumps next-year passive ownership by a true tau of zero point six points on top of a smooth trend, then estimate the jump with a triangular-kernel local-linear regression at several bandwidths — and, for contrast, with the global high-order polynomial Gelman and Imbens warn against. It uses only numpy, pandas, and statsmodels, so you can run it anywhere. Running it prints the bias–variance trade-off in numbers: at the narrow bandwidth of four the estimate is close to the true zero point six but with a wide standard error; as the bandwidth grows to thirty-two the standard error shrinks but the estimate drifts down toward zero point four-one, because the wide window lets the treated-side curvature bend the fit. The global quartic, fit to all six thousand points, reports a tight-looking standard error around a biased estimate near zero point four-one — the Gelman–Imbens pathology made concrete: a deceptively precise number that is simply in the wrong place. Stay local, choose the bandwidth honestly, and trust the robust interval over the naive one.
+:::
+
+## What to Carry Forward
+
+- **The RD idea:** the jump at $c$ is the local effect; continuity identifies it
+- **Sharp vs. fuzzy:** fuzzy RD is IV — jump in $Y$ over jump in $D$
+- **Stay local, stay low-order:** local linear, triangular kernel
+- **Bandwidth is bias–variance:** automate it; report CCT intervals
+- **Audit the design:** McCrary, covariate balance, compound-treatment argument
+
+::: notes
+Five things from this chapter will do real work later. First, the R-D idea: when a treatment switches at a known cutoff in a running variable, units just above and below are as-good-as-randomly assigned by fine-grained noise, so the jump in the conditional mean at the cutoff is the causal effect for the local population. The identifying assumption is continuity of the potential-outcome means, weaker than conditional independence and, unlike it, checkable. Second, sharp versus fuzzy: sharp reads the effect straight off the outcome jump; fuzzy is instrumental variables, the jump in the outcome divided by the jump in treatment, a LATE for compliers at the cutoff. Third, stay local, stay low-order: local linear regression with a triangular kernel, not a global high-order polynomial. Fourth, bandwidth is a bias–variance trade-off you should automate — Imbens–Kalyanaraman for the bandwidth, Calonico–Cattaneo–Titiunik robust bias-corrected intervals. Fifth, audit the design: McCrary for sorting, covariate-balance R-Ds, and an institutional argument that no other policy changes at the cutoff.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+RD turns a bureaucratic cutoff into a local experiment: the **jump** is the effect. Read it off directly (sharp) or as a Wald ratio (fuzzy = IV); estimate it **local linear** with an automated bandwidth and **CCT** intervals; and **audit** every threat. Next, open the notebook: `rdrobust`, CCT bandwidths, RD plots, and a fuzzy design.
+:::
+
+::: notes
+To summarize this finale, and the chapter: regression discontinuity turns a bureaucratic cutoff into a local experiment, and the jump in the outcome at the cutoff is the causal effect. Read it off directly in a sharp design, or as a Wald ratio in a fuzzy design, where R-D is just instrumental variables. Estimate the boundary heights with local linear regression on an automated bandwidth, and report robust bias-corrected intervals. Then audit every threat — manipulation, covariate imbalance, compound treatments, donut anomalies, and bandwidth sensitivity. Now open the notebook for this chapter. You will reproduce Sam's sharp Russell-style design with r-d-robust, compare it to a hand-rolled local-linear estimate, build the R-D plot with r-d-plot, run the density and covariate-balance audits, and finally switch to a fuzzy design and recover the effect via the I-V ratio — watching precision collapse as you weaken the first-stage jump. That is regression discontinuity. Well done.
+:::

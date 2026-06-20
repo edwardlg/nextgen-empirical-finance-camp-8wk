@@ -1,0 +1,39 @@
+---
+date: "2026-06-22"
+---
+
+## KPSS: Measuring the Value of an Idea
+
+**Learning objectives.** By the end you can:
+
+- Explain why patent counts and citations fail
+- Read a grant-window return as patent value
+- State the assumption that makes the measure valid
+- Name the measure's key vulnerabilities
+
+::: notes
+Welcome to Week Six, lesson one, part one of twelve. Last week handed you a lens — the seven-part Reader's-Guide anatomy — and four classic papers to practice on. Every one of those papers took its key variable as given. Returns came from CRSP, book equity from Compustat; nobody had to invent the number. This week is different. This week's papers build a variable that did not exist before, out of data that was never meant to measure the thing they want. That is the frontier skill, and it is the skill your Week-7 capstone will live or die on. So we open with the paper that, more than any other in the last decade, taught empirical finance how to measure an idea: Kogan, Papanikolaou, Seru, and Stoffman, two thousand seventeen, in the Quarterly Journal of Economics. We will call it K-P-S-S throughout.
+:::
+
+## This Week: Build a Variable
+
+- Week 5: every key variable was *given*
+- Week 6: you must *construct* one
+- The frontier skill — your capstone depends on it
+- KPSS: how to **measure an idea**
+- Published in the *Quarterly Journal of Economics*, 2017
+
+::: notes
+Here is the shift in mindset. Last week the variable was always handed to you. This week the central act of the paper is to build a number that nobody had before. Leah cares about patents and innovation, and back in Week One she ran headfirst into the oldest problem in the field: how do you count innovation? The obvious answer — count patents — treats a throwaway design tweak and the transistor as one unit each. The second answer — count forward citations — is better, but slow, because citations accrue over a decade, and it still measures attention, not dollars. Leah's question all along has been: how much is this invention actually worth? K-P-S-S gives her a number, and the trick behind that number is one she already met in Week Four: an event study.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+This week you stop receiving variables and start **building** one. KPSS taught the field how to measure an idea — the dollar value of innovation — and the trick is an event study, the same tool from Week 4. Next: the two questions KPSS stacks, and why the standard proxies fail.
+:::
+
+::: notes
+To summarize part one: this week marks a shift. Up to now your key variable was always given; now you must construct one, and that is the frontier skill your capstone depends on. K-P-S-S is the paper that taught empirical finance how to measure an idea — the economic value of innovation, in dollars. Leah's long-standing question, how much is this invention worth, finally gets a number, and the trick behind it is an event study, the tool you already met in Week Four. In part two we sharpen the research question and see exactly why the two standard proxies — patent counts and citation counts — both fail.
+:::

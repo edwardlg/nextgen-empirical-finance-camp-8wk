@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Exclusion Restriction
+
+- Part 3 — the harder half: the untestable exclusion restriction
+
+::: notes
+Welcome back to natural experiments, part three of five. In part two we won the first pillar: as-good-as-random assignment, tested as far as balance can take us. Now the harder half — the exclusion restriction. This is the same untestable claim that haunted instrumental variables in Chapter three-point-four. As-if-random assignment gets you a clean offer of treatment; exclusion is what lets that offer identify the effect of the treatment itself.
+:::
+
+## A Clean Offer Is Not Enough
+
+- As-if random buys a clean *offer* of treatment
+- Identifying the *treatment* needs more
+- The assignment must reach the outcome **only through** the treatment
+- No side door, no second path
+- Same untestable claim as IV in Chapter 3.4
+
+::: notes
+Here is the subtlety. As-if-random assignment buys you a clean offer of treatment — the regulator's rule landed on these firms and not those, blind to the outcome. But you do not care about the offer; you care about the treatment. For the design to identify the effect of the treatment itself, the assignment must reach the outcome only through the treatment. There can be no side door, no second path from the rule to the outcome that bypasses the thing you are studying. This is exactly the exclusion restriction that haunted instrumental variables in Chapter three-point-four, and like there, it is fundamentally untestable. No statistic confirms it.
+:::
+
+## Side Doors Kill the Design
+
+- If the same rule also moved disclosure, attention, or policy
+- Then assignment has a second path to the outcome
+- Estimate is contaminated — you cannot tell the channels apart
+- There is no test for exclusion
+- You defend it with **institutional facts**, then attack your own case
+
+::: notes
+Side doors are what kill the design. Suppose the very rule that relaxed your constraint also, at the same moment, changed disclosure requirements, or drew a wave of analyst attention, or shifted some other policy. Then the assignment now has a second path to the outcome — one that does not run through your treatment. Your estimate is contaminated, and the cruel part is you cannot statistically separate the channels after the fact. Because there is no test for exclusion, you defend it the only way available: with institutional knowledge. What exactly did the rule do? And — just as important — did it do anything else? You lay out the facts, then you play hostile referee against your own argument, naming every alternative channel a skeptic could name and arguing each one down.
+:::
+
+## A Strong First Stage Is Your Buffer
+
+- A faint lever amplifies any tiny exclusion violation
+- Strong first stage: the rule clearly moved the treatment
+- Then small side-channel leaks stay small
+- Weak lever: even a hair of side channel swamps the signal
+- This is the Chapter 3.5 warning, applied here
+
+::: notes
+One more thing protects you, and it ties directly back to Chapter three-point-five. A strong first stage is your buffer. Remember what weakness does: a faint lever amplifies any tiny violation of exclusion. If the rule barely moved the treatment, then even a hair of leakage through a side channel gets blown up and can swamp the true signal entirely. But if the first stage is strong — if the rule clearly and substantially moved the treatment — then small side-channel leaks stay small relative to the real effect, and your estimate is far more robust. So a strong first stage is not just about precision. It is your structural defense of the exclusion argument itself. Weakness and exclusion violations compound; strength buys you margin against both.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+As-if random buys a clean **offer**; identifying the **treatment** needs the offer to reach the outcome **only through** the treatment — no side door. Exclusion is **untestable**: defend it with institutional facts, then attack your own case. A **strong first stage** is your buffer, since a faint lever amplifies any leak. Next: whose effect did you measure?
+:::
+
+::: notes
+To summarize part three: as-if-random assignment buys a clean offer of treatment, but identifying the treatment itself needs the exclusion restriction — the assignment must reach the outcome only through the treatment, with no side door. Exclusion is untestable, so you defend it with institutional facts about what the rule did and did not do, then stress-test it against every alternative channel a skeptic can name. And a strong first stage is your buffer, because a faint lever amplifies any tiny exclusion violation. In part four we turn to the third pillar: the complier population — whose effect a natural experiment actually measures.
+:::

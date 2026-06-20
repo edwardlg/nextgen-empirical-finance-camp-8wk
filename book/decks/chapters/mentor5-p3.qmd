@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Design Is the Paper
+
+- Part 3 — the second link: designs that isolate your variable
+
+::: notes
+Welcome back to the anatomy of a Journal of Finance paper, part three of five. In part two we sharpened a vague itch into a question with an outcome, a key regressor, and a counterfactual. But having a question is not having an answer. Between them sits the second link — the research design — and this is the link referees break papers on. It is the heart of everything Weeks Three and Four taught you.
+:::
+
+## Between Question and Answer Sits a Thicket
+
+- The thing you care about is **tangled** with everything else
+- Cities with different climates also differ in income, industry
+- And in population trend, and state tax law
+- Any of those moves borrowing costs on its own
+- A raw correlation **blames your variable** for all of it
+
+::: notes
+Having a question is not having an answer, because between them sits a problem: the thing you care about is tangled with everything else. Cities with different social climates also differ in income, in industry, in population trend, in state tax law — and any one of those moves borrowing costs on its own. So a raw correlation — cities in states with social factor X pay higher yields — is not the effect you want. It blames your one variable for the work that a whole thicket of confounds is doing. The design is your argument that you have cut your variable free from that thicket.
+:::
+
+## The Design Isolates Your Variable
+
+- A **portfolio sort**, or a panel with the right **fixed effects**
+- An **instrument**, a **difference-in-differences** off a policy shock
+- A **discontinuity** at a cutoff
+- Pick the design the **available variation** supports
+- No design, no paper — a correlation with ambitions is not a finding
+
+::: notes
+So what is a design? It is the concrete machinery that isolates your variable from the thicket. It might be a portfolio sort. It might be a panel regression with the right fixed effects. It might be an instrument, a difference-in-differences off a policy shock, or a discontinuity at a cutoff. The honest answer to "how do I identify this?" is "it depends on what variation I can find," and a real author tries several before one earns the answer. But the rule underneath is absolute: no design, no paper. A correlation with ambitions is not a finding — it is a hope wearing a regression's coat.
+:::
+
+## The Identifying Assumption
+
+- Attach **one sentence** to your design
+- "This estimate equals the causal effect **as long as** ___"
+- A cross-section needs: climate is unrelated to omitted yield drivers
+- That is **hard to defend** — too many confounds left
+- A **policy shock** gives cleaner variation: parallel-trends instead
+
+::: notes
+Attached to every design, in one sentence, is the identifying assumption: the condition under which your estimate equals the causal effect and not a confound wearing its coat. You write it in the form, "this estimate equals the causal effect as long as blank." For a pure cross-section — yield regressed on the social factor plus controls and fixed effects — the assumption is that, after those controls, the climate is unrelated to anything else omitted that moves yields. That is hard to defend, because the thicket is deep. A policy shock that changed the factor in some states and not others, at a known date, gives cleaner variation: now the assumption becomes parallel trends — that treated and comparison issuers would have moved together absent the shock. And if that policy rolls out at staggered dates, recall the two-way fixed-effects pitfall from Chapter Four point two, and why clustering by state is non-negotiable. If you cannot write the "as long as" sentence, you do not have a design — you have a correlation with ambitions.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **design** is your argument that you isolated your variable from a thicket of confounds, and it carries an **identifying assumption** — "this estimate is the causal effect *as long as* ___." No design, no paper. A pure cross-section is hard to defend; a policy shock buys cleaner variation. Next: tables and robustness.
+:::
+
+::: notes
+To summarize part three: the second link is the design, and it is where referees break papers. Between a question and an answer sits a thicket of confounds — income, industry, tax law — and a raw correlation blames your one variable for all of their work. A design — a sort, a panel with fixed effects, an instrument, a difference-in-differences, a discontinuity — isolates your variable, and it carries an identifying assumption written as "this estimate is the causal effect as long as blank." No design, no paper. In part four, we build the last two links: tables that hide nothing, and robustness that tries to kill your own result.
+:::

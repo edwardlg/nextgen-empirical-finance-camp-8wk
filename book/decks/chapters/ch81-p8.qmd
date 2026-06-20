@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## When the Curve Lies: Identification and Fishing
+
+- Part 8 — Two more lies: identification and the fishing license
+
+::: notes
+Welcome back to Execution and the Specification Curve, part eight of ten. In part seven we saw the first two ways a spec curve lies — it only holds the forks you enumerated, and it pretends all specs are equal votes. Now we cover the last two, and they are the most dangerous, because they let a beautiful, robust-looking curve be confidently wrong.
+:::
+
+## It Describes Choices, Not Identification
+
+- The curve can be flat, tight, all-significant — and *wrong*
+- All 144 can share the same fatal identification flaw
+- If parallel trends fails, every spec inherits the bias
+- Robustness across the multiverse ≠ validity of the design
+- The design question is Chapter 8.2's job
+
+::: notes
+Third: the curve describes analytic-choice fragility, not identification. A specification curve can be flat, tight, all-significant, and completely wrong, because every one of its one hundred forty-four specifications can share the same fatal identification flaw. If Maya's parallel-trends assumption fails — if adopting states were already on a different denial-gap trajectory — then all one hundred forty-four specifications inherit that bias, and the curve will robustly report a beautifully stable artifact. Robustness across the multiverse is not the same as validity of the design. This is the boundary from the chapter's opening, restated as a warning: the spec curve answers "did my choices drive the result?" and is mute on "did my design identify the effect?" The second question is Chapter eight-point-two's job, with the placebos and Oster's delta stress tests that probe the assumption itself. A robust spec curve on an invalid design is a confident wrong answer — the most expensive kind.
+:::
+
+## It Can Become a Fishing License
+
+- Perverse mode: run the multiverse, then pick the median as headline
+- But the median was set by data you already saw
+- That is outcome-driven selection in a lab coat
+- Defense: the **PAP fixes the primary spec in advance**
+- The curve is reported *around* that point, never to *choose* it
+
+::: notes
+Fourth: the curve can become a fishing license if you let it. There is a perverse failure mode where a researcher runs the multiverse, then picks the specification at the center of the distribution and reports that as the headline — "I chose the median specification, the most representative one." But the median was determined by the data you have already seen, so choosing it after the fact is just outcome-driven specification selection in a lab coat. The discipline that prevents this is the one you already have: the pre-analysis plan fixes the primary specification in advance, and the spec curve is reported around that pre-registered point, not used to choose it. The confirmatory run comes first and is privileged; the curve is context for it, never a substitute. This is why the order in this chapter is not negotiable — confirmatory result first, multiverse second — and why the curve always marks where the pre-registered specification sits.
+:::
+
+## What the Curve Is, and Is Not
+
+- It is the most complete disclosure of the garden of forking paths
+- It is **not** a robustness panacea
+- It is **not** a substitute for a credible identifying assumption
+- It is **not** a way to launder a post-hoc choice into a pre-registered one
+- Use it for its one job; say plainly what it does not do
+
+::: notes
+The summary is the one Simonsohn, Simmons, and Nelson themselves press: a specification curve is a tool for honesty about analytic-choice multiplicity, and it is extraordinarily good at that one job. It is not a robustness panacea, not a substitute for a credible identifying assumption, and not a way to launder a post-hoc choice into a pre-registered one. Use it for what it is — the most complete possible disclosure of the garden of forking paths — and say plainly what it does not do. Hold those four warnings together: enumerate completely, weight by quality, remember it is silent on identification, and never let it choose your headline.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The last two lies are the worst. The curve describes analytic choices, **not identification** — a robust curve on a broken design is a confident wrong answer (8.2's job). And it becomes a **fishing license** if you pick the median post-hoc, which the PAP exists to prevent. It is honesty about multiplicity, nothing more. Next: the deviations log.
+:::
+
+::: notes
+To summarize part eight: the last two ways a curve lies are the most dangerous. Third, it describes analytic-choice fragility, not identification — every specification can share the same fatal flaw, so a flat, tight, all-significant curve on a broken design is a confident wrong answer that only the placebos and Oster's delta of Chapter eight-point-two can catch. Fourth, it can become a fishing license if you run the multiverse and then pick the median as your headline, which is outcome-driven selection in disguise — and the pre-analysis plan, which fixes the primary specification in advance, is exactly what prevents it. The curve is honesty about multiplicity, nothing more. In part nine, we turn to the honest deviations log — the running record of every place reality forced you off the plan.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Roadmap and the Contribution Sentence
+
+- Part 3 — the roadmap and building the contribution sentence
+
+::: notes
+Welcome back to Writing the Empirical Paper, part three of nine. In part two we covered the introduction's first three moves — the hook, the contribution, and the "we find" preview. Now we finish the introduction with its fourth move, the roadmap, and the discipline that the whole thing be readable on its own. Then we stop and build the single most important sentence in the entire paper: the one-sentence contribution.
+:::
+
+## Move Four: The Roadmap
+
+- Last paragraph: a short, functional **map**
+- "Section 2 positions us; Section 3 describes the data..."
+- A few sentences, no drama — signals you know the genre
+- Whole intro must be **readable on its own**
+- The skimmer stops here — give them question, answer, confidence
+
+::: notes
+The roadmap. The introduction's last paragraph is a short, functional map: Section two positions our work in the literature; Section three describes the data; Section four lays out the design and our identifying assumption; Section five presents results; Section six reports robustness; Section seven concludes. A few sentences, no drama. Some venues consider the explicit roadmap old-fashioned, but for a student paper it is a safe, professional default — it signals you know the genre. One discipline spans all four moves: the introduction should be readable by someone who will never read the rest of the paper. A program officer skimming fifty abstracts, a professor deciding whether to assign your paper, a journalist looking for a number to quote — all of them stop at the introduction. Write it so a reader who stops there walks away with the question, the answer, and the appropriate degree of confidence. If your introduction only makes sense after one has read your results, it has failed at its one job.
+:::
+
+## Build the Contribution Sentence on Its Own
+
+- If you can't write it, you don't yet have a paper
+- Answers: what is **true now** that was not before?
+- It is the **reason the paper exists**
+- Cousin of the **identifying-assumption** sentence
+- Everything else serves to make it believable
+
+::: notes
+Now stop and build the contribution sentence on its own, because if you cannot write it, you do not yet have a paper — you have a regression and a hope, the same diagnosis the identification memo gave you about the identifying assumption. The one-sentence contribution answers a question a skeptical reader is entitled to ask and will ask: what is true now, that was not established before you did this work? It is the reason the paper exists. Everything else — the data, the design, the forty robustness checks — is in service of making this one sentence believable, exactly as the whole paper is in service of the identifying-assumption sentence. The two sentences are cousins: one states what you claim to have found, the other states the condition under which the claim is true.
+:::
+
+## Name the Job Honestly
+
+- A good sentence does one **recognizable job**
+- **First** to credibly estimate an effect
+- **Overturn** or qualify an established finding
+- **Reconcile** two literatures, or measure a **mechanism**
+- Bring **new data** to an old question — pick honestly
+
+::: notes
+A good contribution sentence usually does one of a small number of recognizable jobs, and naming the job helps you write the sentence. You might be the first to credibly estimate a specific effect — "we provide the first quasi-experimental estimate of." You might overturn or qualify an established finding — "we show that the widely cited X effect disappears once Y is accounted for." You might reconcile two conflicting literatures, measure a mechanism the literature had only speculated about, or bring new data to an old question — "using transaction-level on-chain data, we." Pick the job honestly. The fastest way to a referee's contempt is a contribution sentence that claims the "first" job when three prior papers did the same thing — which is exactly what your literature review is about to either support or expose.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **roadmap** closes the introduction, which must read on its own. Then build the **one-sentence contribution** — the reason the paper exists, cousin of the identifying-assumption sentence — and name its job honestly: first, overturn, reconcile, mechanism, new data. Next: calibrating the verb and the literature review.
+:::
+
+::: notes
+To summarize part three: the roadmap closes the introduction with a short functional map, and the whole introduction must be readable by someone who never reads further. Then we built the one-sentence contribution on its own — it answers what is true now that was not before, it is the reason the paper exists, and it is a cousin of the identifying-assumption sentence. Name its job honestly: first, overturn, reconcile, mechanism, or new data. In part four we calibrate the verb in that sentence to the evidence, stress-test it, and turn to the literature review that draws the map.
+:::

@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## The Makefile and run_all.py
+
+- Part 5 — wire the one-click: `Makefile` and `run_all.py`
+
+::: notes
+Welcome back to Lab Eight, part five of twelve. In part four we set up one seed and the pipeline as numbered scripts. Now we wire the one-click itself, two ways: a Makefile whose targets enforce the build order, and an equivalent make-free run-all-dot-py for machines without make.
+:::
+
+## The Makefile Is the One-Click
+
+- Each target names what it produces
+- Each depends on the targets that must run first
+- `make` enforces the order for you
+- The beginner trap: recipe lines need a real TAB
+- A space-indented recipe gives `*** missing separator`
+
+::: notes
+The Makefile is the one-click. Each target names what it produces, and each depends on the targets that must run first, so make enforces the order for you. Write it as a file called Makefile in the repo root — and note the one rule that trips up every beginner: make recipe lines must be indented with a real tab character, not spaces. A space-indented recipe gives the cryptic error, star-star-star missing separator. That single invisible character is the most common reason a beginner's Makefile refuses to run.
+:::
+
+## The Dependency Chain
+
+- `all` wants `paper`
+- `paper` needs `tables` and `figures`
+- Both need `data` — the pull and the build
+- `make` walks the graph, runs each step once, in order
+- `make tables` rebuilds the dataset *then* the tables
+
+::: notes
+The dependency chain is the lesson. The all target wants paper; paper needs tables and figures; both of those need data, which runs the pull and the build. Make walks that graph and runs each step once, in order. So make-data rebuilds just the dataset; make-tables rebuilds the dataset and then the tables; and make-all does the whole thing through to PDF. The paper target compiles with latexmk dash-pdf dash-interaction-nonstopmode. One nuance: run python, not python-three, inside make, or set the P-Y variable to python-three, depending on what your environment names the interpreter — the camp container's capstone environment exposes plain python.
+:::
+
+## A Make-Free run_all.py
+
+- `make` is not installed everywhere — Windows especially
+- Ship a Python entry point that does the same thing
+- Runs each step as a subprocess
+- A failure stops the build loudly, never half-builds silently
+- Gates the compile on whether an engine exists
+
+::: notes
+Make is not installed everywhere — Windows laptops especially — so ship a Python entry point that does the same thing. Run-all-dot-py runs each step as a subprocess, so a failure stops the build loudly and never silently half-builds. It defines an ordered list of steps — pull raw data, build analysis data, then estimate and write artifacts — and runs them in sequence, because order is the whole point. Then it gates the LaTeX compile on whether an engine exists, using the same shutil-which pattern the notebooks use: try latexmk, then tectonic, and if neither resolves, print that the dot-tex is assembled and ready to build on Overleaf. The dot-tex is the deliverable; the PDF is a convenience.
+:::
+
+## Two Entry Points, One Job
+
+- `python run_all.py` equals `make all`
+- `python run_all.py --clean` equals `make clean && make all`
+- Pick one as your *documented* entry point
+- Keep the other as a fallback
+- They do the same work
+
+::: notes
+The two entry points do the same work. Python run-all-dot-py is the equivalent of make-all. Python run-all-dot-py dash-dash-clean is the equivalent of make-clean and-then make-all — it deletes every derived output first so the rebuild starts from nothing, skipping any git-keep placeholder. Pick one entry point as your documented one — the single line in the README — and keep the other as a fallback. A reviewer on a Mac with make reads the Makefile line; a reviewer on Windows runs the Python line; both arrive at the same rebuilt PDF. You do not have to choose between them; you only have to document one clearly.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The `Makefile` makes the build order executable — `all → paper → tables/figures → data` — and recipe lines need a real **TAB**. Ship `run_all.py` as the make-free twin: same ordered steps, an engine-gated compile. Document one; keep the other as fallback. Next: the honesty test.
+:::
+
+::: notes
+To summarize part five: the Makefile makes the build order executable. The all target depends on paper, which depends on tables and figures, which depend on data — and make walks that graph, running each step once, in order. Remember the tab rule, or you get missing-separator. Because make is not everywhere, run-all-dot-py is the make-free twin: the same ordered steps as subprocesses, a loud failure instead of a silent half-build, and an engine-gated compile that falls back to shipping the dot-tex. Document one entry point and keep the other as a fallback. In part six we run the test that proves the packet is real: the make-clean-and-make-all honesty test.
+:::

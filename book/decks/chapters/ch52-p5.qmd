@@ -1,0 +1,71 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Reading the Regression Tables in Three Passes
+
+- Part 5 — reading the regression tables in three disciplined passes
+
+::: notes
+Welcome back to the Fama–French ninety-three reader's guide, part five of seven. In part four we read the first two tables: the factor summary and the twenty-five-portfolio grid of average returns — the pattern to be explained. Now we reach the heart of the paper: the time-series regression tables. These report, for each portfolio, the loadings, the intercept with its t-statistic, and the R squared. The trick is to read them in three disciplined passes, one column at a time, rather than drowning in the numbers.
+:::
+
+## Pass One — R Squared
+
+- Scan only the $R^2$ column
+- Should be **high across the board**
+- The "common variation" result — the title's claim
+- Compare to market-only (CAPM) regression
+- Adding SMB and HML **lifts** the $R^2$s substantially
+
+::: notes
+Pass one: the R squared pass. Scan only the R squared column. The values should be high across the board — the three factors should explain the large majority of each portfolio's variance. This is the common-variation result, the "common risk factors" of the title. Now compare mentally to a market-only regression, the C-A-P-M case. Adding S-M-B and H-M-L lifts the R squareds substantially. That lift is direct evidence that size and value are genuinely common sources of co-movement, not just cross-sectional curiosities. The first pass establishes that the three factors capture how these portfolios move together.
+:::
+
+## Pass Two — Loadings
+
+- Read $\hat s_i$ down **size**: small loads **positive**, big near zero
+- Read $\hat h_i$ across **BE/ME**: value positive, growth negative
+- Loadings should march **monotonically** with the sort
+- That orderliness = the model "recognizing" the characteristics
+- This is what "the loadings make sense" means
+
+::: notes
+Pass two: the loadings pass. Read s-hat, the S-M-B loading, down the size dimension. Small portfolios should load strongly positive on S-M-B; big portfolios near zero or negative. Read h-hat, the H-M-L loading, across the book-to-market dimension. Value portfolios load strongly positive; growth portfolios negative. The loadings should march monotonically with the sort, climbing or falling in step as you move across the grid. That orderliness is the model recognizing the very characteristics the portfolios were sorted on. When people say the loadings "make sense," this is what they mean: size portfolios carry size exposure, value portfolios carry value exposure, in exactly the order you sorted them.
+:::
+
+## Pass Three — Intercepts
+
+- Read $\hat\alpha_i$ and its *t*-statistics
+- Claim: economically **small**, mostly indistinguishable from zero
+- Find the **GRS $F$-statistic** for the joint null
+- Three-factor model dramatically **outperforms** CAPM
+- Watch **small-growth**: the most stubborn intercept
+
+::: notes
+Pass three: the intercept pass. Read the alpha-hat column and its t-statistics. The claim is that they are economically small and mostly indistinguishable from zero — the pricing errors are tiny relative to the average returns from the second table. Then find the G-R-S F-statistic for the joint null that all twenty-five intercepts are zero. The paper's story is that the three-factor model gets the intercepts down close enough that it dramatically outperforms C-A-P-M, even if the joint test is not always a clean pass in every corner. Note the cell that tends to misbehave: small-growth, whose intercept is the most stubborn. Honest readers flag it; the model is very good, not perfect.
+:::
+
+## The Two-Column Literacy
+
+- $R^2$ near **1**: these three factors move the portfolios
+- $\alpha$ near **0**: no extra average return left to explain
+- High $R^2$ + zero $\alpha$ = a **working** factor model
+- Memorize this two-column reading
+- We avoid quoting exact coefficients — that's for *your* replication
+
+::: notes
+Here is how to see "the factors explain most common variation" at a glance. Two columns, side by side, tell the whole story. The R squared column near one says: whatever moves these portfolios month to month is mostly these three factors. The alpha column near zero says: once you account for the exposures, there is no extra average return to explain. High R squared plus zero alpha equals a working factor model. Memorize that reading; it is the literacy this week is teaching. We deliberately do not quote specific coefficient values. The qualitative findings — positive size and value premia, high R squareds, small intercepts, small-growth as the weak spot — are well established. Any precise number you want belongs in your own replication, not a guide written from memory.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Read the regression tables in three passes: **R squared** (high everywhere — common variation), **loadings** (marching monotonically with the sort), and **intercepts** (small, jointly tested by GRS, with small-growth the holdout). The literacy: $R^2$ near 1 *and* $\alpha$ near 0 = a working factor model.
+:::
+
+::: notes
+To summarize part five: the heart of the paper is the time-series regression tables, read in three passes. Pass one, R squared — high across the board, much higher than market-only. Pass two, loadings — s-hat marching with size, h-hat with value, monotonically, so the model recognizes the sorts. Pass three, intercepts — small, jointly tested with G-R-S, with small-growth the stubborn holdout. And the literacy that ties it together: R squared near one and alpha near zero means a working factor model. In part six we step back and ask what is genuinely clever — three moves you can lift into your own work.
+:::

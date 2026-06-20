@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Wrap-Up: Checks, Extensions, and History
+
+- Part 7 — checks, reflection, extensions, and history
+
+::: notes
+Welcome back to the Fama–MacBeth lab, part seven of seven — the close. In part six you aggregated the slopes and learned to read the standard error. Now we lock in the done-when checklist, walk the reflection questions and extensions, and end where chapter two-point-four ended: with Fama–MacBeth as the historical ancestor of the entire clustering literature. This is the lesson the whole of Week Two has been driving at.
+:::
+
+## You're Done When…
+
+- Path B runs top-to-bottom on a fresh kernel, no errors
+- `corr(beta_hat, true_beta)` is around 0.9
+- Plotted the `gamma1` series and seen it swing
+- FM `gamma1` near 0.006, FM t-stat above ~3
+- Can say why pooled OLS SE is far too small
+
+::: notes
+Tick every box before you call this lab finished. Your conda environment builds and the Path B block runs top to bottom with no errors on a fresh kernel. Pass one produces one beta per stock, and the correlation between estimated and true betas is around zero-point-nine. Pass two produces the T-by-two table of monthly coefficients, and you have plotted the slope series and watched it swing. The aggregated Fama–MacBeth slope lands near the planted zero-point-zero-zero-six with a t-statistic above about three. You computed the naive pooled standard error and can state, in one sentence, why it is far too small. And you can explain out loud why Fama–MacBeth is clustering by time and why it does not fix a firm effect.
+:::
+
+## Reflection and Extensions
+
+- One vote per month — why averaging neutralizes within-month correlation
+- Errors-in-variables — noisy betas bias $\hat\gamma_1$ toward zero; use portfolios
+- Look-ahead — rolling trailing-window beta fixes full-sample cheating
+- Extension: rolling 60-month betas before any Path A report
+- Extension: Newey–West on the slopes; add a second factor
+
+::: notes
+The reflection questions push on the soft spots. One vote per month: explain why running one regression per month and averaging neutralizes the within-month correlation, and what the standard error assumes about the months instead. Errors-in-variables: your Pass-one betas are estimated with noise, then used as a regressor in Pass two, which biases the premium toward zero — Fama and MacBeth grouped stocks into twenty beta-sorted portfolios because averaging fifteen stocks cancels idiosyncratic noise. Look-ahead bias: estimating beta on the full sample and using it on that same sample is cheating on real data; a rolling trailing-window beta fixes it. The extensions make it honest: rolling sixty-month betas, mandatory before any Path A result; a Newey–West correction on the slope series; and a second factor with its own premium, the multi-factor Fama–MacBeth behind every modern asset-pricing test.
+:::
+
+## Fama–MacBeth in History
+
+- Invented 1973 — a decade before White's robust SEs
+- Three decades before Petersen's panel taxonomy
+- Side-stepped the $N \times N$ covariance; let each period speak once
+- Petersen 2009: FM is essentially clustering by time
+- Right tool when a common time shock dominates
+
+::: notes
+End where chapter two-point-four ended, because Fama–MacBeth is the historical ancestor of the clustering literature. Fama and MacBeth invented their procedure in nineteen seventy-three — a decade before White's robust standard errors in nineteen eighty, three decades before Petersen's panel taxonomy in two thousand nine — precisely to handle cross-sectional correlation without any sandwich machinery, which did not yet exist. Their solution was operational genius: don't estimate the N-by-N error covariance, just side-step it by letting each period speak once. Petersen later placed Fama–MacBeth inside the unified framework: it is essentially clustering by time period, and it is the right tool when a common time shock is the dominant source of correlated errors — the canonical situation for cross-sectional return regressions. But when the data also has a firm effect, it understates the standard error, and you need clustering by firm or Newey–West.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Getting the point estimate is the easy half; getting its uncertainty right is the half that decides whether your finding is real. Fama and MacBeth understood that in 1973, built a procedure around it, and handed you a tool you will use *unchanged* on real CRSP the first time you sit at a Hopper terminal.
+:::
+
+::: notes
+To close the lab, and Week Two: the deeper lesson is the one the whole week has driven at, from the Gauss–Markov theorem through the sandwich variance and now to this lab. Getting the point estimate is the easy half; getting its uncertainty right is the half that decides whether your finding is real. Fama and MacBeth understood that in nineteen seventy-three, built a procedure around it, and handed you a tool you will use unchanged on real CRSP data the first time you sit at a Hopper terminal. You built the whole two-pass machine, recovered a planted premium, and can defend its standard error. That is the empirical-spec discipline the camp is teaching — and it carries straight into Week Three.
+:::

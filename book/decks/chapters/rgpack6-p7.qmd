@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## Evaluation: The Gold Set and the Confusion Matrix
+
+- Part 7 — build a gold set; score with a confusion matrix
+
+::: notes
+Welcome back to when the data is words, part seven of ten. In part six we finished the prompt catalog. Now we close the loop back to the science. When you ask a language model to classify ten thousand eight-Ks as layoff or not layoff, you have not measured anything yet — you have produced ten thousand guesses from an instrument of unknown accuracy. Treating those guesses as ground truth is exactly the error Loughran and McDonald exposed in the off-the-shelf sentiment dictionary, reborn in a fancier tool. The fix is the one Week One taught for any estimator: validate it against a standard, and report how often it is wrong.
+:::
+
+## Build a Gold Set Right
+
+- A **hand-labeled gold set:** humans label against the same rubric
+- Draw the sample **at random** — not the easy cases
+- **At least two humans** label each item independently, then reconcile
+- Split into a **dev set** (tune freely) and a **held-out test set**
+- Touch the test set **once**, at the end, for final numbers
+
+::: notes
+The standard is a hand-labeled gold set: a sample of items that humans labeled carefully against the same rubric the model used. Build it right. Draw the sample at random from the real corpus, not the easy cases. Have at least two humans label each item independently, then reconcile disagreements, so the gold set itself has a known reliability. And the discipline that makes the whole thing honest: split the gold set into a small development set and a held-out test set. You may look at the dev set as much as you like while you tune the prompt; you may touch the test set once, at the end, to report final numbers. Tuning the prompt until it aces the same examples you report on is the prompt-engineering version of overfitting, and it inflates your accuracy exactly the way in-sample R squared flatters a regression.
+:::
+
+## The Confusion Matrix
+
+Score labels against held-out humans; rows are the LLM, columns the human:
+
+|  | Human: Layoff | Human: Not |
+|---|---|---|
+| **LLM: Layoff** | TP (true positive) | FP (false positive) |
+| **LLM: Not** | FN (false negative) | TN (true negative) |
+
+::: notes
+Now score the model's labels against the held-out human labels with a confusion matrix. For a binary layoff classifier, the rows are what the LLM said and the columns are what the human said. The top-left cell, where the model says layoff and the human agrees, is a true positive. The bottom-right, where both say not, is a true negative. The top-right, where the model says layoff but the human says not, is a false positive. And the bottom-left, where the model says not but the human says layoff, is a false negative. Those four counts — true positive, false positive, false negative, true negative — are everything you need; the three numbers you report all come straight out of them.
+:::
+
+## Precision, Recall, F1
+
+- **Precision** = TP over TP plus FP
+- "When it says layoff, how often is it right?"
+- **Recall** = TP over TP plus FN
+- "Of the real layoffs, how many did it catch?"
+- **F1** is their harmonic mean — report both, it punishes lopsidedness
+
+::: notes
+From the four counts come three numbers. Precision equals true positives over true positives plus false positives — when the model says layoff, how often is it right? Recall equals true positives over true positives plus false negatives — of the real layoffs, how many did it catch? They trade off: a model that screams layoff at everything has perfect recall and terrible precision, so report both. F-one is their harmonic mean, a single summary that punishes lopsidedness. A worked feel: with eighty true positives, twenty false positives, and forty false negatives, precision is zero point eight zero; recall is about zero point six seven; and F-one is about zero point seven three — fine for screening, but not for a headline regression coefficient.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+An LLM label is **guesses from an instrument of unknown accuracy**. Validate it on a **random, two-rater, held-out** gold set, score with a **confusion matrix**, and report **precision, recall, and F1**. Touch the test set once. Next: the number beginners skip — Cohen's kappa.
+:::
+
+::: notes
+To summarize part seven: an LLM classifier produces guesses from an instrument of unknown accuracy, not measurements, until you validate it. Build a gold set right — draw at random, use at least two independent human raters, and split into a development set you may tune on freely and a held-out test set you touch exactly once. Score the model against the held-out humans with a confusion matrix, and from its four counts report precision, how often a positive call is right; recall, how many real positives you caught; and F-one, their harmonic mean. In part eight we add the one number beginners always skip — Cohen's kappa — and state the single sentence to carry into your capstone.
+:::

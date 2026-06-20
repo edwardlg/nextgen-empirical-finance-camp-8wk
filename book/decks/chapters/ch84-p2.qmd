@@ -1,0 +1,57 @@
+---
+date: "2026-06-22"
+---
+
+## The Anatomy of a Referee Report
+
+- Part 2 — the report's fixed skeleton, top to bottom
+
+::: notes
+Welcome back to Peer Review and Revision, part two of six. In part one we settled what a referee is for — gatekeeping and, above all, improvement. Now we build the report itself. A good referee report has a fixed skeleton, and the order is load-bearing the way the Week-Five reading order was. You read tables-first; you write the report concern-first. Here is the structure, top to bottom.
+:::
+
+## Summary First, Then the Dagger
+
+- Open with a summary in **your own words**: question, data, design, finding
+- Write it without looking at the author's abstract
+- It proves you understood the paper — the author's deepest fear
+- Then lead with the **single biggest concern**, stated first
+- Put the dagger on the table — don't soften it
+
+::: notes
+Step zero: a summary, in your own words. Open with one paragraph that states what the paper does — the question, the data, the design, and the headline finding with its magnitude. This is not filler. It is proof that you understood the paper, the single most reassuring thing an author can read, because the deepest fear of anyone who has just submitted is that the reader did not get it. Write it without looking at the abstract; then the author can check your summary against their intent. If it describes a paper they did not write, that mismatch is itself the most important finding. Step one: the single biggest concern, stated first. After the summary, lead with the one issue that most threatens the paper — the thing that, if the author cannot answer it, sinks the result. Do not bury it, build to it, or soften it with five smaller points. A report that opens with a typo and reaches the broken identifying assumption on page two has mis-ranked its own concerns. Put the dagger on the table first. Usually this biggest concern is an identification threat — the alternative explanation the design did not rule out.
+:::
+
+## Then Threats, Specs, and Exposition
+
+- **Identification threats**, in descending order of danger
+- For DiD: pre-trends, anticipation, forbidden comparisons
+- **Specification:** are the standard errors and controls fragile?
+- A precise estimate of nothing is still nothing
+- **Exposition** last — prose, tables, figures, overclaiming
+
+::: notes
+Step two: the remaining identification threats, in descending order of danger. This is the heart of the report and it is pure Week-Five reading. For the design the author chose, what is on the standard menu of failures from Chapter seven-point-five? For a difference-in-differences that menu is pre-trends, anticipation, and — in staggered designs — the forbidden comparison of already-treated units. Go threat by threat: did the author address it, convincingly, and if not, what evidence would settle it? Step three: specification and robustness. Granting the design, is the estimate fragile? Are the standard errors clustered at the level the treatment varies, as Petersen and Bertrand, Duflo, and Mullainathan drilled in Week Five? Does the headline survive the march across columns? But these are downstream of identification: a perfectly clustered standard error on a coefficient with no credible design is a precise estimate of nothing. Step four: exposition. Last come the writing issues — an overclaiming introduction, a missing contribution sentence, tables that violate the conventions. Exposition matters, but fixing prose on a paper with a fatal design is rearranging deck chairs.
+:::
+
+## The Reversal Is the Gift
+
+- The author spent most time on prose, least on their worst threat
+- A good report reverses that exact ranking
+- It hands the worst threat back, named, at the top
+- That reversal is the gift you give
+
+::: notes
+Here is the elegant part. This skeleton is the exact inversion of how the author experiences the paper. The author spent the most time on the prose and the least on naming their own worst threat. A good referee report reverses that ranking and hands it back: worst threat at the top, exposition at the bottom. That reversal — taking the thing the author least wanted to confront and putting it first, clearly named, with the evidence that would settle it — is the gift. It is uncomfortable to receive and invaluable to have.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Write the report in a fixed order: **summary in your own words**, then the **single biggest concern**, then **identification threats** by danger, then **specification**, then **exposition** last. This inverts how the author built the paper — worst threat first, prose last — and that reversal is the gift.
+:::
+
+::: notes
+To summarize part two: a referee report has a fixed, load-bearing skeleton. Open with a summary in your own words. Lead with the single biggest concern — usually an identification threat. Then the remaining identification threats by danger, then specification, then exposition last. This order inverts how the author built the paper, and that reversal is the gift. In part three we sort every point into major and minor, and render an honest verdict under the governing norm.
+:::

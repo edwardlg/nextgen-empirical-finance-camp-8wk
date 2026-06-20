@@ -1,0 +1,60 @@
+---
+date: "2026-06-22"
+---
+
+## Replicate It, Then Referee It
+
+- Part 8 — three replication exercises, then the referee's questions
+
+::: notes
+Welcome back to lesson five-point-four, part eight of eight — the finale. In part seven we found the paper's edges. Now we close by playing Petersen's own game: three replication exercises you run by hand, where you set the truth and watch the methods compete. Then we connect back to Week Two and hand you the referee questions to carry forward.
+:::
+
+## Exercise 1 — Rebuild the Firm-Effect Table
+
+- Known true slope $\beta = 0.30$; error = firm component + noise
+- Regressor also carries a persistent firm component
+- Per method, tabulate four numbers across many panels:
+- average $\hat\beta_1$, **true SE**, average estimated SE, 95% coverage
+- Methods: OLS, White, cluster-by-firm, cluster-by-time
+- Headline: OLS and White **undercover**; cluster-by-firm recovers
+
+::: notes
+These run in your notebook, which hands you a panel-simulation harness so you can play the author's own game. Exercise one: rebuild the core simulation table for a firm effect. Generate a balanced panel with a known true slope beta equal to zero-point-three, an error made of a firm component plus idiosyncratic noise — no time component yet — and a regressor that also carries a persistent firm component. Across many simulated panels, compute and tabulate four numbers per method: the average beta-one hat, the true standard error — the standard deviation of beta-one hat across draws — the average estimated standard error, and the ninety-five percent coverage rate. Do it for OLS, White, cluster-by-firm, and cluster-by-time. You should reproduce Petersen's headline: OLS and White both undercover badly, while cluster-by-firm recovers near-nominal coverage. This is the table-reading skill from part five, now done with your own hands.
+:::
+
+## Exercises 2 and 3 — Flip It, Then Break It
+
+- **Ex 2:** swap firm for a shared **time** component; re-run
+- Now **cluster-by-time** matches; cluster-by-firm fails
+- Add a time **fixed effect** — it absorbs the effect (a different job)
+- **Ex 3:** both effects comparable — verify **two-way** is correct
+- Then shrink to 10 firms or 8 years — coverage falls *below* nominal
+- You believe the few-clusters caveat only after you cause it
+
+::: notes
+Exercise two: flip the structure to a time effect. Replace the firm component with a time component shared by all firms in each period, and drop the firm component. Re-run the same four-method comparison and confirm the symmetry: now cluster-by-time is the method that matches the truth, while cluster-by-firm fails. Then add a time fixed effect — a dummy per year — and show that it largely absorbs the time effect, connecting to the Week Two point that fixed effects and clustering do different jobs. Exercise three: turn on both effects and then break the few-clusters case. Set the firm and time components to comparable sizes and compare one-way firm clustering, one-way time clustering, and two-way clustering; verify two-way is the one with correct coverage. Then shrink the number of clusters — re-run with, say, only ten firms or only eight years — and watch the cluster-robust coverage fall back below nominal, even though you are doing it right. That is a failure you only truly believe after you have made it happen on your own screen.
+:::
+
+## Where This Connects, and Three Questions
+
+- The deep version of **Week 2, Ch 2.4**
+- There: classical t of **5.70** collapsed to firm-clustered t of **2.19**
+- There you *used* the result; here you watched it *proved*
+- Next paper: **Bertrand–Duflo–Mullainathan (2004)** — same disease, diff-in-diff
+- Carry: *how many clusters?* · *is "robust" a trap word?* · *does my dependence match a simulated shape?*
+
+::: notes
+Where does this connect? This guide is the deep version of Week Two, chapter two-point-four, where you first met the taxonomy as a recipe and saw an identical beta hat of zero-point-three carry a classical t-statistic of five-point-seven-zero that collapsed to a firm-clustered t of two-point-one-nine. There you used the result; here you watched it proved. The next paper, Bertrand, Duflo and Mullainathan, two-thousand-four, is the same disease — ignored serial correlation — in a difference-in-differences costume, so Petersen is the right warm-up. Carry three referee questions forward. One: how many clusters is enough, and how would you know in a paper that does not say? Two: is robust a trap word — what exactly is White claiming, and not claiming? Three: does your dependence match a shape Petersen simulated, or a network his Monte Carlo never saw? Go now and run exercise one.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Play Petersen's game: **set the truth, run the methods, read the coverage.** Firm rewards firm clustering, time rewards time, both reward two-way — until you **starve the clusters** and watch it break. Then carry the referee's three questions into Bertrand–Duflo–Mullainathan.
+:::
+
+::: notes
+To summarize the finale, and the whole lesson: you replicate Petersen by setting the truth, running the methods, and reading the coverage. A firm effect rewards firm clustering, a time effect rewards time clustering, both reward two-way — until you starve the clusters and watch the fix break. Watching OLS undercover on data whose truth you set is the moment the recipe stops being memorized and starts being known. Carry forward three referee questions — how many clusters, really; is robust a trap word; and does your dependence match a shape he simulated. Next is Bertrand, Duflo and Mullainathan, the same problem in a difference-in-differences costume. That completes lesson five-point-four.
+:::

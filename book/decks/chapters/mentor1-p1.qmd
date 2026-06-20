@@ -1,0 +1,53 @@
+---
+date: "2026-06-22"
+---
+
+## A Number Is Not a Finding
+
+**Learning objectives.** By the end you can:
+
+- Name the three gates a number must clear
+- Tell statistical significance apart from effect size
+- Read a t-statistic as distance in noise units
+- Ask how many things a search tried
+
+::: notes
+Welcome to Week One, Mentor Session one, part one of four. This week you built an inference toolkit — standard errors, t-statistics, p-values, confidence intervals, and the multiple-testing warning. Today we ask what all of that is *for*. The tools exist to answer one deceptively hard question: when is a number a finding, and when is it just noise wearing a nice outfit? Over these four parts we will walk one number through three gates, honestly. This first part frames the gauntlet and opens gate one.
+:::
+
+## Between a Number and a Belief
+
+- Most numbers are **not** findings
+- A number earns the title by surviving a **gauntlet**
+- Three gates: too big to be noise? big enough to matter?
+- Third gate: survives the search that found it?
+- This week's toolkit = the instruments for the gates
+- Today: walk one number through all three, out loud
+
+::: notes
+Here is a true thing about empirical research that no textbook quite tells you head-on: most numbers are not findings. A number becomes a finding only when it survives a gauntlet, and the gauntlet has three gates. Gate one asks: could noise alone have produced this? Gate two asks: is the effect big enough to matter? Gate three asks: would the effect survive the search that found it? Almost everything we do this summer is about walking a number through those three gates honestly. The toolkit you built this week — the standard error, the t-statistic, the p-value, the confidence interval, the multiple-testing warning — is exactly the set of instruments that test a number at each gate. It is not an end in itself. So today we practice using these tools the way a researcher actually does: not on a homework problem with a known answer, but on a number that nobody has yet decided how to feel about.
+:::
+
+## Gate One: Too Big To Be Noise?
+
+- Sam's reversal rule: $+0.08\%$ a day over $252$ days
+- Eight basis points, positive, briefly exciting
+- But daily returns swing a full percent either way
+- Honest question: *too far from zero to be zero?*
+- The t-statistic $t \approx 1.69$ is the whole answer
+- Estimate measured in units of its own standard error
+
+::: notes
+Gate one is the question Chapter one-point-five built an entire machine to answer. Take Sam's reversal rule. It earned plus zero-point-zero-eight percent a day over two hundred fifty-two trading days — eight basis points, a positive number, briefly exciting. But daily returns swing by a full percent in either direction, so the honest question was never "is eight basis points positive?" It plainly is. The honest question is "is eight basis points too far from zero to be zero, given how much this quantity wobbles?" The t-statistic of one-point-six-nine is that whole question compressed into a single ruler: the estimate measured in units of its own standard error. A finding has to clear this gate. But here is the catch worth remembering — clearing gate one is the *easiest* of the three, and clearing it alone proves almost nothing. The p-value answers this one narrow question correctly, and it politely refuses every other question you might want to ask. Respect that refusal.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A number is not a finding until it clears a **gauntlet** of three gates: too big to be noise, big enough to matter, and robust to the search that found it. **Gate one** — the t-statistic — asks only whether an estimate is too far from zero to be zero. It is the *easiest* gate, and clearing it alone proves almost nothing. Next: gate two, where significance and importance part ways.
+:::
+
+::: notes
+To summarize part one: most numbers are not findings; a number earns the title only by surviving three gates. Gate one asks whether the estimate is too far from zero to be zero, and the t-statistic — the estimate divided by its own standard error — is the ruler that answers it. Remember that this is the easiest gate, and passing it alone proves very little. In part two we walk through gate two, where a result can be statistically significant and yet economically worthless — where significance and importance turn out to be completely different questions.
+:::

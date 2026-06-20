@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Mean Squared Error and Its Decomposition
+
+- Part 6 — MSE as variance plus bias squared
+
+::: notes
+Welcome back to Chapter one-point-three, part six of eleven. So far we have two separate virtues: bias asks do you aim true, variance asks are you steady. In the real world you usually trade one against the other, and you need a single scorecard that respects both. This part builds that scorecard — the mean squared error — and proves it splits cleanly into variance plus bias squared.
+:::
+
+## One Number for Both
+
+- Bias: do you aim true? Variance: are you steady?
+- Need one scorecard that penalizes both
+- $\operatorname{MSE}(\hat{\mu})=\mathbb{E}\!\left[(\hat{\mu}-\mu)^2\right]$
+- Expected *squared distance* from the truth
+- Missing *and* being unsteady both inflate it
+
+::: notes
+Bias asks, do you aim true? Variance asks, are you steady? In the real world you usually have to trade them off, and you need a single scorecard that respects both. That scorecard is the mean squared error. The mean squared error of an estimator is the expected squared distance between the estimate and the truth: the expectation of the quantity mu hat minus mu, all squared. It penalizes both kinds of badness at once — missing the target, and being unsteady, both make mu hat minus mu squared large on average. And the beautiful fact is that the mean squared error splits cleanly into exactly those two pieces, variance and bias. Let us see the decomposition; you should be able to reproduce it yourself.
+:::
+
+## The Decomposition
+
+- Add and subtract $\mathbb{E}[\hat{\mu}]$ inside the square
+- Let $A=\hat{\mu}-\mathbb{E}[\hat{\mu}]$, $B=\mathbb{E}[\hat{\mu}]-\mu$
+- Expand: $\mathbb{E}[A^2]+2\,\mathbb{E}[A]\,B+B^2$
+- Cross term dies: $\mathbb{E}[A]=0$
+- $\boxed{\operatorname{MSE}=\operatorname{Var}(\hat{\mu})+\operatorname{Bias}(\hat{\mu})^2}$
+
+::: notes
+Start with the classic add-zero-in-a-clever-form trick: inside the square, insert the expectation of mu hat and subtract it right back. Group the result into two halves and call them A and B. A is mu hat minus the expectation of mu hat — random, with mean zero. B is the expectation of mu hat minus mu — a constant, which is exactly the bias. Expand the square using A plus B, all squared, equals A squared plus two A B plus B squared. Taking expectations, the first term is the expectation of A squared, which is the variance of mu hat. The last term is B squared, the bias squared. The middle, cross term is two times the expectation of A, times B — and the expectation of A is zero, because the average deviation of anything from its own mean is zero. So the cross term dies, and what survives is the headline result: mean squared error equals variance plus bias squared. Read it as a budget. For an unbiased estimator the second term is zero and the mean squared error is just variance — which is why, for the sample mean, minimizing variance and minimizing mean squared error are the same goal.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Mean squared error** is the expected squared distance from the truth, and it decomposes *exactly* as $\operatorname{MSE}=\operatorname{Var}(\hat{\mu})+\operatorname{Bias}(\hat{\mu})^2$. The cross term vanishes because $\mathbb{E}[A]=0$. For an unbiased estimator, MSE is just variance. Next: a biased recipe that wins on this scorecard.
+:::
+
+::: notes
+To summarize part six: the mean squared error is the expected squared distance between estimate and truth, and it penalizes both missing the target and being unsteady. Its beautiful decomposition is exact — mean squared error equals variance plus bias squared — because the cross term, two times the expectation of A times B, dies when the expectation of A turns out to be zero. Read it as a budget: total error is variance plus bias squared. For an unbiased estimator the bias-squared term is zero, so minimizing variance and minimizing mean squared error become the same goal. But the budget framing hints at something deeper: if you could pay a little bias to buy a lot of variance, you might come out ahead. In part seven we put numbers on exactly that tradeoff.
+:::

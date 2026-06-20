@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## Reading the Tables in Two Passes
+
+- Part 5 — the smart two-pass order for reading the tables
+
+::: notes
+Welcome back to Chapter six-point-two, part five of eight. In part four we covered the data and the filters that shape it. Now we lay out how to read the paper itself. The key move is counterintuitive: do not start at the front. Read it in two passes mirroring its two halves — first asking whether the measure works, only then asking what it finds.
+:::
+
+## Pass One — Does the Measure Work?
+
+- Read the **validation** tables first, before the economics
+- **The TNIC illustration:** what a firm's neighborhood looks like
+- How many competitors; how it differs from the SIC box
+- Internalize: TNIC is a different *shape* of data
+- Not a relabeling — a weighted network, not a partition
+
+::: notes
+Pass one asks: does the measure work? Before you care what the measure finds, you must believe it is real, so read the validation tables first. Start with the TNIC illustration — the table or example showing what a firm's text-based neighborhood looks like: how many competitors a typical firm has, and how the network differs from the SIC box, with its overlaps and its intransitivity. Read it to internalize one thing: TNIC is a different shape of data, not just a relabeling. It is a weighted network, where SIC was a partition into disjoint boxes. Once you see that the object itself is different, the later comparisons make sense.
+:::
+
+## The Horse-Race Tables
+
+- The heart of the validation
+- Firms grouped by text similarity co-move *more* than SIC groups
+- Returns, sales growth, profitability — stronger together
+- Text explains **profit-margin** differences better than SIC
+- Critically: a *competing* SIC measure sits in the same regression
+- The carrying number: TNIC stays strong *with SIC included*
+
+::: notes
+Now the heart of the validation: the horse-race tables. The canonical demonstration is that firms grouped by text similarity show stronger co-movement in outcomes — returns, sales growth, profitability — than firms grouped by SIC, and that text similarity explains cross-firm profit-margin differences better than the official code. Read each one Week-Five style: the dependent variable across the top, the TNIC-based regressor in the rows, and — critically — a competing SIC-based measure in the same regression, so you watch TNIC win the incremental-explanatory-power contest. The number carrying this whole half is the one showing that TNIC stays strong, often dominant, with SIC included in the model. Read the exact coefficients and R-squared values off the tables themselves; the qualitative result is that TNIC beats SIC on co-movement and on margins.
+:::
+
+## Pass Two — What Does It Find?
+
+- Only after the measure earns trust
+- **Product similarity and differentiation:** crowded space, thin margins
+- Differentiation = moving your description *away* from rivals
+- **Dynamic tables:** firms *move* as rivals enter or merge
+- Read last — most novel, least essential to the core claim
+
+::: notes
+Pass two asks: what does the measure find? Only after the measure earns your trust do you read what it teaches. First, the product-similarity and differentiation tables, linking how crowded a firm's product space is — high average similarity to rivals — to its margins and its incentive to differentiate. The economics: dense neighborhoods mean tougher competition, and differentiation, moving your description away from rivals, is the strategic response. Then the dynamic, competitive-response tables. Because TNIC is time-varying, the authors watch firms actually move in product space — how they respond when rivals enter or when mergers reshape a neighborhood. That is what a yearly-updating network buys that a fixed code cannot. Read these last: they are the most novel but the least essential to believing the core claim. The headline that would sink the paper if it broke is the pass-one horse race.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Read in two passes. **Pass one:** the validation — see TNIC's different *shape*, then the **horse race** where TNIC out-explains SIC on co-movement and margins, *with SIC in the same regression*. **Pass two:** the economics — crowded space, differentiation, and firms *moving* over time. The horse race is the headline that would sink the paper if it broke. Next: what's clever.
+:::
+
+::: notes
+To summarize part five. Read the paper in two passes. Pass one is validation: first the TNIC illustration, to see that the measure is a different shape of data — a network, not a partition — then the horse-race tables, where TNIC out-explains SIC on return co-movement and profit margins, with SIC entered in the same regression. That horse race is the headline that would sink the paper if it broke. Pass two is the reward: the product-differentiation economics, and the dynamic tables where firms move in product space over time. In part six we step back and name the four clever moves in this paper that are worth stealing for your own capstone.
+:::

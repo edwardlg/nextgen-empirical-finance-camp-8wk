@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Fuzzy RD: Everything From Week 3 Transfers
+
+- Part 7 — how every Week 3 IV lesson transfers to fuzzy RD
+
+::: notes
+Welcome back to regression discontinuity, part seven of seventeen. In part six we saw fuzzy R-D is instrumental variables — the jump in the outcome over the jump in treatment. Now we cash that in: every lesson from Week three transfers, and you need no new machinery.
+:::
+
+## Relevance, Exclusion, LATE — All Transfer
+
+- **Relevance:** the denominator — a real jump, not a sliver
+- A sliver invites the weak-instrument pathology of Chapter three-point-five
+- **Exclusion:** crossing $c$ affects $Y$ *only through* the treatment
+- If analyst-coverage rules *also* jump at $c$, the ratio is contaminated
+- **LATE:** the effect for *compliers at the cutoff*, under monotonicity
+
+::: notes
+Everything from Week three transfers. Relevance is the jump in the treatment probability — the denominator. It is testable, because you can see the first-stage jump in the expected value of D given X, and it had better be a real jump, not a sliver, or you are dividing by something near zero and inviting the weak-instrument pathology of Chapter three-point-five. Exclusion is the R-D continuity assumption applied to the instrument: crossing the cutoff must affect the outcome only through the treatment, and nothing else can jump at c. If passive ownership were the only thing that changes when a stock crosses into the Russell two thousand, exclusion holds. If crossing also triggers, say, a change in analyst-coverage rules at the same rank, exclusion fails and the ratio is contaminated. And it is LATE, not ATE. Just as IV identifies the effect for compliers, fuzzy R-D identifies the effect for units who take treatment because they crossed the cutoff — the compliers at the cutoff. Always-takers and never-takers contribute nothing. Under monotonicity — crossing can only raise, never lower, the chance of treatment, so no defiers — the fuzzy estimand is the LATE for cutoff compliers.
+:::
+
+## No New Machinery — Two Jumps and a Ratio
+
+- Estimate two jumps instead of one, then take the ratio
+- Use standard errors that *respect the ratio*
+- Never hand-divide two regressions and trust the naive SE
+- Let the software propagate the uncertainty
+- `rdrobust` does both jumps and the ratio in one call
+
+::: notes
+So you do not need new machinery for fuzzy R-D. You need to estimate two jumps instead of one and take their ratio, with standard errors that respect the ratio. This is the same warning as Week three: never hand-divide two regressions and trust the naive standard error — let the software propagate the uncertainty correctly. In practice the r-d-robust package does both jumps and the ratio in one call, which is exactly what the notebook for this chapter will use. The deep point to carry: fuzzy R-D is not a new design. It is instrumental variables with the above-cutoff indicator as the instrument, and every lesson about relevance, exclusion, weak instruments, and compliers maps over without change.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Fuzzy RD inherits Week 3 wholesale: **relevance** is the first-stage jump, **exclusion** is continuity applied to the instrument, and the estimand is a **LATE for compliers at $c$** under monotonicity. No new machinery — two jumps, a ratio, and software-propagated standard errors. Next: how to estimate those jumps — stay local, stay low-order.
+:::
+
+::: notes
+To summarize part seven: fuzzy R-D inherits everything from Week three. Relevance is the first-stage jump in treatment probability, which must be real and not a sliver. Exclusion is the continuity assumption applied to the instrument — crossing the cutoff affects the outcome only through the treatment. And the estimand is a local average treatment effect for compliers at the cutoff, under a monotonicity assumption that rules out defiers. No new machinery is required: estimate two jumps, take the ratio, and let the software propagate the standard errors. In part eight we turn to how you actually estimate the height of those curves at the boundary — and a mistake a generation of empiricists made that you should learn to avoid on sight.
+:::

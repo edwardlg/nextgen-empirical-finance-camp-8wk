@@ -1,0 +1,63 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Scoring the Ideas and Your Turn
+
+- Part 8 — a blunt rubric to score and rank candidate ideas
+
+::: notes
+Welcome back to the Idea-Generation Workshop, part eight of eight, the last part. In part seven we walked two projects through the full machine. Now we hand you the tool you will use in problem set seven-point-one: a blunt scoring rubric to rank the candidate ideas you bring to the workshop. Then we send you to the notebook and the three questions to sit with first.
+:::
+
+## The Five-Dimension Rubric
+
+Score each idea **0–2** per dimension — total out of **10**.
+
+| Dimension | 0 — fatal | 1 — workable | 2 — strong |
+|---|---|---|---|
+| **Falsifiable?** | A mood; no direction | A vague direction | Sharp signed $H_0$ |
+| **So what / who cares?** | No one acts | A niche cares | Real conversation; both answers matter |
+| **Novel?** | Re-run, same data | New setting or period | New data, outcome, or identification |
+| **Identifiable?** | Correlation as causal | Honest description | A real Weeks 3–4 design |
+| **Feasible?** | Data unavailable | Tight but real | Data in hand by Ch 7.2 |
+
+::: notes
+You will not carry one idea into Week Seven; you will carry three or four, and you need a fast, honest way to rank them. Here is the rubric you will use in problem set seven-point-one: score each candidate on five dimensions, zero to two points each, for a total out of ten. It is deliberately blunt, because its job is to kill weak ideas early. Falsifiable — zero is a mood, two is a sharp signed hypothesis with a null. So what, who cares — zero, no one acts on either answer; two, a real conversation where both answers matter. Novel — zero, a re-run on the same data; two, new data, outcome, or identification. Identifiable — zero, correlation dressed as causal; two, a real design from Weeks Three and Four. Feasible — zero, data unavailable; two, data in hand by Chapter seven-point-two with one clean question.
+:::
+
+## Read It As A Veto, Not A Sum
+
+- A checklist with **veto power**, not a sum to maximize
+- Any **0 on Identifiable or Feasible** is a veto — kill the idea
+- A solid project lands at **7 or above with no zeros**
+- Scoring 4–6? Usually salvageable by **narrowing**
+- Keep the top one or two; bring them to the workshop
+
+::: notes
+Read the scores like a checklist with veto power, not a sum to maximize. Any zero on Identifiable or Feasible is a veto — kill the idea, regardless of its total, because an unidentifiable question is not research and an infeasible one will not finish. A solid project lands at seven or above with no zeros. An idea scoring four to six is usually salvageable by narrowing: tighten the hypothesis, find the cutoff or event date, shrink the sample to data you can get. Score your candidates, keep the top one or two, and bring them to the workshop. The goal is not the perfect idea — there isn't one — but the best feasible one.
+:::
+
+## Your Turn — And Three Questions
+
+- Open **nb7.1**, the idea-to-spec template; bring **three** candidate ideas
+- Leave with one project **locked**, a runner-up in reserve
+- *Make your puzzle un-falsifiable on purpose* — which slot was hardest?
+- *Name your identifying variation* — and its most dangerous confounder
+- *Run the AI's five papers through the §6.5 leash* — how many were real?
+
+::: notes
+Now your turn. Open notebook seven-point-one, the idea-to-spec template. It walks your own raw interest through the pipeline this chapter built — puzzle, the three filters, the four-slot grammar, the backward search for identifying variation, the scoring rubric, and a finished one-sentence spec in the CONVENTIONS section-four format. Bring at least three candidate ideas; the notebook makes you score and rank them, and you leave with one project locked and a runner-up in reserve. That spec is the input to everything that follows: seven-point-two acquires the data, seven-point-three freezes a pre-analysis plan, seven-point-four builds the dataset, and seven-point-five makes you defend the identification in a memo. Three questions to sit with first. One: take your favorite puzzle and make it un-falsifiable on purpose, then sharpen it — which slot was hardest to pin down? Two: for your top idea, where does the identifying variation come from, and what is the most dangerous confounder it does not handle? Three: ask your co-pilot for five papers, then verify each in Google Scholar — how many were real, and what does that tell you about the model's confident output?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Score each candidate **0–2** on five dimensions — falsifiable, so-what, novel, identifiable, feasible. Read it as a **veto**: any zero on *identifiable* or *feasible* kills the idea; aim for **7+ with no zeros**. The goal isn't the perfect idea but the **best feasible** one — a question you finish beats a brilliant one you don't. Next: Chapter 7.2 turns your locked spec into acquired data.
+:::
+
+::: notes
+To close the chapter: you will carry three or four candidate ideas, and the five-dimension rubric ranks them fast — falsifiable, so-what, novel, identifiable, feasible, each zero to two. Read it as a checklist with veto power, not a sum: any zero on identifiable or feasible kills the idea, a solid project lands at seven or above with no zeros, and a middling score is usually rescued by narrowing. The point is to find the best feasible idea and commit: a good question you finish beats a brilliant one you don't. Take your ideas through notebook seven-point-one, lock one, keep a runner-up, and sit with the three questions. In Chapter seven-point-two we turn your spec into acquired data. Bring your ideas to the workshop.
+:::

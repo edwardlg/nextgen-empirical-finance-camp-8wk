@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Measurement Error: Deriving Attenuation Bias
+
+- Part 6 — classical errors-in-variables and attenuation
+
+::: notes
+Welcome back to Week Two-point-five, part six of twelve. In part five we saw that adding controls is a bet, not a cure. Now the second threat. Even with no omitted variable at all, your coefficient can be biased simply because you measured your regressor imprecisely. We state the result, set up the classical errors-in-variables model, and derive exactly how much the estimate shrinks toward zero.
+:::
+
+## The Result in One Sentence
+
+- Key regressor is a noisy version of the true variable
+- Noise is random static, unrelated to anything
+- OLS coefficient is biased **toward zero**: attenuation bias
+- Shrinkage factor = share of variance that is real signal
+- Direction always known: the effect looks weaker
+
+::: notes
+The result, in one sentence: when your key regressor is a noisy version of the true variable, with noise that is just random static unrelated to anything, the ordinary-least-squares coefficient is biased toward zero — a phenomenon called attenuation bias — and the shrinkage factor is the share of the regressor's variance that is real signal rather than noise. Unlike omitted variable bias, where the direction depends on two signs, the direction here is always known in advance: toward zero. A real effect looks weaker than it truly is. You under-reject, and you may miss a relationship that genuinely exists. Let us set it up and derive exactly how much the estimate shrinks.
+:::
+
+## The Classical Errors-in-Variables Setup
+
+- True model uses true regressor: $y = \beta_0 + \beta_1 x^{*} + \varepsilon$
+- You observe a mismeasured copy: $x = x^{*} + m$
+- CEV assumptions: $m$ mean zero, uncorrelated with $x^{*}$ and $\varepsilon$
+- Substitute $x^{*}=x-m$: new error $u = \varepsilon - \beta_1 m$
+- Regressor and error **share** $m$ — mechanically correlated
+
+::: notes
+Set it up. The true model uses the true regressor x-star: y equals beta-zero plus beta-one x-star plus epsilon, and the zero-conditional-mean assumption holds against x-star. But you do not observe x-star. You observe a mismeasured version, x equals x-star plus m, where m is measurement error. The classical errors-in-variables assumptions are that the error is pure random static: m has mean zero, is uncorrelated with the true value x-star, and is uncorrelated with the equation error epsilon. Think of m as a thermometer that reads the true temperature plus an independent jiggle. Now substitute x-star equals x minus m into the true model. You get y equals beta-zero plus beta-one x plus a new composite error, epsilon minus beta-one times m. Look at that new error: it contains negative beta-one times m. And the regressor, x equals x-star plus m, also contains m. So the regressor and the error share the term m — they are mechanically correlated. The zero-conditional-mean assumption fails again, this time because the noise in our regressor leaks into the error term.
+:::
+
+## Deriving the Attenuation Factor
+
+- $\hat\beta_1 \xrightarrow{p} \operatorname{Cov}(x,y)/\operatorname{Var}(x)$
+- Numerator: $\operatorname{Cov}(x,y) = \beta_1 \operatorname{Var}(x^{*})$
+- Denominator: $\operatorname{Var}(x) = \sigma_{x^{*}}^2 + \sigma_m^2$
+- $\hat\beta_1 \xrightarrow{p} \beta_1 \cdot \dfrac{\sigma_{x^{*}}^2}{\sigma_{x^{*}}^2 + \sigma_m^2} = \beta_1 \lambda$
+- $0 < \lambda < 1$ whenever there is any noise
+
+::: notes
+Now compute the consequence. The probability limit of the slope is the covariance of x and y divided by the variance of x. Take the numerator. The covariance of x with y, expanding x as x-star plus m and y as the true model, equals beta-one times the variance of x-star — because m is uncorrelated with x-star and with epsilon, which kills every cross term. Now the denominator. Because x-star and m are uncorrelated, the variance of x splits cleanly into the variance of x-star plus the variance of m, written sigma-x-star-squared plus sigma-m-squared. Divide. The slope converges not to beta-one but to beta-one times the variance of x-star over the variance of x-star plus the variance of m. Call that fraction lambda. Because variances are non-negative, lambda lies strictly between zero and one whenever there is any noise. So the estimate is pulled toward zero — smaller in magnitude than the truth, regardless of sign. That is attenuation bias.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Classical measurement error makes the regressor and the error **share** the noise term $m$, so $\hat\beta_1 \xrightarrow{p} \beta_1\lambda$ with $\lambda = \sigma_{x^{*}}^2/(\sigma_{x^{*}}^2+\sigma_m^2)$, a number strictly between $0$ and $1$. The slope is pulled toward zero — attenuation bias. Next: the reliability ratio and three subtleties.
+:::
+
+::: notes
+To summarize part six: classical measurement error in your regressor biases the slope toward zero. Because the observed regressor and the composite error both contain the noise term m, they are mechanically correlated, and the zero-conditional-mean assumption fails. Working through the covariance, the slope converges to beta-one times lambda, where lambda is the variance of the true regressor over the variance of the observed regressor — a number strictly between zero and one whenever any noise is present. The estimate is pulled toward zero, regardless of sign. That is attenuation bias. In part seven we interpret lambda as the reliability ratio, apply it to Maya's self-reported income, and cover the first two of three subtleties that trip people up.
+:::

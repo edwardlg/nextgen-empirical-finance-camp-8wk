@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## 2SLS as Frisch–Waugh–Lovell with an Instrument
+
+- Part 5 — 2SLS with controls via the FWL lens
+
+::: notes
+Welcome back to instrumental variables, part five of ten. In part four the Wald estimator handled one binary instrument and no controls. Real problems have continuous treatments, multiple controls, sometimes multiple instruments. The general workhorse is two-stage least squares, and the cleanest way to understand it — having done Chapter two-point-three — is as Frisch–Waugh–Lovell with an instrument in place of the raw regressor.
+:::
+
+## The Two Stages
+
+- Structural: $Y_i = \beta_0 + \beta_1 D_i + \mathbf{X}_i\boldsymbol{\gamma} + \varepsilon_i$
+- **First stage**: regress $D$ on $Z$ **and** controls
+- $\hat{D}_i$ = the part of $D$ explained by $Z$ and $\mathbf{X}$
+- Built only from exogenous things — laundered of the confounder
+- **Second stage**: regress $Y$ on $\hat{D}_i$ (and controls)
+
+::: notes
+Write the structural equation with controls X — exogenous covariates like age and income, things you do trust — and the endogenous treatment D. The problem is the single column D, which correlates with epsilon. Two-stage least squares replaces it in two steps. First stage: regress the endogenous treatment on the instrument and the controls. The fitted value D-hat-sub-i is the part of the treatment explained by the instrument and the controls. This is the magic: D-hat is built only from Z and X, both uncorrelated with epsilon, so it inherits their cleanliness — it is the slice of D laundered of the confounder. Whatever motivation was hiding inside D lived in the residual we throw away. Second stage: regress the outcome on the fitted treatment and the same controls. The coefficient beta-one-hat from this second regression is the IV estimate. Because D-hat is uncorrelated with epsilon, the zero-conditional-mean assumption is restored for the regressor we actually use, and the slope is consistent.
+:::
+
+## A Non-Negotiable Warning
+
+- **Never** run the two stages by hand and trust the SEs
+- Second-stage point estimate is correct
+- But its standard errors are **wrong**
+- Software treats $\hat{D}_i$ as data, not as an estimate
+- Always use a dedicated routine — `linearmodels`' `IV2SLS`
+
+::: notes
+A warning students learn the hard way: never run the two stages by hand and trust the standard errors. The second-stage regression on D-hat produces the correct point estimate, but its reported standard errors are wrong, because the software thinks D-hat is data when really it is an estimate carrying its own noise. The right standard errors account for the first-stage uncertainty. Always use a dedicated two-stage least squares routine — linearmodels' IV2SLS — which gets the point estimate and standard errors right in one call. Hand-rolling the two stages is for understanding, never for reporting.
+:::
+
+## Why This Is FWL
+
+- FWL: coefficient = simple slope of residualized $Y$ on residualized $D$
+- OLS leaves the confounder inside residualized $\tilde{D}$
+- 2SLS swaps it for the instrument's trustworthy part
+- $\hat{\beta}_1^{\text{2SLS}} = \dfrac{\operatorname{Cov}(\tilde{Z}, \tilde{Y})}{\operatorname{Cov}(\tilde{Z}, \tilde{D})}$
+- Controls go in **both** stages — FWL residualizes everything
+
+::: notes
+Here is the connection that makes 2SLS click. Recall Frisch–Waugh–Lovell: a multiple-regression coefficient on D equals the simple slope of residualized Y on residualized D, where residualized means partial out the controls from both sides. OLS partials the controls out of D and then uses what is left — including its endogenous part — to explain Y. That is exactly the problem: the leftover D-tilde still has the confounder in it. 2SLS makes one surgical change. Partial the controls out of everything, getting Y-tilde, D-tilde, and Z-tilde. But instead of regressing Y-tilde on the contaminated D-tilde, use the instrument to extract only the trustworthy part. The IV slope is the covariance of Z-tilde and Y-tilde over the covariance of Z-tilde and D-tilde. Stare at this and you recognize the Wald ratio, now living in the FWL world where controls are already swept out. OLS is the special case where D is its own instrument — exactly the move that fails when D is endogenous. And this tells you why controls belong in both stages: FWL residualizes every variable against them. Forgetting controls in the first stage is a classic bug that quietly invalidates the cleaning.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**2SLS is FWL where you replace the contaminated regressor with its instrument.** The first stage builds $\hat{D}$ from exogenous variation; the second stage takes the simple slope on it. Controls enter both stages. Use a real 2SLS routine — hand-rolled stages give correct points but wrong standard errors.
+:::
+
+::: notes
+To summarize part five: two-stage least squares generalizes the Wald ratio to controls and continuous treatments. The first stage manufactures D-hat — the slice of the treatment explained by the instrument and controls, laundered of the confounder. The second stage regresses the outcome on D-hat, restoring the zero-conditional-mean assumption for the regressor you actually use. Viewed through Frisch–Waugh–Lovell, it is the same partialling-out geometry as Chapter two-point-three, with one twist: project onto the instrument rather than onto D itself. Controls go in both stages. And always use a dedicated routine, because hand-rolled stages report the wrong standard errors. In part six we confront the deepest idea in the chapter — whose effect did you actually estimate? — the local average treatment effect.
+:::

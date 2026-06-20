@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Data: CRSP, Compustat, and the Timing Lag
+
+- Part 4 — the data sources and the look-ahead timing lag
+
+::: notes
+Welcome back to the Reader's Guide for Fama and French, part four of nine. In part three we finished the machinery — the Fama-MacBeth regression with its honest standard errors, and the reminder that beta is an estimate. Now we cover where the data come from. This is the workhorse pairing of empirical finance, the same one your camp uses, and it carries one move you will reuse every time you merge accounting data to returns.
+:::
+
+## Two Databases, Stitched Together
+
+- **Returns from CRSP** — monthly returns and prices, U.S. stocks
+- **Book equity from Compustat** — annual balance-sheet value
+- Size needs price and shares — comes from CRSP
+- Book-to-market needs both — Compustat over CRSP
+- Sample: **nonfinancial** firms on NYSE, AMEX, NASDAQ
+
+::: notes
+Two databases, stitched together. Returns come from CRSP, the Center for Research in Security Prices, which has monthly returns and prices for essentially every stock on the major U.S. exchanges. Book equity comes from Compustat, the accounting database, which carries each firm's balance-sheet book value of common equity from its annual financial statements. Size, which is market equity, needs only price and shares, so it comes from CRSP; book-to-market needs both — book equity from Compustat in the numerator, market equity from CRSP in the denominator. The sample is nonfinancial firms on the New York Stock Exchange, the American Stock Exchange, and NASDAQ. Financial firms like banks and insurers are dropped, because high leverage means something mechanically different for them, so their book-to-market is not comparable.
+:::
+
+## The Timing Gap Guards Against Look-Ahead
+
+- Return tests run roughly **1963 to 1990**
+- Each year: rank firms by size and by book-to-market
+- Returns July of year $t$ to June of $t{+}1$...
+- ...matched to accounting from fiscal year ending $t{-}1$
+- The lag blocks **look-ahead bias** — reports aren't public yet
+
+::: notes
+The return tests run from roughly nineteen sixty-three to nineteen ninety, with the start chosen partly because Compustat's coverage of book equity becomes reliable around the early nineteen sixties — a data-availability boundary that, as the vulnerabilities section warns, is not innocent. The sorting logic is the heart of the data construction. Each year, firms are ranked and binned by size and, separately, by book-to-market, and there is a deliberate timing gap: returns from roughly July of year t through June of year t plus one are matched to accounting data from the fiscal year ending in calendar year t minus one. That gap is not bookkeeping fussiness — it is the paper protecting itself against look-ahead bias. A firm's annual report for, say, December is not actually public until months later; if you matched December book equity to that same December's return, you would be using information no investor could have had yet, and you would manufacture predictability that does not exist in real time. The lag forces every explanatory variable to be genuinely knowable before the returns it is asked to explain. File that move away; you will reuse it any time you merge accounting data to returns.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**CRSP** supplies returns and size; **Compustat** supplies book equity; the build covers nonfinancial firms on the three major exchanges, roughly 1963 to 1990. The deliberate **July-to-June timing lag** forces every regressor to be knowable before the returns it explains — the antidote to look-ahead bias.
+:::
+
+::: notes
+To summarize part four: the data are two databases stitched together. CRSP gives monthly returns and prices, and therefore size; Compustat gives annual book equity. Book-to-market combines the two. The sample is nonfinancial firms on the New York, American, and NASDAQ exchanges, roughly nineteen sixty-three to nineteen ninety. The single most important construction choice is the deliberate timing gap: returns from July of year t to June of year t plus one are matched to accounting data from the fiscal year ending in year t minus one. That lag protects against look-ahead bias by forcing every explanatory variable to be knowable in real time. In part five we put on the referee's reading habits and learn the order in which to take the tables — starting with the sorts, to watch beta die.
+:::

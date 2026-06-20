@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## Your Kill Decision and the Kill-or-Commit Memo
+
+- Part 9 — your kill decision and the kill-or-commit memo
+
+::: notes
+Welcome back to how I pick and kill a project, part nine of nine — our last segment. In part eight we watched the Rainbow of Credits travel the whole funnel over years. Now you make your own kill decision, under the two questions that decided every version of my projects, and write the memo that is the whole point of today.
+:::
+
+## Decide Under My Two Questions
+
+- The two questions: **where's the clean variation?** **Can I get it?**
+- Favorite candidate: answer **both**, honestly, one line each
+- Lowest candidate: find the **one move** that rescues it
+- A cutoff, a dated policy, a clean event, a **non-fundamental shock**
+- No rescue exists? **Kill it plainly** — that is useful
+
+::: notes
+Now your own decision, under the two questions that decided every version of my projects: where is the clean variation, and can I actually measure and get this in the time I have? Take the candidate question from problem set seven-point-one you are most attached to — the one you would least like to kill — and answer both questions about it honestly, in one sentence each. Then do the harder thing: take the candidate you scored lowest, and instead of discarding it, try to find the one move — a cutoff, a dated policy, a clean event, or a non-fundamental shock in the spirit of the CSR paper — that would rescue it. If no such move exists, say so plainly; an idea you can confidently kill is more useful than one you keep out of politeness.
+:::
+
+## Commitment Is the Other Half
+
+- Once the furnace runs, **stop shopping** — start building
+- The evidence to commit: survivor **passes both questions**
+- And passes the **so-what** test
+- A good question **finished** beats a brilliant one unfinished
+- Never committing is **as fatal** as a bad question
+
+::: notes
+Tie it to commitment. Once you have run your own furnace, what is the evidence that would make you stop shopping for a better idea and commit? It is that the survivor passes both questions — there is clean variation, and you can measure and get the data — and that it passes the so-what test, with both answers mattering to someone. When that is true, you stop looking and start building. A good question you finish beats a brilliant one you do not. And here is the symmetric danger: the inability to ever commit is just as fatal to a five-week project as a bad question. Endless shopping for the perfect idea is itself a way to fail, because the furnace is supposed to end with a fire you tend, not an empty grate.
+:::
+
+## Write the Kill-or-Commit Memo
+
+- Run **every candidate** through the furnace, in writing
+- **So-what both ways**; **fatal-flaw scan**; **name the variation**
+- **Kill one** on purpose — why, and what would have saved it
+- **Commit to one** in the conventions section-four format
+- Outcome, treatment, controls, fixed effects, clustering, sample
+- Plus the **identifying assumption** and a one-line **runner-up**
+
+::: notes
+Your reflection prompt is the kill-or-commit memo. Lay the three or four candidates on the table and run each through the furnace, in writing. For every candidate: do the so-what both ways, and mark it inert if you cannot fill in both halves; run the fatal-flaw scan and name the single flaw most likely to kill it, fatal or fixable; and for each survivor, name where the identifying variation comes from — a cutoff, a dated policy, a clean event, a non-fundamental shock — or admit it is descriptive, not causal. Then make the decision the memo exists for: kill at least one candidate on purpose, with one sentence on why and one on what would have saved it — and commit to one in the conventions section-four format: outcome, treatment, controls, fixed effects, clustering, sample, identifying assumption, plus a one-line runner-up. Be ruthless about sunk cost. That closes Week Seven's mentor session. The question that is the whole point of today, and the first thing I will ask in Phase Two, is simply: what did you consider and reject, and why?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Decide with two questions — *where's the clean variation? can I get it?* — then **kill at least one candidate on purpose** and **commit to one** in the section-four spec format (outcome · treatment · controls · fixed effects · clustering · sample · identifying assumption), with a runner-up. Never committing is as fatal as a bad question.
+:::
+
+::: notes
+To close the session and the lesson: decide every candidate with the two questions that decided all of mine — where is the clean variation, and can I measure and get it. Then kill at least one on purpose, with one sentence on why and one on what would have saved it, and commit to one in the conventions section-four format, with a runner-up in reserve. Remember that never committing is as fatal as a bad question. That is the whole skill of today: generating many ideas, killing most without grief, committing hard to one, and knowing the difference between a project that is merely hard and one that is dead. Bring your memo next week.
+:::

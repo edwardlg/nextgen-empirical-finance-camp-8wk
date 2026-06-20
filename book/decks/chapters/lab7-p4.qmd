@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The GitHub Classroom Workflow
+
+- Part 4 — accept, clone, and the commit-push loop
+
+::: notes
+Welcome back to Lab Seven, your data reproducibly, part four of ten. In part three we scaffolded the repository layout. Now we connect it to GitHub through Classroom: you accept an assignment, clone it, live in the commit-and-push loop, and learn exactly what the instructor sees on the other side.
+:::
+
+## Accept the Classroom Assignment
+
+- You **accept an assignment**, not create a repo from scratch
+- Classroom makes a **private** repo, pre-seeded with the template
+- It gives you write access, the instructor read access
+- Already linked to the grading roster — no email hand-in
+- **The repository is the submission**
+
+::: notes
+In this camp you do not create your repository on GitHub from scratch — you accept an assignment through GitHub Classroom, which creates a private repository pre-seeded with the template and connected to the instructor's roster. Prof. Gao posts an assignment link. You click it, authorize Classroom, and pick your name from the roster so your repo is tied to you. Classroom then creates a private repository inside the camp's organization, copies in the template, and gives you write access and the instructor read access. The key facts: the repo is private — only you and the teaching staff can see it, important because it may reference licensed data and holds your in-progress plan — it is yours to commit to, and it is already linked to the grading roster, so you never hand anything in by email. The repository is the submission.
+:::
+
+## Clone, Then the Commit-Push Loop
+
+- `git clone <url>` to where you work, then `cd` in
+- Make changes → **stage** specific files → **commit** → **push**
+- `git add README.md data-cards/fred.md` — name files, not `git add .`
+- A commit is a snapshot with a message and timestamp
+- Commit **often**, in **meaningful units** — "Add FRED data card"
+
+::: notes
+Once Classroom has made your repo, clone it to the machine where you work — the camp container, or GMU infrastructure if you touch licensed data — and change into it. Then the rhythm of the whole capstone: you make changes, stage what you want to record, commit it with a message, and push it to GitHub so it is backed up and visible. A commit is a snapshot with a message and a timestamp; a push uploads your local commits to the remote. Commit often and in meaningful units — "Add FRED data card," not "stuff" — because your commit history is a narrative of how the project was built, and it is the very thing that date-stamps your plan later. Prefer staging specific files by name over a blind git add dot, because the blind form is exactly how people accidentally stage a two-gigabyte CRSP file or a secrets file full of keys. Staging deliberately is the first line of defense.
+:::
+
+## The Instructor View
+
+- Prof. Gao sees your **pushed commits**, not your laptop
+- Dashboard: one row per student, latest commit time, check status
+- He can read history, open any file at any commit, clone and run
+- This is why "the repo is the deliverable" is literal
+- **Never push licensed data or secrets** — history keeps them forever
+
+::: notes
+On the other side, Prof. Gao does not see your laptop — he sees your pushed commits on GitHub. Through the Classroom dashboard he sees one row per student, with the latest commit time and the status of any automated checks. When you push, he can read your commit history — so he can see when you filed your plan relative to your first regression, the whole point of the tagging step — open any file at any commit, leave review comments, and clone your repo to run it. This is why "the repo is the deliverable" is literal: there is no separate upload. What you push is what is graded, and the history of how you got there is part of what is graded. The corollary is the discipline this whole lab is about: never push licensed data or secrets, because once a file is in a pushed commit it is in the history forever — even if you delete it later, the instructor and GitHub's servers already have it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+You **accept** a private Classroom repo — pre-seeded, roster-linked, **the submission itself** — then clone and live in the **stage → commit → push** loop, always staging by name. The instructor sees your pushed history forever, which is exactly why **secrets and licensed data must never enter a commit**. Next: pin the environment.
+:::
+
+::: notes
+To summarize part four: you accept a private Classroom assignment rather than building a repo from scratch — pre-seeded with the template, linked to the grading roster, and itself the submission, so there is no separate upload. You clone it and live in the stage, commit, push loop, always staging files by name and committing in meaningful units that narrate how the project was built. And you know what the instructor sees: your pushed history, forever, which is exactly why secrets and licensed data must never enter a commit. In part five we begin making the project reproducible — why pinning the environment matters, and writing the conda environment file.
+:::

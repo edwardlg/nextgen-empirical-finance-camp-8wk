@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Naive Estimator and the Decomposition Trick
+
+- Part 5 — translating the naive gap into potential outcomes
+
+::: notes
+Welcome back to potential outcomes, part five of eleven. In part four we named three estimands — the ATE, the ATT, the LATE. Now we do the central derivation of the chapter: take Maya's naive difference in means and start translating it into the language of potential outcomes. We set up the one algebraic trick — add and subtract the missing counterfactual — that splits her number into honest pieces. Do this once carefully and the rest of causal inference clicks into place.
+:::
+
+## What Maya Actually Computed
+
+- $\widehat{\Delta} = \overline{Y}_{D=1} - \overline{Y}_{D=0} = 0.62 - 0.41 = 0.21$
+- Targets the **naive difference in means** $\Delta$
+- $\Delta = \mathbb{E}[Y_i\mid D_i=1] - \mathbb{E}[Y_i\mid D_i=0]$
+- Every "users who did X had higher Y" headline reports this
+- The question: when does $\Delta$ equal a causal effect?
+
+::: notes
+Back to Maya's twenty-one points. What did she actually compute? She took the average observed outcome among enrollees, zero-point-six-two, and subtracted the average among non-enrollees, zero-point-four-one, getting zero-point-two-one. In population terms her estimator targets the naive difference in means, capital Delta — the expected observed outcome given D equals one, minus the expected observed outcome given D equals zero. This is the quantity every spreadsheet, every dashboard, every users-who-did-X-had-higher-Y headline reports. The question that decides whether it means anything is: when does Delta equal a causal effect? To answer, we translate Delta from the language of observed outcomes into the language of potential outcomes, and the answer falls out as an exact decomposition.
+:::
+
+## The Add-and-Subtract Trick
+
+- Observation rule, treated: $\mathbb{E}[Y_i\mid D_i{=}1]=\mathbb{E}[Y_i(1)\mid D_i{=}1]$
+- Observation rule, untreated: $\mathbb{E}[Y_i\mid D_i{=}0]=\mathbb{E}[Y_i(0)\mid D_i{=}0]$
+- So far exact, assumption-free — just the rule applied twice
+- Add and subtract $\mathbb{E}[Y_i(0)\mid D_i{=}1]$ — the treated's counterfactual
+- Regroup four terms into two honest pairs
+
+::: notes
+Begin with the two terms. Among the treated, the observation rule says the observed Y equals Y-of-one, so the expected observed outcome given D equals one is the expected value of Y-of-one given D equals one. Among the untreated, the observed Y equals Y-of-zero, so the expected observed outcome given D equals zero is the expected value of Y-of-zero given D equals zero. Therefore Delta equals the expected Y-of-one among the treated, minus the expected Y-of-zero among the untreated. So far this is exact and assumption-free — just the observation rule applied twice. Now comes the one trick of the derivation, the same add-and-subtract-zero move you have seen before. We want the ATT to appear — the expected difference of Y-of-one and Y-of-zero among the treated. The ATT needs the expected value of Y-of-zero among the treated, that missing counterfactual from part four. It is nowhere in Delta. So we conjure it by adding and subtracting it: add the expected Y-of-zero given D equals one, and subtract the same thing — a net change of zero. Then group the four terms into two honest pairs, which we assemble in the next part.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Maya's naive difference $\Delta = \mathbb{E}[Y_i\mid D_i{=}1] - \mathbb{E}[Y_i\mid D_i{=}0]$ translates exactly into potential outcomes via the observation rule. The one trick: **add and subtract** the treated's missing counterfactual $\mathbb{E}[Y_i(0)\mid D_i{=}1]$, so the ATT can appear. Next: the master decomposition it produces.
+:::
+
+::: notes
+To summarize part five: Maya's naive difference in means, capital Delta, is the difference in observed average outcomes between enrollees and non-enrollees — the quantity every dashboard reports. Using the observation rule twice translates it exactly into potential outcomes, with no assumptions yet. Then the single trick of the whole derivation is to add and subtract the treated group's untreated counterfactual — the expected Y-of-zero among the treated — so that the ATT can appear in the algebra. In part six we finish the grouping and read off the master decomposition: the naive difference equals the ATT plus a selection-bias term. And then we put Maya's real numbers through it.
+:::

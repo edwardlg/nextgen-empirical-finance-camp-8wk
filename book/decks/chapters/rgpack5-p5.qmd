@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Reading a Finance Table: Fixed Effects and the SE Note
+
+- Part 5 — fixed-effects switches, bottom-row checks, the SE note
+
+::: notes
+Welcome back to How to Read an Empirical Paper, part five of seven. In part four we read the top of the mock default table — columns as specifications, cells as coefficients over standard errors, and the stars. Now we finish it from the middle down: the fixed-effects switches, the bottom-row reality checks, and the one note that decides whether the t-statistics are honest.
+:::
+
+## Fixed-Effects Rows Are Yes/No Switches
+
+- These rows report **inclusion**, not numbers
+- You would never print four hundred lender intercepts
+- "Yes" absorbs everything fixed about each lender and year
+- The demeaning of Chapter 2.3; two-way FE of Chapter 4.1
+- They tell you what variation actually **identifies** the coefficient
+
+::: notes
+The fixed-effects rows — here "Lender fixed effects" and "Year fixed effects" — do not report numbers; you would never print four hundred lender intercepts. They report whether that set of absorbed effects was included. A "Yes" in column three means the regression contains one intercept per lender and one per year, soaking up everything fixed about each lender and everything common to each year — the demeaning you met in Chapter two-point-three and the two-way fixed effects of Chapter four-point-one. These Yes-or-No rows are how a table tells you what variation actually identifies the coefficient. With lender fixed effects switched to Yes, debt-to-income's effect is identified within lender — off variation across that single lender's own borrowers.
+:::
+
+## The Bottom Rows Are the Reality Check
+
+- $N$ is the number of observations — watch it across columns
+- If $N$ *drops* when a control is added, the sample silently changed
+- That can move coefficients for reasons unrelated to the control
+- $R^2$ is the share of variance explained
+- Small $R^2$ like $0.04$ is normal in cross-sectional finance
+
+::: notes
+The bottom rows are the reality check. Capital N is the number of observations — watch it across columns, because if N drops when a control is added, that control is missing for some observations and the sample silently changed, which can move coefficients for reasons that have nothing to do with the control. R squared is the share of variance explained; in cross-sectional finance it is often small — zero-point-zero-four here — and that is normal and not damning. And note: in a first-stage instrumental-variables table the relevant bottom-row statistic is instead the first-stage F.
+:::
+
+## The Standard-Error Note Is Load-Bearing
+
+- Read it **first**, not last
+- "Clustered by lender" lets each lender's residuals correlate
+- That single phrase decides whether the t-stats are honest
+- Panel data with "robust" or silent? Be suspicious
+- Un-clustered SEs on panels: the BDM disease — too small
+
+::: notes
+Finally, the standard-error note is load-bearing — read it first, not last. "Standard errors clustered by lender" tells you the authors let each lender's residuals correlate, the lesson of Chapter two-point-four and the Petersen paper you read this week. That single phrase decides whether the t-statistics are honest. If the data are a panel and the note says "robust" or is silent, be suspicious: un-clustered standard errors on persistent panel data are exactly the Bertrand, Duflo, and Mullainathan disease — too small, with t-statistics inflated. Always locate the standard-error note and ask: clustered by what, and is that the level at which the key variable varies?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Fixed-effects rows are **Yes/No switches** that reveal what variation identifies the coefficient. Watch $N$ across columns — a drop means the sample silently changed. And read the **standard-error note first**: clustered by what, and at the level the key variable varies? Un-clustered SEs on panels are too small.
+:::
+
+::: notes
+To summarize part five: the fixed-effects rows are Yes-or-No switches that tell you what variation identifies the coefficient — with lender fixed effects on, the effect is identified within each lender. The bottom rows are the reality check: watch capital N across columns for a silent sample change, and read R squared in context, where a small value is normal in cross-sectional finance. And the standard-error note is load-bearing — read it first and ask whether the clustering matches the level at which the key variable varies, because un-clustered standard errors on panel data are the Bertrand, Duflo, and Mullainathan disease, too small and t-statistics inflated. In part six we close the pack with the self-check rubric and the road to your capstone.
+:::

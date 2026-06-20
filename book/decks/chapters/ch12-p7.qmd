@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## Correlation as a Cosine
+
+- Part 7 — centered variables are vectors; correlation is cosine
+
+::: notes
+Welcome back to Chapter one-point-two, Expectations, Variance, and Covariance as Geometry, part seven of nine. In part six we found Maya's minimum-risk blend and saw risk hinge entirely on the covariance. Now comes the reveal that reorganizes the whole subject. Random variables, once centered to mean zero, behave exactly like vectors in an inner-product space. Covariance is the inner product, variance is squared length, standard deviation is length, and correlation is the cosine of the angle between two variables. Uncorrelated becomes perpendicular.
+:::
+
+## The Dictionary
+
+- Center each variable: $\tilde{X} = X - \mathbb{E}[X]$
+- Covariance is **bilinear and symmetric** — the inner-product axioms
+
+| Vector world | Random-variable world |
+|---|---|
+| inner product $\langle \mathbf{u}, \mathbf{v}\rangle$ | $\operatorname{Cov}(X, Y)$ |
+| squared length $\lVert \mathbf{u}\rVert^2$ | $\operatorname{Var}(X)$ |
+| length $\lVert \mathbf{u}\rVert$ | $\operatorname{sd}(X)$ |
+| cosine | correlation $\rho_{XY}$ |
+| perpendicular | uncorrelated |
+
+::: notes
+Here is the dictionary. Recall from geometry that for two ordinary vectors, the dot product equals the product of their lengths times the cosine of the angle between them, and the dot product is bilinear and symmetric. Look back at part three: covariance is also bilinear and symmetric, and the covariance of X with itself is the variance, which is never negative — that plays the role of a vector dotted with itself being its squared length. Those are precisely the axioms of an inner product. So we set up the dictionary by centering each variable: X tilde is X minus its mean. The inner product corresponds to covariance. Squared length corresponds to variance. Length corresponds to standard deviation. The cosine corresponds to correlation. And perpendicular — cosine equal to zero — corresponds to uncorrelated. Centering is the only setup step; once variables have mean zero, the entire geometry of vectors carries over, symbol for symbol.
+:::
+
+## Correlation Is the Cosine
+
+- $\rho_{XY} = \dfrac{\operatorname{Cov}(X,Y)}{\operatorname{sd}(X)\,\operatorname{sd}(Y)} = \dfrac{\sigma_{XY}}{\sigma_X \sigma_Y}$
+- Covariance rescaled so units cancel — a pure number in $[-1,1]$
+- $\rho = 1$: same direction, $\theta = 0^\circ$; $\rho = -1$: opposite, $180^\circ$
+- Uncorrelated: $\theta = 90^\circ$ — geometrically **perpendicular**
+- "Uncorrelated" and "orthogonal": same word, two languages
+
+::: notes
+That last row of the dictionary gives the definition of correlation: it is covariance rescaled by the two standard deviations, so the units cancel and only the shape of the relationship survives. Correlation, rho, equals the covariance of X and Y divided by the product of their standard deviations. Because it is a cosine, it is a pure number between minus one and one, and the angle theta between the two variables satisfies cosine theta equals rho. Two perfectly correlated variables, rho equals one, point the same way, angle zero. Two perfectly anti-correlated variables, rho equals minus one, point opposite, angle one hundred eighty degrees. Uncorrelated variables sit at ninety degrees — geometrically perpendicular. Uncorrelated and orthogonal are the same word in two languages, and this is not an analogy to file away as cute. It is the engine of Week Two: ordinary least squares works by projecting the outcome onto the space spanned by the regressors and keeping the perpendicular residual, and perpendicular there means exactly uncorrelated here.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Centered random variables **are vectors**: covariance is the inner product, variance is squared length, $\operatorname{sd}$ is length, and **correlation is the cosine** of the angle. Uncorrelated means perpendicular — the same word as orthogonal, the engine of Week 2's regression. Next: why $\lvert\rho\rvert\le 1$ is Cauchy–Schwarz.
+:::
+
+::: notes
+To summarize part seven: once you center random variables to mean zero, they behave exactly like vectors. Covariance is the inner product, variance is squared length, standard deviation is length, and correlation is the cosine of the angle between two variables. Correlation is covariance rescaled by the two standard deviations, so it is a pure number between minus one and one. Uncorrelated means perpendicular — the same word as orthogonal — and that equivalence is the engine of next week's regression, which keeps a residual perpendicular to the regressors. In part eight, we see that the fact correlation never exceeds one in size is nothing other than the Cauchy–Schwarz inequality, and we prove it with a non-negative parabola.
+:::

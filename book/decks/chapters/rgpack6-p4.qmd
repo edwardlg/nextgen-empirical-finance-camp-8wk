@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## RAG: Answering a Query and Its Failure Modes
+
+- Part 4 — answer a query online; meet RAG's three failure modes
+
+::: notes
+Welcome back to when the data is words, part four of ten. In part three we built the offline RAG index — chunk, embed, store. Now we go online and answer a question against that index, then we meet the three ways RAG breaks. Remember the discipline that frames the whole tool: an answer you cannot trace to a source is an answer you cannot use in a research paper.
+:::
+
+## Answer a Query: Retrieve, Stuff, Cite
+
+- **Retrieve top-k:** embed the question, find the closest chunks
+- Typically 3 to 10 passages — your evidence
+- **Stuff:** system instruction + chunks-with-IDs + the question
+- "Answer only from the context; if absent, say so"
+- **LLM cites** the chunk per claim — now the answer is checkable
+
+::: notes
+When a question arrives, you embed the question with the same model, then ask the store for the k chunks whose vectors are closest — highest cosine similarity — to the question vector. Those k passages, typically three to ten, are your evidence. Then you stuff one prompt: a system instruction that says answer only from the context below, and if the answer is not there, say so; the retrieved chunks with their source IDs; and the user's question. The model never sees the whole corpus, only the handful of passages retrieval judged relevant. Finally, because each chunk carries an ID, you instruct the model to cite the chunk it used for each claim. Now an answer is checkable: you can open the cited filing and verify the sentence is really there.
+:::
+
+## Three Failure Modes
+
+- **Bad chunking:** a fact split across two chunks, or topics blurred
+- **Retrieval miss:** "litigation exposure" vs "legal proceedings"
+- **Model ignores context:** confident wrong answer from training
+- That last is **hallucination** — the cardinal sin of LLM research
+- These are not rare — expect every one of them
+
+::: notes
+The failure modes, and they are not rare. Bad chunking: cut the text mid-table or mid-sentence and the relevant fact is split across two chunks, so neither alone is retrievable; or chunk so coarsely that one passage mixes five topics and dilutes the signal. Retrieval miss: the right passage exists but its vector is not near the question's — the question says litigation exposure, the filing says pending legal proceedings, and the embedding model fails to bridge them — so the model answers from an irrelevant chunk or from its own memory. The model ignores the context: even with the right passage in the prompt, the model can override it with a confident wrong answer from training, or answer a question the context does not support rather than admitting the gap — the hallucination Chapter six-point-five warns is the cardinal sin of LLM research.
+:::
+
+## The Defense: Validate
+
+- Spot-check that retrieved chunks are actually **relevant**
+- Confirm cited passages actually **say** what the answer claims
+- **Never** report a RAG answer you have not traced to its source
+- Same discipline as the rest of this book
+- A checkable answer is the only answer a paper can use
+
+::: notes
+The defense against all three failure modes is the same discipline as the rest of this book: validate. Spot-check that the retrieved chunks are actually relevant to the question. Confirm that the cited passages actually say what the answer claims. And never report a RAG answer you have not traced to its source. Notice this is exactly the skepticism you bring to a measurement paper, pointed at your own tool. The retrieval step is a measurement of relevance, the citation is your evidence, and an answer you cannot check is an answer you cannot use. RAG does not free you from validation; it gives you something concrete to validate.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+To answer a query: **retrieve** the top-k chunks, **stuff** them into a grounded prompt, and have the model answer with **citations**. The three failure modes — bad chunking, retrieval miss, ignored context — all yield to one discipline: **validate**. Next: the prompt patterns themselves.
+:::
+
+::: notes
+To summarize part four: answering a RAG query is three online steps — embed the question and retrieve the top-k nearest chunks, stuff them into a prompt with source IDs and an instruction to answer only from the context, and have the model cite each claim so you can check it. Three failure modes lurk: bad chunking that splits or blurs a fact, retrieval miss when the embedding fails to bridge synonyms, and the model ignoring the context to hallucinate a confident wrong answer. The single defense is to validate — spot-check the retrievals, confirm the citations, and never report an untraced answer. In part five we write the prompts themselves, a catalog of patterns that constrain the output and demand grounding.
+:::

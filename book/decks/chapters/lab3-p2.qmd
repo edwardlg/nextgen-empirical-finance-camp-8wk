@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Rigged DGP and the OLS Bias
+
+- Part 2 — build the rigged DGP; show OLS bias
+
+::: notes
+Welcome back to the weak-instrument lab, part two of six. In part one we framed the mission: build a world where you know the truth and check, reading averages over many draws rather than one. Now we construct that world — an endogenous regressor with a tunable instrument — and confirm the first disease by showing that ordinary least squares is biased.
+:::
+
+## The Structural Equation
+
+- $y = \beta x + u$, with $\beta = 0$ exactly
+- True effect zero: any nonzero estimate is **pure bias**
+- $x = \pi z + c\,u + v$ makes $x$ endogenous
+- $z$, $u$, $v$ are independent standard normals
+- $\pi$ is first-stage strength; $c$ is endogeneity strength
+
+::: notes
+Build the world from Chapter three-point-five, rigged so everything that can go wrong is something you chose and can measure. The structural equation is the cleanest possible: y equals beta times x plus u, with beta set to exactly zero. The true effect is exactly zero. That is deliberate — with beta equal to zero, any nonzero estimate you ever see is pure bias, with no real signal to confuse it. Now make x endogenous and the instrument valid but tunably weak: x equals pi times z, plus c times u, plus v. The instrument z, the structural error u, and the idiosyncratic noise v are independent standard normals. The coefficient pi is the first-stage strength — the knob you will turn. The coefficient c is the endogeneity strength.
+:::
+
+## Why Each Term Matters
+
+- Same $u$ in $x$ (via $c\,u$) and $y$ (as error)
+- That shared shock makes OLS biased
+- Since $\beta=0$, outcome is literally $y = u$
+- So $z$ touches $y$ *only* through $x$
+- **Exclusion holds by construction** — we test weakness, not invalidity
+
+::: notes
+Read every term. Because the same u appears in both x — through c times u — and in y as the error, x is correlated with the structural error, so ordinary least squares will be biased. And notice what is not in the outcome equation: the instrument z never enters it. Since beta is zero, the outcome is literally y equals u, so z touches y only through x. Exclusion holds by construction. We are testing weakness, not invalidity — you isolate one disease at a time. In code, the simulate function draws z, u, and v as standard normals, forms x as pi times z plus endog times u plus v, and forms y as beta-true times x plus u. The settings: sample size four hundred, weak pi of zero-point-zero-seven, strong pi of zero-point-eight, endogeneity of two, and true beta of zero.
+:::
+
+## Step 2 — Confirm the OLS Bias
+
+- Regress $y$ on $x$ by ordinary least squares
+- $x$ shares shock $u$ with $y$ $\Rightarrow$ slope misses zero
+- On this seed, OLS slope $\approx +0.40$ vs truth $0$
+- Strong positive endogeneity drags the slope up
+- Keep $+0.4$ in mind: "the bias we are trying to escape"
+
+::: notes
+Before touching instrumental variables, confirm the disease. Regress y on x by ordinary least squares. Because x shares the shock u with y, the O.L.S. slope will not recover the true zero — it lands well above it, biased upward by the endogeneity. This is the bias-and-consistency ledger of Chapter two-point-five made concrete: a correlated variable sits in the error, so the expected error given x is not zero, and ordinary least squares is inconsistent. On this seed the single-draw O.L.S. slope is about plus zero-point-four-zero against a truth of zero. Do not over-read one draw, but the sign and rough size are no accident. With the endogeneity coefficient at two, the effect is strong and positive, so O.L.S. is dragged up. This is precisely the number I.V. is supposed to fix. Keep plus zero-point-four in your head as the bias we are trying to escape, because the punchline is that a weak instrument hands a big chunk of it right back. Trace the sign: x and u are positively related, and u is the error in y, so the regression mistakes high u for high x causing high y.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The DGP plants two things: the **endogeneity** term $c\,u$ (the same shock sits in $y$, so OLS is biased) and the **relevance** term $\pi z$ (so IV is even possible). With $\beta=0$, exclusion holds for free. OLS then lands near $+0.40$ against a truth of $0$ — pure bias. Next: instrument it by hand and watch 2SLS sit between OLS and the truth.
+:::
+
+::: notes
+To summarize part two: the data-generating process plants exactly two things you can point to. The endogeneity term, c times u, puts the same shock in both x and y, so ordinary least squares is biased. The relevance term, pi times z, makes the instrument shove x, so instrumental variables is even possible. Because beta is zero, exclusion holds for free — the instrument never enters the outcome directly. Ordinary least squares then lands near plus zero-point-four-zero against a truth of zero: pure bias, the disease I.V. promises to cure. In part three we instrument by hand, build just-identified two-stage least squares from the projection formula, and watch a single draw swing wildly.
+:::

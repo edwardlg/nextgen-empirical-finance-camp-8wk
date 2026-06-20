@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## Power Made Concrete
+
+- Part 6 — how often Sam's test catches a real edge
+
+::: notes
+Welcome back to Hypothesis Testing Done Right, part six of fourteen. In part five we defined size and power and the four levers that move them. But power stays abstract until you compute it, so in this part we do exactly that — we work out how often Sam's test would actually catch a real edge, and the answer explains why a short backtest proves so little.
+:::
+
+## Catching a Real Edge
+
+- Suppose true edge $\mu=0.05\%$, $\sigma=0.75\%$, $N=252$
+- True mean sits $0.05/0.0473\approx1.06$ std errors up
+- Rule fires when $t>1.65$
+- Power $=\Pr(Z>1.65-1.06)=\Pr(Z>0.59)\approx0.28$
+- A real edge caught only **28%** of the time
+- Nearly three times in four, it slips past
+
+::: notes
+Suppose the reversal rule's true edge is five basis points per day, with a standard deviation of seventy-five basis points. Over two hundred fifty-two days the standard error is about zero point zero four seven three percent, so the true mean sits five basis points over that standard error — about one point zero six standard errors above zero. The rejection rule, one-sided at alpha equals zero point zero five, fires when t exceeds one point six five. The probability of that, given the true mean, is the chance a normal centered at one point zero six exceeds one point six five — that is, the probability a standard normal exceeds one point six five minus one point zero six, which is zero point five nine. That probability is about zero point two eight. So a rule with a genuine five-basis-point daily edge would be detected only about twenty-eight percent of the time in a single year of data. That is low power: nearly three times in four, a real edge this size would slip past Sam's test unnoticed. The metal detector is sitting on treasure and staying silent.
+:::
+
+## What Eighty Percent Power Costs
+
+- $80\%$ power needs the true mean $2.485$ std errors up
+- That means $N\approx1{,}390$ days — about **5.5 years**
+- Two-sided test raises the bar to $2.80$ std errors
+- Pushes it to $N\approx1{,}760$ days — about **7 years**
+- Sam's $t=1.69$ clears $1.65$ — but only barely
+
+::: notes
+How much data would Sam need to fix this? To reach eighty percent power for the same effect with this one-sided test, the true mean would have to sit about two point four eight five standard errors above zero — that is the critical value one point six four five plus the eighty-percent margin of zero point eight four. Working backward through the standard error, that requires roughly one thousand three hundred ninety days of data: about five and a half years. And if Sam insists on a two-sided test instead, the bar rises to one point nine six plus zero point eight four, about two point eight standard errors, pushing the requirement to roughly one thousand seven hundred sixty days — about seven years. This is exactly the kind of arithmetic a power analysis produces before you commit to a study, and it explains why a non-rejection from a short backtest proves so little. Now, Sam's actual t of one point six nine does exceed the one-sided critical value of one point six five, so the rule clears the alpha equals zero point zero five bar — but barely. Before celebrating, notice how marginal barely is, and ask the question we have been deferring: exactly how surprising is one point six nine?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A genuine $0.05\%$ daily edge would be caught only $\approx28\%$ of the time in one year — *low power*. Reaching $80\%$ power needs $N\approx1{,}390$ days (~5.5 years), or $\approx1{,}760$ two-sided. A quiet backtest proves little. Sam's $t=1.69$ clears the bar, but barely. Next: which tail does the rejection region sit in?
+:::
+
+::: notes
+To summarize part six: power becomes real only when you compute it. For Sam, a genuine five-basis-point daily edge would be detected only about twenty-eight percent of the time in a single year — nearly three chances in four that a real signal slips past. To reach the conventional eighty percent power for that same effect would take about one thousand three hundred ninety days, roughly five and a half years, and a two-sided test would push that to about seven years. The lesson is that a quiet backtest — one that fails to reject — proves almost nothing when power is this low. Sam's t of one point six nine does clear the one-sided bar of one point six five, but only just. In part seven we examine the choice that set that bar in the first place: which tail the rejection region sits in, one-sided versus two-sided.
+:::

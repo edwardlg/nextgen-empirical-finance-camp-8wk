@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Working the Numbers: Rustville and Finchester
+
+- Part 4 — the share-weighted arithmetic for two regions
+
+::: notes
+Welcome back to Week Four-point-five, part four of twelve. In part three we wrote the instrument as the share-weighted sum of national shifts and read it as a forecast. Now we make it fully concrete by working the arithmetic for two of Maya's regions, Rustville and Finchester, which started the period with very different industrial DNA. Watch how the shares do all the work.
+:::
+
+## Two Regions, Three Industries
+
+| Industry | Shift $g_j$ | Rustville $s_{rj}$ | Finchester $s_{rj}$ |
+|---|:---:|:---:|:---:|
+| Auto | $-8\%$ | $0.60$ | $0.05$ |
+| Finance | $+3\%$ | $0.10$ | $0.55$ |
+| Retail | $-1\%$ | $0.30$ | $0.40$ |
+
+- Same national shifts hit both regions
+- Different **industrial DNA** at baseline
+
+::: notes
+Take a stripped-down example with three industries. Look at the table. The national shifts are the same for both regions: auto down eight percent, finance up three percent, retail down one percent. What differs is the shares. Rustville is sixty percent auto, ten percent finance, thirty percent retail. Finchester is just five percent auto, fifty-five percent finance, forty percent retail. Same national weather; very different exposure to it. Rustville's industrial DNA is built on autos; Finchester's is built on finance.
+:::
+
+## Working the Arithmetic
+
+- $B_{\text{Rust}} = (0.60)(-8\%) + (0.10)(3\%) + (0.30)(-1\%) = -4.8\%$
+- $B_{\text{Finch}} = (0.05)(-8\%) + (0.55)(3\%) + (0.40)(-1\%) = +0.85\%$
+- Only the **shares** distinguish the two predictions
+- $B_r$ needs **both** to vary: share dispersion **and** shift dispersion
+
+::: notes
+Now the arithmetic. Rustville's predicted shock: zero-point-six times minus eight percent, plus zero-point-one times three percent, plus zero-point-three times minus one percent. That is minus four-point-eight, plus zero-point-three, minus zero-point-three — minus four-point-eight percent. Finchester's predicted shock: zero-point-zero-five times minus eight, plus zero-point-five-five times three, plus zero-point-four times minus one. That is minus four-tenths, plus one-point-six-five, minus four-tenths — plus zero-point-eight-five percent. Rustville, leaning on autos in an auto downturn, should have been hit hard. Finchester, leaning on a growing financial sector, should have done fine. Notice the only thing distinguishing these two numbers is the shares — both regions saw identical national shifts. Hold that observation; it is the seed of the shares view. But the instrument needs both to vary. If every region had identical shares, B would be a constant and instrument nothing. If every industry grew at the same rate, B would again be a constant. Variation in B is born from the interaction of share dispersion and shift dispersion — and that is the seed of the shifts view.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Identical national shifts gave auto-heavy Rustville **minus four-point-eight percent** and finance-heavy Finchester **plus zero-point-eight-five percent** — the **shares** did all the work. But $B_r$ varies across regions only when **both** shares and shifts vary; kill either dispersion and the instrument goes constant. Those two facts are the seeds of the two identification views. Next: why this construction was invented.
+:::
+
+::: notes
+To summarize part four: with identical national shifts, the shares alone turned one set of shocks into two very different regional predictions — minus four-point-eight percent for auto-heavy Rustville and plus zero-point-eight-five percent for finance-heavy Finchester. That is the seed of the shares view. But remember the instrument varies across regions only when both shares and shifts vary; kill either dispersion and B goes flat and instruments nothing. That dependence on both ingredients is the seed of the shifts view. In part five we ask why this construction was invented at all — and the answer is the textbook simultaneity disease of Chapter Three-point-four, now in regional form.
+:::

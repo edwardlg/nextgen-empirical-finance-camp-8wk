@@ -31,3 +31,14 @@ data/
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+
+# Voice clone sample — sensitive; keep local
+assets/voice/*.m4a
+assets/voice/*.wav
+/_site/
+/_freeze/
+
+# rendered videos (large; on Hopper + YouTube)
+videos/clips/
+videos/*.mp4
+!videos/upload_manifest.csv

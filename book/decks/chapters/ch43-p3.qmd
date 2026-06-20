@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Continuity Assumption
+
+- Part 3 — the formal continuity assumption that identifies RD
+
+::: notes
+Welcome back to regression discontinuity, part three of seventeen. In part two we saw that near the cutoff, assignment is as good as a coin flip. Now we make that rigorous: the formal continuity assumption that identifies the design — and why it is weaker, and more checkable, than conditional independence.
+:::
+
+## State the Continuity Assumption
+
+- In potential-outcomes language from Chapter three-point-one
+- $\mathbb{E}[Y_i(1)\mid X=x]$ and $\mathbb{E}[Y_i(0)\mid X=x]$ continuous at $c$
+- Meaning: with no treatment, $Y$ evolves smoothly through $c$
+- Control-side units supply the missing counterfactual
+- Any jump we then see *must* be the treatment
+
+::: notes
+The formal version of local randomization is a continuity assumption, stated in potential-outcomes language from Chapter three-point-one. Let Y-sub-i-of-one and Y-sub-i-of-zero be unit i's potential outcomes under treatment and control. The identifying assumption of R-D is that the average potential outcomes are continuous functions of X at the cutoff. That is, the expected value of Y-of-one given X equals little-x, and the expected value of Y-of-zero given X equals little-x, are both continuous in x at x equals c. Read this carefully, because it is the whole game. It says: if no treatment had switched on at c, the outcome would have evolved smoothly through c with no jump. The untreated potential outcome — what would have happened to a just-barely-Russell-two-thousand stock had it stayed just-barely-Russell-one-thousand — is the same, in the limit, as what we observe on the other side. The control-side stocks supply the missing counterfactual. Any jump we then see must be the treatment.
+:::
+
+## Weaker Than CIA — and Checkable
+
+- C-I-A needed a *complete* pile of covariates everywhere
+- RD demands comparability only *in the limit, at the cutoff*
+- A smoothness condition, far weaker than no-confounders-everywhere
+- It leaves observable fingerprints when it fails
+- The price: RD identifies the effect only *at* $c$ — the ultimate LATE
+
+::: notes
+Note the elegant difference from conditional independence. The C-I-A of Week three demanded that treated and untreated units be comparable after conditioning on a big pile of covariates you hope is complete — a strong, untestable claim about the absence of unobserved confounders everywhere. R-D demands comparability only in the limit, exactly at the cutoff, and gets it from a smoothness condition that is far weaker and, as we will see later, leaves observable fingerprints when it fails. The price for this gift is the fine print: R-D only identifies the effect at the cutoff, for the local population sitting near c. It is the ultimate local average treatment effect — local in the most literal sense.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The identifying assumption is **continuity** of the potential-outcome means at $c$: with no treatment, the outcome would evolve smoothly through $c$, so any jump is the treatment. It is weaker than CIA and, unlike CIA, leaves checkable fingerprints — at the cost of a purely *local* effect. Next: sharp RD.
+:::
+
+::: notes
+To summarize part three: the identifying assumption of R-D is continuity of the potential-outcome means at the cutoff. With no treatment, the outcome would evolve smoothly through c, so the control side supplies the counterfactual and any jump must be the treatment. This is weaker than conditional independence and, unlike it, leaves checkable fingerprints — at the cost of identifying only the local effect at the cutoff. In part four we make this concrete with sharp R-D, where the cutoff flips treatment with certainty.
+:::

@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Inspect the Panel Before You Estimate
+
+- Part 5 — inspect the design and state identification first
+
+::: notes
+Welcome back to the Week Four lab, part five of ten. In part four you built the synthetic universe — ninety-six counties, staggered adoption, a planted dynamic effect, and a true mean average treatment effect near negative one-point-four-nine percentage points. Now, Step Two: before estimating anything, you look at the design and state the identification argument out loud — the habit that catches bad designs before the regression does.
+:::
+
+## Step 2 — Inspect Before You Estimate
+
+- **Look** at the design; state identification *out loud*
+- Tabulate counties per cohort; plot cohort means over time
+- Lines start bunched, drift down in parallel
+- Each adopting cohort peels below after its adoption year
+- The picture *is* the identification argument
+- Before adoption a cohort tracks the never-adopters; after, it separates
+
+::: notes
+Before estimating anything, look at the design and state the identification argument out loud. Tabulate counties per cohort, then plot the raw cohort-mean denial rates over time. What you expect: four lines that start bunched together and drift gently downward in parallel — that is the common trend — with each adopting cohort's line peeling further below the never-adopters after its adoption year, the building policy effect made visible. The picture is the identification argument in one image. Before a cohort adopts, its line tracks the never-adopters — the visible parallel pre-trend. After, it separates. The treatment is the state fair-lending policy; the outcome is the county denial rate; the parallel-trends story is that adopting counties would, absent the policy, have moved like the never-adopters — same downward drift, same shocks. Stating that out loud, before the regression, is what keeps a doomed design from looking respectable in a table.
+:::
+
+## What Threatens Parallel Trends
+
+- Anything hitting adopters *at the same time*, for other reasons
+- Reverse causation: a state adopts *because* rates were falling
+- A coincident state economic boom
+- A regional housing shock aligned with the adoption wave
+- The event study can spot a pre-existing divergence
+- But a clean pre-trend is **evidence, not proof**
+
+::: notes
+What threatens the parallel-trends story? Anything that hits adopting states' denial rates differently at the same time as the policy, for reasons other than the policy. A state that adopts fair-lending rules because its denial rates were already falling — that is reverse causation in the timing. A coincident state economic boom. A regional housing shock that happens to align with the adoption wave. The event study, in part seven, lets you look for the most detectable of these — a pre-existing divergence in the leads. But, as Chapter four-point-one insisted, a clean pre-trend is evidence, not proof. The post-period counterfactual never happened, so flat leads are reassuring without being decisive. You are about to manufacture both a clean panel and a broken one so you know the difference from the inside.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Before any regression, **inspect**: tabulate cohorts and plot cohort-mean denial rates. The picture — lines bunched and parallel, then each adopting cohort peeling below after adoption — *is* the identification argument. Name what threatens parallel trends: reverse causation, a coincident boom, a regional shock. A clean pre-trend is **evidence, not proof**. Next: run TWFE and watch it fail.
+:::
+
+::: notes
+To summarize part five: before estimating, inspect the design — tabulate counties per cohort and plot the cohort-mean denial rates. Those four lines, bunched and drifting down in parallel and then peeling apart after each adoption year, are the identification argument in one image. State it out loud: adopting counties would, absent the policy, have moved like the never-adopters. Then name what threatens that — reverse causation in the adoption timing, a coincident economic boom, a regional housing shock — and remember that a clean pre-trend is evidence, never proof, because the counterfactual never happened. In part six we run two-way fixed effects first and watch it land well short of the truth.
+:::

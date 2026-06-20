@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Q&A: Read the Question, Then "I Don't Know"
+
+- Part 6 — reading a question, then the first honest answer
+
+::: notes
+Welcome back to The Talk, the Poster, the Defense, part six of twelve. In part five we finished the eight-minute talk. The talk tests whether you can present the work; the questions test whether you can defend it, by a harder standard. The reveal: there are three honest answers to any hostile question, and a great defender uses all three on the same afternoon — I don't know; it's in the paper; and good point, here's what I did about it. In this part we cover how to read a question, and the first honest answer.
+:::
+
+## Read the Question, Then Pause
+
+- Read three signals before answering
+- **Who** asks — data, methods, or outsider
+- The **tone** before the content — curious, skeptical, hostile
+- The **first noun** is the target — standard errors, control group
+- By the sentence's end, your hand is at the backup slide
+- Then **pause** one breath, and classify into a bucket
+
+::: notes
+Before the answer comes the read. Questions arrive with a half-second of pre-context. First, who is asking — a data person asks about construction, a methods person about threats, an outsider about generalizability. Second, the tone before the content — curious rising, skeptical descending, hostile flat. Third, and most useful, the first noun, which is the question's target. Your standard errors attacks inference; your control group attacks the comparison; the mechanism asks for the story. By the time the sentence ends, your hand should be at the backup slide. Then pause — one breath, invisible to the room, long enough to classify the question into a bucket. There are eight buckets, from number-choice questions answered with a robustness pointer, through identification attacks, mechanism, generalization, motivation, data construction, methodology curiosity, and out-of-scope. Classification takes one second; the answer follows from the script.
+:::
+
+## "I Don't Know" — The Located Version
+
+- Admitting ignorance honestly **builds** credibility
+- Your other "I know"s become trustworthy by contrast
+- Four parts in order: the admission, plain and first
+- The locator — "that's outside what my design speaks to, because…"
+- The directional guess, flagged as a guess
+- The resolution — "what I'd want to do is…"
+
+::: notes
+The first honest answer is I don't know, in its located version. Admitting ignorance honestly — located, structured, and useful — builds credibility, because the rest of your I-know statements become trustworthy by contrast. It has four parts, in order. The admission, plain and first, before any qualifier. The locator: that is outside what my design can speak to, because. The directional guess, flagged clearly as a guess. And the resolution: what I would want to do is. One student, asked whether her fair-lending effect extends to auto loans, said: I don't know. My data is mortgages, and auto lending falls under a different supervisor, so I have no reason to think the mechanism applies the same way. My guess is the effect is smaller because scrutiny is lower, but I would not bet on the sign without re-running it on comparable auto-loan data. That is more credible than a confident yes, which is a bluff, or I can't comment, which is a refusal. Use it for generalization and out-of-scope questions.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Read every question by **who** asks, the **tone**, and the **first noun**, then pause and classify it into one of eight buckets. The first honest answer, **"I don't know"** — located, structured, useful — builds credibility because your other answers become trustworthy by contrast. Next: "It's in the paper" and "Good point."
+:::
+
+::: notes
+To summarize part six: read every question by who is asking, the tone before the content, and the first noun that names its target, then pause one breath and classify it into a bucket. The first of the three honest answers is I don't know, in its located version — admission first, then locator, then a flagged guess, then a resolution. Done honestly, it makes your other answers trustworthy by contrast, and you use it for generalization and out-of-scope questions. In part seven we cover the second and third honest answers: it's in the paper, and good point.
+:::

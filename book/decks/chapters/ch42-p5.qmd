@@ -1,0 +1,50 @@
+---
+date: "2026-06-22"
+---
+
+## Building the World Where the Sign Flips
+
+- Part 5 — the smallest two-state world, with the sign-flip data
+
+::: notes
+Welcome back to Chapter four-point-two, part five of twelve. In part four we saw where the trap is set: the fixed-effects sweep lets an already-treated unit serve as a control. Abstract warnings persuade no one, so now we build the smallest possible world in which the regression gets the sign wrong, with numbers you can check by hand. This is the example to keep in your pocket for the rest of your career.
+:::
+
+## Build the Smallest Broken World
+
+- Two states, eight years
+- State E (early) adopts year 2; State L (late) adopts year 5
+- By year 5 every state has the rule — **no never-treated group**
+- Effect builds: $-1$ first year, $-2$ second, $-3$ third…
+- Baselines equal, noise off — parallel trends holds perfectly
+
+::: notes
+Priya has two states and eight years. State E, for early, adopts the disclosure rule in year two. State L, for late, adopts in year five. By year five every state has the rule — so in this stylized world there is no never-treated group at all, which, you will see, is precisely the condition that lets the disaster run to completion. We construct the data so the policy unambiguously helps: disclosure lowers non-renewal rates, and helps by more the longer it has been in force. Write each state's outcome as a baseline plus a treatment effect that depends on event time — years since adoption. Let the per-period effect be minus one in the first treated year, minus two in the second, minus three in the third, and so on. To see the mechanism nakedly, set all baselines equal and turn off noise. The untreated outcome of every state is ten in every year, so parallel trends holds perfectly.
+:::
+
+## The Table — Every Effect Is Negative
+
+| Year | State E ($G{=}2$) | State L ($G{=}5$) |
+|:--:|:--:|:--:|
+| 2 | $9$ | $10$ |
+| 4 | $7$ | $10$ |
+| 5 | $6$ | $9$ |
+| 8 | $3$ | $6$ |
+
+- True average effect on the treated $\approx -3.5$
+- Any honest estimator should return a clearly **negative** number
+
+::: notes
+Look at the treated outcomes. State E starts at ten, then in year two its outcome is nine, in year four it is seven, and by year eight it has fallen to three — its effect deepening from minus one down to minus seven. State L stays at ten until year five, then drops to nine, and by year eight reaches six — effects of minus one through minus four. The policy helps both states in every treated year; every effect in the table is negative. The true average effect of treatment on the treated — averaging E's effects of minus one through minus seven and L's of minus one through minus four — is unambiguously and substantially negative, about minus three-point-five. Any honest estimator should return a clearly negative number.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Two states, eight years, **no never-treated group**, a *building* effect ($-1,-2,-3,\dots$), and parallel trends holding perfectly. Every treatment effect in the table is negative; the true average is about $-3.5$. Any honest estimator must return a clearly negative number. Next: TWFE returns a **positive** one.
+:::
+
+::: notes
+To summarize part five: we built the smallest world that can break the estimator. Two states, eight years. State E adopts in year two, State L in year five, so by year five every state has the rule and there is no never-treated group — the crucial condition. The effect builds: minus one in the first treated year, minus two the second, deepening from there. With equal baselines and no noise, parallel trends holds perfectly, and every treatment effect in the table is negative, averaging about minus three-point-five. Any honest estimator should return a clearly negative number. In part six, we run the two-way fixed-effects regression on these sixteen observations — and watch it come out the wrong sign, then trace exactly why.
+:::

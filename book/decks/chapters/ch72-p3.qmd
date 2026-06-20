@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Rule 3 — Pin, Cache, Log
+
+- Part 3 — the third rule and the `log_pull` helper
+
+::: notes
+Welcome back to Data Acquisition in Practice, part three of thirteen. In part two we covered the first two rules — secrets in the environment, and licensed data on G-M-U infrastructure. Now the third rule, the one that recurs for every source and makes a pull reproducible: pin, cache, and log. We then fold all three rules into a single helper used throughout the chapter.
+:::
+
+## Rule 3 — Pin, Cache, Log
+
+- **Pin a snapshot or date** — live data is re-stated and revised
+- A pull says "as it stood on" a date, not "the latest"
+- **Cache the raw data** — write the untouched response to disk
+- Downstream reads the cache, freezing the input
+- **Log the query** — URL or SQL, row count, content hash
+
+::: notes
+Rule three: a pull is reproducible only if it is pinned, cached, and logged. Three sub-rules that recur for every source. Pin a snapshot or date: live data changes — CRSP gets re-stated, Compustat backfills, FRED revises gross domestic product, firms refile amended ten-Ks, PatentsView updates quarterly. If "pull everything as of today" gives a different answer next month, your results are not reproducible. So you pin: a pull says not "the latest data" but "the data as it stood on a specific date." Cache the raw data: pull once, write the untouched response to disk, and have every downstream step read that cached file, never re-hitting the A-P-I — this freezes the input so a re-run gives identical numbers. Log the query: write down exactly what you asked for — the S-Q-L string, the A-P-I U-R-L, the date, the row count, and a hash of the result — so six months later, when a reviewer asks where a number came from, the log answers.
+:::
+
+## The log_pull Helper
+
+- One JSON line per pull: timestamp, source, query, sizes
+- Stores a **content hash** — `content_sha256` of the data
+- The query field holds the request, **never a key**
+- Same hash means byte-identical; a change means something moved
+- The data-acquisition twin of the API audit log
+
+::: notes
+We fold all three rules into a tiny helper used throughout the chapter, called log pull. Each time you pull, it appends one JSON line: a timestamp, the source name, the query string, the row and column counts, and a content hash — the S-H-A two-fifty-six of the data. Two things to notice. The query field stores the request, never a key — you log the U-R-L or the S-Q-L, with any key stripped, so the log is safe to commit even when the data is not. And the content hash is the trick that makes "did the data change?" a one-line check: if two pulls produce the same hash, they are byte-identical; if not, something upstream moved, and you want to know. This is the data-acquisition twin of the A-P-I audit log from Chapter six-point-five, and we will use it on every source ahead.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Rule 3:** a pull is reproducible only if it is **pinned** (a snapshot, not "the latest"), **cached** (downstream reads the frozen raw file), and **logged**. The `log_pull` helper records each pull as one JSON line — source, query without secrets, row count, and a content hash — so the request is on the record. Next: WRDS Cloud.
+:::
+
+::: notes
+To summarize part three: rule three is that a pull is reproducible only if it is pinned, cached, and logged. You pin a snapshot or date so the pull says what the data was as of when, not "the latest." You cache the untouched raw response and read from it downstream, freezing the input. And you log the query — with no secrets — along with the row count and a content hash, so the request is on the record and any change in the data is detectable. The log-pull helper folds all three into one JSON line per pull. In part four we apply this whole frame to the single most important source in empirical finance: WRDS Cloud, the front door to CRSP and Compustat.
+:::

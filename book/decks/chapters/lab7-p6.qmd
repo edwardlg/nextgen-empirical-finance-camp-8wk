@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Locking Versions, the README, and Data Cards
+
+- Part 6 — lock file, README, and data cards
+
+::: notes
+Welcome back to Lab Seven, your data reproducibly, part six of ten. In part five we wrote the conda environment file. Now we make it reconstructible to the patch by freezing a lock file, then make the repo legible with two documents a stranger can follow: a README and one data card per source.
+:::
+
+## Freeze the Exact Versions
+
+- The solver picks exact patch versions of every sub-dependency
+- `conda env export --no-builds > environment.lock.yml`
+- Commit **both**: `environment.yml` is intent, the lock is the record
+- A reviewer rebuilds byte-identical results from the lock file
+- `--no-builds` keeps it portable across container and Hopper
+
+::: notes
+Now the subtle, professional step: freeze the exact solved versions. The environment file pins Python and the majors, but conda's solver picks specific patch versions of every dependency when it installs. To make the environment reconstructible to the patch, export what the solver chose into a lock file with conda env export and the no-builds flag, and commit that alongside the human-readable one. The division of labor is deliberate. The environment file is the human-readable intent — these libraries, this Python — easy to edit. The lock file is the machine-exact record, every package at the version it resolved to, that makes a rebuild bit-for-bit. A reviewer who wants the friendly version reads the first; one who wants byte-identical results rebuilds from the second. The no-builds flag drops OS-specific build hashes so the lock file is portable across the camp container and Hopper. In one line: my results were produced under the lock file; rebuild that environment and you rebuild my numbers.
+:::
+
+## The README — What, Why, How-to-Run
+
+- Put `README.md` in the root — first thing GitHub shows
+- Answer three questions: **what**, **why**, **how-to-run**
+- Give exact commands: build env, set secrets, run the pull
+- It does **not** paste API keys — it tells you to `export` them
+- It points to data cards for what is public vs GMU-only
+
+::: notes
+A repository a stranger cannot understand is not reproducible in any sense that matters. Two documents make yours legible. First the README, in the repo root — the first thing GitHub shows and the first thing any reader reads. Keep it short and answer three questions: what is this project, why does it exist — the research question — and how do I run it, the exact commands. The how-to-run section lists building the environment, setting secrets via export, running the pull script that writes to data-raw, then building the dataset and running notebooks in order. Notice what the README does not do: it does not paste API keys — it tells you to export them — and it does not promise a reader can re-pull licensed data. It points them at the data cards, which are honest about what is public and what is GMU-only. The README is the map; the data cards are the territory.
+:::
+
+## A Data Card Per Source
+
+- One card under `data-cards/<source>.md` for **every** source
+- Six fields: coverage, identifiers, access, license, gotchas, pin
+- Same structure as Chapter seven-point-two — comparable at a glance
+- FRED card: series IDs, pull code, public license, vintage pin
+- Licensed sources add: *GMU-only, never committed*
+
+::: notes
+For every data source your project touches, write one card under data-cards. The card is the spec sheet you return to while coding, and it follows the same six-field structure Chapter seven-point-two used for every source, so cards are comparable at a glance. Take a FRED card. Coverage names the time series. Key identifiers is the series ID string. Access names the pull path — pandas-datareader, or a free-key route — and points to the pull function in source. License says public, and reminds you to cite the underlying source. Gotchas notes the rate limit and that many series are revised, so a point-in-time design needs a dated vintage. And the reproducibility pin records the pull date, the cached file, and the log entry with its content hash. For a licensed source the card adds the snapshot date and the non-negotiable line: licensed to GMU; analyzed only on GMU infrastructure; raw data never committed. The data card is where the abstract rule becomes a concrete sentence attached to a concrete file.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Freeze the solved versions into `environment.lock.yml` and commit **both** files — intent and exact record — so a rebuild is byte-identical. Then make the repo legible: a short README answering *what / why / how-to-run* (no pasted keys), and one **six-field data card per source**, with licensed sources marked *GMU-only, never committed*. Next: the `.gitignore`.
+:::
+
+::: notes
+To summarize part six: you froze the exact solved versions into a lock file and committed both — the environment file as human-readable intent and the lock file as the machine-exact record — so a referee can rebuild your numbers bit-for-bit. Then you made the repo legible with two documents: a short README answering what, why, and how-to-run with no pasted keys, and one data card per source carrying the same six fields, where licensed sources state GMU-only, never committed. In part seven we turn to the gitignore discipline that blocks licensed data and secrets.
+:::

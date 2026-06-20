@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## The Code and What to Carry Forward
+
+- Part 12 — the code in action and what to carry forward
+
+::: notes
+Welcome back to synthetic control, part twelve of twelve, our finale. In part eleven we combined synthetic control and difference-in-differences into synthetic difference-in-differences. Now we watch a self-contained code example confirm the whole pipeline, and end with the four ideas that will do real work for the rest of the camp.
+:::
+
+## A Self-Contained Synthetic Control
+
+- Simulated panel: 1 treated state, 30 donors, 2010–2022
+- Two latent factors drive premiums; a convex blend can span them
+- Inject a $+1.4$ premium jump from 2018 on
+- Convex weights via `scipy`'s SLSQP optimizer
+- Bounds enforce $w\ge 0$; equality forces $\sum w=1$
+
+::: notes
+The code makes it concrete, using only numpy, pandas, scipy, and matplotlib. We simulate a premium panel: one treated state plus thirty donors, two thousand ten through twenty-two, with T-naught at two thousand seventeen. Two latent factors drive premiums, a national trend and a cyclical climate factor, and each state loads on them differently, so a convex donor blend can span the structure. We place the treated state inside the donor range, then inject a plus one point four premium jump from two thousand eighteen onward. Convex weights come from scipy's S-L-S-Q-P optimizer, minimizing the pre-period sum of squared mismatch, with bounds enforcing non-negativity and an equality constraint forcing the weights to sum to one. A helper function builds the synthetic control for any unit from any pool and returns its gap path and its pre- and post-period root mean squared prediction errors, reused for the placebo loop.
+:::
+
+## What the Output Shows
+
+- Sparse weights; tiny pre-RMSPE near $0.035$
+- Post-RMSPE near $1.5$; ratio near $44$
+- Mean post gap about $1.5$ vs. true injected $+1.4$
+- Placebo $p=1/31\approx 0.032$; treated has the largest ratio
+- Delete the effect: rank falls into the crowd, $p\approx 0.16$
+- The method finds **nothing** when there is nothing
+
+::: notes
+Running it prints a sparse weight vector, where a handful of donors carry the synthetic control, a tiny pre-period root mean squared prediction error around zero point zero three five, a much larger post-period value near one point five for a ratio near forty-four, and a mean post-treatment gap of about one point five, close to the true plus one point four we injected. The placebo loop reruns the procedure on every donor, and the permutation p-value comes out one over thirty-one, about zero point zero three two, because the genuinely-treated unit lands as the single largest ratio. Two things to internalize. First, the estimate is a gap, not a coefficient with a textbook standard error; its credibility comes from the placebo rank, not a t-statistic. Second, if you delete the line that injects the effect and re-run, the treated unit's ratio falls back into the placebo crowd, rank about five of thirty-one, p about zero point one six, and the estimated gap collapses toward zero. The method correctly finds nothing when there is nothing. That is the test working.
+:::
+
+## Four Things to Carry Forward
+
+- **Build the counterfactual, don't assume it**
+- **Convexity is the method's conscience** — sparse, no extrapolation
+- **Inference is permutation, not asymptotics** — floored at $1/(J+1)$
+- **Synthetic DiD generalizes the toolkit** — matched trend, real variance
+- In the notebook: reproduce, placebo-test, and compare to SDID
+
+::: notes
+Four things from this chapter will do real work for the rest of the camp. First, build the counterfactual, don't assume it: synthetic control replaces difference-in-differences' wish with a construction and makes the match visible. Second, the convexity constraint is the method's conscience: non-negative weights summing to one cannot extrapolate or fake a fit with wild offsetting coefficients, and the resulting sparse weights give you a sentence you can defend. Third, inference is permutation, not asymptotics: with one treated unit there is no honest standard error, so the placebo test scales each post-gap by its own pre-fit and asks whether the real unit is an outlier, with a p-value floored at one over J plus one. Fourth, synthetic difference-in-differences generalizes the toolkit, combining unit and time weights with differencing so it needs only a matched trend and arrives with principled variance estimators. In notebook four-point-four you will reproduce Priya's study, run the full placebo loop, and compare classic synthetic control with synthetic difference-in-differences.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+With one treated unit: **build** the twin, let **convexity** keep you honest, infer by **placebo permutation** (floored at $1/(J+1)$), and reach for **synthetic DiD** when you need only a matched trend. Next chapter (4.5): shift-share designs, where the identifying variation hides in exposure weights.
+:::
+
+::: notes
+To gather it all: when you have one treated unit, you build the counterfactual instead of assuming it, you let convexity keep the method honest with sparse, non-extrapolating weights, you infer by placebo permutation with a p-value floored at one over J plus one, and you reach for synthetic difference-in-differences when a matched trend is enough and you want principled variance estimators. Classic synthetic control is the maximally-interpretable case to prefer when its assumptions hold. Next chapter, four-point-five, leaves the single-treated-unit world for shift-share designs, where the identifying variation hides in exposure weights. Well done finishing Chapter four-point-four.
+:::

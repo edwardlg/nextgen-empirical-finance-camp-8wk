@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Pinning the Environment — Why and How
+
+- Part 5 — why pinning matters and the `environment.yml`
+
+::: notes
+Welcome back to Lab Seven, your data reproducibly, part five of ten. In part four we walked the Classroom commit-and-push loop. Now we make the software itself reproducible. We start with the sentence that has killed more reproductions than any statistical error, then write the conda environment file that pins your stack so a fresh machine builds the same interpreter and the same packages.
+:::
+
+## The Sentence That Kills Reproductions
+
+- *"It worked on my machine."*
+- Your code runs on specific versions of pandas, numpy, statsmodels
+- A flipped default or removed function changes the **numbers**
+- **Pinning** records exact versions so anyone rebuilds the stack
+- Without it, "reproducible" is a hope, not a property
+
+::: notes
+Here is a sentence that has killed more reproductions than any statistical error: "It worked on my machine." Your analysis does not run on Python — it runs on a specific Python interpreter with specific versions of pandas, numpy, statsmodels, and a dozen other libraries, each of which changes behavior across versions. A group-by that returned a sorted result in pandas one-point-x, a default that flipped in two-point-x, a function that was removed, a numerical routine whose algorithm was improved so the last decimal moved — any of these can make the same code produce different numbers on a different machine. Pinning the environment means recording the exact versions so that anyone — a referee, a teammate, future-you on a new laptop — can reconstruct the identical software stack and get the identical result. Without it, "reproducible" is a hope, not a property.
+:::
+
+## The environment.yml File
+
+- One file: name, channels, Python version, every dependency
+- Pin `python=3.11` with the CONVENTIONS section five stack
+- Core: pandas, numpy, scipy, matplotlib, pyarrow
+- Econometrics: statsmodels, linearmodels, pyfixest
+- From pip: `wrds` (licensed access), `yfinance` (prototyping only)
+
+::: notes
+You pin with a conda environment file: a single file naming the environment, its channels — where conda fetches packages — the Python version, and every dependency. Create it in your repo root with the stack from CONVENTIONS section five, pinned to Python three-point-eleven. The name is capstone. The core scientific stack — pandas, numpy, scipy, matplotlib, and pyarrow for Parquet input-output of the raw cache — is pinned at the major and minor level so reruns are stable. The econometrics layer adds statsmodels, linearmodels, and pyfixest. Data acquisition adds requests and pandas-datareader for FRED and Stooq. And a pip section installs the packages best fetched from PyPI: the wrds package for WRDS Cloud access, with licensed data staying on GMU infrastructure, and yfinance for free price data, prototyping only.
+:::
+
+## Two Load-Bearing Pins
+
+- `name: capstone` and `python=3.11` are the load-bearing lines
+- A fresh machine reads them and builds the same interpreter and packages
+- Matches the camp's stack — consistent with every chapter notebook
+- Create it: `conda env create -f environment.yml`
+- Activate it: `conda activate capstone`
+
+::: notes
+Two reasons this exact form matters. First, it matches CONVENTIONS section five's stack — the same libraries every chapter notebook uses, so your environment is consistent with the camp's and a function that worked in a chapter notebook works in yours. Second, the name capstone and the Python three-point-eleven pin are the load-bearing lines: a fresh machine reads this file and builds the same interpreter and the same package set. Now create the environment from the file — conda env create with the dash-f flag pointing at the file, which reads it, solves, and installs — and then activate it with conda activate capstone. At this point you have a working environment that matches the file. But the file alone is not yet enough to guarantee byte-identical numbers, and the next part fixes exactly that gap.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+*"It worked on my machine"* fails because **versions change numbers**. Pin with a conda `environment.yml`: name it, pin `python=3.11`, and list the CONVENTIONS section five stack. The `name` and Python pin are load-bearing — a fresh machine rebuilds the same interpreter and packages. Next: freeze exact versions, then document the repo.
+:::
+
+::: notes
+To summarize part five: "it worked on my machine" fails because your code runs on specific library versions, and a flipped default or a removed function can change the actual numbers. You pin with a conda environment file that names the environment, sets the channels, pins Python to three-point-eleven, and lists the CONVENTIONS section five stack — core scientific libraries, econometrics, data acquisition, and a pip section for wrds and yfinance. The name and the Python pin are load-bearing, so a fresh machine rebuilds the same interpreter and packages. You created and activated the environment. In part six we take the professional step of freezing the exact solved versions into a lock file, then write the README and data cards that make the repo legible to a stranger.
+:::

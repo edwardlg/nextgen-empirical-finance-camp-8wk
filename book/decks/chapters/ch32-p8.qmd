@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## When It Fails: CIA Is Untestable
+
+- Part 8 — the untestable assumption, and what matching truly buys
+
+::: notes
+Welcome back to selection on observables, part eight of nine. In part seven the balance table looked beautiful and licensed our estimate. Now the part the brochures leave out: the Conditional Independence Assumption is fundamentally untestable, and a perfect balance table can sit on top of a confidently wrong answer. We meet the motivation trap, then name what matching actually buys you.
+:::
+
+## CIA Is Untestable
+
+- Everything above is conditional on CIA holding
+- CIA is a claim about the **unobserved** $Y_i(0)$ of the treated
+- That outcome is exactly what we never see
+- No statistic can confirm it — half the distribution is missing
+- Balance on $\mathbf{X}$ says nothing about **unobserved** confounders
+
+::: notes
+Now the brutal fact. Everything above is conditional on the Conditional Independence Assumption holding — on X containing all the confounders. And the assumption is fundamentally untestable; you cannot check it in the data, ever. The reason is the fundamental problem of causal inference itself. C-I-A is a statement about the unobserved untreated outcome of the treated — that it matches the untreated, within cells of X. But that untreated outcome for a treated unit is exactly the thing we never see. There is no statistic you can compute that confirms two groups have the same untreated-outcome distribution conditional on X, because half of that distribution is missing by construction. Beautiful balance on X does not imply balance on the unobserved confounders — and unobserved confounders are, by definition, not in your balance table.
+:::
+
+## The Motivation Trap
+
+- Suppose **motivation** drives both enrollment and approval
+- It is not in $\mathbf{X}$ — credit, income, age all miss it
+- Match beautifully; every SMD under $0.05$
+- Estimate is **still biased** — matched enrollees are more motivated
+- This is **omitted-variable bias** wearing a new costume
+
+::: notes
+Here the page-one warning comes due. Suppose Maya's data lack a key driver: applicant motivation — the drive that makes someone both seek out the free course and clean up their application in other ways the lender rewards. Motivation affects approval and enrollment, and it is not in X. Then the assumption fails. Match beautifully; produce a balance table with every standardized mean difference under point-zero-five — and your estimate is still biased, because the matched enrollees are more motivated than their twins, and motivation independently raises approval. Map this onto Week Two and the equivalence is exact: a confounder omitted from X is precisely an omitted variable, and the bias is the omitted-variable bias of Chapter two-point-five — the product of its effect on the outcome and its association with treatment. Both are positive here, so the effect is biased upward. Matching buys you nothing that controlling for X in a regression does not also buy.
+:::
+
+## What Matching Does Buy
+
+- **(1)** Nonparametric in the outcome — no functional form assumed
+- **(2)** Enforces overlap explicitly — calipers refuse bad comparisons
+- **(3)** Separates design from outcome — no specification search
+- None of these weakens the **CIA requirement**
+- Better-disciplined selection on observables — not an escape
+
+::: notes
+So what does matching give you over regression with controls, if the identifying assumption is identical? Three honest, non-magical advantages. First, it is nonparametric in the outcome: regression assumes a functional form linking X to Y, while matching never models the outcome at all, so it cannot be fooled by getting that shape wrong. Second, it enforces overlap explicitly: a regression will happily extrapolate into regions with no controls, inventing counterfactuals, whereas matching with a caliper refuses to compare units that have no real neighbor. Third, it separates design from outcome: the matching stage never touches Y, which structurally prevents specification-searching on the answer. These are real and valuable. But not one of them weakens the C-I-A requirement. Matching is a better-disciplined way to do selection on observables — not an escape from it. Reach for it when you can argue, from institutional knowledge, that the variables driving selection are observed; otherwise the right move is a different design entirely.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**CIA is untestable** — it concerns the unobserved $Y_i(0)$ of the treated, so a flawless balance table is silent about unmeasured confounders like *motivation*, and an omitted confounder is just omitted-variable bias renamed. Matching's real gifts — nonparametric, explicit overlap, design–outcome firewall — make it *better-disciplined* selection on observables, never an escape. Next: what to carry forward.
+:::
+
+::: notes
+To summarize part eight. The Conditional Independence Assumption is untestable, because it concerns the unobserved untreated outcome of the treated — so a flawless balance table is silent about unmeasured confounders like motivation, and an omitted confounder is just the omitted-variable bias of Week Two renamed. Matching's genuine advantages — nonparametric in the outcome, explicit overlap, and a design–outcome firewall — make it better-disciplined selection on observables, but never an escape from its core assumption. The most sophisticated thing you can say about matching is knowing when not to trust it. In part nine, the last part, we strip the chapter to its load-bearing sentences and preview how Chapter three-point-three reuses the score.
+:::

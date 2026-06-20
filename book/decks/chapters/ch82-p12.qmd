@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Oster's δ: Three Ingredients and Two Ways to Use It
+
+- Part 12 — Oster's three ingredients and two ways to use it
+
+::: notes
+Welcome back to Robustness and Inference Stress-Tests, part twelve of fourteen. In part eleven we reframed the untestable confounder and saw the R-squared insight behind Oster's test. Now we make it operational: the three ingredients you read off two regressions, the meaning of the delta parameter, and the two ways to use it — the bounding set and the delta that kills your effect. We finish with Maya's numbers.
+:::
+
+## Three Ingredients and the δ Parameter
+
+- Uncontrolled: coefficient $\hat\beta_0$, $R^2$ value $\tilde R_0$
+- Controlled: coefficient $\hat\beta_1$, $R^2$ value $\tilde R_1$
+- Maximum $R^2$, $R_{\max}$: treatment plus *all* observables and unobservables
+- Can't observe it — assume it; default $R_{\max}=1.3\,\tilde R_1$, capped at 1
+- $\delta$ = ratio of selection on unobservables to observables
+- $\delta=1$: unobservables exactly as confounding as observables
+
+::: notes
+Oster formalizes this with three ingredients you read off two regressions. The uncontrolled regression gives a coefficient beta-hat-naught and an R-squared, R-tilde-naught — Maya's treatment with no covariates. The controlled regression gives beta-hat-one and R-tilde-one — her full covariate-conditional spec. And a maximum R-squared, R-max: the R-squared a hypothetical regression on treatment plus all observables and all unobservables would attain. You cannot observe it, so you assume it — Oster's evidence-based default is R-max equal to one-point-three times R-tilde-one, capped at one. The key parameter is delta: the ratio of selection on unobservables to selection on observables. Delta equal to one means the unobservables are exactly as related to treatment as the observables you control for — the natural benchmark, because it says the stuff I couldn't measure is no more confounding than the stuff I could. Delta equal to two means twice as confounding; delta equal to one-half means half.
+:::
+
+## Two Ways to Use δ
+
+- **Use 1 — bounding set.** Fix $\delta=1$, solve for bias-adjusted $\beta^*$
+- Identified set $[\hat\beta_1, \beta^*]$; pass if it excludes zero
+- **Use 2 — the killing $\delta$.** Set $\beta^*=0$, solve $\hat\delta$
+- **Pass:** $\hat\delta \ge 1$ — confounder must beat *everything* observed
+- **Fail:** $\hat\delta < 1$ — a weaker confounder erases the effect
+- Maya: coef $-2.2 \to -1.4$, $R^2$ $0.08 \to 0.42$, so $\hat\delta\approx 4.7$
+
+::: notes
+There are two ways to use delta, and you should report both. Use one, the bounding set: fix delta at the benchmark of one and solve for the bias-adjusted coefficient beta-star — where your estimate would land if unobservable selection were exactly as strong as observable selection. This gives an identified set, conventionally the interval from beta-hat-one to beta-star. Pass: the set excludes zero. Fail: the set contains zero, so plausible unobserved confounding could fully explain your result. Use two, the delta that kills it: set beta-star to zero and solve for the delta required to drive your effect to zero — call it delta-hat. Pass: delta-hat is at least one, meaning an unobservable would have to be at least as confounding as everything you observed, usually implausible since researchers control for the obvious confounders, so the leftovers should be weaker, not stronger. The larger delta-hat, the more robust. Fail: delta-hat below one — a confounder weaker than your observables could erase the effect. Plug in Maya's numbers: an uncontrolled A-T-T of negative two-point-two that moves only modestly to negative one-point-four when controls are added, while R-squared climbs a lot, from zero-point-zero-eight to zero-point-four-two. The coefficient moved a little but the controls explained a great deal — so delta-hat is about four-point-seven. An unobservable would have to be roughly four to five times as correlated with examination adoption as her full controls to explain away the effect, which is hard to argue for.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Read off two regressions, assume $R_{\max}$, then report both: the **bounding set** at $\delta=1$ and the **$\hat\delta$ that kills the effect**. Maya's $\hat\delta\approx 4.7$ — a confounder would need to be nearly five times her controls, so she is robust. Next: the honesty rules for $\delta$.
+:::
+
+::: notes
+To summarize part twelve: Oster's test reads three ingredients off two regressions — the uncontrolled and controlled coefficients and their R-squareds, plus an assumed maximum R-squared, with the default of one-point-three times the controlled R-squared. The parameter delta is the ratio of selection on unobservables to observables, with delta equal to one as the natural benchmark. You report both uses: the bounding set fixes delta at one and passes if the interval excludes zero, and the delta-hat that drives the effect to zero passes if it is at least one. Maya's delta-hat of about four-point-seven means a confounder would have to be nearly five times as strong as her rich controls, so she is robust. In part thirteen we cover the three honesty rules that keep this easily-abused test honest, and begin assembling the full battery.
+:::

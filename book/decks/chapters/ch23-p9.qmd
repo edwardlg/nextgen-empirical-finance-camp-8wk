@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## An Intercept Demeans; Dummies Demean Within Groups
+
+- Part 9 — intercept demeans; group dummies demean within groups
+
+::: notes
+Welcome back to the Frisch–Waugh–Lovell theorem, part nine of thirteen. In part eight we learned that controlling is subtraction against exactly the columns you included. Now we turn the simplest control — a single intercept — into demeaning, then turn the dial up to group dummies and meet the within transformation. This is the bridge to the next two weeks of the camp.
+:::
+
+## The Tiniest Case: An Intercept Demeans
+
+- Simplest control: a single intercept, a column of ones
+- Regress any variable on a constant $\Rightarrow$ fitted value = the mean
+- So $\mathbf{M}_2$ on a column of ones **subtracts the overall mean**
+- $(\mathbf{M}_2\mathbf{y})_i = y_i - \bar{y}$
+- A slope *with an intercept* = slope on **demeaned** variables
+- That is why earlier our residual columns averaged to zero
+
+::: notes
+Take the simplest possible control: a single intercept, which is just a column of ones. What does residualizing on a column of ones do? Regressing any variable on a constant gives the mean as the fitted value, so the residual maker simply subtracts the overall mean. The i-th entry of M-two y is y-i minus y-bar. So F W L contains, as its tiniest case, a fact you already half-knew: a slope in a regression with an intercept equals the slope from a regression on the demeaned variables. The intercept is a control, and controlling for it means centering everything. That is exactly why, back on Leah's six firms, the residual columns averaged to zero, and we could drop the intercept in the final step. Now we make the control richer.
+:::
+
+## Turn the Dial: Dummies Demean Within Groups
+
+- Data come in **groups**: industry, school, year
+- Control for a full set of **group dummy variables**
+- Regress on dummies $\Rightarrow$ fits each obs its **own group's mean**
+- $(\mathbf{M}_2\mathbf{y})_i = y_i - \bar{y}_{g(i)}$
+- This is the **within transformation** — keep within-group variation
+- It discards all **between-group** variation
+
+::: notes
+Now make the control richer. Suppose your data come in groups — firms grouped by industry, students grouped by school, observations grouped by year — and you control for a full set of group dummy variables, one indicator column per group, dropping one to avoid perfect collinearity with the intercept. What does residualizing on the group dummies do? Regressing any variable on a complete set of group dummies fits, for each observation, its own group's mean. So the residual maker subtracts the group-specific mean: the i-th entry of M-two y is y-i minus the mean of y within observation i's group. This operation — subtracting each group's own mean from each observation — is called the within transformation, because it keeps only the variation within each group and discards all variation between groups. Putting F W L together with this fact gives a clean and important equivalence, which we cash out next.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Residualizing on **an intercept** subtracts the overall mean: $(\mathbf{M}_2\mathbf{y})_i = y_i - \bar{y}$. Residualizing on a **full set of group dummies** subtracts each observation's *own group mean*: $(\mathbf{M}_2\mathbf{y})_i = y_i - \bar{y}_{g(i)}$ — the **within transformation**. Next: dummies equal demeaning, and it *is* fixed effects.
+:::
+
+::: notes
+To summarize part nine. The simplest control, an intercept, demeans: residualizing on a column of ones subtracts the overall mean, so a slope with an intercept equals the slope on demeaned variables. Turn the dial up to a full set of group dummies, and residualizing subtracts each observation's own group mean — that is the within transformation, which keeps within-group variation and discards between-group variation. In part ten we cash out the equivalence this delivers: regressing on group dummies gives the identical slope as demeaning within groups — and that equivalence is exactly fixed effects, arriving a month early.
+:::

@@ -1,0 +1,57 @@
+---
+date: "2026-06-22"
+---
+
+## The Sampling Distribution and the CLT
+
+- Part 2 — build $\hat{p}$'s distribution; watch it tighten and go normal
+
+::: notes
+Welcome back to Lab one, building a coin-flip universe, part two of five. In part one we framed the lab and learned the rules of reproducibility. Now we build the coin universe with a known parameter, draw from it, and reconstruct the sampling distribution of the estimator by brute force — watching it tighten and go normal exactly as the Law of Large Numbers and the Central Limit Theorem promised.
+:::
+
+## Step 1: A Coin Universe With Known $p$
+
+- Write a function: draw $N$ flips, return $\hat{p}$
+- `flips = rng.binomial(n=1, p=p, size=N)`; take the mean
+- Because *you* set $p$, you hold the ground truth
+- At $N=10$, $\hat{p}$ might be $0.3$ or $0.7$ — wildly off
+- At $N=10{,}000$ it pins $p$ to two or three decimals
+
+::: notes
+Step one: build the universe. Write a function that draws one sample of N Bernoulli-p trials and returns the sample proportion p-hat — the fraction of heads. The cleanest way is r-n-g dot binomial with n equals one, probability p, size N, which returns an array of zeros and ones; their mean is p-hat. Because you set p yourself, you hold the ground truth the rest of the lab is graded against. Here is what to expect. With p equal to one-half, a single p-hat from ten flips might be zero-point-three or zero-point-seven — wildly off. At one hundred flips it sits within a few hundredths. At ten thousand flips it pins one-half to two or three decimals. You are watching the Law of Large Numbers in one line: p-hat converges to p as N grows. The estimator is consistent for the true proportion.
+:::
+
+## Step 2: Build the Sampling Distribution
+
+- One $\hat{p}$ is a dot; repeat thousands of times, histogram
+- **It tightens like** $1/\sqrt{N}$: standard error $=\sqrt{p(1-p)/N}$
+- Quadruple $N$ and the spread halves
+- **It goes normal:** a proportion is a mean of $0/1$ draws
+- Verify both facts — don't assume them
+
+::: notes
+Step two: see the distribution. One p-hat is a dot. To see its distribution, repeat the draw thousands of times and histogram the results, for several sample sizes, overlaid. You are reconstructing, by brute force, the sampling distribution Chapter one-point-three defined and one-point-four gave a shape to. Two facts you will verify, not assume. First, it tightens like one over the square root of N: theory says the variance of p-hat equals p times one minus p, divided by N, so the standard deviation across samples is the square root of that. That is the standard error of a proportion. Quadruple N and the spread halves. Second, it goes normal: a proportion is just a mean of zero-one draws, so the Central Limit Theorem applies directly, and you watch the bell appear. Standardize each p-hat — subtract p, divide by the theoretical standard error — and overlay the standard normal.
+:::
+
+## The Edge Cases Bite
+
+- Small $N$: $\hat{p}$ is **lumpy** — only discrete spikes
+- Near $p=0$ or $1$: one tail is squashed, so **skewed**
+- CLT still wins, but arrives *slower* near an edge
+- Practitioner check: $Np$ and $N(1-p)$ both at least about $10$
+
+::: notes
+There is one subtlety worth chasing. At small N the histogram of p-hat is visibly lumpy — with ten flips, p-hat can only be zero, zero-point-one, zero-point-two, and so on, eleven discrete spikes. And if p is near zero or one it is also skewed: it cannot go below zero or above one, so one tail is squashed. The Central Limit Theorem still wins as N grows, but it arrives slower the closer p is to an edge. Try p equal to zero-point-zero-five with N equal to thirty and you will see a clearly non-normal pile-up. The N at least thirty folk rule quietly assumed a p not too near the boundary. A common practitioner's check is whether N times p and N times one minus p are both at least about ten. You computed the standard error two ways — empirically and from the formula — and they agree because they measure the same thing.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The sampling distribution of $\hat{p}$ **centers on $p$, tightens like $1/\sqrt{N}$, and goes normal** — the LLN and CLT made visible. But near an edge ($p$ close to $0$ or $1$) the bell arrives slowly; check that $Np$ and $N(1-p)$ exceed about $10$. Next: write a one-proportion test from scratch and measure its false-positive rate.
+:::
+
+::: notes
+To summarize part two: the sampling distribution of p-hat centers on p, tightens like one over the square root of N, and goes normal — the Law of Large Numbers and Central Limit Theorem made visible, not asserted. But the bell arrives slowly near an edge, when p is close to zero or one, so check that N times p and N times one minus p both exceed about ten. In part three we stop describing and start deciding: we write a one-proportion test from scratch and then measure whether it really fires at the rate it claims.
+:::

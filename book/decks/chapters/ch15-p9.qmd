@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## What the p-value Is Not
+
+- Part 9 — the key correction, and p as random
+
+::: notes
+Welcome back to Hypothesis Testing Done Right, part nine of fourteen. In part eight we defined the p-value as the probability of data this extreme assuming the null is true. Now comes the correction that matters more than almost anything else in this book: what the p-value is emphatically not. Getting this backwards is the most frequent error in all of applied statistics, so we slow down and burn it in.
+:::
+
+## Not the Probability the Null Is True
+
+- p is **NOT** the probability the null is true
+- $p=0.046$ does not mean "4.6% chance the rule is worthless"
+- It is $\Pr(\text{data}\mid H_0)$, not $\Pr(H_0\mid \text{data})$
+- Swapping the bar is the rain-versus-wet error
+- A claim about $\Pr(H_0)$ would need a prior and Bayes' rule
+- The p-value contains no prior — it assumes $H_0$ outright
+
+::: notes
+Here is the correction. The p-value is not the probability that the null hypothesis is true. Sam's p of zero point zero four six does not mean there is a four point six percent chance the rule has no edge. The p-value is the probability of data this extreme given the null is true. The thing students want it to be is the probability the null is true given the data. These are different conditional probabilities, and swapping the two sides of the bar is a basic probabilistic error — the same error as confusing the probability of wet given rain with the probability of rain given wet. They are simply not the same number. To even speak of the probability the null is true, you would need a prior probability and Bayes' rule to update it. A p-value contains no prior and makes no such statement. It assumes the null outright and never questions it; the hypothesis is fixed, and the data are the random thing whose extremeness we measure. Reciting the correct definition until it is automatic is genuinely time well spent — this one error, more than any other, separates careful empirical work from sloppy.
+:::
+
+## The p-value Is Itself Random
+
+- A p-value is a **random variable** — fresh year, fresh p
+- $0.046$ and $0.055$ are practically the same evidence
+- The $0.05$ line is a convention, not a cliff edge
+- Under a true null, p is **uniform** on $[0,1]$
+- So a true null still gives $p<0.05$ a full $5\%$ of the time
+- That uniformity seeds the multiple-testing problem
+
+::: notes
+A second, related caution: a p-value is itself a random variable. Run Sam's backtest on a fresh year of data and you would get a different average, a different t-statistic, and a different p-value. A p of zero point zero four six and a p of zero point zero five five are practically the same evidence; the zero point zero five line is a useful convention, not a law of nature, and treating it as a cliff edge is a habit worth distrusting. In fact there is a clean and underappreciated theorem here: when the null is true, the p-value is uniformly distributed on zero to one. Every value is equally likely. And that is exactly why a true null still produces a p below zero point zero five a full five percent of the time — which is just the definition of a five percent false-positive rate, seen from the p-value's side. Hold onto that uniformity, because it is the seed of the multiple-testing problem we reach at the end of the chapter: a small p-value from a single test is only mild surprise. It carries real weight only when it would be surprising across everything you tried.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The p-value is $\Pr(\text{data this extreme}\mid H_0\text{ true})$ — **not** $\Pr(H_0\text{ true}\mid\text{data})$. Swapping the bar is the rain-versus-wet error. And p is itself random: under a true null it is **uniform** on $[0,1]$, so $5\%$ of dead rules "pass" by luck. Next: confidence intervals as inverted tests.
+:::
+
+::: notes
+To summarize part nine: the single most important correction in this book. The p-value is the probability of the data given the null is true — never the probability of the null given the data. Swapping those two is the rain-versus-wet error, and to even speak of the probability a hypothesis is true you would need a prior and Bayes' rule, which a p-value simply does not contain. Beyond that, the p-value is itself a random variable: a value of zero point zero four six and a value of zero point zero five five are essentially the same evidence, so the zero point zero five line is a convention, not a cliff. And because a true null makes the p-value uniform on zero to one, five percent of genuinely dead rules slip under the line by pure luck — a fact that will come back to bite us. In part ten we meet a richer, more honest object than a single verdict: the confidence interval.
+:::

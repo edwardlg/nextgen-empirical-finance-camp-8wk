@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Introduction: Hook, Contribution, Preview
+
+- Part 2 — the introduction's first three moves
+
+::: notes
+Welcome back to Writing the Empirical Paper, part two of nine. In part one we established that a paper is an argument, not a transcript. Now we open the most important section of all — the introduction. It is a promise machine. In four to six paragraphs it must make a specific reader want to read the rest, by promising credibly that the payoff is worth their next twenty minutes. There is a near-canonical structure with four moves: the hook, the one-sentence contribution, the "we find" preview, and the roadmap. This part covers the first three.
+:::
+
+## Move One: The Hook
+
+- First paragraph names the question, makes reader **care**
+- Opens with a real-world fact or tension — a number, a puzzle
+- **Not** "the literature has long studied..."
+- Earn attention with **consequence**, not recitation
+- Two sentences: stakes real, question contested
+
+::: notes
+The hook. The first paragraph names the question and makes the reader care, in that order, fast. It opens with a real-world fact or tension — a number, a puzzle, a policy debate — not with "the literature has long studied." Maya's hook is not "fair lending has been studied since the nineteen-seventies." It is closer to this: in twenty-twenty-three, mortgage applicants from minority neighborhoods were denied at nearly twice the rate of applicants from white neighborhoods — a gap that persists even among applicants with similar incomes and loan sizes. Whether that gap reflects differential treatment, and whether policy can move it, is both a live regulatory question and an unresolved empirical one. Two sentences, and the reader knows the stakes are real, the question is contested, and an answer would matter. The hook earns attention with consequence, not with a literature recitation.
+:::
+
+## Move Two: The One-Sentence Contribution
+
+- Lands in the first or second paragraph
+- Says what is now **known** that was not before
+- Not "we run a DiD" — but "we provide the first credible estimate"
+- That difference is read-versus-desk-rejected
+- It deserves its own treatment — coming in part four
+
+::: notes
+The one-sentence contribution lands in the first or second paragraph and says, in one sentence, what this paper adds that did not exist before you wrote it. Not what you did — "we run a difference-in-differences on the data" — but what is now known that was not: "we provide the first causally credible estimate of how state fair-lending examination programs affect the minority-white mortgage-denial gap." The difference between those two formulations is the difference between a paper that gets read and one that gets desk-rejected. This sentence is so important that it deserves its own treatment, and we give it one in part four. For now, know that it sits near the top of the introduction and that everything else in the paper exists to make it believable.
+:::
+
+## Move Three: The "We Find" Preview
+
+- Immediately pay a **deposit**: tell the reader the answer
+- Begin literally "We find that..." or "Our main result is..."
+- Headline number, sign, rough magnitude, key robustness fact
+- Students resist — they fear **spoiling the ending**
+- There is **no ending to spoil**; give the number up front
+
+::: notes
+The "we find" preview. Having promised a contribution, you must immediately pay a deposit on it: tell the reader the answer. A paragraph, usually beginning literally "We find that" or "Our main result is," that previews the headline number, its sign, its rough magnitude, and the key robustness fact. We find that adopting a fair-lending examination program reduces the county-level denial gap by about one-point-eight percentage points, roughly a fifth of the pre-period gap; the effect emerges within two years of adoption, is robust to alternative control groups and clustering, and survives a placebo test that randomly reassigns adoption years. Students resist this. They feel they are spoiling the ending. Reread part one: there is no ending to spoil. A referee who has to hunt through nine pages to find out what you found is a referee already annoyed with you. Give the number up front; you will spend the rest of the paper earning the right to have stated it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The introduction is a **promise machine**. Its first three moves: a **hook** that leads with a fact and a tension, a **one-sentence contribution** stating what is now known, and a **"we find" preview** that gives the number up front. Next: the roadmap and the contribution sentence itself.
+:::
+
+::: notes
+To summarize part two: the introduction is a promise machine, and its first three moves are the hook, the contribution, and the preview. The hook names the question with a real-world fact and a tension, not a literature recitation. The one-sentence contribution states what is now known that was not before. The "we find" preview pays a deposit by giving the headline number, its magnitude, and the key robustness fact up front — because there is no ending to spoil. In part three we finish the introduction with the roadmap and the discipline that the whole thing be readable on its own, then begin building the contribution sentence.
+:::

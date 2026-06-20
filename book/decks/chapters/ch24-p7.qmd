@@ -1,0 +1,53 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Robust SEs in Numbers
+
+- Part 7 — Priya's numbers and three tells of heteroskedasticity
+
+::: notes
+Welcome back to heteroskedasticity, clustering, and HAC, part seven of twelve. In part six we built the HC0-through-HC3 corrections. Now we make them concrete with Priya's simulated numbers — watching the same coefficient flip from significant to not — and learn the three tells that let you catch heteroskedasticity in your own work rather than only in a textbook.
+:::
+
+## A Number to Make It Concrete
+
+- Priya: 60 claims, error SD grows with value, one \$5M estate
+
+| Classical | HC0 | HC1 | HC2 | HC3 |
+|-----------|-----|-----|-----|-----|
+| 0.085 | 0.121 | 0.127 | 0.140 | 0.169 |
+
+- Classical understates true uncertainty by about half vs HC3
+- Coefficient $0.30$: classical $t = 3.5$ vs HC3 $t = 1.8$
+- Same coefficient, same data — conclusion flips
+- Flavors fan out **because** of that one high-leverage estate
+
+::: notes
+Priya simulates sixty claims where the true error standard deviation grows linearly with insured value — textbook heteroskedasticity — with one five-million-dollar estate among the cabins to create leverage. On her coefficient of interest the standard errors come out roughly: classical zero point zero eight five, HC0 zero point one two one, HC1 zero point one two seven, HC2 zero point one four zero, and HC3 zero point one six nine. The classical standard error understates the true uncertainty by about half relative to HC3's zero point one six nine. If her coefficient were zero point three zero, the classical t-stat would read three point five — comfortably significant — while the HC3 t-stat reads one point eight, not significant at the five percent level. Same coefficient. Same data. The only thing that changed is whether we told the truth about Omega, and it flipped the conclusion. Notice how the four robust flavors fan out — HC0 at zero point one two one and HC3 at zero point one six nine differ by a real margin precisely because that one five-million-dollar estate is a high-leverage point, and HC3's denominator inflates its residual the hardest. With no leverage and a few hundred points, those four numbers would agree to the third decimal.
+:::
+
+## Three Tells It's There
+
+- **The residual plot**: a fan or funnel, not a constant band
+- One line of code; catches most real cases
+- **A formal test**: Breusch–Pagan or White — small p rejects
+- Modern attitude: usually don't bother testing
+- Robust SEs valid either way — just always use them
+- **The SEs disagree**: the disagreement *is* the diagnostic
+
+::: notes
+Three tells, in increasing order of formality, let you catch heteroskedasticity. First, the residual plot. Plot the residuals against a fitted value or a regressor. Under homoskedasticity you see a structureless horizontal band of constant thickness. Under heteroskedasticity you see a fan or funnel — the band widens or narrows as you move along the axis. Priya's wildfire residuals fan open toward expensive properties; Maya's loan residuals often fan with loan size. This single plot catches most real cases and costs one line of code. Second, a formal test. The Breusch–Pagan test regresses the squared residuals on the regressors and asks whether they explain any of the variance; the White test adds squares and cross-products to catch more general patterns. A small p-value says reject homoskedasticity. But here is the modern attitude: you usually should not bother testing. Because robust SEs are valid whether or not heteroskedasticity is present, the cost of just always using robust is near zero, while the cost of testing, failing to reject by bad luck, and then trusting classical SEs is a published overconfident result. Test if a referee asks; otherwise default to robust. Third, the SEs themselves disagree. If classical and robust standard errors are nearly identical, your errors are roughly homoskedastic and nothing was at stake. If they differ materially, the robust number is the one to report. The disagreement is the diagnostic.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+On Priya's data the classical SE understated uncertainty by half — same $\hat\beta$, but $t$ fell from $3.5$ to $1.8$. Catch heteroskedasticity by the **residual fan**, a Breusch–Pagan test, or simply by noting that **classical vs robust disagreeing is itself the diagnostic**. When in doubt, just report robust.
+:::
+
+::: notes
+To summarize part seven. Priya's table made the heteroskedasticity problem concrete: the four robust flavors fanned out around the classical number because of one high-leverage estate, and the same coefficient went from significant at three point five to not significant at one point eight. Three tells — the residual fan, the formal Breusch–Pagan or White test, and the disagreement between classical and robust SEs — let you catch the problem, and the modern habit is to skip testing and just report robust. But all of this assumes errors are uncorrelated across observations. In part eight we hit the failure robust SEs cannot fix at all: clustering.
+:::

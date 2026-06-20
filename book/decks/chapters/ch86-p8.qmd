@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Q&A: When a Fatal Critique Lands
+
+- Part 8 — conceding a fatal critique, and the ninety seconds after
+
+::: notes
+Welcome back to The Talk, the Poster, the Defense, part eight of twelve. In part seven we used the second and third honest answers, it's in the paper and good point. Now the hardest case of all: when a fatal critique lands and the attacker is right. And then what to do in the ninety seconds after the last question.
+:::
+
+## When a Fatal Critique Lands
+
+- A fatal critique breaks the **identifying assumption itself**
+- Defending harder makes it worse — the room can see it
+- What they see is a speaker choosing to obscure
+- The cost is not the broken design — it's broken **integrity**
+- Concede at the level of the critique, retreat to what survives
+- Column six pre-wrote the retreat so you read it, not invent it
+
+::: notes
+The hardest case is when a fatal critique lands and the attacker is right. A fatal critique breaks the identifying assumption itself, not just a choice in the analysis. The wrong response is to defend harder — the room can see it, and what they see is a speaker who knew the critique was right and chose to obscure it. The cost is not the broken design but the broken integrity. The right response is to concede at the level of the critique and retreat to what survives: you're right that I can't rule that out with this design, so the honest reading is a strong association consistent with the mechanism, not the clean causal estimate I'd hoped for. That is the single most credibility-building thing you can say in the question period. And you retreat not to nothing, but to the descriptive claim — which column six of your matrix pre-wrote, so you read it under fire rather than invent it.
+:::
+
+## The Ninety Seconds After the Last Question
+
+- Do **not** sit down and check your phone
+- Stay near the front of the room
+- Three people approach in the next ninety seconds
+- A technical follow-up, a paper to recommend, a contact
+- They are the **proximate return** on the talk
+- Write what you heard — the **feedback ledger** starts now
+
+::: notes
+And one more discipline, for the moment the question period ends. After the last question, do not sit down and check your phone. Stay near the front of the room. The three people who approach in the next ninety seconds — one with a technical follow-up, one with a paper to recommend, one who just wants to be a contact — are the proximate return on investment of the whole talk. Write what you heard on the paper notebook in your pocket. The feedback ledger, which we will build in the final parts, starts now, in those ninety seconds, not at five p.m. when memory has already begun to decay.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+When a fatal critique is right, **defending harder costs your integrity** — concede at the level of the critique and retreat to the descriptive claim column six pre-wrote. It is the most credible thing you can say. After the last question, **stay near the front** and write down what you hear. Next: the poster as a layout.
+:::
+
+::: notes
+To summarize part eight: when a fatal critique lands and the attacker is right, defending harder is the worst move, because the room can see it and what they see is broken integrity. You concede at the level of the critique — the identifying assumption itself — and retreat to the descriptive claim that column six of your matrix already wrote, which is the most credibility-building thing you can say in the whole question period. And when the last question ends, you stay near the front for the three people who approach, and you start the feedback ledger right then. In part nine we turn to the poster, which is a layout, not a sequence.
+:::

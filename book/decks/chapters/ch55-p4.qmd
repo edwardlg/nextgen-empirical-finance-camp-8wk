@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## What's Clever, What's Vulnerable
+
+- Part 4 — judging the cures, the cleverness, the soft spots
+
+::: notes
+Welcome back to lesson five, part four of five. In part three we saw the data and the tables-first reading order: symptom, mechanism, cure. Now we judge the paper as a referee would: first the cures, then what makes the design clever, then where a careful reader should push back.
+:::
+
+## The Three Cures
+
+- **Block bootstrap:** resample whole *states*, time series intact
+- Preserves each state's serial-correlation structure
+- **Cluster at the state level:** the Chapter 2.4 cluster-robust SE
+- Lets each state's residuals be arbitrarily correlated across its years
+- Became the field's default — why Priya clustered by state
+- **Collapse to pre/post:** average each state to one "before," one "after"
+
+::: notes
+Start with the cures, because the vulnerabilities are mostly about them. First, the block bootstrap: resample whole states, each time series kept intact, so the bootstrap preserves each state's serial-correlation structure instead of shattering it, bringing size back toward five percent. Second, clustering at the state level: the cluster-robust standard error of Chapter two-point-four, with the cluster set to the state, the unit treatment is assigned at. It lets each state's residuals be arbitrarily correlated across all its years, the block-diagonal omega, one block per state, exactly the pattern the disease consists of. With enough states, clustering restores honest size. This became the field's default, and the reason Priya clustered by state last week. Third, collapsing to pre and post: average each state into one before number and one after number, reducing the panel to two periods. With only two periods there is no within-period serial correlation left to misread, so a simple comparison delivers honest size. The cost, and B-D-M are upfront, is power.
+:::
+
+## What's Clever
+
+- Placebo design **tests inference itself** — a procedure, not the world
+- True effect is zero, so *any* rejection is unambiguously a false positive
+- The researcher **is** the counterfactual's author
+- They **quantified** the over-rejection — a number, not a caveat
+- A number changes behavior; a vague warning does not
+- They offered **fixes that work** and that practitioners could adopt
+
+::: notes
+Three things are clever, and they compound. The first and deepest: the placebo design tests inference itself. Most papers test a hypothesis about the world. B-D-M test a procedure, whether the standard-error formula tells the truth, by manufacturing a setting where the right answer is known. Because the placebo law has a true effect of zero, any rejection is a false positive; the researcher is the counterfactual's author. The second: they quantified the over-rejection rather than merely warning about it. B-D-M put a number on the danger, and a number changes behavior in a way a caveat never does. "Your standard errors might be off" is ignorable; "your five-percent test fires on noise a third of the time" is not. The third: they did not just break things, they offered fixes that work and that practitioners could adopt.
+:::
+
+## What's Vulnerable
+
+- **Few-clusters problem:** the fixes need *many* clusters (30–50)
+- Many real DiD designs have far fewer treated units
+- Wild cluster bootstrap (Cameron, Gelbach & Miller, 2008) helps
+- **Power cost:** collapsing buys size but raises Type-II error
+- **Magnitude is data-specific:** tied to this panel's length and AR structure
+- The qualitative lesson is robust; the exact number is not a constant
+
+::: notes
+A good reader pushes back, and the soft spots are mostly about the cures. First, the few-clusters problem, which B-D-M flag and Week Four hammered home. Clustering and the block bootstrap both rely on having many clusters, the rule of thumb is thirty to fifty, because the formula estimates within-cluster correlation from variation across clusters. With the fifty states you are roughly safe, but many DiD designs have far fewer treated units, recall Priya's single treated state, and Card and Krueger's essentially one. With few clusters the very fix B-D-M recommend can itself over-reject, needing further corrections like the wild cluster bootstrap of Cameron, Gelbach, and Miller, two thousand eight. Second, the power cost of collapsing. Averaging to pre and post buys honest size, but size and power trade off; discarding within-period variation weakens the test's ability to detect a true effect, so Type-Two error rises. Third, dependence on the panel's length and structure. The headline numbers are tied to the specific autocorrelation and length of the C-P-S panels; a weaker or shorter panel would over-reject by a different amount. The qualitative lesson is robust; the exact magnitude is a property of this data-generating process, not a law of nature.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Clever:** the placebo tests *inference itself*, puts a number on the danger, and ships working fixes. **Vulnerable:** the fixes lean on **many clusters**, collapsing **costs power**, and the exact rejection figure is **data-specific** — illustrative of a mechanism, not a constant.
+:::
+
+::: notes
+To summarize part four. What is clever compounds: the placebo design tests inference itself by making the true answer known, quantifies the danger instead of just warning, and ships fixes practitioners could adopt. What is vulnerable is mostly those fixes: clustering and the block bootstrap need many clusters, collapsing buys size at a cost in power, and the precise magnitude is a property of this panel, not a universal constant. In part five we turn the paper into code, rebuilding the headline on your own laptop.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Aggregating and Reading the FM Standard Error
+
+- Part 6 — aggregate the slopes and read the FM standard error
+
+::: notes
+Welcome back to the Fama–MacBeth lab, part six of seven. In part five you produced a beta per stock and a jagged series of monthly slopes. Now you collapse that series into the Fama–MacBeth estimate and its standard error, then learn to defend the number. This is just the standard error of a sample mean, applied to a series of regression coefficients — but reading it correctly is the whole point of the lab.
+:::
+
+## Aggregate Into the FM Estimate
+
+- `fm_mean = gammas.mean()` — the point estimate
+- `fm_se = gammas.std(ddof=1) / sqrt(T)` — the FM SE
+- `fm_t = fm_mean / fm_se` — the t-statistic
+- Recovered `gamma1` lands near planted `0.006` (about `0.0055`)
+- FM t-stat comfortably above 3; intercept small
+
+::: notes
+Aggregate. Collapse each column of monthly coefficients to its mean — the Fama–MacBeth point estimate. Compute the standard error as the sample standard deviation over the square root of T, using ddof equals one for the unbiased standard deviation. Form the t-statistic as the estimate over its standard error. With the seed and parameters in the lab, the recovered gamma-one lands near the planted zero-point-zero-zero-six — you will get roughly zero-point-zero-zero-five-five — with a Fama–MacBeth t-statistic comfortably above three, and a small intercept. That is the whole replication in one table: a known premium, recovered from data, with a defensible standard error. The recovered number is the average realized market excess return over your three hundred sixty months, which differs from the theoretical value by sampling error — and the standard error is exactly the size of that gap.
+:::
+
+## Where the Precision Lives
+
+- FM SE is the scatter of monthly slopes over $\sqrt{T}$
+- Doubling stocks per month barely tightens it
+- Doubling months tightens it like $1/\sqrt{T}$
+- Precision lives in $T$ (time clusters), not $N$
+- Few months? Use $t_{T-1}$, distrust borderline t-stats
+
+::: notes
+First question to ask of any Fama–MacBeth standard error: what variation is it built from? It is the scatter of the monthly slopes over the square root of T. So it is driven entirely by how many months you have and how much the price of beta bounces between them. Doubling the number of stocks per month barely tightens it — it just makes each monthly slope a little more precise. Doubling the number of months tightens it like one over root T. This is the cluster-asymptotics lesson from chapter two-point-four wearing a new hat: the precision lives in T, the number of time clusters, not in N, the cross-section. If you have only thirty months, be as nervous as Priya was with nine states — use the t-distribution with T minus one degrees of freedom, not the normal, and do not over-trust a borderline t-statistic.
+:::
+
+## Compare to the Naive Number
+
+- Run pooled OLS of `ret` on `beta_hat` over the stacked panel
+- Compare its SE on `beta_hat` to the FM SE
+- Pooled SE is dramatically smaller — and wrong
+- It pretends 108,000 stock-months are independent
+- The gap *is* the diagnostic from Ch 2.4
+
+::: notes
+Second, what correlation does it handle, and what does it miss? It handles, automatically and exactly, the within-month common shock; it misses serial correlation in the slopes across months, which needs Newey–West. Third — and run this — does it disagree with the naive number? Run a pooled regression of return on the estimated beta across the entire stacked panel, and compare its standard error on beta to your Fama–MacBeth standard error. The pooled standard error will be dramatically smaller, because it pretends your one hundred eight thousand stock-months are one hundred eight thousand independent observations, when on the dimension that matters they are closer to three hundred sixty. That disagreement is the diagnostic, exactly as in chapter two-point-four: the gap between the lying t-statistic and the honest one.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Recovered $\hat\gamma_1 \approx 0.0055$ sits within one FM SE of the planted $0.006$ — the SE *is* the size of that gap. Its precision lives in $T$, not $N$; the pooled OLS SE is far too small because it counts stock-months as independent. Next: the wrap-up — checks, reflection, and Fama–MacBeth's place in history.
+:::
+
+::: notes
+To summarize part six: aggregating the monthly slopes gives a recovered premium near zero-point-zero-zero-five-five, sitting within one Fama–MacBeth standard error of the planted zero-point-zero-zero-six — and that standard error is precisely the size of the gap. Its precision lives in the number of months, T, not the number of stocks, N, so with few months you lean on the t-distribution and stay humble. And the naive pooled standard error comes out far too small because it counts every stock-month as independent evidence — the gap between it and the honest Fama–MacBeth number is the diagnostic the whole week built toward. In part seven, we close: the done-when checklist, the reflection questions, the extensions, and where Fama–MacBeth sits in history.
+:::

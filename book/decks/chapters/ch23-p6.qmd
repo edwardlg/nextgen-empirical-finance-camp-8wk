@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## The Four-Line Proof and Its Geometry
+
+- Part 6 — prove FWL in four lines, then its geometry
+
+::: notes
+Welcome back to the Frisch–Waugh–Lovell theorem, part six of thirteen. In part five we stated the theorem and lined up the three facts about the residual maker. Now we run them through the algebra — the result falls out in four lines — and then we draw the geometry underneath, the mental model worth more than the algebra itself.
+:::
+
+## The Proof in Four Lines
+
+- Full fit: $\mathbf{y} = \mathbf{X}_1\hat{\boldsymbol{\beta}}_1 + \mathbf{X}_2\hat{\boldsymbol{\beta}}_2 + \hat{\boldsymbol{\varepsilon}}$
+- Hit with $\mathbf{M}_2$: middle term **dies** ($\mathbf{M}_2\mathbf{X}_2=\mathbf{0}$)
+- Residual survives: $\mathbf{M}_2\hat{\boldsymbol{\varepsilon}} = \hat{\boldsymbol{\varepsilon}}$
+- Left: $\tilde{\mathbf{y}} = \tilde{\mathbf{X}}_1\hat{\boldsymbol{\beta}}_1 + \hat{\boldsymbol{\varepsilon}}$
+- Left-multiply by $\tilde{\mathbf{X}}_1'$; cross term $\tilde{\mathbf{X}}_1'\hat{\boldsymbol{\varepsilon}}=\mathbf{0}$
+- Out pops the simple-regression normal equation $\blacksquare$
+
+::: notes
+Now the proof, in four lines. Start from the full fitted model: y equals X-one beta-one-hat plus X-two beta-two-hat plus the residual epsilon-hat, where epsilon-hat is orthogonal to every regressor, hence to both blocks. Hit the whole equation on the left with M-two. Take the three right-hand terms one at a time. The middle term dies: M-two times X-two is zero, so the entire beta-two-hat contribution vanishes — controls and all. That is the heart of the trick. The last term is unchanged: epsilon-hat is already orthogonal to X-two, so M-two leaves it untouched. What remains is y tilde equals X-one-tilde beta-one-hat plus epsilon-hat. Now, to pin beta-one-hat down as a slope, left-multiply by X-one-tilde-transpose. The cross term, X-one-tilde-transpose times epsilon-hat, is zero: by symmetry it equals X-one-transpose M-two epsilon-hat, which equals X-one-transpose epsilon-hat, which is zero by full-model orthogonality. So the cross term drops, leaving the normal equation of a simple regression, and beta-one-hat is exactly the residualized two-variable slope. Four lines, and the result that looked like deep magic falls right out.
+:::
+
+## The Geometry, In One Picture
+
+- Each variable is a vector in $\mathbb{R}^N$ — one coordinate per firm
+- Controls $\mathbf{X}_2$ carve out their own subspace — a plane
+- $\mathbf{M}_2$ projects everything **perpendicular** to that plane
+- $\tilde{\mathbf{X}}_1$, $\tilde{\mathbf{y}}$ = shadows cast off the plane
+- Measure how the shadows line up
+- Controls aren't deleted — they **define the plane**
+
+::: notes
+If the algebra felt like symbol-pushing, here is the picture underneath. Think of every variable as a vector in N-dimensional space — one coordinate per firm. The outcome y is a point; the regressors span a subspace; ordinary least squares drops a perpendicular from y onto that subspace. Now picture the controls X-two as carving out their own little subspace — a plane, say, if X-two is the intercept and size. The residual maker M-two is the operation "project everything onto the directions perpendicular to that plane." So X-one tilde is the shadow of your regressor cast onto the perpendicular space, and y tilde is the shadow of the outcome. F W L says: to find how much y leans in the R and D direction after accounting for the plane, project both vectors off the plane first, then measure how the shadows line up. The controls are not deleted; they define the plane you are standing perpendicular to. Every multiple-regression coefficient is, geometrically, a simple slope measured in the subspace orthogonal to the controls. That single sentence is the mental model to keep.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The proof uses **only** that $\mathbf{M}_2$ is symmetric, idempotent, and kills $\mathbf{X}_2$, plus the orthogonality of the full residual — four lines. Geometrically, a multiple-regression coefficient is a simple slope **in the subspace orthogonal to the controls**; the controls define the plane, not deleted from it. Next: what "holding constant" really buys you.
+:::
+
+::: notes
+To summarize part six. The Frisch–Waugh–Lovell proof uses nothing but three facts about the residual maker — symmetric, idempotent, annihilates its own block — together with the orthogonality of the full-model residual. That is the payoff of having built the residual maker carefully in Chapter two-point-one: a result that looks like deep magic falls out in four lines. Geometrically, every multiple-regression coefficient is a simple slope measured in the subspace orthogonal to the controls — the controls define the plane you stand perpendicular to, never deleted. In part seven we cash this in conceptually: what "holding constant" really means, and why it changes how you read every empirical table.
+:::

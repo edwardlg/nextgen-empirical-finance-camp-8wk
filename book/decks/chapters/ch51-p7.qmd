@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## What's Vulnerable: Snooping and Survivorship
+
+- Part 7 — attacking the paper: snooping and survivorship
+
+::: notes
+Welcome back to the Reader's Guide for Fama and French, part seven of nine. In part six we named the three moves that made the paper land — the double sort, book-to-market on the marquee, and the beta-is-dead framing. A referee's job, though, is not to admire; it is to attack the paper at its weakest joints and see if it holds. This part covers the first two of four lines of attack: data-snooping, and survivorship and look-ahead in the data.
+:::
+
+## Data-Snooping and Multiple Testing
+
+- Size and BE/ME were **not** the first characteristics tried
+- They are survivors of a field-wide search
+- Ransack one dataset enough and some clear $t>2$ **by chance**
+- One t-statistic doesn't adjust for hundreds of tests
+- Real question: would they survive in **unseen** data?
+
+::: notes
+First line of attack: data-snooping and multiple testing, from Week One. Size and book-to-market were not the first characteristics anyone tried; they are the survivors of a field-wide search across many candidate predictors. When the whole profession ransacks the same dataset for variables that correlate with returns, some will clear a t-greater-than-two bar by chance alone — the multiple-comparisons problem from Week One, scaled into a collective, decades-long fishing expedition. A single Fama-MacBeth t-statistic does not adjust for the hundreds of tests the literature ran to find it. The worry is not idle: later work, Harvey, Liu and Zhu in twenty sixteen, argued the hurdle for discovering a return factor should sit well above the conventional t-greater-than-two precisely because of how much snooping the field has done. The right skeptical question is: would size and book-to-market survive in data the authors had never seen? Largely yes — out-of-sample and international evidence has been kinder to book-to-market than to most factors — but the burden is real.
+:::
+
+## Survivorship and Look-Ahead in Compustat
+
+- Compustat coverage was **backfilled**
+- Backfilling adds firms that *survived* — survivorship bias
+- It can distort early-sample book equity
+- The whole build lives or dies on the timing lag
+- "Careful" is a claim to **check**, not assume
+
+::: notes
+Second line of attack: survivorship and look-ahead in Compustat book equity. Compustat's historical coverage was backfilled, and backfilling tends to add firms that survived long enough to be worth adding — a survivorship bias that can distort early-sample book equity. And the whole construction lives or dies on the timing lag from the data section: get the gap wrong and you smuggle in look-ahead bias, crediting investors with accounting numbers they could not yet have seen. The paper is careful here, but careful is a claim to be checked, not assumed, and it is exactly what your replication will stress-test. When you rebuild the merge yourself, you will feel how easy it is to get the lag slightly wrong and manufacture predictability out of thin air.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Two referee attacks. **Data-snooping**: size and book-to-market are survivors of a field-wide search, so a single t-statistic understates the testing — the real test is *unseen data*. **Survivorship and look-ahead**: backfilled Compustat can distort early book equity, and the timing lag must be *checked*, not assumed.
+:::
+
+::: notes
+To summarize part seven: a referee attacks, and the first two joints are about the data itself. Data-snooping — size and book-to-market are the survivors of a decades-long, field-wide search, so a single t-statistic vastly understates the multiple testing behind it, and later work argued the discovery hurdle should sit well above t-greater-than-two. The honest test is whether they survive in data the authors never saw, and largely they do. Survivorship and look-ahead — backfilled Compustat coverage can distort early book equity, and the entire build depends on getting the timing lag right, which is a claim to check rather than assume. In part eight we cover the two subtler attacks: the risk-versus-mispricing interpretation debate, and errors-in-variables in beta.
+:::

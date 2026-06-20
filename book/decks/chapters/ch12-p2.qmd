@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Variance and Covariance Defined
+
+- Part 2 — define variance and covariance, read co-movement
+
+::: notes
+Welcome back to Chapter one-point-two, Expectations, Variance, and Covariance as Geometry, part two of nine. In part one we saw that expectation is linear and forgives any dependence between variables. Here we first cash that in on Maya's expected portfolio return, then turn to spread. Variance measures how a single variable scatters around its mean, and covariance measures how two variables move together. We define both and learn to read the covariance like a story about co-movement.
+:::
+
+## Maya's First Number
+
+- Returns $R_1, R_2$; suppose $\mathbb{E}[R_1] = 0.08$, $\mathbb{E}[R_2] = 0.04$
+- Portfolio: $R_p = w R_1 + (1-w) R_2$
+- At $w = 0.5$: expected return $= 0.5(0.08) + 0.5(0.04) = 0.06$
+- True **no matter how** the two assets are related
+- Expected return is easy — a straight line in $w$
+
+::: notes
+Let us put a number on linearity. Maya is looking at two assets. Call their one-period returns R one and R two — a return is the fractional change in value, so zero point zero six means the money grew by six percent. Suppose her research says the expected return of asset one is zero point zero eight, and of asset two, zero point zero four. If she puts a fraction w of her money in asset one and one minus w in asset two, her portfolio return is the weighted sum w times R one plus one minus w times R two. With w equal to one half, linearity says the expected portfolio return is one half times zero point zero eight plus one half times zero point zero four, which is zero point zero six — no matter how the assets are related. Expected return is easy: a straight line in the weight w. Risk, as we will see, is not a straight line, and that curvature is the whole story of diversification.
+:::
+
+## Variance: Spread as Squared Deviation
+
+- $\operatorname{Var}(X) = \mathbb{E}\!\left[(X - \mathbb{E}[X])^2\right] = \mathbb{E}[X^2] - (\mathbb{E}[X])^2$
+- The average squared distance of $X$ from its own mean
+- Second form: expand the square, use linearity
+- Standard deviation $\operatorname{sd}(X) = \sqrt{\operatorname{Var}(X)}$ — same units as $X$
+- In finance we call $\operatorname{sd}$ the **volatility**
+
+::: notes
+Now spread. The variance of X is the expected value of the squared deviation, X minus the expected value of X, all squared. That is the average squared distance of X from its own mean. There is a second, equivalent form that is often easier to compute: the expected value of X squared, minus the square of the expected value of X. It follows by expanding the square and using linearity — verify it once by hand and never again. The square root of the variance is the standard deviation, which lives in the same units as X itself. In finance we call that standard deviation the volatility. Variance lives in squared units, which is awkward; volatility brings us back to the natural scale of returns.
+:::
+
+## Covariance: Movement Together
+
+- $\operatorname{Cov}(X, Y) = \mathbb{E}\!\left[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])\right]$
+- Both above their means $\Rightarrow$ product positive $\Rightarrow$ rise together
+- One above, one below $\Rightarrow$ product negative
+- No systematic link $\Rightarrow$ products wash out, near zero
+- $\operatorname{Cov}(X, X) = \operatorname{Var}(X)$ — the seed of the matrix picture
+
+::: notes
+The covariance of X and Y is the natural two-variable cousin: the expected value of the product of the two deviations — X minus its mean, times Y minus its mean. Read that like a story. When X is above its mean, is Y usually above its mean too? Then the product is usually positive, and so is the covariance — the two rise and fall together. When one is typically above its mean while the other is below, the product is negative, and so is the covariance. If there is no systematic relationship, the positive and negative products wash out and the covariance is near zero. There is an equivalent form: the expected value of X times Y, minus the product of the two expectations. And notice one tiny fact: the covariance of X with itself is just its variance. That small remark is the seed of the whole matrix picture later.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Variance** is expected squared deviation; its root is volatility. **Covariance** is the expected product of deviations — its sign says whether two variables move together. And $\operatorname{Cov}(X,X)=\operatorname{Var}(X)$. Next: a concrete four-cell example, then the algebra that combines them.
+:::
+
+::: notes
+To summarize part two: expected portfolio return is just a weighted average, by linearity — Maya's blend earns zero point zero six regardless of how the assets relate. Variance is the expected squared deviation, and its square root, the volatility, lives in the natural units. Covariance is the expected product of two deviations, and its sign tells you whether the variables move together, oppositely, or have no linear link. And a variable's covariance with itself is just its variance — hold that thought. In part three, we grind through a concrete four-cell example so these formulas have something real to stand on.
+:::

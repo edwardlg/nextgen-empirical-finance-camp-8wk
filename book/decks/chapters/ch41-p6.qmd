@@ -1,0 +1,56 @@
+---
+date: "2026-06-22"
+---
+
+## The Crack in the 2×2: Toward Staggered Adoption
+
+- Part 6 — staggered adoption breaks the clean TWFE story
+
+::: notes
+Welcome back to difference-in-differences, part six of six — our final segment. So far the story has been beautiful: with one treated group, one control, and one moment of treatment, the double difference equals the treatment effect under parallel trends, the two-way fixed-effects coefficient recovers it exactly, the event study inspects pre-trends, and clustering by unit gets the standard errors right. This part shows where that clean story develops a crack — when different units adopt treatment at different times — which is where the next chapter begins.
+:::
+
+## The Clean World — and Its Boundary
+
+- Assumed: **one** treated group, **one** control, **one** switch
+- Two groups, a few periods, a single clean before-and-after
+- In that world, DiD is beautiful and exact
+- Step outside it and the clean story cracks
+
+::: notes
+Everything so far assumed a very particular world: one treated group, one control group, one moment when treatment switches on. A single clean before-and-after for one treated unit. In that world, difference-in-differences is beautiful. The double difference equals the treatment effect on the treated under parallel trends. The two-way fixed-effects coefficient beta, in Y-i-t equals alpha-i plus lambda-t plus beta times D-i-t plus the error, recovers it exactly. The event study lets the effect breathe and lets us inspect the pre-trends. And clustering by unit, with enough units, gets the standard errors right. But step into the world empirical finance usually hands you, and the clean story develops a crack.
+:::
+
+## Staggered Adoption Breaks the Story
+
+- Regulation rolls out at **different times** per state
+- California 2018, Colorado 2020, Oregon 2022
+- Same TWFE, same $\beta$ — seems like the obvious fix
+- It is a **trap**
+
+::: notes
+Suppose the wildfire regulation does not arrive in one state in one year, but rolls out across many states at different times — California in twenty eighteen, Colorado in twenty twenty, Oregon in twenty twenty-two — a pattern called staggered adoption. Your instinct, and for two decades the profession's instinct, is to run the same two-way fixed-effects regression, now with the treatment dummy switching on at each state's own adoption date, and read beta as the average treatment effect. It seems the obvious generalization: same equation, more switches. It is a trap. When timing varies across units, that single beta is no longer a clean average of treatment effects.
+:::
+
+## Why It Fails — and What Survives
+
+- TWFE uses **already-treated units as controls**
+- A 2018 state controls for a 2022 state
+- If the early effect still evolves, the comparison is contaminated
+- $\beta$ can be a **negatively weighted** average — even wrong sign
+- Keep the TWFE form — but know its limits
+
+::: notes
+The reason — developed in Chapter four-point-two — is that the two-way fixed-effects machine, hunting for units that change treatment status, ends up using already-treated units as controls for newly-treated units. A state treated in twenty eighteen becomes part of the implicit comparison group for a state treated in twenty twenty-two, and if the twenty-eighteen state's effect is still evolving, that comparison is contaminated. Under some patterns of timing and dynamic effects, beta can be a strange, even negatively weighted average of the underlying effects — it can come out the wrong sign while every individual treatment effect is positive. The exact same equation that is exactly right in the two-by-two becomes misleading the moment timing varies. So hold onto the two-way fixed-effects form, but hold it the way you hold a tool whose limits you now know. In the canonical two-by-two it is exactly the difference-in-differences estimator, and beta is the treatment effect on the treated under parallel trends. The next chapter shows how and why that interpretation breaks under staggered adoption, and what the modern estimators do instead.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The clean DiD story holds for **one group, one control, one switch**. Under **staggered adoption** — units treated at different times — the same TWFE $\beta$ silently fails: it uses already-treated units as controls and can become a negatively weighted average, even the wrong sign. The double difference was the foundation; the staggered critique is what gets built on it — in **Chapter 4.2**.
+:::
+
+::: notes
+To summarize part six, and the whole lesson: difference-in-differences turns two contaminated comparisons into one clean one, imputes the treated unit's missing counterfactual by adding the control's change to its own pre level, and rests on the untestable parallel-trends assumption. It is exactly the two-way fixed-effects coefficient in the canonical two-by-two, the event study checks pre-trends, and inference demands clustering by the treated unit. But all of that assumes one group, one control, one switch. Under staggered adoption, where units are treated at different times, the same coefficient silently fails — using already-treated units as controls and becoming a negatively weighted average that can even flip sign. The double difference was the foundation; the staggered critique is what gets built on it. That is Chapter four-point-two. In the lab, notebook four-point-one, you will build the two-by-two by hand, run the event study, break parallel trends on purpose, and reproduce the placebo experiment yourself.
+:::

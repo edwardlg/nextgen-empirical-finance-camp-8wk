@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Callaway–Sant'Anna Recovers the Truth
+
+- Part 8 — estimate CS with clean controls, recover the effect
+
+::: notes
+Welcome back to the Week Four lab, part eight of ten. In part seven you read the event study and stressed parallel trends — leads that hug zero when trends are parallel and tilt when you plant a violation. Now, Step Five: the cure. You estimate Callaway and Sant'Anna group-time average treatment effects against clean controls and watch the clean estimator recover the planted effect that two-way fixed effects could not.
+:::
+
+## Step 5 — Estimate with Clean Controls
+
+- Group-time ATTs against **never-treated** clean controls
+- Use the `differences` package, exactly as in nb4.2
+- A MultiIndex of (entity, time); cohort column $G$, NaN = never
+- Aggregate to an event study **and** a single overall ATT
+- CS overall ATT $\approx -1.32$ points
+- Far closer to truth $-1.49$ than TWFE's $-0.81$
+
+::: notes
+Now the cure. Estimate Callaway and Sant'Anna group-time average treatment effects against never-treated clean controls, using the differences package exactly as in notebook four-point-two: a multi-index data frame of entity and time, and a cohort column where never-treated units are not-a-number. Then aggregate to an event study and to a single overall average treatment effect. What you expect: the Callaway and Sant'Anna overall effect lands around negative one-point-three-two percentage points — close to the true negative one-point-four-nine, and far closer than two-way fixed effects' negative zero-point-eight-one. The clean estimator only ever compares each treated cohort to genuinely clean controls — never-treated or not-yet-treated units — so it never makes the forbidden comparison that dragged two-way fixed effects toward zero. That is the whole reason it recovers what the contaminated estimator missed.
+:::
+
+## Reading the Event-Study Coefficients
+
+- Pre-period coefficients ($e<0$) **hug zero** — max about $0.16$
+- Flat, exactly as the planted truth demands
+- Post-period coefficients climb with the planted profile
+- Roughly $-0.23, -0.71, -1.09, -1.40, \dots$
+- Tracing the $-0.40, -0.80, -1.20$ build-up, dampened by noise
+- Long horizons have fewer clean comparisons
+
+::: notes
+Read the event-study coefficients. The pre-period coefficients — event time less than zero — hug zero, with maximum magnitude around zero-point-one-six percentage points: flat, as the truth demands. The post-period coefficients climb in lockstep with the planted build-up. You will see roughly negative zero-point-two-three, then negative zero-point-seven-one, then negative one-point-zero-nine, then negative one-point-four-zero, and onward — the estimator tracing out the planted profile of negative zero-point-four-zero, negative zero-point-eight-zero, negative one-point-two-zero, dampened only by noise and by the diminishing number of clean comparisons at long horizons. The headline contrast is the whole lab: the clean estimator recovers the planted effect; the contaminated one sits visibly short of it. The Callaway and Sant'Anna pre-period coefficients are genuine placebo checks — effects should be zero before adoption — and they are more trustworthy than the naive event study's leads, because they avoid the bleed Sun and Abraham flagged.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Callaway–Sant'Anna with clean controls recovers the planted effect** — an overall ATT near $-1.32$ against the true $-1.49$, far closer than TWFE's $-0.81$. Pre-period coefficients hug zero; post-period coefficients trace the planted $-0.40, -0.80, -1.20$ build-up. It never makes the forbidden comparison. Next: naming the aggregation weights, and the side-by-side figure.
+:::
+
+::: notes
+To summarize part eight: Callaway and Sant'Anna with clean never-treated controls recovers the planted effect — an overall average treatment effect near negative one-point-three-two against the true negative one-point-four-nine, far closer than two-way fixed effects' negative zero-point-eight-one. The pre-period coefficients hug zero, with maximum magnitude around zero-point-one-six, and the post-period coefficients trace the planted build-up of negative zero-point-four, negative zero-point-eight, negative one-point-two, dampened only by noise. The estimator never makes the forbidden comparison, which is why it recovers what the contaminated one missed, and its pre-period placebos are more trustworthy than the naive leads. In part nine we explain why the overall number is not exactly the cell-mean — aggregation weights — and put the three numbers side by side.
+:::

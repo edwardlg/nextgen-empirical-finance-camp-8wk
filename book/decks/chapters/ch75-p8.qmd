@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## A Worked Memo: Maya's HMDA Fair-Lending DiD
+
+- Part 8 — one memo end to end on Maya's HMDA project
+
+::: notes
+Welcome back to the identification memo, part eight of nine. In part seven we laid out the honesty rules. Now we write a whole memo, end to end, for Maya's project: a staggered difference-in-differences on HMDA, asking whether state fair-lending examination programs reduced the minority-white gap in mortgage-denial rates.
+:::
+
+## The Specification
+
+- Staggered DiD on HMDA — Gao and Sun's same-sex-borrower data
+- Outcome: county-year minority–white **mortgage-denial gap**
+- Treatment: state fair-lending exam program active that year (staggered)
+- Callaway–Sant'Anna against never- and not-yet-treated controls only
+- Clustered by **state** — the level at which treatment varies
+
+::: notes
+Let us write the whole thing end to end. This is the exact design of Chapter Four-point-Two — staggered adoption, dynamic effects, Callaway-Sant'Anna against clean controls — pointed at the dataset Professor Gao and his coauthor used to ask whether same-sex couples were treated differently when they applied to borrow. The specification, in Conventions section four form. The outcome is the county-year minority-white mortgage-denial gap — the minority denial rate minus the white denial rate — from the HMDA loan application register. The treatment is an indicator for whether the applicant's state had an active fair-lending examination program that year, with staggered adoption, the cohort being the year the program took effect, and never-adopters as clean controls. Controls are county-year applicant-composition covariates — income, loan-to-value, and loan-amount distributions — entering through covariate-conditional parallel trends. Fixed effects are county and year, and clustering is by state.
+:::
+
+## The Identifying-Assumption Paragraph
+
+- Says **credible**, not causal — calibrated to the evidence
+- Credible if denial gaps would have moved in **parallel** absent programs
+- Defended three ways — the contract everything in the paper defends:
+- Flat, insignificant event-study **leads**
+- **Clean controls** (never- and not-yet-treated) plus **exogenous timing**
+
+::: notes
+The identifying-assumption paragraph reads as follows. Our estimate of the effect of state fair-lending examination programs on the county-level minority-white mortgage-denial gap is credible as long as, absent the programs, the denial gaps in adopting and never-adopting states would have evolved in parallel — a per-cohort parallel-trends assumption we defend three ways. With an event study whose pre-treatment leads are flat and statistically indistinguishable from zero. With a Callaway-Sant'Anna estimator that forms only clean comparisons against never- and not-yet-treated states, never the already-treated states that contaminate pooled two-way fixed effects under dynamic effects. And with the institutional fact that each program's timing was set by the state's legislative and budget calendar, which we argue is unrelated to local mortgage shocks. We report an overall average treatment effect and an event-time profile, with state-clustered inference and a placebo check. That paragraph is the contract. Everything in the paper defends it.
+:::
+
+## Reading the Table Like a Referee
+
+- Row 1 leads with the hardest question — **differential pre-trend**
+- Forbidden comparison met by **clean estimator** + Goodman–Bacon decomposition
+- Anticipation: inspect leads just before adoption; drop the prior year
+- Compound policy shock is **arguable** — document each state's co-timed laws
+- No residual-concern cell is empty — because none honestly could be
+
+::: notes
+Read the table the way a referee would. The first row is the hardest question — the differential pre-trend — and it leads, as it should, because adopting states may already have been on a different denial-gap trajectory. The response is testable: report and plot the event-study leads, normalized at lead minus one. The forbidden comparison and negative weights are met by a design choice — the Callaway-Sant'Anna estimator against clean controls, plus a Goodman-Bacon decomposition showing how much weight pooled two-way fixed effects put on forbidden comparisons. Anticipation is partly testable: inspect the leads in the quarters just before adoption, and optionally drop the year before and re-estimate. The compound policy shock is arguable — document each state's contemporaneous lending-policy changes from legislative records, and argue no co-timed policy plausibly moves the denial gap. Every row's column three is the right kind of response: a test where testable, an institutional argument where not. No residual cell is empty, because none honestly could be. The sentence says credible, not causal. A paper built on this spine can be attacked — every paper can — but it cannot be ambushed.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Maya's worked memo shows the discipline whole: a precise CONVENTIONS-form spec, an identifying-assumption paragraph that says *credible* and defends parallel trends three ways (flat leads, clean Callaway–Sant'Anna controls, exogenous timing), and a table that leads with the pre-trend, matches each response to the threat's nature, and leaves no residual cell empty. The result cannot be ambushed. Next: how this one page becomes the entire Week-8 paper.
+:::
+
+::: notes
+To summarize part eight: Maya's worked HMDA memo shows the whole discipline in action. The specification is stated precisely in Conventions form. The identifying-assumption paragraph says credible, not causal, and defends per-cohort parallel trends three ways: flat event-study leads, a Callaway-Sant'Anna estimator against clean controls, and the institutional exogeneity of adoption timing. The table leads with the hardest question and gives every threat the right kind of response, with no residual cell left empty. A paper built on this spine can be attacked but cannot be ambushed. In part nine we cross the bridge to Week Eight.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## As-Good-As-Random Assignment and Balance
+
+- Part 2 — the first pillar: as-if-random assignment and the balance check
+
+::: notes
+Welcome back to natural experiments, part two of five. In part one we said the empiricist's craft is finding a coin already flipped, and that its credibility rests on three defenses. Now we take the first pillar: as-good-as-random assignment. What does it actually claim, what does randomization buy us, and how can the balance check let us test part of that claim while being honest about the part we can never test?
+:::
+
+## The Villain Is the Selection-Bias Term
+
+- Recall the master decomposition from Chapter 3.1
+- Naive difference in means $=$ causal effect $+$ selection bias
+- Bias is $\mathbb{E}[Y_i(0)\mid D_i=1]-\mathbb{E}[Y_i(0)\mid D_i=0]$
+- How different the groups already were before treatment
+- Randomization zeroes it: the coin does not know who you are
+
+::: notes
+Recall the master decomposition from Chapter three-point-one. The naive difference in means equals the causal effect plus a selection-bias term. That bias term is the expected untreated outcome among the treated, minus the expected untreated outcome among the control. In plain words: how different the two groups already were, in their baseline outcomes, before treatment ever touched anyone. Randomization zeroes that term, because the coin does not know who you are — it assigns treatment independently of your potential outcomes, so the two groups start out, in expectation, identical. That is the whole magic of a randomized trial: it makes the villain vanish.
+:::
+
+## A Natural Experiment Makes the Same Bet
+
+- It claims the assigning force was blind to potential outcomes
+- A regulator drawing every other name off an irrelevant list
+- Treated and control are, in expectation, the same kind of firm
+- Exactly the property a coin would have bought
+- Your job: argue the assigning force could not see the outcome
+
+::: notes
+A natural experiment makes that same bet, but without a coin. It claims that whatever assigned the treatment did so independently of the units' potential outcomes. Picture a regulator who picks treated firms by drawing every other name off a list that was sorted by some irrelevant key — alphabetical order, a ticker, a ranking unrelated to the firm's fundamentals. If that is genuinely how the selection happened, then treated and control firms are, in expectation, the same kind of firm. That is exactly the property a coin would have bought you. So your first job is to argue that the assigning force was blind to the outcome — that it could not have been steered, even subtly, by the very thing you are trying to measure.
+:::
+
+## Test It With Balance
+
+- If the lottery is real, the groups look alike beforehand
+- Check observables: size, leverage, prior returns, governance
+- Do treated and control match before treatment began?
+- Balance is **necessary, not sufficient**
+- It checks observables; unobservables stay an act of faith
+
+::: notes
+Now, part of this claim you can actually test, and you must. If the lottery were real, treated and control units should look alike on observable characteristics before treatment — the same distribution of size, leverage, prior returns, governance, whatever matters in your setting. So you check the balance: you line up the two groups before the treatment began and ask whether they match. But hold onto this carefully. Balance is necessary, not sufficient. It checks only the observables — the things you can measure. The unobservables — the hidden quality, the manager's private intentions — those remain an act of faith in the design itself. A failure of balance is fatal; passing balance is reassuring but never proof. It buys credibility, not certainty.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+As-good-as-random assignment makes the same bet a coin makes — that the assigning force was **blind to potential outcomes**, zeroing the selection-bias term. You **test** it with balance: treated and control should look alike on observables beforehand. But balance checks only the observables; the unobservables stay an act of faith. Next: the exclusion restriction.
+:::
+
+::: notes
+To summarize part two: as-good-as-random assignment makes the same bet a coin makes — that the force assigning treatment was blind to potential outcomes, which zeroes the selection-bias term from Chapter three-point-one. You test it by checking balance: treated and control units should look alike on observables before treatment, and if they do not, the design is in trouble. But balance is necessary, not sufficient — it speaks only to the observables, while the unobservables remain an act of faith. In part three we turn to the harder half, the same untestable claim that haunted instrumental variables: the exclusion restriction.
+:::

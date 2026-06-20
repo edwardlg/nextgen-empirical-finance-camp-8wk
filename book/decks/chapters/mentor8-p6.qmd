@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Selection Problem — Stated and Attacked
+
+- Part 6 — the deadliest attack: selection, stated and defended
+
+::: notes
+Welcome back to Mentor Session Eight, defending a result, part six of eight. In part five we put the disclosure paper under fire on measurement and learned to defend with several measures that share no common flaw. Now the deadliest attack of all on this result: selection. CEOs do not get their politics at random — so why isn't the whole effect just the kind of firm they ended up at?
+:::
+
+## The Referee's Deadliest Question
+
+- "Isn't your effect just **selection**?"
+- Conservative CEOs end up at a different kind of firm
+- And it's the firm, not the CEO's politics, disclosing
+- **Identifying assumption**: how CEOs sort isn't tied to disclosure tendency
+- State it plainly — that is the standard you must defend
+
+::: notes
+Here is the referee's deadliest question, the one every one of you will face in some form: CEOs don't get their politics randomly assigned — isn't your effect just selection? Conservative-leaning CEOs end up at a different kind of firm, and it's the firm, not the CEO's politics, doing the disclosing. State, in one plain sentence, the identifying assumption this kind of design needs to survive that question — what would have to be true about how CEOs sort into firms for the comparison to be fair? Roughly: that once you account for what you observe, the way CEOs sort into firms is not itself tied to the firm's disclosure tendency. That assumption is the standard you are defending. You cannot prove it outright with observational data, but you can pile up evidence that makes its failure less and less plausible — which is exactly what the next moves do.
+:::
+
+## The Moves a Referee Demands
+
+- **Rich controls** — but "we control for it" is a claim, not a spell
+- The omitted-variable **ghost** from Week Two
+- **Firm fixed effects** — make the comparison within-firm
+- A **turnover shock** — politics arriving for unrelated reasons
+- Each move: say what it *kills* and what it *leaves standing*
+
+::: notes
+Name the concrete moves a referee would demand to make the selection story less plausible. First, control richly for firm and CEO characteristics — but we control for it is a claim, not a spell, the omitted-variable ghost from Week Two, because you can only control for what you observe. Second, firm fixed effects, so the comparison is within-firm: the same firm under different leadership, which kills any time-invariant firm trait. Third, and strongest, find variation in CEO politics arriving for reasons plausibly unrelated to disclosure — a CEO turnover event, a shock to the executive's environment. For each move, say what threat it kills and what it leaves standing. Naming the residual every move leaves behind is what makes a defense honest rather than a wall of techniques.
+:::
+
+## The Honest Claim
+
+- Selection rarely dies *completely* with observational data
+- Following Ch 8.5's retreat logic, claim the smaller thing
+- A **robust association** that survives obvious selection stories
+- Not a clean *causal* effect of politics on disclosure
+- The honest smaller claim is the **stronger** one
+
+::: notes
+Now the honest part. Selection can rarely be killed completely with observational data — there is almost always one more sorting story you can't fully shut down. So following Chapter eight-point-five's retreat logic, what is the most a defensible version should claim: a clean causal effect of CEO politics on disclosure, or a robust association that survives the obvious selection stories? It should claim the second. Why is that stronger than overclaiming the first? Because a referee can see a clean causal claim is unsupportable here, and the moment they catch you overclaiming, they stop trusting everything else. A robust association that survives every selection story you could think to test is a real, publishable finding — and stating it at exactly the strength the evidence supports is what makes the rest of your paper believable. The smaller honest claim is the stronger one.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Selection is the deadliest attack: state the **identifying assumption** plainly, then deploy **rich controls, firm fixed effects, or a turnover shock** — remembering "we control for it" is a claim, not a spell. Since observational selection rarely dies completely, claim a **robust association**, not a clean causal sweep. Next: the alternative explanation, and your defense brief.
+:::
+
+::: notes
+To summarize part six: selection is the deadliest attack, and the defense begins by stating the identifying assumption plainly — that how CEOs sort into firms is not, once you account for what you observe, tied to disclosure tendency. Then you deploy concrete moves: rich controls, remembering we control for it is a claim and not a spell; firm fixed effects to force a within-firm comparison; and strongest of all, a turnover shock bringing CEO politics for unrelated reasons. For each, you name what it kills and what survives. And because observational selection rarely dies completely, you claim a robust association rather than a clean causal sweep — the honest smaller claim being the stronger one. In part seven we face the alternative explanation that steals your interpretation, and start your own defense brief.
+:::

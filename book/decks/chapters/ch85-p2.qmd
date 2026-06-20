@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Arc: Question, Stakes, Design
+
+- Part 2 — the arc's first three beats: question, stakes, design
+
+::: notes
+Welcome back to The Eight-Minute Presentation and the Replication Packet, part two of twelve. In part one we said the eight-minute talk has room for exactly one idea, defended cleanly across six beats, one slide each. Now we walk the first half of that arc. The full sequence to memorize is: question, why it matters, design and identification, headline result, robustness, contribution. This part covers the first three beats — and the design slide is the spine of the whole talk.
+:::
+
+## Question, Then Why It Matters
+
+- **Question:** one sentence a smart sixteen-year-old repeats
+- "Does a spot Bitcoin ETF reduce the token's volatility?"
+- Resist three paragraphs of history — state the question
+- **Why it matters:** one concrete stake, *after* the question
+- Concrete before abstract; a number before a Greek letter
+
+::: notes
+The question slide states, in one sentence a smart sixteen-year-old could repeat back, what you are asking. Not the literature, not the motivation — the question. Devon's reads: "Does the launch of a spot Bitcoin ETF reduce the volatility of the underlying token?" That is a slide. The temptation is to open with three paragraphs of crypto-market history; resist it. The room cannot hold context it has not been given a reason to want. The why-it-matters slide earns the question its airtime — and you spend it after the question, not before. One concrete stake. Priya's climate-insurance talk does not open with the I-P-C-C; it opens with: "If wildfire risk is mispriced, insurers either go insolvent or abandon whole counties." That is a stake a stranger feels. The discipline is the one our conventions drill: concrete before abstract, a number before a Greek letter. A talk that opens abstract loses the room in thirty seconds and never gets it back.
+:::
+
+## Design Is the Spine
+
+- The slide students underweight — every hard question lands here
+- Put your identifying-assumption sentence on the screen
+- "Credible as long as [assumption], defended by [design]"
+- Not a regression equation — *why the comparison is fair*
+- Sam: "long winners, short losers, within each month"
+
+::: notes
+The design and identification slide is the spine, and it is the one students underweight. This is where you put your identifying-assumption sentence from Chapter seven-point-five — the contract — on the screen, in the same form: "Our estimate is credible as long as the assumption, which we defend by the design." This is not a slide about your regression equation; nobody can read a regression equation in sixty seconds. It is a slide about why the comparison is fair. Sam's momentum talk does not show the Fama-MacBeth machinery; it shows one sentence — "long past-winners, short past-losers, within each month, so common shocks cancel" — and one small picture of the sort. If the audience leaves understanding only one thing, it should be this slide. A talk where the design slide is weakest is a talk that will not survive questions, because every hard question lands right here.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The first three beats: **state the question** in a sentence a sixteen-year-old could repeat, **earn it** with one concrete stake *after* the question, and make the **design slide the spine** — the identifying-assumption sentence on screen, about *why the comparison is fair*. Every hard question lands on that slide. Next: the headline, robustness, and contribution beats.
+:::
+
+::: notes
+To summarize part two: the six-beat arc opens with the question, why it matters, and the design. State the question in one sentence a smart sixteen-year-old could repeat back, with no preamble. Earn it with a single concrete stake, placed after the question, never before — concrete before abstract, a number before a Greek letter. And make the design and identification slide the spine: the identifying-assumption sentence on screen, a slide about why the comparison is fair, not about your regression equation. Every hard question lands there, so it is the one to get right. In part three we finish the arc with the headline result, the robustness slide, and the contribution.
+:::

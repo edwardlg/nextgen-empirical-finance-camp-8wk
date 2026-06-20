@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## PatentsView — Innovation Data in Bulk
+
+- Part 10 — PatentsView innovation data and its moving platform
+
+::: notes
+Welcome back to Data Acquisition in Practice, part ten of thirteen. In part nine we covered thirteen-F institutional holdings and their conceptual gotchas. Now we meet Leah's source: USPTO PatentsView, the research-friendly database of US patents — powerful for innovation work, but served through a platform that has migrated repeatedly.
+:::
+
+## PatentsView — What's In It
+
+- USPTO database of US patents back to 1976 full-text
+- Inventors, assignees, dates, citations, technology classes
+- Leah's project: patent counts by firm-year as innovation
+- Patents key on a **patent number**; assignees on disambiguated IDs
+- Hardest part: matching an assignee to a Compustat firm
+
+::: notes
+PatentsView is the USPTO's research-friendly database of US patents: every granted patent and, in recent data, pre-grant applications, with inventors, assignees — the firms that own the patent — filing and grant dates, citations between patents, and technology classifications, back to nineteen seventy-six for full text. This is Leah's project: patent counts and citation-weighted counts by firm-year as a measure of innovation. It is public, with no license restriction. Patents key on a patent number; inventors and assignees have PatentsView-assigned disambiguated I-Ds — the database's best guess that this is the same inventor across patents, which is itself an estimate you should treat with care. The hard part — and it is the hard part of patent research — is matching a PatentsView assignee to a Compustat firm, a GVKEY, because firm names are messy: I-B-M versus International Business Machines versus a subsidiary. That match is a Chapter seven-point-four problem; PatentsView gives you the assignee name and I-D to start from.
+:::
+
+## A Platform That Keeps Moving
+
+- PatentsView migrated to the USPTO Open Data Portal in 2026
+- Legacy endpoints discontinued; interim API paused at cutover
+- Current home is the USPTO API; header is `X-API-KEY`
+- Register for a free key; pin the base URL in config
+- Versioned and migrated **three** times in two years
+
+::: notes
+A practical warning on access. PatentsView migrated to the USPTO Open Data Portal, the O-D-P, in March twenty twenty-six. The legacy patentsview-dot-org endpoints were discontinued in May twenty twenty-five, and the interim Patent Search A-P-I was paused at the O-D-P cutover. The current home is the USPTO A-P-I, where you register for a free key, and the header name is X-A-P-I-K-E-Y. Read that key from an environment variable and pin the base U-R-L in your config. Here is the honest caveat the source itself flags: the platform has been versioned and migrated three times in two years — legacy, then Patent Search, then the Open Data Portal — and the exact post-cutover endpoint path is still being finalized. So before any big run, confirm the current endpoint and path in the data card and the O-D-P transition guide. The runnable, verified call lives in notebook seven-point-two.
+:::
+
+## API vs. Bulk, and Two Gotchas
+
+- Targeted query — one firm, one year — goes through the API
+- The API enforces per-key rate limits and **pagination**
+- Whole-database extracts come from **bulk TSV downloads**
+- Disambiguation is a statistical guess — measurement error
+- Grant lag: recent years undercount until data matures
+
+::: notes
+A rule of thumb: targeted queries — one firm, one year — go through the A-P-I, which enforces per-key rate limits and pagination, so you loop through pages respecting the limit. Whole-database extracts — all patents for a decade, which is millions of rows — come from bulk downloads: flat T-S-V files of the whole database, available through the O-D-P's PatentsView Bulk Downloads page. Do not paginate millions of A-P-I calls when a bulk file exists. Two deeper gotchas. First, disambiguation uncertainty: "the same inventor" and "the same assignee" are statistical guesses, so firm patent counts inherit that error — a measurement-error issue you should acknowledge, not paper over. Second, grant lag: a twenty twenty-three application may not be granted until twenty twenty-six, so recent years undercount until the data matures. For the reproducible pull, pin the PatentsView data release — it updates roughly quarterly — cache the raw results, and log the query and a content hash. Because both grant lag and disambiguation change between releases, the release date is a genuine reproducibility pin.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**PatentsView** powers innovation research — patents, inventors, assignees, citations. Two cautions: its platform has migrated **three times**, so confirm the current endpoint; and pin the **data release**, since grant lag and disambiguation shift between releases. Targeted queries use the API; whole-database extracts use bulk files. Next: the free price-data alternatives.
+:::
+
+::: notes
+To summarize part ten: PatentsView gives innovation data in bulk — patents, inventors, assignees, citations, and classifications — and powers projects like Leah's firm-year patent counts. Two cautions stand out. Its platform has migrated three times in two years to the USPTO Open Data Portal, so confirm the current endpoint and header before a big run. And you pin the data release, because both grant lag and disambiguation uncertainty shift between releases. Use the A-P-I for targeted queries and bulk files for whole-database extracts. In part eleven we cover the free price-data alternatives — yfinance, Stooq, and Tiingo — where the gap between free and research-grade really matters.
+:::

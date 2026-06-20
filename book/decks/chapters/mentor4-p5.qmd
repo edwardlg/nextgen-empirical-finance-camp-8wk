@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## DiD, Selection, and Reading the Result
+
+- Part 5 — DiD, parallel trends, and reading the result responsibly
+
+::: notes
+Welcome back to the Week Four mentor session, part five of five. In part four we set up the same-sex-borrower design in HMDA data and saw why a surviving coefficient is not yet discrimination. In this final part we add the natural-experiment machinery — a difference-in-differences, its parallel-trends assumption, the staggered-adoption pitfall, and the discipline of reading a result that is headed for Congressional testimony. Then we close with the reflex that is the point of the whole week.
+:::
+
+## Selection Into Applying
+
+- The deepest threat is in *who enters the data*
+- Same-sex and different-sex couples may **select into applying** differently
+- Different income distributions, propensity to apply, choice of lender or neighborhood
+- This is *distinct* from unobserved creditworthiness — both contaminate the simple regression
+- **Matching** pairs same-quality applicants differing only in the protected trait
+- Matching can't fix selection — for that you need a policy change or as-if-random shock
+
+::: notes
+Before the difference-in-differences, name the deepest threat: it is not in the data you have, but in who enters it. Same-sex and different-sex couples may select into applying differently — different income distributions, a different propensity to apply at all, different choices of lender or neighborhood. Selection into applying and unobserved creditworthiness are distinct threats — one is about who shows up in the sample, the other about a variable missing within it — and both would contaminate the simple regression. A matched comparison sharpens the design by pairing a same-sex application to a different-sex one on observables, so the pair differs as nearly as possible only in the protected trait. Matching buys you a cleaner comparison than throwing the same variables into a linear regression. But matching on observables cannot fix selection — for that you need variation from a policy change, a cutoff, or an as-if-random shock.
+:::
+
+## Setting Up the DiD
+
+- Imagine a policy change altering fair-lending protections for some jurisdictions, not others
+- Outcome: approval or price; treated: covered same-sex couples; comparison: untreated
+- Differencing over time *and* across groups removes fixed between-group gaps
+- **Parallel trends:** absent the policy, the same-sex-versus-different-sex gap would have moved in step
+- In an **event-study** plot, look for flat pre-trends
+- Flat pre-trends are reassuring but never a proof
+
+::: notes
+Now the difference-in-differences. Imagine a state or federal change that altered fair-lending protections for same-sex couples at a known date in some jurisdictions and not others. Set it up as the difference-in-differences of Chapter four-point-one: the outcome is approval or price, the treated are the covered same-sex couples, the comparison is the untreated, and differencing over time and across groups removes the fixed between-group differences the cross-sectional regression cannot. The parallel-trends assumption, in one sentence: absent the policy, the gap in outcomes between same-sex and different-sex applicants would have moved in step over time. To make it credible you look at an event-study plot — Chapter four-point-one, section five — for flat pre-trends before the policy date. Remember that flat pre-trends are reassuring but never a proof.
+:::
+
+## Reading the Result Responsibly
+
+- Staggered rollout across states → the Chapter 4.2 two-way fixed-effects pitfall
+- Naive TWFE contaminates clean comparisons with already-treated units
+- Lab 4 reaches for a modern staggered estimator instead
+- Cluster standard errors by state (Chapter 4.1 §7) — non-negotiable
+- The number must survive a hostile referee, a regulator, a journalist, *and* a court
+- This paper moved from HMDA to Congressional testimony, HUD, and the Fed
+
+::: notes
+Two cautions on reading the result. If treatment is assigned at the state level and rolls out at different dates across states, a naive two-way fixed-effects regression falls into the staggered-adoption pitfall from Chapter four-point-two — it contaminates clean comparisons by using already-treated units as controls — so your Lab Four reaches for a modern staggered estimator instead. And getting the standard errors right, clustering by state as in Chapter four-point-one section seven, is non-negotiable when a number is headed for Congressional testimony. Because that is the standard here: a credible fair-lending estimate has to survive a hostile referee, and also a regulator, a journalist, and a court. Our same-sex-borrower work moved from HMDA data to Congressional testimony and engagement with HUD and the Federal Reserve — the stakes are policy, not just publication.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Selection into applying** and **unobserved creditworthiness** are distinct threats; matching narrows the comparison but only design beats selection. A **DiD** on a policy shock, defended by **parallel trends** and an event-study plot, removes fixed between-group gaps — with a *staggered* estimator and **state-clustered** errors. In fair lending, the credibility *is* the finding: run the same checklist — what's the comparison, the threat, the untestable — on every claim.
+:::
+
+::: notes
+To close the Week Four mentor session: selection into applying and unobserved creditworthiness are distinct threats, matching narrows the comparison but only a design that exploits a policy change or shock can beat selection. A difference-in-differences on such a shock, defended by parallel trends and an event-study plot, removes the fixed between-group gaps — using a staggered estimator and clustering standard errors by state. The lesson that carries beyond this paper: a credible fair-lending estimate has to survive a hostile referee, a regulator, a journalist, and a court. Run the same checklist you run on any design — what is the comparison, what is the threat, what is untestable — and the finding stands up. Your Lab Four and Capstone One are exactly this: a clean difference-in-differences on HMDA. Look as hard at the comparison as you looked at the gap, because in fair lending the credibility is the finding.
+:::

@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## The Traps, the Code, and the Name
+
+- Part 12 — where the trick bites, the code, the name
+
+::: notes
+Welcome back to the Frisch–Waugh–Lovell theorem, part twelve of thirteen. In part eleven we saw why F W L makes computation fast and unlocks the partial-regression plot. Now we cover the two places naive use of the trick bites, the whole chapter in fifteen lines of code, and the name behind the theorem itself.
+:::
+
+## Where the Trick Bites
+
+- $\mathbf{X}_2$ must not perfectly explain $\mathbf{X}_1$ — else $\tilde{\mathbf{X}}_1=\mathbf{0}$
+- That is perfect collinearity wearing FWL clothes
+- Count degrees of freedom on the **long** regression: $N - K$
+- The short regression silently spent $\mathbf{X}_2$'s degrees of freedom
+- Point estimate is fine; the naive **standard error** is too small
+- Don't residualize $\mathbf{X}_1$ against a transform of itself
+
+::: notes
+F W L is an algebraic identity, so it does not fail in the sense of becoming false — it is exactly true whenever the ordinary-least-squares estimator exists. But there are two places naive use of it bites. First, the control block must not perfectly explain your regressor. If the controls can reproduce your regressor exactly, then x tilde is the zero vector, the denominator is singular, and there is no slope. That is just perfect collinearity wearing F W L clothes. Second, and this is a real bug people ship: degrees of freedom must be counted on the long regression, not the short one. The two-variable F W L regression looks like it used only one or two parameters, so a routine that does not know better reports a standard error using too many degrees of freedom. But the residualizing step silently spent the degrees of freedom in the control block. The correct denominator is N minus K, counting all the regressors including the partialled-out ones. The point estimate is identical either way; only the standard error needs this correction. And one more slip: do not residualize your key regressor against a transformation of itself, like partialling out log R and D while studying R and D — F W L will faithfully compute a slope, but of the wrong question.
+:::
+
+## The Code, and the Name
+
+- Build six firms; full regression; then residualize-and-regress
+- `x_tilde = x - OLS(x, [const,z]).fittedvalues`; same for `y`
+- `beta_fwl = (x_tilde @ y_tilde) / (x_tilde @ x_tilde)`
+- Prints **1.838 twice**; the assertion passes
+- Frisch & Waugh proved the demeaning case in **1933**
+- Lovell generalized it in **1963** — we "absorb" FE ninety years on
+
+::: notes
+Here is the whole chapter in fifteen lines. Build Leah's six firms; run the full multiple regression of patents on R and D and size; then reproduce the coefficient by the two-step recipe. Residualize R and D against the intercept and size — x tilde equals x minus the fitted values of regressing x on the constant and size — and do the same for patents. Then the F W L slope is x tilde dotted with y tilde, divided by x tilde dotted with itself, a no-intercept simple slope. Running it prints one point eight three eight twice, and the assertion that the two numbers are close passes — on these six firms and on any dataset. A word on the name. Ragnar Frisch and Frederick Waugh proved the demeaning-as-partialling case in nineteen thirty-three, working on detrending economic time series. Michael Lovell generalized it in nineteen sixty-three, in the context of seasonal adjustment. When a modern paper writes "we absorb firm and year fixed effects," it is invoking Frisch–Waugh–Lovell, ninety years on.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+FWL is an exact identity, but mind the traps: $\mathbf{X}_2$ can't perfectly explain $\mathbf{X}_1$, and degrees of freedom belong to the **long** regression ($N-K$), or the standard error comes out too small. The fifteen-line check prints **1.838 twice**. The name honors Frisch & Waugh (1933) and Lovell (1963). Next: the three things to carry forward.
+:::
+
+::: notes
+To summarize part twelve. F W L is an exact algebraic identity, but mind two traps. The control block must not perfectly explain your regressor, or there is no leftover variation and no slope — that is perfect collinearity in disguise. And degrees of freedom belong to the long regression, the denominator N minus K, not the small short regression; get this wrong and the standard error comes out too small, overstating precision. The fifteen-line code check prints one point eight three eight twice and the assertion passes. The name honors Ragnar Frisch and Frederick Waugh, who proved the demeaning case in nineteen thirty-three, and Michael Lovell, who generalized it in nineteen sixty-three. In part thirteen, the finale, we gather the three things to carry forward for the rest of the book.
+:::

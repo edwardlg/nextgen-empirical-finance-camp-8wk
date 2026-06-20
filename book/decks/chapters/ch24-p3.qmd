@@ -1,0 +1,50 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Sandwich Never Went Away
+
+- Part 3 — the honest sandwich formula behind every fix
+
+::: notes
+Welcome back to heteroskedasticity, clustering, and HAC, part three of twelve. In part two we found Omega, the error covariance matrix, sitting at the center of the variance, and saw the classical formula assume it away. Now we reveal the trick that makes the whole repair possible — and it is liberating once you see it. We never needed that assumption to write down the variance. The honest formula was a sandwich the whole time.
+:::
+
+## The Honest Sandwich Formula
+
+$$\operatorname{Var}(\hat{\boldsymbol\beta}\mid\mathbf{X}) = (\mathbf{X}'\mathbf{X})^{-1}\,\mathbf{X}'\boldsymbol\Omega\,\mathbf{X}\,(\mathbf{X}'\mathbf{X})^{-1}$$
+
+- Two $(\mathbf{X}'\mathbf{X})^{-1}$ factors = the slices of bread
+- $\mathbf{X}'\boldsymbol\Omega\mathbf{X}$ in the middle = the filling
+- Classical formula is just the sandwich for $\boldsymbol\Omega = \sigma^2\mathbf{I}$
+- Different diagonal $\Rightarrow$ heteroskedasticity
+- Nonzero off-diagonal $\Rightarrow$ correlation
+
+::: notes
+Here is the honest formula. The variance of beta hat, conditioning on X, equals X-prime-X inverse, times X-prime Omega X, times X-prime-X inverse again. The name is literal. The two X-prime-X inverse factors are the slices of bread; the X-prime Omega X in the middle is the filling. The classical formula is just this sandwich for the special diet where Omega equals sigma squared times the identity. If the real Omega has different variances down the diagonal — that is heteroskedasticity — or nonzero off-diagonals — that is correlation across observations — then the bread is unchanged but the filling is different, and so the final standard errors are different. We never needed the clean assumption to write the variance. We only needed it to make the filling collapse to something easy.
+:::
+
+## The Whole Game: Estimate the Filling
+
+- We never "fix" $\hat{\boldsymbol\beta}$ — nothing is wrong with it
+- Estimate $\mathbf{X}'\boldsymbol\Omega\mathbf{X}$ without assuming $\boldsymbol\Omega = \sigma^2\mathbf{I}$
+- $\boldsymbol\Omega$ is $N\times N$: 9,000 loans $\to$ 81 million entries
+- Can't estimate 81 million numbers from 9,000 points
+- But the filling is only $K\times K$ — a small target
+- Three clever recipes: White, clustered, HAC
+
+::: notes
+This reframes the entire problem. We are never going to fix beta hat; there is nothing wrong with it. The whole game is estimating the middle of the sandwich, X-prime Omega X, without pretending Omega is sigma squared times the identity. That sounds impossible at first. Omega is an N-by-N matrix. With nine thousand loans that is eighty-one million entries, and we have only nine thousand data points. You cannot estimate eighty-one million numbers from nine thousand observations. But here is the escape: we never need Omega itself. We need only the sandwiched combination X-prime Omega X, which is a small K-by-K matrix — for Maya, with five regressors, just five by five, no matter how big N is. The next three sections are three clever recipes for that small filling. White, or HC, handles uncorrelated but unequal variances using each point's own squared residual. Clustered handles correlation within groups using whole blocks. HAC, or Newey–West, handles correlation across time with decaying weights. Same sandwich every time. Only the recipe for the filling changes.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The honest variance is always the **sandwich** $(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\boldsymbol\Omega\mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}$. We never estimate the huge $\boldsymbol\Omega$ — only the small $K\times K$ filling $\mathbf{X}'\boldsymbol\Omega\mathbf{X}$. White, clustered, and HAC are three recipes for that filling.
+:::
+
+::: notes
+To summarize part three. The honest variance of beta hat was always a sandwich: two slices of bread made of X-prime-X inverse, with a filling of X-prime Omega X in the middle. The classical formula is just that sandwich for the easy diet where Omega is sigma squared times the identity. We never estimate the enormous N-by-N Omega; we estimate only the small K-by-K filling. White, clustered, and HAC are three recipes for it. In part four we do the smallest possible version by hand — a four-point example that shows the heteroskedasticity problem with no calculus and no asymptotics at all.
+:::

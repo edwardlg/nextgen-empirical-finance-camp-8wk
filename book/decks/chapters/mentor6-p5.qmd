@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## AI Fools You: Irreproducibility, and the Thread
+
+- Part 5 — third trap, plus the thread through all three
+
+::: notes
+Welcome back to "Text as data, and AI without fooling yourself," part five of seven. In part four we covered the first two traps — leakage and prompt p-hacking — and their guardrails. Now we name the third trap, irreproducibility, and then pull the single thread that runs through all three, the thread that turns AI from a black box into science.
+:::
+
+## Trap Three: Irreproducibility
+
+- Stochastic outputs: same filing, two labels, two days
+- Model versions update *silently* underneath you
+- A deterministic regression never wobbles like this
+- Guardrail: pin the exact **version string**
+- Log every call; save labels to disk **as your data**
+
+::: notes
+Trap three: irreproducibility. Run the same model on the same ten-K on Monday and again on Friday, and you can get two different labels — the outputs are stochastic. Worse, the model version can be updated silently underneath you, so next month's "same" model isn't the same instrument at all. A deterministic regression never wobbles like this; an AI pipeline does. The guardrail has three parts. Pin the exact model version string, so you know which instrument produced your numbers. Log every call you make. And save the labels to disk and treat that file as your data — because that is what it is. Your paper depends on a frozen, saved column of labels, not on a model you re-query and hope matches.
+:::
+
+## The Thread Through All Three
+
+- AI is a **co-pilot**: it accelerates work you can verify
+- It is a **hazard** the moment it replaces unchecked judgment
+- Disclosure is what makes it science
+- The prompt is a variable definition — freeze and publish it
+- Pin the version, log the calls, save the labels
+
+::: notes
+One thread runs through all three traps. Artificial intelligence is a co-pilot: it accelerates work you can verify, and there it is a gift. It becomes a hazard the instant you let it replace judgment you do not check. And the antidote, every time, is disclosure — disclosure is what turns this from a black box into science. Pin the version, log the calls, freeze and publish the prompt, save the labels. Each guardrail we have named is really one move: take a step that could be hidden, and put it on the record where a referee can see it. That is the difference between a result you can defend and a result you merely assert.
+:::
+
+## One Reflex to Hold
+
+- For every text-derived number, ask three things
+- *Proxy for what?* — name the latent quantity
+- *Validated how?* — gold set, held-out precision and recall
+- *Disclosed how?* — so a referee can judge the error
+- Carry this reflex into every stretch question
+
+::: notes
+Leave part five with one reflex sharpened. For every text-derived number you ever produce, ask three questions in a row. First, what is it a proxy for — name the true latent quantity in the world, not the formula. Second, how was it validated — the gold set, the held-out split, the precision and recall out of sample. Third, what would I have to disclose so a referee can judge the error I could not remove — the prompt, the version, the logs, the saved labels. Proxy, validation, disclosure. Hold that reflex as you read this week's stretch questions, because they are built to test exactly it. In part six, we take this discipline into two real papers and start building your capstone's integrity section.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The third trap is **irreproducibility** — stochastic outputs and silent version changes; pin the version, log every call, save labels to disk and treat that file as your data. The thread through all three traps: AI is a **co-pilot you verify**, not a judge you trust, and **disclosure** is what makes it science. For every text number, ask: proxy for what, validated how, disclosed how? Next: two real papers, and your capstone's integrity section.
+:::
+
+::: notes
+To summarize part five: the third way AI fools you is irreproducibility — stochastic outputs and silently updated model versions. You defuse it by pinning the exact version string, logging every call, and saving your labels to disk, then treating that file as your data. Across all three traps runs one thread: AI is a co-pilot you verify, never a judge you trust, and disclosure is what converts it into science. Take a step that could be hidden and put it on the record. And carry the reflex — for every text number, proxy for what, validated how, disclosed how. In part six, we walk two of my own papers and turn this discipline into the integrity section your capstone must defend.
+:::

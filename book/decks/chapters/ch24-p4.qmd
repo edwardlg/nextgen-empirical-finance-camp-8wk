@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## A Sandwich by Hand
+
+- Part 4 — the heteroskedasticity problem in four data points
+
+::: notes
+Welcome back to heteroskedasticity, clustering, and HAC, part four of twelve. In part three we saw that the honest variance is always a sandwich, and the whole job is estimating its small filling. Now we collapse that sandwich to the smallest case that still shows the mechanism — a single regressor and four data points — and watch the heteroskedasticity problem appear with no calculus and no asymptotics, just arithmetic you can check by hand.
+:::
+
+## Collapse to One Regressor
+
+- Simplest model $y_i = \beta x_i + \varepsilon_i$, no intercept
+- Then $\mathbf{X}'\mathbf{X} = \sum_i x_i^2$ is a single number
+- For a diagonal $\boldsymbol\Omega$, the sandwich reads:
+- $\operatorname{Var}(\hat\beta) = \dfrac{\sum_i x_i^2\,\sigma_i^2}{\left(\sum_i x_i^2\right)^2}$
+- Regressors $x = (1,2,3,4)$, so $\sum_i x_i^2 = 30$
+
+::: notes
+Abstract matrices hide what is going on, so let us collapse the sandwich to the smallest case that still shows the mechanism: a single regressor, no intercept. Then X is just a column of numbers, and the whole sandwich becomes ordinary arithmetic. Take the simplest model, y-i equals beta x-i plus epsilon-i. Then X-prime-X is just the sum of x-i squared, a single number, and the sandwich for a diagonal Omega reads: the variance of beta hat equals the sum of x-i squared times sigma-i squared, all divided by the square of the sum of x-i squared. Now fix the regressors x equals one, two, three, four, so the sum of x-i squared is one plus four plus nine plus sixteen, which is thirty. We will run two worlds through this formula with the same regressors but different error variances, and compare.
+:::
+
+## Two Worlds, Same Regressors
+
+- **World A** (homoskedastic): every $\sigma_i^2 = 1$
+- Numerator $= 30 \Rightarrow \operatorname{Var}(\hat\beta) = 30/900 \approx 0.033$
+- Exactly the classical $\sigma^2/\sum x_i^2 = 1/30$
+- **World B** ($\sigma_i^2 = x_i^2$): variances $(1,4,9,16)$
+- Numerator $= 1+16+81+256 = 354 \Rightarrow \operatorname{Var} \approx 0.393$
+- Almost **twelve times larger**
+
+::: notes
+World A is homoskedastic: every sigma-i squared equals one. The numerator is the sum of x-i squared times one, which is thirty, so the variance of beta hat is thirty over thirty squared, which is one over thirty, about zero point zero three three. That is exactly the classical answer, sigma squared over the sum of x-i squared. World B is heteroskedastic: the scatter grows with x, say sigma-i squared equals x-i squared, so the variances are one, four, nine, sixteen. The numerator is now the sum of x-i squared times x-i squared — one plus sixteen plus eighty-one plus two hundred fifty-six, which is three hundred fifty-four. So the variance of beta hat is three fifty-four over nine hundred, about zero point three nine three — almost twelve times larger than World A, with the exact same regressors. All that changed was the truth about the error variances.
+:::
+
+## What the Classical Formula Misses
+
+- Classical would still report $1/30 \approx 0.033$ in World B
+- It averages variances, forgetting big-variance = high-leverage points
+- Understates the SE by $\sqrt{0.393/0.033} \approx 3.5$
+- A reported $t = 3.5$ would really be a $t = 1$
+- The whole problem in four points — no calculus, no asymptotics
+- Rest of the work: how to *estimate* $\sigma_i^2$ when nobody hands them over
+
+::: notes
+Here is the punchline. In World B the classical formula would still report one over thirty, about zero point zero three three, because it averages the variances and forgets that the big-variance points are also the high-x, high-leverage points. So it understates the true standard error by a factor of the square root of zero point three nine three over zero point zero three three, which is about three point five. A reported t-statistic of three point five would really be a t-statistic of one. That is the entire heteroskedasticity problem in four data points, and notice it required no calculus and no asymptotics — just plugging the right sigma-i squared into the middle of the sandwich instead of pretending they are all equal. The only hard part left, when nobody hands you the true sigma-i squareds, is how to estimate them. That is exactly what White's idea solves, and it is where we go next.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+With $x = (1,2,3,4)$, swapping homoskedastic errors for $\sigma_i^2 = x_i^2$ makes $\operatorname{Var}(\hat\beta)$ jump from $\approx 0.033$ to $\approx 0.393$ — almost $12\times$. The classical formula, blind to this, understates the SE by $\approx 3.5$. That is the whole heteroskedasticity problem in four points.
+:::
+
+::: notes
+To summarize part four. We collapsed the sandwich to a single regressor and four points. With homoskedastic errors the variance of beta hat was about zero point zero three three, the classical answer. Making the variance grow with x pushed it to about zero point three nine three — nearly twelve times larger — while the classical formula, blind to which points carry the big variance, would still report the small number, understating the standard error by about three point five. That is the heteroskedasticity problem, stripped to arithmetic. In part five we meet Priya and her wildfire claims, and follow Halbert White's nineteen-eighty insight for estimating those sigma-i squareds from the data.
+:::

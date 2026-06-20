@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## What's Vulnerable: Expectations and Confounds
+
+- Part 9 — expectations-not-realized and confounding window news
+
+::: notes
+Welcome back to KPSS, part nine of twelve. In part eight we named what is clever — market prices, speed, and a public dataset. Now we do the harder job: attack the paper at its weakest joints and see if it holds. The joints here are mostly in the measure, which is exactly where you would expect soft spots in a measurement paper, and each connects to something you already know from earlier weeks. This part covers the first two vulnerabilities: the measure captures expectations rather than realized value, and confounding news can contaminate the window.
+:::
+
+## Expectations, Not Realized Value
+
+- The window return is the market's **forecast**, not the outcome
+- A loved-at-grant patent that flopped still scores high
+- If the market is biased, the measure inherits that bias
+- Best read as "the market's **expected** private value at grant"
+- The construct-measure gap — straight out of Week 1
+
+::: notes
+First vulnerability — and the most important, which the authors are explicit about. The grant-window return is the market's forecast of the patent's value, formed in three days with the information available then. It is not the value the patent ultimately realized. If the market is systematically too optimistic about flashy patents and too pessimistic about quiet ones, the measure inherits that bias. A patent the market loved at grant and that later flopped still gets a high K-P-S-S value. The measure is therefore best read as the market's expected private value at grant, and any sentence that drops the words expected and market's is overclaiming. This is the gap between the construct, true economic value, and the measure, a three-day price reaction — and naming that gap is straight out of Week One.
+:::
+
+## Confounding News in the Window
+
+- Design assumes the *only* news is the patent grant
+- But firms release earnings, deals, analyst revisions too
+- If such news clusters near grant dates — **contamination**
+- Short window helps; aggregation averages *idiosyncratic* noise
+- But **systematic** contamination would not wash out
+
+::: notes
+Second vulnerability, from Week Four's event-study identification. The whole design assumes the only value-relevant news in the short window is the patent grant. But firms release earnings, announce deals, and get analyst revisions on ordinary days too. If such news clusters near grant dates — or just lands in the window by chance — the abnormal return mixes the patent's value with the other news, and the measure is contaminated. The short window helps, because there is less time for confounds, and aggregating over many patents averages out idiosyncratic confounds. But systematic contamination would not wash out. The right skeptical question is: what evidence rules out that grant-window returns are driven by something other than the patent? Check how hard the paper works to answer it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Two soft joints. The measure is the market's **expected** value at grant, not realized value — keep the words "expected" and "market's." And **confounding news** in the window can contaminate the abnormal return; the short window and aggregation defend against idiosyncratic noise, but systematic contamination survives. Next: selection, efficient markets, and the growth results.
+:::
+
+::: notes
+To summarize part nine: the first two vulnerabilities are both in the measure. One, the grant-window return is the market's expected value at grant, not realized value — so keep the words expected and market's, and remember the construct-measure gap from Week One. A patent loved at grant that later flopped still scores high. Two, confounding news in the window: earnings, deals, and analyst revisions can land near grant dates and contaminate the abnormal return. The short window and aggregation average out idiosyncratic confounds, but systematic contamination would not wash out. In part ten we cover the remaining three vulnerabilities: selection, the baked-in efficient-markets assumption, and the associational nature of the growth results.
+:::

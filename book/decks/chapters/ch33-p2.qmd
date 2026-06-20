@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## Inverse-Probability Weighting: Building a Pseudo-Population
+
+- Part 2 — reweighting units to build a pseudo-population
+
+::: notes
+Welcome back to Chapter three-point-three, part two of ten. In part one we framed Maya's distrust of matching and named the target — the average effect, on the treated or on everyone. Now we open the first tool. Inverse-probability weighting uses the propensity score not to pair units but to reweight them, manufacturing a pseudo-population in which treatment looks random. We will see the trick in one image, then prove with one line of algebra why dividing by the propensity score recovers the right average.
+:::
+
+## The Trick in One Image
+
+- Enrollees are over-represented among high-income students
+- High-propensity enrollee, $e = 0.8$: count her as $1/0.8 = 1.25$ people
+- Low-propensity enrollee, $e = 0.1$: rare, count her as $1/0.1 = 10$
+- Mirror for controls: weight by $1/(1 - e(\mathbf{X}))$
+- A control with $e = 0.8$ gets weight $1/0.2 = 5$
+- Reweight each unit by the inverse of its selection probability
+
+::: notes
+Here is the whole idea in one image. Maya's enrollees are over-represented among high-income, high-credit students — that is what selection means. Suppose a high-income student had a propensity score of zero-point-eight: students like her enrolled eighty percent of the time. Among the treated, students like her are over-counted, so we count each such treated student not as one person but as one divided by zero-point-eight, which is one-point-two-five people — slightly up-weighting her, because she stands in for the few like her who did not enroll. A low-income enrollee with a score of zero-point-one is rare and precious: she represents the many like her who did not enroll, so we count her as one over zero-point-one, which is ten. Do the mirror image for controls: weight each by one over one-minus the propensity score. A control with score zero-point-eight, the kind who usually enrolls but didn't, gets one over zero-point-two, which is five.
+:::
+
+## The Pseudo-Population
+
+- Reweighted dataset = a **pseudo-population**
+- In it, covariates $\mathbf{X}$ are independent of treatment $D$
+- Treatment is *as good as randomly assigned*
+- In that world, difference-in-means is unbiased
+- We reweighted our way into a fake experiment
+
+::: notes
+The reweighted dataset is called a pseudo-population. In it, by construction, the covariates X are independent of treatment D: treatment is as good as randomly assigned, which is exactly the world a randomized experiment lives in. And in that world the naive difference-in-means is an unbiased causal estimate. We have not run an experiment; we have reweighted our way into a fake one. That is the promise. Now let us see why the arithmetic of dividing by the propensity score actually delivers it.
+:::
+
+## Why It Works — One Line of Algebra
+
+- Want $\mathbb{E}[Y_i(1)]$; consider $\mathbb{E}\!\left[\dfrac{D_i\, Y_i}{e(\mathbf{X}_i)}\right]$
+- $D_i$ zeroes out controls; only treated units remain
+- Condition on $\mathbf{X}_i$, then use CIA to factor the expectation
+- $\mathbb{E}[D_i \mid \mathbf{X}_i] = e(\mathbf{X}_i)$ cancels the denominator
+- Left with $\mathbb{E}[Y_i(1)]$ — exactly the target
+
+::: notes
+Why does dividing by the propensity score recover the right average? Take the treated arm. We want the expected value of Y-i-of-one, the average outcome if everyone were treated, but we observe Y only for treated units. Consider the weighted quantity: the expected value of D-i times Y-i, divided by the propensity score. The factor D-i zeroes out every control, so the expectation runs only over treated units, where Y-i equals Y-i-of-one. Now use the law of iterated expectations, conditioning on X-i first. Inside, the propensity score is a constant, so it comes out front. And under the conditional-independence assumption, D-i is independent of Y-i-of-one given X-i, so the expectation of their product factors. The expected value of D-i given X-i is just the propensity score — which cancels the one we divided by. The scores cancel, leaving the expected value of Y-i-of-one given X-i, whose outer average over X is exactly the expected value of Y-i-of-one. The same argument with one-minus-D over one-minus-the-score recovers the control side. Subtract, and you have the effect. That cancellation is the entire reason inverse-probability weighting works: dividing by the probability of selection exactly undoes the over- or under-sampling selection created.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**IPW** reweights each treated unit by $1/e(\mathbf{X})$ and each control by $1/(1 - e(\mathbf{X}))$, building a **pseudo-population** where treatment is as good as random. The algebra works because $\mathbb{E}[D \mid \mathbf{X}] = e(\mathbf{X})$ cancels the inverse-probability weight exactly. Next: turning this expectation into a formula you can run — and choosing the right one.
+:::
+
+::: notes
+To summarize part two: inverse-probability weighting reweights each treated unit by one over its propensity score and each control by one over one-minus that score, building a pseudo-population in which treatment is as good as randomly assigned. The reason it works is one line of algebra: the expected value of D given X equals the propensity score, which cancels the inverse weight exactly, leaving the average potential outcome we were after. In part three we turn this expectation into an estimator you can run on data — and meet two versions, one of which you should never actually use.
+:::

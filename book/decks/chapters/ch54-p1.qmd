@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## Reading Petersen as a Paper
+
+**Learning objectives.** By the end you can:
+
+- Explain why a methods paper claims facts about estimators
+- Read a Monte Carlo study as identification by construction
+- Map firm/time/both effects to the right clustering
+- Diagnose your own panel's correlation structure
+
+::: notes
+Welcome to Week Five, lesson five-point-four, part one of eight. You already met Petersen's two-thousand-nine paper in Week Two. There we used its conclusions as a recipe — firm effect, cluster by firm; time effect, cluster by time; both, cluster two ways — and got on with our lives. This week we do something harder. We read the paper as a paper: what question did it set out to answer, how did it argue its case, where is the argument airtight, and where could a referee still push? The recipe is the output. This guide is about the machine that produced it. In this opening part we frame why reading a methods paper is its own skill.
+:::
+
+## A Different Kind of Reading
+
+- Week 2 used Petersen as a **recipe**; now we read the **paper**
+- Ask: what question, what argument, where is it airtight
+- A **methods paper** claims how we should *do* empirical work
+- Its finding is a fact about *estimators*, not about *markets*
+- You cannot check it against intuition you already half-believe
+
+::: notes
+Start with why this is a different kind of reading from the Fama–French work you did earlier this week. An empirical paper claims something about the world — value stocks earn higher returns — and you interrogate the data and the identification behind that claim. A methods paper claims something about how we should do empirical work itself. Its finding is a fact about estimators, not about markets. That difference has teeth. You cannot check a methods claim against a stylized fact you already half-believe. The only way to evaluate a statement like "method A gives the wrong standard error and method B the right one" is to find a world where you already know the right answer, and watch which method recovers it. Hold that thought — it is the whole identification strategy, and we reach it in part two.
+:::
+
+## The Research Question
+
+- Plain English: in a finance panel, **which standard error is correct?**
+- And how badly wrong if you pick the wrong one?
+- Pooled regression: $y_{it} = \beta_0 + \beta_1 x_{it} + \varepsilon_{it}$
+- The point estimate is rarely the problem
+- Classical OLS assumes $\boldsymbol\Omega = \sigma^2\mathbf{I}$ — false in a panel
+
+::: notes
+The plain-English question is this: in a finance panel, which standard-error method is correct, and how badly wrong do you go if you pick the wrong one? Recall the setup. A panel observes many units i — usually firms — across many time periods t. You run a pooled regression: y-i-t equals beta-zero plus beta-one times x-i-t plus epsilon-i-t. The point estimate, beta-one hat, is rarely the problem. The problem is the standard error: the number that tells you how much to trust beta-one hat. The classical OLS standard error assumes the error covariance matrix capital-omega equals sigma squared times the identity — every error has the same variance, and no two errors are correlated. In a panel that second assumption is almost always false, because a firm's residuals are correlated with themselves over time, or all firms' residuals are correlated within a period, or both.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A **methods paper** claims a fact about *estimators*, not markets — so you cannot check it against intuition. Petersen asks: in a finance panel, which standard error is *correct*, and how costly is the wrong choice?
+:::
+
+::: notes
+To summarize part one: Petersen's paper is a methods paper, so its claim is a fact about estimators, not about markets, and you cannot test it against a stylized fact you already believe. The research question is simple to state: in a finance panel, which standard-error method is correct, and how badly does the wrong choice mislead you? In part two we sharpen that into two precise sub-questions — diagnosis and cost of error — and then face the deepest puzzle: how can anyone identify the truth when there is no treatment and no counterfactual?
+:::

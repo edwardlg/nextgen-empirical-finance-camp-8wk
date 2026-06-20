@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The SSRN Preprint
+
+- Part 3 — posting a preprint as a time-stamped public claim
+
+::: notes
+Welcome back to Chapter eight-point-seven, part three of nine. In part two we settled honesty in the CRediT statement and the two submission channels. The week you submit, do one more thing: post the paper to SSRN as a working paper. A preprint is not a duplicate publication; it is a time-stamped public claim to a result, and for a precollege author whose career has not started, that may be the more important credential. The journal article is the citation; the preprint is the resume entry — and it arrives earlier and lasts longer.
+:::
+
+## Why a Preprint Matters
+
+- **Priority** — SSRN time-stamps to the minute; later runners must cite you
+- **Dissemination** — posting emails the abstract to chosen networks
+- **Resume credential** — a durable, verifiable record you finished
+- Verifiable in **ninety seconds**; "forthcoming" is not
+- The conversation starts in days, not eighteen months
+
+::: notes
+A preprint serves three functions. Priority — SSRN time-stamps to the minute, so a faculty member who runs the same regression and posts a month later has to cite you. Dissemination — posting emails the abstract to the networks you choose, such as the Financial Economics Network with about thirty-five thousand subscribers, entering the conversation in days rather than the eighteen months a journal takes. And the resume credential — a durable, verifiable record that you finished a project others download. When Maya applies to college or a PhD program in twenty-twenty-seven, the committee can verify an October-twenty-twenty-six SSRN posting in ninety seconds. A "forthcoming in the Schar Young Scholars Journal" credential is unverifiable until the article appears, possibly after the deadline.
+:::
+
+## What SSRN Is
+
+- The dominant working-paper venue in empirical finance
+- **Not a journal** (no peer review) and **not an archive** (papers mutable)
+- Register with an **ORCID**; add abstract, keywords, JEL codes
+- Maya's JEL codes: **G21, G28, J15, R51**
+- Cross-post to **three-to-five** networks — ten reads as desperate
+
+::: notes
+SSRN, the Social Science Research Network, owned by Elsevier since twenty-sixteen, is the dominant working-paper venue in empirical finance. It is not a journal — there is no peer review, and intake rejects only about five percent for scope — and it is not an archive, because papers are mutable, which is the source of its one pathology. The workflow is short: register with an ORCID, the identifier that unifies you across SSRN, MARS, ORCID, and Google Scholar; enter the abstract and five-to-ten keywords; add JEL codes — for Maya, G-twenty-one, G-twenty-eight, J-fifteen, and R-fifty-one; choose three-to-five networks where readers would actually care; and upload. Cross-post to the Financial Economics Network plus two-to-four bespoke secondaries; posting to ten reads as desperate and dilutes attention.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A preprint is a **time-stamped public claim** — priority, dissemination, and a verifiable resume line that arrives earlier than the journal article. SSRN is the dominant working-paper venue, but it is **neither a journal nor an archive**. Register with an ORCID and cross-post to three-to-five real networks. Next: the DOI question and versioning.
+:::
+
+::: notes
+To summarize part three: post the paper to SSRN the week you submit, because a preprint is a time-stamped public claim — it secures priority, spreads the abstract to networks, and gives a verifiable resume line that arrives earlier than the journal article and is checkable in ninety seconds. SSRN is the dominant working-paper venue in empirical finance, but it is neither a journal — there is no peer review — nor an archive, because papers stay mutable. Register with an ORCID, add the abstract, keywords, and JEL codes, and cross-post to three-to-five networks where readers actually care. In part four we tackle the question students ask most — does SSRN give a D-O-I — and the versioning discipline.
+:::

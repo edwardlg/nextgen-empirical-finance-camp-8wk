@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Functional Form: When the Straight Line Is the Wrong Shape
+
+- Part 9 — curved truth, straight line, biased slope
+
+::: notes
+Welcome back to Week Two-point-five, part nine of twelve. In part eight we finished measurement error and watched attenuation slide toward zero in code. Now the third threat, different in flavor. Omitted variable bias and measurement error are about which variables and how well measured. Functional-form misspecification is about the shape of the relationship — forcing a straight line through a curved world. We see the result, then meet Priya's convex premium curve.
+:::
+
+## When the Straight Line Is the Wrong Shape
+
+- OLS fits the best *straight line* or flat plane
+- If the truth is curved, the line is systematically wrong
+- Omitted curvature lands in the error, correlates with $x$
+- The reported slope exists *nowhere* — a misleading average
+- Same disease as OVB; the "omitted variable" is $x^2$
+
+::: notes
+The third threat is different in flavor. Ordinary least squares fits the best straight line, or flat plane. If the true relationship between x and y is curved, a straight line is not just imprecise — it can be systematically wrong, and the error it makes is, once again, correlated with x. The result in one sentence: if you fit a linear model to a nonlinear relationship, the omitted curvature lands in the error term, correlates with x, and the coefficient you report is a slope that does not exist anywhere — neither the slope at low x nor at high x, but a misleading average that can mislead about both. It is the same disease as omitted variable bias, except the omitted variable is a transformation of a variable you already have.
+:::
+
+## Priya's Convex Premium Curve
+
+- Studies emissions intensity versus insurance premium
+- Truth is **convex**: premiums rise steeply at high emissions
+- True model: $y = \beta_0 + \beta_1 x + \beta_2 x^2 + \varepsilon$, $\beta_2 > 0$
+- Linear fit sweeps $\beta_2 x^2$ into the error $u$
+- Understates sensitivity high, overstates it low
+
+::: notes
+Consider Priya, who studies how a firm's carbon-emissions intensity relates to its insurance premium. Suppose the true relationship is convex: premiums rise slowly with emissions at low levels, then steeply at high levels, because insurers price catastrophic tail risk. The true model has a quadratic term — y equals beta-zero plus beta-one x plus beta-two x-squared plus epsilon, with beta-two positive. If Priya fits only the straight line, y equals beta-tilde-zero plus beta-tilde-one x plus u, the x-squared curvature is swept into the error u, which equals beta-two x-squared plus epsilon. That error is correlated with x — the same disease as omitted variable bias, with the omitted variable being a transformation of a variable she already has. The fitted line will understate the premium's sensitivity at high emissions and overstate it at low emissions, and the single number she reports describes neither.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Forcing a straight line through a curved truth dumps the curvature into the error, where it correlates with $x$ and biases $\hat\beta$ — the same disease as OVB, with the "omitted variable" being $x^2$. Priya's convex premium curve, fit linearly, reports a slope that exists *nowhere*. Next: the fixes and the RESET diagnostic.
+:::
+
+::: notes
+To summarize part nine: functional-form misspecification is the third bias threat. Ordinary least squares fits the best straight line, so if the truth is curved, the omitted curvature lands in the error term, correlates with the regressor, and biases the coefficient — the same disease as omitted variable bias, with the missing piece being a transformation of a variable you already have. Priya's convex emissions-premium relationship, fit with a straight line, produces a single slope that describes neither the gentle response at low emissions nor the steep response at high emissions — a number that exists nowhere. In part ten we cover the fixes — polynomials, logs, and interactions — and Ramsey's RESET test for detecting neglected nonlinearity.
+:::

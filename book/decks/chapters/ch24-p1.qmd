@@ -1,0 +1,53 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## When the Errors Misbehave
+
+**Learning objectives.** By the end you can:
+
+- Explain why OLS $\hat{\boldsymbol\beta}$ stays valid under bad errors
+- Build robust, clustered, and HAC standard errors
+- Diagnose heteroskedasticity and within-group correlation
+- Choose the right SE flavor for panels
+
+::: notes
+Welcome to Week Two, Chapter two-point-four — heteroskedasticity, clustering, and HAC standard errors. This is one of the most important and most misunderstood facts in all of applied econometrics, so we will take it apart slowly. The one-line version: when the errors are heteroskedastic or correlated, your point estimate beta hat is still perfectly fine, but the classical standard-error formula lies — and you must replace it with a robust, clustered, or HAC formula that tells the truth. This opening part frames the puzzle with a story about a fair-lending result that looked airtight and was not.
+:::
+
+## Maya's Megaphone Result
+
+- Fair-lending study, $N = 9{,}000$ consumer loans
+- Does a ZIP-tier variable raise interest rates?
+- Coefficient $\hat\beta_1 = 0.42$, standard error $0.07$
+- t-statistic $= 0.42 / 0.07 = 6.0$ — screaming significance
+- Mentor: "Are 9,000 loans really 9,000 independent facts?"
+
+::: notes
+Meet Maya. She is studying fair lending. She has pulled a dataset of nine thousand consumer loans and wants to know whether borrowers in a particular ZIP-code tier get charged higher interest rates after controlling for credit score, loan size, and income. She runs the regression her laptop makes easy. Out comes a coefficient on her tier variable of zero point four two percentage points, with a standard error of zero point zero seven. The t-statistic is zero point four two divided by zero point zero seven, which is six. Six is not marginally significant; that is a coefficient screaming through a megaphone. She writes it up. Then her mentor asks one question: are those nine thousand loans really nine thousand independent pieces of evidence?
+:::
+
+## The Point Estimate Never Moved
+
+- Loans cluster by lender and by state
+- Account for it: same $\hat\beta_1 = 0.42$, but SE $= 0.19$
+- t-statistic collapses from $6.0$ to $2.2$
+- **Her point estimate never budged** — only the SE was wrong
+- OLS is still unbiased; Gauss–Markov still holds
+- What breaks: the SE, and everything built on it
+
+::: notes
+They are not independent. The loans cluster by lender, and lenders set rates in correlated ways. They cluster by state, and states have correlated regulation and correlated local economies. Once Maya accounts for that, the same coefficient, zero point four two, comes back with a standard error of zero point one nine, and the t-statistic collapses from six to two point two. Still significant — but the megaphone is now a normal speaking voice, and a referee could reasonably push back. Here is the unsettling part, the whole chapter in one line: her point estimate never moved. The zero point four two was right the whole time. What was wrong was the zero point zero seven — the number that tells you how much to trust the zero point four two. In Chapter two-point-two we proved that OLS is unbiased and, under Gauss–Markov, the best linear unbiased estimator. None of that breaks here. What breaks is the standard error, and therefore every t-statistic, every p-value, every confidence interval you build on top of it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+When errors are heteroskedastic or correlated, **$\hat{\boldsymbol\beta}$ is still fine** — the classical SE formula lies. Maya's coefficient never moved, but her $t$ crashed from $6.0$ to $2.2$ once she told the truth about how her loans correlate. The whole chapter is one question: what does the error covariance really look like?
+:::
+
+::: notes
+To summarize part one. Maya's story is the chapter in miniature: her coefficient was right the whole time, but her standard error lied, and the t-statistic crashed from six to two point two once she told the truth about how her loans are correlated. Getting beta hat right and getting its uncertainty right turn out to be two separate jobs, and this whole chapter is about the second one. In part two we return to where Chapter two-point-two left us — the classical variance formula — and find the single matrix that secretly controls everything.
+:::

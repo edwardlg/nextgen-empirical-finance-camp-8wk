@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Benjamini–Hochberg and Maya's Family Worked
+
+- Part 10 — Benjamini–Hochberg and Maya's family worked through
+
+::: notes
+Welcome back to Robustness and Inference Stress-Tests, part ten of fourteen. In part nine we saw that a family of tests inflates false positives, and that Bonferroni controls the chance of any false positive but is blunt. Now the more sensible alternative when you are screening many signals — Benjamini–Hochberg, which controls the false discovery rate — and we work Maya's eight outcomes all the way through it.
+:::
+
+## Benjamini–Hochberg Controls the False Discovery Rate
+
+- FDR: expected *fraction* of declared discoveries that are false
+- Sensible when screening many signals, tolerating a few flukes
+- Order p-values: $p_{(1)} \le p_{(2)} \le \dots \le p_{(m)}$
+- Find largest rank $k$ with $p_{(k)} \le \frac{k}{m}\alpha$
+- Reject all hypotheses with rank $\le k$
+- The genius: a *sliding* bar lets small p-values reinforce
+
+::: notes
+Benjamini–Hochberg, nineteen-ninety-five, controls the false discovery rate — the expected fraction of your declared discoveries that are false. This is usually the more sensible target when you are screening many candidate signals and can tolerate that, say, five percent of your finds are flukes — the natural posture in finance and in genomics, where it was born. The procedure is ranked. First, order your m p-values from smallest to largest, p-sub-one up to p-sub-m. Second, find the largest rank k such that p-sub-k is at most k over m times alpha. Third, reject — declare significant — all hypotheses with rank at most k. The genius is the sliding bar: the smallest p-value is held to the strict Bonferroni-like threshold, one over m times alpha, but each successive p-value gets a more lenient bar, so a cluster of moderately small p-values can reinforce each other into significance in a way Bonferroni would never allow.
+:::
+
+## Maya's Family Worked, and the Honesty Rule
+
+- Largest $k$ with $p_{(k)} \le \frac{k}{8}(0.05)$ is $k=2$ ($0.011 \le 0.0125$)
+- BH keeps the two smallest: denial gap, approval-rate gap
+- Rate-spread gap at $0.030$ cleared naive 5% — does **not** survive
+- Bonferroni here would keep *only* the primary denial gap
+- **Declare your family in advance** — no after-the-fact gerrymander
+- Report $m$, the correction, and the surviving set
+
+::: notes
+Here is Maya's family worked, with m equal to eight and alpha equal to zero-point-zero-five. Find the largest k with p-sub-k at most k over eight times zero-point-zero-five: that is k equals two, because zero-point-zero-one-one is at most zero-point-zero-one-two-five. Benjamini–Hochberg then declares the two smallest — the denial gap and the approval-rate gap — significant, and the rest not. Note the rate-spread gap at p equals zero-point-zero-three-zero, which cleared the naive five percent bar: once you account for having looked at eight outcomes, it is no longer distinguishable from the noise you would expect from eight draws. Bonferroni here would have required p at most zero-point-zero-zero-six-two-five and kept only the primary denial gap; B-H keeps two. That gap is the family-wise-versus-false-discovery trade-off made concrete. The non-negotiable rule: declare your family in advance, ideally in your pre-analysis plan, so you cannot gerrymander it after the fact. The cardinal sin is to run twenty outcomes, find one significant, and report it alone — the garden of forking paths. The honest report names m, names the correction, and states the surviving set: of the eight pre-specified outcomes, two survive Benjamini–Hochberg control at five percent.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Benjamini–Hochberg** controls the false discovery rate with a *sliding* bar, keeping two of Maya's outcomes where Bonferroni keeps one. Declare your family in advance and report $m$, the correction, and the survivors. Next: the deepest attack — Oster's $\delta$.
+:::
+
+::: notes
+To summarize part ten: Benjamini–Hochberg controls the false discovery rate — the expected fraction of declared discoveries that are false — with a sliding bar that holds the smallest p-value to a strict threshold but lets each successive one face a more lenient bar, so moderately small p-values can reinforce each other. On Maya's family of eight, B-H keeps the denial gap and the approval-rate gap, while the rate-spread gap that cleared the naive five percent bar does not survive; Bonferroni would have kept only the primary outcome. Above all, declare your family in advance and report m, the correction, and the surviving set. In part eleven we begin the deepest attack of all, with the most beautiful logic: Oster's delta, which confronts the confounder you never measured.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Many-Instruments Bias: When More Is Worse
+
+- Part 10 — why adding instruments can make the bias worse
+
+::: notes
+Welcome back to Reading instrumental variables in the wild, part ten of thirteen. In part nine we met the overidentification test and its severe limits. Now the surprise that catches everyone: adding more instruments can make the bias worse, not better. We will see why, through what the first stage does when it overfits, and sharpen the rule of thumb that a few strong instruments always beat many weak ones.
+:::
+
+## The Tempting Mistake
+
+- Weak instrument? Just add a dozen more — surely stronger
+- Angrist–Krueger built **hundreds** by interacting
+- Quarter of birth times year times state of birth
+- It made things **worse** — many-instruments bias
+- One of econometrics' genuinely counterintuitive results
+
+::: notes
+Here is the surprise that catches everyone. You have a weak instrument and you think: more instruments means a stronger first stage, so let me add a dozen more. Angrist and Krueger, in fact, did something like this — they interacted quarter of birth with year and state of birth to manufacture hundreds of instruments, hoping to strengthen identification. It made things worse. This is many-instruments bias, and it is one of the genuinely counterintuitive results in econometrics. The instinct is exactly backwards, and understanding why requires looking at what two-stage least squares actually does in its first stage when you hand it a great many instruments.
+:::
+
+## Why: The First Stage Overfits
+
+- 2SLS replaces $x$ with its fitted $\hat x$
+- Many instruments make that projection **overfit**
+- It chases the **idiosyncratic noise** in $x$
+- That noise is the **endogenous** part
+- In the limit, $\hat x \to x$ and 2SLS collapses to OLS
+
+::: notes
+The intuition runs straight through the first-stage fitting. Recall that two-stage least squares replaces the endogenous x with its first-stage fitted value, x-hat — the projection of x onto the instruments. The trouble: with many instruments, that projection overfits. Each additional instrument, even a near-useless one, lets the first-stage regression chase a little more of the idiosyncratic noise in x — and the noise in x is exactly the endogenous part, the part correlated with the structural error. So the fitted x-hat starts to recover the very endogeneity you used IV to purge. In the extreme — as the number of instruments approaches the sample size — x-hat approaches x itself, and two-stage least squares collapses back to ordinary least squares, the worst case of the toward-OLS bias. More instruments inflate the bias precisely by reintroducing the contamination.
+:::
+
+## A Few Strong Beat Many Weak
+
+- A high $F$ from stuffing in weak instruments is the **trap**
+- A few strong instruments win, always
+- Right diagnostic: **Olea–Pflueger effective $F$**
+- It does not reward you for adding junk
+- The fix is a *better* instrument, not *more*
+
+::: notes
+This sharpens the rule of thumb. A strong first stage is not about piling up instruments until the F-test is significant; a high F achieved by stuffing in many weak instruments is exactly the trap. A few strong instruments beat many weak ones, always. The right diagnostic is the Olea–Pflueger effective F from Chapter three-point-four, which is built to flag weak identification honestly under heteroskedasticity and many-instrument settings — it does not reward you for adding junk. If your effective F is low, the fix is a better instrument, not more of them. Devon, if his paper has interacted cash-machine distance with a dozen demographics to boost the first stage, should treat the resulting estimate with more suspicion, not less.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Adding instruments **overfits** the first stage: $\hat x$ chases the idiosyncratic, endogenous noise in $x$ and 2SLS drifts back toward OLS. A high $F$ won by stuffing in weak instruments is the trap — a few strong instruments win every time, and the **Olea–Pflueger effective $F$** does not reward junk. Next: watch the whole pathology in a simulation.
+:::
+
+::: notes
+To summarize part ten: adding more instruments can make the bias worse, because the first stage overfits. Two-stage least squares replaces the endogenous regressor with its fitted value, and each extra instrument lets that fitted value chase a little more of the idiosyncratic noise in the regressor — which is exactly the endogenous part correlated with the structural error. So the fitted value recovers the contamination you used IV to purge, and in the limit, as the number of instruments approaches the sample size, two-stage least squares collapses back to ordinary least squares. A few strong instruments beat many weak ones, always, and the Olea–Pflueger effective F is the diagnostic that does not reward junk — if it is low, the fix is a better instrument, not more of them. In part eleven, we watch the entire pathology unfold in a guided simulation where we know the true effect.
+:::

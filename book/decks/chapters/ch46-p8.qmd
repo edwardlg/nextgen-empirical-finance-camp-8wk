@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## Transportability and Re-Weighting
+
+- Part 8 — transportability diagram, re-weighting, and stress test
+
+::: notes
+Welcome back to Chapter four-point-six, part eight of nine. In part seven we saw that external validity is transport error, not sampling error, and named four threats. Now we make it operational: the transportability diagram that tells you when an effect travels, the re-weighting estimator that moves it to a near-target, and the full stress test you write up as a paragraph.
+:::
+
+## The Transportability Diagram
+
+- Pearl–Bareinboim (2014): DAG with a **selection node** $S$
+- $S=1$ in source, $0$ in target; points into variables that **differ**
+- Transports if every $D\to Y$ path avoids — or conditions on — those
+- Maya: $S$ points into covariates $X$ and institutions $I$
+- Re-weight source $X,I$ to match target $\Rightarrow$ transports
+- **Outside-the-support:** AI underwriting absent from source — nothing saves it
+
+::: notes
+The formal organizer is the transportability diagram, from Pearl and Bareinboim, two thousand fourteen: a directed graph with a selection node S that equals one in the source and zero in the target, pointing into every variable whose distribution differs across populations. The effect transports if every path from treatment D to outcome Y avoids the selection-dependent variables, or can be closed by conditioning on them. Maya's diagram has S pointing into her pre-treatment covariates X and the institutional ecosystem I; the effect transports if she can re-weight the source so its X and I distributions match the target's. The common failure is outside-the-support: if twenty thirty features AI underwriting at scale, absent from the two thousand eight to twenty twenty-four source, no re-weighting can manufacture an estimate there. The honest report says exactly that — which is a strength, telling the reader precisely where you cannot speak.
+:::
+
+## Inverse-Probability Transport Re-Weighting
+
+- Stack source and target; fit a logit of $S$ on covariates
+- Weight each source unit by $w_i=\dfrac{1-\hat\pi(\mathbf{X}_i)}{\hat\pi(\mathbf{X}_i)}$
+- Up-weights source units that **resemble** the target
+- Need target data on $\mathbf{X}$ — easy for a near-target
+- **Positivity:** weights above $\sim 10$ blow up variance
+- Honest fix: **truncate** to common support, state what you can't reach
+
+::: notes
+The workhorse tool is inverse-probability transport re-weighting. Stack the source and target data, fit a logit of the selection indicator S on covariates to get the source-membership probability pi-hat, and weight each source unit by one minus pi-hat over pi-hat. This up-weights the source units that resemble the target. The transported effect on the treated is then the weighted average of the per-unit conditional effects from your causal forest. The catch is that you need target data on the covariates X. For a known near-target — say, states not yet adopted as of twenty twenty-four — that distribution is observable and the re-weighting is clean, which is why most papers transport to a near-target rather than to a hypothetical twenty thirty. Watch the positivity diagnostic: if a few transport weights exceed about ten, a handful of source units are carrying the whole target and the estimator's variance explodes. The honest fix is to truncate to common support and state which region of the target you cannot reach.
+:::
+
+## The "Would This Replicate?" Stress Test
+
+- **Specify the target precisely** — not "2030" but the exact population
+- **Diagnose** the covariate gap with an SMD table
+- **Re-weight** and report transported beside source, with positivity
+- **Add institutional drift** as a substantive, non-statistical judgment
+- Deliverable is a **paragraph**, not a number
+- Aim for **Class 2 — bounded transport** to a near-target
+
+::: notes
+The full "would this replicate in twenty thirty" stress test is four steps. One: specify the target precisely — not "twenty thirty" but, for example, "U.S. county-years under the Census medium-fertility projection with the twenty twenty-four institutional status quo." Two: diagnose the covariate gap with a standardized-mean-difference table. Three: re-weight and report the transported estimate beside the source estimate, with the positivity diagnostic. Four: add institutional drift as a substantive, non-statistical judgment — "by twenty thirty this institution is expected to weaken; if weakened, the effect shrinks." The deliverable is a paragraph, not a number — the external-validity equivalent of the threats-and-responses table. Aim for Class two, bounded transport: you transport to a near-target with explicit re-weighting and decline to extrapolate to far-targets where the institutional ecosystem is unstable. Class one, local validity only, looks like flinching; Class three, a full structural model, is overreach for a reduced-form paper.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **transportability diagram** names which features must carry over; **inverse-probability re-weighting** moves the estimate to a near-target, guarded by the **positivity** diagnostic. The deliverable is a **paragraph** aiming for **Class 2 — bounded transport**. Next: the thread through all four tools.
+:::
+
+::: notes
+To summarize part eight: the transportability diagram, with its selection node, names exactly which features must carry over for an effect to travel, and inverse-probability re-weighting moves the estimate to a near-target whose covariates you can observe — guarded by the positivity diagnostic, which warns when a few units carry the whole target. The full stress test is four steps producing a paragraph, not a number, and you aim for Class two, bounded transport. In the final part, part nine, we draw the thread through all four robustness tools and see why they are one discipline wearing four costumes — then close out Week Four.
+:::

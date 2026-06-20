@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Why It Fixes the Correlation Problem
+
+- Part 3 — why the design dissolves cross-sectional correlation
+
+::: notes
+Welcome back to the Fama–MacBeth lab, part three of seven. In part two we wrote out the two passes and the standard-error formula. Now we stare at why the design works — because it is genuinely clever — and then connect it directly to the clustering ideas from chapter two-point-four. The disease was correlation across stocks within a month. The cure is to let each month produce a single number that already digests all that structure.
+:::
+
+## One Month, One Vote
+
+- Disease: correlation across stocks within a month
+- Cure: each month produces a single number $\hat\gamma_{1,t}$
+- That number digests the common within-month shock
+- SE built from variation across months, not across stocks
+- "How much does the price of beta bounce month to month?"
+
+::: notes
+Stare at what happened. The disease was correlation across stocks within a month — the common market shock that moves everyone together. The cure is to let each month produce a single number, gamma-one-t-hat, that already digests all the within-month cross-sectional structure, including that common shock. Whatever correlation lived inside month t is sealed up inside that one estimate. The only thing left is to average the T monthly numbers and quantify their scatter. So the standard error is built from variation across months, not across stocks. It asks: how much does the price of beta bounce around from month to month? If the months are roughly independent — a reasonable first approximation for monthly returns — that is a perfectly honest variance for the average. We never treat two stocks in the same month as separate evidence about gamma-one. One month, one vote.
+:::
+
+## This Is Clustering by Time
+
+- FM is, in effect, clustering by time period
+- Petersen 2009: time effect $\Rightarrow$ cluster by time
+- Runs one regression per period, then aggregates
+- Each period contributes exactly one independent observation
+- Balanced panel: FM SE $\approx$ time-clustered SE
+
+::: notes
+Now connect this to chapter two-point-four, because it is exactly the clustering idea from a different angle. Fama–MacBeth is, in effect, clustering by time period. Recall Petersen's two-thousand-nine taxonomy: when the dominant correlation is a time effect — a common shock hitting all firms in a period — the right tool is to cluster by time, treating each period's block of correlated errors as one unit. Fama–MacBeth does precisely that, by the most literal route imaginable: it physically runs one regression per period and then aggregates, so each period contributes exactly one independent observation to the final variance. In fact, for a balanced panel the Fama–MacBeth standard error is known to be very close to the time-clustered standard error of a pooled regression. They are two implementations of the same economic judgment about where the off-diagonal correlation lives.
+:::
+
+## What It Does *Not* Fix
+
+- FM does not fix a firm effect
+- Residuals correlated over time within a stock $\Rightarrow$ SE too small
+- Same blind spot White SEs had under clustering
+- Honest fix: Newey–West on the slope series $\hat\gamma_{1,t}$
+- Headline: FM clusters by *time*, not by *firm*
+
+::: notes
+The flip side is also straight from chapter two-point-four, and you must internalize it: Fama–MacBeth does not fix a firm effect. If a stock's residuals are correlated over time — this year's mispricing predicts next year's — then the Fama–MacBeth standard error, which assumes the monthly slopes are roughly independent across time, comes out too small. That is exactly how White standard errors were too small in the presence of clustering. Petersen flagged this precisely. The honest fix is a Newey–West, or H-A-C, correction applied to the time series of monthly slopes, which you will add as an extension. For now, hold the headline: Fama–MacBeth clusters by time, not by firm. It dissolves the within-month shock and stays blind to within-firm persistence.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The FM standard error lives in **variation across months**, never across stocks — one month, one vote. That makes it equivalent to **clustering by time**: it kills the common within-month shock but misses within-firm persistence over time, which needs Newey–West. Next: the two paths in code.
+:::
+
+::: notes
+To summarize part three: the Fama–MacBeth standard error is built entirely from variation across months, never across stocks — one month, one vote. That makes it equivalent to clustering by time, in Petersen's taxonomy. It automatically and exactly kills the common within-month shock that would have sunk a pooled regression, but it stays blind to within-firm persistence — correlation in a stock's residuals over time — which needs a Newey–West correction instead. In part four, we move from paper to code: the real CRSP pull on Path A, and the synthetic data-generating process on Path B.
+:::

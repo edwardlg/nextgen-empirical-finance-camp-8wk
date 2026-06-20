@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Build It Yourself: Inspect and Rebuild
+
+- Part 11 — exercises one and two: inspect, aggregate, rebuild
+
+::: notes
+Welcome back to KPSS, part eleven of twelve. In part ten we finished the referee's attack — selection, efficient markets, and the associational growth results. Now we stop reading and start building, because you do not understand a constructed measure until you have built a piece of it yourself. The exercises live in notebook six-point-one, the patent-value-panel notebook. Real CRSP daily returns stay read-only on GMU infrastructure; the notebook ships a seeded synthetic fallback with the same schema — simulated grants, grant dates, and daily returns with a known true patent value baked in — so every step runs on your laptop. This part covers the first two exercises.
+:::
+
+## Exercise 1: Inspect and Aggregate
+
+- Load the patent-level values — *look before you trust*
+- Plot the distribution: wildly **right-skewed**
+- A few blockbusters dwarf thousands of small patents
+- **Aggregate** to a firm-year panel: sum within firm and year
+- Print the top-ten firm-years — do the names make sense?
+
+::: notes
+Exercise one: inspect and aggregate the public patent-value panel. Download, or load the synthetic stand-in for, the patent-level K-P-S-S values, and look at them before you trust them. Plot the distribution of per-patent dollar values — you should find it wildly right-skewed, a few blockbuster patents dwarfing thousands of small ones, which is the whole motivation for not counting patents equally. Then aggregate to a firm-year panel: sum patent values within firm and year to build the central data object. Print the top-ten firm-years by total innovation value and ask whether the names make sense — do the famous innovators show up? The deliverable is the firm-year value panel, a one-paragraph sanity check on its skew and top entries, and a note on which patents lack a value, and why.
+:::
+
+## Exercise 2: Rebuild One Patent's Value
+
+- Reuse your **Week-4 event-study** machine
+- Pull daily returns around one patent's grant date
+- Fit a market model on a pre-event estimation window
+- Compute the **abnormal return**, multiply by market cap
+- Compare to the published value; then **vary** window and model
+
+::: notes
+Exercise two: rebuild a single patent's value from a grant-window event study. Reuse your Week-Four event-study machine. For one patent, real or synthetic, pull the firm's daily returns around the grant date, fit a market model on a pre-event estimation window, compute the abnormal return over the short grant window, multiply by market cap to convert to dollars, and compare your hand-built number to the published K-P-S-S value. Then stress the construction on purpose: vary the window length — one day, three days, five days — and the normal-return model, and watch the estimate move. The lesson — that the measure depends on the modeling choices the vulnerabilities section flagged — becomes a number on your own screen, not a caveat you read past.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Exercise one: **inspect and aggregate** the right-skewed patent-value panel to a firm-year object, and sanity-check the top names. Exercise two: **rebuild one patent's value** with your Week-4 event study, then vary the window and model to watch it move. The caveats become numbers on your screen. Next: validate the measure, then break it.
+:::
+
+::: notes
+To summarize part eleven: you start building in notebook six-point-one. Exercise one is inspect and aggregate — load the patent-level values, look before you trust, plot the wildly right-skewed distribution that motivates not counting patents equally, then sum to a firm-year panel and sanity-check the top firm-years. Exercise two is rebuild a single patent's value — reuse your Week-Four event-study machine, fit a market model, compute the abnormal return, scale by market cap, compare to the published number, then vary the window and model to watch the estimate move. The modeling-choice caveat becomes a number on your own screen. In part twelve we validate the measure, deliberately break a validation, and close with the referee's three margin questions.
+:::

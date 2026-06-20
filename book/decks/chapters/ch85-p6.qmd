@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Time Budgeting and the Rehearsal
+
+- Part 6 — budget the eight minutes, prove it against a clock
+
+::: notes
+Welcome back to The Eight-Minute Presentation and the Replication Packet, part six of twelve. In part five we learned to translate every spoken result into a figure. Now we budget the eight minutes — and prove the budget against a clock. A budget you have not tested is a wish, and the single most reliable predictor of a talk running over is that the speaker never once said it out loud against a timer.
+:::
+
+## A Budget You Haven't Tested Is a Wish
+
+- Rehearse the full talk, timed, at least three times
+- Cut until it fits in *seven* minutes, not eight
+- The eighth minute is insurance, not content
+- Go *fast* through motivation, *slow* through design and result
+- Nervous speakers race the hard middle — the middle is the talk
+
+::: notes
+A budget you have not tested is a wish. So the rule is concrete: rehearse the full talk, timed, at least three times, and cut until it fits in seven minutes, not eight. You target seven because a live talk runs longer than a rehearsal — you will pause, someone will cough, the clicker will lag — and the eighth minute is your insurance against disaster, not your content. A talk that needs all eight minutes in rehearsal will run to ten on stage, and a talk that runs to ten in an eight-minute slot gets cut off mid-sentence at the result, the worst possible place. Where does the time go? Roughly a minute on question and why combined, a minute and a half on the design slide, a minute and a half on the headline, a minute on robustness, a minute on contribution, and the rest as slack. Notice the shape: fast through motivation, slow through identification and result — the opposite of what nervous speakers do. They race the hard middle to reach the safe summary. Resist it. The middle is the talk.
+:::
+
+## Know Your Cut Line in Advance
+
+- Decide which slide you skip if you're behind at minute six
+- Almost always a robustness detail or motivation point
+- *Never* the design slide, *never* the headline
+- Pre-decided cuts are clean; improvised cuts are bad
+- Rehearsal exposes sentences you can't say smoothly
+
+::: notes
+A discipline worth stealing from professional speakers: know your cut line in advance. Decide, before you stand up, which slide you will skip if you are at minute six and only on the result. Almost always it is the second robustness detail or the third motivation point — never the design slide, never the headline. When you are over time and improvising, you cut badly; when you have pre-decided the cut, you cut cleanly and nobody notices. The rehearsal is also where you discover the sentences you cannot say smoothly — the ones with three clauses and a parenthetical — and you rewrite them, because a sentence you stumble on in rehearsal is a sentence you will fail on stage. The notebook and lab for this chapter include a dry-run timer for exactly this; use it until the talk fits with room to spare.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**A budget you haven't tested is a wish.** Rehearse timed at least three times and cut until it fits in *seven* minutes — the eighth is insurance. Go fast through motivation, slow through the design spine and result. And **pre-decide your cut line**: a robustness detail or motivation point, *never* the design slide, *never* the headline. Next: defending your identification when the questions come.
+:::
+
+::: notes
+To summarize part six: a budget you have not tested is a wish, so rehearse the full talk timed at least three times and cut until it fits in seven minutes, because a live talk runs longer than a rehearsal and the eighth minute is insurance, not content. The time shape goes fast through motivation and slow through the design spine and the result — the opposite of the nervous speaker's instinct to race the hard middle, which is in fact the talk. And know your cut line before you stand up: skip a robustness detail or a motivation point if you fall behind, never the design slide and never the headline, because pre-decided cuts are clean. In part seven we move from the eight minutes to the question period, where the talk is actually judged.
+:::

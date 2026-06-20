@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Rules 1 and 2 — Secrets and Licensing
+
+- Part 2 — the first two cross-source rules: secrets and licensing
+
+::: notes
+Welcome back to Data Acquisition in Practice, part two of thirteen. In part one we set up the six questions every source answers. Before we touch a specific source, three rules cut across all of them. They come straight from our conventions, and they are the difference between a data pull a referee trusts and one they cannot. This part covers the first two rules; part three covers the third.
+:::
+
+## Rule 1 — Secrets in the Environment
+
+- Several sources need an **API key** — a string that is you
+- A key is a password; never type it into a notebook
+- Inline keys leak to shell history, git history, GitHub
+- Read every key at runtime: `os.environ["FRED_API_KEY"]`
+- A KeyError is the system *refusing to run* until you set it
+
+::: notes
+Rule one: secrets live in environment variables, never in code. Several sources require an A-P-I key — a string that identifies you to the server. A key is a password. The instant you write A-P-I key equals quote a-b-c into a notebook, that key is in your shell history, your git history, and, if you ever push, on GitHub forever, where bots scrape public repos for exactly such strings. So every key in this chapter is read at runtime from the environment — for example, os-dot-environ of fred-A-P-I-key. You set the variable once in your shell, or better, in a dot-e-n-v file listed in git-ignore and never committed. If the lookup raises a key error, that is the system working: it is refusing to run until you have set the key out of band.
+:::
+
+## Rule 2 — Licensed Data Stays at GMU
+
+- CRSP, Compustat, IBES, TRACE are **licensed, not public**
+- GMU pays; the license permits use on **GMU systems**
+- Never download to your laptop, email outside, or post publicly
+- Analyze only on WRDS Cloud or GMU's Hopper cluster
+- Licensed raw data is **never committed to git**
+
+::: notes
+Rule two: licensed data stays on G-M-U infrastructure. This is the single rule most likely to get a student into real trouble, so it gets stated in full. CRSP, Compustat, I-B-E-S, TRACE, and the other WRDS subscriptions are licensed, not public. G-M-U pays for them; the license permits use by G-M-U-affiliated researchers on G-M-U systems. That has a hard consequence: you may not download CRSP or Compustat to your personal laptop, email it to a collaborator outside G-M-U, post it to a public repo, or paste it into a commercial web service. The data may be analyzed only inside the walls the license defines — on WRDS Cloud itself, or on G-M-U's Hopper cluster. So for this whole chapter, licensed raw data is never committed to git. Your repository commits the code that pulls it and a log of what was pulled, but the licensed bytes stay in a data raw directory your git-ignore excludes. Public data has no such restriction, but we apply the same discipline uniformly, because keeping raw pulls out of git and reproducible-by-script is good practice for every source.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Rule 1:** secrets live in environment variables, never in code — a leaked key is a leaked password. **Rule 2:** licensed data (CRSP, Compustat, IBES, TRACE) stays on GMU infrastructure — never your laptop, never a public repo; you commit only code and a log. Next: Rule 3 — pin, cache, log — and the `log_pull` helper.
+:::
+
+::: notes
+To summarize part two: the first two rules that govern every source. Rule one, keep secrets in environment variables, never in code, so a key never leaks into your history or onto GitHub. Rule two, keep licensed data on G-M-U infrastructure — CRSP, Compustat, I-B-E-S, and TRACE may be analyzed only on WRDS Cloud or G-M-U's Hopper cluster, never your laptop, never a public repo; you commit only the code that pulls it and a log of what was pulled. In part three we cover the third rule — pin, cache, and log — and fold all three into the log-pull helper.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## FRED — Macro Series and Revisions
+
+- Part 7 — FRED's easy macro series and the revision trap
+
+::: notes
+Welcome back to Data Acquisition in Practice, part seven of thirteen. In part six we covered S-E-C EDGAR and its fair-access rule. Now we meet FRED, the easiest high-quality data source you will ever use — and the one subtle trap, data revision, that can turn an easy pull into a quiet look-ahead bias.
+:::
+
+## FRED — Macro Made Easy
+
+- Hundreds of thousands of economic and financial series
+- GDP, unemployment, mortgage rates, Treasury yields, the VIX
+- Free, public, no GMU restriction
+- Find a series by its short **series ID**
+- Maya's macro control — and a control in nearly every project
+
+::: notes
+FRED — Federal Reserve Economic Data, from the St. Louis Fed — is the easiest high-quality data source you will ever use: hundreds of thousands of economic and financial time series — gross domestic product, unemployment, the federal funds rate, the consumer price index, mortgage rates, Treasury yields, the V-I-X — most updated automatically as the source agencies release them. It is free, public, with no G-M-U restriction. This is Maya's macro control — a mortgage-rate or unemployment series to absorb the credit cycle — and a control variable in nearly every project here. Each series has a short series I-D: a string like G-D-P, or unrate for the unemployment rate, mortgage-thirty-U-S for the thirty-year mortgage rate, d-g-s-ten for the ten-year Treasury, or fed-funds. You find I-Ds by searching FRED's website, and the I-D is the identifier you pass to the A-P-I.
+:::
+
+## Two Routes, One Licensing Note
+
+- `pandas-datareader` needs **no key**; returns a tidy DataFrame
+- `fredapi` wants a free key but gives finer control
+- Finer control: release dates, vintages, search
+- FRED aggregates series from BLS, BEA, OECD, and others
+- Cite the **underlying source**, not just "FRED"
+
+::: notes
+Two equivalent routes. The pandas-datareader package needs no key for FRED and returns a tidy DataFrame — you just name the series, the source, and a start and end date. The fred-A-P-I package wants a free A-P-I key, read from the environment as always, but gives finer control: release dates, vintages, and search. On licensing: FRED data is public, but it aggregates series from many original sources — the Bureau of Labor Statistics, the Bureau of Economic Analysis, the O-E-C-D — some with their own terms, and FRED tags each series with its source and copyright. In practice for student research you can cache and share FRED series freely, but cite the underlying source, not just "FRED."
+:::
+
+## The Revision Gotcha
+
+- FRED caps at roughly **120 requests per minute** per key
+- **Many macro series are revised after first release**
+- Today's 2020 GDP is not what was published in 2021
+- Pulling the latest series can be a quiet **look-ahead bias**
+- ALFRED vintages give the number *as published then*
+
+::: notes
+FRED's rate limit is generous — roughly one hundred twenty requests per minute per key — and only a constraint if you loop over many series. The subtle, important gotcha is data revision. Many macro series are revised after first release: today's value for twenty-twenty gross domestic product is not the number that was published in twenty twenty-one. If your study's logic depends on what was knowable at the time — a real-time or forecasting design, like Sam's backtests, or anything event-study-like — pulling the latest revised series is a quiet look-ahead bias. FRED solves this with ALFRED vintages: fred-A-P-I's get-series-first-release, or get-series-as-of-date, give you the number as it was published then. For a contemporaneous control variable, the latest series is fine; for anything that pretends to use only past information, pull the vintage. Then, as always, pin the vintage date — or note "latest, pulled on a date" — cache to Parquet, and log. Because FRED is small and public, caching it is cheap and there is no excuse not to.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**FRED** is the easiest source there is: hundreds of thousands of macro series, identified by **series ID**, free and public. The one real trap is **revision** — many series change after first release, so when your design needs point-in-time honesty, pull an **ALFRED vintage**, not the latest. Cite the underlying source. Next: HMDA.
+:::
+
+::: notes
+To summarize part seven: FRED is the easiest high-quality source you will ever use — hundreds of thousands of macro and financial series, each identified by a short series I-D, free and public, reachable with or without a key. Its one real trap is revision: many series change after first release, so pulling the latest is a quiet look-ahead bias whenever your design needs point-in-time honesty. The fix is an ALFRED vintage. And cite the underlying agency, not just FRED. In part eight we meet a public source so large that the size itself is the constraint: H-M-D-A, the fair-lending data at national scale.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Responsible Use: Keep the Licensed Data Home
+
+- Part 10 — keep licensed data on GMU; close the week
+
+::: notes
+Welcome back to when the data is words, part ten of ten, our final part. In part nine we covered disclosure, reproducibility, and the two leakage traps. Now the rule with actual legal teeth — data governance — and then we close the week. This is the item that turns a careless prompt into a license violation, so read it twice.
+:::
+
+## Licensed Data Stays on GMU Infrastructure
+
+- Per CONVENTIONS section five: CRSP, Compustat, TRACE, WRDS data
+- Stays **read-only on GMU infrastructure** and never leaves it
+- Sending licensed rows to an external API is a **license violation**
+- Not a CRSP return, not a TRACE bond trade, not a redistribution-barred row
+- Full stop — no exceptions for convenience
+
+::: notes
+Fourth, obey the data-governance rule — this one has legal teeth. Per Conventions section five, licensed data — CRSP, Compustat, TRACE, anything WRDS-sourced — stays read-only on GMU infrastructure and never leaves it. Sending licensed rows to an external API, Anthropic's or OpenAI's public endpoints, is a license violation and a data-governance breach, full stop. So never paste licensed or sensitive data into an external LLM API: not a CRSP return, not a TRACE bond trade, not a row you are not allowed to redistribute. There is no convenience exception. The license you signed to get the data is a contract, and routing it through an outside service breaks that contract regardless of how careful the prompt feels.
+:::
+
+## Run Locally, or Send Only Public Text
+
+- For sensitive data, run the model **locally**
+- Ollama on your machine, or a **GMU Hopper A100** node
+- SLURM template in Appendix B-point-four — data and model stay inside
+- GMU Azure gateway: in-perimeter when the agreement covers it
+- External API? Send only **public** text — an EDGAR 10-K, not the CRSP join
+
+::: notes
+So, two ways to stay legal. For sensitive data, run the model locally: Ollama on your own machine, or a GMU Hopper A-one-hundred node, with the SLURM template in Appendix B-point-four, where the data and the model both stay inside the licensed perimeter. The GMU Azure gateway is the in-perimeter option for hosted models when GMU's agreement covers it; confirm the data-handling terms before sending anything non-public. And when you must use an external API, send only non-licensed, public text — a ten-K from EDGAR is public and fine; the CRSP return you joined to it is not. Strip to the public columns first, before a single token leaves the perimeter.
+:::
+
+## The Principle, and the Week's Thread
+
+- A result is only as good as your ability to **reproduce and defend** it
+- An LLM raises the bar — stochastic, opaque, license-sensitive
+- **Log it, pin it, validate it, disclose it, keep the data home**
+- Read papers asking "is the measure valid?"; validate your own labels
+- The skeptic and the careful researcher are the **same person**
+
+::: notes
+The principle underneath all five items is the one this whole book defends: a result is only as good as your ability to reproduce it and defend it. An LLM does not change that standard; it raises the bar, because it adds a stochastic, opaque, license-sensitive instrument to your toolkit. Log it, pin it, validate it, disclose it, and keep the licensed data home — and the co-pilot makes you faster without making you wrong. So here is the whole week in one breath: read the five Week-Six papers asking is the measure valid, build your RAG over public ten-Ks, write prompts that constrain and cite, score every LLM label against a held-out gold set, and carry all of it into a capstone you can hand a skeptic and defend line by line. The skeptic who reads a stranger's measurement table and the researcher who validates her own LLM labels are, once again, the same person.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Keep the licensed data home** — CRSP, Compustat, TRACE never leave GMU; run locally or send only public text. The thread of the week: an LLM label *is* a measure, so validate it like one. Next week, your capstone begins.
+:::
+
+::: notes
+To close part ten and the week: the data-governance rule has legal teeth — licensed data like CRSP, Compustat, and TRACE stays read-only on GMU infrastructure and never goes to an external API. Run sensitive work locally with Ollama or a GMU Hopper node, or send only public text such as an EDGAR ten-K, stripped of any licensed columns. And remember the principle that unifies the entire week: a result is only as good as your ability to reproduce and defend it, and an LLM label is a measure to be validated, not a truth to be trusted. The skeptic reading a stranger's table and the researcher validating her own labels are the same person. Next week, your capstone begins — go build something you can defend.
+:::

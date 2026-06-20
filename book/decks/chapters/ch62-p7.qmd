@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## What's Vulnerable: Four Soft Spots
+
+- Part 7 — four measurement soft spots a referee presses
+
+::: notes
+Welcome back to Chapter six-point-two, part seven of eight. In part six we named four clever moves worth stealing. Now we turn critical. A measurement paper has measurement vulnerabilities, different from Week Five's causal threats. The right skeptical question is not "what confounds the treatment?" but "what makes the text a noisy or biased signal of what the firm actually does?" Here are four soft spots a referee will press.
+:::
+
+## Soft Spot One — Boilerplate
+
+- A 10-K is written by lawyers as much as managers
+- Risk-factor language, disclaimers, accounting boilerplate
+- Shared templates can make firms look "similar"
+- Similar law firm, not similar products
+- And the boilerplate baseline *drifts* over time
+
+::: notes
+The first soft spot is boilerplate and legal language. A ten-K is written by lawyers as much as by managers, and large stretches are formulaic and shared across firms — risk-factor language, disclaimers, accounting boilerplate. If that leaks into the vectors, two firms can score similar because they share a law firm's templates, not because they make similar products. Restricting to the product section and downweighting ubiquitous words limits this, but does not erase it. And as disclosure norms drift, the boilerplate baseline drifts too, contaminating the time-varying comparisons. The skeptic asks: how much measured similarity is product, and how much is shared legalese?
+:::
+
+## Soft Spot Two — Self-Description Incentives
+
+- The sharpest critique — specific to *self-reported* text
+- Firms choose how to describe themselves, with motives
+- Vague to hide; grand to flatter; conservative for legal cover
+- Reflexivity: differentiation is *itself* an outcome
+- Talking different is not always *being* different
+
+::: notes
+The second soft spot is the sharpest critique, and it is specific to self-reported text. Firms choose how to describe themselves, and they have motives: vaguely, to avoid tipping off rivals; grandly, to flatter investors — "we are an A-I company now"; conservatively, to manage legal exposure. If description and reality diverge systematically with something that also drives the outcomes, the measure inherits that bias. Worse, since differentiation is itself an outcome the paper studies, there is reflexivity: a firm that talks differently gets coded as differentiated, but talking different is not always being different. The skeptic asks: are we measuring product differentiation, or differentiation in marketing prose?
+:::
+
+## Soft Spot Three — Bag-of-Words Ignores Meaning
+
+- Throws away word order, synonymy, context
+- "We do not compete in X" $\approx$ "we compete in X"
+- "Automobile" and "car" treated as unrelated
+- It sees vocabulary overlap, not shared business
+- The ceiling Ch 6.5's embeddings are built to break
+
+::: notes
+The third soft spot is that bag-of-words ignores meaning. The representation throws away word order and, basically, synonymy and context. "We do not compete in semiconductors" and "we compete in semiconductors" give nearly identical bags. "Automobile" and "car" are treated as unrelated. The measure sees vocabulary overlap, which correlates with shared business but is not the same thing. This is exactly the gap that the embedding models of Chapter six-point-five are built to close — meaning, not word identity — which is why this paper sits one chapter before the A-I module. It is the bag-of-words ceiling that motivates moving past it. The skeptic asks: would a measure that understood meaning redraw these neighborhoods?
+:::
+
+## Soft Spot Four — Parsing Noise
+
+- Everything depends on pulling Item 1 cleanly
+- Decades-spanning EDGAR: HTML and plain-text eras differ
+- Some firms bury or merge the description
+- Errors inject noise — or worse, *selection*
+- Larger, better-resourced firms file cleaner documents
+
+::: notes
+The fourth soft spot is parsing and section-extraction noise. Everything upstream depends on correctly pulling Item One from a messy, inconsistently formatted, decades-spanning EDGAR corpus. Formats change; the HTML and plain-text eras differ; some firms bury or merge the description. Every parsing error injects noise — or worse, selection, if cleanly-parsing filings differ systematically from the rest, since larger, better-resourced firms tend to file cleaner documents. The measure is only as good as that long extraction pipeline. The skeptic asks: could the dropped filings be a non-random slice of the economy? None of these four sinks the paper — the pass-one validation is the defense, showing the measure out-predicts SIC despite the noise. They locate it, not refute it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Four measurement soft spots: **boilerplate** (shared legalese), **self-description incentives** (talking $\neq$ being), **bag-of-words ignoring meaning** (negation and synonyms), and **parsing noise** (possible selection). None sinks the paper — the **pass-one validation** shows TNIC beats SIC *despite* the noise. They locate the paper, not refute it. Next: build a mini version with your own code.
+:::
+
+::: notes
+To summarize part seven. Four measurement soft spots a referee will press. First, boilerplate — shared legal templates can make firms look similar for the wrong reason. Second, self-description incentives — firms choose their words strategically, and talking different is not being different. Third, bag-of-words ignoring meaning — it cannot tell a negation or a synonym apart. Fourth, parsing noise — extraction failures may be a non-random slice of the economy. None of these sinks the paper, because the pass-one validation shows TNIC beats SIC despite all the noise. They locate the paper rather than refute it. In part eight, the finale, we make the magic mechanical: you build a mini version with your own code and watch industries emerge with no labels.
+:::

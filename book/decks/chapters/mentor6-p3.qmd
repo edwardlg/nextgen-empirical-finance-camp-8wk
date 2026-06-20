@@ -1,0 +1,71 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Validation, or It Didn't Happen
+
+- Part 3 — gold set, held-out split, precision and recall
+
+::: notes
+Welcome back to "Text as data, and AI without fooling yourself," part three of seven. In part two we ranked the instruments from transparent to opaque, and saw that opacity raises the burden of proof. Now we discharge that burden. Validation has one non-negotiable shape — a gold set, a held-out split, and the two numbers you actually report. Skip any of these and your instrument was never really validated.
+:::
+
+## Build a Gold Set
+
+- A *random* sample of documents you label **by hand**
+- The closest thing you have to ground truth
+- Random — not cherry-picked easy cases
+- Easy cases flatter the instrument
+- Hand labels are the answer key you score against
+
+::: notes
+Step one: build a gold set. Take a random sample of documents and label them by hand, yourself. Those hand labels are the closest thing you have to ground truth — the answer key you grade the instrument against. The word random matters enormously. If you cherry-pick the obvious, easy cases — the filings that are unmistakably negative — your instrument will look brilliant and tell you nothing about the hard, ambiguous documents that make up the real corpus. A gold set assembled from easy cases flatters the instrument and fools you. Draw it at random, label it honestly, and accept that some cases will be genuinely hard.
+:::
+
+## Split It
+
+- Tune the prompt or rubric on a **development set**
+- Hold out a **test set** you touch exactly once
+- Tuning against numbers you report = lying to yourself
+- The held-out set is sacred until the end
+- Touch it twice and it is no longer held out
+
+::: notes
+Step two: split the gold set. Use one part — the development set — to tune your prompt or rubric, iterating freely. Hold out the other part as a test set, and touch it exactly once, at the end. Why so strict? Because tuning your instrument against the very numbers you then report is how you lie to yourself. If you keep peeking at the test set and adjusting until the score looks good, you have just fit the instrument to that set, and the number you report is optimism, not performance. The held-out set is sacred. It stays sealed while you develop. The moment you look at it twice, it has stopped being held out, and its verdict is contaminated.
+:::
+
+## Report Precision and Recall
+
+- Never report bare **accuracy**
+- Financial text is almost always **imbalanced**
+- Only six percent of filings truly "negative"?
+- A lazy "never-negative" classifier scores ninety-four percent accurate
+- Yet catches **zero** of the cases you care about
+
+::: notes
+Step three: report precision and recall on the held-out set — never bare accuracy. Here is why accuracy lies. Financial text is almost always imbalanced. Suppose only about six percent of filings are truly negative. A lazy classifier that labels everything "not negative" — that does no work at all — scores ninety-four percent accuracy, because it is right on the ninety-four percent that genuinely are not negative. That sounds excellent, yet it catches zero of the six percent you care about. Precision asks: of the documents you flagged negative, how many really were? Recall asks: of the truly negative documents, how many did you catch? Those two numbers expose the lazy classifier instantly. Accuracy hides it.
+:::
+
+## Then You've Earned It
+
+- Clear the bar **out of sample**, on the held-out set
+- Then — and only then — run on the forty thousand
+- The documents you never hand-labeled
+- Out-of-sample is the **whole game**
+- Tuning and testing on the same data grades with the answer key
+
+::: notes
+Only after the instrument clears that bar — good precision and recall, out of sample, on documents it never saw during development — do you earn the right to run it across the forty thousand filings you never hand-labeled. Not before. Out-of-sample is the whole game. A measure tuned on the same data it is tested on is grading itself with the answer key open on the desk, and its score means nothing. Report only what survives on data the instrument never saw while you were building it. That single discipline — develop here, judge there — separates a measurement you can defend from a number you merely hope is right.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Validation has one shape: build a **random** hand-labeled gold set; **split** it and hold out a test set you touch once; report **precision and recall** out of sample, never bare accuracy — because under imbalance, "ninety-four percent accurate" can mean "caught zero of the six percent I care about." Clear that bar, then you've earned the right to run on the forty thousand. Next: the three ways AI fools you.
+:::
+
+::: notes
+To summarize part three: validation has one shape. Build a gold set from a random hand-labeled sample — the closest thing to ground truth. Split it, develop your prompt on one part, and hold out a test set you touch exactly once, because tuning against the numbers you report is lying to yourself. Report precision and recall, never bare accuracy, because financial text is imbalanced and a do-nothing classifier can score ninety-four percent while catching zero real cases. Clear that bar out of sample, and only then run the instrument on the forty thousand documents you never labeled. In part four, we name the first of the three ways artificial intelligence fools you.
+:::

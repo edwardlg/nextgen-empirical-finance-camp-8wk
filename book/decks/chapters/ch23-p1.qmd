@@ -1,0 +1,53 @@
+---
+date: "2026-06-22"
+---
+
+## What "Controlling For" Really Means
+
+**Learning objectives.** By the end you can:
+
+- Read any control coefficient as a two-variable slope
+- Say what "holding constant" mechanically buys you
+- See why group dummies equal demeaning — fixed effects
+- Use partial-regression plots to inspect a coefficient
+
+::: notes
+Welcome to Week Two, Chapter two-point-three, part one of thirteen: the Frisch–Waugh–Lovell theorem. Every empirical-finance paper reports coefficients "controlling for" other variables, and the word controlling does so much work it has almost stopped meaning anything. This chapter says exactly what it does to the arithmetic — and the answer is precise and a little surprising.
+:::
+
+## The Word "Controlling" Does Too Much Work
+
+- Papers report a slope "controlling for size, industry, year"
+- *Controlling* sounds like a magic spray removing contamination
+- What does it **mechanically** do to the arithmetic?
+- Answer: **subtract the other variables out first**
+- Then run a plain simple regression on the leftovers
+- This is the **Frisch–Waugh–Lovell** theorem — FWL
+
+::: notes
+Start with the word everyone uses. A paper reports the coefficient on research-and-development spending "controlling for firm size," or a treatment dummy "controlling for industry and year." That word, controlling, sounds like a magic spray that removes contamination from a variable. This chapter asks a sharper question: what does controlling actually do, mechanically, to the arithmetic? The answer is precise and a little surprising. Controlling for the other variables means subtracting them out of everything first, and then running a plain, simple two-variable regression on what is left over. That statement is the Frisch–Waugh–Lovell theorem — everyone calls it F W L. It is the single most useful interpretive fact in this whole book.
+:::
+
+## The Result In One Plain Sentence
+
+- A multiple-regression coefficient = a **simple** slope
+- of the outcome, **after removing** the other regressors
+- on the key regressor, **after removing** them from it too
+- "Removing" = regress on the others, keep the residual
+- The coefficient lives entirely in the **leftover** parts
+- Controls already did their job by being subtracted out
+
+::: notes
+Here is the result in one plain sentence. A coefficient in a multiple regression is exactly the slope you would get from a simple regression — of the outcome, after removing the other regressors from it, on the key regressor, after removing the other regressors from it too. Removing the other regressors means this: regress the thing on those other regressors and keep the residual. The residual is the part the other regressors cannot explain — the part left over, orthogonal to them. So F W L says a multiple-regression coefficient lives entirely in the leftover parts. The bulk of the regressors are not even in the room when the key slope is decided; they have already done their job by being subtracted out. It tells you exactly what a multiple-regression coefficient is: not a coefficient in some irreducible high-dimensional object, but a humble two-variable slope, once both variables have been cleaned of the other regressors.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**FWL** says "controlling for the other variables" means **residualizing them out of both the outcome and the key regressor, then taking a simple two-variable slope of the leftovers**. A multiple-regression coefficient is always a two-variable slope in disguise. Next: *why* a multivariate problem collapses to a bivariate one.
+:::
+
+::: notes
+To summarize part one. The Frisch–Waugh–Lovell theorem says that controlling for the other variables means residualizing them out of both the outcome and the key regressor — keeping only the leftover parts the controls cannot explain — and then taking a simple, two-variable slope of those leftovers. A multiple-regression coefficient is always a two-variable slope in disguise, and F W L is the disguise-remover. In part two we build the intuition for why a multivariate problem can collapse to a bivariate one — before any algebra.
+:::

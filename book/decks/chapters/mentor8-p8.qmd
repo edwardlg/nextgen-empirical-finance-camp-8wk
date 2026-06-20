@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Your Defense Brief — Closing the Arc
+
+- Part 8 — finish the brief and close the eight-week arc
+
+::: notes
+Welcome back to Mentor Session Eight, defending a result, part eight of eight — and the last segment of the last mentor session of the camp. In part seven we beat the alternative explanation that steals your interpretation, and began your defense brief by writing and classifying your three hardest questions. Now we finish the brief — the four-beat answers and the retreat position — and say the two sentences this whole camp existed to let you say.
+:::
+
+## Finish the Brief — Four Lines Each
+
+- Line 1: the **question**, as a hostile reader would say it
+- Line 2: **classify** it — identification, robustness, or alternative
+- Line 3: the **four-beat answer** — name, would-see, actually-see, residual
+- Line 4 (fatal only): the **retreat position** that survives
+- Write it calm now, not in the room
+
+::: notes
+Finish the brief. For every one of your three hardest questions, write four lines. First, the question itself, phrased the way a hostile, intelligent reader would actually say it. Second, classify it — identification, fatal if lost; robustness, a number that might move; or an alternative explanation, someone stealing your interpretation. Third, write the drafted answer in the four-beat shape from the identification slide: name the threat so you don't look surprised, say what you'd see in the data if it were true, show what you actually see — point to the table, figure, or robustness column, the real number — and state the residual concern you cannot fully rule out. Fourth, and only for whichever of the three is genuinely fatal if the attacker is right, write your retreat position — the claim that survives even if you lose the point, almost always the honest descriptive version: a robust association future work should test causally with the better design. A conceded critique then leaves you a wounded paper and an intact scientist, rather than nothing at all.
+:::
+
+## The Two Sentences That End the Arc
+
+- *"The single best reason not to believe your result — and what did you do?"*
+- Have the answer ready; I will actually ask it
+- *"Here is what I found, here is exactly why you should believe it…"*
+- *"…and here is the one command that lets you check me."*
+- From an eight-percent average to a **defensible result**
+
+::: notes
+Close with the two sentences that are the whole point of eight weeks. The first is the question I will actually ask you in your defense, so have the answer ready: what is the single best reason, right now, not to believe your result — and what did you do about it? The second is the sentence this camp existed to let you say truthfully, the one that turns a claim into a result and ends the arc that started with an eight-percent average: here is what I found, here is exactly why you should believe it, and here is the one command that lets you check me. That is the entire journey — from an average return you hoped was real, to a number with a design behind it, an uncertainty attached, and a command anyone can run to verify it. The strongest posture in any defense is to invite verification instead of asking for trust.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Finish your defense brief calm, before the room: each hard question as **four lines** — question, family, four-beat answer, and a retreat for the fatal one. Then say both closing sentences honestly — the best reason not to believe you, and *"here is the one command that lets you check me."* You are now a **researcher who can defend a result.** Go defend it.
+:::
+
+::: notes
+To summarize part eight, and the whole camp: finish your defense brief while you are calm, long before you stand in the room. For each of your three hardest questions, write four lines — the question as a hostile reader would phrase it, its family, the four-beat answer naming threat, would-see, actually-see, and residual, and for the one that is genuinely fatal, a retreat position to the honest descriptive claim. Then say the two sentences eight weeks were pointed at: the single best reason not to believe your result and what you did about it; and here is what I found, here is why you should believe it, and here is the one command that lets you check me. If you can say both honestly, you are not a student who took a finance course — you are a researcher who can defend a result. That closes the arc that began with an eight-percent average. Go defend it.
+:::

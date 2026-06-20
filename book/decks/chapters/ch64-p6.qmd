@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Three Replication Exercises, and Where This Goes
+
+- Part 6 — replicate both papers' spirit on public HMDA data
+
+::: notes
+Welcome back to the reader's guide on fair lending in the algorithmic era, part six of six, the final part. In part five we named what is clever and what is vulnerable in both papers. Now we make it hands-on: three replication exercises scaffolded toward notebook six-point-four, the mortgage-disparity decomposition on HMDA. You reproduce the spirit of both papers on data a student can actually touch — HMDA, which is public — keeping front-of-mind the one thing HMDA cannot show you: the credit score.
+:::
+
+## The Three Exercises
+
+- **One:** raw-then-conditional decomposition; watch the coefficient march
+- Then write: the one variable I could not add is the score
+- **Two:** over-control on purpose; then **match** instead of regress
+- See the residual shrink for the wrong reason
+- **Three:** pricing margin plus the FinTech split (Bartlett's move)
+
+::: notes
+Three exercises. Exercise one reproduces the BHR move, HMDA-limited. On a HMDA extract, regress the action-taken outcome — or, for recent years, the rate-spread field — on a minority indicator with no controls, then add the legitimate factors HMDA does carry: loan amount, applicant income, loan-to-value, and tract and lender fixed effects, watching the race coefficient march across columns. Report how much of the raw gap the observables explain. Then write the sentence that is the whole point: what is the one variable I could not add, and which way would adding it move the coefficient? The answer is the credit score, and it almost certainly shrinks it. Exercise two stresses the design the way Mentor Four taught. Re-run exercise one once adding a control that plausibly sits on the discrimination pathway — a high-cost-loan flag — and show the residual shrink for the wrong reason, a hands-on demonstration of the over-controlling trap. Then build a matched comparison: pair each minority application to a non-minority application identical on income band, loan amount, loan-to-value, and tract. Name the one confound — the unobserved score — it still cannot fix. Exercise three extends to the pricing margin and the technology split, Bartlett's move. Using HMDA's post-twenty-eighteen pricing fields, estimate the conditional rate-spread gap, then split by lender type — online FinTech versus traditional banks — and test whether the gap is smaller where no human is in the loop.
+:::
+
+## Where This Goes Next
+
+- Open **notebook six-point-four** — the disparity decomposition
+- Confront the missing-credit-score problem line by line
+- The spine: Gao & Sun's same-sex-borrower work (*PNAS* 2019)
+- A HMDA design that reached Congressional testimony
+- Bartlett and BHR = the algorithmic-era sequel
+
+::: notes
+Where this goes next. Open notebook six-point-four, the mortgage-disparity decomposition, where you build the raw-then-conditional regression on HMDA, run the matched comparison, and read the residual off your own output, confronting the missing-credit-score problem that is the spine of this whole literature. The extension pushes you toward the Capstone One design, a clean decomposition on HMDA built to survive a hostile referee and a court. The camp's anchor is Gao and Sun's same-sex-borrower work, in the Proceedings of the National Academy of Sciences in twenty nineteen. It takes exactly this question — are two otherwise-identical applicants treated differently? — from a HMDA extract all the way to Congressional testimony, precisely because the credit score was missing and a design had to carry the argument. Bartlett and BHR are the algorithmic-era sequel: same question, new defendant. Carry three referee questions into the lab. One: BHR's residual shrinks once the score enters — but the score may itself encode historical discrimination, so is conditioning on it a control or a channel of disparate impact? Two: if Bartlett's FinTech residual comes from pricing on geography that proxies for race, would removing the proxy fix it or merely hide it? Three: if a state changed enforcement at a known date, could you turn either into a difference-in-differences? That is your bridge from reading to building. Good luck.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+You reproduce both papers' *spirit* on public HMDA — raw-then-conditional, over-control-on-purpose, then the pricing-and-technology split — always asking the load-bearing question: **what is the one variable I could not add, and which way would it move the coefficient?** The answer is the credit score.
+:::
+
+::: notes
+To close the chapter: the three exercises let you reproduce the spirit of both papers on data you can actually touch, while never forgetting what HMDA cannot show you. The load-bearing habit is to ask what is the one variable I could not add and which way would adding it move the coefficient — and the answer, again and again, is the credit score. That discipline is the difference between a serious estimate of differential treatment and a placeholder for everything the data could not measure. Take it into notebook six-point-four, and into your capstone.
+:::

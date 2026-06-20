@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Computing Sam's Beta by Hand
+
+- Part 10 — run the whole machine on Sam's four days
+
+::: notes
+Welcome back to Lesson two-point-one, part ten of eleven. Over nine parts we built the whole least-squares machine: the matrix model, the normal equations from two directions, the projection geometry, and the hat and residual-maker matrices. Now we cash it all out on Sam's four trading days, inverting the matrices by hand and recovering his beta.
+:::
+
+## Sam's Four Days
+
+- $$\mathbf{X} = \begin{pmatrix} 1 & -2 \\ 1 & 0 \\ 1 & 1 \\ 1 & 1 \end{pmatrix}, \quad \mathbf{y} = \begin{pmatrix} -1 \\ 0 \\ 3 \\ 2 \end{pmatrix}$$
+- Market returns and stock returns, in percent
+- $N = 4$ observations, $K = 2$ regressors
+- Days 3 and 4: same market return, different stock return
+- So no line hits all four — there *will* be residuals
+
+::: notes
+Time to cash everything out on Sam's four days. The design matrix X has a first column of all ones and a second column of market returns: minus two, zero, one, one. The outcome vector y holds the stock returns: minus one, zero, three, two, in percent. So we have N equals four observations and K equals two regressors. Notice already that days three and four share the same market return of one percent but different stock returns, three and two — so no function of the market return can hit both. There will be leftover error no matter what line we pick, which is precisely why we need a principled rule for choosing the best one. That rule is least squares, and now we run it end to end.
+:::
+
+## Building the Pieces
+
+- $$\mathbf{X}'\mathbf{X} = \begin{pmatrix} 4 & 0 \\ 0 & 6 \end{pmatrix}, \qquad \mathbf{X}'\mathbf{y} = \begin{pmatrix} 4 \\ 7 \end{pmatrix}$$
+- $(1,1)$ entry is $N=4$; off-diagonal is $\sum x_i = 0$
+- $(2,2)$ entry is $\sum x_i^2 = 6$
+- Diagonal because market returns sum to zero this sample
+- $\mathbf{X}'\mathbf{y}$: $\sum y_i = 4$ and $\sum x_i y_i = 7$
+
+::: notes
+First build X transpose X. The one-one entry is the sum of squares of the ones column, one plus one plus one plus one, which is four — that is just N. The off-diagonal is the sum of the market returns, minus two plus zero plus one plus one, which is zero. The two-two entry is the sum of squared market returns, four plus zero plus one plus one, which is six. So X transpose X is the diagonal matrix with four and six on the diagonal. It came out diagonal — a small gift from the fact that the market returns happen to sum to zero, which makes the ones column and the market column orthogonal in this sample. That is not generic; usually X transpose X has nonzero off-diagonals, but we arranged the numbers to keep the inversion painless. Next, X transpose y. The first entry is the sum of the stock returns, minus one plus zero plus three plus two, which is four. The second is the dot product of the market column with y: minus two times minus one, plus zero, plus one times three, plus one times two — two plus three plus two, which is seven. So X transpose y is the vector four, seven.
+:::
+
+## Recovering the Estimate
+
+- $(\mathbf{X}'\mathbf{X})^{-1} = \begin{pmatrix} 1/4 & 0 \\ 0 & 1/6 \end{pmatrix}$ — invert each diagonal entry
+- $$\hat{\boldsymbol\beta} = \begin{pmatrix} 1/4 & 0 \\ 0 & 1/6 \end{pmatrix}\begin{pmatrix} 4 \\ 7 \end{pmatrix} = \begin{pmatrix} 1 \\ 7/6 \end{pmatrix}$$
+- $\hat\beta_0 = 1$, $\;\hat\beta_1 = 7/6 \approx 1.17$
+- Beta above 1: Sam's stock **amplifies** market moves
+
+::: notes
+Inverting a diagonal matrix just inverts each diagonal entry, so the inverse of X transpose X is the diagonal matrix with one-quarter and one-sixth. Multiply it by X transpose y, the vector four, seven. One-quarter times four is one; one-sixth times seven is seven-sixths. So beta hat is the vector one, seven-sixths — that is, beta zero hat equals one and beta one hat equals seven-sixths, about one point one seven. Sam's estimated beta is about one point one seven: when the market rises one percent, his stock rises about one point one seven percent on average over these four days, plus a one percent baseline that has nothing to do with the market. A beta above one means the stock amplifies market moves — consistent with the high-octane, momentum-flavored names Sam likes.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+On Sam's four days, $\mathbf{X}'\mathbf{X} = \begin{pmatrix}4&0\\0&6\end{pmatrix}$ and $\mathbf{X}'\mathbf{y} = \begin{pmatrix}4\\7\end{pmatrix}$, so $\hat{\boldsymbol\beta} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}$ gives a beta of $7/6 \approx 1.17$. Next: verify the residuals are perpendicular, exactly as the geometry promised.
+:::
+
+::: notes
+To summarize part ten: on Sam's four trading days we built X transpose X, the diagonal matrix with four and six, and X transpose y, the vector four and seven. Inverting and multiplying gave beta hat equals one and seven-sixths — an intercept of one and a beta of about one point one seven, a stock that amplifies the market. Every number came out by hand. In the final part we close the loop: we compute the residuals and verify they sum to zero and sit perpendicular to the market column — the orthogonality the whole lesson has been promising — and then we look ahead.
+:::

@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## Inference: Cluster by Unit, and the BDM Lesson
+
+- Part 5 — honest standard errors: cluster by treatment unit
+
+::: notes
+Welcome back to difference-in-differences, part five of six. We have an estimate, seventy dollars, and a coefficient that delivers it. Now the question that sank Maya in Chapter two-point-four returns: what is its standard error? Getting this wrong is, if anything, easier here than anywhere else, and the canonical warning is one of the most cited methods papers in empirical economics.
+:::
+
+## The BDM Placebo Experiment
+
+- Bertrand, Duflo, Mullainathan (2004): are DiD SEs honest?
+- Invented **placebo** treatments — random, no true effect
+- Honest SEs should flag them ~5% of the time
+- Conventional SEs flagged them **up to 45%** of the time
+- Nearly half of pure noise looked "significant"
+
+::: notes
+Bertrand, Duflo, and Mullainathan, two thousand four, asked a deceptively simple question: when researchers run difference-in-differences on long panels and report classical or heteroskedasticity-robust standard errors, are those standard errors honest? They took real data, invented placebo treatments assigned at random — with no true effect whatsoever — and ran the standard regression thousands of times. With honest standard errors, a placebo effect should be flagged significant at five percent about five percent of the time; that is what five percent significance means. Instead, the conventional standard errors flagged the fake effects up to forty-five percent of the time. Nearly half of pure noise looked significant — the standard errors were catastrophically too small, and a generation of results was far less certain than it claimed.
+:::
+
+## The Culprit: Serial Correlation
+
+- A state's premium persists year to year — residuals correlated
+- Moulton logic: correlated obs carry **less** fresh information
+- 50 states × 20 years $\neq$ 1,000 independent observations
+- $D_{it}$ itself is highly persistent: 0 for years, then 1
+- Classical and HC standard errors assume independence — false
+
+::: notes
+The culprit is the disease of Chapter two-point-four: serial correlation within units. A state's premium this year is highly correlated with last year's — slow-moving local conditions persist — so its residuals are correlated across time. Recall the Moulton logic: when observations within a group are positively correlated, each carries less fresh information, so the effective number of observations is far below the nominal count. A panel with fifty states over twenty years looks like one thousand observations but holds far less independent information. And the treatment dummy is itself highly persistent — zero for years, then one for years — precisely the pattern that the Moulton factor shows makes naive standard errors explode. Classical and even White standard errors assume within-state residuals are independent across years; they are not; the standard errors are too small; the t-stats lie.
+:::
+
+## The Fix, and the Few-Clusters Catch
+
+| SE flavor | SE | t-stat | Honest? |
+|---|---|---|---|
+| Classical | 14 | 5.0 | No |
+| Robust HC1 | 16 | 4.4 | No |
+| Clustered by state | 38 | 1.8 | Yes, if enough clusters |
+
+- **Cluster by the unit of treatment** — here, by state
+- One treated state? Lean on **placebo / permutation** inference
+
+::: notes
+The fix, and the default ever since, is the cluster-robust standard error, clustered by the unit of treatment — here, by state. This lets each state's residuals hold hands across all its years, exactly the serial-correlation structure they identified, and brought the rejection rate back near the honest five percent. So the rule is short and non-negotiable: cluster by the unit at which treatment is assigned. To feel the magnitude, take Priya's full panel. The point estimate never moves off seventy dollars. The classical standard error is about fourteen, a triumphant t-stat of five; robust about sixteen; but clustered by state it more than doubles to about thirty-eight, dragging the t-stat to a sobering one-point-eight. Only the clustered standard error tells the truth. But the catch returns: cluster-robust standard errors are trustworthy only with many clusters — thirty to fifty. Priya's case has exactly one treated state; Card and Krueger had essentially one. You cannot cluster your way out of one treated cluster. The honest position is that uncertainty is large, and you lean on permutation inference — assign the fake treatment to each control state in turn and ask how unusual your real estimate looks.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Bertrand–Duflo–Mullainathan showed conventional DiD standard errors reject pure noise far too often — up to **45%** — because of **serial correlation** within units. The fix: **cluster by the unit at which treatment is assigned**. The estimate stays at \$70; the SE more than doubles. But with **few treated clusters**, even clustering strains — lean on permutation inference. Next: the crack that breaks the clean 2×2.
+:::
+
+::: notes
+To summarize part five: the Bertrand-Duflo-Mullainathan placebo experiment showed that conventional difference-in-differences standard errors reject pure noise far too often — up to forty-five percent of the time — because of serial correlation within units, made worse by the persistent treatment dummy. The fix is to cluster by the unit at which treatment is assigned, which leaves the seventy dollar estimate untouched but more than doubles the standard error. But with few treated clusters even clustering strains, and you lean on permutation inference. In part six, our final segment, we find the crack in the clean two-by-two — what happens when different units adopt treatment at different times — which is where Chapter four-point-two begins.
+:::

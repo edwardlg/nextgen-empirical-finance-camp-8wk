@@ -1,0 +1,64 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## When a Precise Number Is the Wrong Number
+
+**Learning objectives.** By the end you can:
+
+- Name the three classic ways a coefficient is biased
+- Tell a bias problem from a standard-error problem
+- Sign omitted variable bias with the two-sign rule
+- Explain why controls and clustering are not a design
+
+::: notes
+Welcome to Week Two-point-five, part one of twelve. Across the last four chapters you learned to compute the regression coefficient correctly and to quantify how much it wobbles. This chapter changes the question entirely. It asks whether the number you are wobbling around is even the right number. We open with Maya, a clean dataset, a clean question, and the most expensive mistake in empirical work.
+:::
+
+## Maya's Fair-Lending Regression
+
+- Studies mortgage approvals at a regional lender
+- Regresses approval on a demographic indicator plus controls
+- Coefficient comes back negative, significant, $t = 4.1$
+- By Chapter 1.5 machinery, she has "found" a gap
+- About to make the most expensive mistake: believing it
+
+::: notes
+Maya studies mortgage approvals at a regional lender. She wants to know whether applicants from one demographic group are approved at lower rates than otherwise-similar applicants — a fair-lending question with real legal teeth. She runs the regression every beginner would run: approval, coded one for approved and zero for denied, on a demographic indicator, plus a few obvious controls she happens to have — loan amount and applicant age. The coefficient on the demographic indicator comes back negative and statistically significant, with a comfortable t-statistic of four-point-one. By the machinery of Chapter one-point-five — estimate divided by standard error, compared to a critical value — she has, in quotation marks, found a gap. And she is about to make the most expensive mistake in all of empirical work, which is to believe it.
+:::
+
+## Standard Errors Measure Wobble, Not Truth
+
+- Chapters 2.1 to 2.4: compute $\hat{\boldsymbol{\beta}}$, quantify the wobble
+- A standard error: how much the estimate bounces across samples
+- It says nothing about whether that center is right
+- Razor-sharp standard error on a completely wrong coefficient
+- Three classic ways the coefficient can be **biased**
+
+::: notes
+Here is the problem, stated bluntly. Everything in Chapters two-point-one through two-point-four was about computing beta hat correctly and measuring how much it wobbles. Chapter two-point-one gave the model and the ordinary-least-squares estimator. Chapter two-point-two gave the one assumption that makes the estimator mean the right thing — the zero-conditional-mean assumption, that the expected error given the regressors is zero. Chapter two-point-three gave partialling-out, the Frisch-Waugh-Lovell language for what a single coefficient represents. Chapter two-point-four fixed the standard errors. But a standard error tells you how much your estimate would bounce if you redrew the sample. It says nothing whatsoever about whether the number you are bouncing around is the right number. You can have a razor-sharp standard error on a completely wrong coefficient. Maya's t equals four-point-one is exactly that danger: a precise estimate of a biased quantity. This chapter covers the three classic ways your coefficient can be pointed at the wrong target — omitted variable bias, measurement error, and functional-form misspecification.
+:::
+
+## Bias Is the Failure of $\mathbb{E}[\varepsilon \mid x] = 0$
+
+- True model: $y = \beta_0 + \beta_1 x + \varepsilon$
+- OLS recovers $\beta_1$ only if $\mathbb{E}[\varepsilon \mid x] = 0$
+- Holds $\Rightarrow x$ **exogenous**, $\hat\beta_1$ consistent for $\beta_1$
+- Fails $\Rightarrow x$ **endogenous**, converges to the wrong target
+- The gap is **bias** — it does not shrink with more data
+
+::: notes
+Let us be precise about bias. Write the true model as y equals beta-zero plus beta-one x plus epsilon, where we want beta-one to be the causal effect of x on y — how much y would change if we reached in and nudged x by one unit, holding everything else fixed. Ordinary least squares recovers this beta-one on average only if the zero-conditional-mean assumption holds: the expected value of the error epsilon given x is zero. In words, the part of y your model does not explain has nothing systematic to do with x. When this holds, x is called exogenous, and beta-one hat converges in probability to the true beta-one — the estimator is consistent, homing in on the truth as the sample grows. When it fails — when epsilon and x move together — x is endogenous, and beta-one hat converges to something other than beta-one. That gap is the bias, and it does not shrink with more data. A biased estimator with a million observations is a precisely-wrong number. Every threat in this chapter is a story about how this one assumption breaks.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A standard error measures *wobble*, never *truth*. Bias is the gap between what $\hat\beta_1$ converges to and the true $\beta_1$ — it appears exactly when $\mathbb{E}[\varepsilon \mid x] = 0$ fails, and no amount of data removes it. Next: the first vector of attack, omitted variable bias.
+:::
+
+::: notes
+To summarize part one: a standard error measures wobble, not truth. Bias is the gap between what beta-one hat converges to and the true beta-one, and it appears exactly when the zero-conditional-mean assumption fails — when the error and the regressor move together. No amount of data removes it. Maya's precise, significant coefficient may be a precisely-wrong number. In part two we meet the first and most important way that assumption breaks: omitted variable bias, where a relevant variable you left out contaminates the coefficient you kept.
+:::

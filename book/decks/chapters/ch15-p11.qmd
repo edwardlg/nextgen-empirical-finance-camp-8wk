@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## Effect Size vs Significance
+
+- Part 11 — significant yet worthless: detectable is not important
+
+::: notes
+Welcome back to Hypothesis Testing Done Right, part eleven of fourteen. In part ten we built the confidence interval and saw it report the full range of plausible truths. Now we confront a scenario that should bother you: a result can be wildly statistically significant and yet completely worthless. Pulling those two ideas apart — detectable versus worth caring about — is something every empirical scientist must keep straight.
+:::
+
+## A Significant, Worthless Result
+
+- Scale Sam to $N=100{,}000$ days, $\bar{x}=0.0008\%$
+- $\sqrt{N}$ huge $\Rightarrow$ SE tiny $\Rightarrow$ $t=5$, p microscopic
+- "Wildly significant" — and **worthless**
+- Eight ten-thousandths of a percent dies to trading costs
+- A real, detectable, *economically meaningless* effect
+
+::: notes
+Here is a scenario that should bother you. Suppose Sam scales up the backtest to one hundred thousand days of simulated data — a long high-frequency study — and finds an average of eight ten-thousandths of a percent, with the standard error now tiny because the square root of N is huge. The t-statistic could be five, the p-value microscopic, the result wildly significant. And it would be worthless. Eight ten-thousandths of a percent per day does not survive a single basis point of trading costs. It is a real, detectable, economically meaningless effect. The huge sample made a trivial number distinguishable from zero, but distinguishable from zero is not the same as worth acting on. This is exactly the trap that large datasets set for the unwary: with enough observations, the machinery will dutifully certify an effect that no sensible person would trade on or build a policy around.
+:::
+
+## Two Different Questions
+
+- **Statistical significance:** can I tell it from zero? (driven by $N$)
+- With enough data, almost *any* effect becomes significant
+- **Effect size:** is it big enough to matter? (the magnitude)
+- For Sam: big enough, after costs, to trade?
+- They disagree both ways — most dangerous: *insignificant but large*
+- Always report the estimate **and** its interval — not just stars
+
+::: notes
+This is the distinction every empirical scientist must keep straight. Statistical significance asks: can I distinguish this effect from zero? It is a statement about precision, largely controlled by sample size. With enough data, almost any effect — however trivial — becomes statistically significant, because the standard error shrinks toward zero. Effect size, also called economic or practical significance, asks a different question: is the effect large enough to matter? For Sam, is the edge big enough, after costs, to be worth trading? That is a question about the magnitude of the estimate, in the units of the problem, and no p-value can answer it. The two can disagree in both directions. Significant but tiny is Sam's hundred-thousand-day example. The opposite — insignificant but large — is the most dangerous case: a big point estimate measured over too few days, where the standard error is also enormous, and a beginner wrongly reads not significant as no effect, discarding a possibly real signal. Only the verdict plus the magnitude plus the interval lets you tell these cases apart. So the discipline is simple: always report the estimate and its confidence interval, not just a verdict. Asterisks are not findings.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Statistical significance is not economic significance.** With huge $N$ a trivial effect becomes "wildly significant" yet worthless; with tiny $N$ a large effect can stay "insignificant" yet matter. Report the estimate *and* its interval — asterisks are not findings. Next: three mistakes to never make.
+:::
+
+::: notes
+To summarize part eleven: statistical significance and economic significance are different questions, and conflating them is one of the costliest mistakes in applied work. Significance asks whether you can tell an effect from zero, and it is driven mostly by sample size — so with a huge dataset, even a trivially small effect becomes wildly significant and yet remains worthless, like Sam's eight ten-thousandths of a percent that dies to trading costs. Effect size asks whether the magnitude is big enough to matter, and no p-value can answer it. The two disagree in both directions, and the most dangerous case is a large effect that stays insignificant because it was measured too noisily. The fix: always report the estimate and its confidence interval, never just a star. In part twelve we name the three specific mistakes nearly every beginner makes, so you can catch them on sight.
+:::

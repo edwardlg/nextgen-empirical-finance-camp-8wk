@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## One Seed, Code in Run-Order
+
+- Part 4 — one fixed seed and the pipeline in run-order
+
+::: notes
+Welcome back to Lab Eight, part four of twelve. In part three we compiled the paper two ways. Now we start the second artifact: the one-click replication packet. It is the Lab Seven repository, finished, with one last load-bearing piece — a single entry point that regenerates every artifact from raw inputs, under one fixed seed. We begin with that seed and the pipeline in run-order.
+:::
+
+## The Packet Is the Repo, Finished
+
+- Not a new thing — the Lab 7 repo, finished
+- Lab 7 gave the layout, pinned env, README, data cards
+- Part 2 adds the last piece from Chapter 8.5
+- A single entry point regenerating every artifact from raw
+- Under a single fixed SEED — no human in the loop
+
+::: notes
+The packet is not a new thing you build now; it is the Lab Seven repository, finished. Lab Seven gave you the layout, the pinned environment, the README, the data cards, the verified git-ignore, and the pre-analysis-plan-filed tag. Part two adds the last load-bearing piece from Chapter eight point five: a single entry point that regenerates every artifact from raw inputs, under a single fixed seed, so a fresh clone goes from raw bytes to a compiled PDF with no human in the loop. That single entry point is what we wire up across the next two parts.
+:::
+
+## The One Seed, In One Place
+
+- Bootstrap, split, permutation, placebo — one named constant
+- Set once, imported everywhere, never scattered
+- A CI that is the same every run, not drifting
+- `SEED = 20260815` in `src/config.py`
+- Compute paths from `__file__`, never hard-code
+
+::: notes
+Anywhere randomness enters your analysis — a bootstrap, a train-test split, a permutation test, a synthetic-control placebo — it must flow from one named constant, set once and imported everywhere, never scattered ad hoc. This is the difference between a confidence interval that is one point three to two point three every run, and one that drifts to one point two to two point four and quietly destroys a reviewer's trust. Put the seed and your project paths in src-slash-config-dot-py. The seed is a fixed, named integer — here the conference date, twenty-twenty-six-oh-eight-fifteen — fixed before results, never tuned after. And you compute the repo root from the dunder-file variable rather than hard-coding a path, which is what lets the repo run unchanged on the container, on Hopper, and on a reviewer's laptop.
+:::
+
+## Threading the Seed
+
+- Every script imports `SEED`
+- Thread it through one modern generator
+- `rng = np.random.default_rng(SEED)`
+- Every draw goes through `rng`, never the legacy global
+- Record the seed in the README — fixed before results
+
+::: notes
+Every script that draws randomness imports the seed and threads it through a single modern NumPy generator: r-n-g equals np-dot-random-dot-default-r-n-g of seed. Every draw goes through that generator, never through the legacy global np-dot-random-dot-seed. The seed is recorded in your README so a reviewer can see it was fixed before results, not searched over afterward to get a prettier interval — which would be the garden of forking paths from Chapter seven point three wearing a disguise. One seed, one generator, threaded through every random draw in the pipeline.
+:::
+
+## Code in Run-Order
+
+- `src/` holds the pipeline as numbered scripts
+- Order is unambiguous — logic in `src/`, story in notebooks
+- `01_pull_data.py` — pull or load raw inputs
+- `02_build_dataset.py` — build analysis data, no leakage
+- `03_analysis.py` — estimate; WRITE tables and figures
+
+::: notes
+Your source folder holds the pipeline as numbered scripts, so the order is unambiguous — Lab Seven's rule: logic in source, story in notebooks. Three steps, each consuming the previous step's output. Script oh-one, pull-data, pulls or loads raw inputs; public data caches to data-slash-raw, while licensed data is reconstructed by a pinned query on GMU infrastructure and is never shipped. Script oh-two, build-dataset, builds the analysis dataset from the raw cache as a pure function of the raw inputs — no look-ahead, no leakage, from Chapter seven point four. Script oh-three, analysis, estimates and writes every table to paper-slash-tables and every figure to paper-slash-figures, deterministic via the single seed. Nothing in script oh-three is ever pasted by hand. In your real capstone, script oh-three is the notebook eight point three logic — your regressions, your LaTeX table, your event-study figure.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+One named `SEED` in `src/config.py`, threaded through `np.random.default_rng(SEED)` everywhere, makes every run identical. The pipeline is numbered scripts — pull, build, analyze — each consuming the last, all writing artifacts, never typing them. Next: the `Makefile` and a make-free `run_all.py`.
+:::
+
+::: notes
+To summarize part four: the packet is the Lab Seven repo finished, with one new piece — a single entry point that rebuilds everything from raw. The foundation is one named seed in config-dot-py, threaded through one modern generator everywhere, so a confidence interval is identical every run instead of drifting. And the pipeline is numbered scripts in run-order: pull the raw data, build the analysis dataset with no leakage, then estimate and write every table and figure deterministically. Logic lives in source, story in notebooks, and nothing is pasted by hand. In part five we wire the one-click itself: the Makefile and an equivalent make-free run-all-dot-py.
+:::

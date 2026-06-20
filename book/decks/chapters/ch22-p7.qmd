@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## Efficiency, and Unbiased Versus Consistent
+
+- Part 7 — naming efficiency; unbiased versus consistent
+
+::: notes
+Welcome back to Gauss–Markov, part seven of eight. In part six we crowned O-L-S best in its class. Now we name that property — efficiency — and guard it with three cautions, each mapping onto a breakable assumption. Then we open the chapter's subtlest idea: unbiased versus consistent, a distinction that decides everything in serious empirical work.
+:::
+
+## Efficiency: The Word for "Smallest Variance"
+
+- The **efficient** estimator = smallest variance in its class
+- Gauss–Markov: OLS is efficient *within linear unbiased* — that's BLUE
+- Caution 1: efficiency is **relative to a class**, not overall
+- Leave the linear club (e.g. MLE) and you can sometimes beat it
+- Normality promotes OLS from league champion to world champion
+
+::: notes
+The property at the heart of best has a name we'll use constantly: efficiency. Among a specified class of estimators, the efficient one has the smallest variance. Gauss–Markov says O-L-S is efficient within the class of linear unbiased estimators — that's BLUE. Three cautions keep efficiency from being oversold. First, efficiency is relative to a class. O-L-S is the most efficient linear unbiased estimator; it is not the most efficient overall. Leave the linear club — say, maximum likelihood with a correctly specified non-normal error distribution — and you can sometimes beat O-L-S. Gauss–Markov is champion of a league, not of all leagues. As a bonus, when the errors are normal, O-L-S becomes efficient among all unbiased estimators — normality promotes it from league champion to world champion.
+:::
+
+## Two More Cautions
+
+- Caution 2: efficiency **dies with homoskedasticity**
+- Under heteroskedasticity OLS stays unbiased but no longer BLUE
+- **Weighted least squares** down-weights noisy points, beats OLS
+- We patch standard errors in Chapter 2.4 instead
+- Caution 3: efficiency **presumes unbiasedness** — a possible trap
+
+::: notes
+Second caution: efficiency dies with homoskedasticity. When assumption four fails — Maya's spread wide for low earners, tight for high earners — O-L-S stays unbiased but is no longer BLUE. A smarter recipe, weighted least squares, down-weights the noisy low-income observations and achieves lower variance. O-L-S becomes linear unbiased but no longer best. We mostly don't switch in practice — it requires knowing the variance pattern — but the loss of the guarantee is precisely why we patch the standard errors in Chapter two-point-four instead of trusting the formula blindly. Third caution: efficiency presumes unbiasedness, and that presumption can be a trap — the bridge to the chapter's last and subtlest idea.
+:::
+
+## Unbiased Versus Consistent
+
+- Gauss–Markov is a **finite-sample** theorem — fixed $N$
+- **Consistency** is large-sample: $\hat{\boldsymbol{\beta}}_N \xrightarrow{p} \boldsymbol{\beta}$
+- *Unbiased but inconsistent:* use only the first 5 loans forever
+- *Biased but consistent:* bias melts as $N\to\infty$ (e.g. IV)
+- Logically independent: either, both, or neither
+
+::: notes
+Gauss–Markov is a finite-sample theorem — every word is about a fixed N. But Chapter one-point-three also introduced a large-sample virtue: consistency, the property that an estimator converges in probability to the truth as the sample grows. These two are not the same, and confusing them is the most expensive conceptual error in applied work. Two warnings. Unbiased but inconsistent: imagine Maya uses only the first five loans forever. By the part-four proof it's unbiased, but its variance never shrinks no matter how many millions she later collects — it never settles onto beta. Useless. Biased but consistent: many crucial estimators are biased at every finite N yet consistent — their bias melts to zero as N grows. The instrumental-variables estimator works this way. So the two properties are logically independent: an estimator can have either, both, or neither.
+:::
+
+## OLS Has Both
+
+- OLS is unbiased **and** consistent under Assumptions 1–3
+- Its variance $\sigma^2(\mathbf{X}'\mathbf{X})^{-1}$ shrinks as $\mathbf{X}'\mathbf{X}$ accumulates
+- Unbiased = center at fixed $N$; consistent = collapse as $N\to\infty$
+- That double virtue is why OLS is the workhorse
+- But which one should a modern econometrician fear losing?
+
+::: notes
+O-L-S, gratifyingly, has both. It is unbiased under assumptions one through three, and consistent under those same assumptions — its variance shrinks toward zero as N grows, because X-transpose-X accumulates. Hold the distinction clearly: unbiasedness is about the center of the sampling distribution at a fixed N; consistency is about where that distribution collapses as N goes to infinity. That double virtue is part of why O-L-S is the workhorse. But here's the question that reorders everything: in a real project with tens of thousands of loans, which property should a modern econometrician fear losing most? That's where part eight begins — with a number that should frighten you.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Efficiency** = smallest variance *in a class*; it dies with homoskedasticity and presumes unbiasedness. **Unbiased** (center at fixed $N$) and **consistent** ($\hat{\boldsymbol{\beta}}_N \xrightarrow{p} \boldsymbol{\beta}$) are independent — OLS has both. Next: why consistency aimed at the wrong target should frighten you.
+:::
+
+::: notes
+To summarize part seven: efficiency is the name for smallest variance, but only within a class — it dies when homoskedasticity fails, and it presumes unbiasedness. Then the subtlest distinction in the chapter: unbiasedness is a fixed-N statement about the center; consistency is a large-N statement about where the distribution collapses. They're logically independent — an unbiased-but-inconsistent estimator throws data away, a biased-but-consistent one has bias that melts. O-L-S has both virtues. In part eight we ask which violation should keep you up at night, and meet a frightening number.
+:::

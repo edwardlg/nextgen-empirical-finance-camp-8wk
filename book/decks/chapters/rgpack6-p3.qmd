@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## RAG: Grounding a Model and Building the Index
+
+- Part 3 — ground a model in your documents; build the index
+
+::: notes
+Welcome back to when the data is words, part three of ten. In part two we learned to grade a measure by its validation table. Now we build a tool. The first thing students want to do with a language model is paste a ten-K into the chat box and ask questions. That works for one short document and fails for everything real: filings are too long for the context window, you have thousands of them, and the model will happily answer from its training data — stale, wrong, or invented — rather than from the document in front of it. Retrieval-augmented generation, or RAG, is the standard fix.
+:::
+
+## The Idea in One Sentence
+
+- Don't trust the model to *know* the answer
+- *Retrieve* the relevant passages from **your** documents
+- Paste them into the prompt as grounded context
+- Ask the model to answer using **only** those passages
+- And to **cite** them, so the answer is checkable
+
+::: notes
+The idea in one sentence: instead of trusting the model to know the answer, you retrieve the relevant passages from your own documents and paste them into the prompt as grounded context, then ask the model to answer using only those passages and to cite them. An answer you cannot trace to a source is an answer you cannot use in a research paper. RAG has two phases. Offline, done once per corpus, you build an index. Online, done once per query, you answer a question. This part covers building the index; the next part covers answering a query.
+:::
+
+## Chunk
+
+- A 10-K is hundreds of pages — too big to embed or prompt as one
+- Split into passages of roughly **500 tokens** — a few paragraphs
+- Keep a small **overlap** so a split sentence is not lost
+- **Tag** each chunk with its source
+- Source: firm, filing, fiscal year, section, character offset
+
+::: notes
+First, chunk. A ten-K is hundreds of pages; you cannot embed it as one unit and you cannot fit it in a prompt. So you split it into passages of roughly a few hundred tokens — a token is a sub-word piece, and five hundred tokens is a few paragraphs — keeping a small overlap between adjacent chunks so a sentence split across a boundary is not lost. And you tag every chunk with its source: firm, filing, fiscal year, section, and character offset, so an answer can point back to exactly where it came from. That source tag is what later makes a citation possible.
+:::
+
+## Embed and Store
+
+- **Embed:** each chunk becomes a vector of numbers
+- Similar topics land **near** each other in that space
+- Same cosine geometry as Hoberg & Phillips — industrialized
+- **Vector store:** keep vectors + text + source IDs together
+- Built for one job: query vector in, nearest chunks out, fast
+
+::: notes
+Second, embed. An embedding model turns each chunk of text into a vector of a few hundred to a few thousand numbers, positioned so that passages about similar topics land near each other in that space. This is the same cosine-similarity geometry Hoberg and Phillips use on ten-Ks in Chapter six-point-two; RAG is that idea industrialized. Two passages about supply-chain risk get nearby vectors even if they share no exact words. Third, the vector store. You save all the chunk vectors, alongside their text and source IDs, in a database built for one operation: given a query vector, return the nearest chunk vectors fast. FAISS or Chroma locally; many hosted options exist.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**RAG** grounds a model in your own documents instead of its training data. The offline index is three steps — **chunk** into tagged passages, **embed** each into a vector, **store** them for fast nearest-neighbor lookup. Next: answering a query, and the three failure modes.
+:::
+
+::: notes
+To summarize part three: retrieval-augmented generation grounds a language model in your own documents rather than its training memory, so an answer can be traced to a source. The offline index is three steps. Chunk the documents into roughly five-hundred-token passages with overlap, each tagged with its firm, filing, year, section, and offset. Embed each chunk into a vector, using the same cosine geometry Hoberg and Phillips use, so similar passages land near each other. And store all the vectors with their text and source IDs in a database built for fast nearest-neighbor lookup. In part four we go online: we answer a question against this index, and we meet the three failure modes that the discipline of validation must defend against.
+:::

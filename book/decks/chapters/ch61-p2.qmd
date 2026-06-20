@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## Two Stacked Questions, Two Failed Proxies
+
+- Part 2 — the research question and why both proxies fail
+
+::: notes
+Welcome back to KPSS, part two of twelve. In part one we framed the week: you now build variables rather than receive them, and K-P-S-S is the paper that taught the field to measure an idea. Now we sharpen the research question. There are really two questions stacked on top of each other here, and you should keep them separate while you read. Then we look at why the two standard ways of counting innovation both fail — failures that motivate everything the paper does next.
+:::
+
+## The Research Question
+
+- Measure the **dollar value** of one patent
+- Not whether it exists, not how cited — *how much money*
+- Then: what does valuable innovation say about growth?
+- Two questions **stacked** — keep them separate
+- The contribution is mostly in the **first**
+
+::: notes
+Strip the paper to one sentence and it asks: how do you measure the economic value of a single patent — not whether it exists, not how often it is cited, but how many dollars it is worth — and once you can, what does the flow of valuable innovation tell us about growth and the reallocation of resources across firms? There are really two questions stacked on top of each other. The measurement question comes first, and it is the one Leah has been circling since Week One. The economics question comes second and rides on the answer to the first. The contribution is mostly in the first, so keep them separate as you read.
+:::
+
+## Why the Standard Proxies Fail
+
+- **Patent counts:** weight every patent equally
+- One hundred trivial patents outweigh one decade-defining one
+- **Citations:** better, the literature's workhorse
+- But *slow* — accrue over ten-plus years
+- And *truncated* — recent patents look uncited
+- Neither is in the unit we care about: **money**
+
+::: notes
+Innovation is the engine of long-run growth, but it is maddeningly hard to quantify, and the two standard proxies both fail in instructive ways. Patent counts weight every patent equally — a firm with a hundred trivial patents looks more innovative than a firm with the one patent that defined a decade. Citation counts — how many later patents cite this one — are a real improvement, the workhorse of the innovation literature, and they do track importance. But they have two defects you should be able to name. They are slow: a patent's citations accumulate over ten or more years, so you cannot value a recent patent in real time. And they are truncated: recent patents look artificially uncited simply because the future has not happened yet. Neither proxy is denominated in the unit anyone actually cares about, which is money. So the first question is sharp: can we put a dollar value on each patent, in real time, the moment it is granted?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+KPSS stacks a **measurement** question — can we put a dollar value on each patent, in real time, at grant? — and an economics question that rides on it. Patent counts fail by equal-weighting; citations fail by being slow, truncated, and denominated in attention, not money. Next: the clever move that solves the measurement problem.
+:::
+
+::: notes
+To summarize part two: K-P-S-S stacks two questions. First, the measurement question — can we put a dollar value on each patent, in real time, the moment it is granted? Second, the economics question — once you have that, what does valuable innovation tell us about growth and reallocation? The contribution is mostly in the first, because the second is only as credible as the variable built to answer it. Patent counts fail by weighting every patent equally; citations fail by being slow, truncated, and denominated in attention rather than money. In part three we meet the clever move that solves the measurement problem: let the stock market value the patent for you.
+:::

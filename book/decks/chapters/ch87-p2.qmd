@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Honesty and the Two Channels
+
+- Part 2 — the CRediT statement, plus the Schar and MARS channels
+
+::: notes
+Welcome back to Chapter eight-point-seven, part two of nine. In part one we laid out the five-component submission packet. Now we look at the component students most often write hastily — the CRediT author statement — and then at the two channels you submit to: the Schar Young Scholars Journal and the MARS repository. The thread through both is honesty: honesty about who did what, and honesty about where the data really lives.
+:::
+
+## Honesty in the CRediT Statement
+
+- Its real function is **conflict-prevention** — settle "who did what" now
+- "Available from the author on request" now reads as **"not available"**
+- Authors fulfill such requests less than **twenty percent** of the time
+- Other camp students are **acknowledged**, not co-authored
+- The discipline is honesty, not generosity
+
+::: notes
+The CRediT statement is the one students write hastily and should not. Its real function is conflict-prevention: it forces the who-did-what conversation while memories are fresh, rather than years later when "what was your specific contribution?" becomes an argument. On the data statement, the phrase "available from the author on request" is now read as "not available" — authors fulfill such requests less than twenty percent of the time, by the work of King, Vlaeminck, and Christensen and Miguel. Write the deposit instead. The other camp students are acknowledged but not co-authored — lab-session feedback is helpful but does not meet the authorship criteria. The temptation to over-assign credit to the student, out of generosity, is real; the discipline is honesty. If the mentor ran the regressions, the student is not lead on formal analysis.
+:::
+
+## Two Channels: Schar and MARS
+
+- **Schar Young Scholars Journal** — peer-reviewed, gives a citable **DOI**
+- **MARS** — an archive, not a journal: a permanent **handle** in days
+- Most camp papers go to **both** — credential plus permanence
+- Submit **Friday afternoon**, so intake lands Monday fresh
+- Verify, then close the laptop — no news for a week
+
+::: notes
+Two channels, not one. The Schar Young Scholars Journal is the in-house peer-reviewed venue at the GMU Schar School and the affiliated Costello College of Business; if accepted, the paper appears in a numbered issue with a citable D-O-I — the registered string that makes a paper formally citable. The MARS repository, the Mason Archival Repository System hosted by GMU Libraries, is an archive, not a journal: you deposit, librarians ingest, and within five-to-ten business days the paper gets a permanent handle and becomes discoverable through Google Scholar. Most camp papers go to both — the journal for the credential and D-O-I, MARS for permanence. Submit Friday afternoon, not Sunday night, so intake lands Monday fresh; verify the PDF opens, the counts match, the references resolve, and the cover letter names the right journal; then close the laptop. There is no news for at least a week.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The CRediT statement is **conflict-prevention** — assign credit honestly, and acknowledge helpers who are not co-authors. Submit to **both** the Schar journal (credential and DOI) and **MARS** (permanent handle). Submit Friday, verify, then close the laptop. Next: the SSRN preprint.
+:::
+
+::: notes
+To summarize part two: the CRediT author statement is really conflict-prevention — assign credit honestly while memories are fresh, never over-assign out of generosity, and acknowledge the helpers who do not meet authorship criteria. Replace "available from the author on request" with a real deposit. Submit to both channels: the Schar Young Scholars Journal for the peer-reviewed credential and D-O-I, and the MARS repository for a permanent handle and discoverability. Submit Friday afternoon, verify everything, then close the laptop. In part three we post the paper to SSRN as a preprint — a time-stamped public claim to your result.
+:::

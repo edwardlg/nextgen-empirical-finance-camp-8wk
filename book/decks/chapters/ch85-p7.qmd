@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Questions Are Your Threats Table
+
+- Part 7 — defending in the question period from your threats table
+
+::: notes
+Welcome back to The Eight-Minute Presentation and the Replication Packet, part seven of twelve. In part six we budgeted the eight minutes and rehearsed against a clock. Now the question period — where the talk is actually judged. A polished eight minutes followed by a flailing answer undoes the polish, because the questions are where the audience finds out whether you believe your result or merely recited it. The good news: you already did this work, weeks ago, when you were calm.
+:::
+
+## Read From a Script You Authored
+
+- The talk is judged in the question period, not the eight minutes
+- You already did the work — weeks ago, when you were calm
+- Every hard question: "isn't this just [some confounder]?"
+- Your identifying assumption attacked at a named weak point
+- Answer order: threat, why plausible, what you did, residual concern
+
+::: notes
+The talk is eight minutes; the questions are where it is judged. The good news, genuinely good, is that you already did the work. The questions you will get are the rows of your threats-and-responses table from Chapter seven-point-five. You wrote them down weeks ago, in private, when you were calm — you are not improvising, you are reading from a script you authored. Every hard question in an empirical seminar has the same shape: "isn't your estimate just picking up some confounder rather than the effect you claim?" That is your identifying assumption being attacked at its named weak point — and you named every one of those points yourself, in column one of the threats table. So turn each row into a prepared answer, delivered in order: the threat, why it is plausible, what you did about it, and the residual concern. "Yes, that is the central worry; if the confounder were driving this we would see a signature; we checked, and we see a reassuring result; what I still cannot fully rule out is the residual." That answer makes you look more credible than a confident dismissal, because it shows you saw the problem before they did.
+:::
+
+## "I Don't Know" — With Structure
+
+- Everyone gets a question they can't answer
+- Bluffing costs more credibility than the gap ever would
+- A bare shrug fails; a *located* "I don't know" succeeds
+- Name why it's a limit, and what would resolve it
+- Maya: "my data is mortgages, so I genuinely don't know…"
+
+::: notes
+You will get a question you cannot answer; everyone does, because a referee's whole job is to find the question you didn't prepare. The amateur move is to bluff, and a room full of people who do this for a living can smell a bluff instantly — the bluff costs you far more credibility than the gap ever would. The professional move is to say "I don't know" with structure. Not a bare shrug: a located one. "That is outside what my design can speak to, because of a reason; my guess is a direction, but I would want to check a specific thing before claiming it." That sentence admits the limit, shows you understand why it is a limit, and names what would resolve it. Maya, asked whether her fair-lending effect generalizes to auto loans, does not invent a number; she says: "My data is mortgages, so I genuinely don't know — the mechanism I identify is examiner attention, and I'd expect it wherever there's a comparable exam regime, but auto lending has a different supervisor, so I wouldn't extend the estimate without re-running it there." An honest, located "I don't know" proves the rest of your "I know"s are trustworthy.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The questions **are your threats table** — answer each in order: threat, why plausible, what you did, residual concern. That beats a confident dismissal, because it shows you saw the problem first. For a question you can't answer, say "I don't know" *with structure* — name why it's a limit and what would resolve it, like Maya declining to extend a mortgage result to auto loans. Next: telling a fatal critique from a survivable one.
+:::
+
+::: notes
+To summarize part seven: the question period is where the talk is actually judged, and the questions are the rows of the threats table you wrote weeks ago, in private, when you were calm. So you are not improvising; you are reading a script you authored. Answer each hard question in order — the threat, why it is plausible, what you did about it, and the residual concern — which makes you look more credible than a confident dismissal, because it shows you saw the problem before they did. And for the question you cannot answer, give a located "I don't know" that names why it is a limit and what would resolve it, the way Maya declines to extend a mortgage result to auto loans. In part eight we draw the line that lets you keep composure: a fatal critique versus a survivable one.
+:::

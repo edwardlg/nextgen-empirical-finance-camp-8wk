@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Validate, Break It, and Read Like a Referee
+
+- Part 12 — exercise three and the referee's margin questions
+
+::: notes
+Welcome back to KPSS, part twelve of twelve — the last one. In part eleven you inspected and aggregated the panel, then rebuilt a single patent's value with your Week-Four event study. Now we close lesson one of Week Six. The third exercise validates the measure and then deliberately breaks it, so you feel a confound eat into predictive power. Then we sit with the three referee questions you should carry into everything that follows — and into your capstone.
+:::
+
+## Exercise 3: Validate, Then Break It
+
+- Regress a future outcome on this year's innovation value
+- Confirm the **positive, significant** association
+- Then **inject a confound**: simulated earnings returns
+- Rebuild the measure on contaminated windows
+- Watch the validation **degrade** — confounds eat predictive power
+
+::: notes
+Exercise three: validate the measure, then break a validation. Reproduce the spirit of the paper's headline validation: in the firm-year panel, regress a future outcome — next year's profitability or growth, or in the synthetic data the known true value — on this year's K-P-S-S innovation value, and confirm the positive, significant association that earns the measure its credibility. Then inject a confound: contaminate a subset of grant windows with simulated earnings-announcement returns, rebuild the value measure on the contaminated windows, and watch the validation degrade. You will see, directly, how confounding news in the window eats into the measure's predictive power — and why the short window and aggregation are the defenses.
+:::
+
+## Read Like a Referee
+
+- **Expected vs. realized:** design a check using *later* outcomes
+- Why can't the measure distinguish "right" from "consistently wrong"?
+- **Confounds:** name the one reassuring test, and one missing test
+- **Selection:** state the population the panel actually represents
+- Name one conclusion you would *not* extend to the whole economy
+
+::: notes
+Before you leave K-P-S-S, sit with three referee questions. One, expected versus realized value: design, in words, a check using later outcomes — realized profits, eventual citations, litigation — that would tell you whether the market's grant-window forecasts are, on average, unbiased. Why can the measure never, by itself, distinguish the market was right from the market was wrong but consistent? Two, confounds in the window: name the one piece of evidence that most reassures you, and the one test you would run that the paper did not, and say which direction the bias goes if grant dates and good-news days are positively correlated. Three, whose innovation does the panel describe? Given the three selection screens — granted patents, public firms, survivors — write one sentence stating the population the panel represents, and one conclusion you would not extend to the whole economy, and why.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+You learn a constructed measure by **building it**: validate that this year's value predicts future outcomes, then **inject a confound** and watch the validation degrade. Carry the referee's three margin questions — expected-vs-realized, confounds, selection — into your capstone. Next stop: notebook 6.1, where you build the patent-value panel.
+:::
+
+::: notes
+To close lesson one of Week Six: you now know K-P-S-S end to end — the two stacked questions, the market-as-valuer move, the three data sources, the validate-first reading order, the three clever moves, and the five vulnerabilities. The way you make it yours is to build it. The third exercise validates the measure — confirm this year's value predicts next year's outcome — then deliberately breaks it by injecting simulated earnings returns into the grant windows, so you watch the validation degrade. Carry the referee's three margin questions — expected versus realized, confounds in the window, and selection — into everything that follows. Next stop: notebook six-point-one, where you stop reading about the patent-value panel and build it.
+:::

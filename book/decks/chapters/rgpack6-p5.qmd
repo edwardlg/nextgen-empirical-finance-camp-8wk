@@ -1,0 +1,60 @@
+---
+date: "2026-06-22"
+---
+
+## Prompt Patterns: Extraction and Classification
+
+- Part 5 — the prompt catalog; extraction and classification patterns
+
+::: notes
+Welcome back to when the data is words, part five of ten. In part four we finished RAG and its failure modes. Now we write the prompts. A prompt is not a wish; it is a specification. The patterns ahead are the reusable ones for empirical work, each a template with variable parts in braces. The recurring move across all of them: constrain the output and demand grounding — tell the model exactly what shape the answer must take, and force it to point at evidence so you can check it. This part covers the first two patterns.
+:::
+
+## Five Reusable Patterns
+
+| Pattern | When to use | What it buys you |
+|---|---|---|
+| **Extraction** | Pull structured fields from messy text | Prose → a dataframe column; checkable |
+| **Classification-with-rubric** | Label each item into categories | Reproducible labels — a *measure to validate* |
+| **Cite-or-abstain** | Any RAG question over your documents | Kills hallucination: quote or abstain |
+| **Code review** | Check your analysis script | Catches look-ahead, merge, leakage bugs |
+| **Summarize-with-quotes** | Digest a long filing or paper | Every claim anchored to a verbatim quote |
+
+::: notes
+Here is the full catalog, five patterns. Extraction pulls structured fields from messy text and turns prose into a dataframe column. Classification-with-rubric labels each item into categories, giving reproducible labels — but only a measure to be validated, which we will score in part seven. Cite-or-abstain is for any RAG question over your documents and kills hallucination. Code review checks your own analysis script before you trust its numbers. And summarize-with-quotes digests a long filing without losing traceability. This part takes the first two — extraction and classification. The next part takes the remaining three plus two cross-cutting rules.
+:::
+
+## Extraction
+
+- "You are a careful data-extraction tool"
+- Extract these fields as **JSON**, each with a one-line definition
+- "Copy values **verbatim**; do not infer or compute"
+- "If a field is absent, output **null** — never guess"
+- "Output only the JSON"
+
+::: notes
+The extraction pattern pulls structured fields from messy text — the auditor, the going-concern flag, every numeric guidance figure from a filing. It turns prose into a dataframe column, and the output is checkable against the source. The template says: you are a careful data-extraction tool; from the text below, extract these fields as JSON, giving a one-line definition of each. The rules are the point. Copy values verbatim from the text; do not infer or compute. If a field is absent, output null — never guess. Output only the JSON. By forbidding inference and demanding a fixed shape, you get something you can parse and check at scale, rather than a paragraph of prose you must read by hand.
+:::
+
+## Classification-with-Rubric
+
+- Classify the item into **exactly one** label using the rubric
+- Each label: precise inclusion criteria, plus one example
+- Add an **UNCLEAR** label for too-little-information cases
+- Output JSON: label, a **verbatim evidence phrase**, a confidence
+- The rubric makes the label **reproducible** on a re-run
+
+::: notes
+The classification-with-rubric pattern labels each item into categories: sentiment, risk type, is this eight-K about a layoff. The rubric is the whole point — it makes the label reproducible by you, by another grader, and by the model on a re-run. The template says: classify the item into exactly one of these labels using the rubric, where each label carries precise inclusion criteria and one example, plus an UNCLEAR label for when the text does not give enough information to decide. Output JSON with three fields: the label, a verbatim phrase that decided it, and a confidence between zero and one. Use UNCLEAR rather than guessing. Note what this buys you: reproducible labels — but, and this is the warning we develop later, only a measure to be validated, never ground truth.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A prompt is a **specification**, not a wish. **Extraction** forbids inference and demands JSON; **classification-with-rubric** makes a label reproducible by spelling out precise criteria and forcing a verbatim evidence phrase. Both produce *measures to validate*, not truths. Next: cite-or-abstain, code review, and summarize.
+:::
+
+::: notes
+To summarize part five: a prompt is a specification, not a wish, and the catalog has five reusable research patterns. We covered two. Extraction turns messy prose into a JSON dataframe column by forbidding inference, demanding verbatim copying, and outputting null for absent fields. Classification-with-rubric turns items into reproducible labels by spelling out precise inclusion criteria for each category, forcing a verbatim evidence phrase, and offering an UNCLEAR escape. Both share the through-line: constrain the output and demand grounding. And both produce measures that must be validated, not ground truth. In part six we cover the remaining three patterns — cite-or-abstain, code review, and summarize-with-quotes — and the two rules that cut across all five.
+:::

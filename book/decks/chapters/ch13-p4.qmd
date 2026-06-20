@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Variance and the Standard Error
+
+- Part 4 — variance of the mean and the standard error
+
+::: notes
+Welcome back to Chapter one-point-three, part four of eleven. In part three we saw the sample mean aims true — it is unbiased. But aiming true on average is cold comfort if any single sample can be wildly off. This part measures how jumpy the recipe is from sample to sample, then derives the most consequential formula in the book.
+:::
+
+## Two Archers
+
+- Both unbiased: arrows center on the bullseye
+- Archer one: tight cluster around center
+- Archer two: scattered, but symmetric, so averages to center
+- You want archer one — low **variance**
+- Standard error = $\sqrt{\operatorname{Var}}$, reported in dollars
+
+::: notes
+Picture two archers. Both are unbiased — their arrows center on the bullseye. The first archer's arrows land in a tight cluster around the center. The second archer's are scattered all over the target, just symmetrically scattered, so they average to the center. You want the first archer. The spread of an estimator across samples is its variance. We write it as the variance of mu hat, and it measures how much the estimate bounces around from one sample to the next. Its square root, the standard error, is in the same units as the estimate — here, dollars — and it is the number you actually report. So variance is the abstract spread, in dollars-squared, and the standard error is its square root, a plain dollar figure you can write on the sticky note. This is the place where sample size finally earns its keep.
+:::
+
+## Deriving the Variance of the Mean
+
+- Independent claims: variances *add*
+- $\operatorname{Var}\!\left(\sum x_i\right)=\sum\operatorname{Var}(x_i)=N\sigma^2$
+- Pulling out $\tfrac1N$ squares it
+- $\displaystyle \operatorname{Var}(\bar{x})=\frac{1}{N^2}\cdot N\sigma^2=\frac{\sigma^2}{N}$
+- $\displaystyle \operatorname{se}(\bar{x})=\frac{\sigma}{\sqrt{N}}$
+
+::: notes
+In Chapter one-point-two we derived the variance of a sum of independent random variables: variances add. If the claims are independent draws from a population with variance sigma squared, then the variance of their sum is the sum of the variances, which is N times sigma squared. Now, x bar is one over N times that sum, and pulling a constant out of a variance squares it — also from Chapter one-point-two. So the variance of x bar is one over N squared, times N sigma squared, which simplifies to sigma squared over N. Stare at this formula, because almost everything quantitative in the rest of the book is a descendant of it: the variance of the sample mean is the population variance divided by N. The standard error is therefore the square root of that — sigma over the square root of N. That standard error is the typical sample-to-sample wobble, the number Priya should report alongside her estimate.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **variance** of the sample mean is $\operatorname{Var}(\bar{x})=\sigma^2/N$, so the **standard error** is $\sigma/\sqrt{N}$ — the typical sample-to-sample wobble, reported in dollars. Almost everything quantitative downstream descends from this formula. Next: the disappointing square root that sets the price of precision.
+:::
+
+::: notes
+To summarize part four: variance measures how much a recipe bounces from sample to sample, and its square root, the standard error, is the dollar figure you report. For the sample mean, the variance is sigma squared over N and the standard error is sigma over the square root of N — and almost every quantitative result downstream descends from that one formula. But the formula hides a sting. That square root of N in the denominator governs how fast precision improves, and it is stingier than you might hope. In part five we confront the most consequential square root in statistics and put a real dollar number on the price of precision.
+:::

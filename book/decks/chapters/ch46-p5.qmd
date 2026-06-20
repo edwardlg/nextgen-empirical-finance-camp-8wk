@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## The Bad-Controls Collider
+
+- Part 5 — the most common mechanism mistake, broken
+
+::: notes
+Welcome back to Chapter four-point-six, part five of nine. Part four found for whom the effect is large. This part asks why — through what channel — and exposes the single most common identification mistake in empirical work. We state it plainly, draw the diagram that explains it, and then watch it break in an eight-line simulation.
+:::
+
+## The Seductive, Wrong Recipe
+
+- Conditioning on a **post-treatment** variable introduces selection bias
+- **Baron–Kenny (1986):** regress $Y$ on $D$, then on $D$ and mediator $M$
+- Read the shrinkage in $D$ as "the part through $M$"
+- $M$ is post-treatment, shares unobserved $U$ with $Y$
+- Acharya–Blackwell–Sen (2016) formalize why it fails
+- The mistake hides in plain sight in many papers
+
+::: notes
+State the mistake plainly: conditioning on a post-treatment variable to isolate a mechanism introduces selection bias and produces coefficients that do not estimate what their authors claim. The seductive-but-wrong recipe is Baron and Kenny mediation, from nineteen eighty-six. Regress the outcome Y on treatment D. Then regress Y on D and the candidate mediator M. Read the shrinkage in D's coefficient as the part that flows through M. The problem is that M is post-treatment and almost always shares unobserved determinants with the outcome Y. Acharya, Blackwell, and Sen, two thousand sixteen, formalize exactly why this fails, and tell you what you can honestly do instead. This mistake hides in plain sight in a great many published papers, which is why we slow down here.
+:::
+
+## Why Conditioning Opens a Collider
+
+- Draw the DAG: $D$ randomized; unobserved $U \to M$ and $U \to Y$
+- $M$ is a child of $D$ and $U$; $Y$ a child of $D$, $M$, $U$
+- Conditioning on $M$ **blocks** $D\to M\to Y$ — good
+- But it **opens** the collider $D\to M\leftarrow U\to Y$ — bad
+- A collider, conditioned on, unblocks a back-door path
+- So the "direct effect" picks up $U$'s confounding
+
+::: notes
+Draw the structural diagram and the failure becomes visible. Treatment D is randomized. An unobserved U causes both the mediator M and the outcome Y. M is a child of D and U; Y is a child of D, M, and U. Now condition on M, as Baron and Kenny do. Two things happen at once. Conditioning on M correctly blocks the indirect path from D through M to Y — that part is good. But it also opens a collider path: D into M, U into M, and U into Y. Why? Because M is a collider on that path — two arrowheads meet at M — and conditioning on a collider unblocks the path through it. With that back-door path open, the so-called direct effect now picks up U's confounding. You wanted the clean effect of D not flowing through M; you got something contaminated by the unobserved U.
+:::
+
+## Watch It Break
+
+- True direct effect $1.0$, indirect $0.5$, total $1.5$
+- $D$ randomized, $N=20{,}000$ — a clean experiment
+- Total effect recovers near $1.5$ — correct
+- Baron–Kenny "direct effect" comes back near $0.66$
+- Implied mediation share $\approx 56\%$ against a truth of $33\%$
+- Off by nearly a **factor of two**, even randomized
+
+::: notes
+A one-cell simulation makes the bias visceral. Set a true direct effect of one-point-zero and a true indirect effect of zero-point-five, for a total of one-point-five. Randomize D and take twenty thousand observations — a clean experiment, the friendliest possible case. Regress Y on D alone and the total effect comes back near one-point-five, correct. But run the Baron-Kenny step, adding the mediator M to the regression, and the so-called direct effect comes back near zero-point-six-six, with an implied mediation share near fifty-six percent against a truth of thirty-three percent — off by nearly a factor of two. And remember, this is the case where D is randomized and the sample is huge. In observational finance, the mediator always shares unobserved determinants with the outcome, so the collider bias is only worse. The lesson: a large, clean dataset does not save a regression that conditions on a post-treatment collider.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Conditioning on a **post-treatment mediator** opens a collider path and biases the "direct effect" — Baron–Kenny misses by nearly a **factor of two** even when treatment is randomized and N is huge. The DAG shows exactly why. Next: the honest way out — the controlled direct effect via sequential-g.
+:::
+
+::: notes
+To summarize part five: conditioning on a post-treatment mediator opens a collider path and biases the so-called direct effect. The Baron-Kenny recipe missed the truth by nearly a factor of two even in a clean randomized experiment with twenty thousand observations, and the directed graph shows exactly why — the collider at M unblocks a back-door path through the unobserved confounder. A big, clean dataset is no rescue. In part six we learn the honest way out: the controlled direct effect, the sequential-g estimator that avoids the collider, and three more-defensible modes that often beat it because they ask less.
+:::

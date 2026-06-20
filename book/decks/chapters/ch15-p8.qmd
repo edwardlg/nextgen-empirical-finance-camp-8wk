@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## The p-value, Defined Correctly
+
+- Part 8 — the p-value as a continuous scale of surprise
+
+::: notes
+Welcome back to Hypothesis Testing Done Right, part eight of fourteen. In part seven we fixed where the rejection region sits, one-sided versus two-sided. Now we move from a yes-or-no verdict to a continuous measure of surprise — the p-value — and we nail down its definition in exactly the form you must memorize, then connect it back to the critical value.
+:::
+
+## The Definition
+
+- **p-value:** assuming $H_0$ *true*, probability of a statistic at least as extreme
+- Everything is conditioned on the null
+- Small p = "this data would surprise me if $H_0$ held"
+- Sam, one-sided: $p=\Pr(T\geq1.69\mid H_0)\approx0.046$
+- $0.046<0.05$ — reject, same verdict as the critical value
+- p below $\alpha$ exactly when the statistic passes the cutoff
+
+::: notes
+Critical values give a yes-or-no verdict at a fixed alpha. The p-value reports something richer: how extreme the data are, on a continuous scale. Here is the definition, and it must be memorized in exactly this form. The p-value is the probability, computed assuming the null hypothesis is true, of observing a test statistic at least as extreme as the one you actually got. Read it slowly. Everything is conditioned on the null being true. We live inside the skeptic's world, where mu is zero, and ask: in that world, how often would noise alone hand me a result this striking or more so? A small p-value means this data would be a real surprise if the null were true — evidence against the null. For Sam's one-sided test, the p-value is the area in the upper tail of the t-distribution beyond one point six nine, which works out to about zero point zero four six. Since that is below zero point zero five, Sam rejects the null at the five percent level — the same verdict the critical value gave. That is no accident: the p-value is below alpha exactly when the statistic is past the critical value. They are two views of one comparison. For a two-sided test you double the one-tail area, so a statistic of one point nine six gives a two-sided p of about zero point zero five.
+:::
+
+## A Continuous Scale of Surprise
+
+- Critical value: a single yes/no at a fixed $\alpha$
+- p-value: *how* extreme, on a continuous scale
+- Lives inside the skeptic's world — $\mu=0$ — and never leaves it
+- "How often would noise alone hand me this?"
+- The hypothesis is fixed; the **data** are the random thing
+
+::: notes
+Let's make sure the logic of that definition is fully clear, because the next part hinges on it. A critical value gives you a single binary verdict at a fixed significance level: past the line, reject; short of it, do not. The p-value upgrades that to a continuous scale — it tells you not just whether you crossed the line, but how far past it you are, measured as a probability. And the crucial thing is where the calculation lives. The entire computation takes place inside the skeptic's world, where the null is assumed true and mu is exactly zero. We never step outside that world to ask whether it is the right one. We simply ask: if the null really held, how often would random noise alone hand me a result at least this striking? That framing has a consequence worth stating out loud. In the p-value, the hypothesis is treated as fixed — assumed, not questioned — and the data are the random thing whose extremeness we are measuring. Keep that orientation firmly in mind, because in the next part we will see that flipping it is the most common and most damaging error in all of applied statistics.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **p-value** is the probability — assuming $H_0$ is *true* — of a statistic at least as extreme as the one observed. It is a continuous scale of surprise that agrees with the critical value: Sam's $p\approx0.046$ is past the bar. The hypothesis is fixed; the *data* are random. Next: the correction that matters most.
+:::
+
+::: notes
+To summarize part eight: the p-value is the probability, computed assuming the null hypothesis is true, of observing a test statistic at least as extreme as the one you actually got. It is a continuous measure of surprise that upgrades the binary critical-value verdict, and the two always agree — the p-value falls below alpha exactly when the statistic clears the cutoff. For Sam, the p-value is about zero point zero four six, just past the five percent bar. The orientation to hold onto is that everything is computed inside the skeptic's world, where the null is assumed and the data are the random thing whose extremeness we measure. In part nine we confront what happens when people flip that orientation — the correction that matters more than almost anything else in this book.
+:::

@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Identification: Bartlett's Formula-Priced Benchmark
+
+- Part 2 — Bartlett's bet: a formula-priced legitimate-risk benchmark
+
+::: notes
+Welcome back to the reader's guide on fair lending in the algorithmic era, part two of six. In part one we framed the hope — is the algorithm the cure? — and stated each paper's question. Now we open the identification strategies. Both papers face the threat Mentor Four drilled into Maya: a raw disparity confounds the same rule applied to groups that differ in legitimate factors with a different rule applied to the same factors, and only the second is discrimination. This part covers Bartlett and coauthors' bet.
+:::
+
+## Price Comparisons Plus the FinTech Split
+
+- Regress the rate on a minority indicator
+- Condition on GSE pricing inputs: score, loan-to-value
+- Conforming loans: default risk priced by a **published formula**
+- Same score and LTV $\Rightarrow$ same credit risk, by construction
+- Then split: FinTech (no human) vs. traditional
+
+::: notes
+Bartlett and coauthors use price comparisons under a strong conditioning set, plus the FinTech contrast. The workhorse is a regression of the loan's rate on a minority indicator, conditioning on the risk variables a fair lender is allowed to use — crucially the government-sponsored-enterprise pricing inputs that mechanically determine what a loan should cost: credit score, loan-to-value, and so on. The identifying claim is sharp precisely because of the institutional setting. For conforming loans sold to Fannie Mae and Freddie Mac, the default risk is priced by a published formula in the loan-level price adjustments. So two loans with the same score and the same loan-to-value carry the same credit risk to the investor, by construction. Any systematic rate gap that survives is therefore hard to attribute to risk the lender legitimately priced — it points to something on the discrimination pathway, whether a human's discretion or an algorithm's proxy variable. The second piece of identification is the FinTech-versus-traditional contrast. If face-to-face discretion is the mechanism, removing the human should shrink the gap. If the gap persists even under algorithmic pricing, the mechanism is something the algorithm itself does — competing less hard in some markets, or pricing on geography that proxies for race.
+:::
+
+## The Knife's Edge: Over-Controlling
+
+- Conditioning on GSE risk inputs is **exactly right**
+- But controlling a discrimination *channel* regresses away the effect
+- Example: the product the borrower was steered into
+- Credibility = "all legitimate risk, nothing on the pathway"
+- Name the threat in one sentence
+
+::: notes
+This is where the over-controlling trap from Mentor Four bites hardest, and Bartlett and coauthors are walking a knife's edge they are largely aware of. Controlling for the GSE risk inputs is exactly right — those are legitimate, formula-priced risk. But if you also controlled for a variable that is itself a channel of discrimination — say, the specific product the borrower was steered into — you would regress away the very effect you are hunting. That was warm-up three in Mentor Four. The credibility of the residual rate gap rests on the conditioning set being all the legitimate risk and nothing on the discrimination pathway. So name the threat in one sentence, the way our conventions demand: the rate gap equals differential treatment only as long as the GSE pricing inputs capture all risk the lender legitimately prices, and no controls sit on the steering or discrimination channel. Hold that sentence; a referee will ask it first.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Bartlett et al. find an **institutional setting** where the legitimate-risk benchmark is clean: GSE loans are priced off a *published* formula, so any surviving rate gap is hard to blame on risk. The FinTech split then turns "is the algorithm the cure?" into a measurable contrast. Next: BHR's opposite bet.
+:::
+
+::: notes
+To summarize part two: Bartlett and coauthors manufacture a clean legitimate-risk benchmark out of an institution. Because conforming loans are priced off a published risk formula, the authors do not have to argue about what the fair price is — the institution tells them. That converts the impossible question "did they price legitimate risk?" into the answerable "did they price more than the formula's risk?" The danger is over-controlling, and they survive it only because formula inputs are clean controls. In part three we turn to Bhutta, Hizmo and Ringo, whose bet is the exact opposite: rather than find a clean benchmark, they close the omitted-variable gap by observation, getting the credit score itself.
+:::

@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Poster: A Layout, Not a Sequence
+
+- Part 9 — the poster as a layout: six zones for the grazer
+
+::: notes
+Welcome back to The Talk, the Poster, the Defense, part nine of twelve. In part eight we handled the fatal critique and the ninety seconds after the talk. Now the poster session: ninety minutes by a thirty-six by forty-eight-inch sheet. The temptation is to treat the poster as the talk, printed. It is not. The talk is a sequence; the poster is a layout — a viewer scans the whole surface in three seconds, decides whether to engage, and if they do, they choose their own path.
+:::
+
+## Layout, Not Sequence
+
+- The talk is a **sequence**; the poster is a **layout**
+- A viewer scans the whole surface in three seconds
+- The **viewer-chosen path** is the design constraint
+- Every component must make sense without the others
+- Design for the **grazer**; serve the reader only if asked
+
+::: notes
+The poster is a layout, not a sequence. The talk runs on rails — beat after beat, in order. The poster is spatial. A viewer scans the whole surface in three seconds, decides whether to engage, and if they engage they choose their own path. That viewer-chosen path is the design constraint: every component must make sense without the others being read first. You design for the grazer — the person walking past — and you serve the reader only if they ask. This single difference reorganizes everything about how you build the sheet.
+:::
+
+## The Six Zones
+
+- **Headline band**: top six inches, one sentence, sixty-plus point type
+- It does eighty percent of the work before they step closer
+- **Center figure**: the largest object, the slide-five picture
+- Four self-contained zones: question, design, robustness, ask
+- A poster is where you put **less**, bigger type, more white space
+- Every failed poster fails by **density**
+
+::: notes
+The layout is six zones. The headline band — top six inches, full width, sixty to seventy-two point type — holds one sentence, the result stated concretely before abstractly, plus your name, the institution, and a QR code. That band does eighty percent of the poster's work before the viewer steps closer. The center figure is the single largest object — the same slide-five picture, legible from six feet. Around them sit four self-contained zones: question, top-left; design, middle-left, with the identification sentence and the unit-of-variation grid; robustness, bottom-left, the specification curve as the strike in spatial form; and implications plus ask in the right column. The rule: a poster is not where you put more — it is where you put less, with bigger type and more white space. Every failed poster fails by density; the eye reads density as I do not have time for this, and walks on.
+:::
+
+## Any Eye Path Tells the Story
+
+- Design so **any plausible eye path** gives a coherent argument
+- The methods reader jumps to robustness — caption stands alone
+- "144 specifications; headline within thirty percent; none crosses zero"
+- The impact reader jumps right — implication sentence stands alone
+- The **five-second test**: five people, five seconds, then take it away
+- If three name the **result**, the headline works — else rewrite
+
+::: notes
+Because the viewer chooses the path, design so any plausible eye path produces a coherent argument. The methods reader jumps straight to robustness, so the specification-curve caption must stand alone: one hundred forty-four plausible specifications; the headline is within thirty percent of negative one-point-eight percentage points; none crosses zero. The impact reader jumps to the right column, so the implication sentence must stand alone too. Borrow the five-second test: show the poster to five people for five seconds, take it away, and ask what it was about. If three name the result — not the topic — the headline band works; otherwise rewrite, then print. The figures are composed from the same figure files as the talk and paper, so the poster is a reformatting exercise, not new content.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The poster is a **layout**, not a sequence: design for the grazer who scans in three seconds and chooses their own path. Build **six zones** around a headline band and a center figure, put **less** with bigger type, and make any eye path coherent. Pass the **five-second test** before printing. Next: working the poster session.
+:::
+
+::: notes
+To summarize part nine: the poster is a layout, not a sequence, so you design for the grazer who scans the whole surface in three seconds and then chooses their own path. Build six zones around a headline band that does eighty percent of the work and a center figure that is the largest object, put less with bigger type and more white space, and make any plausible eye path tell a coherent story — every caption standing on its own. Verify it with the five-second test before you print. In part ten we work the poster session itself, as a series of conversations.
+:::

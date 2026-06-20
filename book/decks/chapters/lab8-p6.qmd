@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## The Honesty Test and Committing the Packet
+
+- Part 6 — the honesty test, then commit the packet
+
+::: notes
+Welcome back to Lab Eight, part six of twelve. In part five we wired the one-click — the Makefile and run-all-dot-py. Now we run the test that proves the packet is real: delete everything derived, rebuild from nothing, and check the paper comes back identical. Then we commit the finished packet correctly.
+:::
+
+## The make clean && make all Test
+
+- Delete every derived file, rebuild from nothing
+- `make clean && make all`
+- Identical paper back? The chain holds
+- Nothing was left on disk to copy from
+- A number drifts? You just found a hand-edit
+
+::: notes
+Here is the test that proves the packet is real. Delete every derived file and rebuild from nothing — make-clean and-then make-all, or python run-all-dot-py dash-dash-clean. If the paper comes back identical, the chain holds: no number in the PDF was typed by hand, because there was nothing left on disk to copy from — every table and figure was regenerated from raw inputs through your seeded code. If a number drifts, you just found a hand-edit, and you found it before a reviewer did. That is the whole value of the test: it converts "I think my paper is reproducible" into a yes-or-no fact you can see.
+:::
+
+## Hashing to Check Identity
+
+- Hash the artifacts before and after
+- `md5sum paper/tables/... paper/figures/... > before.txt`
+- Rebuild, then `md5sum -c before.txt`
+- OK on every line means a byte-identical rebuild
+- A mismatch points you straight at the drift
+
+::: notes
+To check identity mechanically, hash the generated artifacts before and after. Run make-all, then m-d-five-sum on the table and the figure, redirecting into before-dot-txt. Then run make-clean and make-all again, and run m-d-five-sum dash-c before-dot-txt. If it prints OK on every line, the rebuild is byte-identical. A mismatch points you straight at the artifact that drifted. Hashing turns "looks the same" into "is provably the same bytes."
+:::
+
+## Which Bytes Differ — And Why
+
+- The table `.tex` will be byte-identical
+- A figure saved as PDF will *not* be — unless you pin it
+- matplotlib stamps wall-clock time into `/CreationDate`
+- Fix: `savefig(..., metadata={"CreationDate": None})`
+- The plotted data is pixel-for-pixel the same
+
+::: notes
+A subtlety worth knowing, because it bit the verification of this lab and it will bite you: the table dot-tex will be byte-identical, but a figure saved as PDF will not be — unless you pin its metadata. Matplotlib stamps the current wall-clock time into the PDF's creation-date field, so two runs of identical code produce figure files that differ in those few metadata bytes, while the plotted data is pixel-for-pixel the same. The fix is in the analysis script: pass metadata with creation-date set to None to savefig, or export the source-date-epoch variable, and the figure bytes become reproducible too. Knowing which differences are cosmetic — a timestamp — versus which are real — a drifted coefficient — is the whole skill. A reviewer who sees the data unchanged does not care about a timestamp; a drifted coefficient is a broken packet.
+:::
+
+## Commit the Finished Packet
+
+- The packet is the repo — finishing it is a commit
+- Add the source, Makefile, run_all, and main.tex
+- Do *not* commit derived tables, figures, or the PDF
+- They regenerate from `make all`
+- No secrets, no licensed data, ever
+
+::: notes
+The packet is the repository, so finishing it is a commit, not an upload. You git-add the config and pipeline scripts, the Makefile, run-all-dot-py, and main-dot-tex, then commit and push. Do not commit the derived tables, the figures, or main-dot-pdf if they are derived — they regenerate from make-all, and committing them invites exactly the drift the packet prevents. Add them to git-ignore alongside the data folder. One nuance some advisors prefer: commit the final PDF as a released artifact so a reader without TeX can read the paper — but if so, treat it as a build output you refresh with every result change, never as source. And the Lab Seven rule still governs: no secrets, no licensed data, ever. Your config holds a seed, not an API key; keys come from the environment, and the git-ignore you verified in Lab Seven is the wall.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+`make clean && make all` is the honesty test: rebuild from nothing, and `md5sum -c` proves byte-identity. The table is identical; the figure is too once you pin `metadata={"CreationDate": None}`. Commit the recipe, never the derived outputs or secrets. Next: dry-running the eight-minute talk.
+:::
+
+::: notes
+To summarize part six: the make-clean-and-make-all honesty test rebuilds the paper from nothing, and if it comes back identical, no number was typed by hand. Use m-d-five-sum dash-c to prove byte-identity mechanically. The table dot-tex is identical; the figure PDF is too, once you pin its creation-date metadata to None — and telling a cosmetic timestamp from a real drifted coefficient is the whole skill. Finishing the packet is a commit: ship the recipe — the scripts, Makefile, and main-dot-tex — never the derived outputs, never secrets or licensed data. In part seven we move to the third artifact: dry-running the eight-minute talk against a clock and anticipating the questions.
+:::

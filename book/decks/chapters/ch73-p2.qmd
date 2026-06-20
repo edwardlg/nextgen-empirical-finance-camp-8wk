@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Confirmatory vs. Exploratory: The Arithmetic
+
+- Part 2 — why pre-registration exists: the arithmetic of many tests
+
+::: notes
+Welcome back to The Pre-Analysis Plan, part two of twelve. In part one we met Maya's honest p-hacking and named the device that stops it. Now we earn the device with arithmetic: why pre-registration exists at all, and why the distinction between confirmatory and exploratory analysis is the entire game.
+:::
+
+## The Whole Idea in One Sentence
+
+- A PAP separates **confirmatory** from **exploratory** analysis
+- Confirmatory: committed in advance. Exploratory: invented after seeing data
+- Both are legitimate and valuable
+- The sin is *presenting exploratory as if it were confirmatory*
+- Not "don't explore" — "don't disguise a search as a test"
+
+::: notes
+Here is the whole idea in one sentence. A pre-analysis plan separates the analysis you committed to in advance — confirmatory — from the analysis you invented after seeing the data — exploratory — so a reader can tell which of your results were tests and which were searches. Both kinds are legitimate and valuable. The sin is not exploring. The sin is presenting an exploratory result as if it had been a confirmatory test. Hold that distinction; it is the entire game, and the rest of this lesson is machinery for keeping the two apart.
+:::
+
+## The Arithmetic of Many Tests
+
+- Under a true null, the p-value is **uniform** on zero to one
+- One test of a true null: $p<0.05$ exactly five percent
+- Twenty true nulls at $\alpha=0.05$:
+- $$1-(1-0.05)^{20}=1-0.95^{20}\approx 0.64$$
+- A sixty-four percent chance of a spurious "winner"
+
+::: notes
+Go back to the cold arithmetic of Chapter one-point-five. When the null is true, the p-value is uniformly distributed on zero to one — every value equally likely. A direct consequence: a single test of a true null produces a p-value below zero-point-zero-five exactly five percent of the time, by construction. That five percent is the price of admission you agreed to pay. But now run many tests. If twenty independent true nulls are each tested at alpha equals zero-point-zero-five, the chance that at least one crosses the line by pure luck is one minus zero-point-nine-five raised to the twentieth power, which is about zero-point-six-four. A sixty-four percent chance of a spurious winner — better than a coin flip — purely from giving luck twenty tries. The per-test error rate was never built to survive being applied many times and then cherry-picked.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A PAP separates **confirmatory** (committed in advance) from **exploratory** (invented after seeing data); the sin is disguising one as the other. The arithmetic is unforgiving: under a true null the p-value is uniform, so twenty tests give a sixty-four-percent chance of a fluke "winner." Next: how reasonable choices become twenty tests.
+:::
+
+::: notes
+To summarize part two: a pre-analysis plan separates confirmatory analysis, committed in advance, from exploratory analysis, invented after seeing the data — and the sin is presenting one as the other. The arithmetic is unforgiving. Under a true null the p-value is uniform, so a single test fails five percent of the time, but twenty independent tests give about a sixty-four percent chance of at least one spurious winner. The per-test error rate cannot survive being applied many times and cherry-picked. In part three, we see how Maya turns reasonable, one-at-a-time choices into exactly that multiplicity — the garden of forking paths.
+:::

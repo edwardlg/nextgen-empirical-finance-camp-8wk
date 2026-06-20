@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## The Formal Statement and the Residual Maker
+
+- Part 5 — partition regressors, build the residual maker, state FWL
+
+::: notes
+Welcome back to the Frisch–Waugh–Lovell theorem, part five of thirteen. In part four we hit the coefficient exactly on six firms. Now we say it in matrix language, the way you will see it in a real econometrics text. We partition the regressors, build the residual maker for the controls, state the theorem, and line up the three facts the proof needs.
+:::
+
+## Setup: Partition the Regressors
+
+- Partition columns: $\mathbf{y} = \mathbf{X}_1\boldsymbol{\beta}_1 + \mathbf{X}_2\boldsymbol{\beta}_2 + \boldsymbol{\varepsilon}$
+- $\mathbf{X}_1$ = the regressors you **care about** (R&D)
+- $\mathbf{X}_2$ = everything you **control for** (intercept, size, dummies)
+- Residual maker: $\mathbf{M}_2 = \mathbf{I} - \mathbf{X}_2(\mathbf{X}_2'\mathbf{X}_2)^{-1}\mathbf{X}_2'$
+- $\mathbf{M}_2\mathbf{v}$ = the residual from regressing $\mathbf{v}$ on $\mathbf{X}_2$
+- Residualized: $\tilde{\mathbf{y}} = \mathbf{M}_2\mathbf{y}$, $\tilde{\mathbf{X}}_1 = \mathbf{M}_2\mathbf{X}_1$
+
+::: notes
+Now the matrix version. Partition the regressor matrix into two blocks of columns. The model is y equals X-one beta-one plus X-two beta-two plus epsilon. Here X-one is the block of regressors you care about — in Leah's case, the single column of R and D values — with coefficient beta-one. And X-two is the block of everything else you are controlling for: the intercept, firm size, industry dummies, whatever. The full ordinary-least-squares fit produces both coefficient blocks jointly. Now define the residual maker for the X-two block: M-two equals the identity matrix minus X-two times the inverse of X-two-transpose-X-two times X-two-transpose. This is exactly the residual maker from Chapter two-point-one, just built from the X-two block instead of the full X. Multiplying any vector by M-two returns the residual from regressing that vector on X-two. So define the residualized quantities: y tilde equals M-two y, and X-one tilde equals M-two X-one. These are precisely Leah's cleaned columns from before.
+:::
+
+## The Theorem, And Three Facts We Need
+
+- **FWL:** $\hat{\boldsymbol{\beta}}_1 = (\tilde{\mathbf{X}}_1'\tilde{\mathbf{X}}_1)^{-1}\tilde{\mathbf{X}}_1'\tilde{\mathbf{y}}$
+- Full coefficient = short residualized regression
+- Short-regression residuals match the full ones too
+- $\mathbf{M}_2$ is **symmetric**: $\mathbf{M}_2' = \mathbf{M}_2$
+- $\mathbf{M}_2$ is **idempotent**: $\mathbf{M}_2\mathbf{M}_2 = \mathbf{M}_2$
+- $\mathbf{M}_2$ **annihilates** its block: $\mathbf{M}_2\mathbf{X}_2 = \mathbf{0}$
+
+::: notes
+Here is the theorem. The ordinary-least-squares coefficient beta-one-hat from the full regression of y on both blocks is identical to the coefficient from the simple regression of y tilde on X-one tilde — beta-one-hat equals the inverse of X-one-tilde-transpose-X-one-tilde, times X-one-tilde-transpose-y-tilde. Moreover, the residuals from that short regression equal the residuals from the full regression. The proof needs only three facts about any residual maker, all established in Chapter two-point-one. First, M-two is symmetric: its transpose equals itself. Second, it is idempotent: applying it twice does nothing more than applying it once — sweeping out X-two twice is the same as sweeping it once. Third, it annihilates its own block: M-two times X-two equals zero, because there is no residual left when you regress X-two on itself. Those three facts are the entire engine of the proof.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Partition into $\mathbf{X}_1$ (what you care about) and $\mathbf{X}_2$ (controls). The residual maker $\mathbf{M}_2$ cleans $\mathbf{X}_2$ out of anything. **FWL:** $\hat{\boldsymbol{\beta}}_1 = (\tilde{\mathbf{X}}_1'\tilde{\mathbf{X}}_1)^{-1}\tilde{\mathbf{X}}_1'\tilde{\mathbf{y}}$. The proof needs only that $\mathbf{M}_2$ is symmetric, idempotent, and kills $\mathbf{X}_2$. Next: the four-line proof and its geometry.
+:::
+
+::: notes
+To summarize part five. We partitioned the regressors into X-one, the block we care about, and X-two, the controls. We built the residual maker M-two, which cleans X-two out of any vector. The Frisch–Waugh–Lovell theorem says the full coefficient beta-one-hat equals the residualized two-variable slope, and the residuals match too. The whole proof rests on three facts about M-two: it is symmetric, it is idempotent, and it annihilates its own block. In part six we run those three facts through the algebra and watch the result fall out in four lines — then draw the geometry underneath.
+:::

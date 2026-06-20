@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## The Permutation p-Value and Its Floor
+
+- Part 10 — the permutation p-value, its floor, and the plot
+
+::: notes
+Welcome back to synthetic control, part ten of twelve. In part nine we built the placebo test, rerunning the procedure on each donor and scaling every gap by its own pre-fit to get the root mean squared prediction error ratio. Now we turn those ratios into a permutation p-value, meet the hard floor that caps how small it can be, read the gray-spaghetti plot, and state honestly what kind of null this test actually rejects.
+:::
+
+## The Permutation p-Value
+
+- $p=\dfrac{\#\{i:r_i\ge r_1\}}{J+1}$ — fraction at least as extreme
+- Largest ratio of 35 units $\Rightarrow$ $p=1/35\approx 0.029$
+- About a 3% chance for a randomly chosen unit
+- Small-sample, exact; no asymptotics, no normal errors
+- No clustered standard error anywhere
+
+::: notes
+Compute r-one for the real treated state and r-j for every placebo donor. The permutation p-value is the fraction of all J plus one units whose ratio is at least as large as the treated unit's. If the treated state has the single largest ratio out of, say, thirty-five units, then p equals one over thirty-five, about zero point zero two nine: a gap this extreme, properly scaled, would arise for a randomly chosen unit only about three percent of the time. That is your inferential statement, and notice what kind it is. It is small-sample and permutation-based: no large-N asymptotics, no assumption of normal errors, no clustered standard error. It is the honest probability that the treated unit's ratio is special given the reference set of placebos.
+:::
+
+## The Floor on the p-Value
+
+- 20 donors $\Rightarrow$ smallest possible $p$ is $1/21\approx 0.048$
+- You literally cannot get below 5%
+- So a respectable study wants a **large donor pool**
+- Be suspicious of $p<0.01$ from a handful of donors
+- Resolution is bounded by how many placebos you have
+
+::: notes
+There is a hard limit you must respect. With only twenty donors, the smallest possible p-value is one over twenty-one, about zero point zero four eight; you literally cannot get below five percent, because the most extreme a unit can be is to have the single largest ratio out of twenty-one. That is why a respectable synthetic-control study wants a reasonably large donor pool, and why claims of p below zero point zero one from a handful of donors should make you suspicious; the arithmetic forbids them. Be honest about this ceiling: the inference is exact for the permutation it performs, but its resolution is bounded by how many placebos you have. Curate a real donor pool, and never report more precision than the number of placebos can support.
+:::
+
+## See It, and Know What Null You Reject
+
+- Overlay placebo gaps in gray, treated unit in **black**
+- Black wanders past the gray cloud after $T_0$? Effect is real
+- Just another strand of spaghetti? No effect
+- The null is **sharp**: no effect on any unit, any time
+- It is a *placebo* test, not a true randomization test
+- Strength rests on donor-pool quality
+
+::: notes
+There is a visual companion you will produce in the notebook: overlay all the placebo gap paths in gray and the treated unit's gap in black. If the black line wanders out beyond the gray cloud after T-naught while sitting inside it before, the effect is real and you can see it. If the black line is just one more strand in the spaghetti, there is no effect, no matter what point estimate you computed. One honest caveat about this p-value. It tests the sharp null that the policy had no effect on any unit at any time, the same flavor of null you met in Fisher-style randomization inference. It does not assume the donors were randomly chosen to be untreated; the reference distribution is simply what the procedure does to units we know were not treated, which is why it is a permutation or placebo test rather than a true randomization test. So you are claiming the treated unit's gap is implausibly large relative to the donors you assembled, and that claim rests on the quality of the donor pool.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **permutation p-value** is the fraction of units at least as extreme as the treated one — exact, small-sample, but **floored at $1/(J+1)$**, so you need a real donor pool. See it in the gray-spaghetti plot. It tests the **sharp null** of no effect anywhere, relative to the donors you chose. Next: synthetic DiD.
+:::
+
+::: notes
+To summarize part ten: the permutation p-value is the fraction of all units whose root mean squared prediction error ratio is at least as large as the treated unit's, an exact small-sample statement with no asymptotics. But it is floored at one over J plus one, so with twenty donors you cannot drop below about five percent, which is why you need a real donor pool and why tiny p-values from few donors are suspicious. You can see the whole test in the gray-spaghetti plot, with the treated unit in black. And be honest about what it rejects: the sharp null of no effect anywhere, judged relative to the donors you assembled. In part eleven we combine synthetic control with difference-in-differences into one more general tool.
+:::

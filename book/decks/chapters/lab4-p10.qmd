@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## From Lab to Fair Lending and Capstone
+
+- Part 10 — tie the design back to fair lending and capstone
+
+::: notes
+Welcome back to the Week Four lab, part ten of ten. In part nine the headline figure made the contrast unmissable — Callaway and Sant'Anna hugging the planted truth while two-way fixed effects fell short. Now we close the loop: what a denial-rate design does and does not establish about fair lending, the load-bearing assumption, and how this lab is a rehearsal for the capstone.
+:::
+
+## What a Denial-Rate Gap Shows
+
+- "Denial rates fell" is **not** "the rule reduced discrimination"
+- A raw denial rate confounds creditworthiness (Ch 2.5)
+- DiD against never-adopters addresses *some* of it, not all
+- A county-year rate cannot hold applicant credit fixed
+- The fair-lending question Maya has carried since Week 1
+- Mentor Session 4 takes it up through Gao and Sun, 2019
+
+::: notes
+First, what a denial-rate gap does and does not show. Suppose on real HMDA you found that denial rates fell after a fair-lending rule. Why is "denial rates fell" not yet "the rule reduced discrimination"? Because a raw denial rate confounds discrimination with differences in applicant creditworthiness — the Week Two omitted-variable-bias threat, Chapter two-point-five. The difference-in-differences design, differencing against never-adopting states, addresses some of that: it removes anything that hits all states equally. But it cannot hold fixed what a county-year denial rate simply does not record — the individual creditworthiness of who applied where. This is the fair-lending question Maya has carried since Week One, and the one Mentor Session Four takes up through Gao and Sun, two thousand nineteen.
+:::
+
+## The Clean-Design Move
+
+- Gaps are everywhere — finding one is easy
+- The hard part: showing a skeptic the gap is **causal**
+- A staggered shock plus clean CS comparison does that work
+- Turns "we see a gap" into "we measured an *effect of the policy*"
+- Parallel trends is the precise thing a referee attacks
+- Credibility comes from the **design**, not a pile of controls
+
+::: notes
+Second, the clean-design move, per Gao and Sun. They studied whether same-sex couples were treated differently in mortgage lending, using millions of HMDA-style records. The hard part of fair-lending work is not finding a gap — gaps are everywhere — but showing a skeptic the gap is causal, not an artifact of who applies where and with what creditworthiness. A staggered policy shock plus a clean Callaway and Sant'Anna comparison does that work: it turns "we see a gap" into "we measured an effect of the policy." And the parallel-trends assumption is the precise thing a referee would attack — that absent the rule, adopting and never-adopting states would have moved together. The whole Week Four thesis in miniature: the credibility comes from the design — a clean policy shock, clean controls, a per-cohort parallel-trends bet you state and defend — not from a pile of controls.
+:::
+
+## Honest About Uncertainty, and the Capstone
+
+- Few treated clusters — nine states, three waves, maybe fewer
+- Cluster by **state**; inference still fragile (BDM)
+- Pre-trends can *refute* parallel trends, never *confirm* them
+- Capstone 1 rehearsal: outcome, treatment, clean controls
+- One identifying assumption; one robustness check
+- The camp's habit: build a universe, know the truth, check
+
+::: notes
+Third, be honest about uncertainty, then carry it to the capstone. Your panel has nine treated states across three waves; a real design might have far fewer. Clustering by state is the right level — the state is where treatment is assigned — but the Bertrand, Duflo, and Mullainathan lesson warns that inference can still be fragile with few adopting states, so report something beyond a clustered standard error, like a randomization-inference p-value. And recall: pre-trends can refute parallel trends but never confirm them. This lab rehearses Capstone One, Fair Lending on HMDA. Carry in a three-sentence plan: the outcome and treatment you would build from real HMDA, the clean control group, and the single identifying assumption your result rests on — plus one robustness check. The habit underneath, drilled in every lab: when unsure whether a tool does what it claims, build a universe where you know the truth, and check.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A denial-rate gap is not proof of discrimination — but a **staggered shock plus a clean CS comparison** turns "we see a gap" into "we measured an effect," with parallel trends the load-bearing wall a referee attacks. Credibility comes from the **design**, not controls. This rehearses Capstone 1 and the camp's core habit: build a universe where you know the truth, and check.
+:::
+
+::: notes
+To summarize part ten and the whole lab: a denial-rate gap confounds discrimination with creditworthiness, so it is not proof on its own — but a staggered policy shock plus a clean Callaway and Sant'Anna comparison turns "we see a gap" into "we measured an effect of the policy," with the per-cohort parallel-trends assumption as the load-bearing wall a referee attacks. Be honest about few treated clusters, and remember pre-trends can refute but never confirm. Credibility comes from the design, not a pile of controls — exactly the move Gao and Sun made, and the one you carry into Mentor Session Four and Capstone One. The habit underneath, drilled in every lab: when unsure whether a tool does what it claims, build a universe where you know the truth, and check. That completes the Week Four lab — well done.
+:::

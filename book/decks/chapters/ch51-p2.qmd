@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Identification: Reading the Genre and the Sorts
+
+- Part 2 — naming the genre, and meeting portfolio sorts
+
+::: notes
+Welcome back to the Reader's Guide for Fama and French, part two of nine. In part one we framed the lesson — you are now a consumer of research — and stated the question: what explains why some stocks earn more than others, and is the Capital Asset Pricing Model true in the data? This part begins the identification strategy. We ask the referee's first habit — what kind of claim is this? — and meet the first piece of machinery, portfolio sorts.
+:::
+
+## Not a Causal Design — and That's Fine
+
+- Weeks 3 and 4 trained you to hunt a *causal* design
+- You will **not** find one here — and shouldn't
+- This is a **descriptive / predictive** asset-pricing study
+- It documents which characteristics line up with returns
+- Ask "is this real and robust?" — not "is this causal?"
+
+::: notes
+Here is the referee's first habit: before you ask "do I believe the result?" ask "what kind of claim is this, and what would make it credible?" Weeks Three and Four drilled you to hunt for a causal design — a treatment, a counterfactual, an as-good-as-random source of variation. You will not find one here, and you should not expect to. This is not a flaw; it is the paper's genre. Fama and French nineteen ninety-two is a descriptive, predictive asset-pricing study. It documents which firm characteristics line up with average returns in the cross-section. It is the empirical-finance cousin of the regressions in Week One, not the natural experiments of Week Four. Read it asking is this relationship real and robust — not is this the causal effect of size on returns. Keeping that straight is half of reading the paper well.
+:::
+
+## Piece One: Portfolio Sorts
+
+- Don't trust one line — *sort* stocks into buckets
+- Rank by size, cut into deciles, average each bucket
+- The power move: the **double sort**
+- Grid on size *and* beta — similar on one, spread on other
+- Nonparametric: no linear form imposed
+
+::: notes
+So what is the empirical machinery? Two pieces, both of which you have already built. Piece one: portfolio sorts. Rather than trust a single regression line, Fama and French first sort stocks into buckets and look at average returns bucket by bucket. Rank every stock by size, cut into deciles, and compute each decile's average return — that is a univariate sort on size. The power move, which the reading order will dwell on, is the double sort: form a grid by sorting on size and on pre-formation beta at the same time, so each cell holds firms that are similar on one dimension and spread out on the other. Sorts are nonparametric — they impose no linear functional form — so they let the data show its shape before any model is forced on it. That is exactly why a referee trusts a sort table more than a regression coefficient.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The referee's first move is naming the **genre**: this is a *descriptive, predictive* study, so judge it by whether the relationship is real and robust — not causal. The first tool is **portfolio sorts**, nonparametric buckets that let the data show its shape before any model is imposed.
+:::
+
+::: notes
+To summarize part two: a referee first names the genre. Fama and French nineteen ninety-two is descriptive and predictive, not causal, so the right question is whether its relationships are real and robust, not whether they are causal effects. The first piece of machinery is portfolio sorts: rank stocks into buckets, average returns bucket by bucket, and use the double sort to vary one characteristic while holding another fixed. Sorts are nonparametric, so they let the data speak before any model is forced on it. In part three we meet the second piece of machinery — the Fama-MacBeth cross-sectional regression, which is Lab Two verbatim — and see why its standard errors are the honest ones.
+:::

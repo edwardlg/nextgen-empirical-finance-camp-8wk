@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Confidence Intervals as Inverted Tests
+
+- Part 10 — the CI as every null you cannot reject
+
+::: notes
+Welcome back to Hypothesis Testing Done Right, part ten of fourteen. In part nine we hammered home what the p-value is not, including that it is never the probability the null is true. A p-value answers one question — can I reject this particular null? Now we meet an object that answers all of them at once, and is often the more honest thing to report: the confidence interval.
+:::
+
+## Invert the Test
+
+- Fail to reject $\mu_0$ exactly when $|t|\le t^*$
+- Rearranged: $\bar{x}-t^*\widehat{\operatorname{se}}\le\mu_0\le\bar{x}+t^*\widehat{\operatorname{se}}$
+- The survivors form $\bar{x}\pm t^*\,\widehat{\operatorname{se}}(\bar{x})$
+- A CI is **every null you cannot reject** — a test inverted
+- Sam, 251 d.f., $t^*\approx1.97$: $0.08\%\pm1.97\times0.0473\%$
+- $95\%$ CI $=[-0.013\%,\;0.173\%]$
+
+::: notes
+Start from the test. We fail to reject a candidate null value mu-naught at level alpha exactly when the statistic is not extreme — when the absolute value of t is at most t-star, the two-sided critical value. Writing that inequality out and rearranging, x-bar minus t-star times the standard error is at most mu-naught, which is at most x-bar plus t-star times the standard error. The set of all null values mu-naught that survive the test is precisely the interval x-bar plus or minus t-star times the estimated standard error. That is the ninety-five percent confidence interval. So a confidence interval is simply the collection of null hypotheses you cannot reject — a test, inverted. For Sam, with t-star about one point nine seven at two hundred fifty-one degrees of freedom, the ninety-five percent interval is eight basis points plus or minus one point nine seven times zero point zero four seven three percent, which works out to roughly negative zero point zero one three percent up to positive zero point one seven three percent.
+:::
+
+## Reading Sam's Interval
+
+- $0$ *is* inside the two-sided $95\%$ interval
+- Consistent: a two-sided test would not reject
+- Full range of compatible edges: tiny loss to $0.17\%$ gain
+- Width = standard error scaled up — how little 252 days pin down
+- Correct: $95\%$ of such intervals would contain $\mu$
+- **Wrong:** "$95\%$ chance $\mu$ is in *this* interval"
+
+::: notes
+Two things to read off Sam's interval. First, zero is inside this two-sided ninety-five percent interval — consistent with the fact that Sam's one-sided test only barely cleared its bar, and a two-sided test at five percent would not reject. Second, the interval shows the full range of edges compatible with the data: from a tiny loss to a sizable zero point one seven percent daily gain. That range is wide, and its width is the standard error scaled up — the honest measure of how little two hundred fifty-two days really pin down. Now the interpretation of confidence, which deserves the same care as the p-value. The correct statement is about the procedure: if we repeated the whole experiment many times, ninety-five percent of the intervals so constructed would contain the true mu. It is not correct to say there is a ninety-five percent probability that mu lies in this particular interval. Once computed, the interval either contains mu or it does not; the ninety-five percent describes the long-run hit rate of the method, not the realized interval. Same logic as before: mu is fixed, and the interval is the random thing.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A **confidence interval** is a test inverted — every null you cannot reject: $\bar{x}\pm t^*\,\widehat{\operatorname{se}}$. Sam's $95\%$ CI is $[-0.013\%,\,0.173\%]$, and it contains $0$. The $95\%$ is the *method's* long-run hit rate, not a probability about this one interval. Next: significance versus effect size.
+:::
+
+::: notes
+To summarize part ten: a confidence interval is a hypothesis test turned inside out — the whole family of null values you cannot reject, written as the estimate plus or minus t-star times the standard error. For Sam, the ninety-five percent interval runs from a small loss to a sizable gain and contains zero, telling the same story as the marginal one-sided test. Its width is the honest measure of how little a single year of data pins down. And the ninety-five percent is a property of the method's long-run hit rate, not a probability about this one realized interval — mu is fixed, the interval is random. In part eleven we confront a scenario that should bother you: how a result can be wildly statistically significant and yet completely worthless. That is the gap between statistical significance and effect size.
+:::

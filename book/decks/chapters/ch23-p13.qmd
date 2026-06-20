@@ -1,0 +1,35 @@
+---
+date: "2026-06-22"
+---
+
+## What To Carry Forward
+
+- Part 13 — three things to carry forward for good
+
+::: notes
+Welcome back to the Frisch–Waugh–Lovell theorem, part thirteen of thirteen — the finale. In part twelve we covered the traps, the code, and the name. Now we gather the three things from this chapter that will do real work for the rest of the book: the reading rule, the demeaning equivalence, and the threat-naming discipline.
+:::
+
+## Three Things That Do Real Work
+
+- **Reading rule:** every coefficient = a two-variable slope of leftovers
+- It nets out only the columns you **included** — nothing more
+- **Equivalence:** demeaning $=$ dummies, which powers panels
+- Within estimator's $\beta$ = a dummy per firm — and it's cheap
+- **Threat-naming:** name what you residualized; it's the meaning
+- On-ramp to Ch 2.5's omitted-variable bias
+
+::: notes
+Three things from this chapter will do real work for the rest of the book. First, the reading rule. Whenever you meet a multiple-regression coefficient, translate "controlling for the other variables" into "I residualized those variables out of both the outcome and this regressor, then took a simple slope of the leftovers." That translation tells you what the number means, what it does not mean — it nets out only the columns you actually included — and which firms or observations are driving it: the ones with large residualized values. A coefficient is always a two-variable slope in disguise; F W L is the disguise-remover. Second, the equivalence that powers panels: regressing on a full set of group dummies is identical to subtracting group means and regressing on the leftovers. Demeaning is residualizing on dummies. When Week Three introduces the within estimator and estimates beta by subtracting each firm's time-average, you will already know why that gives the same beta as a dummy per firm — and why it is computationally cheap. Third, the threat-naming discipline. F W L draws a hard line around what a coefficient controls for: exactly the columns in the control block, nothing else. Everything outside that block is still inside your residuals, uncontrolled. That is why every spec in this book must name its controls and its identifying assumption — and it is the on-ramp to Chapter two-point-five's omitted-variable bias, where the gap between the short and long regressions becomes a formula you can compute.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Carry three things forward: the **reading rule** — every coefficient is a two-variable slope of residualized leftovers; the **equivalence** — demeaning $=$ dummies, which powers every panel; and the **threat-naming discipline** — a coefficient controls for *exactly* the columns you included. FWL is the disguise-remover for every empirical table you'll ever read. Next chapter: omitted-variable bias as a formula.
+:::
+
+::: notes
+To close the chapter and the whole thirteen-part lesson. Carry three things forward. The reading rule: every coefficient is a two-variable slope of residualized leftovers, netting out exactly the columns you included. The equivalence: demeaning equals dummies, which powers every panel and makes the within estimator give the same beta as a dummy per firm. And the threat-naming discipline: a coefficient controls for exactly the columns you included, so name them, because that list is the meaning of the number. The Frisch–Waugh–Lovell theorem is the single most useful interpretive fact in this book, and the disguise-remover for every empirical table you will ever read. Next chapter, two-point-five, turns the gap between the short and long regressions into the omitted-variable-bias formula — and you will recognize both of its pieces as residualization quantities you already understand. Well done finishing it.
+:::

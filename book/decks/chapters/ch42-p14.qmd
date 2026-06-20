@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## One Principle, and What to Carry Forward
+
+- Part 14 — three routes, one principle, and what to carry forward
+
+::: notes
+Welcome back to Chapter four-point-two, part fourteen of fourteen — our last. In part thirteen we met Sun and Abraham's saturated event study and Borusyak, Jaravel, and Spiess's imputation, two more roads to the clean-control destination. Now we see that all three estimators are one principle, and gather the four things from this chapter that will change how you read every difference-in-differences result for the rest of your life.
+:::
+
+## Three Routes, One Principle
+
+- All three: form **only clean** comparisons
+- All three: produce a group-time / cohort-event grid
+- All three: **aggregate transparently** with weights you control
+- In most datasets, answers within sampling noise of each other
+- And far — often *qualitatively* far — from broken TWFE
+
+::: notes
+Three estimators, one principle. Callaway and Sant'Anna assemble clean two-by-twos. Sun and Abraham saturate the event-study regression so each cohort's dynamics are estimated in isolation. Borusyak, Jaravel, and Spiess impute the counterfactual from untreated cells only. All three form only clean comparisons, all three produce a group-time or cohort-event grid of effects, and all three aggregate transparently with weights you control. In most real datasets they land within sampling noise of one another — and far, often qualitatively far, from the broken pooled coefficient. You choose among them mostly by convenience and by which standard errors and pre-trend tests you want.
+:::
+
+## What to Carry Forward
+
+- TWFE is **not** a safe default under staggered adoption
+- Root cause: the **forbidden comparison** — already-treated as control
+- Cure: clean controls **plus** transparent aggregation
+- Report the **diagnostics**, not just the estimate
+- Name your control group *and* your aggregation weights
+
+::: notes
+Four things to carry forward. First, the pooled regression is not a safe default under staggered adoption. It identifies a sensible effect only when timing is common, or effects are homogeneous; with both staggered timing and dynamic effects — the normal situation in policy data — the single coefficient is a contaminated average that can carry the wrong sign. Seeing such a result should now trigger a question, not acceptance. Second, the root cause is the forbidden comparison: OLS uses already-treated units as controls, and if their effect is still moving, that motion is mis-read as a counterfactual trend. Goodman-Bacon proves it as a weighted average of two-by-twos; de Chaisemartin and D'Haultfœuille as cell-level effects with negative weights. Third, the cure is one idea — clean controls plus transparent aggregation — implemented three ways with near-identical answers. Fourth, report the diagnostics: run the Goodman-Bacon decomposition, check the negative-weight count, and present a heterogeneity-robust event study, naming your control group and aggregation weights explicitly.
+:::
+
+## Your Turn — nb4.2
+
+- Rebuild Priya's staggered climate-disclosure panel
+- Confirm pooled TWFE is biased — and sharply, wrong-signed
+- Run **Goodman-Bacon**: find the negative weight
+- Estimate **Callaway–Sant'Anna** $\text{ATT}(g,t)$ with never-treated controls
+- Compare the honest event study to the broken number, side by side
+
+::: notes
+Your turn. Open notebook four-point-two, Staggered DiD: TWFE versus Callaway–Sant'Anna. You will rebuild Priya's staggered climate-disclosure panel — California in twenty-seventeen, a twenty-nineteen wave, a twenty-twenty-one wave, and never-adopters — with a treatment effect that builds over event time, and confirm the pooled coefficient is biased, and in the sharp version wrong-signed, relative to the true average effect. You will run the Goodman-Bacon decomposition and read off how much of the coefficient comes from clean versus forbidden comparisons, and find the negative weight. Then you will estimate the Callaway–Sant'Anna group-time effects with never-treated controls, aggregate to a heterogeneity-robust event study, verify the pre-trends are flat and the dynamics match the truth, and compare its overall effect to the broken number side by side.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three estimators, **one principle**: clean controls plus transparent aggregation. Under staggered adoption, never trust a lone pooled $\hat\beta$ — run the **Goodman-Bacon** decomposition, check the **negative-weight** count, present a heterogeneity-robust event study, and name your control group and weights. You now read every DiD with the eyes the field spent thirty years earning.
+:::
+
+::: notes
+To close Chapter four-point-two: the staggered-adoption crisis is real, but it has a clean cure. The pooled two-way fixed-effects coefficient, under staggered timing with heterogeneous or dynamic effects, is a contaminated weighted average that can be biased and even wrong-signed — because OLS quietly uses already-treated units as controls. Goodman-Bacon and de Chaisemartin–D'Haultfœuille diagnose it; Callaway–Sant'Anna, Sun–Abraham, and Borusyak–Jaravel–Spiess cure it, all by the same principle of clean controls plus transparent aggregation. Next week we build on this foundation with the next family of causal designs. Well done — you now read every difference-in-differences result with the eyes the field spent thirty years earning.
+:::

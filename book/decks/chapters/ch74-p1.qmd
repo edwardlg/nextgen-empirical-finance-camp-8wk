@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## A Dataset Is a Sequence of Decisions
+
+**Learning objectives** — by the end you can:
+
+- Build one trustworthy rectangular analysis panel
+- Join two raw files on a date-aware crosswalk
+- Make cleaning choices deliberately and reproducibly
+- Count rows and check the match rate
+
+::: notes
+Welcome to Week Seven, Chapter seven-point-four, Building the Analysis Dataset. This is the chapter nobody puts in the brochure. In Chapter seven-point-two, Sam pulled two clean files off WRDS: monthly stock returns from CRSP, and annual accounting numbers from Compustat. Each file on its own is authoritative. But Sam's real question — do firms with high book-to-market ratios earn higher returns? — lives in neither file. The returns are in CRSP; the book value is in Compustat. To compute book-to-market and line it up against a return, he has to join the two. And the moment he typed merge, every quiet decision turned loud.
+:::
+
+## The Grinding Middle of Real Work
+
+- Returns live in CRSP; book value lives in Compustat
+- The question needs **both** — so you must join
+- Goal: one rectangular **analysis panel**, one row per unit-period
+- This is most of the real work, and where errors hide
+- A bug here inflates your Sharpe ratio — silently
+
+::: notes
+Chapter seven-point-two was glamorous — the API call, the data appearing on screen. Chapter seven-point-five is the identification memo, where you argue your design is credible. This chapter is the grinding middle: turning two raw pulls into a single, trustworthy analysis panel — one rectangular table, one row per unit-period, that your regression can actually consume. It is unglamorous, it is most of the real work, and it is where the largest, most embarrassing errors in empirical finance are made. A look-ahead bug here will sail through every robustness check in Week Five and quietly inflate your Sharpe ratio, and you will not notice until a referee — or worse, real money — does.
+:::
+
+## The Decisions Are the Dataset
+
+- A dataset is **not data** — it is a sequence of decisions
+- Every merge, every dropped row, every date is a choice
+- The skill: make choices **deliberately and reproducibly**
+- At every step do what amateurs skip
+- **Count the rows.** **Check the match rate.**
+
+::: notes
+The trick of this whole chapter, stated up front: a dataset is not data; it is a sequence of decisions, and the decisions are the dataset. Every merge you run, every row you drop, every outlier you reshape, and every available-as-of date you assign is a modeling choice that can change your answer. The professional skill is not avoiding these choices — they are unavoidable. It is making them deliberately, defensibly, and reproducibly. We will build Sam's CRSP-Compustat panel step by step, with Maya's HMDA cleaning as a second worked example, and at every step we will do the two things amateurs skip: count the rows, and check the match rate.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+This chapter sits between the *acquisition* of Chapter 7.2 and the *identification memo* of Chapter 7.5. Its lesson: **a dataset is a sequence of decisions, and the decisions are the dataset.** Make every choice deliberately and reproducibly, and at every step *count the rows* and *check the match rate*. Next: the very first decision — how do you even identify a firm?
+:::
+
+::: notes
+To summarize part one: this chapter is the grinding middle between acquiring your data and arguing your design is credible, and it is where the most embarrassing errors are made. The one idea to carry through all five parts: a dataset is not data; it is a sequence of decisions, and the decisions are the dataset. Make every choice deliberately and reproducibly, and at every step count the rows and check the match rate. In part two we meet the very first decision, and it is one most students never realize they are making — how to identify a firm, when the two datasets do not even agree on what a firm is.
+:::

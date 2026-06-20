@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## What's Vulnerable: Selection, Efficiency, and Causality
+
+- Part 10 — selection screens, efficiency circularity, association-not-cause
+
+::: notes
+Welcome back to KPSS, part ten of twelve. In part nine we flagged the first two soft joints: the measure captures expected, not realized value, and confounding window news can contaminate it. Now we finish the referee's attack with three more. The measure rests on three stacked selection screens; it bakes in efficient markets and so cannot test them; and even with a perfect measure, the growth results are associations, not experiments. These are the limits you must say out loud whenever you use the K-P-S-S panel.
+:::
+
+## Selection and Efficient Markets
+
+- Three screens: **granted** patents, **public** firms, **survivors**
+- Rejected applications and private firms are invisible
+- Panel describes large, public, surviving U.S. firms
+- Measure **assumes** efficient markets — cannot test them
+- Slow markets attenuate; over-reaction inflates — a circularity
+
+::: notes
+Two more vulnerabilities. Selection: three screens stack up. Only granted patents get a value — rejected or abandoned applications are invisible. Only patents of publicly traded firms with CRSP returns can be valued — private firms, startups before I-P-O, universities, and foreign assignees are excluded, and these are not a random slice of innovation. And the firm has to survive and stay listed around the grant date. So the panel describes the innovation of large, public, surviving U.S. firms, and generalizing its conclusions to the whole economy requires an argument the data alone cannot supply. Efficient markets, separately, is baked in. The measure assumes the market prices the patent correctly and promptly at grant. If markets are slow, the measure is attenuated; if they over-react, it is inflated. You cannot use the measure to test market efficiency, because efficiency is the assumption that built it — a circularity worth stating plainly.
+:::
+
+## Growth Results Are Associations
+
+- No random assignment, no instrument, no discontinuity
+- Innovating firms grow and rivals shrink — *on average*
+- Creative destruction is **consistent with**, not pinned by, the data
+- Reverse causality: growing firms innovate more
+- Common drivers: a demand shock lifts both
+
+::: notes
+The final vulnerability, from Weeks Three and Four. Even granting a perfect measure, the reallocation and growth findings are predictive — innovating firms grow and rivals shrink on average — not identified causal effects. There is no random assignment of patents, no instrument for innovation, no discontinuity. The creative-destruction reading is consistent with the correlations but not pinned down by them. Reverse causality — growing firms innovate more — and common drivers — a demand shock lifting both innovation and growth — are live alternatives. K-P-S-S are measured about this, and you should be too: accept the measure, accept the correlations, and reserve judgment on the precise causal story.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three more joints: **three selection screens** — granted patents, public firms, survivors — bound external validity; **efficient markets** is assumed, not tested (a circularity); and the growth results are **associations, not experiments**. Accept the measure and the correlations; reserve judgment on the causal story. Next: build it yourself.
+:::
+
+::: notes
+To summarize part ten: three more vulnerabilities round out the referee's attack. Selection — three screens stack up: only granted patents, only public firms with CRSP returns, only survivors — so the panel describes large, public, surviving U.S. firms, which bounds external validity. Efficient markets is baked in: if markets are slow the measure attenuates, if they over-react it inflates, and you cannot use the measure to test the very assumption that built it. And the growth and reallocation results are associations, not experiments — reverse causality and common drivers are live alternatives. Accept the measure and the correlations, but reserve judgment on the causal story. In part eleven we stop reading and start building, with the first two replication exercises.
+:::

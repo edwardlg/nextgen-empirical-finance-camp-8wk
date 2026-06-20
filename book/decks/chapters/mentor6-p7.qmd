@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Your Capstone's Graded Disclosure
+
+- Part 7 — the bright line and your graded AI disclosure
+
+::: notes
+Welcome back to "Text as data, and AI without fooling yourself," part seven of seven — the part where today's discipline becomes a grade. In part six we saw the measurement discipline govern a paper with no text in it, and watched the panel dictate the standard errors. Now we draw the bright line between two completely different uses of AI, walk a second real paper, and assemble the responsible-AI disclosure your capstone must defend. This is the last part, so I'll also point you to Weeks Seven and Eight.
+:::
+
+## The Bright Line: Aid vs. Generator
+
+- AI as **writing aid**: you own and verify every word
+- A low bar — is it true, and is it mine?
+- AI as **data or decision generator**: outputs feed analysis or a grade
+- A high bar — demands a validation table
+- A simulation that "predicts" market moves is a *leakage* minefield
+
+::: notes
+The second paper, on an AI-supported derivatives-trading simulation used to teach, draws the bright line your capstone lives or dies on. There are two completely different ways to use AI. As a writing or teaching aid, AI helps you draft, and the bar is low but firm: is it true, and is it mine — you own and verify every word. As a generator of data or decisions, AI produces outputs that feed an analysis or a grade — labels that enter a regression, a price path students trade against — and that bar is high: it demands a validation table. In a trading simulation, AI polishing an explanation is an aid; AI generating the moves students trade against is data. And a simulation that predicts market moves is a leakage minefield — the model may know how a historical episode resolved, so you date-fence the information set and test on post-cutoff episodes it could not have read.
+:::
+
+## What the Capstone Must Disclose
+
+- Separate AI the writing aid from AI the data generator
+- The responsible-AI-use disclosure is **graded**
+- Prompt verbatim; gold-set and held-out sizes
+- Out-of-sample precision and recall; model version pinned
+- Calls logged; citations and figures verified against a primary source
+
+::: notes
+So here is what your capstone must do. Disclose and defend every way you used AI, separating the writing aid you own from the data generation you had to validate. That responsible-AI-use disclosure is graded, and it has concrete contents. The prompt, verbatim. The size of your gold set and held-out split. Out-of-sample precision and recall. The model version, pinned to an exact string. Every call logged. And every citation and figure verified against a primary source — never against the model's say-so, because a fluent model will hand you a confident citation that does not exist. Assemble those items and you have an integrity section a referee can actually check. Leave any out and you are asking to be trusted on a calibration you never showed.
+:::
+
+## The Question That Is the Whole Point
+
+- Weeks Seven and Eight: the seminar defense
+- *Which text variable would a referee attack first?*
+- Is its error small enough not to drive the result?
+- The honest test of every instrument you built
+- Seen every prompt and label — would it still stand?
+
+::: notes
+Look ahead to Weeks Seven and Eight, the seminar weeks. The question you will face is the whole point of today: which text variable would a referee attack first — and can you show its error is small enough not to be driving your result? That is the honest test of every instrument you build. So as you finish your capstone, run the thought experiment one last time. If a referee could see every prompt you tried, and every label you kept and discarded, would your result still stand — or are you trusting an instrument you never calibrated? Build so the answer is yes. That is what it means to use text as data, and AI, without fooling yourself. That's a wrap on Week Six — I'll see you in the seminar.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Draw the bright line: AI as a **writing aid you own** versus a **data generator you validate** with a table. Your capstone's responsible-AI disclosure is **graded** — prompt verbatim, gold-set and held-out sizes, out-of-sample precision and recall, version pinned, calls logged, sources verified against the primary. The seminar test in Weeks 7–8: if a referee saw every prompt I tried and every label I kept, would my result still stand?
+:::
+
+::: notes
+To close the session: draw the bright line cleanly. AI as a writing aid you own and verify, versus AI as a data generator you must validate with a table. Your capstone's responsible-AI disclosure is graded — the prompt verbatim, the gold-set and held-out sizes, out-of-sample precision and recall, the version pinned, the calls logged, and every source verified against the primary. The seminar test you will face in Weeks Seven and Eight is the whole point of today: if a referee could see every prompt I tried and every label I kept, would my result still stand? Build your capstone so the honest answer is yes. That is using text as data, and AI, without fooling yourself. That's a wrap on Week Six.
+:::

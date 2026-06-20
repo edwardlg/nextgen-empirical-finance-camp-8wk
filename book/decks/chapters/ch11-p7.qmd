@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Total Variance: The Decomposition
+
+- Part 7 — combine the pieces, check, read off Sam's answer
+
+::: notes
+Welcome back to Joint, Conditional, and the Two Laws That Run Everything — part seven of eight. In part six we stated the Law of Total Variance and computed the within-regime variances — one point four nine zero on calm days, two point two two two on stormy days. Now we combine the pieces, add the across-regime term, check the total against the direct variance, and read off what it means for Sam's strategy.
+:::
+
+## Steps 2 and 3 — Combine the Pieces
+
+- **Within** = regime-weighted average of the variances
+- $(1.490)(0.70)+(2.222)(0.30)=1.043+0.667=1.710$
+- **Across** = variance of $\mathbb{E}[X\mid Y]$ around mean $0.30$
+- $(0.414)^2(0.70)+(-0.967)^2(0.30)=0.120+0.280=0.400$
+- Sum: $1.710+0.400=2.110$
+
+::: notes
+Step two: the within-regime piece is the regime-weighted average of the two variances — one point four nine zero times zero point seven zero, plus two point two two two times zero point three zero, which is one point seven one zero. Step three: the across-regime piece is the variance of the conditional-mean random variable, which takes value zero point seven one four with probability zero point seven zero and minus zero point six six seven with probability zero point three zero, around its overall mean of zero point three zero. So zero point four one four squared times zero point seven zero gives zero point one two zero, and minus zero point nine six seven squared times zero point three zero gives zero point two eight zero. The across piece is zero point four zero zero. Adding within and across gives two point one one zero.
+:::
+
+## Check Against the Direct Variance
+
+- Marginal of $X$: probs $0.20,\,0.45,\,0.35$, mean $0.30$
+- $\mathbb{E}[X^2]=4(0.20)+4(0.35)=2.200$
+- $\operatorname{Var}(X)=2.200-(0.30)^2=2.110$ — it matches
+- Proof: LIE twice; a middle term cancels exactly
+- That cancellation **is** the law
+
+::: notes
+Now check it against the direct calculation. From the marginal of X, with mean zero point three zero, the mean of X squared is four times zero point two zero plus four times zero point three five, which is two point two zero zero. Subtract zero point three zero squared, and the total variance is two point one one zero. It matches: two point one one zero equals one point seven one zero plus zero point four zero zero. The proof is just iterated expectations applied twice. The across piece claims a middle term — the expectation of the squared conditional mean — and the within piece gives that same term up with a minus sign, and they cancel exactly, leaving the total variance. That cancellation is the law: together the two pieces reconstruct the total with nothing left over.
+:::
+
+## Reading the Answer
+
+- Within is $\approx 81\%$ of risk; across only $\approx 19\%$
+- Perfect regime timing removes only about a fifth
+- Most wobble is *inside* regimes, not *between* them
+- Sam needs an edge that works within regimes too
+- Story only as good as how $Y$ carves the world
+
+::: notes
+Now read the answer. Of Sam's total daily variance of two point one one zero, the within-regime risk is one point seven one zero — about eighty-one percent — and the across-regime risk is only zero point four zero zero, about nineteen percent. The blunt takeaway: even if Sam could perfectly forecast tomorrow's regime, only about a fifth of the variance would go away. Most of the wobble is inside the regimes, not between them; Sam needs an edge that works within regimes too. One crucial warning. Mechanically the law is an identity — it cannot fail as algebra. Where people go wrong is interpretation. The decomposition is only as meaningful as the choice of conditioning variable. If calm-versus-stormy is too coarse, variation genuinely across finer regimes gets misfiled as within-regime noise, and the eighty-one percent overstates how irreducible the risk is. The math is always exact; the story depends on whether Y carves the world at its real joints — a modeling decision, not a theorem.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+$\operatorname{Var}(X)=\mathbb{E}[\operatorname{Var}(X\mid Y)]+\operatorname{Var}(\mathbb{E}[X\mid Y])=1.710+0.400=2.110$, matching the direct variance. For Sam, about $81\%$ is **within-regime** — perfect regime timing removes only a fifth. The math is exact; the meaning depends on choosing $Y$ well. Next: why these two laws run everything.
+:::
+
+::: notes
+To summarize part seven: combining the within-regime piece of one point seven one zero with the across-regime piece of zero point four zero zero gives two point one one zero, exactly matching the direct variance. The proof is iterated expectations applied twice, with a clean cancellation — and that cancellation is the law. The actionable lesson: about eighty-one percent of Sam's risk lives within the regimes, so perfect regime timing would remove only about a fifth. And the decomposition is only as meaningful as the choice of conditioning variable. In part eight, the finale, we see why these two laws quietly run everything you build this camp.
+:::

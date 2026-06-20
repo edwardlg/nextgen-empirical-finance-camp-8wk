@@ -1,0 +1,66 @@
+---
+date: "2026-06-22"
+---
+
+## Difference-in-Differences: The 2×2 and the Double Difference
+
+**Learning objectives.** By the end you can:
+
+- Write DiD three ways: table, potential outcomes, regression
+- Name the single assumption every version leans on
+- Read an event study's leads and lags
+- Cluster standard errors at the treatment unit
+
+::: notes
+Welcome to Week Four, Chapter four-point-one, part one of five. Priya has a natural experiment for once she does not have to apologize for. On January first of a particular year, one state changed a regulation governing how home insurers may price wildfire risk; the other states left their rules alone. She has annual data on the average homeowner premium in every state, before and after. Her question is the regulator's: did the regulation change premiums, and by how much? This part builds the cleanest answer — four numbers and one subtraction.
+:::
+
+## Two Tempting, Contaminated Comparisons
+
+- Before-vs-after in the treated state: confounds **time**
+- Treated-vs-control in one year: confounds **selection**
+- Premiums rose everywhere — fires, reinsurance, inflation
+- The treated state was never a random state
+- Each comparison alone is contaminated
+
+::: notes
+Her first instinct is the one Week Three taught her to distrust. Compare the treated state's premium after the rule to its premium before — a before-and-after difference. Premiums there rose one hundred eighty dollars on average. Is that the regulation? Almost certainly not all of it. Those were years when wildfires worsened everywhere, reinsurance costs climbed nationwide, and inflation pushed up rebuilding costs. Some of the one hundred eighty dollars is the regulation; some is everything else that would have happened regardless. A pure before-and-after comparison confounds the treatment with the passage of time. Her second instinct is worse: compare the treated state to the others in the year after. But the treated state is not random — its own fire geography, building stock, and baseline premium level, maybe always three hundred dollars higher. A cross-sectional comparison confounds the treatment with whatever made that state different in the first place, the very selection-bias problem we fought all of Week Three.
+:::
+
+## Priya's Four Cells, in Dollars
+
+| | Before | After |
+|---|---|---|
+| **Treated** | \$1,500 | \$1,680 |
+| **Control** | \$1,200 | \$1,310 |
+
+- Treated change: $1{,}680-1{,}500=\$180$
+- Control change: $1{,}310-1{,}200=\$110$ — pure "everything else"
+
+::: notes
+Strip the problem to its skeleton: two groups, treated and control, and two periods, before and after. Four cells, each holding an average premium. Put Priya's numbers in. The treated state was at one thousand five hundred dollars before and one thousand six hundred eighty after — a change of one hundred eighty dollars, the figure from the opening, which mixes the regulation with everything else. The control state was at one thousand two hundred dollars before and one thousand three hundred ten after — a change of one hundred ten dollars. The control got no regulation, so its one hundred ten dollars is pure "everything else": the common upward drift from worsening fires, costlier reinsurance, and inflation, with no treatment in it at all.
+:::
+
+## The Move: Difference the Two Differences
+
+$$\widehat{\text{DiD}}=(\$180)-(\$110)=\$70$$
+
+- Treated had "everything else" **plus** the regulation
+- Control had "everything else" **alone**
+- Subtract — the common shock cancels
+- Same answer the other way: gaps $370-300=\$70$
+
+::: notes
+Here is the move. The treated state experienced everything else plus the regulation; the control experienced everything else alone. So subtract the control's change from the treated's change, and everything else cancels. One hundred eighty minus one hundred ten is seventy dollars. Of the one hundred eighty the treated premiums rose, one hundred ten was the tide lifting all boats, and only the remaining seventy dollars is the regulation. You can take the double difference the other way as a sanity check: the treated-minus-control gap after is three hundred seventy dollars, the same gap before is three hundred dollars, and their difference is seventy dollars again. Differencing over time kills anything fixed about a group; differencing across groups kills anything hitting both equally. What it cannot remove is anything varying across both group and time together — the crack we return to. This is the canon's most famous design: Card and Krueger, nineteen ninety-four, studied fast-food employment when New Jersey raised its minimum wage while Pennsylvania did not, and built exactly this two-by-two.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Difference-in-differences** turns two contaminated comparisons into one clean one. Differencing over time kills the fixed group difference; differencing across groups kills the common time shock; the double difference — here **\$70** — is what survives. Next: what that \$70 means in potential outcomes, and the one assumption it leans on.
+:::
+
+::: notes
+To summarize part one: difference-in-differences takes the two bad comparisons — before-and-after, contaminated by time, and treated-versus-control, contaminated by selection — and combines them so the contamination cancels. Differencing over time removes the fixed group difference; differencing across groups removes the common time shock; the double difference is what survives, here seventy dollars. In part two we write that seventy dollars in the language of potential outcomes, find the missing counterfactual it imputes, and meet the single load-bearing assumption — parallel trends — that the whole method rests on.
+:::

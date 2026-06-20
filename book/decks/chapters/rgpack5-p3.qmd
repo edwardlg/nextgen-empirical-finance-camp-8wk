@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Reading Order: Tables First, Prose Last
+
+- Part 3 — the reading-order heuristic: tables first, prose last
+
+::: notes
+Welcome back to How to Read an Empirical Paper, part three of seven. In part two we finished the seven-part template, ending with three replication exercises. Now comes the single most useful habit in this pack — the move that most surprises beginners. A professional does not read a paper front-to-back. She reads it in a deliberate order, and the tables come long before the prose.
+:::
+
+## The Order a Professional Reads In
+
+- **Abstract** — once, for the claim and the magnitude
+- **Tables and figures** — *before any body prose*
+- **Identification section** — Data and Methodology
+- **Robustness section** — what convinces a skeptic?
+- **Introduction and lit review** — *last*
+
+::: notes
+Here is the order. First, the abstract — read once, for the claim and the magnitude. What did they find, and how big? Second, the tables and figures, before any of the body prose. Go straight to the exhibits, find the headline table, and read the main result off the table itself — the sign, the size, the t-statistic, the sample size — before a single sentence of the authors' description. Third, the identification section, usually called Data and Methodology or Empirical Strategy. Now that you know the result, learn how they claim to have earned it, and pin down the identifying assumption from box two. Fourth, the robustness section: what did they do to convince a skeptic, which alternative explanations did they pre-empt, and which did they conspicuously not mention? Fifth and last, the introduction and literature review — the framing. By now you already know the answer and the design, so you can read the intro for what it is, salesmanship, without being sold.
+:::
+
+## Why Tables First
+
+- The table is the part the authors **cannot fudge**
+- Prose spins a $1.3$ t-stat as "suggestive evidence"
+- The table just shows you the $1.3$ — you decide
+- Form your own one-sentence summary before the prose
+- Catch the paper when prose claims more than the table delivers
+
+::: notes
+Why tables first? Because the table is the part of the paper the authors cannot fudge. Prose can spin a one-point-three t-statistic as "suggestive evidence." The table just shows you the one-point-three, and you decide for yourself. Reading the result off the table before the prose inoculates you against the authors' framing: you form your own one-sentence summary of what the numbers say, then check whether the prose agrees. When the prose claims more than the table delivers — and it often does — you catch it, because you read the table while your mind was still your own.
+:::
+
+## The Skeleton in Thirty Seconds
+
+- The table tells you instantly what the paper is *about*
+- Dependent variable across the top of the columns
+- Key regressor down the rows
+- Sample size at the bottom — the paper's skeleton
+- Visible in thirty seconds, before an hour on the intro
+
+::: notes
+A second reason for tables first: the table tells you instantly whether the paper is even about what you think. The dependent variable at the top of the columns, the key regressor in the rows, the sample size at the bottom — that is the paper's skeleton, visible in thirty seconds, before you have spent an hour on an introduction that may have promised something the data could not deliver. This is exactly how Devon should attack a new crypto-adoption paper, how Priya should attack a climate-insurance study, and how Sam should read the latest momentum paper: skeleton first, framing last.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Read **out of order**: abstract, then tables, then identification, then robustness, and the introduction *last*. Tables first because the table is the part authors cannot fudge — form your own one-sentence summary of the numbers before the prose can sell you on more than the data delivers.
+:::
+
+::: notes
+To summarize part three: a professional reads out of order — abstract, tables, identification, robustness, and the introduction last. Tables come first because the table is the one part the authors cannot fudge: you read the sign, size, t-statistic, and sample size straight off the exhibit and form your own summary before the prose can frame it for you. The skeleton — dependent variable across the columns, key regressor down the rows, sample size at the bottom — is visible in thirty seconds. In part four we learn to read that skeleton in detail: the conventions of an empirical-finance table, column by column and cell by cell.
+:::

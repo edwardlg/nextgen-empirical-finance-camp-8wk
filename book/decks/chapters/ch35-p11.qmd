@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Reproducing the Disaster in Simulation
+
+- Part 11 — a guided simulation where we know the truth
+
+::: notes
+Welcome back to Reading instrumental variables in the wild, part eleven of thirteen. In part ten we saw that more instruments can make the bias worse. Now we do what Bound, Jaeger, and Baker did in spirit: build a world where we know the true causal effect, plant a weak instrument, and watch two-stage least squares lie to us — then watch Anderson–Rubin and the effective F catch the lie. This is the simulation behind Lab three, walked through so you understand every line.
+:::
+
+## Building the Disaster
+
+- Known truth: true effect $\beta = 0$ — any estimate is pure bias
+- $x$ **endogenous** — shares the error, OLS biased up
+- $z$ **valid** — uncorrelated with the error
+- $z$ **weak** — first-stage coefficient $\pi = 0.05$
+- Two thousand observations
+
+::: notes
+We construct a data-generating process with three features. First, x is endogenous — correlated with the structural error through a shared shock, so ordinary least squares is biased upward. Second, the instrument z is valid — uncorrelated with that error, so exclusion holds; we are testing weakness, not invalidity. Third, and crucially, z is weak — a small first-stage coefficient pi, set to zero-point-zero-five. We set the true effect beta to exactly zero, so that any nonzero estimate is pure bias — the cleanest possible demonstration. We draw two thousand observations and feed them to ordinary least squares, to two-stage least squares with the weak instrument, and to a first-stage regression that hands us the F-statistic.
+:::
+
+## Watch 2SLS Lie
+
+- OLS beta hat about **0.39** — badly biased up
+- 2SLS beta hat about **0.28** — *between* OLS and zero
+- Exactly the $1/(F+1)$ prediction with low $F$
+- First-stage $F$ about **5** — below ten, the klaxon
+- Standard error too small; normal approximation invalid
+
+::: notes
+Running it produces, up to simulation noise, the following. Ordinary least squares reports a beta hat of about zero-point-three-nine against a truth of zero — badly biased upward, because x shares the shock with the outcome. We turned to IV to fix this. But two-stage least squares reports about zero-point-two-eight: it has not purged the bias, it has merely shrunk it partway toward ordinary least squares, landing between that estimate and the truth, exactly as the one-over-F-plus-one story predicts with a low F. The first-stage F of about five is below ten — the klaxon is sounding. And the standard error gives a conventional interval far too narrow to trust, because the normal approximation is invalid at this first-stage strength. In many draws it excludes zero entirely: a confident, significant, completely false discovery.
+:::
+
+## The Cure Catches It
+
+- AR interval comes back **wide** — and contains zero
+- Push $\pi$ toward zero: AR goes **unbounded**
+- Olea–Pflueger effective $F$ sits below its critical value
+- Set $\pi = 0.8$: every method agrees, intervals tight
+- The machinery breaks by **weakness**, not in general
+
+::: notes
+Now the cure. We compute the Anderson–Rubin interval by inverting the test over a grid, and the effective F. The interval comes back wide — something like minus zero-point-nine to one-point-four — and it contains the true value of zero, honestly reflecting that this weak instrument cannot pin down the effect. If you crank pi down further, it grows toward unbounded, the signature from part eight: the data confess they cannot answer the question. Meanwhile the effective F sits below its critical value, flagging weak identification. The contrast is the entire lesson in one screen: the conventional interval is narrow and can falsely exclude the truth; the Anderson–Rubin interval is wide, sometimes unbounded, and always honest. Then flip the experiment — set pi to zero-point-eight, a strong instrument. Now the first-stage F is large, two-stage least squares lands near the true zero, both intervals nearly coincide and are tight, and the effective F clears its threshold. The machinery is not broken in general; it is broken by weakness.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+In a true-effect-zero world, weak-IV 2SLS sits **halfway to OLS** with a falsely narrow interval that can exclude the truth — while the **AR interval** stays wide, honest, and contains zero, and the **effective $F$** flags the weakness. Set the instrument strong and every method agrees. The machinery breaks by weakness, not in general. Next: the IV reader's ledger.
+:::
+
+::: notes
+To summarize part eleven: we built a simulation with a known true effect of zero, an endogenous regressor, and a valid but weak instrument. Two-stage least squares did not rescue the biased ordinary least squares estimate — it landed about halfway between, exactly as the one-over-F-plus-one story predicts, with a first-stage F around five and a standard error too small to trust, so the conventional interval can falsely exclude the truth. The Anderson–Rubin interval, by contrast, came back wide, contained zero, and went unbounded as we weakened the instrument further, while the effective F flagged the weakness. Set the instrument strong, and every method agrees. The machinery is broken by weakness, not in general — so always check before believing a number. In part twelve, we collect the chapter into the IV reader's ledger and draw the deep moral.
+:::

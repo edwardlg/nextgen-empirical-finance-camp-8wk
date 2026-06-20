@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## An IV Paper Is a Magic Trick
+
+**Learning objectives.** By the end you can:
+
+- Read an IV paper with the referee's five questions
+- Explain why a weak first stage biases 2SLS toward OLS
+- Use Anderson–Rubin inference, valid however weak the instrument
+- Spot many-instruments bias and the overidentification test's limits
+
+::: notes
+Welcome to Week three-point-five, Reading instrumental variables in the wild, and the weak-instrument pathology. This is part one of thirteen. Meet Devon, reading his first real instrumental-variables paper. It studies whether holding crypto changes how much you trade other assets, and it instruments crypto-holding with the distance from your home to the nearest crypto cash machine. The abstract is confident: the IV estimate is three times the ordinary least squares estimate, the standard error is tight, the stars are dense. Devon's instinct is to be impressed. This is the chapter where that instinct gets dismantled. We begin by learning to read an IV paper the way a sharp referee does.
+:::
+
+## Watch the Instrument, Not the Coefficient
+
+- Like any trick, it works by **misdirection**
+- Authors want your eyes on the coefficient
+- Your job: ignore it, interrogate the instrument
+- Five questions, in order
+- Question two hides the chapter's deepest failure
+
+::: notes
+An IV paper is a magic trick, and like any magic trick it depends on misdirection. The authors want you looking at the impressive IV coefficient, not at the instrument doing the work behind the curtain. Your job as a critical reader is to ignore the coefficient at first entirely and interrogate the instrument. There are five questions, and they go in a deliberate order. The deepest failure of the whole enterprise hides inside question two, but you cannot get there without asking the first one cleanly. So before any algebra, before you admire a single number, you learn to read.
+:::
+
+## Question One: Name the Triple
+
+- Find the instrument — it sounds trivial, it is not
+- Papers bury it behind a euphemism
+- Write it as a triple: instrument $z$, treatment $x$, outcome $y$
+- Here: distance, crypto-holding, trading volume
+- Can't state it in one sentence? Trust is not earned
+
+::: notes
+Question one: what is the instrument, exactly? Find it. This sounds trivial; it is not. Papers bury the instrument in a sentence in the data section, or behind a euphemism — we exploit plausibly exogenous variation in something. Name it concretely, and write down three things as a triple: the instrument z, the treatment x, and the outcome y. In Devon's paper that triple is distance to the nearest crypto cash machine, crypto-holding, and trading volume in other assets. Write these down before reading another word. If you cannot state the triple in one sentence, the paper has not earned your trust. With the triple fixed, you are ready for the question the data can actually answer.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+An IV paper works by **misdirection** — it wants your eyes on the coefficient. Read it with five questions in order, ignoring the coefficient and interrogating the instrument. Question one: name the **triple** — instrument $z$, treatment $x$, outcome $y$. Next: relevance and exclusion, questions two and three.
+:::
+
+::: notes
+To summarize part one: an IV paper is a magic trick that works by misdirection, so you read it by ignoring the coefficient and interrogating the instrument with five ordered questions. The first is simply to name the instrument concretely, as a triple — instrument, treatment, outcome — and in Devon's crypto paper that is distance to the nearest cash machine, crypto-holding, and trading volume. If you cannot state the triple in one sentence, stop trusting the paper. In part two, we ask the two questions that decide whether the instrument is even allowed to do its job: is it relevant, and is exclusion plausible?
+:::

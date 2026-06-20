@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Naming the Threat, and Why Controls Are a Bet
+
+- Part 5 — name the spec threat; controls are a bet
+
+::: notes
+Welcome back to Week Two-point-five, part five of twelve. In part four we used the two-sign rule to find that Maya's coefficient is biased downward. Now we turn the diagnosis into a deliverable: we write the specification and its threat out fully, work a second example in the opposite direction, and then confront the most seductive trap in applied work — the belief that you can fix omitted variable bias simply by adding more controls.
+:::
+
+## Naming the Threat, and a Second Example
+
+- Name the spec: outcome, key regressor, controls, sample, threat, fix
+- **Threat:** OVB from $C$ — relevant and correlated — biasing $D$ down
+- **Fix:** include a credit control, or a design comparing equals
+- Sam omits firm **size** from a momentum regression
+- Suppose $\beta_2>0$, $\delta_1>0$: momentum biased **up**, overstated
+
+::: notes
+Naming the threat is the deliverable. Write Maya's specification out fully. Outcome: approval indicator. Key regressor: demographic indicator D. Controls currently: loan amount and age — missing and decisive: creditworthiness. Sample: applicants to one regional lender, one year. Threat: omitted variable bias from credit, relevant and correlated with D, biasing the D coefficient downward. What would fix it: include a credit-risk control, or better, a design that compares applicants identical on creditworthiness, which is Week four. Adding the control attacks the bias only if credit is the only omitted confounder, which is itself an assumption. A second example, opposite direction. Sam regresses a stock's next-month return on a momentum signal but omits firm size. Suppose, in his sample, size raises returns, so beta-two is positive, and momentum is positively correlated with size, so delta-one is positive. Then positive times positive is positive: Sam's momentum coefficient is biased up, and he overstates momentum's profitability. Flip either sign and the rule flips the bias with it. The lesson is the rule, not the particular signs.
+:::
+
+## Adding Controls Is a Bet, Not a Cure
+
+- "Include everything" fixes only *those* variables, if measured well
+- Always a residual list: motivation, soft information, local shocks
+- The bias formula ignores *why* a variable is omitted
+- **The regression cannot tell you whether you won the bet**
+- No $R^2$, no standard error reveals bias from missing data
+
+::: notes
+Here is the seductive trap. Fine, you say, omitted variable bias comes from omitting variables, so I will include everything. Maya adds creditworthiness, employment, neighborhood, ten more controls. Does that fix it? It fixes the bias from those particular variables — and only if they are measured well and enter in the right functional form. It does nothing about variables you still omit, including ones you cannot even name or measure. And there is always a residual list: unobserved applicant motivation, soft information the loan officer saw that the dataset did not record, local economic shocks. The bias formula does not care whether the omitted variable is forgotten or fundamentally unmeasurable. As long as some relevant, correlated thing sits in the error term, beta-one hat is biased. So control for it is a bet — a bet that the variables you added were the important confounders and that nothing comparable remains. And crucially, the regression itself cannot tell you whether you won the bet. No diagnostic, no R squared, no standard error reveals the bias from a variable that is not in your data. This is the wall pure regression hits, and it is why Weeks three and four turn to research designs.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Naming the threat — outcome, regressor, controls, sample, threat, fix — *is* the deliverable. And "add controls" is a **bet**, not a cure: it fixes only the variables you add, leaves an unnameable residual list, and the regression cannot tell you whether you won. Next: the second threat — measurement error.
+:::
+
+::: notes
+To summarize part five: naming the threat in specification language — outcome, key regressor, current controls, sample, the threat itself, and the fix — is the actual deliverable of careful empirical work. Maya's threat is downward omitted variable bias from creditworthiness; Sam's hypothetical is upward bias in momentum from omitted size. And adding controls is a bet that the variables you added were the important confounders, with an always-present residual list of things you cannot name or measure — and the regression cannot certify whether you won. This is the wall pure regression hits. In part six we turn to the second threat, where the variable is present but measured badly: measurement error and attenuation bias.
+:::

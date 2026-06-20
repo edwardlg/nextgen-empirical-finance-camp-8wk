@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## What's Clever: Public Good and Taxonomy
+
+- Part 8 — the public dictionary and categories beyond good/bad
+
+::: notes
+Welcome back to Chapter six-point-three, part eight of twelve. In part seven we named two clever moves: domain-specificity and diagnosis by enumeration. Now we cover the other two — turning the dictionary into a reusable public good, and the conceptual contribution of splitting tone into categories beyond simple good and bad.
+:::
+
+## A Reusable Public Good
+
+- The deepest cleverness is *strategic*, not statistical
+- They released and maintained the Master Dictionary publicly
+- The marginal researcher downloads it — does not rebuild it
+- A tool everyone can use beats a private result
+- Ship the *instrument*, not just the finding
+
+::: notes
+Third, and the deepest cleverness is strategic, not statistical. By releasing the Master Dictionary publicly and maintaining it, they turned a one-paper result into infrastructure. The marginal researcher no longer has to build a finance dictionary; she downloads theirs. This is why the paper's citation count dwarfs that of cleverer-but-private contributions: a tool everyone can use beats a result only the authors can reproduce. When you build your capstone measurement, ask whether the most useful thing you could ship is the instrument itself, not just the finding. A reusable public good compounds; a private number sits in one table forever.
+:::
+
+## Categories Beyond Good and Bad
+
+- Negative, positive, uncertainty, litigious, modal — real taxonomy
+- "Uncertainty" counts hedging words about the future
+- It later predicted *volatility* better than raw negativity
+- *How sure* a firm is differs from *how bad* the future is
+- Good measurement is often good taxonomy
+
+::: notes
+Fourth: splitting tone into negative, positive, uncertainty, litigious, and modal was a real conceptual contribution, not a bookkeeping convenience. Uncertainty in particular — counting hedging words — turned out, in much later work, to predict volatility better than raw negativity. Why? Because how sure a firm is about its future is different information from how bad the future is. A filing can be confidently grim or nervously optimistic, and those are genuinely distinct signals. Good measurement is often good taxonomy — carving the construct at its real joints — the same lesson Petersen taught last week with standard errors. When you design a measure, ask whether the single number you are about to compute is secretly two different things that deserve separate columns.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Two more clever moves: **ship the instrument** — releasing the public Master Dictionary turned one result into lasting infrastructure; and **good measurement is good taxonomy** — separating *uncertainty* from *negativity* captured genuinely different information (how sure differs from how bad). Next: what is vulnerable — the edges of bag-of-words itself.
+:::
+
+::: notes
+To summarize part eight. Two more clever moves. Three: ship the instrument — by releasing and maintaining the public Master Dictionary, Loughran and McDonald turned a single result into lasting field infrastructure, which is why everyone uses it. Four: good measurement is good taxonomy — separating uncertainty from negativity, and litigious from modal, captured genuinely different information, because how sure a firm is about its future is distinct from how bad that future is. In part nine we turn from admiration to critique and find the paper's edges, which are really the edges of bag-of-words itself.
+:::

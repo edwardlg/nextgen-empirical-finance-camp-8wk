@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Timed Rehearsal Protocol
+
+- Part 7 — rehearse the eight-minute talk against a clock
+
+::: notes
+Welcome back to Lab Eight, part seven of twelve. In part six we proved the packet with the honesty test and committed it. Now the third artifact: the eight-minute talk — the surface a skeptic touches with you in the room. This part is the timed rehearsal protocol that turns a guessed budget into a tested one.
+:::
+
+## A Tested Budget, Not a Wish
+
+- A budget you have not tested out loud is a wish
+- Rehearse the full talk, timed, at least three times
+- Cut until it fits in seven minutes, not eight
+- The eighth minute is insurance — the cough, the pause
+- Run three passes, each with a different job
+
+::: notes
+The paper and the packet are the two surfaces a skeptic touches alone. The talk is the surface they touch with you in the room, and it is where the work is actually judged. A budget you have not tested out loud is a wish. Rehearse the full talk, timed, at least three times, and cut until it fits in seven minutes, not eight. The eighth minute is your insurance against the cough, the lagging clicker, the pause you will take — not your content. Run the three passes deliberately, each with a different job. Chapter eight point five gave you the six-beat arc and the question theory; this part turns that into a rehearsal you execute against a clock.
+:::
+
+## The Three Passes
+
+- Pass 1: out loud, alone, timed, no stopping
+- Just get a total time — it will be over eight minutes
+- Pass 2: cut the slowest part, then re-time
+- The motivation is almost always the bloat
+- Pass 3: in front of one person who interrupts
+
+::: notes
+Pass one: out loud, alone, timed, no stopping. Even if a sentence comes out badly, keep going; the only goal is a total time. Write it down. It will be over eight minutes — everyone's first pass is. Pass two: cut, then re-time. Find the slowest part — it is almost always the motivation, where nervous speakers pile on context — and cut it to the bone. The target is the shape from Chapter eight point five: fast through the question and the why, slow through the design and the headline, brisk through robustness and contribution. Pass three: in front of one person, timed, and let them interrupt. A peer who asks one question mid-talk simulates the real thing far better than a mirror. If their question knocks you off your time, that is the rehearsal working.
+:::
+
+## Watch Where the Time Goes
+
+- Watch *where* the time goes, not just the total
+- Design slide under a minute? You are rushing the spine
+- Motivation over ninety seconds? Cut it
+- Pre-decide your cut line before you stand up
+- Never the design slide, never the headline
+
+::: notes
+Watch where the time goes, not just the total. If the design slide is under a minute, you are rushing the spine of the talk. If a motivation slide is over ninety seconds, cut it. A bare timer is enough — your phone, or a one-line Python timer beside your slides where you press Enter at each slide change and it prints elapsed time per slide and a total against the seven-minute target. And the discipline that saves you live: pre-decide your cut line. Before you stand up, name the one slide you will skip if you reach minute six still on the result — almost always the second robustness detail or the third motivation point, never the design slide and never the headline. When you cut on the fly without a plan, you cut badly; when you have pre-decided, you cut cleanly and nobody notices.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A budget you have not tested out loud is a wish. Rehearse timed, three passes — alone, then cut and re-time, then with a peer who interrupts — and fit it in **seven** minutes; the eighth is insurance. Pre-decide your cut line: never the design, never the headline. Next: anticipating the questions.
+:::
+
+::: notes
+To summarize part seven: a budget you have not tested out loud is a wish, so rehearse timed, at least three passes — alone for a raw total, then cut the bloated motivation and re-time, then in front of someone who interrupts you. Fit the talk in seven minutes, because the eighth is your insurance, and watch where the time goes so you never rush the design slide, the spine of the talk. And pre-decide the one slide you will cut under pressure — never the design, never the headline — so you cut cleanly when the clock attacks. In part eight we anticipate the questions, which are no surprise at all: they are the rows of your threats table.
+:::

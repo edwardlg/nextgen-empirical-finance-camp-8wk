@@ -1,0 +1,76 @@
+---
+date: "2026-06-22"
+---
+
+## The Manuscript Build and the 250-Word Abstract
+
+**Learning objectives.** By the end you can:
+
+- Write a 250-word abstract as a five-clause contract
+- Build publication-grade tables that pass the one-glance test
+- Engineer event-study, spec-curve, and forest figures
+- Structure a five-paragraph intro and three-strand review
+
+::: notes
+Welcome to Week seven, lesson six, part one of five. The design half of Maya's project is closed: a filed pre-analysis plan, a clean dataset, an identification memo. The number is in hand — a one-point-four percentage-point reduction in the conditional Black–White denial gap, nailed down before she could see it. But that number does not present itself. A correct result buried in a sloppy paragraph gets skimmed and forgotten. Carrying the result is a separate craft, and we start with the abstract.
+:::
+
+## The Carry Is Its Own Craft
+
+- Design is closed: PAP, dataset, identification memo
+- The number: a $1.4$-point cut in the denial gap
+- A correct result, sloppily carried, gets forgotten
+- One diagnostic for every artifact in a paper
+- Can a busy expert extract and believe it — fast?
+- Editor: ninety seconds. Referee: fifteen on a table.
+
+::: notes
+We compress the whole manuscript build into one lesson because the discipline is the same five times over. Every artifact in a paper — abstract, tables, figures, introduction, literature review — is engineered for the same reader and against the same diagnostic: can a busy expert, reading cold, extract your contribution and decide to believe it in the time they will give you? That time is brutally short — ninety seconds for an editor on the abstract, fifteen seconds for a referee on a table. We take the five in the order a reader meets them, with Maya carrying the worked example.
+:::
+
+## The Abstract Is a Contract
+
+- Not a summary — a contract with three readers
+- Editor: in scope? credible enough to send out?
+- Referee: is the design strong enough?
+- SSRN searcher: does this matter to my literature?
+- Five sentences satisfy all three without taxing any
+
+::: notes
+The folk theory says an abstract summarizes the paper. That theory produces the worst student abstracts — the ones that read like a table of contents: this paper studies X, we use data Z, we find an effect. The sharper reveal: the abstract is not a summary, it is a contract with three readers you will never meet, and the contract has five clauses. The editor reads it in ninety seconds asking, in scope, credible enough to send out? The referee reads it in three minutes asking, is the design strong enough? The S-S-R-N searcher reads the last sentence asking, does this matter to my literature? The five-sentence skeleton satisfies all three.
+:::
+
+## The Five-Sentence Skeleton
+
+- **Question** — verb that matches your design
+- **Setting** — data by proper noun, years, unit, universe
+- **Design** — strategy *and* the assumption that makes it work
+- **Finding** — sign, magnitude, precision in a parsable unit
+- **Why-it-matters** — a what-now, not a what-next
+
+::: notes
+Five sentences, each roughly fifty words. Sentence one, the Question — the relationship studied, with a verb that matches your design. Estimates the causal effect demands a causal design; documents and quantifies suit descriptive or forecasting work. A mismatch between verb and design is the most common reason a referee marks an abstract oversold. Sentence two, the Setting — the data by its proper noun, the years, the unit; H-M-D-A loan-level data for twenty-fourteen to twenty-twenty covering forty-seven million originations is a credential. Sentence three, the Design — the identification strategy and the assumption that makes it work; the sentence the referee weights most and students underweight. Sentence four, the Finding — the headline, with sign, magnitude, and precision in a parsable unit; one-point-four percentage points with a confidence interval is a headline someone can quote. Sentence five, Why-it-matters — a what-now, not a what-next; future research should explore X is the most forgettable ending in empirical economics.
+:::
+
+## Four Failure Modes
+
+- **Disappearing Finding** — sentence 4 has no number
+- **Method-Heavy** — more than one sentence names an estimator
+- **Literature-Review Opening** — subject is "a growing literature"
+- **Diffuse Conclusion** — sentence 5 is boilerplate
+- Each verb is honest about the kind of claim
+
+::: notes
+Four failure modes recur, each with a one-line diagnostic. The Disappearing Finding: sentence four has no number — can a reader tell a friend what you found? The Method-Heavy Abstract: more than one sentence mentions an estimator. The Literature-Review Opening: sentence one's subject is a growing literature rather than the question. The Diffuse Conclusion: sentence five is boilerplate — if I read only it, do I know what changes about the world? The skeleton survives across topics: Sam's sentence one uses documents, not estimates the causal effect, because Sam is making a forecasting claim, and the abstract is honest about which kind of claim it is.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The abstract is **not a summary — it is a five-clause contract** with an editor, a referee, and a searcher. Five sentences: Question, Setting, Design, Finding, Why-it-matters — each roughly fifty words, the verb matched to the design. Next: the table the referee turns to first.
+:::
+
+::: notes
+To summarize part one: the abstract is not a summary, it is a five-clause contract with three readers — editor, referee, and searcher. The five sentences are Question, Setting, Design, Finding, and Why-it-matters, each about fifty words, with the verb in sentence one matched to the design in sentence three. In part two we build the artifact the referee turns to first to verify your number — the publication-grade table.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## You're Done When… The Submission Checklist
+
+- Part 11 — the submission checklist as a pre-grade audit
+
+::: notes
+Welcome back to Lab Eight, part eleven of twelve. In part ten we handled the three live moves under a fatal critique. Now we close out the build with the submission checklist — the exact audit a referee, or Prof. Gao at the conference, would run, where a box is checked only when you can point at proof.
+:::
+
+## You're Done When… (Part 1)
+
+- Each box checked only when you can point at proof
+- Paper PDF compiles clean, no undefined references
+- No hard-coded results in `main.tex`
+- Grep finds only the year, never a coefficient
+- One-click rebuild from raw, no human in the loop
+
+::: notes
+Use this checklist. A box is checked only when you can point at the command output or the file that proves it — this is the exact audit a referee, or Prof. Gao at the conference, would run. First, the paper PDF compiles: latexmk dash-pdf, or tectonic, or Overleaf Recompile, produces main-dot-pdf with a clean exit and no undefined references, and the PDF has a title, abstract, the five sections, the input table, and the include-graphics figure. Second, no hard-coded results in main-dot-tex: grep it for a digit-dot-digit pattern, and it returns only the year or version, never a coefficient. Third, a one-click rebuild from raw: make-all, or python run-all-dot-py, runs pull, build, analysis, and compile with no human in the loop, on a clone that never ran before.
+:::
+
+## You're Done When… (Part 2)
+
+- Honesty test passes — `md5sum -c` shows byte-identity
+- SEED fixed, named, threaded, documented
+- No secrets, no licensed data in `git ls-files`
+- Talk fits in seven minutes, cut line pre-decided
+- Question prep done — each row tagged fatal or survivable
+
+::: notes
+Continuing the checklist. Fourth, the honesty test passes: make-clean and make-all regenerates everything, and m-d-five-sum dash-c shows the table dot-tex byte-identical, and the figure too with the metadata date pinned. Fifth, the seed is fixed and named: a single seed in config-dot-py, threaded through default-r-n-g, documented in the README as fixed before results, with no scattered or unseeded randomness. Sixth, no secrets and no licensed data: git-list-files shows no dot-env, no key files, no parquet, no CRSP or Compustat extract. Seventh, the talk fits in seven minutes, rehearsed at least three times, with the cut line pre-decided on a sticky note. Eighth, question prep is done: each threats-table row has a four-part answer, each tagged fatal or survivable, and your retreat position for the worst fatal critique is written out in full.
+:::
+
+## The Submission Is the Repository
+
+- Submission assembled: PDF, repo URL, deck, packet
+- Packet *verified* by a fresh-clone `make all`
+- The repo *is* the submission — no separate upload
+- The commit history is part of the grade
+- PAP tagged before results, deviations logged after
+
+::: notes
+The last checklist item: the submission is assembled — paper PDF, repo URL, the slide deck, and the replication packet verified by a fresh-clone make-all. And here is the crucial point: the repository you have been committing into since Lab Seven is the submission. There is no separate upload — what you push is what is graded. The commit history is part of the grade: the pre-analysis plan tagged before results, the deviations logged after. The repo is not where you store the submission; the repo is the submission, history and all.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The checklist is a **pre-grade audit** — every box backed by a command or file: clean compile, no hard-coded results, one-click rebuild, passing honesty test, fixed seed, no secrets, a seven-minute talk, finished question prep. The repo **is** the submission, history and all. Next: the capstone and the one sentence.
+:::
+
+::: notes
+To summarize part eleven: the submission checklist is a pre-grade audit, and a box is checked only when you can point at proof — a clean compile, no hard-coded results in main-dot-tex, a one-click rebuild from raw, a passing honesty test verified by m-d-five-sum, a fixed and documented seed, no secrets or licensed data in git-list-files, a seven-minute timed talk with a pre-decided cut line, and finished question prep with each row tagged fatal or survivable. The submission is assembled and verified by a fresh-clone make-all — and the repository itself is the submission, commit history and all, because what you push is what is graded. In part twelve we close the camp: how this maps to Assessment Eight, and the single sentence the whole camp existed to let you say.
+:::

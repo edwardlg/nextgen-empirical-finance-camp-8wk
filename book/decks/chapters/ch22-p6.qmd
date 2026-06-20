@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Gauss–Markov Theorem: OLS Is BLUE
+
+- Part 6 — stating Gauss–Markov and why it holds
+
+::: notes
+Welcome back to Gauss–Markov, part six of eight. In part five we found O-L-S's own variance but couldn't yet compare it to rivals. Now we state the theorem that does the comparing. We read the four letters of BLUE backward, state Gauss–Markov precisely, build the intuition, and sketch why it's true — with homoskedasticity doing the load-bearing work.
+:::
+
+## Read BLUE Backward
+
+- **E — Estimator** of $\boldsymbol{\beta}$: a recipe turning data into a guess
+- **U — Unbiased:** only recipes that aim true compete
+- **L — Linear:** $\tilde{\boldsymbol{\beta}} = \mathbf{C}\mathbf{y}$, with $\mathbf{C}$ from $\mathbf{X}$ not $\mathbf{y}$
+- OLS qualifies: $\mathbf{C} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'$
+- **B — Best:** minimum variance among all the survivors
+
+::: notes
+Read the four letters of BLUE backward, because that's the order in which they constrain the competition. E is for estimator of beta — some recipe that turns data into a guess. U is for unbiased — we only let estimators into the contest if they aim true, which bars the dart-throwers and the always-report-seven-point-five-percent cheats from Chapter one-point-three. L is for linear — we further restrict to estimators linear in y, recipes of the form beta-tilde equals C times y, for some matrix C that may depend on X but not on y. O-L-S qualifies, with C equal to the inverse of X-transpose-X times X-transpose. This club is large but not universal — it excludes nonlinear recipes like medians. And B is for best, meaning minimum variance: among everyone left standing, O-L-S has the smallest variance, for any linear combination of coefficients you care about.
+:::
+
+## The Theorem, and What's Absent
+
+- Under Assumptions 1–4, OLS is the **Best Linear Unbiased Estimator**
+- Smallest variance among all linear, unbiased competitors
+- **Normality (Assumption 5) is absent** — it's about variances, not shape
+- All archers aim true; OLS has the **tightest cluster**
+- Zero bias $\to$ MSE equals variance $\to$ min variance is min MSE
+
+::: notes
+Put it together. Under assumptions one through four — linearity, full-rank random sampling, zero conditional mean, and homoskedasticity — the O-L-S estimator is the Best Linear Unbiased Estimator of beta: among all estimators both linear in y and unbiased, it has the smallest variance. Notice the contract precisely: normality, assumption five, is absent. Gauss–Markov is a statement about variances, not distributional shape, so it doesn't need bell-shaped errors. That's why we filed normality as a separate add-on. The intuition: every linear unbiased estimator centers on beta, like a roomful of archers all aiming true. Gauss–Markov says O-L-S is the archer with the tightest cluster. Since all contestants have zero bias, mean-squared error equals variance for every one, so minimum variance is minimum M-S-E within the club. O-L-S gives the narrowest confidence intervals and most powerful t-tests available without leaving the linear, unbiased world.
+:::
+
+## A Sketch of Why It's True
+
+- Write any rival as OLS plus a detour: $\tilde{\boldsymbol{\beta}} = \hat{\boldsymbol{\beta}} + \mathbf{D}\mathbf{y}$
+- Unbiasedness for every $\boldsymbol{\beta}$ forces $\mathbf{D}\mathbf{X} = \mathbf{0}$
+- $\operatorname{Var}(\tilde{\boldsymbol{\beta}}\mid\mathbf{X}) = \sigma^2(\mathbf{X}'\mathbf{X})^{-1} + \sigma^2\mathbf{D}\mathbf{D}'$
+- The extra piece is **never negative** — tie only by $\mathbf{D}=\mathbf{0}$
+- Homoskedasticity is doing the **load-bearing work**
+
+::: notes
+A sketch of why it's true; the full proof is an appendix exercise, but the shape is worth seeing. Take any rival linear unbiased estimator and write it as O-L-S plus a detour: beta-tilde equals beta hat plus D times y, for some matrix D capturing how the rival differs. Demanding that beta-tilde be unbiased for every possible beta forces an algebraic condition: D times X equals zero — the detour must be orthogonal to the regressors. Compute the rival's variance, and that orthogonality makes the cross-terms vanish, leaving the O-L-S variance, sigma-squared times the inverse of X-transpose-X, plus an extra piece, sigma-squared times D times D-transpose. That extra piece is a sum of squares — it can be zero but never negative. The only way to tie O-L-S is to set D to zero, which makes you O-L-S. Any genuine deviation strictly adds variance. And homoskedasticity is doing the load-bearing work: it's what let us write the variance of epsilon as sigma-squared times identity so the cross-terms cleanly cancel. Break it, and a weighted estimator can beat O-L-S.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Gauss–Markov:** under Assumptions 1–4, OLS is BLUE — minimum variance among all linear, unbiased estimators. Normality is *not* required. Any rival's variance is OLS's variance *plus* a non-negative penalty $\sigma^2\mathbf{D}\mathbf{D}'$, zeroed only by being OLS. Next: the word "efficiency," and its traps.
+:::
+
+::: notes
+To summarize part six: reading BLUE backward — estimator, unbiased, linear, best — gives the contest and its winner. Under assumptions one through four, O-L-S is the Best Linear Unbiased Estimator, minimum variance in its club, and normality is not required. The proof writes any rival as O-L-S plus a detour D, shows unbiasedness forces D times X to zero, and lands on the rival's variance equal to O-L-S's variance plus a non-negative penalty — zeroed only by being O-L-S. Homoskedasticity makes that work. In part seven we name the property — efficiency — and walk through three cautions that keep it from being oversold.
+:::

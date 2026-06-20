@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Data and the Filters
+
+- Part 4 — the data sources and the filters that shape them
+
+::: notes
+Welcome back to Chapter six-point-two, part four of eight. In part three we finished the construction — cosine into a TNIC network, defended by a horse race against SIC. Now we look at the raw materials that feed the machine: where the text and the financials come from, and the filters that quietly shape the result. The lesson to carry: every filter is a decision, and every decision is a lever.
+:::
+
+## Where the Data Comes From
+
+- **Unit:** a firm-year — often a firm-*pair* in a year
+- **Text:** SEC **EDGAR** 10-Ks, Item 1 product descriptions
+- Universe of U.S. public filers, multi-decade window from mid-1990s
+- **Financials:** linked to **Compustat** and **CRSP**
+- Bridged via SEC identifiers — CIK to PERMNO and GVKEY
+
+::: notes
+Start with the unit of observation: a firm in a year, and in the network results, often a firm-pair in a year, since every pair gets a similarity score. The text is one ten-K per firm-year. The source of that text is SEC EDGAR, and the input is the Item One business and product-description section parsed out of each filing. The sample is the universe of U.S. public firms that file ten-Ks and match to financial data, over a multi-decade window beginning in the mid-nineteen-nineties, when EDGAR's electronic coverage becomes comprehensive. To run the economic outcomes — margins, profitability, market values — the text links to Compustat for fundamentals and CRSP for returns and market values, the workhorses you have used since Week One. The link runs through SEC identifiers, the CIK, bridged to PERMNO and GVKEY.
+:::
+
+## Filters Are Levers
+
+- A firm must have a usable, extractable description
+- Failed-parse or boilerplate-only filings drop out — a *selection*
+- Vocabulary is pruned: common words, likely proper nouns
+- So firms aren't "similar" for sharing "the" or naming "California"
+- The similarity **threshold** is itself a chosen knob
+
+::: notes
+Filters are decisions, and decisions are levers. The salient ones are these. First, a firm must have a usable, extractable product description — filings where the parser fails, or where the section is missing or pure boilerplate, drop out. That is a selection to keep in mind. Second, the vocabulary is pruned: common words and likely proper nouns — company names, geography — are filtered, so that two firms are not scored similar merely for both using "the" or both naming "California." Third, the similarity threshold that turns the continuous matrix into discrete industries is a chosen knob. Move it, and a firm's competitor count balloons or collapses. None of these choices is wrong, but each is a lever, and the paper's claims are only as stable as the choices behind them.
+:::
+
+## The Library That Outlives the Paper
+
+- Hoberg & Phillips published the computed TNIC industries
+- A **free, public data library** any researcher can download
+- You don't re-parse EDGAR — you pull theirs
+- Like using Fama–French factors without re-sorting portfolios
+- A *reusable measure* can outweigh any single regression
+
+::: notes
+Now the part that outlives the paper. Hoberg and Phillips published the computed TNIC industries — and related similarity measures — as a free, public data library that any researcher can download and merge into their own work. You do not re-parse EDGAR to use text-based industries; you pull theirs, the same way you use Fama-French factors without re-sorting portfolios yourself. Turning a measure into infrastructure others build on is much of why this paper is cited so heavily. And it carries the deeper capstone lesson: a reusable measure can outweigh any single regression you run with it. When you design your own project, ask not only what you find, but whether what you build could be useful to the next person.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The text is **Item 1** from **EDGAR 10-Ks**, linked to **Compustat** and **CRSP** through SEC identifiers, over a multi-decade window from the mid-1990s. Watch the filters — extractability, vocabulary pruning, and the similarity **threshold** — because each is a lever. The lasting gift is the **public TNIC library**, infrastructure others build on. Next: the smart order in which to read the tables.
+:::
+
+::: notes
+To summarize part four. The text is Item One from EDGAR ten-Ks, linked to Compustat and CRSP through SEC identifiers, over a multi-decade window from the mid-nineteen-nineties. Watch the three filters — extractability, vocabulary pruning, and the similarity threshold — because each is a lever that shapes the final neighborhoods. And the most consequential output is the free, public TNIC library: infrastructure that hundreds of later papers build on without re-deriving it. In part five we lay out the smart order in which to read this paper's tables — because, surprisingly, you do not start at the front.
+:::

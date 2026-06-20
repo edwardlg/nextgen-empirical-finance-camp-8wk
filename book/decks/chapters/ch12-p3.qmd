@@ -1,0 +1,50 @@
+---
+date: "2026-06-22"
+---
+
+## A Worked Example and the Algebra Rules
+
+- Part 3 — work a covariance by hand, collect three rules
+
+::: notes
+Welcome back to Chapter one-point-two, Expectations, Variance, and Covariance as Geometry, part three of nine. In part two we defined variance and covariance and learned to read covariance like a story. Now we make it concrete with a four-cell example, computing a covariance by hand, then collect three of the four algebra rules that carry almost everything in this book — scaling, bilinearity, and symmetry. These rules all follow from the definitions plus linearity of expectation.
+:::
+
+## A Four-Cell Example
+
+- Each asset returns $+10\%$ or $-10\%$; joint table below
+- $\mathbb{E}[R_1]=\mathbb{E}[R_2]=0$, $\operatorname{Var}=(0.10)^2=0.01$
+- Same-direction cells: $+0.008$; opposite cells: $-0.002$
+- $\mathbb{E}[R_1 R_2] = 0.006$, so $\operatorname{Cov} = 0.006 > 0$
+
+| | $R_2=+0.10$ | $R_2=-0.10$ |
+|---|---|---|
+| $R_1=+0.10$ | $0.40$ | $0.10$ |
+| $R_1=-0.10$ | $0.10$ | $0.40$ |
+
+::: notes
+A number, before any more Greek. Suppose two assets each return plus ten percent or minus ten percent, with the four-cell joint distribution shown. The diagonal cells, where both move the same way, each carry probability zero point four. The off-diagonal cells, where they move oppositely, each carry zero point one. Each asset is up half the time and down half the time, so the expected return of each is zero, and the variance of each is just the expected value of the return squared, zero point one zero squared, equal to zero point zero one. For the covariance we need the expected product of R one and R two. The two same-direction cells contribute zero point one times zero point one times zero point four, twice, giving plus zero point zero zero eight. The two opposite cells give minus zero point zero zero two. Adding gives the expected product zero point zero zero six. Since the means are zero, the covariance is zero point zero zero six, positive — the diagonal weight makes the assets move together. We reuse exactly this when we estimate covariances from real data, where probabilities become observed frequencies.
+:::
+
+## Three Rules From the Definitions
+
+- **Scaling:** $\operatorname{Var}(aX) = a^2 \operatorname{Var}(X)$; shifts do nothing
+- $\operatorname{Var}(X+c) = \operatorname{Var}(X)$ — $c$ moves $X$ and its mean alike
+- **Bilinearity:** $\operatorname{Cov}(aX{+}bY, Z) = a\operatorname{Cov}(X,Z) + b\operatorname{Cov}(Y,Z)$
+- **Symmetry:** $\operatorname{Cov}(X,Y) = \operatorname{Cov}(Y,X)$
+- Bilinearity makes covariance behave like a **product**
+
+::: notes
+Now three algebra rules, each following from the definitions plus linearity. First, scaling: the variance of a times X is a squared times the variance of X. The square is because variance is built from squared deviations — doubling X quadruples its spread in squared units. And a constant shift does nothing: the variance of X plus a constant equals the variance of X, because adding the constant moves X and its mean by the same amount, leaving every deviation unchanged. Second, bilinearity: covariance is linear in each argument. The covariance of a times X plus b times Y, with Z, equals a times the covariance of X with Z plus b times the covariance of Y with Z, and likewise in the second slot. Constants slide out, sums split apart. This is the property that makes covariance behave like a product — and, as we will see, like an inner product. Third, symmetry: the covariance of X and Y equals the covariance of Y and X. Order does not matter.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+We computed a covariance of $0.006$ from a four-cell table — the same arithmetic we'll later run on real returns. Three rules follow from the definitions: **scaling** ($a^2$), **bilinearity**, and **symmetry**. Next: the fourth rule, the variance of a sum, and the cross-term that drives diversification.
+:::
+
+::: notes
+To summarize part three: we computed a concrete covariance of zero point zero zero six from a four-cell table — exactly the arithmetic we will later run on real return histories. Then three algebra rules: scaling pulls out a squared constant and ignores shifts; bilinearity lets covariance split across sums and pull out constants in each slot, behaving like a product; and symmetry says order does not matter. In part four, we combine these into the fourth and most important rule — the variance of a sum — and meet the cross-term that is the entire seat of diversification.
+:::

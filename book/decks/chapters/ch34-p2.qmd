@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Problem IV Solves: An Endogenous Regressor
+
+- Part 2 — why OLS breaks and the three faces of endogeneity
+
+::: notes
+Welcome back to instrumental variables, part two of ten. In part one we framed the escape from conditional independence and stated IV in one plain sentence: the effect is the ratio of how Y moves with Z over how D moves with Z. Now we get exact about what is broken — why Maya cannot just run the clean regression — and we meet the three classic faces of endogeneity, all of which IV addresses.
+:::
+
+## Maya's Broken Regression
+
+- Causal model: $Y_i = \beta_0 + \beta_1 D_i + \varepsilon_i$
+- $D_i \in \{0,1\}$: completed the financial-literacy course
+- $\beta_1$ is the causal effect she wants
+- OLS needs $\mathbb{E}[\varepsilon_i \mid D_i] = 0$ — and it fails
+- Motivation drives both course-taking and good outcomes
+
+::: notes
+Let us write Maya's model. The outcome Y-sub-i is beta-naught plus beta-one times D-sub-i plus epsilon-sub-i. The treatment D-sub-i is one if person i completed the financial-literacy course, zero otherwise. Beta-one is the causal effect she is after — what completing the course does to debt, holding the person fixed. In potential-outcomes language, beta-one is the average of the unit-level effects Y-i-of-one minus Y-i-of-zero. For OLS to recover it, the zero-conditional-mean assumption from Chapter two-point-two must hold: the expected value of epsilon-sub-i given D-sub-i must be zero. It does not. The error contains everything about person i that affects their debt and is not the course — and the dominant such thing is financial motivation, the unmeasured tendency to budget, save, and avoid revolving debt. Motivated people both sign up for the course and have better outcomes anyway.
+:::
+
+## The Bias Term
+
+- Motivated people: $D_i = 1$ **and** low $\varepsilon_i$
+- So $\operatorname{Cov}(D_i, \varepsilon_i) < 0$ — they move together
+- OLS converges to truth **plus** a bias term:
+- $\hat{\beta}_1^{\text{OLS}} \xrightarrow{p} \beta_1 + \dfrac{\operatorname{Cov}(D, \varepsilon)}{\operatorname{Var}(D)}$
+- Same disease as omitted-variable bias — no column for motivation
+
+::: notes
+Because motivated people both take the course and have low errors, the regressor and the error move together: the covariance of D and epsilon is negative, and the expected error among the treated is below the expected error among the untreated. The regressor D-sub-i is endogenous. Run OLS and beta-one-hat converges in probability to the true beta-one plus a bias term — the covariance of D and epsilon divided by the variance of D. This is exactly the omitted-variable bias of Chapter two-point-five: motivation is a relevant variable, correlated with D, banished into the error. Maya cannot cure it by conditioning, because she has no column for motivation. Conditional independence, the engine of the previous two chapters, is precisely the assumption that no such unobserved confounder exists — and here it fails by construction.
+:::
+
+## Three Faces of Endogeneity
+
+- **Unobserved confounding**: a variable in $\varepsilon$ drives $D$ and $Y$
+- **Simultaneity / reverse causality**: $Y$ also causes $D$
+- **Measurement error**: noise attenuates the slope toward zero
+- All three: the fix is the **same**
+- Find variation in $D$ that is *not* contaminated
+
+::: notes
+Endogeneity has three classic faces, and you have met all of them. First, unobserved confounding — Maya's case: a variable hiding in the error drives both treatment and outcome. Motivation drives course-taking and debt. Second, simultaneity, or reverse causality: Y also causes D. A firm's crash risk might itself change how much investors want to short it, so short interest and crash risk are jointly determined — you cannot tell which way the arrow points by regression alone. Third, measurement error: from Chapter two-point-five, classical noise in a regressor mechanically correlates it with the error and attenuates the slope toward zero. A valid instrument for the true variable undoes the attenuation, because the instrument correlates with the truth but not with the noise. In all three, the fix is identical: find variation in D that is not contaminated. That uncontaminated variation is exactly what an instrument supplies.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+$D$ is **endogenous** when it correlates with the error, so OLS converges to $\beta_1$ plus a bias term. The three faces — unobserved confounding, reverse causality, measurement error — all share one cure: find variation in $D$ that the confounder cannot contaminate. That is the instrument's job.
+:::
+
+::: notes
+To summarize part two: an endogenous regressor correlates with the structural error, and OLS pays for it with a bias term — the covariance of D and epsilon over the variance of D. Endogeneity wears three faces: unobserved confounding, simultaneity or reverse causality, and measurement error. Maya's is the first, but all three yield to the same remedy — clean, uncontaminated variation in the treatment. An instrument supplies that variation. In part three we make the instrument earn its name: the two conditions it must satisfy, relevance and exclusion, and the deep asymmetry between them.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Contract, Part One: Assumptions 1 to 3
+
+- Part 2 — the first three clauses as testable claims
+
+::: notes
+Welcome back to Gauss–Markov, part two of eight. In part one we framed Maya's two questions and previewed the BLUE promise. Now we read the contract. Textbooks list the classical assumptions as abstract Greek; we state each as a falsifiable claim about Maya's loan data — true or false in principle — and flag what you'd see if it failed. Here are the first three.
+:::
+
+## Assumption 1 — Linearity in Parameters
+
+- True model: $\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}$
+- Linear in the $\beta$'s, **not** in the $x$'s
+- Free to add $x^2$, $\log(\text{income})$, interactions as columns
+- Forbidden: a coefficient in an exponent
+- Fails $\to$ U-shaped residuals; fixed in Chapter 2.3
+
+::: notes
+Assumption one: linearity in parameters. The true relationship is y equals X beta plus epsilon — y is a sum of the columns of X, each multiplied by a constant coefficient, plus an error. The often-misread word is parameters. The model must be linear in the betas, not in the x's. Maya is completely free to put income-squared, log of income, or an interaction term in as a column of X; the curve can bend however the world bends. What she may not write is something like y equals beta zero plus x to the beta-one power, where a coefficient sits in an exponent. If it fails — if the true relationship is curved and she fits a straight line — her residuals show a tell-tale U- or arc-shaped pattern against income. The fix lives this same week, in Chapter two-point-three: polynomial, log, and interaction terms.
+:::
+
+## Assumption 2 — Random Sampling, Full Rank
+
+- The $N$ loans are a representative draw
+- $\mathbf{X}$ has **full column rank** — no exact linear dependence
+- This is what lets $(\mathbf{X}'\mathbf{X})^{-1}$ exist
+- Fails $\to$ OLS is *undefined*, like dividing by zero
+- *Near* failure = **multicollinearity** (inflates variance)
+
+::: notes
+Assumption two: random sampling and no perfect collinearity. Two ideas travel together. First, the N loans are a representative draw from the population Maya cares about — the analogue of Priya's claims coming from the population whose mean she wants. Second, and this part is mechanical rather than statistical: the matrix X has full column rank. No column is a constant multiple of another, and no column is an exact linear combination of the others. That is what lets the inverse of X-transpose-X exist in the first place — without it the O-L-S formula is not biased, it is undefined, like dividing by zero. If Maya accidentally includes income in both dollars and thousands of dollars, one column is exactly a thousand times the other, the matrix is singular, and the software errors out or silently drops a column. Near failure — two highly but not perfectly correlated regressors — is multicollinearity, which doesn't bias anything but inflates variances. We diagnose it in Chapter two-point-three.
+:::
+
+## Assumption 3 — Zero Conditional Mean
+
+- $\mathbb{E}[\boldsymbol{\varepsilon}\mid\mathbf{X}] = \mathbf{0}$ — **the one that matters**
+- At every income level, the left-out stuff averages to zero
+- Errors can be large; just not *systematically* tied to $\mathbf{X}$
+- Fails $\to$ **omitted-variable bias** (the master fault)
+- Repaired in Chapter 2.5
+
+::: notes
+Assumption three: zero conditional mean. The expectation of epsilon given X equals zero. This is the one that matters — everything causal in the entire book turns on it, so read it slowly. It says whatever Maya did not put in her regression — call it the error epsilon — has average value zero for every possible configuration of the things she did put in. Pick any income level; among borrowers at that income, the stuff the model leaves out — credit history, existing debt, the loan officer's mood — must average to zero. The error can be large for any individual; it just can't be systematically related to the regressors. If borrowers with higher income also have better credit scores, which Maya didn't include, and credit independently lowers rates, then her income coefficient silently absorbs the credit effect. That is omitted-variable bias, the master fault, and it is the subject of Chapter two-point-five. We motivate it here and prove its damage there.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three clauses so far: **linearity in parameters** (curves allowed, just not coefficients in exponents), **full-rank random sampling** (so the inverse exists), and **zero conditional mean** — $\mathbb{E}[\boldsymbol{\varepsilon}\mid\mathbf{X}]=\mathbf{0}$, the one that controls truth itself. Next: the last two clauses.
+:::
+
+::: notes
+To summarize part two: the first three clauses of the Gauss–Markov contract. Linearity in parameters — the curve can bend, but no coefficient may sit in an exponent. Full-rank random sampling — a representative draw, with no exact linear dependence among columns, so the inverse exists. And zero conditional mean — the expectation of epsilon given X equals zero — the master clause that controls whether O-L-S aims at the truth at all. In part three we read the last two clauses, homoskedasticity and normality, and tie all five into a three-tier summary.
+:::

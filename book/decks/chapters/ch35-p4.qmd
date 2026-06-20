@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## The Pathology and the Ratio
+
+- Part 4 — the weak-instrument result, and why IV is a ratio
+
+::: notes
+Welcome back to Reading instrumental variables in the wild, part four of thirteen. In part three we finished the referee's checklist and pointed at the deepest failure, hiding inside relevance. Now we open it: the weak-instrument pathology. We state the result in one sentence — and it inverts every intuition you have — then build the first half of the why, from the simple fact that IV is a ratio.
+:::
+
+## The Result, In One Sentence
+
+- Weak first stage $\Rightarrow$ 2SLS is **biased toward OLS**
+- The very bias you reached for IV to escape
+- Conventional standard error is **too small**
+- Interval is centered wrong and **falsely narrow**
+- Worse than no instrument at all
+
+::: notes
+The result, in one sentence: when the first stage is weak — the instrument barely moves the endogenous regressor — two-stage least squares is biased toward the ordinary least squares estimate it was supposed to rescue you from, and its conventional standard error is too small, so you get a confidence interval that is both centered on the wrong place and falsely narrow about it. Read that twice, because it inverts every intuition you have. You reached for IV precisely because OLS was biased by endogeneity. A weak instrument quietly drags your IV estimate back toward that biased OLS number — it gives you the disease you were treating, while handing you a certificate of health. And it does the damage not by being noisy in an obvious way, a huge standard error you would respect, but by being confidently wrong: a tight interval around a contaminated point. That is why a weak instrument is worse than no instrument at all.
+:::
+
+## IV Is a Ratio
+
+$$\hat\beta_{\text{IV}} = \frac{\widehat{\operatorname{Cov}}(z, y)}{\widehat{\operatorname{Cov}}(z, x)}$$
+
+- Numerator: **reduced form** — how $z$ moves $y$
+- Denominator: **first stage** — how $z$ moves $x$
+- Weak first stage = dividing by a **near-zero** number
+- And that number is itself estimated with error
+
+::: notes
+Here is the intuition, and it comes straight from the structure of two-stage least squares. In the simplest one-instrument, one-regressor case, the IV slope is a ratio: the estimated covariance of z and y, divided by the estimated covariance of z and x. The numerator is the reduced form — how the instrument moves the outcome. The denominator is the first stage — how the instrument moves the treatment. IV is the effect of z on y, scaled up by how much z moves x. If a tiny nudge in z produces a tiny shift in y but only a very tiny shift in x, the ratio blows the small reduced-form signal up by the small first-stage denominator. Now watch what a small denominator does. You are dividing by a number that is close to zero and itself estimated with error.
+:::
+
+## First Catastrophe: A Wild Ratio
+
+- Ratio with a near-zero denominator has a **wild** distribution
+- Fat-tailed, skewed — nothing like the tidy normal
+- Conventional formula linearizes around the denominator
+- It badly **underestimates** the true spread
+- That is why the reported standard error is too small
+
+::: notes
+Two catastrophes follow from that small denominator. Here is the first. The sampling distribution of a ratio whose denominator hugs zero is wild — fat-tailed, skewed, nothing like the tidy normal that the conventional standard-error formula assumes. The standard formula linearizes around the denominator, treating it as if it were a fixed, comfortably-nonzero number, and so it badly underestimates the true spread of the estimator. That underestimate is exactly why the reported standard error comes out too small, and why the conventional confidence interval is too narrow. The estimator is genuinely far more uncertain than the formula admits — but the formula cannot see it, because it assumed away the very thing that makes a weak instrument dangerous. In part five we turn to the second, subtler catastrophe, which gives the bias its direction.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A weak first stage makes 2SLS **biased toward OLS** with a **falsely narrow** interval. The first reason: IV is a **ratio**, and a near-zero denominator makes the estimator's distribution fat-tailed and skewed — so the conventional formula underestimates the spread. Next: the deadly correlation that gives the bias its direction.
+:::
+
+::: notes
+To summarize part four: the weak-instrument pathology says a faint first stage makes two-stage least squares biased toward the ordinary least squares estimate you were trying to escape, while reporting a standard error that is too small — confidently wrong rather than honestly noisy. The first reason is structural: IV is a ratio, the reduced form over the first stage, and a weak instrument means dividing by a near-zero denominator that is itself estimated with error. That makes the estimator's distribution fat-tailed and skewed, so the conventional formula, which linearizes around the denominator, underestimates the true spread and reports too small a standard error. In part five, we meet the second catastrophe — the deadly correlation that pulls the bias toward OLS — and the memorable formula that captures it.
+:::

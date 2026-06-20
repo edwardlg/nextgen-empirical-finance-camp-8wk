@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## One Idea Per Slide
+
+- Part 4 — one idea per slide, and why tables fail live
+
+::: notes
+Welcome back to The Eight-Minute Presentation and the Replication Packet, part four of twelve. In part three we finished the six-beat arc with the headline, robustness, and contribution. Now we turn from the order of the slides to what goes on each one. Two rules govern that, and both respect a single fact: a live audience reads with their ears, not their eyes. This part is the first rule — one idea per slide — and why a regression table betrays it.
+:::
+
+## One Claim, One Piece of Evidence
+
+- A slide is one claim with one piece of evidence
+- Two ideas force the audience to choose — they choose wrong
+- The test: can you write the idea as the *title*?
+- A full sentence, not "Results" — the title *is* the idea
+- Six clean slides beat four crowded ones, every time
+
+::: notes
+First rule: one idea per slide. A slide is a single claim with a single piece of evidence for it. The instant a slide has two ideas, the audience has to choose which one to follow while you talk, and they will choose wrong, and you will lose them. The test is brutal and useful: if you cannot write the slide's one idea as the title — a full sentence, not a noun phrase — the slide is doing too much. "Results" is not a title. "The denial gap falls one-point-eight points after the regulation, and the fall is concentrated in algorithmic lenders" is a title, because it is the idea, and a reader who only reads your titles should still get the argument. Split anything that resists this. Six clean slides beat four crowded ones every time, because the crowded four cost you the room.
+:::
+
+## A Table Is Unreadable at Speed
+
+- Your paper's results live in a regression table
+- Correct — and unreadable from row eight in four seconds
+- An audience cannot scan a five-by-seven grid while you talk
+- So you do not show the table — you *translate* it
+- A table is for a reader; a figure is for a listener
+
+::: notes
+That rule has a sharp consequence, which is the reveal that separates a paper from a talk. In your paper, your results live in a regression table — the four-decimal, five-column, standard-errors-in-parentheses object that the style guide specifies down to the typography. That table is correct, and it is unreadable from row eight of a lecture hall in four seconds. A live audience cannot scan a five-by-seven grid of numbers while you speak; by the time they have found the coefficient you are talking about, you are three sentences past it. So you do not show the table. You translate it into a figure. The principle under everything that follows: a table is for a reader who can stop and study; a figure is for a listener who cannot. Same number, two encodings, each chosen for its medium — and the next part shows the translation, which is mechanical enough to learn once and use forever.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**One idea per slide** — one claim, one piece of evidence. The test: if you can't write the idea as a full-sentence *title*, the slide does too much, so split it. Six clean slides beat four crowded ones. And a regression table, however correct, is *unreadable at speaking speed* — a table is for a reader, a figure is for a listener. Next: the mechanical table-to-figure translation.
+:::
+
+::: notes
+To summarize part four: a live audience reads with its ears, so the first rule is one idea per slide — one claim with one piece of evidence. The test is whether you can write that idea as a full-sentence title; if you cannot, the slide is doing too much, so split it, because six clean slides beat four crowded ones every time. And the rule has a consequence: a regression table, however correct, is unreadable from the back of a hall in four seconds, so you do not show it — you translate it into a figure. A table is for a reader who can stop and study; a figure is for a listener who cannot. In part five we learn that translation, which is mechanical and one of the highest-leverage skills in this chapter.
+:::

@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Prompt Patterns — Extraction and Citation
+
+- Part 3 — precise extraction and cite-or-decline prompts
+
+::: notes
+Welcome back to the AI co-pilot for research, part three of fourteen. In part two we saw where the co-pilot helps and where it hurts. Now we build the guardrails, starting with the prompt itself. A prompt is an instruction, and the difference between a useful answer and a dangerous one is usually written into the instruction. The governing principle: a good empirical prompt constrains the model's degrees of freedom, while a bad one leaves room to improvise, flatter, or fabricate. Here are the first two of four reusable patterns.
+:::
+
+## Pattern 1 — Precise Extraction
+
+- **Bad:** "What can you tell me about its risk factors?"
+- Invites prose that varies; can't be parsed into a column
+- **Good:** extract one fact, return JSON, bound the length
+- Define the unsure case: return null, not a guess
+- Forbid inference — pull text that *is* there
+- Never synthesize text that *should* be there
+
+::: notes
+Pattern one, precise extraction. You want one fact from each of a thousand documents. The bad prompt — "what can you tell me about this company's risk factors?" — invites a paragraph that varies in structure, mixes the fact with editorializing, and cannot be parsed into a column; worse, it does not say what to do when the fact is absent, so the model invents. The good prompt says: from the 10-K text, extract the primary stated risk factor in ten words or fewer, and return only a J-S-O-N object; if there is no clear primary risk, return null; do not infer or add risks not explicitly stated. That fixes the output type to something parseable, bounds the length, defines the unsure case explicitly as null rather than a guess, and forbids inference. Each clause closes a door the model would otherwise wander through. Extraction should pull text that is there, never synthesize text that should be there.
+:::
+
+## Pattern 2 — Cite or Say You Don't Know
+
+- **Bad:** "What does the literature say about X?"
+- Produces real-looking authors, years, journals — some fiction
+- **Good:** answer from provided sources *only*
+- Quote the supporting sentence and the document ID
+- If not found, respond exactly: "Not supported"
+- Make "I don't know" the *correct* answer
+
+::: notes
+Pattern two, cite or say you don't know. The single most valuable instruction you can give is permission to admit ignorance. Models fabricate partly because their training rewards helpful-sounding completions; an empty "I don't know" looks unhelpful next to a confident paragraph, so you must explicitly make "I don't know" the correct answer. The bad prompt — "what does the literature say about whether 10-K sentiment predicts returns?" — produces a review with author names, years, and journals, some real, some plausible fiction, and you cannot tell which from the text. The good prompt says: using only the source documents provided, answer; quote the specific sentence that supports each claim and give its document I-D; if the sources do not contain the answer, respond exactly "not supported by the provided sources"; do not use outside knowledge. This fully works only when you actually provide the sources — which is what retrieval is for — but even without it, "if you are not sure, say so" measurably reduces fabrication. The deeper move is requiring a quotable, locatable citation for every claim, because a claim that must point to a specific sentence is one you can falsify in seconds.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Precise extraction** fixes the output format, bounds length, and defines the unsure case as null — never a guess. **Cite-or-decline** makes "I don't know" the correct answer and demands a quotable, locatable citation for every claim. Both close doors the model would wander through. Next: code review and rubric-based classification.
+:::
+
+::: notes
+To summarize part three: a good empirical prompt constrains the model. Pattern one, precise extraction, fixes a parseable output format, bounds the length, defines the unsure case as null rather than a guess, and forbids inference — pull text that is there, never invent text that should be there. Pattern two, cite or say you don't know, makes admitting ignorance the correct answer and requires a quotable, locatable citation for every claim, so each claim is falsifiable in seconds. In part four we cover the last two patterns: code review, which fights the model's agreeableness bias, and rubric-based classification, the one your capstone leans on hardest.
+:::

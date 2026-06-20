@@ -1,0 +1,57 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Verifying Orthogonality, and What's Next
+
+- Part 11 — verify residuals are perpendicular, then look ahead
+
+::: notes
+Welcome back to Lesson two-point-one, part eleven of eleven — the finale. In part ten we recovered Sam's beta by hand: an intercept of one and a slope of seven-sixths. This closing part verifies directly that the residuals behave exactly as the geometry promised — perpendicular to every regressor — and then looks ahead to the next lesson.
+:::
+
+## The Residuals
+
+- Fitted values $\hat y_i = 1 + (7/6)x_i$
+- $$\hat{\mathbf{y}} = \begin{pmatrix} -4/3 \\ 1 \\ 13/6 \\ 13/6 \end{pmatrix}, \quad \hat{\mathbf{e}} = \mathbf{y} - \hat{\mathbf{y}} = \begin{pmatrix} 1/3 \\ -1 \\ 5/6 \\ -1/6 \end{pmatrix}$$
+- Each residual is what the line could not capture that day
+
+::: notes
+Let us compute the residuals. The fitted values are one plus seven-sixths times the market return, evaluated at each day's market move. For the four days that gives minus four-thirds, one, thirteen-sixths, and thirteen-sixths. Subtract these from the actual stock returns and you get the residual vector: one-third, minus one, five-sixths, and minus one-sixth. Each residual is the part of that day's stock return the best-fitting line simply could not capture — the perpendicular leftover sticking out of the regressor plane. Now we check the two identities the normal equations guarantee, the ones we proved abstractly back in the orthogonality part. If the algebra is right, both should come out to exactly zero.
+:::
+
+## Both Checks Pass
+
+- Sum of residuals: $\tfrac13 - 1 + \tfrac56 - \tfrac16 = 0$ ✓
+- Orthogonal to market: $\sum x_i\hat e_i = -\tfrac23 + \tfrac56 - \tfrac16 = 0$ ✓
+- Residual is perpendicular to **both** columns of $\mathbf{X}$
+- The fit is the orthogonal projection of $\mathbf{y}$ onto the plane
+- `statsmodels` returns the same $(1.000,\ 1.167)$
+
+::: notes
+Check the two normal-equation identities. First, the residuals should sum to zero because the regression has an intercept. One-third minus one plus five-sixths minus one-sixth: combine the sixths, four-sixths is two-thirds, and one-third plus two-thirds is one, which cancels the minus one — exactly zero. Second, the residuals should be orthogonal to the market column. Take minus two times one-third, plus zero times minus one, plus one times five-sixths, plus one times minus one-sixth: that is minus two-thirds, plus five-sixths minus one-sixth, which is four-sixths or two-thirds — and minus two-thirds plus two-thirds is zero, on the nose. Both checks pass. The residual vector is perpendicular to both columns of X, the fit is the orthogonal projection of y onto the plane the two columns span, and the formula did precisely what the geometry said it would. The notebook reruns this in three lines of NumPy and confirms statsmodels returns the same coefficients, one point zero zero zero and one point one six seven.
+:::
+
+## The Whole Machine, in One Breath
+
+- Stack: $\mathbf{y} = \mathbf{X}\boldsymbol\beta + \boldsymbol\varepsilon$
+- Minimize SSR $\Rightarrow$ normal equations $\mathbf{X}'\mathbf{X}\hat{\boldsymbol\beta} = \mathbf{X}'\mathbf{y}$
+- Solve: $\hat{\boldsymbol\beta} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}$
+- Geometry: project $\mathbf{y}$ onto $\text{col}(\mathbf{X})$ via $\mathbf{H}$, residual via $\mathbf{M}$
+- Needs full column rank; OLS is an orthogonality machine
+
+::: notes
+Let us say the whole machine in one breath. A regression written one observation at a time stacks into y equals X beta plus epsilon. Ordinary least squares minimizes the sum of squared residuals, and by calculus or by geometry we get the same normal equations, X transpose X beta hat equals X transpose y, solved by beta hat equals the inverse of X transpose X, times X transpose y. Geometrically, OLS projects y onto the column space of X through the hat matrix, leaving a perpendicular residual through the residual maker — both symmetric and idempotent. All of it requires X transpose X to be invertible, which means X has full column rank. And the unifying idea across every part: OLS is an orthogonality machine, hunting for the coefficients that leave a residual perpendicular to every regressor.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Sam's residuals sum to zero and are orthogonal to the market — algebra and geometry agree exactly. The whole lesson reduces to one line, $\hat{\boldsymbol\beta} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}$, an orthogonal projection. Next lesson: is the fit any good — unbiased, and how uncertain?
+:::
+
+::: notes
+To summarize part eleven, and the whole lesson: Sam's residuals sum to exactly zero and sit perpendicular to the market column, so the algebra and the geometry agree on the nose. The entire lesson reduces to one line, beta hat equals the inverse of X transpose X, times X transpose y — and that line is an orthogonal projection of the data onto the space the regressors span. But notice what we have not asked: whether this fit is any good. Is beta hat unbiased? How uncertain is it? Those questions need assumptions about where the data came from, and they are exactly where the next lesson begins. Open the notebook, build this machine yourself in three lines of NumPy, and confirm it matches statsmodels to machine precision. See you in lesson two-point-two.
+:::

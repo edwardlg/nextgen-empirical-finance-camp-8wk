@@ -1,0 +1,57 @@
+---
+date: "2026-06-22"
+---
+
+## The Folk Rule, and the Two Laws Together
+
+- Part 7 — the folk rule, and the two laws' division of labor
+
+::: notes
+Welcome back to Chapter one-point-four, the Law of Large Numbers and the Central Limit Theorem, part seven of ten. In part six we watched the bell emerge from a skewed population by about N equals thirty. Now we ask why that thirty is only a folk rule, and then we read the two laws together to pin down exactly how their jobs differ — because students mix them up constantly.
+:::
+
+## The Folk Rule, and Why It's Only Folk
+
+- "$N\ge 30$" is a teaching crutch, **not a theorem**
+- Speed depends on **skew and tail weight** of the population
+- Symmetric, well-behaved: $N=5$ might already look normal
+- Savagely skewed: you might need **thousands** of observations
+- The rule quietly assumes your data are **not too wild**
+
+::: notes
+N at least thirty is a teaching crutch, not a theorem. How fast the bell arrives depends on how skewed and heavy-tailed the original population is. For a symmetric, well-behaved population, N of five might already look normal. For Priya's mildly skewed exponential, thirty is comfortable. For a savagely skewed population — one rare giant claim among thousands of zeros — you might need thousands of observations before the standardized mean looks normal. The folk rule quietly assumes your data are not too wild. Treat thirty as a rough comfort level for tame data, never as a guarantee.
+:::
+
+## The LLN Is About a Point
+
+- **LLN**: $\bar{x}$ collapses onto the single number $\mu$
+- If that were the whole story, $\bar{x}$ is essentially constant
+- Then there is **nothing left to do inference about**
+- No uncertainty to quantify — a dead end for statistics
+
+::: notes
+Now fix the division of labor between the two laws, because the rest of the book depends on keeping them straight. The Law of Large Numbers is a statement about a point: the sample mean collapses onto the single number mu. That is its entire content — where the estimate lands. But think about what that would mean if it were the whole story. For large N the sample mean would be essentially constant, pinned to the truth, and there would be nothing left to do inference about. No uncertainty to quantify, no error bars to draw, no confidence interval to build. If all we had was the Law of Large Numbers, statistics as a discipline of measuring uncertainty would have nothing to say once the sample got large. We need something that describes the cloud around the point before it fully collapses.
+:::
+
+## The CLT Keeps Inference Alive
+
+- **CLT**: *before* collapse, the cloud has a knowable shape
+- Zoom with a microscope of magnification $\sqrt{N}$
+- Dividing by $\sigma/\sqrt{N}$ *is* that microscope — you see $N(0,1)$
+- We know $\bar{x}$ is **near** $\mu$, and **how its misses are distributed**
+- That licenses "95% confident the mean is in this interval"
+
+::: notes
+The Central Limit Theorem is what keeps inference alive. It says that before the collapse is complete, the cloud around mu has a precise, knowable shape. Zoom in on the sample mean with a microscope whose magnification is the square root of N — which is exactly what dividing by sigma over the square root of N does — and you do not see a shrinking dot. You see a stable bell that never goes away. So hold both pictures: the Law of Large Numbers says the cloud shrinks toward a point, and the Central Limit Theorem says that under the microscope the cloud always looks like the standard normal. Put them together and you have the engine of frequentist statistics. We know the sample mean is near mu, and we know exactly how its misses are distributed. That second part is what lets us make calibrated statements like, I am ninety-five percent confident the true mean lies in this interval. Hold that thought: it is the literal subject of the next chapter.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+"$N\ge 30$" is a folk rule that assumes tame data, not a theorem. The **LLN** collapses $\bar{x}$ onto the point $\mu$; the **CLT** says that under a $\sqrt{N}$ microscope the cloud around $\mu$ stays a bell. Together they are the engine of inference. Next: when that engine breaks.
+:::
+
+::: notes
+To summarize part seven: the N at least thirty rule is a crutch that quietly assumes tame data, not a theorem — savagely skewed or heavy-tailed populations can need thousands of observations. And keep the two laws straight. The Law of Large Numbers is about a point: the sample mean collapses onto mu, and on its own it would leave nothing to do inference about. The Central Limit Theorem keeps inference alive: under a square-root-of-N microscope, the cloud around mu always looks like the standard normal. Together we know the sample mean is close to the truth and exactly how its misses are distributed — the engine of frequentist statistics. But every assumption in these theorems is load-bearing. In part eight we meet Devon, who is about to discover that averaging crypto returns breaks the engine.
+:::

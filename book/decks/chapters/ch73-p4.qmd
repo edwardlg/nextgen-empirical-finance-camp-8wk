@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Component One: Directional Hypotheses
+
+- Part 4 — component one: directional, numbered hypotheses
+
+::: notes
+Welcome back to The Pre-Analysis Plan, part four of twelve. In part three we saw the garden of forking paths and the cure: write the plan first. The short form has exactly five components, written in order, each forcing a specific honesty before the data can flatter you. Here is the first — hypotheses, stated directionally.
+:::
+
+## State What You Predict — and Which Way
+
+- Write down what you predict, *and which way*
+- Not "race is related to denial" — heads on any nonzero coefficient
+- "Minority applicants face *higher* denial, conditional on observables"
+- A direction earns a **one-sided** test — if the prior came first
+- Writing it down is the evidence the prior came first
+
+::: notes
+Component one: hypotheses, stated directionally. Write down what you predict, and which way. Not "race is related to denial" — that is a coin landing heads on any nonzero coefficient — but a directional claim: minority applicants face higher denial rates conditional on observables, and the gap is smaller for algorithmic lenders. Directional hypotheses are the honest default for a reason you proved in Chapter one-point-five: a directional claim commits you to a one-sided test, and you may only claim a one-sided test if the direction came from the science before you saw the data. Writing the direction in the plan is exactly the evidence that it did. If you genuinely have no prior — either way would be a finding — say so, and commit to a two-sided test. That is honest too; it just costs you the easier critical value, one-point-six-five instead of one-point-nine-six, which is the price of not having had a prior.
+:::
+
+## Number Them: Primary vs. Secondary
+
+- State hypotheses as numbered, falsifiable sentences
+- **H1** = primary: the project lives or dies on it
+- **H2, H3, …** = secondary: enrich the story; failure won't sink it
+- The numbering reappears in the multiple-testing plan
+- Deciding *which is primary, in advance* is consequential
+
+::: notes
+State the hypotheses as numbered, falsifiable sentences. Number them, because the numbering reappears in the multiple-testing plan. H-one is your primary hypothesis, the one the whole project lives or dies on. H-two, H-three, and so on are secondary — the ones that would enrich the story but whose failure would not sink it. Deciding which hypothesis is primary, in advance, is one of the most consequential choices in the whole plan, and we return to it when we build the multiple-testing plan in a later part. For now, the discipline is simply this: predict a direction, write it as a numbered sentence, and mark exactly one hypothesis as the one that matters most.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Component one states **directional, numbered hypotheses**: predict *which way* the coefficient goes, which earns you a one-sided test only because the prior was written down first. Mark exactly one — **H1** — as primary, the test the project lives or dies on. Next: writing the primary specification that tests it.
+:::
+
+::: notes
+To summarize part four: component one is directional, numbered hypotheses. You predict not just that an effect exists but which way it points, and writing that direction down before you see the data is exactly what earns you the easier one-sided test. State each hypothesis as a numbered, falsifiable sentence, and mark exactly one as primary — H-one, the test the project lives or dies on. That choice of primary will drive the multiple-testing plan later. In part five, we write component two: the single primary specification that tests H-one, naming all seven slots of the spec discipline.
+:::

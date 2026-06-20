@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## A Hierarchy of Bad Behavior: Student's t and Cauchy
+
+- Part 9 — the hierarchy from slow CLT to total failure
+
+::: notes
+Welcome back to Chapter one-point-four, the Law of Large Numbers and the Central Limit Theorem, part nine of ten. In part eight we saw fat tails poison Devon's average by violating the no-single-contribution-dominates clause. Now we make the danger precise. There is a hierarchy of bad behavior, and you must learn to locate your data on it — because "has a mean" is not the same as "the theorem bites quickly."
+:::
+
+## Mean and Variance Are Separate
+
+- A distribution can have a well-defined mean $\mu$...
+- ...and a **gigantic — or even infinite — variance**
+- Mean and variance are **separate integrals**
+- The first can converge while the second blows up
+- The **tail probabilities** decide which
+
+::: notes
+This is the distinction Devon needs, and it is subtle enough to deserve its own paragraph. A distribution can have a perfectly well-defined mean mu and still have a gigantic — or even infinite — variance. The mean and the variance are separate integrals; the first can converge while the second blows up. The tail probabilities are what decide it. How much weight sits far out in the tail determines whether the variance integral converges at all. So when you ask whether the Central Limit Theorem applies, the question is not merely does this distribution have a mean — it is does it have a finite variance, and that is a strictly harder bar to clear.
+:::
+
+## The Student's t Ladder
+
+- **Student's $t$** with $\nu$ degrees of freedom — a fat-tail stand-in
+- $\nu>2$ (e.g. $\nu=5$): finite variance, CLT holds but **slowly**
+- May need $N$ in the **hundreds or low thousands**, not 30
+- $\nu=2$: mean exists, **variance infinite** — no $\sigma$ to standardize by
+- The standardized-mean histogram **never settles** onto the bell
+
+::: notes
+A family of distributions that makes this concrete is the Student's t with nu degrees of freedom, which finance routinely uses as a stand-in for fat-tailed returns. For nu greater than two — say nu equals five, a common fit for daily equity returns — the variance is finite, so the Central Limit Theorem does eventually hold, but slowly. The tails are heavy enough that you might need N in the hundreds or low thousands, not thirty, before the standardized mean looks normal. For nu equals two, the mean still exists but the variance is infinite. The theorem's hypothesis is violated outright. There is no sigma to standardize by, and the standardized-mean histogram never settles onto the bell. So even within one family, a single parameter slides you from a slow theorem to no theorem at all.
+:::
+
+## The Cauchy: Where Even the LLN Fails
+
+- $\nu=1$ is the **Cauchy** distribution — the canonical horror story
+- Even the **mean** fails to exist; its integral does not converge
+- Mean of $N$ Cauchy draws = distribution of a **single** draw
+- Averaging a million is no better than looking at one
+- The **LLN itself fails** — "more data" is not a universal cure
+
+::: notes
+For nu equals one — the Cauchy distribution, the canonical horror story — even the mean fails to exist. The integral that should define mu does not converge. The sample mean of N Cauchy draws has the same distribution as a single draw: averaging a million is no more informative than looking at one. The Law of Large Numbers itself fails. So having a mean buys you, at most, the hope that the Law of Large Numbers works. It does not buy you a fast Central Limit Theorem, and if the variance is infinite it does not buy you the theorem at all. Devon's crypto returns live in the heavy but finite-variance zone — closer to a low-nu Student's t than to a normal — so his sample mean is eventually consistent and asymptotically normal, but eventually might require far more data than he has, and any confidence interval he builds from a few hundred observations is built on sand.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+"Has a mean" is not "the CLT bites quickly." With **Student's $t$**, $\nu>2$ the bell arrives slowly; at $\nu=2$ the variance is infinite and it never arrives; at $\nu=1$ (**Cauchy**) even the LLN fails. Devon's crypto sits in the heavy-but-finite zone — consistent, but only *eventually*. Next: the bell that refuses to form.
+:::
+
+::: notes
+To summarize part nine: there is a hierarchy of bad behavior, and you locate your data on it by the tail probabilities, because the mean and the variance are separate integrals. With a Student's t at nu above two, the variance is finite and the Central Limit Theorem holds but slowly — possibly needing thousands of observations. At nu equals two, the variance is infinite and there is no sigma to standardize by, so the theorem fails outright. At nu equals one, the Cauchy, even the mean fails to exist and the Law of Large Numbers itself collapses — averaging a million draws is no better than one. Having a mean buys only the hope that the Law of Large Numbers works; it does not guarantee a usable theorem. In part ten we watch the bell refuse to form, and ask what Devon should actually do.
+:::

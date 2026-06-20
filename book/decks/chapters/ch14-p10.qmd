@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Bell That Refuses to Form, and Where We're Going
+
+- Part 10 — the bell that refuses, and where the laws lead next
+
+::: notes
+Welcome back to Chapter one-point-four, the Law of Large Numbers and the Central Limit Theorem, part ten of ten, the finale. In part nine we laid out the hierarchy from slow convergence to outright failure. Now we watch the bell refuse to form, lay out what Devon should do, and look ahead to where the two laws carry us next.
+:::
+
+## See It: The Bell That Refuses
+
+- Rerun the part-six experiment with a fat-tailed population
+- Student's $t$, $\nu=3$: heavy tails, finite variance for $\nu>2$
+- At $N=30$ the histogram is **too peaked, too heavy in the tails**
+- Push $N$ into the **thousands** before it matches the bell
+- Same theorem, same standardization — drastically slower
+
+::: notes
+The simulation that makes this unforgettable is the experiment from part six, rerun with a fat-tailed population in place of the exponential. Devon uses a Student's t at three degrees of freedom — heavy enough to misbehave, but with a finite variance. Compare the picture to Priya's. With the exponential, N equals thirty already matched the bell. Here, at N equals thirty, the histogram is far too peaked in the middle and too heavy in the tails, because the occasional monster draw keeps throwing the sample mean far out. By N equals one hundred it is better but still off. You have to push N into the thousands before the histogram finally agrees with the dashed normal curve. Same theorem, same standardization, drastically slower convergence — the only thing that changed is the weight in the tails. For the pathological case, swap in the Cauchy and rerun the running-mean plot: the running average jumps around forever, never converging. That is the Law of Large Numbers failing in front of you.
+:::
+
+## What Devon Should Actually Do
+
+- **Plot the data and look at the tails** — the cheapest habit
+- Report and **quantify** fat tails rather than assuming normality
+- Lean on the **median** or other robust summaries
+- Use **far larger samples** before trusting a normal approximation
+- Later: standard errors that don't assume thin tails
+
+::: notes
+The point is not to make Devon give up; it is to make him honest about what his tools can promise. The practical responses, all of which you will meet later in the book, are these. Report that returns are fat-tailed and quantify it, rather than assuming normality. Lean on the median or other robust summaries that are not hostage to a single monster day. Use far larger samples before trusting a normal approximation. And when he builds standard errors, use ones that do not silently assume thin tails. The single most valuable habit is the cheapest: before trusting any average, plot the data and look at the tails. If the raw returns have fat tails or outliers that dwarf the bulk, treat every Central Limit Theorem based claim as provisional until you check whether the bell actually forms.
+:::
+
+## Where This Is Going
+
+- Two pillars: LLN lands $\bar{x}$ on the truth
+- CLT: the rescaled misses follow $N(0,1)$ — if tails allow
+- Hold onto $\dfrac{\bar{x}-\mu}{\sigma/\sqrt{N}}$
+- Next chapter: we **don't know** $\sigma$, we estimate it
+- Replacing $\sigma$ with $\hat\sigma$ gives **Student's $t$** — the $t$-test, the CI
+
+::: notes
+You now have the two pillars. The Law of Large Numbers guarantees that with enough honest data the sample mean lands on the truth. The Central Limit Theorem guarantees that the misses, rescaled by sigma over the square root of N, follow the standard normal bell — provided the data are not so fat-tailed that the bell never forms. Hold onto the standardized quantity, because the next chapter is built on it. In Chapter one-point-five we confront what we have been quietly cheating on: in real life we do not know sigma and must estimate it from the same sample. Replacing the true sigma with an estimate, sigma hat, turns that normal into a slightly fatter-tailed cousin — the Student's t distribution, the very family we just used to break the Central Limit Theorem — and from it we derive the t-test and the confidence interval.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+With a Student's $t$ population the bell needs $N$ in the *thousands*, not 30; with Cauchy the running mean never settles. Devon's fix: **plot the tails**, use robust summaries and bigger samples. Hold onto $\frac{\bar{x}-\mu}{\sigma/\sqrt{N}}$ — next chapter we estimate $\sigma$ and meet Student's $t$, the $t$-test, and the confidence interval.
+:::
+
+::: notes
+To summarize this finale: with a fat-tailed Student's t population the bell needs N in the thousands rather than thirty, and with the Cauchy the running mean never settles and the Law of Large Numbers fails outright. Devon's honest response is to plot the tails, quantify the fat-tailedness, lean on robust summaries like the median, and use far larger samples. You now hold the two pillars and the standardized quantity at the center of everything. In the next chapter we estimate sigma from the sample, which turns our normal into the Student's t distribution, from which we build the t-test and the confidence interval. That is the Law of Large Numbers and the Central Limit Theorem, shown not asserted. Well done.
+:::

@@ -1,0 +1,63 @@
+---
+date: "2026-06-22"
+---
+
+## Lab 2: Replicating Fama–MacBeth on CRSP
+
+**Learning objectives — by the end you can:**
+
+- State the two-pass Fama–MacBeth procedure precisely
+- Estimate time-series betas, then per-period cross-sectional slopes
+- Aggregate slopes into the FM estimate and standard error
+- Recover a planted premium from synthetic data
+
+::: notes
+Welcome to the Week Two lab, the capstone of the whole week. Across chapters two-point-one through two-point-four you rebuilt ordinary least squares from the floor up: the design matrix, the normal equations, the Gauss–Markov guarantees, and — the part that earns its keep today — the honest sandwich variance and the idea that correlated errors make naive standard errors lie. Now you put all of it to work on the single most famous estimation procedure in empirical asset pricing. In this first part we frame the question and lay out how the lab is built.
+:::
+
+## The Question, Scaled Up
+
+- Sam ran one stock on the market, got one beta
+- Now: across all stocks, do high-beta ones earn more?
+- CAPM says yes — by exactly the market risk premium $\lambda$
+- Relates a cross-section of returns to a cross-section of betas
+- Must survive: every stock shoved by the same monthly shock
+
+::: notes
+The question is Sam's, scaled up. Back in chapter two-point-one, Sam ran one regression of one stock's return on the market and got one beta — a number for how much his stock moves when the market moves one percent. The natural next question launched a thousand papers: across all stocks, do the high-beta ones actually earn higher average returns? The Capital Asset Pricing Model, CAPM, says yes, and it says exactly how much — the extra expected return per unit of beta should equal the market risk premium, lambda. Testing that means relating a cross-section of average returns to a cross-section of betas, and doing it so the standard errors survive the fact that in any given month, every stock's return is shoved around by the same market-wide shock.
+:::
+
+## Fama and MacBeth's Trick
+
+- 1973 procedure, still the default fifty years later
+- Run the cross-sectional regression separately each period
+- Treat the slope estimates as a little time series
+- Its mean is your answer; its scatter gives a free standard error
+- That scatter handles within-month correlation automatically
+
+::: notes
+Eugene Fama and James MacBeth solved this in nineteen seventy-three with a procedure so clean it is still the default fifty years later — published in the Journal of Political Economy, volume eighty-one. Their trick, and it is a trick in the reveal-the-trick sense, is to run the cross-sectional regression separately in each time period, then treat the resulting sequence of slope estimates as a little time series whose mean is your answer and whose scatter gives you a standard error for free. That standard error automatically handles the within-month cross-sectional correlation that would otherwise wreck you. By the end of this lab you will have built the whole two-pass machine, run it, and — because you plant a known premium in synthetic data — checked that it recovers the truth.
+:::
+
+## Two Paths Through the Lab
+
+- CRSP monthly returns are licensed — stay on GMU infrastructure
+- **Path A:** real CRSP via WRDS, read-only on Hopper
+- No CRSP numbers ever copied into these notes
+- **Path B:** seeded synthetic panel, same schema, known premium
+- Every student does Path B; Path A is the "for real" extension
+
+::: notes
+A note on data, because it governs how the lab is structured. The canonical Fama–MacBeth test runs on CRSP monthly stock returns, and CRSP is licensed. Per the Conventions, licensed data stays on GMU infrastructure: you may only touch it read-only on Hopper or the WRDS Cloud, and no CRSP numbers ever get copied into these notes. So the lab has two paths. Path A is the real CRSP pull via WRDS — the connection pattern, the exact query, and a pinned snapshot date — run only on GMU infrastructure, with no output printed. Path B is a fully self-contained, seeded simulation with the same schema and a known planted risk premium. It runs anywhere, with no credentials. Every student completes the full two-pass estimation on Path B; Path A is the do-it-for-real extension.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Fama–MacBeth answers a cross-sectional question — do high-beta stocks earn more? — by running one cross-sectional regression **per period** and averaging the slopes. The scatter of those slopes is a free, honest standard error. Next: the two-pass method, written out with the math.
+:::
+
+::: notes
+To summarize part one: Fama–MacBeth tackles a cross-sectional question — do high-beta stocks earn higher average returns? — by running one cross-sectional regression per period and averaging the resulting slopes. The scatter of those slopes hands you a free and honest standard error that already digests the within-month common shock. We work in two paths: a licensed Path A on real CRSP, and a synthetic Path B with a planted premium that every student runs. In part two, we get the two-pass procedure straight on paper, with all the math.
+:::

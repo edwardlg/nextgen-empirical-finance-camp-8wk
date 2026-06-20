@@ -1,0 +1,62 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Eight-Minute Talk: Hook and Design
+
+- Part 3 — the talk's first two beats: the hook and the design slide
+
+::: notes
+Welcome back to The Talk, the Poster, the Defense, part three of twelve. In part two we audited the packet and built the anticipated-questions matrix. Now we open the talk itself. Eight minutes is not a short version of a long talk — it is a different object, with room for one idea, defended cleanly. The arc is six beats, one slide each, about a minute per slide. In this part we cover the first two beats: the hook and the design slide.
+:::
+
+## The Arc and Its Two Rules
+
+- Six beats, one slide each, about a minute per slide
+- Hook, question, design, identification, result, threats, ask
+- **One idea per slide** — write the idea as the slide's title
+- If you can't fit it in a full-sentence title, it's too much
+- **Translate every table into a figure** for a listener
+- A table is for a reader who can stop; a figure for one who can't
+
+::: notes
+Eight minutes has room for exactly one idea, defended cleanly. The arc is six beats, one slide each, roughly a minute per slide: hook, then question, then design, then the identification punchline, then the headline result, then threats, then contribution and the ask. Two rules govern every slide. First, one idea per slide: if you cannot write the idea as the slide's full-sentence title, it is doing too much. Second, translate every table into a figure. A table is for a reader who can stop and study it; a figure is for a listener who cannot. The figure-versus-table catalog lives in Chapter eight-point-five. Here we walk the microstructure of each beat.
+:::
+
+## The Hook Is the First Sentence
+
+- The hook is a sentence, **not a slide title**
+- Most expensive sentence — the room decides in ten seconds
+- Contains a **number or a name**, not an abstraction
+- The room cannot argue with a number — it's a fact to explain
+- Twelve to twenty words, one breath
+- Write it for the nervous mouth, which makes short sentences
+
+::: notes
+The hook is the first sentence, not a slide title. It is the most expensive sentence of the talk, because the room decides whether to listen in the first ten seconds. It contains a number or a name, not an abstraction, because the room cannot argue with a number yet — it is just a fact to be explained. One student's hook, after three drafts: if the first thirty minutes of trading on the New York Stock Exchange go up, the last thirty minutes go up, and you can bet on this every day for thirty years and it still pays — and we don't know why. That is twelve to twenty words, one breath. Write it for the nervous mouth, which produces short sentences under pressure.
+:::
+
+## Design Names the Comparison in One Sentence
+
+- One sentence, one small picture — **never the regression equation**
+- Nobody reads a fixed-effects equation in sixty seconds
+- The sentence version *is* the equation, decoded for ears
+- "Compare a token's volatility before and after its ETF launches…"
+- "…against similar tokens that never got one, in the same month"
+- The one notation that travels: the **unit of variation** grid
+
+::: notes
+The design slide names the comparison in one sentence, with one small picture, and never the regression equation. Nobody reads a difference-in-volatility equation full of fixed effects and a coefficient vector from row eight in sixty seconds. The slide gets the sentence version. One student's: we compare a token's volatility before and after its spot exchange-traded fund launches, against similar tokens that never got one, in the same month. That sentence is the equation, decoded for ears. The one piece of notation that travels is the unit of variation — a small grid showing what is compared to what, with what absorbed by fixed effects.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Eight minutes holds **one idea**, in six beats, governed by two rules: one idea per slide, every table a figure. The **hook** is a number the room can't yet argue with. The **design** slide is the equation decoded into one sentence, carrying only the unit of variation. Next: the identification punchline and the headline result.
+:::
+
+::: notes
+To summarize part three: eight minutes is a different object with room for one idea, told in six beats, under two rules — one idea per slide, and every table translated to a figure. The hook is the first sentence, carrying a number the room cannot yet argue with. The design slide names the comparison in one sentence and never shows the regression equation, carrying only the unit-of-variation grid. In part four we cover the load-bearing identification slide and the headline result.
+:::

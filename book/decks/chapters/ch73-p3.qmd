@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Garden of Forking Paths
+
+- Part 3 — how reasonable choices multiply into many hidden tests
+
+::: notes
+Welcome back to The Pre-Analysis Plan, part three of twelve. In part two we saw that twenty tests give a sixty-four percent chance of a fluke. Maya never ran twenty explicit tests — so how does the danger reach her? Through the garden of forking paths, and the simple cure that closes it.
+:::
+
+## The Garden of Forking Paths
+
+- Maya did not run twenty tests — she made choices
+- Five binary forks give $2^5=32$ specifications
+- Each fork doubles the paths to a starred result
+- With the outcome in view, she is *pulled* down the helping branch
+- Gelman's garden: more insidious than explicit p-hacking
+
+::: notes
+Connect the arithmetic to Maya's afternoon. She did not consciously run twenty tests. But every "maybe" in her thicket — drop small lenders or not, winsorize or not, quadratic loan-to-value or not, purchase-only or not, cluster by lender or county — is a fork in the road, and each fork doubles the number of paths to a starred result. Five binary choices give two to the fifth, thirty-two specifications. Even if the true conditional gap is exactly zero, the probability that at least one of thirty-two crosses below zero-point-zero-five is enormous. And because she walked the forks with the outcome in view, she did not pick a path at random; she was pulled, at each fork, toward the branch nudging the coefficient her way. This is Andrew Gelman's garden of forking paths, and it is more insidious than classic p-hacking because it needs no twenty explicit regressions — only a sequence of reasonable, outcome-aware choices in a single analysis. The number of tests you really ran is the number of paths you would have been willing to take, and that number is invisible unless you wrote it down in advance.
+:::
+
+## You Cannot Fish in a Nailed-Down Pond
+
+- Last week's version: prompt-induced p-hacking (6.5)
+- Rewrite the rubric until labels give the result you wanted
+- A PAP freezes *every* fork before outcomes are visible
+- Write the spec *first* — the thirty-two forks collapse to **one**
+- Everything after is still allowed, but labeled exploratory
+
+::: notes
+You met the AI-era version of this last week. In Chapter six-point-five, the danger was prompt-induced p-hacking: because a language model's label column depends on the prompt, you can rewrite the rubric until the labels produce the regression result you wanted, then report the lucky prompt. Same disease, new vector — the prompt wording is just one more fork in the garden, an unusually easy one to fiddle with. The defense there was to freeze the rubric against a gold set before looking at the downstream coefficient. A pre-analysis plan generalizes that defense to your entire design: freeze every fork — outcome, controls, sample, clustering, prompt — against your stated hypotheses, before the outcomes are visible. The mechanism is embarrassingly simple, and it is the whole trick: you cannot fish in a pond whose boundaries you nailed down before you knew where the fish were. If Maya writes, in a dated file, her primary outcome, her clustering, her sample, her winsorizing — before she sees a single coefficient — the thirty-two forks collapse to one confirmatory test, whose p-value means what Chapter one-point-five said it means. Everything she tries afterward is still allowed and valuable, now labeled honestly as exploratory: a generator of new hypotheses for the next study.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The garden of forking paths means **outcome-aware choices multiply your effective tests** — five binary forks are thirty-two specifications — without ever running twenty explicit regressions. The cure is mechanical: you cannot fish in a pond whose boundaries you nailed down first. Write the plan, and the forks collapse to **one** test. Next: the five components.
+:::
+
+::: notes
+To summarize part three: Maya's reasonable, outcome-aware choices are forks, and five binary forks are thirty-two specifications — the garden of forking paths, which needs no explicit multiple regressions, only a steered walk through a single analysis. The same trap appeared last week as prompt-induced p-hacking. The cure is mechanical: you cannot fish in a pond whose boundaries you nailed down before you knew where the fish were. Write the plan first, and the forks collapse to one confirmatory test, with everything else labeled honestly as exploratory. In part four, we start building that plan, beginning with component one — directional hypotheses.
+:::

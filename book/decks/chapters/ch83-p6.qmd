@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Results and Robustness
+
+- Part 6 — lead with the headline, turn threats into persuasion
+
+::: notes
+Welcome back to Writing the Empirical Paper, part six of nine. In part five we covered the data and design sections, where the identifying assumption goes front and center. Now we present the evidence itself — the results section that leads with the headline table — and then convert your threats table into the robustness section that persuades a skeptical reader.
+:::
+
+## The Results Section: Lead With the Headline
+
+- Open with the **single table** holding your main estimate
+- Walk it in prose: sign, magnitude **in human units**, precision
+- "A fifth of the pre-period gap" — not just a number
+- Cardinal sin: the **data dump** of eight equal tables
+- You found it for them in the intro — do it again here
+
+::: notes
+The results section leads with the headline table. Open with the single table that contains your main estimate — for Maya, the overall average treatment effect and the event-time profile from a clean estimator. Walk the reader through it in prose: point at the coefficient, state its sign, its magnitude in units a human can feel — one-point-eight percentage points, "a fifth of the pre-period gap," not just a number — and its statistical precision. The cardinal sin here is the data dump: a results section that presents eight tables with equal weight and lets the reader find the important one. You found it for them in the introduction; do it again here. Lead with the headline, then present the supporting and secondary results.
+:::
+
+## Significance Is Not Importance
+
+- Interpret it **economically** before anything else
+- Is the effect big enough to **matter**, not just to be significant?
+- A coefficient can be **three-starred and trivial**
+- The **stars cannot carry** the economic meaning
+- Your **prose** must carry it
+
+::: notes
+One distinction governs the whole results section: significance is not the same as importance. After you point at the headline coefficient, interpret it economically — is the effect big enough to matter, not just big enough to be statistically significant? A coefficient can be three-starred and economically trivial; statistical precision tells you the estimate is not noise, but it says nothing about whether the magnitude means anything in the world. The stars cannot carry the economic interpretation. Your prose must. That is why we insist on units a human can feel — one-point-eight percentage points, a fifth of the pre-period gap — rather than a bare coefficient. A reader should finish your headline paragraph knowing not only that the effect is real but whether it is large enough to change how anyone thinks or acts.
+:::
+
+## Robustness: Threats Table Into Persuasion
+
+- You already did the work in Chapter 8.2
+- Present checks as **answers to named threats**, not a pile
+- Mirror the **threats-and-responses** table from your memo
+- Each subsection: one threat, the check, the residual concern
+- Organize around the **reader's doubts**, in attack order
+
+::: notes
+The robustness section converts your threats table into persuasion. You already did the work in Chapter eight-point-two — the placebos, the alternative standard errors, the bandwidth and control and sample perturbations, the Oster delta for selection on unobservables. The writing task is to present those checks as answers to the specific threats your design section raised, not as a context-free pile of extra regressions. The organizing move is to mirror the threats-and-responses table from your identification memo: each subsection takes one named threat and shows the check that addresses it, with the residual concern stated plainly. "A reader might worry the result is driven by anticipation; we re-estimate excluding the year before adoption and the effect is unchanged." That sentence names the threat, reports the check, and states the reassuring result — in the reader's order, the order in which they would attack the paper. Robustness sections that persuade are organized around the reader's doubts, not the author's available regressions. A check no one asked for persuades no one.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **results** section leads with the headline table and interprets it in human units — **significance is not importance**. The **robustness** section presents each check as the answer to a named threat, in the reader's attack order. Next: the conclusion and causal-language discipline.
+:::
+
+::: notes
+To summarize part six: the results section leads with the headline table, walks it in prose with the magnitude in human units, and never confuses statistical significance with economic importance — the stars cannot carry the meaning, your prose must. The robustness section turns your threats table into persuasion, presenting each check as the answer to a named threat, organized in the reader's attack order. In part seven we close the paper's argument with a conclusion that recalibrates rather than recaps, and confront the discipline that runs through every section — matching your verbs to your evidence.
+:::

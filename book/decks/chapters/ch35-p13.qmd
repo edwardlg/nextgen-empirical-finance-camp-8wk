@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Where This Goes Next: From Instruments to Designs
+
+- Part 13 — the shape of Week 3 and Week 4's design-based methods
+
+::: notes
+Welcome back to Reading instrumental variables in the wild, the finale, part thirteen of thirteen. In part twelve we drew the deep moral: a two-stage least squares standard error cannot certify its own instrument. Now we step back to see the shape of Week three and look ahead to the design-based methods of Week four.
+:::
+
+## What Week 3 Built
+
+- Rebuilt causal inference on **potential outcomes**
+- Selection-on-observables: bets you measured the confounders
+- Instrumental variables: finds **exogenous variation** instead
+- Three ways IV breaks: weak, exclusion, many-instrument bias
+- Three tools that catch them: first-stage and effective $F$, AR, overid
+
+::: notes
+Step back and see the shape of what you have learned. Week three took the regression machine of Week two — which Chapter two-point-five showed could be confidently, precisely wrong — and rebuilt causal inference on the potential-outcomes framework, then gave strategies for earning a causal number. Selection-on-observables bets that you have measured the confounders and adjusts for them. Instrumental variables gives up on measuring confounders and instead finds a source of exogenous variation to identify the effect for compliers, if relevance and exclusion hold and the first stage is strong. You now know the three classic ways IV breaks — weak instruments, exclusion violations, and many-instrument bias — and the three tools that catch them: the first-stage and effective F, the Anderson–Rubin interval, and the overidentification test. Each strategy trades one heroic assumption for another, and the art is knowing which assumption your setting can support.
+:::
+
+## Week 4: Design-Based Methods
+
+- Week 3 leaned on a single cross-section and one strong assumption
+- Week 4 exploits **structure in the data itself**
+- **Difference-in-differences:** panels, each unit its own control
+- **Regression discontinuity:** a sharp cutoff as a local experiment
+- **Synthetic control:** a bespoke counterfactual from a blend
+
+::: notes
+But notice what every Week three method has in common: each leans on a single cross-section and a strong, often untestable assumption — conditional independence for matching, exclusion for IV. Week four changes the game by exploiting structure in the data itself to weaken those assumptions. Difference-in-differences uses panels, the same units observed before and after a treatment, so each unit serves as its own control, differencing away every fixed confounder you never measured. Regression discontinuity exploits an arbitrary cutoff — a credit score of exactly six-twenty, a test score of exactly seventy — where units just above and just below are as-good-as-randomly assigned, a local experiment at the threshold. Synthetic control builds a bespoke counterfactual for a single treated unit from a weighted blend of untreated ones. These are design-based methods: credibility comes from the shape of the natural experiment, not from a list of controls or the validity of an instrument.
+:::
+
+## You Can Now Read IV Like a Referee
+
+- Name the triple; check relevance and exclusion
+- Spot the weak-instrument pull toward OLS
+- Demand the Anderson–Rubin interval and read its shape
+- Distrust a high $F$ won by many weak instruments
+- Week 4 hands you sharper designs — read those critically too
+
+::: notes
+You can now read an IV paper like a referee. You name the triple, check relevance through the first-stage and effective F, and defend or attack exclusion with an argument about back-door channels. You spot the weak-instrument pull toward ordinary least squares, demand the Anderson–Rubin interval, and read its shape — bounded, unbounded, or empty. You distrust a high F manufactured by piling up many weak instruments. Devon, who began this chapter ready to be impressed by a tight standard error and three dense stars, now knows to ask the questions the abstract hoped he would not. Week four hands you sharper designs that need fewer leaps of faith — difference-in-differences, regression discontinuity, and synthetic control — and asks you to read those just as critically.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Week 3 earned causal numbers from a single cross-section under strong assumptions — and IV's failure modes taught you to verify, not trust. **Week 4** trades that for **design-based** methods — difference-in-differences, regression discontinuity, synthetic control — whose credibility comes from the *shape of a natural experiment*. Read those as critically as you now read IV.
+:::
+
+::: notes
+To close Reading instrumental variables in the wild: Week three rebuilt causal inference on potential outcomes and gave you two strategies for earning a causal number — selection-on-observables and instrumental variables — each trading one heroic assumption for another. You learned the three ways IV breaks, the three tools that catch them, and how to read an IV paper like a referee, naming the triple, checking the first stage, demanding the Anderson–Rubin interval, and distrusting instruments piled up to inflate an F. But every Week three method leans on a single cross-section and a strong, often untestable assumption. Week four changes the game with design-based methods — difference-in-differences, regression discontinuity, and synthetic control — where credibility comes from the shape of a natural experiment rather than a list of controls or the validity of an instrument. Read those just as critically. That is where the camp goes next.
+:::

@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Gate Three: Surviving the Search
+
+- Part 3 — multiple testing, and why real is not causal
+
+::: notes
+Welcome back to Mentor Session one, part three of four. In part two we separated significance from effect size at gate two, and insisted on reporting the estimate with its confidence interval. Now the hardest gate of all — gate three — the one that sends most so-called findings to the graveyard. After we walk through it, we will name a fourth thing lurking behind all three gates, one that even a clean pass cannot give you.
+:::
+
+## Gate Three: Would It Survive the Search?
+
+- Test twenty worthless rules, report the one with $p<0.05$
+- Then a $64\%$ chance at least one looked significant
+- $1 - 0.95^{20} \approx 0.64$ — by pure luck
+- The reported p-value is then a **lie**
+- It pretends the other nineteen attempts never happened
+- First question: *how many things did you try?*
+
+::: notes
+Gate three asks: would the effect survive the search that found it? Here is the trap. Suppose you test twenty worthless rules — all genuinely null — and you report the single one that came back with a p-value below zero-point-zero-five. Under a true null, a p-value falls below five percent five percent of the time, just by chance. Run that gamble twenty independent times and the probability that at least one rule looks significant by pure luck is one minus zero-point-nine-five raised to the twentieth power — about sixty-four percent. So more likely than not, at least one dead rule will hand you a shiny result, and you will have reported a coin flip as a discovery. The reported p-value is then a lie, because it pretends the other nineteen attempts never happened. This is why the first question a serious reader asks of any result is not "what was the t-statistic?" but "how many things did you try before you found this one?" A finding has to survive not just one test, but the whole search that surfaced it.
+:::
+
+## The Fourth Thing: Real Is Not Causal
+
+- Passing all three gates: the number is *real and large*
+- It does **not** tell you the number is *causal*
+- Maya's loan-approval gap: too big to be noise
+- Large enough to harm; not an artifact of many pairings
+- But *why* the gap exists — that is **identification**
+- "Is this a finding?" $\neq$ "what does it mean?"
+
+::: notes
+There is a fourth thing lurking behind all three gates, and it is worth naming even though we will not formalize it until later. Passing the gates tells you a number is real and large — it does not tell you the number is causal. Take Maya's case: she finds a gap in loan-approval rates between two neighborhoods. Walking that gap through the three gates establishes that it is too big to be noise, large enough to harm real borrowers, and not just an artifact of trying many neighborhood pairings. What it does *not* establish, by itself, is *why* the gap exists. That "why" is the work of identification, which the rest of the camp is largely about. So keep the questions separate. "Is this a finding?" and "what does this finding mean?" are different questions — and collapsing them is exactly how confident people end up confidently wrong. Even a number that clears all three gates is a *measured* finding, not yet an *explained* one.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Gate three** asks whether an effect survives the search that found it: twenty dead rules give a $\approx 64\%$ chance of a spurious "winner," so always ask *how many things did they try?* And a fourth caution behind all three gates — clearing them proves a number is **real and large**, not **causal**. "Is this a finding?" and "what does it mean?" stay separate. Next: assembling the gauntlet on a real published result.
+:::
+
+::: notes
+To summarize part three: gate three asks whether an effect survives the search that produced it. Test twenty worthless rules and report the best, and there is a roughly sixty-four percent chance one looks significant by pure luck — so the reported p-value becomes a lie unless you account for the search. Always ask how many things they tried. And behind all three gates sits a fourth caution: clearing the gauntlet proves a number is real and large, never that it is causal. The "why" belongs to identification. Keep "is this a finding?" separate from "what does it mean?" In part four we assemble the whole gauntlet and turn it on a real published result.
+:::

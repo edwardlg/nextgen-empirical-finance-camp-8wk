@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Real Panels and the Standard You Defend
+
+- Part 6 — two real papers and the closing reflection
+
+::: notes
+Welcome back to "the standard error is the whole ballgame," part six of six. In part five we met Petersen's panel taxonomy and learned to think like a referee. Now we connect everything to two real references, reason about method and inference only, and close with the reflection that makes today stick. We will not invent or recite specific magnitudes from either paper — the point is the judgment, not the numbers.
+:::
+
+## Petersen's Discipline
+
+- Petersen (2009), *Review of Financial Studies*, 22(1), 435–480
+- Same panel, different SE methods $\to$ SEs differing by 2× or more
+- Dominant, most-ignored problem: a persistent **firm effect**
+- White (HC) SEs leave you overconfident when a firm effect is present
+- Detect it: cluster by firm, then by time, and compare
+
+::: notes
+The paper that turned "which standard error?" from folklore into a discipline is Petersen, two thousand nine, "Estimating Standard Errors in Finance Panel Data Sets," in the Review of Financial Studies, volume twenty-two, pages four thirty-five to four eighty. Petersen showed that finance papers using different standard-error methods on the same panel were getting standard errors that differed by factors of two or more, and that the dominant, most-often-ignored problem in corporate-finance panels is a persistent firm effect. Using the block-diagonal picture of Omega from Section two-point-four, clustering by firm is the right tool for a firm effect, because it lets every within-firm pair of errors correlate. White, robust standard errors leave you overconfident in its presence, because they ignore exactly those off-diagonal blocks. And his detection recipe, again: cluster by firm, then by time, and see which moves the standard error more.
+:::
+
+## Where Do the Errors Hold Hands?
+
+- Gao, Han, Kim & Pan (2024), *Journal of Corporate Finance*, 84, 102520
+- Supplier earnings management on overlapping institutional ownership
+- Same firm over years $\to$ firm effect
+- Shared owner or supply-chain link $\to$ cross-firm dependence
+- Common year shock $\to$ time effect; consider **two-way** clustering
+
+::: notes
+A second setting where these choices genuinely matter is Gao, Han, Kim and Pan, two thousand twenty-four, "Overlapping institutional ownership along the supply chain and earnings management of supplier firms," in the Journal of Corporate Finance, volume eighty-four, article one-oh-two-five-two-zero. The study relates a supplier firm's earnings management — the discretionary-accruals slack with which managers shape reported earnings — to overlapping institutional ownership along its supply chain, meaning shared institutional owners linking a supplier to its customers. Think about where the residuals hold hands before computing any number. The same firm observed over many years gives a firm effect. Firms tied through a shared owner or a supply-chain linkage give cross-firm dependence. A common macro or industry shock in a given year gives a time effect. Ignoring any of these pushes the standard error in the dangerous, too-small direction — so this is a natural setting to at least consider two-way clustering rather than a single dimension.
+:::
+
+## The Reflection That Closes It
+
+- Take any regression — yours or one in the wild
+- Write the full spec: outcome, regressor, controls, FE, clustering, sample
+- Ask: what shape is $\boldsymbol\Omega$ — and was the right SE used?
+- If clustered: at what level, how many clusters, is it enough?
+- Final question: *would the conclusion survive an honest recompute?*
+
+::: notes
+Here is the reflection that closes the session, and it is the whole point. Take any regression you have run, or one you find in the wild — a working paper, a finance blog, a result a friend cites. Write the spec out in full, the way the empirical-spec discipline demands: outcome, key regressor, controls, fixed effects, clustering, sample, and the identifying assumption in one sentence. Then interrogate the standard error specifically. What shape is Omega likely to have — heteroskedastic, clustered, time-correlated, or a panel with both a firm and a time effect? What standard-error flavor was actually used, and is it right for that shape? If clustering was used, at what level, how many clusters, and is that enough? Finish with the question that is the entire session: if I recomputed this standard error the honest way, would the conclusion survive — and how confident am I in my answer?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Petersen made "which SE?" a discipline; real panels like supply-chain common-ownership studies hide firm, cross-firm, and time dependence at once. Look at the standard error **as hard as you look at the coefficient** — that is where credibility is won or lost.
+:::
+
+::: notes
+To close the session: Petersen, two thousand nine, turned the choice of standard error into a discipline, showing that the persistent firm effect is the dominant, most-ignored problem in corporate-finance panels. Real studies, like supply-chain common-ownership work, hide firm dependence, cross-firm dependence, and time effects at once — a natural case for two-way clustering. So write the full spec, name where Omega's off-diagonals live, report your cluster count, and ask whether the conclusion survives an honest recompute. Look at the standard error as hard as you looked at the coefficient, because that is the half of the work where credibility is actually won or lost. That is the whole ballgame.
+:::

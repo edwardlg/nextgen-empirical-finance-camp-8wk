@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Time-Stamp and the Deviation Log
+
+- Part 10 — time-stamping the plan and the deviation log
+
+::: notes
+Welcome back to The Pre-Analysis Plan, part ten of twelve. In part nine the hold-out made "don't peek" mechanical. Two mechanics remain: proving the plan came first with a credible time-stamp, and handling the surprises that always arrive with an honest deviation log.
+:::
+
+## Register by Time-Stamping
+
+- A PAP only constrains you if its contents are fixed *before* analysis
+- Proof to a skeptic requires a credible time stamp
+- Professionals: AEA RCT Registry, OSF, AsPredicted
+- In this camp, your registry is your **Git history**
+- Lab 7: file the PAP as a tagged commit, `pap-filed`
+
+::: notes
+Register by time-stamping, in public or in version control. A plan only constrains you if its contents are fixed before the analysis, and the only way to prove that to a skeptical reader is a credible time stamp. Professional researchers register on a public platform — the A-E-A randomized-controlled-trial registry for experiments, or O-S-F and AsPredicted for observational designs — which date-stamps the document so it cannot be silently edited afterward. In this camp, your registry is your Git history. Lab Seven has you file the plan as a tagged commit — git tag, pap-filed — in your project repository. The tag is your time stamp. A tagged commit is a cryptographic promise: anyone can verify the plan existed, in exactly this form, before the commits that contain your confirmatory results. That is why the plan is a deliverable of Lab Seven and not a private note — a plan no one can date is a plan that constrains no one.
+:::
+
+## Log Your Deviations Honestly
+
+- You *will* deviate — collinearity, a 2020 anomaly, a coding bug
+- Deviating is not the sin; *hiding* the deviation is the sin
+- Keep a dated **deviation log** committed alongside the PAP
+- Record *what* changed, *why*, and *whether seeing the outcome prompted it*
+- Outcome-driven deviation = the very p-hacking the PAP prevents
+
+::: notes
+Log your deviations honestly. Here is where Olken's perils become operational. You will deviate from your plan. You will discover, on the confirmation data, that a control you swore you would include is collinear and drops out; that twenty-twenty is so disrupted it must be handled differently; that a coding bug in your outcome needs fixing. Deviating is not the sin. Hiding the deviation is the sin. So you keep a deviation log — a running, dated record, committed alongside the plan, of every departure: what changed, why, and whether the change was prompted by seeing the outcome. That last clause is the crux. A deviation forced by a mechanical reality — collinearity, a bug, a data-availability surprise — is innocent, and you note it. A deviation that happened because you saw the coefficient and didn't like it is exactly the p-hacking the plan exists to prevent, and the log forces you to confront which kind it is.
+:::
+
+## An Honest Report Earns More Trust
+
+- Report deviations explicitly, both with and without
+- "Clustered by county — lender ID corrupted — not outcome-driven"
+- "Added a 2020 indicator after seeing anomalies — *was* prompted; flag exploratory"
+- A referee trusts you *more* — you showed the seams
+- The log draws the line between confirmatory and exploratory
+
+::: notes
+An honest report earns more trust, not less. The honest researcher's report reads: we pre-registered specification X. On the confirmation data we deviated in two ways. One: we clustered by county rather than lender, because the lender identifier was corrupted for four percent of rows — this was not outcome-driven. Two: we added a year-twenty-twenty indicator after observing anomalous denial patterns — this was prompted by the data, so we report the result both with and without it and flag the latter as exploratory. A referee reading that trusts you more, not less, because you have shown them the seams. Olken's deepest point is here: the value of a plan is not that you never deviate, but that the reader can see exactly where your analysis was confirmatory and where it became exploratory. The deviation log is the instrument that draws that line.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A **tagged commit** (`pap-filed`) time-stamps the plan in your Git history so it provably predates your results — a plan no one can date constrains no one. A **deviation log** records every departure, *why*, and *whether the outcome prompted it* — distinguishing an innocent fix from p-hacking. Showing the seams earns *more* trust. Next: the whole plan, assembled for Maya.
+:::
+
+::: notes
+To summarize part ten: two mechanics finish the discipline. A tagged commit, pap-filed, time-stamps the plan in your Git history, a cryptographic promise that it predates your confirmatory results — because a plan no one can date constrains no one. And a deviation log records every departure honestly: what changed, why, and crucially whether seeing the outcome prompted it, which separates an innocent fix from the p-hacking the plan exists to prevent. Reporting deviations both with and without earns a referee's trust, because you have shown the seams and drawn the line between confirmatory and exploratory. In part eleven, we assemble all of this into the actual short-form plan Maya files.
+:::

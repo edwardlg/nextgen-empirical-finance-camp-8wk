@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Omitting a Control, and the Discipline It Enforces
+
+- Part 8 — what omitting a control does, and reporting discipline
+
+::: notes
+Welcome back to the Frisch–Waugh–Lovell theorem, part eight of thirteen. In part seven we saw that holding constant is subtraction, and that controls move coefficients only as they overlap the regressor. Now we ask the mirror question — what does omitting a control do? — and we draw out the reporting discipline F W L quietly enforces on every empirical spec.
+:::
+
+## What Omitting a Control Does
+
+- Short regression (R&D alone) gives a **larger** slope: $\approx 4.65$
+- Raw R&D still carries the size signal inside it
+- Patents respond to R&D **and** the size effect traveling with it
+- The gap $4.65 - 1.838$ is the **omitted-variable bias**
+- Omitting a control means **failing to residualize**
+- Ch 2.5 turns this gap into a formula you can compute
+
+::: notes
+What does omitting a control do? If Leah had run the short regression — patents on R and D alone, leaving size out — she would have gotten a different, larger slope, about four point six five, more than double the one point eight three eight she gets once size is partialled out. The reason is the F W L picture run in reverse: in the short regression nothing is residualized, so R and D enters with its size-driven variation intact, and patents respond to both the genuine R and D effect and the size effect that travels with it. The gap, four point six five minus one point eight three eight, is the bias from omitting size. Leaving out a control means failing to residualize, so the leftover variation still has the control's fingerprints on it, and the coefficient absorbs whatever the omitted variable would have explained. Chapter two-point-five turns this gap into the omitted-variable-bias formula — bias equals the coefficient of the omitted variable times the slope of the omitted variable on the included one — and you will recognize both pieces as residualization quantities.
+:::
+
+## The Honesty, and the Discipline
+
+- "Holding size constant" cleans only **the columns you included**
+- Unmeasured age still sits inside $\tilde{x}$ and $\tilde{y}$, uncontrolled
+- FWL can't residualize what isn't in the regression
+- So **name** what you residualized: controls and fixed effects
+- That list *defines* what the coefficient means
+- It is the exact **subtraction** that produced the number
+
+::: notes
+A subtler point hides here, the one professional readers train themselves to ask. Holding size constant only cleans out the part of the relationship that runs through size as we measured it — log assets. It does nothing about variables we never put in the controls. If older firms both patent more and spend more on R and D for reasons unrelated to size, then firm age is still sitting inside the residuals, uncontrolled, and Leah's one point eight three eight is controlling for size but not for age. F W L is brutally honest: the coefficient is a clean simple slope in the space orthogonal to exactly the columns you included — no more. The theorem cannot residualize out something that is not in the regression. That is why our conventions insist you name the controls and the identifying assumption: the list of what you residualized is the boundary of what holding constant covers, and everything outside that list is a potential threat you have not addressed. "Controlling for size" is not a disclaimer you tack on; it is a description of the exact subtraction that produced the number.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Omitting a control means **failing to residualize**: the regressor keeps the omitted variable's signal, and the coefficient absorbs it — that gap is **omitted-variable bias**. FWL is brutally honest: a coefficient is clean only against **the exact columns you included**. Name them. Next: the most consequential special case — demeaning and the within transformation.
+:::
+
+::: notes
+To summarize part eight. Omitting a control means failing to residualize: the raw regressor keeps the omitted variable's signal inside it, and the coefficient absorbs whatever that variable would have explained. The gap between the short and long regressions is omitted-variable bias, and Chapter two-point-five turns it into a formula. F W L is brutally honest about what a coefficient controls for: exactly the columns you included, nothing else — anything unmeasured still sits inside your residuals, uncontrolled. That is why every spec must name its controls and its identifying assumption: the named list is the meaning of the number. In part nine we turn the simplest control — a column of ones — into the most consequential special case: demeaning, and the within transformation.
+:::

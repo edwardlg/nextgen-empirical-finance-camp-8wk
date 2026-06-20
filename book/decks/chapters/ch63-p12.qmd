@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Where This Connects, and What to Ask
+
+- Part 12 — the paper's arc and three referee questions
+
+::: notes
+Welcome back to Chapter six-point-three, part twelve of twelve — our last segment. In part eleven we walked through three replication exercises that rebuild the paper by hand. Now we place Loughran and McDonald in its arc across the week, carry away two laws, and load three referee questions to take into the notebook.
+:::
+
+## Where This Connects
+
+- Between **Ch 6.2** (Hoberg-Phillips: cosine *similarity* of 10-Ks)
+- And **Ch 6.5** (embeddings and LLMs put context back)
+- The careful *endpoint* of the bag-of-words era
+- Shows how far counting gets — and where it stops being meaning
+- Two laws to carry into your capstone
+
+::: notes
+Where this connects. This guide sits between Chapter six-point-two — Hoberg and Phillips, cosine similarity of ten-K text, the same EDGAR raw material vectorized for similarity rather than sentiment — and Chapter six-point-five, the AI co-pilot, embeddings and language models that finally put context back into text. Loughran-McDonald is the careful endpoint of the bag-of-words era: it shows both how far you can get by counting the right words and exactly where counting words stops being meaning. Carry forward two laws. One: measurement instruments do not transfer across domains without re-validation. Two: every text model, dictionary or transformer, is only as honest as its out-of-sample test. Then go run Exercise one before the next chapter — seeing tax and liability dominate a filing's negative word count, when you know they are not negative, is the moment the method clicks.
+:::
+
+## Three Referee Questions
+
+- Is the dictionary's power *out-of-sample*, or did the test build it?
+- How much is sentiment versus *disclosure style* and length?
+- Where does bag-of-words break — and at the document level?
+- Do negation errors *average out* over fifty thousand words?
+- Carry these into the notebook
+
+::: notes
+Carry three referee questions into the notebook. One: is the dictionary's apparent power out-of-sample, or did the test set help build it? If any part of word selection was informed by what correlated with returns, the validation is partly circular — so what would a clean out-of-sample design look like? Two: how much of the result is sentiment versus disclosure style? A tone score also reflects length, boilerplate density, and parsing rules — so how would you separate genuinely bad news from lawyers who write longer, more hedged filings, and which controls would you demand? Three: where does bag-of-words break, and does it matter at the document level? Negation and conditionals are invisible to a word counter. Over a fifty-thousand-word filing, do these errors average out, or do they bias the score systematically — for instance in risk-factor sections that are all conditionals? What evidence would tell you whether moving to context-aware models actually buys validity, not just complexity?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Loughran-McDonald is the careful **endpoint of the bag-of-words era** — between Hoberg-Phillips similarity (Ch 6.2) and the context-aware LLMs (Ch 6.5). Carry two laws: instruments don't transfer across domains un-revalidated, and every text model is only as honest as its out-of-sample test. That closes Week 6.3 — next, we put context back into the words.
+:::
+
+::: notes
+To summarize part twelve, and the whole lesson. Loughran and McDonald is the careful endpoint of the bag-of-words era, sitting between the cosine-similarity work of Chapter six-point-two and the context-aware language models of Chapter six-point-five. It shows both how far counting the right words can take you and exactly where counting stops being meaning. Carry forward the two laws of text-as-data: a measurement instrument does not transfer across domains without re-validation, and every text model — dictionary or transformer alike — is only as honest as its out-of-sample test. And take the three referee questions into the notebook. That closes Chapter six-point-three. In the next chapter, we put context back into the words.
+:::

@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Five Feasible Projects, Two Worked End-to-End
+
+- Part 7 — five open-data cast projects, two worked end-to-end
+
+::: notes
+Welcome back to the Idea-Generation Workshop, part seven of eight. In part six we ran the fast literature scan with the AI on a leash. Now the payoff: five feasible, open-data projects mapped to the cast you've followed since Week One — each with obtainable data, five-week scope, and a design from Weeks Three and Four. Then we run two through the machine, from mood to spec.
+:::
+
+## The Cast's Five Projects
+
+| Student | Dataset (open) | Feasible question | Design |
+|---|---|---|---|
+| **Maya** | HMDA | Denial rates differ by race after controls? | DiD or RD |
+| **Devon** | Etherscan + CoinGecko | DEX volume spike at depegs? | Event study |
+| **Priya** | NOAA + FEMA + FRED | Insurance costs rise after disasters? | DiD |
+| **Sam** | `yfinance` / CRSP | Winners beat losers next month? | Portfolio sort |
+| **Leah** | PatentsView | Patent grants raise forward citations? | RD / matching |
+
+::: notes
+Here are five open-data projects, one per cast member. Maya, fair lending, uses HMDA — the CFPB loan register: do denial rates differ by applicant race after controlling for legitimate underwriting factors? Difference-in-differences around a policy date, or regression discontinuity at a credit-score cutoff. Devon, crypto, uses the Etherscan and CoinGecko APIs: does decentralized-exchange volume spike when a stablecoin depegs? An event study around the timestamp. Priya links NOAA storm events, FEMA declarations, and FRED: do homeowner-insurance costs rise faster in counties with more billion-dollar disasters? Difference-in-differences, hit versus un-hit counties. Sam, momentum, uses yfinance or CRSP: do past-twelve-month winners outperform losers next month? A portfolio sort. Leah, patents, uses the USPTO PatentsView API: do firms that win a grant get more forward citations than near-miss applicants? Regression discontinuity or matched comparison. Each gets a data card in Chapter seven-point-two.
+:::
+
+## Worked Example A — Devon's Depegs
+
+- **Puzzle:** "crypto crashes feed on themselves"
+- **Filters:** risk managers care; live contagion literature; on-chain data is *new*
+- **Question:** ERC-20 depeg over 5% $\Rightarrow$ same-day DEX volume response?
+- **Hypothesis:** volume rises sharply vs. prior 30-day average; $H_0$: no change
+- **Design:** event study; tight window $[-30,+5]$; check the pre-trend
+
+::: notes
+Watch Devon's full pipeline run, from mood to spec. The puzzle, a mood: crypto crashes seem to feed on themselves. The filters: so what — predictable volume spikes inform risk managers, exchanges sizing circuit-breakers, and regulators worried about contagion. Who cares — a live academic and policy conversation on stablecoin runs. What's new — high-frequency on-chain volume around specific depegs is data that did not exist a few years ago. The refined question: when an ERC-20 stablecoin loses its dollar peg by more than five percent, how does same-day decentralized-exchange trading volume respond? The testable hypothesis, with a direction: volume rises sharply on the day of a depeg relative to the prior thirty-day average; the null hypothesis is no change. Now Devon can be wrong. The identifying variation is an event study: the depeg is a dated shock with a precise on-chain timestamp, and Devon measures volume in a tight window — minus thirty to plus five days — against the pre-event baseline, checking the pre-trend as Chapter four-point-one insisted.
+:::
+
+## Worked Example B — Priya's Disasters
+
+- **Puzzle:** "insurers are fleeing wildfire and hurricane country"
+- **Filters:** housing affordability; climate-finance literature; *new period* + *combination*
+- **Question:** do FEMA-declared counties see insurance costs rise faster?
+- **Hypothesis:** faster growth post-event vs. matched counties; $H_0$: parallel growth
+- **Design:** DiD; county + year fixed effects; cluster by county; parallel-trends check
+
+::: notes
+Now Priya, same machine, different design. The puzzle: insurers are fleeing wildfire and hurricane country. The filters: so what — disaster exposure driving up insurance cost bears on housing affordability and insurer-exit regulation. Who cares — a fast-growing climate-finance literature. What's new — the recent surge in billion-dollar disasters is a new period, and county-level NOAA, FEMA, and FRED data linked this way is new. The refined question: do counties hit by federally declared disasters see homeowner-insurance costs rise faster than comparable un-hit counties afterward? The testable hypothesis: cost grows faster in disaster-hit counties post-event than in matched un-hit counties; the null is parallel growth. The identifying variation is difference-in-differences: treated counties have a FEMA declaration, controls are comparable counties without one, the dated declaration is the treatment. The spec names county fixed effects, year fixed effects, clustering by county, sample U.S. counties two-thousand-ten to two-thousand-twenty-three, with a parallel-trends check. Two passes, two designs, two defensible sentences.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Five cast projects, five **open datasets**, five available designs — use them as templates; yours is a variation. Both worked examples run the same machine: **puzzle → three filters → refined question → signed hypothesis → identifying variation → spec**. Devon lands an event study, Priya a DiD. Same pipeline, different design, both ending in one defensible sentence. Next: the scoring rubric, and your turn.
+:::
+
+::: notes
+To summarize part seven: five cast projects show that feasible, open-data questions exist for every interest — Maya on HMDA, Devon on depegs, Priya on disasters, Sam on momentum, Leah on patents — each with a design from Weeks Three and Four. Use them as templates; your own is a variation. Then two examples ran the full machine end to end. Devon's became an event study with a tight window and a pre-trend check; Priya's a difference-in-differences with county and year fixed effects and a parallel-trends check. Same pipeline, two designs, both ending in one defensible sentence. In part eight we hand you the scoring rubric.
+:::

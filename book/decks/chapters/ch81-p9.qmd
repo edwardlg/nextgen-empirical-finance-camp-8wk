@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Honest Deviations Log
+
+- Part 9 — The deviations log, one system with the spec curve
+
+::: notes
+Welcome back to Execution and the Specification Curve, part nine of ten. In part eight we finished the four ways a spec curve can lie. Now the third deliverable. You filed a plan, ran the confirmatory specification, built the spec curve — and somewhere in that process, almost inevitably, reality forced you off the plan. The deviations log is the running, dated record of every departure: what changed, why, and the crucial part — whether the change was prompted by seeing the outcome.
+:::
+
+## Deviating Is Not the Sin
+
+- Hiding the deviation is the sin
+- Outcome-driven deviation is the *specific* sin to catch
+- Every entry carries a verdict on one binary question
+- Was this change forced by mechanical reality?
+- Or did I make it because I saw the coefficient?
+
+::: notes
+Deviating is not the sin; Week Seven said this, and it bears repeating now that the temptation is live rather than hypothetical. Hiding the deviation is the sin, and outcome-driven deviation is the specific sin the whole apparatus exists to catch. So every entry in the log carries a verdict on one binary question: was this change forced on me by a mechanical reality, or did I make it because I saw the coefficient and did not like it? That single question separates an innocent fix from the garden of forking paths.
+:::
+
+## Two Kinds of Deviation
+
+- **Mechanical:** collinearity, a coding bug, corrupted identifier — innocent
+- Example: state ID missing for 4% of cells; clustered by census region
+- ATT moved $-1.89 \to -1.91$ — immaterial, not outcome-driven
+- **Outcome-driven:** added a control after it improved your t-stat
+- Report both ways; flag the deviating version as **exploratory**
+
+::: notes
+There are two kinds. A deviation forced by a mechanical reality — collinearity, a coding bug, a data surprise, a corrupted cluster identifier — is innocent. You note it, fix it, move on; nothing about the result steered the change. An example entry: the plan specified clustering by state, but the state identifier was missing for four percent of county-year cells due to a merge gap, so we clustered by census region for those cells and re-ran; the average treatment effect moved from negative one-point-eight-nine to negative one-point-nine-one points, immaterial, not outcome-driven. By contrast, a deviation prompted by seeing the outcome — you added a control after it improved your t-statistic, you trimmed a year after it weakened the effect — is exactly the garden of forking paths. The honest response is not to pretend it didn't happen, but to report the result both ways and flag the deviating version as exploratory: the pre-registered specification is the confirmatory headline, the adjusted version a labeled exploratory analysis.
+:::
+
+## The Log and the Curve Are One System
+
+- Every tempting outcome-driven deviation is *already* a fork
+- So it is already a point in your multiverse
+- Disciplined response: don't switch the primary spec
+- Say: "that alternative is specification 87 — here is where it sits"
+- The curve is the honest home for forks you were tempted to walk
+
+::: notes
+That last clause is the entire ethic of Week Eight in one move. The plan is not a prison and the deviations log is not a confession booth; together they draw the line between confirmatory and exploratory honestly, in public, after the fact. A referee — or future-Maya, six months on — reads the log and trusts the paper more, not less, because they see exactly where the analysis was a test and where it became a search. And the log connects directly to the spec curve, in a way that makes the two tools one system. Every deviation you were tempted to make for outcome-driven reasons — should I have clustered by county, added that control, dropped that year — is already a fork in your multiverse. So when you are tempted, the disciplined response is not to silently switch the primary specification; it is to point at the curve and say: that alternative is specification number eighty-seven, here is where it sits, and the headline does not depend on it. The curve is the honest home for every fork you were tempted to walk, and the log is the record of the few you actually had to.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **deviations log** is the dated, public record of every departure from the PAP, each with one verdict: **mechanical** (innocent — note, fix, move on) or **outcome-driven** (report both ways, flag the deviation as exploratory). It is one system with the spec curve: every tempting fork is already a labeled point in the multiverse. Next: where all of this goes.
+:::
+
+::: notes
+To summarize part nine: the deviations log is the dated, public record of every departure from your plan, each carrying one verdict — mechanical and innocent, or outcome-driven and reported both ways with the deviation flagged exploratory. Deviating is never the sin; hiding it is. The log and the spec curve are one system: every fork you were tempted to walk is already a labeled point in your multiverse, so you never silently switch the headline. In part ten, the final part, we gather the three deliverables of this chapter and look ahead to Chapter eight-point-two.
+:::

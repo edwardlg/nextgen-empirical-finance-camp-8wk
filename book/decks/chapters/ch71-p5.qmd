@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Feasibility: What You Can Finish in Five Weeks
+
+- Part 5 — four constraints that decide if you can actually finish
+
+::: notes
+Welcome back to the Idea-Generation Workshop, part five of eight. In part four we found identification by running the catalog backwards. Now the filter students skip and then regret: feasibility. An idea can be sharp, consequential, novel, and well-identified, and still be impossible for you to finish now. Feasibility is the discipline of matching scope to the resources you actually have. Four constraints bind.
+:::
+
+## Data Access — The Top Killer
+
+- First question, before you fall in love: *can I get the data?*
+- Legally, free or through the program, usable, **this week**
+- Open today: HMDA, NOAA, FEMA, FRED, PatentsView, on-chain APIs, `yfinance`
+- Licensed, GMU-only: CRSP, Compustat, Bloomberg — read-only on Hopper/WRDS
+- Some data you imagine simply does not exist, or sits behind a paywall
+
+::: notes
+Data access is the first and most common project-killer. Before you fall in love with a question, ask the unglamorous question: can I actually get the data, legally, for free or through the program, in a usable form, this week? Some data is genuinely open and downloadable today: HMDA loan records, NOAA storm events, FEMA disaster declarations, FRED macro series, USPTO PatentsView, on-chain data via public APIs, daily prices via yfinance. Some is licensed and lives only on GMU infrastructure — CRSP, Compustat, Bloomberg — which per CONVENTIONS section five you may use read-only on Hopper or WRDS, never copied off. And some data you imagine exists but does not, or sits behind a paywall you cannot cross, or requires an approval process longer than the whole camp. A feasible project starts from data you can have in hand by the end of Chapter seven-point-two, not data you are hoping to find.
+:::
+
+## Scope And Time
+
+- A first project answers **one** question, not five
+- Each "and..." multiplies cleaning and ways to break
+- Find the **smallest** version still interesting; extend later
+- Budget *backward* from the Phase 2 presentation
+- That leaves about **one week** from today to lock the question
+
+::: notes
+Scope. A first project should answer one question, not five. The beginner's instinct is to widen — "and I'll also check whether it differs by firm size, and across countries, and over three decades." Each "and" multiplies the data you must clean and the ways the analysis can break, and none of them helps if the core question isn't nailed first. The professional instinct is the opposite: find the smallest version of the question that is still interesting, answer that cleanly, and only then add. You can always extend a tight project; you can rarely rescue a sprawling one. Now time. Five weeks is not long, and a third of it goes to acquiring and cleaning data — always more than you expect. Budget backward from the presentation: you need results a week before, analysis the week before that, a clean dataset the week before that, which leaves about a week from today to lock the question and start pulling data. That arithmetic alone should make you ruthless about scope.
+:::
+
+## Reproducibility And Your Own Skills
+
+- Every snippet runs on a **fresh environment**; secrets via env vars
+- Licensed data stays put — CONVENTIONS §5
+- A result you cannot re-run is one you cannot **defend**
+- Match the method to skills you can execute under time pressure
+- A clean DiD you understand beats a fragile structural model you half-understand
+
+::: notes
+Two more constraints. Reproducibility: everything you build must run again from scratch — every snippet on a fresh environment, secrets via environment variables only, licensed data stays put per CONVENTIONS section five. A result you cannot re-run is a result you cannot defend. And your own skills: be honest about the gap between a method's elegance and your ability to execute it correctly under time pressure. You can run an instrumental-variables design; the question is whether you can find a valid instrument and survive the weak-instrument pathology of Chapter three-point-five in the time you have. A clean difference-in-differences you fully understand beats a fragile structural model you half-understand. Pick the design you can defend line by line, because in Phase Two someone will ask.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Four feasibility constraints: **data access** (can you get it, free and legal, this week?), **scope** (one question, not five), **time and reproducibility** (budget backward; everything must re-run), and **your own skills** (defend the design line by line). A clean design you understand beats a fragile one you don't. Next: the fast literature scan — with the AI co-pilot on a leash.
+:::
+
+::: notes
+To summarize part five: feasibility is the filter students skip and then regret, and it is about matching scope to the resources you actually have. Four constraints bind. Data access is the top killer — start from data you can hold by the end of Chapter seven-point-two, not data you hope to find. Scope means one question, not five: find the smallest interesting version and extend later. Time and reproducibility mean budgeting backward from Phase Two — roughly a week from today to lock the question — and building so everything re-runs. And your own skills mean picking a design you can defend line by line. In part six we run the fast literature scan that answers "what's new," using the AI co-pilot — but on a tight leash.
+:::

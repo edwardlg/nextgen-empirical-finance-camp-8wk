@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## Three Mistakes to Never Make
+
+- Part 12 — three beginner errors you must catch on sight
+
+::: notes
+Welcome back to Hypothesis Testing Done Right, part twelve of fourteen. In part eleven we separated statistical significance from economic significance. Now we name three errors so common and so corrosive that they deserve to be called out explicitly — the mistakes nearly every beginner makes, and that even seasoned researchers slip into. Learn to catch them in your own writing and in everyone else's.
+:::
+
+## Mistake One and Mistake Two
+
+- **1. "p is the probability the null is true."** It is not
+- p assumes the null and measures the data's extremeness *given* that
+- It says nothing about the probability of the hypothesis
+- **2. "We accept the null."** Never — we **fail to reject**
+- Absence of evidence is not evidence of absence
+- A null surviving a *low-powered* test survived nothing
+
+::: notes
+Three errors are so common and so corrosive that we name them explicitly. Mistake one: the p-value is the probability the null is true. We covered this when we defined the p-value, and we repeat it because it is the most frequent error in all of applied statistics. The p-value assumes the null and measures the data's extremeness given that assumption. It says nothing about the probability of the hypothesis itself. Reciting the correct definition until it is automatic is time well spent. Mistake two: we accept the null. When a test fails to reject the null, we say exactly that — fail to reject — and never accept or prove the null. Absence of evidence is not evidence of absence. If Sam's t had come out at zero point four, the right conclusion is this sample cannot distinguish the rule's edge from zero, not the rule has zero edge. Maybe the edge is real but small, and two hundred fifty-two days is too few to detect it — a power problem, not a proof of nullity. A null that survives a low-powered test has survived nothing; it was never seriously challenged. The confidence interval makes this concrete: failing to reject means zero is inside the interval, but so are many non-zero values you also cannot rule out.
+:::
+
+## Mistake Three
+
+- **3. "Statistical significance settles the matter."** It does not
+- A small p says the effect is *probably not exactly zero*
+- It does **not** say the effect is large, important, or robust
+- It does not say the effect is **causal** or holds outside your sample
+- A star is the start of an investigation, not the end
+
+::: notes
+Mistake three: statistical significance settles the matter. We covered the seed of this when we separated significance from effect size, and here is the sharp form. A small p-value tells you an effect is probably not exactly zero. That is all it tells you. It does not tell you the effect is large. It does not tell you the effect is important, or robust to different choices, or causal rather than mere correlation, or that it will hold outside the particular sample you measured. Those are separate questions, and the rest of this book is largely about them — about magnitude, about robustness, about identification and causality. A star next to a coefficient is the beginning of an investigation, not the end of one. When you find yourself satisfied by a single significant result, that is exactly the moment to ask the harder questions the p-value cannot reach. Significance is a gate, not a destination.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Never say: **(1)** "p is the probability the null is true," **(2)** "we accept the null" — say *fail to reject*, or **(3)** "significance settles it." A small p means *probably not exactly zero*, nothing about size, robustness, or causality. Next: how a search across many tests breaks all of this.
+:::
+
+::: notes
+To summarize part twelve: three mistakes to never make. One, the p-value is not the probability the null is true — it assumes the null and measures the data's surprise, and it makes no claim about the hypothesis. Two, we never accept the null; we fail to reject it, because absence of evidence is not evidence of absence, and a null that survived a weak, low-powered test survived nothing. Three, statistical significance does not settle the matter — a small p says only that the effect is probably not exactly zero, never that it is large, robust, causal, or real beyond your sample. Catch these three and you are already ahead of most practitioners. In part thirteen we confront the way a search across many tests quietly breaks everything we built — multiple testing and p-hacking.
+:::

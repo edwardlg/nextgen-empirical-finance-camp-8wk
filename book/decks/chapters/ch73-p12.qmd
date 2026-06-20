@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## When the PAP Itself Fails: Olken's Perils
+
+- Part 12 — Olken's four perils, and where this goes next
+
+::: notes
+Welcome back to The Pre-Analysis Plan, part twelve of twelve. In part eleven we assembled Maya's plan and watched it disarm her dangerous afternoon. A chapter that sold pre-registration as a free lunch would be doing the very thing the technique prevents — hiding inconvenient results. So, in Olken's spirit, the perils, honestly. Then where this all goes next.
+:::
+
+## Peril 1 — Vague, and Peril 2 — Too Rigid
+
+- **Vague:** "appropriate controls and standard errors" constrains nothing
+- Defense: spec discipline — name the outcome, clustering, exact sample
+- Vagueness is p-hacking with extra steps
+- **Too rigid:** a fundamentalist "never deviate" can bury your best idea
+- Fix: report the pre-registered result *and* the discovery, clearly labeled
+
+::: notes
+First peril: a plan can be written so vaguely it constrains nothing. "I will study the relationship between race and lending using appropriate controls and standard errors" is a plan-shaped object that licenses every fork in the garden. The defense is the spec discipline of component two: if the plan does not name the outcome to a variable name, the clustering level, and the exact sample, it is not a plan. Vagueness is p-hacking with extra steps. Second peril: a plan can be too rigid for its own good. Suppose Maya, running the confirmation data, discovers something she never imagined — a sharp discontinuity in denials at a regulatory threshold that suggests a far better identification strategy. A fundamentalist reading of "never deviate" would force her to ignore the best idea in her project. Olken's resolution, and ours: she reports the pre-registered confirmatory result as planned, and separately reports the discovery as clearly-labeled exploratory analysis and a hypothesis for the next study. Both live in the paper, honestly partitioned. The plan did not cost her the discovery; it cost her only the right to pretend the discovery was a confirmatory test, which she should not want anyway.
+:::
+
+## Peril 3 — Crowding Out, and Peril 4 — False Confidence
+
+- **Crowds out exploration** if a field over-fetishizes "was it pre-registered?"
+- Exploration is not lesser science — it is *earlier* science
+- The hold-out's exploration set exists *for* unconstrained fishing
+- **False confidence:** a pre-registered design is not automatically a *good* one
+- Pre-registration governs *honesty*, not *validity* — the memo handles validity
+
+::: notes
+Third peril: a plan can crowd out exploration if a field over-fetishizes it — if "was it pre-registered?" becomes the only question, and the messy, inductive, pattern-hunting work that generates good hypotheses gets treated as second-class. This is the peril Olken weighs most carefully. The answer is the confirmatory-exploratory distinction held with a steady hand: exploration is not lesser science, it is earlier science. The hold-out design honors this directly — the entire exploration set exists for unconstrained fishing, because that is where Maya's best ideas come from. The plan does not forbid exploration; it forbids laundering exploration as confirmation. And one peril particular to a first project: a plan can give false confidence. A pre-registered design is not automatically a good design. Maya's identifying assumption is still imperfect — the credit score is still missing, the residual is still a bound — and pre-registering an imperfect design does not make it clean. Pre-registration governs the honesty of your inference, did you test or did you search, not its validity, is the test the right one. Validity is the job of the identification memo you write next, in Chapter seven-point-five.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Olken's perils are real: a PAP can be **vague**, **too rigid**, **crowd out exploration**, or grant **false confidence**. The cure for each is the confirmatory/exploratory line held with a steady hand. Pre-registration governs *honesty*; the identification memo (7.5) governs *validity* — you need both. Build the analysis dataset (7.4), write the memo (7.5), and file both as your Lab 7 tagged commit.
+:::
+
+::: notes
+To summarize part twelve: Olken's perils are real, and we did not hide them. A plan can be vague — cured by spec discipline; too rigid — cured by reporting the planned result and the discovery separately; crowd out exploration — answered by treating exploration as earlier, not lesser, science, which the hold-out's exploration set exists to serve; and grant false confidence — because pre-registration governs the honesty of your inference, not its validity. Validity is the job of the identification memo in seven-point-five. A plan and a memo are complementary: one promises you did not fish, the other argues the pond is the right pond. You arrived at this lesson with an idea from seven-point-one and data from seven-point-two; you now have a falsifiable, pre-registered design. Next you build the analysis dataset in seven-point-four, then write that identification memo in seven-point-five — filed together as your Lab Seven tagged commit, the spine of a project that could survive a hostile referee. To put the plan into practice, open notebook seven-point-three, whose core is a power calculation for your own design, ending by emitting the template you tag as pap-filed. That completes Chapter seven-point-three.
+:::

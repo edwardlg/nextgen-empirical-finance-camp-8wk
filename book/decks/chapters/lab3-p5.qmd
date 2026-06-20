@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Effective F, and a Strong Instrument That Works
+
+- Part 5 — diagnose with effective $F$; strong instrument fixes all
+
+::: notes
+Welcome back to the weak-instrument lab, part five of six. In part four — the heart of the lab — we measured that the conventional interval covers only eighty percent of the time while Anderson–Rubin recovers ninety-five. Now we diagnose the weakness directly with the Olea–Pflueger effective F, learn why a significant first stage is not a strong one, and then turn the knob to strong and watch every pathology evaporate.
+:::
+
+## Two Ways to Measure Strength
+
+- Classical first-stage $F$: coded in Step 3
+- But it assumes homoskedastic, non-clustered errors
+- **Olea–Pflueger effective $F$**: right under realistic errors
+- `linearmodels` reports it in first-stage diagnostics
+- Effective $F\approx 1.2$ weak, $\approx 54$ strong — correctly flags weak
+
+::: notes
+You have two ways to measure first-stage strength. The first, the classical first-stage F, you already coded. But Chapter three-point-four was emphatic: the classical F assumes homoskedastic, non-clustered errors, and the right statistic under realistic error structures is the Olea–Pflueger effective F, which linearmodels reports directly in its first-stage diagnostics. Pull it on a handful of fresh draws in each world and compare. The effective F comes in around one-point-two for the weak instrument and around fifty-four for the strong one. It correctly flags the weak case — far below the roughly-ten threshold — and clears the strong case by a mile. With heteroskedastic errors, the classical F could look reassuring while the effective F still flags the weakness. In a real finance dataset, trust the effective F.
+:::
+
+## Significance Is Not Strength
+
+- Across 1,200 weak draws: mean classical $F\approx 1.4$
+- Over 99% of weak draws have $F < 10$ — klaxon always sounding
+- But the **max** $F$ across draws is about 14
+- That one unlucky researcher declares "strong" and marches in
+- Bound–Jaeger–Baker: a *significant* first stage is not a *strong* one
+
+::: notes
+The classical-F distribution carries the deeper lesson. Across the twelve hundred weak draws, the mean classical F is about one-point-four, and over ninety-nine percent of weak draws have F below ten — the klaxon is almost always sounding. But the maximum across twelve hundred draws is around fourteen, comfortably above ten. A researcher unlucky enough to draw that one sample would declare the instrument strong and march straight into the pathology. This is Bound, Jaeger, and Baker in one line: a statistically significant first stage is not a strong one. With a big enough sample, or enough draws, a useless instrument occasionally clears the F-above-ten bar by pure chance. The F-above-ten rule guards the typical draw, never your draw — which is why you report the effective F and never lean on a single significant first stage.
+:::
+
+## Step 6 — The Strong Instrument
+
+- Re-run the identical Monte Carlo with $\pi = 0.8$
+- median 2SLS lands on the truth $\approx 0.00$ — bias purged
+- conventional coverage recovers to $\approx 0.95$; AR agrees, never unbounded
+- mean first-stage $F\approx 52$ — off the charts
+- OLS is *never* fixed; it stays biased at $+0.40$
+
+::: notes
+The machinery is not broken in general — it is broken by weakness. Re-run the identical Monte Carlo with the strength knob set to zero-point-eight, changing nothing else. With the strong instrument the world is well-behaved: the median two-stage-least-squares estimate lands on the truth, about zero — the bias is genuinely purged, even though ordinary least squares stays at plus zero-point-four-zero, because O.L.S. is never fixed. Conventional coverage recovers to about zero-point-nine-five, Anderson–Rubin coverage agrees at about zero-point-nine-five and is never unbounded, and the mean first-stage F is around fifty-two — off the charts. A coverage bar chart makes it unmissable: the weak-conventional bar sits far below the ninety-five-percent line while the other three clear it. The conventional method is not approximately right under a weak instrument; it is systematically overconfident — and it snaps back to honest the instant the instrument is strong. When the first stage is strong, the conventional and Anderson–Rubin intervals nearly coincide, because the accepted set is a tight bounded interval near the truth.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **Olea–Pflueger effective $F$** flags the weak case ($\approx 1.2$) and clears the strong one ($\approx 54$); meanwhile $99\%$ of weak draws have classical $F<10$ yet a lucky **max** of $\approx 14$ would fool a researcher — Bound–Jaeger–Baker exactly. Turn the knob to strong and every pathology evaporates: 2SLS on the truth, coverage back to $95\%$. **IV works when, and only when, the first stage is strong — so check.** Next: the wrap-up.
+:::
+
+::: notes
+To summarize part five: the Olea–Pflueger effective F flags the weak instrument at about one-point-two and clears the strong one at about fifty-four, while the classical F shows that more than ninety-nine percent of weak draws fall below ten, yet a lucky maximum near fourteen would fool an unlucky researcher — the Bound–Jaeger–Baker lesson exactly. Turn the strength knob to strong and every pathology evaporates: two-stage least squares lands on the truth, conventional coverage recovers to ninety-five percent, Anderson–Rubin agrees and is never unbounded. Instrumental variables delivers on its promise when, and only when, the first stage is strong — so the discipline is to check. In part six we close: the completion checklist, the referee's ledger of questions, and where this connects to the rest of the camp.
+:::

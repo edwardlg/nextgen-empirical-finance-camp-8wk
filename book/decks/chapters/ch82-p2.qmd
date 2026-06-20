@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Alternative Standard Errors: The Sandwich and the Clustering Level
+
+- Part 2 — the sandwich estimator and choosing the clustering level
+
+::: notes
+Welcome back to Robustness and Inference Stress-Tests, part two of fourteen. In part one we framed the chapter — kill your own result — and met Maya's fair-lending difference-in-differences, with its negative one-point-four percentage-point estimate and a t of two-point-five. Now we run the cheapest attack, and the most common cause of a result that evaporates: the standard error is too small, so the t-statistic is too big, and the significance is an illusion.
+:::
+
+## The Sandwich, Re-Asked
+
+- OLS gives the right $\hat\beta$ even when errors misbehave
+- Misbehaving errors corrupt the **variance**, not the point estimate
+- Sandwich: $(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\hat{\boldsymbol\Omega}\mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}$
+- Only $\boldsymbol\Omega$, the error covariance, changes between flavors
+- Classical, heteroskedastic-robust, cluster-robust, HAC
+- Re-run the headline under each, watch the SE move
+
+::: notes
+Recall the central lesson of Chapter two-point-four: OLS gives you the right point estimate even when the errors misbehave; what misbehaving errors corrupt is the variance of that estimate — the standard error, hence the t-stat, hence the p-value. A robustness check on standard errors does not touch your beta hat at all. It re-asks the question "how uncertain is this number?" under a less convenient, and often more honest, set of assumptions about how the errors are correlated. The sandwich estimator from Chapter two-point-four is the unifying object: X-prime-X inverse, times X-prime omega-hat X, times X-prime-X inverse again. The only thing that changes between flavors is what you assume about the error variance-covariance matrix, omega. Classical standard errors assume omega is sigma-squared times the identity — errors all the same size and uncorrelated. Heteroskedasticity-robust errors let the diagonal vary. Cluster-robust errors let omega have correlated blocks. And HAC, the Newey–West estimator, lets errors correlate across time within a unit, fading over a bandwidth. The exercise: re-run your headline estimate under each plausible flavor and watch the standard error move.
+:::
+
+## The Clustering Level — The One That Bites
+
+- Question: *at what level are the errors correlated?*
+- Petersen rule: cluster where treatment varies (here, state)
+- Moulton factor $1+(n-1)\rho_x\rho_\varepsilon$ multiplies the true variance
+- Try defensible alternatives: county, or two-way state $\times$ year
+- A national 2008 shock correlates errors across all states
+
+::: notes
+The clustering level is the one that bites Maya hardest, and the question is deceptively simple: at what level are the errors correlated? In Chapter two-point-four you learned the Petersen two-thousand-nine rule — cluster at the level of the correlation, and if treatment varies at the state level you must cluster at the state level. The Moulton-style inflation factor, one plus quantity n minus one times rho-x times rho-epsilon, shows that within-state error correlation, combined with a treatment that is constant within state, can multiply the true variance many times over. The robustness check is to try the defensible alternatives and see if the verdict survives. Maya clusters by state in her primary spec. A referee might ask: what about clustering by county, her unit of observation? Or two-way, by state and by year, since a national shock to mortgage markets in two-thousand-eight correlates errors across all states in that year, the Cameron, Gelbach and Miller two-thousand-eleven case? The honest move is to report a small table.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A standard-error robustness check never touches $\hat\beta$; it re-asks *how uncertain is this number?* under each defensible error structure. The clustering level bites hardest — cluster where treatment varies. Next: reading the clustering table, and serial correlation.
+:::
+
+::: notes
+To summarize part two: a robustness check on standard errors leaves your point estimate untouched and re-asks how uncertain it is under each plausible error structure, all unified by the sandwich estimator, where only the error covariance matrix changes between flavors. The clustering level is the one that bites — the Petersen rule says cluster where treatment varies, which for Maya means the state level, and the Moulton factor shows why within-state correlation can multiply the true variance many times. The honest move is to report a small table of defensible clustering choices. In part three we read that table top to bottom and handle serial correlation over time.
+:::

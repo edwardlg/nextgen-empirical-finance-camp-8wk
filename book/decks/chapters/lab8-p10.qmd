@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Three Live Moves Under a Fatal Critique
+
+- Part 10 — concede, retreat, and the located "I don't know"
+
+::: notes
+Welcome back to Lab Eight, part ten of twelve. In part nine we drew the line between survivable and fatal critiques. Now the live moves: what to do when a fatal critique lands and the attacker is right, and how to handle the question you genuinely cannot answer. These are the disciplines you rehearse before you walk into the room.
+:::
+
+## Do Not Defend the Indefensible
+
+- The hardest discipline in the whole camp
+- Arguing harder converts a damaged paper
+- Into a damaged reputation
+- The room can see the break
+- So concede at the level the critique was made
+
+::: notes
+The move when a fatal critique lands and the attacker is right is the hardest discipline in the whole camp, so rehearse it explicitly: do not defend the indefensible. Arguing harder in front of a room that can see the break converts a damaged paper into a damaged reputation. The audience already knows the comparison broke; your job is not to pretend otherwise but to show you understand exactly what broke and what still stands. So concede at the level the critique was made — no higher, no lower — and then retreat to what genuinely survives. A conceded fatal critique is a wounded paper but an intact scientist.
+:::
+
+## Retreat to What Survives
+
+- Concede, then retreat to the descriptive claim
+- "A strong association consistent with the mechanism"
+- "Not the clean causal estimate I'd hoped for"
+- Usually fatal to the causal claim, not the descriptive one
+- Know your retreat position *before* you walk in
+
+::: notes
+Instead of defending, concede and retreat to what survives. It sounds like this: "You're right that I can't rule that out with this design — so the honest reading is that this is a strong association consistent with the mechanism, not the clean causal estimate I'd hoped for, and that's a real limitation." And the retreat almost always lands somewhere real: the critique is usually fatal to the causal claim but not the descriptive one. "This is a robust pattern that future work with a better design should test causally" is a genuine, honest, publishable contribution. Know your retreat position before you walk in — that is exactly what the residual-concern column of your threats table was for. You are not improvising under fire; you are reading a fallback you wrote when you were calm.
+:::
+
+## The Located "I Don't Know"
+
+- For the question you genuinely cannot answer
+- Say "I don't know" *with structure*, not as a shrug
+- Name why it is outside your design
+- Give your guess at the direction
+- Name the specific check before you'd claim it
+
+::: notes
+The third move, for the question you genuinely cannot answer: say "I don't know" with structure, not as a shrug. It sounds like this: "I don't know — that's outside what my design can speak to, because of this reason; my guess is this direction, but I'd want to run this specific check before claiming it." A located "I don't know" proves the rest of your "I know"s are trustworthy. It is the opposite of bluffing: by drawing a clean boundary around what your design can and cannot say, you make everything inside that boundary more believable, not less. Three structured moves — concede, retreat, locate — and none of them is improvised; all three are rehearsed before you walk in.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+When a fatal critique is right: **don't defend the indefensible** — concede at the level made, retreat to the descriptive claim (usually a real contribution). For the unanswerable, a *located* "I don't know": reason, direction, the check you'd run. Know your retreat before you walk in. Next: the submission checklist.
+:::
+
+::: notes
+To summarize part ten: when a fatal critique lands and the attacker is right, the hardest discipline is to not defend the indefensible — arguing harder in front of a room that sees the break converts a damaged paper into a damaged reputation. Concede at the level the critique was made, then retreat to what survives, which is usually the descriptive claim — a robust pattern future work should test causally, a genuine contribution. Know that retreat position before you walk in; it is the residual-concern column made into a sentence. And for the truly unanswerable question, give a located "I don't know" — a reason, a direction, and the specific check you would run — which proves the rest of your knowledge is trustworthy. In part eleven we close out the build with the submission checklist.
+:::

@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Data and the Real Deliverable
+
+- Part 5 — the filings, the market data, and the dictionary
+
+::: notes
+Welcome back to Chapter six-point-three, part five of twelve. In part four we saw validation done as a horse race against market reactions. Now we look at the data behind that horse race — where the filings come from, what they are matched to, and the most durable deliverable of the whole paper, which is not a number at all.
+:::
+
+## The Unit and the Filings
+
+- Unit of observation: one **10-K filing** — one firm, one year
+- Filings live in the SEC's **EDGAR** archive, free to all
+- Sample spans filings over a multi-year window
+- Raw material is *public and enormous*
+- No licensing wall, unlike CRSP or Compustat
+
+::: notes
+The unit of observation is a ten-K filing — one firm's annual report for one fiscal year — and, downstream, that firm-filing's market reaction. The filings come from the Securities and Exchange Commission. Every U.S. public company files its ten-K, and since the mid-nineteen-nineties those filings live in the SEC's EDGAR electronic archive, free to anyone. Loughran and McDonald assemble a large sample of ten-Ks over a multi-year window. This is a defining feature of text-as-data finance: the raw material is public and enormous. There is no licensing wall, as there is with CRSP or Compustat. The cost is not access; it is the engineering of parsing fifty thousand words of messy markup into a clean bag of words — stripping tables, exhibits, tags, and boilerplate, decisions that are themselves levers we return to later.
+:::
+
+## Market Data and the Real Deliverable
+
+- Match filings to returns, volume, volatility around filing date
+- Add firm characteristics — size, book-to-market — as controls
+- The most-used output is **not** a table number
+- It is a *file*: the **Master Dictionary** and word lists
+- Maintained and updated publicly ever since
+
+::: notes
+To validate, the filings are matched to standard return, volume, and volatility data around the filing date, plus firm characteristics — size, book-to-market, and so on — as controls. The text score is the key regressor; the market reaction is the outcome. But here is the part to remember. The most-used output of this paper is not a number in a table. It is a file. Loughran and McDonald released the Master Dictionary and the associated word lists — negative, positive, uncertainty, litigious, modal, and more — and have maintained and updated them publicly ever since. When a paper today says we measure tone using the Loughran-McDonald dictionary, it means it downloaded these lists and counted. That a Journal of Finance paper's most durable contribution is a freely downloadable word list tells you something true: sometimes the most valuable thing you can publish is a clean, reusable measurement instrument.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The unit is a single **10-K filing** from the SEC's free **EDGAR** archive — public and enormous, no licensing wall. Filings are matched to returns, volume, and volatility for validation. The paper's most durable output is not a coefficient but a *file*: the publicly maintained **Master Dictionary**. Next: filters, traps, and the order to read the tables.
+:::
+
+::: notes
+To summarize part five. The unit of observation is a single ten-K filing, drawn from the SEC's free EDGAR archive — raw material that is public and enormous, with no licensing wall. For validation the filings are matched to returns, volume, and volatility, with firm characteristics as controls. And the paper's most durable deliverable is not a coefficient in a table — it is the publicly maintained Master Dictionary that became field infrastructure. In part six we cover the filters and traps to watch in the sample, and the smart order to read the paper's tables, because reading this one front to back is a mistake.
+:::

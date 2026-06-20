@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## From Percentage to Dollars: The Validating Assumption
+
+- Part 4 — scale to dollars and state the assumption
+
+::: notes
+Welcome back to KPSS, part four of twelve. In part three we met the clever move and the first refinement: read the abnormal grant-window return, filtered of the market, as the patent's value. Now we finish the recipe. The second refinement turns a percentage into a dollar figure and adjusts for the fact that a grant is only partly a surprise. Then we state, in one sentence, the assumption that makes the whole measure valid — the sentence the critique will later aim its fire at.
+:::
+
+## Refinement Two: Scale and Adjust
+
+- A one-percent jump = different dollars for different firms
+- Multiply by **market capitalization** $\Rightarrow$ dollars
+- A grant is only *partly* a surprise
+- Scale up for the **probability** the move is the patent
+- Output: dollar value $\xi_j$ per patent $j$ of firm $f$
+
+::: notes
+Refinement two: scale and adjust for surprise. A one-percent jump means very different dollar amounts for a ten-billion-dollar firm and a two-hundred-million-dollar firm, so the window return is multiplied by market capitalization to convert a percentage into dollars. And because a patent grant is only partly a surprise — markets anticipate some grants — the raw reaction understates the patent's full value. So K-P-S-S scale up by an estimate of the probability that the reaction reflects the patent rather than noise, recovering an expected dollar value. The end product, per patent j of firm f, is a dollar figure — written xi-j — interpretable as the market's estimate of the private value of patent j to firm f. Sum these over all patents a firm is granted in a year, and you have a firm-level, year-level panel of innovation value: the central data object the rest of the paper is built on.
+:::
+
+## State the Assumption
+
+- Abnormal grant-window return = **unbiased** estimate of value
+- Valid *if*: markets efficient enough to impound value at grant
+- And *if*: no other value-relevant news in the window
+- This sentence is where the critique aims its fire
+- Note: this is **not** a claim the patent *caused* growth
+
+::: notes
+State the assumption that makes this valid, in one sentence, Week-Five style: the abnormal stock return in the grant window equals the market's unbiased estimate of the patent's economic value — as long as markets are efficient enough to impound the patent's value at grant, and no other value-relevant news contaminates the window. That single sentence is where the vulnerabilities section will aim its fire. Note what it is not: it is not a claim that the patent caused the firm to grow. The growth and reallocation results in the back half of the paper are correlational associations built on top of the measure, and K-P-S-S are appropriately careful about how strongly to read them.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Refinement two scales the abnormal return by **market cap** to get dollars, then inflates it for grant-anticipation, yielding a per-patent value $\xi_j$. The validating assumption: the grant-window return is the market's **unbiased** estimate of value, given efficient markets and no confounding news. Next: the three data sources behind it all.
+:::
+
+::: notes
+To summarize part four: the second refinement scales the abnormal return by market capitalization to convert a percentage into dollars, then inflates it for the probability that the move reflects the patent, giving a per-patent dollar value, xi-j. Summed to firm-year, that is the central panel. The whole recipe rests on one assumption: the grant-window return is the market's unbiased estimate of the patent's value, given efficient markets and no confounding news in the window — and that is exactly where the critique will aim. Note it is not a causal claim about growth. In part five we look at the three data sources stitched together, and the public dataset that turned the paper into infrastructure.
+:::

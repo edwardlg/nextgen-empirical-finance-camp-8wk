@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Why FWL Makes Computation Fast
+
+- Part 11 — absorbing fixed effects, and the partial-regression plot
+
+::: notes
+Welcome back to the Frisch–Waugh–Lovell theorem, part eleven of thirteen. In part ten we saw dummies equal demeaning — the heart of fixed effects. Now we turn to the practical computational edge real software leans on hard, and the diagnostic plot F W L unlocks: the partial-regression plot that turns a high-dimensional coefficient into a picture you can point at.
+:::
+
+## Why FWL Makes Computation Fast
+
+- Don't invert a giant $\mathbf{X}'\mathbf{X}$ full of dummy columns
+- **Partial out** the dummies by demeaning — costs almost nothing
+- 5,000 firms, 20 years: brute force inverts a 5,000-plus matrix
+- FWL: subtract firm means and year means instead
+- Iterate until both are swept (method of alternating projections)
+- Cost drops from "invert huge matrix" to "compute averages"
+
+::: notes
+F W L is mostly an interpretive theorem, but it has a practical computational edge that real software leans on hard. Instead of inverting a giant X-transpose-X that includes thousands of dummy columns, you can partial out the dummies by demeaning — an operation that costs almost nothing, just subtracting group means — and then solve a small regression on the residualized variables. To feel the saving, imagine a panel with five thousand firms and twenty years. Controlling for a firm dummy and a year dummy the brute-force way means a design matrix with over five thousand columns, and inverting a five-thousand-plus square matrix for a single regression. That is enormous and numerically delicate. F W L says you never have to: subtract each firm's mean and each year's mean — iterating until both are swept out, since the two demeanings interfere, the method of alternating projections — then run a regression on a handful of real variables. The cost drops from invert a huge matrix to compute some group averages, which is linear in the data. This is exactly how modern fixed-effects packages such as pyfixest work: they never form the dummy matrix at all. Every high-dimensional fixed-effects result in modern empirical finance exists because F W L lets the dummies be absorbed instead of inverted.
+:::
+
+## Two Bonus Edges
+
+- Many controls, one coefficient: **residualize once, reuse**
+- FWL collapses a $K$-dimensional coefficient to a **bivariate slope**
+- So you can **plot** it: $\tilde{y}$ against $\tilde{x}$, FWL slope drawn through
+- The **partial-regression** (added-variable) plot
+- Best way to *see* whether one or two firms drive a coefficient
+- Honest two-dimensional picture of a high-dimensional number
+
+::: notes
+Two more edges. The second shows up whenever you want one coefficient but have many controls: you can residualize once and reuse the cleaned variables. And the third, quieter edge is diagnostic. Because F W L collapses any multivariate coefficient down to a bivariate slope of y tilde on x tilde, you can plot it. The scatter of y tilde against x tilde, with the F W L slope drawn through it, is the honest two-dimensional picture of a coefficient that otherwise lives in many dimensions. That plot — called a partial-regression plot, or added-variable plot — is the single best way to see whether a control coefficient is driven by the bulk of the data or by one or two influential firms hiding in a high-dimensional regression. It is exactly what the notebook for this chapter builds.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+FWL turns "invert a huge dummy matrix" into "subtract group means" — linear in the data, and how packages like `pyfixest` absorb fixed effects. It also collapses a $K$-dimensional coefficient to a **bivariate slope you can plot**: the partial-regression (added-variable) plot. Next, the finale: the traps, the code, and the name behind the theorem.
+:::
+
+::: notes
+To summarize part eleven. F W L has a computational edge real software leans on: instead of inverting a giant matrix full of dummy columns, you partial out the dummies by demeaning, iterating until all the fixed effects are swept out — the method of alternating projections. The cost drops from inverting a huge matrix to computing group averages, linear in the data, and that is how packages like pyfixest absorb fixed effects without ever forming the dummy matrix. Two bonus edges: residualize once and reuse with many controls; and collapse a high-dimensional coefficient to a bivariate slope you can plot — the partial-regression, or added-variable, plot that reveals which firms drive a coefficient. In part twelve, the finale, we cover where the trick bites, the whole chapter in fifteen lines of code, and the name behind the theorem.
+:::

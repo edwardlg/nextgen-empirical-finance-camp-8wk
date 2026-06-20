@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Construction and Validation
+
+- Part 4 — building the finance lists and validating them
+
+::: notes
+Welcome back to Chapter six-point-three, part four of twelve. In part three we built the bag-of-words machine and saw that the dictionary is the treatment. Now we watch the finance-specific lists get built, see why they span several categories, and reach the validation step — which is the real identification in this paper.
+:::
+
+## Building Finance-Specific Lists
+
+- **Negative:** loss, litigation, deficiency, adverse, restated
+- **Positive** tone words too
+- **Uncertainty:** approximate, contingency, may, risk, could
+- **Litigious:** plaintiff, tort, settlement, court
+- **Strong-** and **weak-modal:** will, must versus may, might
+
+::: notes
+The construction step. Loughran and McDonald build word lists tailored to financial disclosure. The most important is the negative list — words that are negative when a company uses them about itself: loss, litigation, deficiency, adverse, restated, termination, going concern. But they do not stop there. They release a family of categories, because finance cares about more than good-versus-bad mood. There is a positive tone list. There is uncertainty — words like approximate, contingency, may, risk, could — capturing how much the firm hedges about its own future. There is litigious — plaintiff, tort, settlement, court — legal exposure. And there are strong-modal and weak-modal lists — words signaling how firmly management commits: will, must, always, versus may, might, possibly. The categories are finance-shaped, not psychology-shaped.
+:::
+
+## Built From the Filings Themselves
+
+- Lists drawn from actual word frequencies in 10-Ks
+- Keep a word if plausibly negative *and* common in filings
+- Negation handled only crudely: "not profitable"
+- A new list is just an opinion until tested
+- Validation is where the list earns its keep
+
+::: notes
+A subtle and underrated choice: they build these lists from the actual word frequencies in ten-Ks, keeping a word only if it is both plausibly negative in a financial setting and common enough in filings to matter. They also confront the awkward fact that the same word can flip meaning under negation — not profitable — though, as we will see later, bag-of-words handles negation only crudely. Now the key methodological point. A new word list is just an opinion until it earns its keep against data. So the question becomes: how do you prove a word list is good? You validate it.
+:::
+
+## Validation Is the Identification
+
+- Validate against **market outcomes** real bad news should move
+- More negative tone $\Rightarrow$ lower abnormal returns
+- $\Rightarrow$ higher trading volume, higher volatility
+- Run it with Harvard, then the finance list — a horse race
+- Does Harvard's "signal" survive stripping misclassified words?
+
+::: notes
+The validation step is the identification. Loughran and McDonald ask whether their finance-negative score relates to market outcomes the way real negative news should. If a ten-K's tone genuinely carries bad information, filings scored more negative should be followed by lower abnormal returns around the filing date, higher trading volume, and higher return volatility. The test is comparative — a horse race. Run these associations using the Harvard negative count, then using the finance-specific count, and see which shows the cleaner, more sensible relationship. And critically: does the Harvard measure's apparent signal survive once you strip out the misclassified accounting words? The identifying claim is this: a dictionary measures financial tone validly to the extent that its score moves with market reactions in the direction real bad news would move them — and not because it is mechanically counting neutral accounting vocabulary. The headline: the finance dictionary passes this test better, and much of the general dictionary's apparent negativity was noise.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The finance lists span **negative, positive, uncertainty, litigious, and modal** categories, built from real filing frequencies. A list is just an opinion until **validated** — as a horse race against market reactions: more negative tone should mean worse returns and higher volume and volatility. The finance list passes better; much of Harvard's signal was noise. Next: the data.
+:::
+
+::: notes
+To summarize part four. Loughran and McDonald build finance-shaped lists spanning negative, positive, uncertainty, litigious, and modal categories, drawn from real filing frequencies. But a word list is only an opinion until validated against data. The validation is the identification: a comparative horse race asking whether each dictionary's score moves with market reactions — lower abnormal returns, higher volume, higher volatility — in the direction real bad news would move them. The finance list passes better, and much of the Harvard list's apparent power was noise from misclassified accounting words. In part five we look at the data behind that horse race — where the filings come from and the paper's most durable deliverable.
+:::

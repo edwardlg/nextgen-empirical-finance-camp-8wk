@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Fixing Functional Form and the RESET Test
+
+- Part 10 — polynomials, logs, interactions; the RESET test
+
+::: notes
+Welcome back to Week Two-point-five, part ten of twelve. In part nine we saw that fitting a straight line to a curved truth biases the coefficient, with Priya's convex premium curve as the example. Now the good news: the fixes use variables you already own. We cover polynomials, logs, and interactions, then meet Ramsey's RESET test — the diagnostic that flags neglected curvature even when you do not know which variable is the culprit.
+:::
+
+## The Fixes: You Already Own the Variables
+
+- **Polynomials:** add $x^2$; marginal effect $\beta_1 + 2\beta_2 x$ varies
+- Still *linear in parameters* — still ordinary least squares
+- **Logs:** reshape to elasticities; tame skewed financial variables
+- **Interactions:** $\beta_3(x\cdot w)$ makes the slope depend on $w$
+- Ordinary OLS with cleverly-constructed regressors
+
+::: notes
+The fixes are a toolkit, and the good news is you already own the variables — you just need the right transformations. First, polynomials. Add x-squared, and maybe x-cubed, as regressors. This stays linear in the parameters — it is still ordinary least squares — even though the relationship in x is curved. The marginal effect is now beta-one plus two times beta-two times x, which varies with x. Second, logs. Replacing levels with logs reshapes the relationship and changes the interpretation to elasticities and semi-elasticities. In a model with log y on x, beta-one is the approximate proportional change in y per unit of x, a semi-elasticity. In log y on log x, beta-one is an elasticity — the percent change in y per percent change in x. Logs also tame skewed, multiplicative financial variables like firm size and market cap, and stabilize variance. Third, interactions. If the effect of x on y depends on another variable w, include the product, so the slope on x becomes beta-one plus beta-three times w, different for different w. These are not exotic — they are ordinary least squares with cleverly-constructed regressors, and they dissolve most functional-form problems, if you know the right shape.
+:::
+
+## The RESET Test
+
+- Idea: if the shape is right, powers of $\hat{y}$ add nothing
+- Fit the model, save fitted values $\hat{y}$
+- Re-fit adding $\hat{y}^2$ and $\hat{y}^3$ as regressors
+- $F$-test the joint null $\gamma_1 = \gamma_2 = 0$
+- Rejection flags leftover curvature — a flag, not a diagnosis
+
+::: notes
+The harder question is diagnosing that you have a problem at all. Ramsey's Regression Equation Specification Error Test, RESET, is a simple, clever check for neglected nonlinearity. The idea: if your linear model has captured the true shape, then powers of the fitted values should have no additional explanatory power — there is no leftover curvature for them to pick up. If they do help, your functional form is missing something. The procedure is mechanical. First, fit your model and save the fitted values y-hat. Second, re-fit, adding powers of the fitted values as extra regressors — y-hat squared and y-hat cubed. Third, test the joint null that both new coefficients, gamma-one and gamma-two, are zero, with an F-test. Why powers of the fitted value? Because the fitted value is a combination of all your regressors, its powers are a cheap, low-dimensional stand-in for all the squared and cross terms you might have omitted, without guessing which specific variable needs a polynomial. A rejection, with a p-value below zero-point-zero-five, says there is curvature your linear model is not capturing — a flag, not a diagnosis. In code, Priya's linear fit fails RESET with a microscopic p-value; add the quadratic term and RESET no longer rejects. The diagnostic flagged the problem, the polynomial fixed it, the test confirmed the fix. But RESET only sees curvature among the variables you have — it is blind to omitted variable bias.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Fix curvature with **polynomials, logs, or interactions** — still ordinary OLS, just cleverly-constructed regressors. Diagnose it with **RESET**, which $F$-tests powers of $\hat{y}$. But RESET only sees curvature among the variables you *have*: passing it means "the shape looks right," not "the coefficient is causal." Next: the bias-consistency ledger.
+:::
+
+::: notes
+To summarize part ten: most functional-form problems dissolve with ordinary least squares and cleverly-constructed regressors — polynomials for curvature, logs for elasticities and skewed financial variables, and interactions when one variable's effect depends on another. To diagnose neglected curvature, RESET adds powers of the fitted values and F-tests whether they help; a small p-value flags leftover curvature. But RESET tests functional form, not omitted variables or measurement error. A model can sail through RESET and still be hopelessly confounded, because RESET only looks at curvature among the variables you have. Passing RESET means the shape looks right, not that the coefficient is causal. In part eleven we collect all three threats into the bias-consistency ledger, the single checklist that organizes the rest of the camp.
+:::

@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Where This Goes Next
+
+- Part 10 — Three deliverables, and the bridge to Chapter 8.2
+
+::: notes
+Welcome back to Execution and the Specification Curve, part ten of ten, the final part. In part nine we built the honest deviations log and saw how it forms one system with the spec curve. Now we gather the three deliverables of this chapter, name the question they answer, and look ahead to what they cannot answer — which is exactly what Chapter eight-point-two takes up.
+:::
+
+## Three Things on the Page
+
+- A **confirmatory result**, run and reported exactly as filed
+- A **specification curve** that makes the garden visible
+- An **honest deviations log** drawing the line in public
+- Together they answer the skeptic's first question
+- "Would your result hold if you chose differently?"
+
+::: notes
+You arrived at this chapter with a frozen plan and a frozen notebook. You leave with three things on the page. First, a confirmatory result, run exactly as pre-registered and reported whatever it showed. Second, a specification curve that makes the entire garden of forking paths visible and tells you, with a forensic bottom panel, whether your headline is a robust feature of the data or a lucky branch. Third, an honest deviations log that draws the confirmatory-exploratory line in public. Together they are the answer to the question a skeptic asks first: would your result have been the same if you had made your defensible choices differently? Maya can now say yes, and show the orchard that proves it.
+:::
+
+## What the Curve Cannot Tell You
+
+- Every spec in Maya's curve assumes parallel trends
+- If that assumption is false, the curve is confidently wrong
+- The spec curve stress-tests your *choices*
+- Chapter 8.2 stress-tests your *assumption*
+- Placebo tests, and Oster's $\delta$ for unobserved selection
+
+::: notes
+But notice what the spec curve cannot tell you, and what therefore comes next. Every specification in Maya's robust, all-negative curve assumes parallel trends. If that assumption is false, the curve is a confident wrong answer. Chapter eight-point-two turns from analytic-choice multiplicity to inference validity: the placebo tests that would have fired if the design were broken, and Oster's delta, which asks how much unobserved selection it would take to explain away your effect. The spec curve stress-tests your choices; eight-point-two stress-tests your assumption. You need both before you defend the paper and hand it to a hostile peer reviewer. A result that survives the multiverse and the placebos and the bound on omitted-variable bias is one you can present at the conference without flinching — because every honest attack has already been made, by you, first.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+You leave Week 8.1 with three deliverables: a **confirmatory result**, a **specification curve**, and an **honest deviations log** — together answering "would my result hold if I chose differently?" But the curve assumes parallel trends. Next, **Chapter 8.2** stress-tests the *assumption* itself, with placebos and Oster's $\delta$.
+:::
+
+::: notes
+To close Chapter eight-point-one: you leave with three deliverables that, together, answer the skeptic's first question — a confirmatory result run and reported exactly as filed, a specification curve that makes the whole garden of forking paths visible, and an honest deviations log that draws the confirmatory-exploratory line in public. The single sentence that ties them together is this: would your result have been the same if you had made your defensible choices differently? The spec curve answers that for your choices — but it is silent on whether your design identifies the effect at all. That is the next anxiety. In Chapter eight-point-two, we stress-test the assumption itself, with placebo tests and Oster's delta, so that a result surviving the multiverse and the placebos is one you can defend without flinching. That is the end of Week Eight, Chapter eight-point-one.
+:::

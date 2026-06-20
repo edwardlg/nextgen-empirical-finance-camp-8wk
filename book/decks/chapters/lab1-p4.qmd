@@ -1,0 +1,57 @@
+---
+date: "2026-06-22"
+---
+
+## Power Curves and a p-Hacking Experiment
+
+- Part 4 — measure power, trace its curve, then expose p-hacking
+
+::: notes
+Welcome back to Lab one, building a coin-flip universe, part four of five. In part three we wrote a one-proportion test and measured its size — its false-positive rate under a true null. Now we point the same machine at a false null to measure power, trace a power curve, and then run the lab's most sobering experiment: why a lone significant result, pulled from many tries, means almost nothing.
+:::
+
+## Step 5: Measure the POWER
+
+- **Power** $= 1-\beta = \Pr(\text{reject } H_0 \mid H_1 \text{ true})$
+- Draw data from $p \neq p_0$, run the same test, count rejections
+- Size is just power evaluated *at the null*
+- Same machine, pointed at different truths
+
+::: notes
+Step five: power. Size asks how often you cry wolf when there is no wolf. Power asks the opposite: when there is a wolf — when the alternative is true — how often do you catch it? Power is one minus beta, the probability of rejecting the null given the alternative is true. To measure it, change one thing: draw the data from a coin whose true p is not p-naught, then run the same test and count rejections. Notice that your empirical-size function is just your empirical-power function with the true p equal to p-naught. Size is power evaluated at the null — the same machine pointed at different truths. So everything you built in Step four already does double duty; you only pull the data-generating p apart from the null.
+:::
+
+## Trace a Power Curve
+
+- Hold $p_0=0.5$, $\alpha=0.05$, $N$ fixed; sweep true $p$
+- Each curve is a **valley**, bottoming at $\approx 0.05$ when $p=0.5$
+- Power climbs toward $1$ as $p$ leaves $0.5$
+- Larger $N$: steeper, narrower valley
+- Effect size and sample size both buy power
+
+::: notes
+Now trace a power curve. Hold p-naught at one-half, alpha at zero-point-zero-five, and N fixed, then sweep the true p across a grid. Redo the sweep for a few values of N and overlay the curves. Each curve is a valley. At the bottom, where p equals one-half, the null is true, so power equals the size — about zero-point-zero-five. As the true p moves away from one-half in either direction, power climbs toward one: bigger effects are easier to detect. And the larger-N curves are steeper and narrower — with N equal to eight hundred, even a small bias like p equal to zero-point-five-five is caught most of the time, while at N equal to fifty that same bias slips past more often than not. This is the power levers made visible: effect size, the distance from one-half, and sample size, which curve you are on, both buy power. It also sharpens the rule that failing to reject is not accepting: a non-rejection at low power proves very little.
+:::
+
+## Step 6: A p-Hacking Mini-Experiment
+
+- $m$ worthless fair coins; test each, report only the "winner"
+- $\Pr(\ge 1 \text{ false positive}) = 1-(1-\alpha)^m$
+- $m=5 \to 0.23$; $m=20 \to 0.64$; $m=50 \to 0.92$
+- Fifty signals: a spurious "winner" is almost guaranteed
+- **Bonferroni:** test at $\alpha/m$ pulls it back to $\approx 0.05$
+
+::: notes
+Step six, the stretch — the warning of Section one-point-five-point-ten turned into an experiment. Imagine Sam screens trading signals, and every one is truly worthless. Each honest test falsely fires only five percent of the time. But Sam runs many and reports only the best. How often does at least one worthless signal look significant? Build m independent fair coins, all nulls true, test each, and record whether any rejected. Your empirical numbers track the formula one minus, one minus alpha, to the m-th power: about zero-point-zero-five at m equal one, zero-point-two-three at five, zero-point-six-four at twenty, and zero-point-nine-two at fifty. With fifty worthless signals, a spurious winner is almost guaranteed, and its p-value will look perfectly respectable — maybe zero-point-zero-one — a complete artifact of trying fifty times. The fix: tighten the per-test bar to alpha over m. That is Bonferroni, the crudest multiple-testing correction, and it pulls the family-wide rate back toward five percent.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Power** is the same machine as size, pointed at a false null: the curve is a valley that deepens and narrows as $N$ grows. Run many tests on worthless signals and $\Pr(\ge 1 \text{ false positive}) = 1-(1-\alpha)^m$ — at $m=50$, about $0.92$. Bonferroni's $\alpha/m$ bar restores control. Next: the checklist and where this lab travels.
+:::
+
+::: notes
+To summarize part four: power is the very same simulator as size, pointed at a false null, and the power curve is a valley that deepens and narrows as N grows — effect size and sample size both buy power. Then the sobering finding: run many honest tests on worthless signals and the chance of at least one false positive is one minus, one minus alpha, to the m-th power — about zero-point-nine-two at fifty tests. A lone significant result, pulled from many silent tries, means almost nothing; Bonferroni's alpha-over-m bar restores control. In part five we close with the checklist and trace where this lab's machinery returns later in the camp.
+:::

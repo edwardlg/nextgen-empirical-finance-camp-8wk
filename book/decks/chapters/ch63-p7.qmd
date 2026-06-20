@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## What's Clever: Domain and Diagnosis
+
+- Part 7 — domain-specificity and diagnosis by enumeration
+
+::: notes
+Welcome back to Chapter six-point-three, part seven of twelve. In part six we covered the smart reading order for the tables. Now we step back and name what is genuinely clever about this paper. A measurement paper teaches as much by its strategy as its result. We take the first two moves here: domain-specificity, and diagnosis by enumeration.
+:::
+
+## Domain-Specificity Is the Whole Idea
+
+- Sentiment is *not* a property of a word
+- It is a property of a word *in its domain*
+- "Liability," "vice," "crude," "tax" differ across domains
+- A tool calibrated on one domain mismeasures the other
+- A good paper makes the error feel obvious *in retrospect*
+
+::: notes
+First and deepest: domain-specificity is the whole idea. The intellectual core is a single, portable insight — the sentiment of a word is not a property of the word; it is a property of the word in its domain. Liability, vice, crude, tax mean different things in finance than in general English, and a tool calibrated on one domain mismeasures the other. This sounds obvious once stated, which is exactly the mark of a good measurement paper: it makes an error everyone was making feel obvious in retrospect. And the logic generalizes. A sentiment tool for medical notes, legal briefs, or central-bank statements needs its own dictionary. Carry this as a law: never reuse a measurement instrument across domains without checking that the words still mean what the instrument assumes.
+:::
+
+## Falsifying a Widely-Used Tool
+
+- The Harvard dictionary was respectable and ubiquitous
+- Many published finance papers had used it
+- They didn't argue it *might* be wrong — they *counted*
+- Showed exactly which words did the damage, and how much
+- Diagnosis by **enumeration** beats diagnosis by assertion
+
+::: notes
+Second: it takes nerve and care to show that a standard, widely-cited tool is wrong for your setting. The Harvard General Inquirer dictionary was respectable and ubiquitous; many published finance papers had used it. Loughran and McDonald did not argue abstractly that it might be miscalibrated. They counted. They showed precisely which words were doing the damage and how much of the negative signal they accounted for. Diagnosis by enumeration is far more convincing than diagnosis by assertion. When you suspect a tool is broken, do not gesture at the problem — count it, name the offending pieces, and quantify their share. That is what turned a plausible complaint into an unanswerable result.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Two clever moves: **domain-specificity** — a word's sentiment lives in its domain, so never transport an instrument without re-checking it; and **diagnosis by enumeration** — they did not assert the Harvard tool was broken, they counted exactly which words broke it and by how much. Next: the other two clever moves — shipping the instrument and good taxonomy.
+:::
+
+::: notes
+To summarize part seven. Two clever moves worth stealing. One: domain-specificity — a word's sentiment is a property of the word in its domain, not the word alone, so never transport an instrument across domains without re-checking that the words still mean what it assumes. Two: diagnosis by enumeration — they did not merely assert the Harvard tool was broken; they counted exactly which words broke it and quantified their share, turning a plausible complaint into an unanswerable result. In part eight we cover the other two clever moves: turning the dictionary into a reusable public good, and the conceptual contribution of categories beyond good and bad.
+:::

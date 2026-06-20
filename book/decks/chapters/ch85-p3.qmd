@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Arc: Headline, Robustness, Contribution
+
+- Part 3 — the arc's last three beats: headline, robustness, contribution
+
+::: notes
+Welcome back to The Eight-Minute Presentation and the Replication Packet, part three of twelve. In part two we covered the first three beats — question, why it matters, and the design spine. Now we finish the arc with its last three beats: the headline result, the robustness slide, and the contribution. These are where your number lands, where you show it is not fragile, and where you name what you will and will not claim.
+:::
+
+## The Headline Is One Number
+
+- One estimate, one interval, shown as a picture
+- Not a table — one sentence of interpretation
+- "One-point-eight points, a fifth of the gap" — not beta hat
+- A confidence interval is *part of* the result
+- A bare point estimate reads as naive or evasive
+
+::: notes
+The headline result slide is one number with its uncertainty, shown as a picture. Not a table. One estimate, one interval, one sentence of interpretation in the units a human cares about — "one-point-eight percentage points, about a fifth of the baseline gap," not "beta hat equals zero-point-zero-one-eight, t equals three-point-two." If you remember nothing else about result slides: a confidence interval is part of the result, not an afterthought. Show it, because a point estimate with no interval reads as either naive or evasive, and a sharp audience clocks the difference instantly. The headline is the moment the talk has been building toward, so let the number land, and then say what it means in plain terms before you move on.
+:::
+
+## Robustness, Then Contribution
+
+- **Robustness:** the headline survived one arbitrary choice
+- A specification curve clustering near the headline
+- "Stable across the three choices I worried about most"
+- **Contribution:** what the room now knows in one sentence
+- And what you are *not* claiming — then stop talking
+
+::: notes
+The robustness slide is where Chapter eight-point-two pays off, and it has exactly one job: show that the headline did not depend on a single arbitrary choice. This is the visual answer to "is your result fragile?" — typically a specification curve or a small grid of alternative specifications, all clustering near the headline. You do not narrate every robustness check; you show that they exist and that they agree, and you say one sentence: "the result is stable across the three choices I worried about most." This slide is your pre-emptive strike — it answers "what about that choice?" before anyone asks. The contribution slide closes by naming what the room now knows that it did not eight minutes ago — one sentence — and, crucially, what you are not claiming. "We show X, under assumption Y; we do not show Z." That last clause is not weakness; it is the single most credibility-building sentence in the talk, because it signals you know exactly where your own claim stops. Then stop talking. Do not summarize the summary.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The last three beats: the **headline** is one number with its interval in human units — the interval is *part of* the result. **Robustness** shows the headline survived your arbitrary choices, a tight cluster near the estimate. **Contribution** names what the room now knows *and what you don't claim* — then you stop. Next: one idea per slide.
+:::
+
+::: notes
+To summarize part three: the arc finishes with the headline, robustness, and contribution. The headline is one number with its uncertainty shown as a picture, in units a human cares about, with the confidence interval treated as part of the result rather than an afterthought. Robustness has one job — show the headline did not hinge on a single arbitrary choice — usually a specification curve clustering near the estimate, summarized in one sentence. And the contribution names, in one sentence, what the room now knows, plus the clause naming what you do not claim, which is the most credibility-building line in the talk. Then you stop. In part four we turn from the arc to what goes on each slide: one idea per slide, and the test that catches a slide doing too much.
+:::

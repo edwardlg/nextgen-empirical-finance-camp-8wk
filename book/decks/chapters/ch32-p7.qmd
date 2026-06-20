@@ -1,0 +1,73 @@
+---
+date: "2026-06-22"
+---
+
+## Balance Diagnostics — and the Firewall
+
+- Part 7 — the SMD audit, and the design–outcome firewall
+
+::: notes
+Welcome back to selection on observables, part seven of nine. In part six the workflow recovered about point-three-one — but step four earns belief. Now we study that step: balance diagnostics, the standardized mean difference, why never a t-test, and the sacred firewall that you check balance, never the outcome.
+:::
+
+## Did Matching Make the Groups Comparable?
+
+- You have a score model and a set of matches
+- Before believing $0.31$: did the groups balance on $\mathbf{X}$?
+- A bad model, loose caliper, or thin overlap leaves imbalance
+- Residual imbalance **re-confounds** the estimate
+- So you **audit the balance**
+
+::: notes
+You have a propensity-score model and a set of matches. Before you believe the point-three-one, answer one question: did the matching make the treated and control groups actually comparable on X? A propensity-score model can be badly specified, the caliper too loose, the overlap too thin — and any of these leaves residual imbalance that re-confounds the estimate. A clean-looking number can still be contaminated if the groups never truly matched. So you do not just trust the procedure; you audit the balance, covariate by covariate, before you let yourself look at the answer.
+:::
+
+## The Standardized Mean Difference
+
+- For covariate $X_j$: $\text{SMD}_j = \dfrac{\bar X_{j,1} - \bar X_{j,0}}{s_j}$
+- The gap in means, in **standard-deviation units** — scale-free
+- Convention: $|\text{SMD}_j| < 0.1$ is acceptable balance
+- **Never use a t-test** — it conflates imbalance with sample size
+- Dropping units can make imbalance "insignificant" with no real fix
+
+::: notes
+The standard tool is the standardized mean difference, or S-M-D, computed for each covariate before and after matching. Take the treated mean minus the control mean, divided by the pooled standard deviation. It is the gap in means in standard-deviation units — scale-free, so a credit score and an income in dollars are on the same footing. The convention, from Austin and Stuart, is that an absolute S-M-D below point-one is acceptable; larger means the groups still differ and the comparison is suspect. Crucially, you do not use a t-test. A t-test conflates the size of the imbalance with the sample size, and matching changes the sample size — so a significant imbalance can shrink to insignificant just by dropping units, with no real improvement. The S-M-D measures the imbalance itself, not whether it clears a noise threshold.
+:::
+
+## Maya's Balance Table
+
+| Covariate | SMD before | SMD after |
+|---|---:|---:|
+| creditworthiness | $+0.79$ | $-0.03$ |
+| income | $+0.45$ | $+0.02$ |
+| age | $+0.27$ | $+0.04$ |
+| propensity score $\hat e$ | $+1.02$ | $\approx 0.00$ |
+
+- Before, the imbalance *is* the selection bias in covariate form
+
+::: notes
+Here are Maya's standardized mean differences, before and after matching. Creditworthiness goes from plus point-seven-nine to minus point-zero-three. Income, from plus point-four-five to plus point-zero-two. Age, from plus point-two-seven to plus point-zero-four. The propensity score itself, from plus one-point-zero-two to about zero. Before matching, that large imbalance is the selection bias in covariate form. After one-to-one caliper matching, every standardized mean difference drops below the point-one threshold: the matched groups are now genuine look-alikes on all three confounders. This table is the evidence that the point-three-one deserves to be believed. A balance table like this — not the regression output — is what a referee reads first in a matching paper.
+:::
+
+## The Sacred Firewall
+
+- Tune the model, caliper, neighbors — watching **only balance**
+- Keep the outcome $Y$ **hidden** until the design is locked
+- Watching the effect while tuning = **specification search**
+- That is the multiple-testing pathology of Chapter 1.5
+- **Balance is what you optimize; the effect, you report once**
+
+::: notes
+Now the rule that trips up everyone the first time: you check balance, never the outcome. You tune your propensity model, your caliper, your number of neighbors, looking only at how well X balances — and you keep the outcome Y hidden until the design is locked. Why? Because the credibility of selection on observables rests on the design being chosen independently of the answer it produces. If you fiddle with the recipe while watching the estimate, you are — consciously or not — selecting the specification that gives the effect you like. That is the specification-search pathology from Chapter one-point-five, aimed at your causal conclusion. Matching's great virtue is that it forces this separation: the matching stage uses D and X only; the outcome enters after the design is frozen. Treat that firewall as sacred. Balance is what you optimize; the effect is what you report once, at the end.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Audit matching with the **standardized mean difference** per covariate — scale-free, target $|\text{SMD}| < 0.1$, **never a t-test**. Maya's SMDs collapse from $+0.79$ to near zero: that table, not the regression, is the evidence. And honor the **firewall** — tune on balance with the outcome hidden, or you court the specification-search pathology of Chapter 1.5. Next: when matching fails entirely.
+:::
+
+::: notes
+To summarize part seven. After matching, you audit balance with the standardized mean difference for each covariate — scale-free, below point-one acceptable. Never use a t-test, because it conflates imbalance with sample size. Maya's table shows every covariate collapsing toward zero; that table is the evidence the estimate deserves belief. And the firewall is sacred: you tune the recipe watching only balance, with the outcome hidden, because tuning while watching the effect is the specification-search pathology of Chapter one-point-five. In part eight: the Conditional Independence Assumption is untestable, and matching is still selection on observables.
+:::

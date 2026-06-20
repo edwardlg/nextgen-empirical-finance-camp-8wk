@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Sparsity, a Worked Number, and the Tie to DiD
+
+- Part 5 — sparsity, a worked number, and the DiD link
+
+::: notes
+Welcome back to synthetic control, part five of twelve. In part four we met the two constraints that make the synthetic control a convex combination, unable to extrapolate beyond the donors. Now we see two more payoffs of that convexity: the weights come out sparse and interpretable, we walk a worked number by hand to watch the optimizer think, and we tie the whole thing back to difference-in-differences.
+:::
+
+## Convexity Buys Sparsity
+
+- Optimal weights are typically **sparse** — most donors get zero
+- A handful carry the synthetic control
+- Priya: 0.46 Oregon, 0.31 Colorado, 0.18 Arizona, 0.05 New Mexico
+- A sentence you can write and defend in a paper
+- It reads less like regression, more like **matching** (3.2)
+
+::: notes
+A second gift of convexity is interpretability and sparsity. The optimal weights are typically sparse: most donors get weight exactly zero, and a handful carry the synthetic control. Priya might find her synthetic state is zero point four six Oregon, zero point three one Colorado, zero point one eight Arizona, zero point zero five New Mexico, and zero on the other donors. That is a sentence she can write in a paper and defend: the treated state's premium path before the mandate is best reproduced by a blend of four western states with similar wildfire exposure. Try writing that about a regression with forty nonzero coefficients of both signs. Where does the sparsity come from? It is a feature of optimizing a convex objective over the simplex, the set of non-negative weights summing to one. That geometry loads up on the few donors that genuinely help and zeros out the rest, the way a constrained portfolio optimizer concentrates in a few assets. This is why synthetic control reads less like a regression and more like matching from Chapter three-point-two.
+:::
+
+## A Worked Number
+
+- Treated pre-premiums $(12,13,14)$; three donors
+- Try $\mathbf{w}=(0.5,0,0.5)$: synthetic $(10.5,11.5,12.5)$
+- Mismatch $1.5$ each year; sum of squares $6.75$
+- Try $\mathbf{w}=(0,0,1)$: synthetic $(11,12,13)$; sum of squares $3$
+- The far-above middle donor is driven to weight **zero**
+
+::: notes
+Strip it to three pre-periods and three donors so you can see the gears. Suppose the treated state's pre-period premiums, in hundreds of dollars, are twelve, thirteen, fourteen, for years fifteen, sixteen, seventeen. With V equal to the identity, treating all three years equally, try the weight vector zero point five, zero, zero point five. The synthetic premiums become ten point five, eleven point five, twelve point five. The mismatch is one point five in each year, sum of squares six point seven five. Now try the weights zero, zero, one. The synthetic is eleven, twelve, thirteen, mismatch one in each year, sum of squares three. Better. The middle donor, with premiums sixteen, seventeen, eighteen, is far above the treated state and gets driven to weight zero; including it would only push the synthetic average up and away. The convexity constraint keeps the optimizer from doing something absurd like negative five, zero point one, five point nine, which might fit better in-sample by exploiting one donor's slope. That refusal is the feature.
+:::
+
+## DiD Is This With Frozen Weights
+
+- **DiD is synthetic control with weights frozen at equality**
+- A 2×2 DiD uses $w_j=1/J$ on every donor
+- An equal-weighted control — and *hopes* it matches
+- Synthetic control says: don't hope, **optimize**
+- It *targets* parallel pre-trends as the objective
+
+::: notes
+Now tie it back to section four-point-one explicitly. Difference-in-differences is synthetic control with the weights frozen at equality. When you run a two-by-two difference-in-differences against the rest of the states, you are implicitly using w-j equals one over J for every donor, an equal-weighted average control, and hoping that equal-weighted average happens to share the treated unit's trend. Synthetic control says: don't hope, optimize. Let the data choose the weights so the pre-trends actually coincide, and report the match so the reader can see it worked. Where difference-in-differences asserts parallel trends and tests it after the fact, synthetic control targets parallel pre-trends as the objective function. That is the sense in which this chapter relaxes Chapter four-point-one: it earns the parallel-trends comparison instead of assuming it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Convexity also buys **sparsity**: most donors get zero, leaving a handful you can name in a sentence. A worked number shows a far-off donor driven to zero. And **DiD is just synthetic control with weights frozen at $1/J$** — synthetic control optimizes the weights instead of hoping. Next: the donor pool.
+:::
+
+::: notes
+To summarize part five: convexity gives you sparse, interpretable weights, concentrating the solution on a few donors and leaving a blend you can name in one sentence. We watched a donor far above the treated state driven to weight zero. And we saw that difference-in-differences is just synthetic control with weights frozen at one over J: it hopes the equal-weighted control matches, while synthetic control optimizes the weights to make the pre-trends coincide. In part six we turn to the raw material the optimizer draws from: the donor pool.
+:::

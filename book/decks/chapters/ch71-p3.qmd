@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## So What, Who Cares, What's New
+
+- Part 3 — three filters that decide if an idea is worth answering
+
+::: notes
+Welcome back to the Idea-Generation Workshop, part three of eight. In part two we turned a puzzle into a sharp, falsifiable hypothesis with four slots. But answerable is not the same as worth answering. Before you spend a week acquiring data, you run the idea through three questions, in this order, and you have to survive all three. We take them one at a time.
+:::
+
+## So What? The Consequence Test
+
+- If you found the answer — *either* answer — would anything change?
+- Write: "If I find [result], then [someone] should [act/believe] differently"
+- Must fill it in for **both** possible answers
+- Maya: a disparate-impact case **or** a reassuring null — both matter
+- Run it **first** — it is cheap and kills the most ideas
+
+::: notes
+So what — the consequence test. If you found the answer, either answer, would anything change? Would a regulator price risk differently, an investor trade differently, a borrower be treated more fairly? The test is brutal and useful: write down the sentence, "If I find that this result holds, then someone should do something or believe something different." If you cannot fill in that sentence for both possible answers, the question is inert. Maya's fair-lending question survives easily. If she finds that minority applicants are denied at higher rates after controlling for everything a lender is legally allowed to use, a regulator has a disparate-impact case to investigate. If she finds the gap vanishes once you control for legitimate factors, that too is a publishable, policy-relevant finding. Both answers matter. Run this test first, because it is cheap and kills the most ideas.
+:::
+
+## Who Cares? The Audience Test
+
+- A result can have consequences but an audience of **zero**
+- A good question sits inside a **conversation**
+- Weeks 5 and 6 were secret training: who's arguing, and where
+- Kelly–Pruitt, Hoberg–Phillips, Loughran–McDonald, Bartlett–Bhutta
+- Run it **second** — it tells you which literature to scan
+
+::: notes
+Who cares — the audience test. This is different from "so what." A result can have consequences in principle but an audience of zero. "Does the closing price of one obscure micro-cap stock follow a hidden pattern?" might be falsifiable and even consequential to one day-trader, but there is no community — no regulator, no academic literature, no class of investors — who would read it. A good question sits inside a conversation. Weeks Five and Six were, secretly, training for exactly this: you read Kelly and Pruitt, Hoberg and Phillips, Loughran and McDonald, the Bartlett and Bhutta fair-lending work, precisely so you would know which conversations exist and where the live arguments are. A project that extends, tests, or challenges something in one of those conversations has an audience built in. A project floating in empty space does not. Run this second, because it tells you which literature to scan.
+:::
+
+## What's New? The Novelty Test
+
+- *Not* "no one ever studied anything like this" — impossible
+- Your **specific combination** adds something not on the shelf
+- Flavors: new **data**, **period/event**, **outcome**, **identification**, **replication**
+- Does *not* count: re-running a famous result, same data, no angle
+- Run it **last** — you can't know what's new until you scan
+
+::: notes
+What's new — the novelty test. The hardest of the three for a beginner. "New" does not mean no one has ever studied anything like this — that bar is impossible, and frankly suspicious when met. It means your specific combination of outcome, variation, data, or period adds something not already on the shelf. Newness comes in flavors, and recognizing yours keeps you honest: a new dataset, like on-chain data that did not exist a decade ago; a new period or event; a new outcome for an old treatment; a new identification strategy that cleans up a relationship others could only show as correlation; or a careful replication in a new setting. What does not count: re-running a famous result on the same data with no new angle. Run this last, after the scan, because you cannot know what is new until you know what exists.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three filters, in order: **so what** (would either answer change something?), **who cares** (is there a conversation?), **what's new** (does your combination add something?). Run *so what* first — it's cheap and kills most ideas; run *what's new* last — you can't judge novelty before the scan. Fail any one and the idea dies. Next: identification — the difference between research and a story.
+:::
+
+::: notes
+To summarize part three: even a sharp hypothesis can be a bad project, so before spending a week on data you run three filters in order. So what asks whether either answer changes anything — fill in the consequence sentence for both outcomes, and run it first because it is cheap. Who cares asks whether a real conversation would read it — run it second because it tells you which literature to scan. What's new asks whether your specific combination adds something — run it last because you cannot judge novelty before scanning. An idea surviving all three still is not guaranteed good; feasibility can kill it. But failing any one is fatal. In part four we get specific about the slot that separates real research from a plausible story: identification.
+:::

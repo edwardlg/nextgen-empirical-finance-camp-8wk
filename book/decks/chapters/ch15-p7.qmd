@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## One-Sided vs Two-Sided Tests
+
+- Part 7 — which tail holds the rejection region, and why
+
+::: notes
+Welcome back to Hypothesis Testing Done Right, part seven of fourteen. In part six we computed Sam's power and saw his t of one point six nine barely clear the one-sided bar of one point six five. But that bar depends on a choice we have not yet examined: which tail the rejection region sits in. The shape of the alternative decides it, and you must commit before you look at the data.
+:::
+
+## Where the Rejection Region Sits
+
+- The shape of $H_1$ decides where rejection lives
+- Sam directional: $H_1:\mu>0$ — **one-sided**
+- All $5\%$ in the upper tail, cutoff $\approx 1.65$
+- Maya: rates differ, $H_1:\mu_A-\mu_B\neq0$ — **two-sided**
+- Split $2.5\%$ per tail, cutoff $\approx\pm1.96$
+- Two-sided needs a bigger $|t|$ — more conservative
+
+::: notes
+The shape of the alternative decides where the rejection region sits, and you must commit to it before looking at the data. Sam had a directional prior — the reversal rule was supposed to make money — so the alternative mu greater than zero is a one-sided, or one-tailed, test, with the entire five percent rejection region in the upper tail, critical value about one point six five. Contrast Maya, who is comparing loan-approval rates between two neighborhoods and testing whether they differ. She has no prior about which is higher; either direction would be a finding. Her null is that the difference between the two means is zero, and her alternative is that the difference is not zero — a two-sided, or two-tailed, test. Now the five percent must be split across both tails, two and a half percent in each, so the critical value moves out to about plus or minus one point nine six — the famous one point nine six of large-sample testing. A two-sided test is more conservative: you need a larger statistic in absolute value to reject, because you reserved part of your error budget for surprises in the other direction.
+:::
+
+## The Temptation and the Rule
+
+- Tempting: run two-sided, see it's positive, claim one-sided
+- That secretly doubles your true $\alpha$ from $5\%$ to $10\%$
+- You gave yourself **two bites** at the apple
+- **Choose sidedness from the science, before the data**
+- In genuine doubt, use two-sided — the honest default
+- Most published finance results are reported two-sided
+
+::: notes
+This creates an obvious temptation and an absolute rule. The temptation: run a two-sided test, see that the effect is positive, then retroactively claim you always meant the one-sided test, to get the easier one point six five cutoff. That is cheating. It secretly doubles your true Type I rate from five percent to effectively ten percent, because you gave yourself two bites at the apple — you would have rejected for a large positive result, and you would also have been ready to reject for a large negative one. So the rule is absolute: choose the sidedness from the science, before you see the data. When in genuine doubt, use two-sided; it is the honest default, and most published finance results are reported two-sided for exactly this reason. Sam can justify one-sided only because the reversal hypothesis was directional from the very start — and even then, reporting both is the cautious move. The discipline here is the same one that runs through this whole chapter: the decisions that protect you against fooling yourself must be made before the data can tempt you.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The shape of $H_1$ fixes the rejection region: **one-sided** puts all $5\%$ in one tail (cutoff $1.65$); **two-sided** splits it, $2.5\%$ each (cutoff $1.96$). Choose sidedness from the science *before* the data — switching after secretly doubles $\alpha$. When in doubt, go two-sided. Next: the p-value, defined correctly.
+:::
+
+::: notes
+To summarize part seven: the shape of the alternative hypothesis decides which tail holds the rejection region. A one-sided test puts the whole five percent in a single tail, with a cutoff around one point six five; a two-sided test splits it, two and a half percent in each tail, pushing the cutoff out to about one point nine six and making the test more conservative. The unbreakable rule is to choose sidedness from the science before you see the data, because switching to one-sided after peeking secretly doubles your true error rate. When in genuine doubt, go two-sided — it is the honest default. In part eight we turn from yes-or-no verdicts to a continuous measure of surprise, and we nail down the single most misremembered definition in statistics: the p-value.
+:::

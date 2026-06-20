@@ -1,0 +1,57 @@
+---
+date: "2026-06-22"
+---
+
+## Quarter of Birth and Bound–Jaeger–Baker
+
+- Part 6 — the cautionary tale that taught the field weak-IV fear
+
+::: notes
+Welcome back to Reading instrumental variables in the wild, part six of thirteen. In part five we saw the bias tilt toward ordinary least squares, captured by the one-over-F-plus-one formula. Now we meet the cautionary tale that taught the whole profession to fear weak instruments — the quarter-of-birth instrument of Angrist and Krueger, and the Bound, Jaeger, and Baker critique that reshaped how empiricists think.
+:::
+
+## A Textbook Instrument
+
+- Angrist–Krueger, 1991: effect of schooling on earnings
+- Schooling is endlessly endogenous — ability, family, ambition
+- Instrument: **quarter of birth**
+- Compulsory-schooling laws plus a start-school cutoff
+- Relevance plausible, exclusion plausible
+
+::: notes
+The profession learned this the hard way, and the lesson has a name. In a celebrated nineteen-ninety-one study, Angrist and Krueger wanted the causal effect of an extra year of schooling on earnings. Schooling is endlessly endogenous — ability, family background, and ambition all drive both schooling and wages and live in the error term. Their instrument was beautiful: quarter of birth. Compulsory-schooling laws let you drop out at age sixteen, but you start school in the year you turn six. So children born early in the year hit sixteen with less accumulated schooling than children born late in the year. Quarter of birth nudges years of education for the marginal dropout, and quarter of birth is, surely, as-good-as-random with respect to earnings. Relevance plausible, exclusion plausible. A textbook instrument.
+:::
+
+## The Critique That Reshaped the Field
+
+- 1995, *Journal of the American Statistical Association*
+- The instrument is **weak** — tiny share of schooling variation
+- "Significant" in a huge sample, yet faint where it matters
+- They re-ran it with **random** quarter of birth — pure noise
+- 2SLS still produced a confident, plausible coefficient
+
+::: notes
+Then, in a nineteen-ninety-five paper in the Journal of the American Statistical Association, Bound, Jaeger, and Baker delivered the critique that reshaped how empiricists think. Their argument had two prongs, and both are pure weak-instrument pathology. First, the instrument is weak: quarter of birth explains a minuscule fraction of the variation in schooling. The first stage, though statistically significant in their enormous sample of hundreds of thousands, is faint in the sense that matters. Second, and devastatingly, they showed this weakness made the IV estimate vulnerable to even tiny exclusion violations and to finite-sample bias toward ordinary least squares. Their most quoted demonstration: they re-ran the analysis after replacing the real quarter-of-birth instrument with randomly generated quarter of birth — pure noise, correlated with nothing — and two-stage least squares still produced a significant, plausible-looking schooling coefficient with a respectable standard error. A random number posing as an instrument manufactured a causal estimate. That is the weak-instrument disaster made visible.
+:::
+
+## The Lesson Burned In
+
+- **Significance of the first stage is not strength**
+- A big sample lets a useless instrument clear the bar
+- Check $F$ against weak-instrument critical values, not $t = 2$
+- And use inference that survives a weak first stage
+
+::: notes
+The lesson Bound, Jaeger, and Baker burned into the field is the one this chapter is built around: statistical significance of the first stage is not the same as strength. With a big enough sample, a useless instrument clears the significance bar while remaining far too weak to support credible inference. You must check the first-stage F-statistic against the weak-instrument critical values, not against a t-statistic of two. And you must use inference methods that do not fall apart when the instrument is weak — which is exactly where Anderson–Rubin comes in.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Quarter of birth** looked textbook, but Bound, Jaeger, and Baker showed it was **weak** — and a *random* instrument still manufactured a confident, significant schooling effect. The burned-in lesson: a *significant* first stage is not a *strong* one. Check $F$ against weak-instrument critical values, not $t = 2$. Next: the cure — Anderson–Rubin inference.
+:::
+
+::: notes
+To summarize part six: the quarter-of-birth saga is the field's defining cautionary tale. Angrist and Krueger's instrument looked textbook — compulsory-schooling laws plus a start-school cutoff making birth quarter nudge education, plausibly random with respect to earnings. But Bound, Jaeger, and Baker showed it was weak, explaining a minuscule share of schooling variation, and devastatingly demonstrated that a purely random quarter-of-birth instrument still produced a significant, plausible coefficient. The lesson burned into the profession: statistical significance of the first stage is not strength. Check the F against weak-instrument critical values, not a t-statistic of two, and use inference that survives a weak first stage. In part seven, we build exactly that cure — Anderson–Rubin inference, which never divides by the first stage.
+:::

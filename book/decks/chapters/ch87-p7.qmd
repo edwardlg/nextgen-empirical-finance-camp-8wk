@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Wait and the First Decision
+
+- Part 7 — the reviewer wait and four first decisions
+
+::: notes
+Welcome back to Chapter eight-point-seven, part seven of nine. In part six we worked the conference circuit. Now we face what comes after you click submit. The day you submit, the next thing that happens is silence. The manuscript-number email confirms receipt within an hour; then nothing, for weeks. The silence is structural, not personal. In this part we walk the reviewer wait and the four possible first decisions.
+:::
+
+## The Reviewer Wait
+
+- Editor reads within **five business days**, then desk-rejects or assigns
+- Referees take **eight-to-twelve weeks**; synthesis another two-to-four
+- Total to first decision: **14–22 weeks**, about 16 for Schar
+- You have approximately **zero leverage**
+- The one practice that helps: **do other work**
+
+::: notes
+The day you submit, the next thing that happens is silence. The silence is structural: the editor reads within five business days and either desk-rejects or assigns referees, about three weeks; referees take eight to twelve weeks; synthesis is another two to four. Total to first decision is fourteen to twenty-two weeks, about sixteen for the Schar journal, which is faster than most adult journals' twenty-four. You have approximately zero leverage — you cannot speed the editor, prompt the referees, or improve the locked version. The emotional rhythm is predictable: relief, curiosity, anxiety, and the tenth-week temptation to email "to check on status," which editors mildly resent. The one practice that helps is to do other work — prepare the FMA poster, attend the AEA, draft the Carroll Round application, start the next project. The wait is time to invest in the rest of the portfolio.
+:::
+
+## Four Possible Decisions
+
+- **Acceptance** — rare on first submission, about 5%
+- **Revise-and-resubmit** — the most desirable common outcome
+- **Reject after review** — a "soft" no; the reports are valuable
+- **Desk-reject** — the "hard" no, no referees; about **40% at JF**
+- For Maya's Schar paper, the modal outcome is **R&R**
+
+::: notes
+The first decision is one of four outcomes. Acceptance, full or conditional, is rare on first submission — about five percent, essentially nonexistent at top journals. Revise-and-resubmit is the most desirable common outcome and the publication mechanism of empirical finance: an interested editor, substantial revision wanted, referee reports attached. Reject after review is a soft no, but the reports are valuable — absorb them and submit elsewhere. Desk-reject is the hard no, returned without referees, the most common outcome at top journals — about forty percent at the Journal of Finance. For Maya's Schar submission the modal outcome is a revise-and-resubmit, because the journal's developmental mission favors it; for an adult-journal target like Rainbow, the modal first outcome is a desk-reject — not a failure of the paper, but the modal output of the system.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+After submission comes **structural silence** — 14 to 22 weeks, zero leverage, so *do other work*. The first decision is one of four: acceptance, R&R, reject-after-review, or desk-reject. For adult journals a **desk-reject is the modal output**, not a failure. Next: absorbing a desk-reject and handling the R&R.
+:::
+
+::: notes
+To summarize part seven: after you submit comes structural silence — fourteen to twenty-two weeks to a first decision, with essentially zero leverage, so the right move is to do other work and build the portfolio rather than email the editor. The first decision is one of four: acceptance, which is rare; revise-and-resubmit, the most desirable common outcome and the publication mechanism of empirical finance; reject after review, a soft no with valuable reports; and the desk-reject, the hard no without referees. For adult-journal targets the desk-reject is the modal output of the system, not a verdict on the paper. In part eight we learn to absorb a desk-reject and to handle the revise-and-resubmit.
+:::

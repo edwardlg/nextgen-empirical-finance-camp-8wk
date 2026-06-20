@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Match Rates and pandas Hygiene
+
+- Part 4 — measure merge completeness; keep pandas honest
+
+::: notes
+Welcome back to Building the Analysis Dataset, part four of ten. In part three we made every merge assert its cardinality with the validate keyword. But validate only checks cardinality — it says nothing about how complete your merge was. A merge can have perfectly valid cardinality and still match only sixty percent of your rows. So in this part we measure completeness with the match rate, and then close out a couple of pandas hygiene rules that bite people during merges.
+:::
+
+## Check the Match Rate
+
+- `validate=` checks cardinality, not how **complete** the merge was
+- Use `how="left"` and `indicator=True` while building
+- The match rate = fraction of left rows that found a partner
+- Ninety-eight percent linked? Fine — know the missing two percent
+- Sixty percent linked? **Stop** — something is wrong
+
+::: notes
+The match rate is what fraction of your left-hand rows found a partner. This is why you use a left join with the indicator turned on while building, even if the final panel is an inner join. The indicator adds a merge column flagging each row as left-only, both, or right-only; take the share that came from both, and that is your match rate. Now you have a number to defend. If ninety-eight percent of CRSP rows link, fine — the remaining two percent are probably ADRs, closed-end funds, or securities Compustat does not cover, and you should know that and say so. If only sixty percent link, stop. Something is wrong with your identifiers, your date filter, or your LINKTYPE selection, and any result you compute on the sixty percent is selected on a criterion you have not understood. A match rate is not a nuisance statistic; it is the first place a careful reader looks to decide whether to trust your panel.
+:::
+
+## Two pandas Hygiene Rules
+
+- After a merge or filter, take an explicit `.copy()`
+- **Never chain-index into an assignment** — it may do nothing
+- That triggers the infamous `SettingWithCopyWarning`
+- **Do not use `df.append`** — removed in pandas 2.0, quadratic
+- Build a list, then call `pd.concat` once
+
+::: notes
+Two pandas hygiene rules that bite people during merges. First, after a merge or a boolean filter, when you intend to modify the resulting frame, take an explicit dot-copy. Pandas otherwise warns you with the infamous SettingWithCopyWarning — and worse than the warning, your edits may or may not propagate depending on whether you got a view or a copy. So never chain-index into an assignment; filter, copy, then assign on the frame you own. Doing it the wrong way — chained indexing into an assignment — is ambiguous about whether you edited a view or a copy, and it may silently do nothing. Second, while we are listing the dangerous: do not use data-frame dot-append to stack frames row by row in a loop. It was removed in pandas two-point-zero and was quadratic-time anyway. Build a list and call pandas concat once.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+`validate=` checks cardinality; the **match rate** checks completeness. Build with `how="left"` and `indicator=True`, then defend the fraction that matched — 98% is fine if you can name the missing 2%; 60% means *stop*. And keep pandas honest: take an explicit `.copy()`, never chain-index an assignment, and replace `df.append` with one `pd.concat`. Next: the *content* errors no tool can catch — starting with survivorship bias.
+:::
+
+::: notes
+To summarize part four: validate checks cardinality, but the match rate checks completeness. Build your merge as a left join with the indicator on, compute the share of rows that matched, and treat that fraction as a finding you defend. A high match rate with a known, explainable remainder is fine; a low one is a stop sign, because you are then selecting your sample on a criterion you have not understood. Keep pandas honest too: take an explicit copy before modifying a merged frame, never chain-index into an assignment, and replace data-frame append with a single concat. Everything so far has been a structural error a tool can catch for you. In part five we turn to the content errors no syntax checker will ever flag, starting with survivorship bias.
+:::

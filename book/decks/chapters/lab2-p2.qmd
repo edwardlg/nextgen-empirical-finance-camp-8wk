@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## The Two-Pass Method, with the Math
+
+- Part 2 — the two-pass procedure, written out with the math
+
+::: notes
+Welcome back to the Week Two Fama–MacBeth lab, part two of seven. In part one we framed the question — do high-beta stocks earn higher average returns? — and met the two-path structure. Now, before you write any code, we get the procedure straight on paper. We have a panel: many stocks observed over many months, with each stock's monthly excess return and a market excess return. The goal is to estimate the risk premium per unit of beta and ask whether it matches CAPM's predictions.
+:::
+
+## The CAPM Claim We Estimate
+
+- Excess return = return minus the risk-free rate
+- CAPM: $\mathbb{E}[r_{it}] = \gamma_0 + \gamma_1\,\beta_i$
+- $\gamma_1$ = risk premium per unit of beta — what we want
+- Strict CAPM: $\gamma_0 = 0$, and $\gamma_1 = \mathbb{E}[r_{m,t}]$
+- Pooling every stock-month is the Ch 2.4 mistake
+
+::: notes
+We observe each stock's monthly excess return, r-i-t — return minus the risk-free rate — and a market excess return, r-m-t. The CAPM claim, written so we can estimate it, is that expected excess return is proportional to beta: expected r-i-t equals gamma-zero plus gamma-one times beta-i. Here gamma-one is the risk premium per unit of beta — the number we want. Strict CAPM predicts gamma-zero equals zero, and gamma-one equals the market's own average excess return. The naive move, pooling every stock-month into one giant regression, is exactly the mistake chapter two-point-four warned about: every stock in a month is jolted by the same shock, so the errors are violently correlated and the pooled standard error comes out far too small.
+:::
+
+## Pass 1 — Time-Series Betas
+
+- For each stock, regress its return on the market
+- $r_{it} = \alpha_i + \beta_i\, r_{m,t} + u_{it}$
+- The slope $\hat\beta_i$ is exactly Sam's beta, one per stock
+- On real data: rolling window, so beta uses only the past
+- First pass through the lab: full sample, to keep it simple
+
+::: notes
+Pass one estimates time-series betas. For each stock i, regress its excess return on the market excess return: r-i-t equals alpha-i plus beta-i times r-m-t plus an error. The slope, beta-i-hat, is stock i's estimated beta — exactly Sam's beta, now one per stock. In practice you estimate this on a rolling window — say the trailing sixty months — so beta can drift and, crucially, so the beta used to explain month t's return comes from data before month t. No peeking into the future. For your first pass through this lab, estimate beta on the full sample to keep the moving parts down; the rolling version is the extension.
+:::
+
+## Pass 2 — Cross-Sectional, Each Month
+
+- Flip the regression sideways
+- Each month: $r_{it} = \gamma_{0,t} + \gamma_{1,t}\,\hat\beta_i + \varepsilon_{it}$
+- One tiny regression per month — $N$ points, one slope
+- Run it $T$ times: a time series of intercepts and slopes
+- $\hat\gamma_{1,t}$ swings wildly with that month's market
+
+::: notes
+Pass two flips the regression sideways. In each month t, treating the betas from Pass one as known regressors, run a single cross-sectional regression across all stocks: r-i-t equals gamma-zero-t plus gamma-one-t times beta-i-hat plus an error. This is one tiny regression per month — N data points, one slope. Run it T times and you get a time series of intercepts, gamma-zero-t-hat, and slopes, gamma-one-t-hat, one pair per month. The slope answers: in this month, how much extra return did each unit of beta buy? Some months it is positive — high-beta stocks won — some months negative, and that month-to-month swing is enormous, dominated by whether the market happened to rise or fall.
+:::
+
+## Aggregate — The FM Estimator
+
+- Collapse each series to its mean: $\hat\gamma_1^{\text{FM}} = \frac{1}{T}\sum_t \hat\gamma_{1,t}$
+- FM standard error = ordinary standard error of a mean
+- $\widehat{\operatorname{se}} = \text{sd}(\hat\gamma_{1,t}) / \sqrt{T}$
+- FM t-stat = estimate over its standard error
+- Compare against $t$ with $T-1$ degrees of freedom
+
+::: notes
+Now aggregate. Collapse each series to its mean: the Fama–MacBeth point estimate is simply the average of the T monthly slopes. And here is the move that makes the whole thing work — the Fama–MacBeth standard error. Because that estimate is just the sample mean of T numbers, its standard error is the ordinary standard error of a mean: the standard deviation of those monthly slopes, divided by the square root of T. The Fama–MacBeth t-statistic is the point estimate over that standard error, compared against a t-distribution with T minus one degrees of freedom. That is the entire estimator: average the slopes, divide their scatter by root T.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Two passes: **Pass 1** gives each stock a time-series beta; **Pass 2** runs one cross-sectional regression per month, producing a series of slopes $\hat\gamma_{1,t}$. The FM estimate is their mean; the FM standard error is their scatter over $\sqrt{T}$. Next: *why* this fixes the correlation problem.
+:::
+
+::: notes
+To summarize part two: the procedure is two passes. Pass one gives each stock a time-series beta by regressing its return on the market. Pass two runs one cross-sectional regression of returns on those betas every month, producing a time series of slopes. The Fama–MacBeth estimate is their mean; the standard error is their standard deviation over the square root of T — the standard error of a sample mean. In part three, we stare at why this design dissolves the cross-sectional correlation that would have sunk a pooled regression.
+:::

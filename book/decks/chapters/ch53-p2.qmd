@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The J-K Sort and the Winner-Minus-Loser Trade
+
+- Part 2 — building the J/K sort and the zero-cost spread
+
+::: notes
+Welcome back to Week Five, lesson three, part two of eight. In part one we framed the question — do past winners keep winning? — and saw that because the strategy uses only past returns, it strikes at weak-form efficiency. Now we get precise about how the portfolios are built, because there is no instrument and no natural experiment here. The identification is the portfolio construction itself, and reading this paper means understanding that construction cold. We cover the J-by-K sort and the zero-cost winner-minus-loser trade.
+:::
+
+## The J-K Sort
+
+- Fix **formation** $J$ months and **holding** $K$ months
+- Cumulate each stock's return over past $J$ months
+- Sort into ten deciles: top = **winner** $W$, bottom = **loser** $L$
+- Hold equal-weighted deciles for next $K$ months, re-sort
+- The classic is **6/6**: rank six, hold six
+
+::: notes
+Here is the construction. Fix two numbers: a formation, or ranking, period of J months, and a holding period of K months. At the end of each month, compute each stock's cumulative return over the past J months. Sort all stocks on that past return and split them into ten deciles. The top decile is the winner portfolio, W; the bottom decile is the loser portfolio, L. Then hold an equal-weighted position in each decile for the next K months, and re-sort. The paper reports a grid of strategies: formation periods of three, six, nine, and twelve months, crossed with holding periods of three, six, nine, and twelve months — sixteen strategies in one table. The classic one, the one everyone quotes, is the six-six: rank on six months, hold six months.
+:::
+
+## The Zero-Cost Winner-Minus-Loser Trade
+
+- Go **long** winners, **short** losers, equal dollars
+- Legs cancel in cost: net investment notionally **zero**
+- Return is a pure spread, $r^{W} - r^{L}$
+- A positive average spread is the **momentum profit**
+- Sixteen cells in one $J \times K$ table
+
+::: notes
+The headline trade is the zero-cost winner-minus-loser portfolio. You go long the winners and short the losers in equal dollar amounts. The long and short legs cancel in cost, so the net investment is, notionally, zero, and the return is a pure spread: the return on winners minus the return on losers. A positive average spread is the momentum profit. The paper lays out a grid of these spreads across the four-by-four menu of formation and holding periods — sixteen strategies in one table. We will read that surface carefully in a later part. For now, hold the shape in mind: one number per cell, the average monthly spread, sixteen cells.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The identification *is* the construction: rank on $J$ months, sort into deciles, hold $K$ months, and trade the zero-cost winner-minus-loser spread $r^{W} - r^{L}$. The classic strategy is **6/6**, and the paper reports all sixteen $J \times K$ cells in one table. Next: the overlapping trick that squeezes the data — and the statistics problem it creates.
+:::
+
+::: notes
+To summarize part two: there is no instrument here — the identification is the portfolio construction. Rank on J months, split into deciles, hold K months, and trade the zero-cost winner-minus-loser spread. The classic is the six-six, and all sixteen J-by-K cells live in one table. In part three we cover the clever move that makes this methodology efficient: re-forming the portfolio every single month and averaging across overlapping cohorts. It squeezes every drop from the data — but it quietly induces serial correlation that we will have to correct before we trust a single t-statistic.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Bandwidth: The Bias–Variance Trade-off
+
+- Part 10 — choosing the bandwidth as a bias–variance trade-off
+
+::: notes
+Welcome back to regression discontinuity, part ten of seventeen. In part nine we settled on local linear regression within a window of width h. Now: how wide should that window be? The bandwidth h is the single most consequential choice in an R-D analysis, governed by the bias–variance trade-off. We make it numerical, then meet the first automatic rule.
+:::
+
+## Too Wide vs. Too Narrow
+
+- **Large** $h$: many points, precise lines — *low variance*
+- ...but stocks at nine-fifty infer what happens at one-thousand
+- If the curve bends, the line mis-reads its height — *high bias*
+- **Small** $h$: only stocks hugging $c$ — *low bias*
+- ...but few points, jittery lines — *high variance*
+
+::: notes
+The bandwidth h is governed by a tension you have met before. Make h large and you include lots of data far from the cutoff. Your two fitted lines are estimated precisely — many points, small standard errors, low variance. But you are now using stocks ranked nine hundred fifty and one thousand fifty to infer what is happening at one thousand, and if the true outcome curve bends over that range, your straight line will systematically mis-read its height at the boundary — high bias. Make h small and you use only the handful of stocks hugging the cutoff. Now there is almost no curvature to worry about, so the linear approximation is nearly exact — low bias — but with so few points your fitted lines jitter from sample to sample and your standard errors balloon — high variance. Too wide and you are biased; too narrow and you are noisy. The optimal bandwidth balances squared bias against variance to minimize the mean squared error of the jump estimate.
+:::
+
+## The Trade-off in Numbers
+
+- True jump $0.6$
+- At $h=4$: estimate $\approx 0.56$, but wide SE $\approx 0.18$
+- At $h=32$: estimate drifts to $\approx 0.41$, tight SE $\approx 0.07$
+- Narrow window: *honest but noisy*
+- Wide window: *precise but wrong*
+
+::: notes
+You can watch this trade-off in numbers. Take a simulated world with a true jump of zero point six. At bandwidth h equals four, the local-linear estimate comes in around zero point five-six — close to the truth, but with a wide standard error of about zero point one-eight. At bandwidth h equals thirty-two, the estimate drifts to about zero point four-one — a much tighter standard error of about zero point zero-seven, but now badly biased, because the wide window let the curvature on the treated side bend the fit. The narrow window is honest but noisy; the wide window is precise but wrong. That is the trade-off made numerical. And it is dangerous, because the wide window's tight standard error makes a biased number look authoritative.
+:::
+
+## Imbens–Kalyanaraman (2012)
+
+- A named procedure chooses $h$ in a data-driven way
+- Not eyeballing it — and *not* $p$-hacking the bandwidth
+- IK minimizes the asymptotic mean squared error
+- Estimates curvature (drives bias) and noise variance (drives variance)
+- The first widely adopted automatic choice
+
+::: notes
+You should not pick the bandwidth by hand, and certainly not by p-hacking — trying bandwidths until the result you want appears. Imbens and Kalyanaraman, in two thousand twelve, derived the bandwidth that minimizes the asymptotic mean squared error of the R-D estimator. Their formula estimates the two ingredients of the mean squared error — the curvature of the outcome function at the cutoff, which drives bias, and the noise variance, which drives variance — from the data, then plugs them into the optimal-h expression. The I-K bandwidth was the first widely adopted automatic choice and made R-D analyses far less arbitrary. The full citation: Imbens and Kalyanaraman, Optimal Bandwidth Choice for the Regression Discontinuity Estimator, in the Review of Economic Studies.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Bandwidth $h$ is a **bias–variance trade-off**: narrow is low-bias/high-variance, wide is low-variance/high-bias — and a wide window's tight SE can make a *biased* number look authoritative. Automate the choice with **Imbens–Kalyanaraman's** MSE-optimal $h$. Next: the catch CCT fixes.
+:::
+
+::: notes
+To summarize part ten: the bandwidth is the single most consequential R-D choice, and it is a bias–variance trade-off. Narrow windows are low-bias but high-variance; wide windows are low-variance but high-bias — and in numbers, a true jump of zero point six reads honestly but noisily at a narrow bandwidth, and tightly but biased at a wide one. Do not pick the bandwidth by hand or by p-hacking. Imbens and Kalyanaraman give the mean-squared-error-optimal bandwidth, the first widely adopted automatic choice. In part eleven we meet the catch that the optimal bandwidth creates, and the modern fix from Calonico, Cattaneo, and Titiunik.
+:::

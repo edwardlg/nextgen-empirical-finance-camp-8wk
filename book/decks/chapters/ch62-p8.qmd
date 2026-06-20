@@ -1,0 +1,71 @@
+---
+date: "2026-06-22"
+---
+
+## Build It Yourself: Three Exercises
+
+- Part 8 — build a mini measure in three exercises
+
+::: notes
+Welcome back to Chapter six-point-two, part eight of eight — the finale of our reader's guide to Hoberg and Phillips. In part seven we pressed the four soft spots. Now we make the magic mechanical. These three exercises run in notebook six-point-two. The goal is not the full TNIC library — that is a months-long pipeline — but a mini version on a handful of firms, so the abstraction collapses into something you know.
+:::
+
+## Exercise 1 — Rediscover an Industry
+
+- Take 15–20 well-known firms across a few industries
+- Two oil majors, two airlines, two banks, two streamers
+- Tokenize, drop stop-words, build a **TF–IDF** matrix
+- Compute the full pairwise **cosine** matrix
+- Two oil firms score near; oil firm and airline low
+- *Without ever telling the code what an industry is*
+
+::: notes
+Exercise one: build a mini cosine-similarity measure and rediscover an industry. Take product descriptions for fifteen to twenty well-known firms across a few obvious industries — two oil majors, two airlines, two banks, two streamers. Tokenize the text, drop stop-words, build a T-F-I-D-F matrix, and compute the full pairwise cosine matrix. You reproduce the core intuition with your own code: the two oil firms score near each other, the two airlines near each other, an oil firm and an airline low — without ever telling the code what an industry is. Print the matrix as a heatmap and watch the industry blocks light up on the diagonal.
+:::
+
+## Exercise 2 — Knobs Are Levers
+
+- Re-run, changing one knob at a time
+- (a) Swap TF–IDF for plain counts — "company" pulls all together
+- (b) Drop the proper-noun filter — same state scores "similar"
+- (c) Move the **threshold** — competitor count balloons or collapses
+- The data lesson, made tactile
+
+::: notes
+Exercise two: stress the construction, and show the measure depends on your choices. Re-run exercise one, changing one knob at a time. First, swap T-F-I-D-F for plain counts, and watch "company" and "products" pull everyone toward similarity — showing why inverse-document-frequency reweighting matters. Second, fail to strip proper nouns, and show two firms scoring similar merely for both naming the same state. Third, move the threshold and watch a firm's competitor count balloon or collapse. This makes the data lesson tactile: knobs are levers, and a measurement paper's claims are only as stable as the choices behind them.
+:::
+
+## Exercise 3 — What SIC Cannot Represent
+
+- Pick a firm straddling two businesses — an Amazon-like
+- Show it neighbors *two* blocks that aren't neighbors of each other
+- **Intransitivity:** $\text{sim}(A,B)$ high, $\text{sim}(B,C)$ high, $\text{sim}(A,C)$ low
+- With two years of filings, recompute the neighborhood
+- **Time-variation:** watch the neighborhood *move*
+
+::: notes
+Exercise three: extend to the network properties SIC cannot represent. Pick a firm straddling two businesses — an Amazon-like firm or a conglomerate — and show with your own scores that it neighbors firms in two blocks that are not neighbors of each other. That is intransitivity on your own data: the similarity of A to B is high, and B to C is high, but A to C is low. Then, if the notebook supplies two years of filings for a firm that changed its business, recompute its neighborhood each year and show it moved — that is time-variation. Together these reproduce, in miniature, the overlapping-and-shifting neighborhoods that are the reason TNIC beats SIC.
+:::
+
+## Where Week 6 Goes Next
+
+- **Ch 1.2** gave the cosine; here it redraws American industry
+- **Ch 6.3 Loughran–McDonald:** same text, but *tone*
+- **Ch 6.5 AI Co-Pilot:** bag-of-words gives way to *embeddings*
+- Carry three referee questions forward:
+- Product, or prose? Is the race fair? What does meaning add?
+
+::: notes
+Finally, where this connects. Chapter one-point-two gave you the cosine as pure geometry; here the same cosine, pointed at word vectors, redraws the map of American industry. It sets up the rest of Week Six. Chapter six-point-three, Loughran and McDonald, stays in bag-of-words but asks a different question of the same text — tone, via finance-specific word lists. And Chapter six-point-five, the A-I Co-Pilot, is where bag-of-words gives way to learned embeddings that capture meaning. Carry three referee questions into the notebook. First: product, or prose — does the similarity track real product overlap, or shared marketing language? Second: is the validation a fair race, or could TNIC win just by being a finer partition? Third: what does meaning add — which neighborhoods would change if the measure understood that "we do not compete in X" is the opposite of competing in X?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+In notebook 6.2 you build a mini **TF–IDF + cosine** measure and watch industries emerge with no labels, prove that **knobs are levers**, and reproduce the **intransitivity** and **time-variation** SIC cannot. The moment your code scores two oil firms as near-twins, you never again read a 10-K as merely a legal document. Next in Week 6: tone (Ch 6.3), then embeddings (Ch 6.5).
+:::
+
+::: notes
+To summarize part eight, and the whole chapter. Three exercises make the paper mechanical. In exercise one you build a mini T-F-I-D-F and cosine measure and watch industries emerge with no labels. In exercise two you prove that knobs are levers, by swapping the weighting, the filters, and the threshold. In exercise three you reproduce the intransitivity and time-variation that SIC cannot represent. The instant your own code scores two oil firms as near-twins and an oil firm and an airline as strangers, the abstraction collapses into something you know. Next in Week Six: tone, then embeddings that finally understand meaning.
+:::

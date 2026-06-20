@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Audit Checklist and Where This Leads
+
+- Part 10 — run the audit checklist; where this leads
+
+::: notes
+Welcome back to Lab Seven, your data reproducibly, part ten of ten — the finale. In part nine we filed and tagged the pre-analysis plan. Now we run the "you're done when" checklist a referee could run, and see how this repository is the spine of the rest of the camp. A box is checked only when you can point to the proof.
+:::
+
+## You're Done When… (Part One)
+
+- **Layout:** key files and dirs present; a fresh clone reproduces structure
+- **Classroom:** assignment accepted; private repo exists; `push` reaches instructor
+- **Environment pinned:** `conda env create` builds; lock file committed
+- **README:** a stranger answers *what / why / how-to-run* unaided
+- A box is checked only when you can **point to the proof**
+
+::: notes
+Check a box only when you can point to the command output or file that proves it — this is exactly the audit a referee, or Prof. Gao through the dashboard, would run. Layout: your repo has the README, environment file, gitignore, plan, and the directories for data, source, notebooks, paper, logs, and data-cards, and a fresh clone reproduces the structure because the gitkeep files travel. Classroom: you accepted the assignment, your private repo exists, and git push puts your commits where the instructor can see them. Environment pinned: conda env create builds on a fresh machine, the lock file records exact versions, and both are committed — you can say, my results were produced under the lock file. README: a stranger can read it and answer what, why, and how-to-run, including the exact commands to build the environment, set secrets, and run the pull, without asking you anything.
+:::
+
+## You're Done When… (Part Two)
+
+- **Data cards:** one per source, six fields; licensed marked GMU-only
+- **`.gitignore` verified:** `check-ignore` flags both; nothing bad staged
+- **No secrets, no licensed data** anywhere in `git ls-files`
+- **PAP tagged:** `git show pap-filed` dates it before any confirmatory commit
+- Deviations, if any, are in commits **after** the tag
+
+::: notes
+Continuing the checklist. Data cards: one card per source under data-cards, each naming coverage, identifiers, access path, license, and the reproducibility pin, with licensed sources marked GMU-only, never committed. Gitignore verified: git check-ignore reports both the test parquet and the secrets file as ignored, and git status short after staging shows no data file and no secrets file staged — you proved it, not just hoped it. No secrets and no licensed data in history: a scan with git ls-files shows no secrets file, no parquet, no CRSP or Compustat extract, no hard-coded key. And the plan tagged: git show pap-filed displays your plan with a date before any confirmatory commit, the tag is pushed, and deviations, if any, are in commits after the tag. Every box, a piece of evidence.
+:::
+
+## Where This Leads
+
+- A result a stranger cannot reconstruct is **not yet a result**
+- Every piece traces to a Week-7 chapter — pull, pin, log, pre-register
+- The repo does not stop here; it **is** the rest of the camp
+- Chapter 7.4 fills `src/`; Chapter 7.5's memo commits alongside the plan
+- All of Week 8 — analysis, figures, write-up — lives in this same repo
+
+::: notes
+Where this leads. You now have a research repository that is reproducible as a repository, not as a lucky collection of scripts: a sensible layout, an environment pinned to the patch, a README and data cards a stranger can follow, a gitignore you verified blocks both licensed data and secrets, and a pap-filed tag whose date no one can quietly move. Every piece traces to a Week-Seven chapter — the pinned, cached, logged pull discipline, and the pre-registration-by-tag mechanism. The repo does not stop here; it is the rest of the camp. Chapter seven-point-four fills source with the dataset build; Chapter seven-point-five's identification memo commits alongside the plan — the memo argues the pond is the right pond, where the plan promised you would not fish, and you need both; the first-look regressions run only after pap-filed; and all of Week Eight commits into this same repository, under this same environment, governed by this same pre-registered plan.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Audit against the checklist — **check a box only when you can point to the proof.** Layout, Classroom, pinned environment, README, data cards, a verified `.gitignore`, no secrets in history, and a `pap-filed` tag dated before any result. The habit this lab installs: **a result a stranger cannot reconstruct is not yet a result.**
+:::
+
+::: notes
+To close Lab Seven and Week Seven: you audited the whole repo against the "you're done when" checklist, checking a box only when you could point to proof — a fresh clone reproducing the layout, an environment that rebuilds, a README a stranger can follow, one data card per source, a gitignore you verified rather than hoped, a clean tracked-file scan, and a pap-filed tag dated before any confirmatory result. And you saw that this repository is the spine of the rest of the camp: Chapters seven-point-four and seven-point-five, and all of Week Eight, commit into it under the same environment and the same plan. The habit this lab installs: a result a stranger cannot reconstruct is not yet a result. You built the thing that makes yours reconstructible. Keep committing into it.
+:::

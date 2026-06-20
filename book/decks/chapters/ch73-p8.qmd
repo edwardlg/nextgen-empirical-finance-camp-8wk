@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Components Four and Five: Falsification and Planned Robustness
+
+- Part 8 — components four and five: falsification and planned robustness
+
+::: notes
+Welcome back to The Pre-Analysis Plan, part eight of twelve. In part seven we finished the multiple-testing plan with Benjamini–Hochberg. Now the two components beginners skip and Olken would not let you: what result would falsify your hypothesis, and the robustness checks you promise in advance to report whichever way they come out.
+:::
+
+## Component 4 — Name What Would Refute You
+
+- For each hypothesis, write the result that makes you *abandon* it
+- Not "fail to confirm" — *falsify*
+- Popper: a claim no result could contradict is a mood, not science
+- If you cannot name the refuting pattern, it is not testable
+- This component pre-commits you to *believing your own null*
+
+::: notes
+Component four is the one beginners skip and Olken would not let you. For each hypothesis, write the result that would make you abandon it. Not "fail to confirm" — falsify. Karl Popper's point, dragged into empirical finance: a hypothesis that no possible result could contradict is not a scientific claim, it is a mood. If you cannot name the coefficient pattern that would force you to say "I was wrong," you have not stated a testable hypothesis. And writing falsification conditions in advance does something subtle and valuable — it pre-commits you to believing your own null result if it comes. The single biggest reason p-hacking happens is that researchers cannot stomach a null, so they search for a star. If you have already written, in a dated file, "here is the result I will accept as a no," you have inoculated yourself against the search before the temptation arrives.
+:::
+
+## Falsification Done Carefully
+
+- H1 falsified if 95% CI for $\beta_1$ brackets zero, excludes meaning
+- Not "if it's insignificant I'm wrong"
+- A huge but noisy estimate is a *power* failure, not a refutation
+- Phrase it as the CI *excluding* economically meaningful effects
+- That is genuinely informative about absence
+
+::: notes
+For Maya's H-one, falsification is concrete: if beta-one-hat on the minority indicator is statistically indistinguishable from zero in the primary specification — that is, if the ninety-five percent confidence interval for the conditional gap contains zero and excludes economically meaningful values — she concludes the data do not support a conditional denial gap, and says so. Note the care, drawing on Chapter one-point-five-point-eight. She does not write "if it's insignificant I'm wrong," because an insignificant-but-huge estimate measured noisily is a power failure, not a refutation — the third of the four significance-and-effect-size cases. She writes the falsification in terms of the confidence interval excluding meaningful effects — a result genuinely informative about absence, not merely silent. That is the difference between an informative null and an inconclusive shrug.
+:::
+
+## Component 5 — Planned Robustness
+
+- List the robustness checks you *plan* — labeled as planned
+- Planned: part of confirmatory design. Post-hoc: exploratory, labeled so
+- Maya's list: county clustering; drop 2020; rate-spread outcome; top-50 lenders
+- The key discipline: **report it whichever way it comes out**
+- Robustness is a stress test you promised, not a search for confirmation
+
+::: notes
+Component five: list the robustness checks you plan to run — and label them as planned, to distinguish them from post-hoc robustness you might add later. The distinction matters. A planned robustness check is part of your confirmatory design: "I will show H-one survives clustering by county as well as by lender, and survives dropping twenty-twenty for COVID disruption." A post-hoc one discovered later is exploratory and labeled as such. Maya's planned list: re-estimate with county clustering; drop twenty-twenty; use the continuous rate-spread outcome alongside the binary denial outcome; restrict to the largest fifty lenders to check the result is not driven by thin-data small lenders. Each is a fork she chooses to walk deliberately and in advance, which converts it from a p-hacking liability into a strength. The key discipline: a planned robustness check is one whose result you commit to reporting whichever way it comes out. If H-one holds in the main spec but evaporates under county clustering, the plan obligates her to say so. Robustness is not a search for confirmation; it is a stress test you promised to report honestly.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Component four names the **result that would refute** each hypothesis — phrased as the confidence interval *excluding* meaningful effects, so a null is informative, not a mere power failure — and pre-commits you to believing your own null. Component five lists **planned robustness** you promise to report whichever way it comes out. Next: registering before you peek.
+:::
+
+::: notes
+To summarize part eight: component four names, for each hypothesis, the result that would make you abandon it — falsification, not merely failing to confirm. Phrased carefully, the confidence interval excludes meaningful effects, so a null is informative rather than a power failure, and writing it pre-commits you to believing your own null before the temptation to search arrives. Component five lists the robustness checks you plan in advance and promise to report whichever way they come out, converting potential fishing into a stress test. That completes the five components — the what of the plan. In part nine, we begin the when and how: registering before you peek, starting with the hold-out sample.
+:::

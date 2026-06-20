@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## A Disclosure Result Under Fire — Measurement
+
+- Part 5 — a real disclosure paper under fire on measurement
+
+::: notes
+Welcome back to Mentor Session Eight, defending a result, part five of eight. In part four we learned to concede and retreat when a fatal critique is right. Now a live worked case, a paper of mine, offered where a referee presses hardest: a result about CEO behavior where the CEOs plainly did not get their characteristics assigned at random. The citation, used verbatim: Elnahas, Gao, Hossain, and Kim, twenty twenty-four, CEO Political Ideology and Voluntary Forward-Looking Disclosure, Journal of Financial and Quantitative Analysis, volume fifty-nine, issue eight, pages thirty-six seventy-one to thirty-seven oh seven. We reason about how a defense is built — never about specific magnitudes.
+:::
+
+## The Perfect Case — All Three Families at Once
+
+- Does a CEO's **political orientation** relate to how the firm *discloses*?
+- How much, how forthcoming, how transparent the communications
+- A skeptic's first reaction is correct: **politics isn't assigned at random**
+- Conservative- and liberal-leaning CEOs may differ a hundred ways
+- That is **selection** — the single hardest thing to defend
+
+::: notes
+The paper asks whether a CEO's political orientation — broadly, whether the executive leans conservative or liberal — relates to how the firm they run discloses information: how much, how forthcoming, how transparent the firm's communications to the market are. The reason this is the perfect case for today is that it sits squarely in the crosshairs of all three referee families at once. A skeptic's first reaction is immediate and correct: CEOs are not handed their politics at random. The kind of person who becomes a conservative-leaning chief executive may differ from a liberal-leaning one in a hundred ways — the industry they rose through, the firm that hired them, their age, their risk appetite — and any of those could drive disclosure directly. That is selection, and it is the single hardest thing this paper had to defend. We reason about measurement, identification, and selection — never about specific magnitudes, coefficients, or named controls.
+:::
+
+## Before Identification — Measurement
+
+- "Information disclosure" is a concept, not a series
+- Propose two distinct, defensible firm-year measures
+- For each, name a **mechanical confound** it might secretly capture
+- Size, industry reporting norms, litigation exposure
+- Cheapest convincing answer: **several measures**, no shared flaw
+
+::: notes
+Before a referee can attack identification, they attack measurement, because if information disclosure isn't a real number, there is nothing to defend. Information disclosure is a concept, not a series. So propose two distinct, defensible ways a researcher could turn how forthcoming is this firm's communication into a measurable variable on a firm-year — and for each, name one thing a referee would worry the measure is secretly capturing instead of disclosure: a mechanical confound like firm size, industry reporting norms, or litigation exposure. Now the classic measurement challenge: your disclosure measure and your politics measure could both just be proxying for something else — how do I know you're measuring what you say? That belongs to identification dressed as measurement. The cheapest convincing response is not a cleverer single measure; it is showing the result holds across several different disclosure measures that share no common mechanical flaw. If unrelated measures agree, the thing they share is the signal.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A CEO-politics-and-disclosure result faces all three families at once. Before identification comes **measurement**: "information disclosure" is a concept, so defend it with **several measures sharing no common mechanical flaw** — if unrelated measures agree, the thing they share is the signal. Next: the deadliest attack, selection.
+:::
+
+::: notes
+To summarize part five: the disclosure paper sits in the crosshairs of all three referee families at once, which makes it the perfect rehearsal. But before identification, a referee attacks measurement, because if information disclosure isn't a real number there is nothing to defend. Information disclosure is a concept, not a series, so build several distinct measures, each with its own mechanical confound named honestly — firm size, industry reporting norms, litigation exposure — and show the result holds across all of them. If measures that share no common flaw agree, the thing they share is the signal, not the artifact. That is the cheapest convincing answer. In part six we face the deadliest attack of all on this paper: selection — CEOs don't get their politics at random, so why isn't the whole effect just the firm?
+:::

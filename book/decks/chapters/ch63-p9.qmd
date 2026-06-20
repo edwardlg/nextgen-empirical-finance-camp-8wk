@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## What's Vulnerable: Context and Drift
+
+- Part 9 — lost context and the decay of static dictionaries
+
+::: notes
+Welcome back to Chapter six-point-three, part nine of twelve. In part eight we finished naming what is clever. Now we find the paper's edges, which are mostly the edges of bag-of-words itself. We take the first two here: that counting throws away context, and that a static dictionary decays as language drifts. A good reader admires a paper and then locates its limits honestly.
+:::
+
+## Context Is Meaning — and It's Gone
+
+- Counting ignores **order, syntax, and scope**
+- "This is not a good year" scores *positive* on "good"
+- The bag never sees the "not"
+- Sarcasm, irony, conditionals — all invisible
+- Word-counting works *on average, over long documents*
+
+::: notes
+The central limitation, which the authors would be the first to grant: bag-of-words throws away context, and context is meaning. Counting words ignores order, syntax, and scope. This is not a good year contains the positive word good, and a naive count scores it positive; the negation flips the meaning, and the bag never sees the not. Loughran and McDonald handle simple negation with crude rules — flagging a positive word as negated if a negator appears within a few words — but the patch is partial. Sarcasm, irony, conditionals — we would face severe losses if the unlikely event occurred — and long-range dependencies — the risks described in last year's filing no longer apply — are invisible to a word counter. The model literally cannot represent that the same word means opposite things in two sentences. Word-counting is not meaning; it is a proxy that works on average, over long documents, and breaks sentence by sentence.
+:::
+
+## Dictionaries Are Static; Language Drifts
+
+- A fixed list is frozen at the moment it was built
+- New vocabulary arrives: "crypto," "SPAC," pandemic boilerplate
+- Old words shift connotation over time
+- Firms learn the flagged words and **game the score**
+- A measure everyone uses is one firms can manage
+
+::: notes
+Second vulnerability: dictionaries are static, but language and disclosure drift. A fixed word list is frozen at the moment it was built. New financial vocabulary arrives — crypto, SPACs, going-concern usage patterns, pandemic-era boilerplate. Old words shift connotation. And here is the strategic problem: firms learn which words the algorithms flag and adjust their writing to game the score. A dictionary built on filings from one era may misread filings from another, and a measure everyone uses is a measure firms have an incentive to manage. The public list is updated over time, which helps, but the underlying fragility — that the meaning of the instrument can decay — is structural to dictionary methods. Any frozen instrument pointed at living language is on a slow clock.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Two edges, both bag-of-words' own. It **ignores context**: "not a good year" scores positive because the bag never sees the "not"; sarcasm and conditionals are invisible. And a **static dictionary decays** as language drifts and firms learn to game a measure they know is used. Next: two more edges — look-ahead in tuning, and parsing degrees of freedom.
+:::
+
+::: notes
+To summarize part nine. Two honest edges, both inherited from bag-of-words. First, it ignores context — order, syntax, and scope — so a sentence like this is not a good year scores positive because the counter never sees the not, and sarcasm, irony, and conditionals are simply invisible. Word-counting is a proxy that works on average over long documents but breaks sentence by sentence. Second, a static dictionary decays: language and disclosure drift, new vocabulary arrives, and firms learn to game a measure they know is being used. In part ten we cover two more edges — look-ahead in tuning the dictionary, and parsing as researcher degrees of freedom — then build the bridge to embeddings and language models.
+:::

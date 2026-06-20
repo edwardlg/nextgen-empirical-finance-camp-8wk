@@ -1,0 +1,63 @@
+---
+date: "2026-06-22"
+---
+
+## The Two Surfaces a Skeptic Touches
+
+**Learning objectives.** By the end you can:
+
+- Deliver the six-beat eight-minute talk arc
+- Translate result tables into legible figures
+- Defend your identification under hostile questions
+- Build a one-click, seeded replication packet
+
+::: notes
+Welcome to Week Eight, Chapter eight-point-five — the last chapter of the camp. This lesson is about the two things that happen after the work is done. You stand up and defend your project for eight minutes in front of a room, and you hand someone a folder that lets them rebuild every number you claimed. Both are acts of credibility, and they fail the same way: not because the analysis was wrong, but because you could not make a skeptic believe it. This opening part frames the whole chapter — why reproducibility is not a virtue you add at the end, but the form your credibility takes.
+:::
+
+## A Correct Result Nobody Can Follow
+
+- A talk and a packet are *acts of credibility*
+- Both fail the same way: a skeptic stays unconvinced
+- An unfollowable correct result looks like a guess
+- An unreproducible result looks like a guess too
+- Two crafts: the short talk, the one-click packet
+
+::: notes
+Here is the situation. A correct result that nobody can follow on a slide, or that nobody can reproduce on their own machine, is — to the person in the audience — indistinguishable from a guess. So this chapter teaches the two crafts that turn a defensible analysis into a believed one: the discipline of a short talk, and the discipline of a one-click replication packet. They are really the same discipline. Strip away everything that is not load-bearing, and make what remains impossible to doubt. That is the move, on a slide and in a folder alike.
+:::
+
+## Reproducibility *Is* Your Credibility
+
+- The audience cannot check a number from your face
+- They *can* check your slide, your answer, your packet
+- Slide: does the design support the number?
+- Packet: does `run_all` actually regenerate it?
+- Everything from Weeks one through seven feeds these surfaces
+
+::: notes
+Here is the idea the whole chapter turns on. Reproducibility is not a virtue you add at the end; it is the form your credibility takes. When you say "the effect is one-point-eight percentage points," the audience cannot check that from your face. What they can check is three things. Your slide — does the design support that number? Your answer to their hardest question — do you know where your own design is weak? And afterward, alone at a terminal, your packet — does run all actually regenerate that one-point-eight? The talk and the packet are the two surfaces a skeptic touches. Everything you built across Weeks one through seven — the estimator, the pre-analysis plan, the identification memo, the pinned repository — exists so that those two surfaces hold up under pressure. This chapter is where you make them hold.
+:::
+
+## Eight Minutes Is a Different Object
+
+- Not a long talk with boring parts deleted
+- Room for exactly *one* idea, defended cleanly
+- Six beats, one slide each, ~one minute per slide
+- Leaves two minutes of slack — talks run long
+- The arc *is* the argument
+
+::: notes
+Now the talk. Eight minutes is not a short version of a long talk. It is a different object, with its own shape, and the most common failure is to treat it as a forty-minute seminar with the boring parts deleted. It is not. An eight-minute talk has room for exactly one idea, defended cleanly, and the slides exist to keep you — and the audience — on that one idea. The constraint is the same at the camp conference and at every short talk you will give for the rest of your life: you have time to make one argument land. The arc is that argument, broken into the six beats it has to hit. Each beat is one slide; spend roughly one minute per slide, which leaves two minutes of slack — and you will need every second, because talks run long, not short. Next, we walk the arc beat by beat, because the proportions are the lesson.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Reproducibility is the form your credibility takes.** A skeptic cannot read a number off your face — they touch two surfaces: the *talk* (does the design support it?) and the *packet* (does `run_all` regenerate it?). The eight-minute talk holds exactly one idea, six beats, one slide each. Next: the six-beat arc, beat by beat.
+:::
+
+::: notes
+To summarize part one: a correct result nobody can follow or reproduce reads as a guess, so the chapter teaches two crafts — the short talk and the one-click packet — and they are the same discipline. Reproducibility is the form your credibility takes; the audience checks your slide, your answer, and your packet, not your face. And the eight-minute talk is a different object from a long one: room for exactly one idea, six beats, one slide each, about a minute apiece. In part two we begin walking that six-beat arc — starting with the question, why it matters, and the design spine.
+:::

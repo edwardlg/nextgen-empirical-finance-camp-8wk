@@ -1,0 +1,35 @@
+---
+date: "2026-06-22"
+---
+
+## The So-What Test, Pointed at Your Own Project
+
+- Part 2 — the inert project, caught by the so-what test
+
+::: notes
+Welcome back to how I pick and kill a project, part two of nine. In part one we said the funnel is a furnace whose job is to destroy, and we met the first enemy of cheap killing — sunk cost. Now the second enemy, caught by the tool I lean on hardest: the so-what test, the same one from Chapter seven-point-one, but turned into a weapon you point at your own project, weekly, not just at the idea once.
+:::
+
+## Enemy Two: The Inert Project
+
+- Point the **so-what test** at your own project, weekly
+- Write: "If I find either result, **someone should** act"
+- Cannot fill it in? The project is **inert**
+- Inert is a form of **dead**
+- The test ignores how hard you worked
+- A clean answer to a question nobody asked is still unwanted
+
+::: notes
+The second enemy of cheap killing is the inert project, and the tool that catches it is brutally simple. It is the so-what test, the same one from Chapter seven-point-one, but turned into a weapon you point at your own project weekly, not just at the idea once. Force yourself to write the sentence: if I find either result, then someone should believe or do something different. If you cannot fill that in — if the honest answer is, then I would know a thing, but no one would change their mind or their behavior — the project is inert, and inert is a form of dead. The cruelty of the test is that it does not care how hard you worked or how clean your code is. A flawlessly executed answer to a question nobody asked is still an answer nobody asked for. That is why I point it at my own project on a schedule, not once at the birth of the idea: a question can start alive and go inert as the world moves, and only the weekly habit catches it before the months are spent.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **inert project** is the second enemy: a flawless answer to a question nobody asked. Catch it with the **so-what test** pointed at your *own* project weekly — *if I find either result, who changes their mind or behavior?* If you can't fill it in for both answers, the project is inert, and inert is dead.
+:::
+
+::: notes
+To summarize part two: the second enemy is the inert project — a flawless answer to a question nobody asked. The so-what test catches it, but only if you point it at your own project, on a weekly schedule, rather than just once when the idea was born. Write the sentence — if I find either result, someone should act — and if it will not fill in for both answers, the project is inert, which is a form of dead. The test does not care how hard you worked; that is its cruelty and its value. In part three we meet the third enemy: the fatal-flaw checklist — the cracks that mean stop now.
+:::

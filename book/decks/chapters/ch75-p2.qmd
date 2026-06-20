@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Identifying-Assumption Sentence
+
+- Part 2 — write the central sentence from its fixed template
+
+::: notes
+Welcome back to the identification memo, part two of nine. In part one we framed the memo as the one page your paper defends, resting on a single sentence. Now we write that sentence. It has a fixed template, three blanks, and one rule that separates a real memo from a hand-wave.
+:::
+
+## The Fixed Template
+
+- Write it literally, filling three blanks:
+- *Our estimate of* **[the effect]** *is* **causal / credible**
+- *as long as* **[the assumption]**, *which we defend by* **[the evidence]**
+- Blank one names the **effect**, not the regression
+- Blank three names the design feature that earns the assumption
+
+::: notes
+Start with the sentence, because everything else hangs from it. The form is fixed, and you write it in this template literally, filling three blanks. Our estimate of the effect is causal or credible, as long as the assumption holds, which we defend by the design feature or evidence. Three blanks, three jobs. The first names what you are estimating — not the regression, the effect. "The effect of a state fair-lending regulation on the mortgage-denial gap between minority and white applicants," not "the coefficient on the treatment dummy." The third blank names the design or evidence that makes the assumption believable — fixed effects that absorb the obvious confounder, a placebo test that would have caught the obvious failure, an institutional fact that rules out the obvious alternative story.
+:::
+
+## Name the Threat, Not "Endogeneity"
+
+- Blank two names the **specific threat** — never the word "endogeneity"
+- "No endogeneity" admits you haven't thought about *which* one
+- A real assumption names the exact counterfactual that must hold
+- And exactly the way it could fail
+- This is the Conventions rule, stated for your own paper
+
+::: notes
+The second blank names the condition under which the estimate equals the effect, and here is the rule that separates a real memo from a hand-wave: name the specific threat, not the word endogeneity. This is the Conventions section four, stated for your own paper. "As long as there is no endogeneity" is not an identifying assumption; it is an admission you have not thought about which endogeneity. "As long as treated and control states would have followed parallel denial-gap trends absent the regulation" is an identifying assumption, because it names exactly the counterfactual that has to hold and exactly the way it could fail. The third blank then names the design or evidence that makes that second blank believable.
+:::
+
+## Causal or Credible: Match the Verb
+
+- The slash hides an asymmetry — choose deliberately
+- **Causal**: clean RD, randomized instrument — assumption nearly bulletproof
+- **Credible**: most observational designs — argued, not proven
+- A reader grants conditional belief, not a proof
+- Overclaiming here is the tell of an amateur
+
+::: notes
+Notice the asymmetry baked into "causal slash credible." Some designs let you say causal with a fairly straight face when the assumption holds — a clean regression discontinuity at a cutoff nobody can game, a randomized instrument. Most observational designs earn the weaker word credible: the assumption is not testable, you have argued for it as hard as you can, and an honest reader grants you a conditional belief, not a proof. Choose the word that matches how strong your assumption really is. Overclaiming in this sentence is the tell of an amateur. A referee who reads "causal" where "credible, conditional on parallel trends" was warranted will distrust everything that follows. The identifying-assumption sentence is allowed to be the longest sentence in your paper, because it is the most important one — a contract that tells the referee exactly what to attack, exactly what evidence you are betting on, and exactly what would falsify you.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The identifying-assumption sentence follows a fixed template: *our estimate of the effect is causal / credible as long as [the assumption], which we defend by [the evidence].* Name the **effect**, name the **specific threat** — never "endogeneity" — and name the **defense**. Then match the verb to your evidence: *causal* for the rare bulletproof design, *credible* for everything argued. Next: the standard menu of threats, design by design.
+:::
+
+::: notes
+To summarize part two: the identifying-assumption sentence has a fixed template — our estimate of the effect is causal or credible, as long as a specific assumption holds, which we defend by named evidence. The first blank names the effect, not the regression. The second names the specific threat — and the central rule is that you name the exact counterfactual that must hold, never the empty word endogeneity. The third names the design feature or evidence that earns the assumption. Finally, match your verb to your evidence: causal only for the rare design with a bulletproof assumption, credible for the many designs whose assumption is argued rather than proven. In part three we open the standard menu of threats, starting with the named failures of O-L-S and instrumental variables.
+:::

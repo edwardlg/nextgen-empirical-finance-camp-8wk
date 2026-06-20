@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## A Number That Should Frighten You, and Where This Heads
+
+- Part 8 — fearing the wrong target; mapping Week Two
+
+::: notes
+Welcome back to Gauss–Markov, part eight of eight, the finale. In part seven we separated unbiased from consistent. Now the deepest lesson: more data makes a biased estimator more sure, not more right. We meet a frightening number, rank the assumptions by fear, and map the rest of Week Two.
+:::
+
+## Why Consistency Can Betray You
+
+- Modern projects have tens of thousands of loans, not fifty
+- At that scale, the CLT and the BLUE edge barely matter
+- What you can't escape at *any* size: a broken Assumption 3
+- A consistent estimator of the **wrong thing** is still wrong
+- More data makes the wrong answer *more precise*, not more correct
+
+::: notes
+Here's why a modern econometrician often cares more about consistency than about unbiasedness or BLUE. In a serious project Maya rarely has fifty observations where minimum-variance bragging rights matter; she has tens of thousands. With that much data, the Central Limit Theorem makes beta hat approximately normal regardless, so normality barely matters, and the efficiency edge of BLUE over a near-rival is microscopic. What she cannot escape, at any sample size, is a violation of assumption three. If income is correlated with omitted creditworthiness, then — just as a consistent estimator of the wrong thing is still wrong, like Priya's miscounted county — O-L-S converges confidently to the biased number. More data makes the wrong answer more precise, not more correct. The standard error shrinks, the confidence interval tightens around a value that is not beta one.
+:::
+
+## The Number That Should Frighten You
+
+- Suppose the true direct effect of income is $\beta_1 = 0$
+- Rates depend on income only *through* credit, which Maya omits
+- Income–credit correlation $0.7$ $\to$ $\hat{\beta}_1$ settles at $-0.42$
+- With 400 loans she might hedge; with 400,000, three stars
+- Data didn't make her right — it made her **sure of something false**
+
+::: notes
+Suppose the true world is that rates depend on income only through creditworthiness: it's credit, not income itself, that earns the lower rate. Say the genuine direct effect of income, holding credit fixed, is zero — beta one equals zero. But Maya omits credit. Her income coefficient then picks up the full indirect channel: the correlation of income with credit, times the effect of credit on rate. If income and credit correlate at zero point seven, Maya's beta one hat might settle at negative zero point four two — a strong, significant, precise estimate of an effect that does not exist. With four hundred loans her standard error is wide enough that she might hedge; with four hundred thousand it shrinks to nothing and she reports it with three stars. The data did not make her more right. It made her more sure of something false. That is what a consistent estimator of the wrong target means in dollars and stars.
+:::
+
+## Ranking the Assumptions by Fear
+
+- **Assumption 4** fails $\to$ lose efficiency and honest SEs (fixable, 2.4)
+- **Assumption 5** fails $\to$ lose exact small-sample inference (CLT bails you out)
+- **Assumption 3** fails $\to$ lose the **truth itself** — no data fixes it
+- "Best" is a promise about **precision**, not **accuracy**
+- It says nothing about aiming at the right target
+
+::: notes
+That reorders the assumptions by how much they should keep you up at night. A failure of homoskedasticity costs you efficiency and honest standard errors — fixable in Chapter two-point-four, and survivable. A failure of normality costs you exact small-sample inference, and the Central Limit Theorem mostly bails you out. But a failure of zero conditional mean costs you the truth itself, and no amount of data fixes it — which is why Chapter two-point-five, and the causal-inference machinery of Weeks five and six, exists. Gauss–Markov hands you a beautiful guarantee, but it's about precision — variance — conditional on having already won the harder battle for accuracy. Best is a promise about the tightness of your arrows. It says nothing about whether you are aiming at the right target.
+:::
+
+## Where This Heads, and Your Turn
+
+- **Ch 2.3:** logs, polynomials, interactions; multicollinearity
+- **Ch 2.4:** heteroskedasticity and robust/clustered standard errors
+- **Ch 2.5:** the omitted-variable-bias formula, off our broken line
+- **Notebook `nb2.2`:** watch OLS beat a rival, then lose its crown
+- By week's end, Maya can defend $-0.42$ — or know to distrust it
+
+::: notes
+Step back and see where this heads. The rest of Week Two tours the broken clauses. Chapter two-point-three relaxes the functional-form side of linearity — logs, polynomials, interactions — and diagnoses multicollinearity. Chapter two-point-four confronts heteroskedasticity and builds the robust and clustered standard errors that let Maya report honest uncertainty even when O-L-S is no longer BLUE. Chapter two-point-five stares down the assumption that matters most, zero conditional mean, deriving the omitted-variable-bias formula off the line where our part-four proof collapses. For your turn, open notebook n-b-two-point-two: fake a universe where you know the true beta, watch O-L-S and a rival both center on the truth while O-L-S sits visibly narrower — seeing BLUE — then flip on an omitted variable and watch the guarantees break. By week's end, Maya's negative zero point four two will be a number she can defend or one she knows to distrust — and she'll say which assumption makes the difference. That's the chapter. Well done.
+:::

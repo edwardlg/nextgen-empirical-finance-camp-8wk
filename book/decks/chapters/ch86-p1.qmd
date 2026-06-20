@@ -1,0 +1,53 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Talk, the Poster, the Defense: The Pre-Flight
+
+**Learning objectives — by the end you can:**
+
+- Run the 72-hour pre-flight: freeze, audit, build the matrix
+- Decompose the eight-minute talk into six beats
+- Defend in Q&A with the three honest answers
+- Build the poster and the perishable feedback ledger
+
+::: notes
+Welcome to Week Eight, Chapter eight-point-six, part one of seven. In Chapter eight-point-four you defended a result across a desk, in writing, with time to think. That was the private defense. This chapter is the public one: an eight-minute talk in front of a room of strangers, nine minutes of live questions, then ninety minutes at a poster. The move the whole chapter turns on is this: the talk, the poster, and the question period are three projections of the same argument you already built, and the defense is not improvisation. It is reading from a script you authored in private, when you were calm. In this opening part we run the pre-flight, the three-day protocol that hardens the work so nothing breaks in public.
+:::
+
+## Three Projections, One Argument
+
+- Talk, poster, question period — same argument, three surfaces
+- The defense is reading a script you wrote calm
+- Questions were written down weeks ago — your threats table
+- Figures are the ones your code already generated
+- What is new here is **delivery under live pressure**
+
+::: notes
+Start with the frame, because it removes most of the terror. You are not building three new things. The talk, the poster, and the question period are three projections of one argument you already finished. The defense feels like improvisation, but it is not. It is reading from a script you authored weeks ago, when you were calm. The hostile questions you will get on Saturday are the rows of the threats-and-responses table you built back in Chapter seven-point-five. The figures on your slides and poster are the exact files your code already generated for the replication packet in Chapter eight-point-five. So nothing about the content is new. What is genuinely new, and what this chapter trains, is delivery under live pressure: making one argument land in a room that decides in ten seconds whether to listen.
+:::
+
+## T-Minus 72 Hours: Stop Improving
+
+- Three days out, the instinct is to keep improving — wrong
+- At T-minus-seventy-two hours, **stop improving, start hardening**
+- The work is done; ensure nothing **breaks** before the room sees it
+- A talk is a **motor skill**, and motor skills compile slowly
+- **Freeze the deck:** commit, tag `deck-freeze`, do not edit
+- Editing a slide turns rehearsed transitions into noise
+
+::: notes
+Three days out, the nervous instinct is to keep improving the paper — one more robustness check, one more sentence in the abstract. That instinct is wrong. At T-minus-seventy-two hours, you stop improving and start hardening. The analysis is done; the job now is to make sure nothing breaks between now and the moment the room sees it. So freeze the deck. Cut the slides into a file you commit, tag it deck-freeze, and do not edit it again. The reason is not superstition. A talk is a motor skill, and motor skills compile slowly. Every time you change a slide, the times you rehearsed the transition into it become noise — your mouth has memorized a sentence that no longer matches what your eyes will see. One student rewrote his headline slide three times in the last week and on the day stumbled into an old version while looking at the new one. The stumble cost eight seconds, two slides' worth. The freeze is a discipline of visibility, not silence: if you find a real error, you fix the paper, rebuild, retag deck-freeze-v-two, and announce the change at the start. You never silently slip it in.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The talk, poster, and Q&A are **three projections of one argument** you already built. At **T-minus-seventy-two hours**, stop improving and start hardening: **freeze the deck** because a talk is a motor skill. Next: audit the packet on a stranger's machine, and build the anticipated-questions matrix.
+:::
+
+::: notes
+To summarize part one: the talk, the poster, and the question period are three projections of one argument you already built, and the defense is reading a script you wrote in private, not improvising. At seventy-two hours out, you stop improving and start hardening, and the first act of hardening is to freeze the deck, because a talk is a motor skill that compiles slowly and every late edit corrupts a rehearsed transition. In part two we finish the pre-flight: we audit the replication packet on a machine that is not yours, and we build the anticipated-questions matrix that turns your threats table into a script you can read under fire.
+:::

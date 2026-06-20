@@ -1,0 +1,62 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Manufacturing the Factors: SMB and HML
+
+- Part 2 — building the three factors as tradeable portfolios
+
+::: notes
+Welcome back to the Fama–French ninety-three reader's guide, part two of seven. In part one we saw the structural difference: the ninety-two paper runs a cross-section, the ninety-three paper runs a time series, and the time series buys you an R squared for common variation and an intercept for pricing. Now we build the machinery. Everything technical in this paper is ordinary least squares on a time series; the cleverness is entirely in what goes on the right-hand side. So this part answers the first question: where do the factors on the right-hand side come from? The answer is that you manufacture them as portfolios.
+:::
+
+## A Factor Is a Portfolio
+
+- A factor is **not** an abstraction — it's a basket
+- **Factor-mimicking portfolio:** a long-short basket whose return *is* the factor
+- Three of them on the right-hand side
+- **Market**, $R_M - R_f$ — the old CAPM factor, unchanged
+- **SMB** — small minus big — the size effect
+- **HML** — high minus low — the value effect
+
+::: notes
+A factor here is not an abstract statistical thing; it is a factor-mimicking portfolio — a real long-short basket of stocks whose return is the factor. There are three. The market factor, written R sub M minus R sub f, is the return on a broad value-weighted market portfolio minus the risk-free rate. That is the old CAPM factor, unchanged. Then S-M-B, "small minus big," meant to capture the size effect. And H-M-L, "high minus low," meant to capture the value effect — "high" and "low" referring to book-to-market equity, the ratio of book equity to market equity. Three returns, each one a portfolio you could actually hold. That is the move that makes the whole thing testable with nothing fancier than a regression.
+:::
+
+## The 2×3 Sort
+
+- Each June: split into **two size groups** (NYSE median)
+- Independently into **three book-to-market groups**
+- Cutoffs: bottom 30%, middle 40%, top 30%
+- Intersect $\Rightarrow$ **six** value-weighted portfolios
+- Small-low, small-med, small-high; big-low, big-med, big-high
+
+::: notes
+S-M-B and H-M-L are built from a two-by-three sort, and the construction matters because half the "what's vulnerable" critique later is about exactly these choices. At the end of June each year, split all stocks into two size groups — small and big — using the median market capitalization of N-Y-S-E stocks as the breakpoint. Independently, split them into three book-to-market groups: the bottom thirty percent, the middle forty percent, and the top thirty percent, again on N-Y-S-E breakpoints. Intersecting two size groups with three value groups gives six value-weighted portfolios: small-low, small-medium, small-high, and big-low, big-medium, big-high. Those six portfolios are the raw ingredients from which the two factors get assembled.
+:::
+
+## The Two Formulas
+
+$$\text{SMB} = \tfrac{1}{3}(\text{S-Low}+\text{S-Med}+\text{S-High}) - \tfrac{1}{3}(\text{B-Low}+\text{B-Med}+\text{B-High})$$
+
+$$\text{HML} = \tfrac{1}{2}(\text{S-High}+\text{B-High}) - \tfrac{1}{2}(\text{S-Low}+\text{B-Low})$$
+
+- SMB averages **across value** before differencing small minus big
+- HML averages **across size** before differencing value minus growth
+- Averaging keeps the two factors from contaminating each other
+
+::: notes
+Read the two formulas slowly, because the design is deliberate. S-M-B is the average of the three small portfolios minus the average of the three big portfolios. It averages across the three value buckets before differencing small minus big, so it is meant to be a clean size bet, roughly neutral to value. H-M-L is the average of the two high book-to-market portfolios minus the average of the two low ones. It averages across the two size buckets before differencing value minus growth, so it is a clean value bet, roughly neutral to size. The averaging is how you keep the two factors from contaminating each other. This is the same instinct as Frisch–Waugh–Lovell from Week Two: to isolate one effect, partial the other one out.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The three factors are **portfolios**: the market excess return, **SMB** (the average of three small portfolios minus three big ones), and **HML** (the average of two high book-to-market portfolios minus two low ones). The cross-averaging in the 2×3 sort is what makes the size and value bets roughly **orthogonal** — clean, non-contaminating.
+:::
+
+::: notes
+To summarize part two: a factor in this paper is a portfolio, and there are three — the market excess return, S-M-B for size, and H-M-L for value. S-M-B and H-M-L come from a two-by-three sort: two size groups crossed with three book-to-market groups, giving six portfolios. S-M-B averages across value before differencing small minus big; H-M-L averages across size before differencing value minus growth. That cross-averaging is the design trick that keeps the two bets roughly orthogonal, so the loadings stay interpretable. In part three we use these factors: we pick the test portfolios, run the regression, and read it two ways.
+:::

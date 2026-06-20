@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Path B — Building the Synthetic Universe
+
+- Part 4 — build a synthetic panel with a planted effect
+
+::: notes
+Welcome back to the Week Four lab, part four of ten. In part three we finished Path A — the denial-rate panel and the staggered, cited treatment definition. Now we enter Path B: the synthetic universe where you know the truth because you built it. Path B mimics aggregated HMDA — a denial-rate outcome, counties nested in states, staggered policy adoption — but with a planted, dynamic treatment effect. It runs with no network and no credentials, and it lets you check whether the pipeline recovers what you planted.
+:::
+
+## Step 1 — Build the Synthetic Panel
+
+- **96 counties**: 8 counties in each of 12 states
+- Observed yearly, 2012 through 2023
+- Adoption waves in **2016, 2018, 2020**; three never adopt
+- Policy **lowers** denial rates; effect **builds** with time
+- At event time $e\ge 0$, effect is $(e+1)\times(-0.40)$ points
+- Plus county levels, a common downward drift, noise
+
+::: notes
+Here is the build. Construct ninety-six counties — eight counties in each of twelve states — observed yearly from twenty-twelve through twenty-twenty-three. Three waves of states adopt the fair-lending policy, in twenty-sixteen, twenty-eighteen, and twenty-twenty, and three states never adopt; those are the clean controls. The policy lowers denial rates, and the effect builds with event time. At event time e greater than or equal to zero — years since adoption — the per-period effect is the quantity e plus one, times negative zero-point-four-zero percentage points: negative zero-point-four in the adoption year, negative zero-point-eight the next year, and so on. This is the Chapter four-point-two recipe exactly — staggered timing plus a dynamic effect, the combination that breaks two-way fixed effects. We add fixed county levels, a common downward drift because denial rates fell broadly over the twenty-tens, and Gaussian noise. None of that changes the lesson; all of it makes the contrast realistic and makes parallel trends hold in expectation.
+:::
+
+## The Honest Target
+
+- Never-adopters carry $G = \text{NaN}$ — the clean-control code
+- The truth = mean of planted effects over treated cells
+- A **1,152-row** panel results
+- True mean ATT is about $-1.49$ points
+- Hold that number — every estimator chases it
+- Switch off the *dynamic* part and TWFE's bias would vanish
+
+::: notes
+Two details to hold. First the cohort coding: never-adopters carry a value of not-a-number, written N-a-N, which is exactly the convention the differences package reads as never-treated, eligible as a clean control. Second the honest target: the truth is the mean of the planted true effects over all treated county-year cells. The build produces a one-thousand-one-hundred-fifty-two-row panel and a true mean average treatment effect of about negative one-point-four-nine percentage points — averaging the planted effects over every treated cell. Hold that number; it is the truth every estimator below is chasing. And here is the reflection the lab asks: point to the line that creates the staggered timing and the line that creates the dynamic effect. Chapter four-point-two said two-way fixed effects breaks only when both are present. If you made the effect constant — say a flat negative one-point-five regardless of event time — you would switch off the dynamic ingredient, and the two-way-fixed-effects bias would largely vanish.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Path B plants a **known** dynamic effect: 96 counties over 12 years, staggered adoption in 2016, 2018, 2020, three never-adopters coded $G = \text{NaN}$, and a building effect of $(e+1)\times(-0.40)$ points. That yields a **1,152-row** panel with a true mean ATT near $-1.49$ — the number every estimator must chase. Next: inspect the panel before you estimate.
+:::
+
+::: notes
+To summarize part four: Path B builds a synthetic HMDA-like panel of ninety-six counties over twelve years, with staggered adoption in twenty-sixteen, twenty-eighteen, and twenty-twenty, three never-adopting clean controls coded not-a-number, and a planted dynamic effect equal to e-plus-one times negative zero-point-four percentage points. That yields a one-thousand-one-hundred-fifty-two-row panel and a true mean average treatment effect near negative one-point-four-nine — the number every estimator must chase. The two crisis ingredients are both present: staggered timing and a dynamic effect. In part five we inspect the panel before estimating anything, and state the identification argument out loud.
+:::

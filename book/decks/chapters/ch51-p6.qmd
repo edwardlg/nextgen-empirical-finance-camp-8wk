@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## What's Clever in the Paper
+
+- Part 6 — three moves that made this paper land
+
+::: notes
+Welcome back to the Reader's Guide for Fama and French, part six of nine. In part five we learned the referee's reading order — tables first, watching beta go flat in the sorts and collapse in the regressions. Now we step back and ask: of the dozen anomaly papers that came before, why did this one land? Three moves separate it from the pack, and naming them sharpens your own eye for what makes empirical work durable.
+:::
+
+## The Double Sort Disentangles Size From Beta
+
+- In raw data, size and beta **correlate** — small firms run high-beta
+- A simple beta sort is partly a disguised **size** sort
+- See a spread? Can't tell if it's beta or smallness
+- Size-beta cells vary beta while **holding size fixed**
+- Now the clean within-size comparison is — **flat**
+
+::: notes
+Three moves separate this paper from the dozen anomaly papers that preceded it. First, the double sort to disentangle size from beta. In the raw data, size and beta are correlated — small firms tend to be high-beta — so a simple sort on beta is partly a disguised sort on size, and vice versa. If you sort on beta alone and see a return spread, you cannot tell whether you are being paid for beta or for smallness. The double sort breaks the tangle: by forming size-beta portfolios, Fama and French create cells that vary in beta while holding size roughly fixed. Now the within-size beta comparison is clean — and it is flat. This is the same logic as controlling for a confounder, done nonparametrically with buckets instead of a regression slope, and it is what lets them say beta's apparent premium was size in disguise.
+:::
+
+## Book-to-Market on the Marquee
+
+- A single ratio, computable from two reported numbers
+- Does enormous work — arguably more than size
+- Survives alongside size when beta does not
+- A durable, replicable, **cheap-to-compute** predictor
+- The 1993 three-factor model built directly on it
+
+::: notes
+The second clever move: putting book-to-market on the marquee. Book-to-market is a single ratio, computable from two numbers any firm reports, and it turns out to do enormous work — arguably more than size. Elevating it from a curiosity to a headline variable, and showing it survives alongside size when beta does not, gave the field a durable, replicable, cheap-to-compute predictor. The nineteen ninety-three sequel built the famous three-factor model directly on these two variables, size and book-to-market; this nineteen ninety-two paper is where they earned their seats. There is a lesson here for your own work: a predictor that anyone can compute from public numbers, and that survives a fair fight against the reigning variable, is worth far more than an exotic one that only the authors can build.
+:::
+
+## The Framing — "Beta Is Dead"
+
+- Many papers find some X predicts returns
+- Few dare say the *reigning* variable does not
+- Staged as a direct execution of CAPM's central prediction
+- Done with the field's **own** weapon — Fama-MacBeth
+- You can't dismiss the house technique as a gimmick
+
+::: notes
+The third clever move is the framing — beta is dead. Plenty of papers find that some variable predicts returns. Few have the nerve and the evidence to say the reigning variable does not. Fama and French stage the result as a direct execution of the Capital Asset Pricing Model's central prediction, and they do it with the field's own preferred weapon — the Fama-MacBeth regression that asset pricers already trusted. That is rhetorically devastating: you cannot dismiss the method as some outsider's gimmick when it is the discipline's house technique. The cleverness is as much in the framing of the contest as in any single estimate. When you design your own tests, remember this: choosing to beat the reigning theory on its own turf, with its own tools, is what turns a finding into a verdict.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three moves made it land: the **double sort** disentangles size from beta nonparametrically; **book-to-market** is a cheap, replicable predictor that survives the fight; and the **framing** executes CAPM on its own turf with its own tool. Cleverness lives in the *design of the contest*, not one estimate.
+:::
+
+::: notes
+To summarize part six: three moves separate this paper from the anomaly papers before it. The double sort disentangles size from beta by building cells that vary beta while holding size fixed — controlling for a confounder with buckets — and that clean comparison comes out flat. Putting book-to-market on the marquee elevated a cheap, two-number ratio into a durable predictor that survives alongside size and seeded the nineteen ninety-three three-factor model. And the framing stages the whole thing as an execution of the Capital Asset Pricing Model, fought with the field's own Fama-MacBeth technique, so the verdict cannot be waved away as a gimmick. The common thread: cleverness lives in the design of the contest, not in any single estimate. In part seven we put on the referee's hat for real and begin attacking the paper at its weakest joints.
+:::

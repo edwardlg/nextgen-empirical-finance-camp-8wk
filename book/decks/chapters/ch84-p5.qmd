@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Responding — The R&R Memo
+
+- Part 5 — the response memo; concede, defend, or bound
+
+::: notes
+Welcome back to Peer Review and Revision, part five of six. In part four we watched Devon write his report. Now flip the desk: the editor returns your paper with a revise and resubmit — the most common good outcome, because the design was credible enough to save. Your job is a revised paper and the document that matters as much: the response memo. We learn its structure and when to concede versus defend.
+:::
+
+## Quote, Change, Evidence — and Mean It
+
+- For each comment, do three things in order:
+- **Quote** it verbatim so the editor needn't hold two documents
+- **State** the change in plain, specific language
+- **Point** to the new table, figure, page, and number
+- The norm graded hardest: **do exactly what you said you did**
+
+::: notes
+The response memo is a point-by-point reply to every comment. An editor reads it before re-reading the paper, because it tells them whether you can take criticism and act on it. For each comment you do three things: quote the comment, state what you changed, and point to the evidence. Quote it verbatim so the editor need not hold two documents side by side. State the change in plain language: we added an event study as new Figure Two. Then point to the result — the new table number, the figure, the page, the actual number the analysis produced. A response that says we have addressed this concern without saying where and with what number is worthless. And the deepest norm, graded hardest: do exactly what you said you did. If your memo claims an event study, it must be in the paper and it must be the one you describe. Referees check, and a single caught lie poisons every other claim in the document. Honesty here is the load-bearing wall.
+:::
+
+## Concede When the Referee Is Right
+
+- Fix it, say so plainly, and thank them
+- "The referee is correct; we clustered at the wrong level"
+- Report the consequence even when the result weakens
+- A t-stat falling from 4.1 to 2.6, reported honestly, earns trust
+- Honest concession is your strongest evidence the result is real
+
+::: notes
+Not every comment is right, and a memo that caves to all of them is as weak as one that fights all of them. The rule running through this book: follow the evidence, not the ego. Concede when the referee is right, and concede gracefully. If they caught a real flaw, fix it, say so, and thank them: the referee is correct; we had clustered at the wrong level. We now cluster by state, the level at which examinations vary, and the t-statistic falls from four-point-one to two-point-six, which we report. Conceding made the result weaker, and reporting the weaker number honestly is the move that earns trust. A referee who sees you report a t-statistic that dropped because they were right believes the two-point-six far more than the four-point-one. Honest concession is not surrender; it is the strongest evidence you can offer that the surviving result is real.
+:::
+
+## Defend With Evidence — or Bound It
+
+- Defend when the referee is wrong — respectfully, with evidence
+- Do the requested work first, then explain why the worry fails
+- Never with attitude; a good editor respects an argued rebuttal
+- The untestable threat: neither concede nor pretend it's gone
+- **Bound** it — present indirect evidence, state the residual limit
+
+::: notes
+Defend when the referee is wrong — respectfully, with evidence, never with attitude. Sometimes a referee misreads or asks for a test that does not apply. A good editor respects a well-argued rebuttal. But the defense must be evidence: we respectfully disagree that small-cell volatility drives the result; as the referee suggests we checked directly — weighting by volume leaves the estimate unchanged at one-point-three points, and dropping counties below fifty applications gives one-point-five. The cleanest defenses do the requested work, then explain why the worry does not bite. Finally, the comment you can neither fix nor rebut — the untestable threat, like the parallel-trends counterfactual itself. Here you neither concede the paper is broken nor pretend the concern is gone. You bound it: acknowledge it is real and untestable, present the indirect evidence, and state the residual concern honestly. A referee trusts the author who says here is what still worries me far more than one who claims a clean sweep.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The R&R memo answers every comment in the **quote-change-evidence** shape, and its load-bearing norm is **do exactly what you said**. Then decide consciously for each: **concede** (and report even a weaker number), **defend** with evidence, or **bound** an untestable threat honestly.
+:::
+
+::: notes
+To summarize part five: the response memo replies to every comment in the quote-change-evidence shape, and its deepest norm is do exactly what you said you did. For each comment, decide consciously: concede when they are right and report even a weaker number; defend when they are wrong by doing the work first; or bound an untestable threat honestly. In part six we watch Maya answer Devon — one bounded threat, one concession, one defense — and close the loop back to Week Five.
+:::

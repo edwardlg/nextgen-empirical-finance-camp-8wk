@@ -1,0 +1,44 @@
+---
+date: "2026-06-22"
+---
+
+## The Eight-Step Defensible Pull
+
+- Part 12 — the eight-step skeleton every source obeys
+
+::: notes
+Welcome back to Data Acquisition in Practice, part twelve of thirteen. Over the previous parts we toured every source: WRDS, EDGAR, FRED, H-M-D-A, thirteen-F, PatentsView, and the free price alternatives. Each had a different access path, but they all fit the same skeleton. In this part we state that skeleton once, cleanly, because it is the real deliverable of the chapter and the scaffolding your capstone repo should use.
+:::
+
+## Steps 1 to 4 — Ask Well
+
+1. **Read the data card** — coverage, identifiers, endpoints, license
+2. **Read secrets from the environment** — never inline
+3. **Write a bounded, specific query** — columns, rows, dates only
+4. **Respect the access rules** — rate limits, User-Agent; sleep, back off
+
+::: notes
+Step back and notice that every source, however different its access path, fits the same skeleton. Here are the first four steps. One: read the data card in Appendix C for the source — its coverage, identifiers, endpoints, and license — before you write a line. Two: read secrets from the environment — keys through os-dot-environ, never inline, and the S-E-C user-agent the same way. Three: write a bounded, specific query — only the columns, rows, and dates you need; aggregate server-side for huge sources like H-M-D-A, and bound dates and select columns for huge tables like CRSP. Four: respect the access rules — the S-E-C's ten-per-second ceiling and user-agent, WRDS's shared-cluster etiquette, each free A-P-I's rate limit — and sleep and back off when you loop.
+:::
+
+## Steps 5 to 8 — Make It Reproducible
+
+5. **Pin the snapshot** — vintage, accession, data year, release
+6. **Cache to a git-ignored `data/raw/`** — downstream reads the cache
+7. **Never commit licensed data** — commit the code and the log
+8. **Log the pull** — source, query, row count, hash, timestamp
+
+::: notes
+Here are the last four steps. Five: pin the snapshot — the WRDS snapshot date, the FRED vintage, the EDGAR accession number, the H-M-D-A data year, the PatentsView release. Record what the data was as of when. Six: cache the raw response to a git-ignored data raw directory, and have everything downstream read the cache, never re-hitting the source — that freezes the input so a re-run gives identical numbers. Seven: never commit licensed data — CRSP, Compustat, I-B-E-S, TRACE, Thomson — it stays on G-M-U infrastructure; you commit only the pull code and the log. Eight: log the pull — source, query with no secrets, row count, content hash, and timestamp — so the request is on the record and changes in the data are detectable.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Every source fits **one eight-step skeleton**: read the card, read secrets from the environment, bound the query, respect the rules, pin the snapshot, cache to a git-ignored folder, never commit licensed data, and log the pull. Four steps to *ask well*, four to *make it reproducible*. Next: the repository this builds — and why data acquisition *is* the method.
+:::
+
+::: notes
+To summarize part twelve: every source, however different, fits one eight-step skeleton. The first four steps are about asking well — read the data card, read secrets from the environment, write a bounded and specific query, and respect the access rules. The last four are about making it reproducible — pin the snapshot, cache to a git-ignored data raw folder, never commit licensed data, and log every pull with a content hash. In part thirteen, the last part, we look at the repository this skeleton builds, and close on the chapter's deepest point: that data acquisition is not a chore before the real work — it is part of the method.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Stacking the Data into Matrix Form
+
+- Part 2 — collapse all $N$ equations into one matrix line
+
+::: notes
+Welcome back to Lesson two-point-one, part two of eleven. In part one we wrote Sam's regression one trading day at a time, with an intercept, a slope, and an error. Writing that out for every day is repetitive, and repetition is exactly what matrices exist to absorb. In this part we collapse the whole dataset into one master equation — the equation that carries the next four lessons.
+:::
+
+## The Stacking Trick
+
+- Stack outcomes and errors into column vectors
+- Build $\mathbf{X}$: first column all ones, second the market returns
+- First row times $\boldsymbol\beta$ gives $1\cdot\beta_0 + x_1\cdot\beta_1$
+- The ones column is the **intercept's regressor**
+- Its coefficient $\beta_0$ adds the same baseline to every prediction
+
+::: notes
+Stack the N outcome values into a column vector, stack the errors the same way, and — here is the one mildly clever move — build a matrix X whose first column is all ones and whose second column holds the market returns. Why does the column of ones belong there? Multiply the first row of X by beta: you get one times beta zero plus x sub one times beta one, which is exactly the right-hand side of the first equation. The column of ones is the intercept's regressor — a variable that equals one for everyone, so its coefficient beta zero adds the same baseline to every prediction. With that trick, the matrix product X times beta reproduces all N equations at once.
+:::
+
+## The Master Equation
+
+- $$\mathbf{y} = \mathbf{X}\boldsymbol\beta + \boldsymbol\varepsilon$$
+- $\mathbf{y}$: $N\times 1$ outcome vector
+- $\mathbf{X}$: $N\times K$ design matrix — row $i$ obs, column $j$ regressor
+- $\boldsymbol\beta$: $K\times 1$ coefficients; $\boldsymbol\varepsilon$: $N\times 1$ errors
+- $K$ = regressors **including** the intercept (Sam: $K=2$)
+
+::: notes
+So we write the model as y equals X beta plus epsilon. This is the master equation of the next four lessons, so fix the shapes and names in your head. We have N observations and K regressors including the intercept, so Sam's simple regression has K equals two. Vector y is N by one, the outcome — also called the response or dependent variable. X is N by K, the design matrix: row i is observation i, column j is regressor j, and the first column is usually all ones for the intercept. Beta is K by one, the vector of unknown coefficients. And epsilon is N by one, the vector of unobserved errors. Keep these four shapes straight and the rest of the lesson clicks into place.
+:::
+
+## Why Matrix Form Wins
+
+- Add a regressor? Just add a column of $\mathbf{X}$, an entry of $\boldsymbol\beta$
+- The equation $\mathbf{y} = \mathbf{X}\boldsymbol\beta + \boldsymbol\varepsilon$ does not change a symbol
+- One derivation, done once, covers every linear regression
+- That invariance is the whole reason we work in matrices
+
+::: notes
+Nothing about this is special to two regressors. If Sam later wants to control for, say, the previous day's return and a measure of trading volume, those become extra columns of X, extra entries of beta, and the equation y equals X beta plus epsilon does not change a single symbol. That invariance is the entire reason we work in matrix form: one derivation, done once, covers every linear regression you will ever run — from Sam's two columns to dozens of regressors across thousands of observations. The notation absorbs the bookkeeping so we can spend our attention on the ideas.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A whole dataset of regression equations collapses into one matrix line, $\mathbf{y} = \mathbf{X}\boldsymbol\beta + \boldsymbol\varepsilon$, where each row of the design matrix $\mathbf{X}$ is an observation and each column a regressor. Adding regressors changes columns, not the equation. Next: how OLS picks the best $\boldsymbol\beta$.
+:::
+
+::: notes
+To summarize part two: a whole dataset's worth of regression equations collapses into the single matrix equation y equals X beta plus epsilon, where each row of the design matrix X is one observation and each column is one regressor, with a leading column of ones carrying the intercept. The power of this form is its invariance — adding regressors changes only the columns, never the equation itself. In part three we ask the central question: among all candidate coefficient vectors, which one fits best, and what does best even mean? The answer is ordinary least squares, and it starts with carefully distinguishing two words that look like twins.
+:::

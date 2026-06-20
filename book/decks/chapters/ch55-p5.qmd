@@ -1,0 +1,62 @@
+---
+date: "2026-06-22"
+---
+
+## Rebuilding the Headline on Your Laptop
+
+- Part 5 — turning the placebo argument into runnable code
+
+::: notes
+Welcome back to lesson five, part five of five, the last part. In part four we judged the paper: clever for testing inference itself, vulnerable on few clusters, power, and data-specific magnitudes. Now we turn the argument into code. Three replication exercises scaffold toward notebook five-point-five, the B-D-M placebo-law simulation. You reproduce the spirit of the paper, a clean simulated panel rather than the proprietary C-P-S extract, but the mechanism and the punchline are identical.
+:::
+
+## Exercise 1 — Reproduce the False-Positive Rate
+
+- Simulate a state-year panel, **AR(1)** within-state errors, **no** true effect
+- 1,000 replications: random placebo law, random states, random year
+- Run TWFE with the **conventional** standard error
+- Record whether $|t|>1.96$; report the empirical rejection rate
+- You should see it land **far above 0.05**
+- B-D-M's headline table, rebuilt on your laptop
+
+::: notes
+Exercise one: reproduce a placebo-DiD false-positive rate. Simulate a state-year panel with serially correlated within-state errors, for example an A-R-one process so this year's shock partly carries over to next year, and no true treatment effect. In each of one thousand replications, assign a random placebo law to a random subset of states starting in a random year, run the two-way fixed-effects regression with the conventional standard error, and record whether the absolute value of t exceeds one-point-nine-six. Report the empirical rejection rate. You should see it land far above zero-point-zero-five. This is B-D-M's headline table, rebuilt on your laptop, and the moment the abstract worry becomes a number you measured yourself.
+:::
+
+## Exercise 2 — Turn the Dials
+
+- Sweep AR(1) persistence from **0** (independent) up toward **1**
+- Separately sweep the number of years $T$ from small to large
+- Plot the placebo rejection rate against each
+- At zero persistence: rate near the honest **5 percent**
+- As persistence and length grow: the rate **climbs**
+- Proves serial correlation, not chance, is the culprit
+
+::: notes
+Exercise two: turn the dial on serial correlation and on panel length. Rerun exercise one sweeping the A-R-one persistence parameter from zero, independent errors, up toward one, highly persistent, and separately sweeping the number of years T from small to large. Plot the placebo rejection rate against each. At zero persistence the rate should sit near the honest five percent; as persistence and panel length grow, it should climb. This reproduces B-D-M's mechanism evidence and proves to yourself that serial correlation, not chance, is the culprit.
+:::
+
+## Exercise 3 — Test the Cures
+
+- Fix a strongly serially correlated setting; rerun three more times
+- (a) **cluster** SEs by state
+- (b) **block-bootstrap** by resampling whole states
+- (c) **collapse** each state to one pre and one post average
+- Tabulate four rejection rates side by side; each should near **5%**
+- Stretch: shrink the states to a handful — clustering **over-rejects again**
+
+::: notes
+Exercise three: test the cures. Hold the data-generating process fixed at a strongly serially correlated setting and rerun the placebo experiment three more times, swapping in each fix. First, cluster the standard errors by state. Second, block-bootstrap by resampling whole states. Third, collapse each state to a single pre and post average and run the two-period comparison. Tabulate the four rejection rates side by side, the conventional plus the three fixes. Confirm that each fix drags the rate back toward five percent. Then, as a stretch, shrink the number of states to a handful and watch the clustering fix start to over-reject again, rediscovering the few-clusters caveat with your own simulation.
+:::
+
+## Carry These Questions Forward
+
+- Open `nb5.5` — the BDM placebo-law simulation
+- Read the false-positive rate off **your own output**
+- How sensitive is the indictment to the panel's autocorrelation and length?
+- Do the cluster-and-bootstrap cures reach the **few-unit** designs that need them?
+- When missing a real effect is costly, is **collapsing** the right default?
+
+::: notes
+Where this goes next. Open notebook five-point-five, the B-D-M placebo-law simulation, in notebooks, week-oh-five. There you build the serially correlated panel, run the placebo experiment across standard-error flavors, and read the false-positive rate off your own output rather than off a table in a two thousand four journal. Carry three referee questions into the lab. First, the headline rejection rate is a property of the C-P-S panel's specific serial-correlation structure and length, so how sensitive is the indictment to those choices? Would a weaker-correlated or much shorter panel still embarrass the conventional standard error, and by how much? Second, B-D-M rehabilitate inference partly through clustering and the block bootstrap, both of which lean on many clusters, yet an enormous share of influential DiD studies have few treated units; does the recommended cure actually reach the designs that need it most, or quietly assume the easy case? Third, collapsing to pre and post restores honest size at a cost in power, so for a policy evaluation where missing a real effect is itself costly, a public-health or fair-lending intervention, is the collapse the right default, or does buying size with power trade one error for a more dangerous one? That is lesson five-point-five. Bring your measured number, and your skepticism, to the lab.
+:::

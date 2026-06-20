@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The .gitignore — Two Non-Negotiable Rules
+
+- Part 7 — the two rules and building the `.gitignore`
+
+::: notes
+Welcome back to Lab Seven, your data reproducibly, part seven of ten. In part six we locked the environment and wrote the README and data cards. Now the single step that, done wrong, can get a student into genuine trouble — a license violation or a leaked key. We cover the two non-negotiable rules and build the gitignore that enforces them.
+:::
+
+## Two Non-Negotiable Rules
+
+- A `.gitignore` lists patterns Git must **never** track
+- **Rule one:** never commit licensed raw data
+- CRSP, Compustat, IBES, TRACE are licensed — GMU pays, GMU systems only
+- **Rule two:** never commit secrets — keys, WRDS creds, `.env`
+- A key in a pushed commit is in history **forever**
+
+::: notes
+The tool is a gitignore file: a list of patterns telling Git which files to never track. The discipline has two non-negotiable rules. Rule one — never commit licensed raw data. CRSP, Compustat, IBES, TRACE, and the cleaned Thomson thirteen-F panel are licensed, not public. GMU pays for them; the license permits use by GMU researchers on GMU systems. Committing any of those bytes to a Git repo — even a private one — is redistribution outside the licensed walls, which violates the license. So the entire data tree is git-ignored, and the licensed bytes live only in data-raw on GMU infrastructure. What you commit instead is the recipe: the pull code in source, the data cards, and the pull log with its content hashes. A reviewer with GMU access can re-run the recipe and check the hash; a reviewer without it cannot get the data — which is correct, because the license forbids you from shipping it. Rule two — never commit secrets. Your API keys, your WRDS credentials, your secrets file. A key is a password; the instant it lands in a pushed commit it is in your history forever — deleting it later does not remove it — and bots scrape public GitHub for exactly such strings within minutes. Keys live in environment variables or a git-ignored secrets file; your code reads them from the environment, and the repo never contains them.
+:::
+
+## Building the .gitignore
+
+- `data/raw/*` and `data/processed/*` — ignore the contents
+- `!data/raw/.gitkeep` — un-ignore the placeholder so structure survives
+- Secrets: `.env`, `.env.*`, `*.key`, `*.pem`, `.pgpass`
+- Caches: `__pycache__/`, `*.pyc`, `.ipynb_checkpoints/`
+- `*.parquet` — belt-and-suspenders: no cached table, anywhere
+
+::: notes
+Create the gitignore in the repo root. A few things to understand in it. The pattern data-raw-star ignores everything inside data-raw, and the negation — bang, data-raw-dot-gitkeep — then un-ignores the placeholder so the folder structure survives a clone while its contents never do. The order matters, and the directory-level form plus a negation is what makes the exception work; a bare data line would swallow the gitkeep too. For secrets, you block the secrets file and its variants, anything ending in key or pem, and dot-pgpass — the file the wrds package stores credentials in, so ignoring it by name is one more guard on your licensed-data access. Then the usual caches and build noise: the pycache directory, compiled pyc files, and notebook checkpoints. And finally the parquet line is deliberate belt-and-suspenders: even if a stray cache file lands outside the data tree, it still cannot be committed.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The `.gitignore` enforces two rules: **never commit licensed raw data** (it is redistribution outside the license) and **never commit secrets** (a pushed key is in history forever). Block the `data/` tree and secret patterns, keep `.gitkeep` alive with a **negation**, and add `*.parquet` as belt-and-suspenders. Next: prove it actually works.
+:::
+
+::: notes
+To summarize part seven: the gitignore enforces two non-negotiable rules. Never commit licensed raw data, because committing CRSP, Compustat, or the other licensed sources is redistribution outside the license — what you commit is the recipe instead. And never commit secrets, because a pushed key is in your history forever and bots find such strings within minutes. You built the file: ignore the data tree but keep the gitkeep placeholders alive with a negation so structure survives, block the secret patterns and dot-pgpass, sweep up caches, and add the parquet line as belt-and-suspenders. But a written rule is only a hope. In part eight we verify the gitignore actually blocks what we think it blocks, and pair it with the deliberate habit of staging by name.
+:::

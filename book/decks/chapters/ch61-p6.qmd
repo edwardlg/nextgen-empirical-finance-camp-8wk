@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Reading Order: Validate the Measure First
+
+- Part 6 — validation exhibits: read signs, not magnitudes
+
+::: notes
+Welcome back to KPSS, part six of twelve. In part five we saw the three data sources and the units they live at. Now we read the exhibits — and for this paper there is a specific order, dictated by the two-questions structure. New readers start at the introduction and drown. You start at the exhibits, and you read the measure-validation evidence first. If the measure is not credible, nothing downstream matters, so that is where a referee looks first. This part is step one: does the constructed dollar value behave like a value should?
+:::
+
+## Step 1: Validate the Measure
+
+- Does the dollar value behave like a value should?
+- A constructed measure earns trust by **predicting**
+- Does it correlate with **forward citations**? (convergent validity)
+- Does it predict future **profitability and growth**?
+- Does it survive the **obvious confound** of other news?
+
+::: notes
+Step one: find the validation exhibits. Does the dollar value behave like a value should? This is the make-or-break evidence, and it usually comes early. A constructed measure earns trust by predicting things it should predict if it really captures patent value. Read these as a checklist of sanity tests. First, does the market-based value correlate with forward citations? Citations are the literature's established, if slow, proxy for importance; if the dollar value rises with future citations, the new measure agrees with the old one where the old one is trustworthy — that is convergent validity. Second, does it predict future profitability and growth? A patent the market valued highly at grant should be followed by higher future profits, R-and-D productivity, or output. This is the strongest validation: a measure built from a three-day stock reaction forecasting real outcomes years out. Third, does it survive the obvious confound — is the patent signal distinct from generic announcement returns?
+:::
+
+## Read Signs, Not Magnitudes
+
+- Read these tables for **signs and significance**
+- The pattern: value predicts citations, profits, growth
+- All **positive and significant**
+- If it held — the measure earned its place
+- If it were flat — the paper collapses **here**
+
+::: notes
+Read these tables for signs and significance, not for magnitudes you will memorize. The pattern that matters is this: the value measure positively and significantly predicts citations, profits, and growth. If that pattern holds, the measure has earned its place. If it were flat, the paper would collapse right here, before any of the economics matters. This is the discipline of reading a measurement paper: you check whether the constructed number passes its sanity tests before you let it carry any economic weight.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Read **validation first**: the constructed value must predict **forward citations** (convergent validity), future **profits and growth**, and survive confounding news. Read these tables for signs and significance — all **positive** — not magnitudes. If the pattern is flat, the paper collapses here. Next: the economics exhibits.
+:::
+
+::: notes
+To summarize part six: there is a reading order, and it follows the two-questions structure — validate the measure first. Step one asks whether the dollar value behaves like a value should: does it correlate with forward citations, giving convergent validity; does it predict future profitability and growth; and does it survive the obvious confound of other news? Read those validation tables for signs and significance, not magnitudes. The pattern you want is positive and significant across the board. If it is flat, the paper collapses here, before any economics matters. In part seven we move to the economics exhibits — the asset-pricing and reallocation tables — and learn how to spot a split headline.
+:::

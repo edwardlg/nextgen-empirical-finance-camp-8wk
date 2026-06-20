@@ -1,0 +1,55 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Code and the Checklist
+
+- Part 12 — the code in one screen and the four-step checklist
+
+::: notes
+Welcome back to heteroskedasticity, clustering, and HAC, part twelve of twelve — the finale. In part eleven we worked through Petersen's panel taxonomy. Now we watch the whole chapter in one screen of output — the same coefficient drifting across the significance line as we change only the SE flavor — and then assemble the four-step mental checklist you carry into every regression. This part closes the lesson.
+:::
+
+## The Stakes, and the Code
+
+- Same $\hat\beta$; only the SE flavor changes
+
+| SE flavor | Std. error | $t$-stat |
+|-----------|-----------|--------|
+| Classical (OLS) | 0.018 | 5.0 |
+| White (HC1) | 0.021 | 4.3 |
+| Clustered by firm | 0.044 | 2.0 |
+| Two-way (firm + year) | 0.052 | 1.7 |
+
+- More correlation allowed in $\boldsymbol\Omega \Rightarrow$ SE inflates, $t$ falls
+- One says "publish"; the other says "not yet"
+- In `statsmodels`: every flavor is one argument
+- `fit.get_robustcov_results("HC1" / "cluster" / "HAC", …)`
+
+::: notes
+A worked taste of the stakes, in the spirit of Petersen's own tables. Maya assembles a panel of default outcomes for many firms over many years and regresses default on a leverage measure. The coefficient is the same in every column; only the SE flavor changes. Illustratively: classical OLS gives a t of five, White HC1 gives four point three, clustering by firm gives two point zero, and two-way firm-plus-year clustering gives one point seven. These figures are illustrative, but the qualitative point is exact: a classical t around five and a two-way-clustered t around one point seven are computed from identical point estimates on identical data. One says publish; the other says not yet. The difference is entirely a story about Omega, and choosing the wrong one is how real papers get retracted. The good news: in statsmodels every flavor is one argument. Fit OLS once, then call get-robustcov-results with HC1, or HC3, or cluster with a groups argument naming firm, or both firm and year for two-way, or HAC with a max-lags argument for Newey–West. Run it and the coefficient sits glued near the truth in every line while the standard error roughly doubles. That doubling is the chapter in one screen of output: the estimate is fine; the t-stat was lying.
+:::
+
+## The Mental Checklist
+
+1. **Variance differ across observations?** Almost always — use robust (HC1; HC3 if small / leverage)
+2. **Grouped with correlated errors?** Cluster — check $\gtrsim 30$–$50$ clusters
+3. **Pure time series, serial correlation?** HAC / Newey–West, set bandwidth
+4. **Panel?** Diagnose à la Petersen — firm, time, or two-way
+- Right $\hat\beta$ and right uncertainty are **two separate jobs**
+
+::: notes
+Here is the mental checklist — just "what does Omega look like?" in plain questions. One: could the error variance differ across observations? In finance, essentially always, so never use classical SEs as your final answer — use at least robust, HC1, or HC3 if N is small or leverage is high. Two: are observations grouped with correlated errors inside a group — firms, lenders, states? Then cluster on that group, and check you have enough clusters, aiming for at least thirty to fifty; otherwise use the wild cluster bootstrap. Three: is it a pure time series with serial correlation? Use HAC, Newey–West, and set the bandwidth to cover the persistence you expect. Four: is it a panel? Diagnose the correlation structure the way Petersen did — firm effect, cluster by firm; time effect, time fixed effects or cluster by time; both, two-way cluster. The recurring lesson, and the reason this chapter sits between the Gauss–Markov guarantees of Chapter two-point-two and the bias problems of Chapter two-point-five: getting beta hat right and getting its uncertainty right are two separate jobs. A biased estimator points at the wrong answer; a wrong standard error makes you wrongly confident about whatever answer you have.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Walk the checklist — robust, then cluster, then HAC, then panel diagnosis — because it is just **"what does $\boldsymbol\Omega$ look like?"** in plain questions. Across the whole chapter, $\hat{\boldsymbol\beta}$ never moved; only the SE did. **Getting $\hat\beta$ right and getting its uncertainty right are two separate jobs.** Next chapter: when $\hat\beta$ itself is biased.
+:::
+
+::: notes
+To summarize the finale, and the whole chapter. The code showed the chapter in one screen: the same point estimate, frozen, while the standard error roughly doubled and the t-stat fell across the significance line — the estimate is fine, the t-stat was lying. The four-step checklist is your map: robust by default, cluster when observations are grouped, HAC for serial correlation, and Petersen-style diagnosis for panels — all just versions of asking what Omega looks like. Across this entire chapter, beta hat never moved; only its uncertainty did, and getting each right is a separate job. Next, in Chapter two-point-five, we turn to the more dangerous failure: when beta hat itself is biased, pointing at the wrong answer entirely. Open notebook two-point-four and watch the five standard-error flavors move as you turn the knobs. Well done.
+:::

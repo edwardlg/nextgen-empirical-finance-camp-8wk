@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## Choosing the Weights and the Two Constraints
+
+- Part 4 — the matching optimization and its two constraints
+
+::: notes
+Welcome back to synthetic control, part four of twelve. In part three we wrote the estimator: the treated unit's premium minus a weighted average of donor premiums, with everything resting on the weight vector w. Now we open up the optimization that chooses those weights, and we meet the two constraints, non-negativity and summing to one, that give the method its entire personality.
+:::
+
+## The Matching Optimization
+
+- Match a vector $\mathbf{X}_1$ of $k$ pre-treatment characteristics
+- Donors' characteristics fill the matrix $\mathbf{X}_0$
+- Minimize $(\mathbf{X}_1-\mathbf{X}_0\mathbf{w})'\mathbf{V}(\mathbf{X}_1-\mathbf{X}_0\mathbf{w})$
+- Subject to $w_j\ge 0$ and $\sum_j w_j=1$
+- $\mathbf{V}$ weights the characteristics; software picks it
+
+::: notes
+Here is the mechanical core. We want the synthetic control to reproduce the treated state before treatment: not just its average premium, but the whole pre-period path, and ideally a set of predictors that drive premiums, like fire-zone density, median home value, and reinsurance costs. Collect for the treated state a column vector X-one of k such pre-treatment characteristics, and collect the same characteristics for each donor into the columns of a matrix X-naught. We choose weights w to make the synthetic state's characteristics, X-naught times w, as close as possible to the treated state's, X-one. Formally, w-star is the arg-min over w of a quadratic form: the mismatch vector X-one minus X-naught-w, transposed, times a matrix V, times that mismatch vector again, subject to every weight being non-negative and summing to one. The diagonal matrix V weights the characteristics, letting predictors that matter more count more. Choosing V well is its own small problem, usually solved by cross-validation, and the software does it for you. The heart of the method is w.
+:::
+
+## The Two Constraints Are the Whole Personality
+
+- **Non-negativity:** no donor enters with a negative weight
+- No "two parts California minus one part Florida"
+- **Sum to one:** weights are shares of a whole
+- Together: a **convex combination** — a true weighted average
+- Like proportions of a portfolio adding to 100%
+
+::: notes
+Notice the two restrictions hanging off the minimization. They look like fine print. They are the entire point. Non-negativity, w-j greater than or equal to zero: no donor can enter with a negative weight. You cannot say two parts California minus one part Florida. Every weight is zero or positive. Sum to one: the weights are shares of a whole. Together with non-negativity, this means the synthetic control is a convex combination of the donors, a genuine weighted average, where the weights are like proportions of a portfolio that must add to one hundred percent. These two innocent-looking restrictions are what separate synthetic control from ordinary regression, and in the next slide we see exactly what they buy you.
+:::
+
+## Convexity Cannot Extrapolate
+
+- Synthetic premium is **boxed** inside the donor range
+- Never above the priciest donor, never below the cheapest
+- Regression is *unconstrained* — any sign, any size
+- It can fit the pre-period perfectly with wild coefficients
+- That perfect fit is a fantasy that **explodes** out-of-sample
+- Convexity is a deliberate handcuff
+
+::: notes
+Why constrain things this way? Because a convex combination cannot extrapolate. The synthetic premium is always boxed inside the range of the donor premiums: never higher than the most expensive donor or lower than the cheapest. Contrast ordinary regression, an unconstrained linear combination with coefficients of any sign and size, which routinely predicts outside the range of the data. If you regressed the treated state's pre-period premium on the donors with no constraints, you could fit the pre-period perfectly by using wild positive and negative coefficients that exploit accidental correlations. That perfect fit would be a fantasy: it interpolates the noise and then explodes out-of-sample. The convexity constraint is a deliberate handcuff that says the synthetic control may only live inside the convex hull of the real donors. You buy stability and honesty at the cost of fit. Sometimes you cannot match the treated unit well, and that is the constraint telling you the truth.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The weights minimize pre-period mismatch under **two constraints**: non-negative and summing to one. That makes the synthetic control a **convex combination** that cannot extrapolate beyond the donors — unlike regression, which fakes perfect fits that explode out-of-sample. Convexity is the handcuff. Next: sparsity and a worked number.
+:::
+
+::: notes
+To summarize part four: the weights are chosen to minimize the squared pre-period mismatch between the synthetic state and the treated state, weighted by a matrix V the software selects. Two constraints hang off that minimization: non-negativity and summing to one, and they are the whole point. Together they make the synthetic control a convex combination, a genuine weighted average that cannot extrapolate beyond the range of the donors. Ordinary regression, being unconstrained, can fake a perfect in-sample fit with wild offsetting coefficients and then explode out-of-sample; convexity is the handcuff that prevents this and forces the method to tell the truth when no good match exists. In part five we see two more gifts of convexity: sparsity, and a worked number you can follow by hand.
+:::

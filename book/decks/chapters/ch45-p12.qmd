@@ -1,0 +1,45 @@
+---
+date: "2026-06-22"
+---
+
+## The Code, and Closing the Arc
+
+- Part 12 — the runnable code and closing the arc
+
+::: notes
+Welcome back to Week Four-point-five, part twelve of twelve, the finale. In part eleven we mapped the design onto the instrumental-variables vocabulary — testable relevance, arguable exclusion sourceable from shares or shifts. Now we walk the runnable code that makes it concrete, gather the four things to carry forward, and close the causal-inference arc of the whole camp.
+:::
+
+## The Code: OLS Biased, 2SLS Recovers
+
+- Synthetic panel: four hundred regions, twenty industries, true effect $-1.5$
+- Confounder lives in the error and contaminates the realized shock
+- **OLS** comes back biased — about $-1.06$
+- **2SLS** instrumented by $B_r$ lands on $-1.5$, first-stage F in hundreds
+- Rotemberg decomposition: a few industries carry most weight
+
+::: notes
+Here is the chapter in one runnable block. We build a shift-share instrument from synthetic shares and national shifts in a world with an unobserved regional confounder, show ordinary least squares is biased, recover the truth with two-stage least squares, and decompose the estimate into Rotemberg-style industry weights. We set four hundred regions and twenty industries, and a true effect of minus one-point-five. The confounder is latent regional fragility that lives in the error and also contaminates the realized shock. Running it, ordinary least squares prints about minus one-point-zero-six, because the confounder makes hard-hit regions look worse than the shock alone explains. Two-stage least squares, instrumenting the endogenous shock with the Bartik instrument, lands right on minus one-point-five, with a first-stage F in the hundreds. Two things to watch. First, the two estimates disagree, and the gap is the regional endogeneity made visible. Second, the decomposition shows the estimate is not spread evenly — a handful of industries carry most of the weight, and those are the shares whose exogeneity you must defend hardest. In this clean baseline the shares were drawn independently of the confounder, so every per-industry estimate hovers near minus one-point-five; the notebook then stresses it by tying shares to the confounder, and you watch the headline drift even while the F-statistic still looks reassuring.
+:::
+
+## Four Things to Carry Forward
+
+- A shift-share instrument is **built**, not found: shifts times shares
+- Identification has **two faces** — choose your defense by your data
+- **Diagnose, don't assert**: Rotemberg weights, effective shocks, AKM errors
+- It is **still IV**: testable relevance, arguable exclusion, LATE-like estimand
+
+::: notes
+Four things carry forward. First, a shift-share instrument is built, not found — a national part, the shifts, combined with a local part, the shares, as the share-weighted sum. The canonical use is local labor-demand shocks; the finance uses, bank-lending shocks driving household credit, are the same skeleton with the nouns swapped. Second, identification has two faces, and you choose your defense by your data. The shares view: exogeneity of the initial shares, best when shocks are few. The shifts view: a quasi-experiment in the shifts, best when shocks are many and dispersed, and it lets the shares be endogenous. A product is exogenous if either factor is — name your shot. Third, diagnose, don't assert. Rotemberg weights tell you which shares drive the estimate; the effective number of shocks tells you whether many shocks is real or an illusion; and Adão, Kolesár and Morales tell you the standard errors are the sneaky failure. Fourth, it is still instrumental variables: relevance is testable, exclusion is arguable from shares or shifts, and what you identify is a Rotemberg-weighted average of effects.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+In code, **OLS** came back biased (about $-1.06$) while **2SLS** recovered the truth ($-1.5$), and Rotemberg weights revealed which shares drive it. This **closes the causal-inference arc** — potential outcomes through shift-share. Weeks 5 and 6 turn from **building** tools to **reading** frontier papers with this exact lens: did they defend the shares or the shifts, show Rotemberg weights, use AKM-robust errors?
+:::
+
+::: notes
+To close: in the code, ordinary least squares came back biased at about minus one-point-zero-six while two-stage least squares recovered the true minus one-point-five, and Rotemberg weights revealed which shares drove the result. This closes the causal-inference arc of the whole camp. Weeks Three and Four built you the modern empiricist's full toolkit — potential outcomes, conditional independence, instruments, difference-in-differences, regression discontinuity, synthetic control, and now shift-share — and, more importantly, the reflex: name the threat, name the assumption, separate what the data can test from what you must argue, and bring the diagnostic. Weeks Five and Six turn from building tools to reading the frontier work that uses them — decoding published empirical papers, tables-first, with this exact toolkit as your lens, including papers by Prof. Gao. When a paper instruments local exposure with a Bartik design, you will not nod along; you will ask whether they defended the shares or the shifts, showed Rotemberg weights, and used AKM-robust standard errors. That is what it means to read the frontier. Turn the page.
+:::

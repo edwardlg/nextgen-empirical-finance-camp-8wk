@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Clustering: The Failure White Misses
+
+- Part 8 — why ignoring within-group correlation is catastrophic
+
+::: notes
+Welcome back to heteroskedasticity, clustering, and HAC, part eight of twelve. In part seven we finished robust standard errors and the three tells that catch heteroskedasticity. Now we hit the failure robust SEs cannot fix: errors correlated within groups. This part shows why robust SEs are blind to it, then derives exactly why ignoring clustering is so dangerous — the single most expensive mistake in empirical finance.
+:::
+
+## The Failure White SEs Don't Fix
+
+- Robust SEs assume off-diagonals of $\boldsymbol\Omega$ are **zero**
+- In finance that is heroic and usually false
+- Loans in one lender share its pricing model — errors move together
+- Claims in one state share fire season, codes, reinsurance
+- These **within-cluster correlations** are invisible to White
+- Naive count: like polling one household nine times, calling it nine
+
+::: notes
+Robust SEs assume the off-diagonals of Omega are zero — errors uncorrelated across observations. In finance that assumption is heroic and usually false. Maya's loans within the same lender share the lender's pricing model, risk appetite, and quirks; their errors move together. Priya's claims within the same state share that state's fire season, building codes, and reinsurance market; their errors move together. Devon's daily token returns within the same week share whatever sentiment shock hit crypto that week. These are within-cluster correlations, and robust SEs are blind to them because they only ever look at one observation at a time. Go back to Maya. Her claim that one borrower tier pays measurably more is the kind of finding that can support or sink a discrimination complaint. The reason her naive number was so much too big is not that her nine thousand loans are fake — they are real — but that they are not nine thousand independent pieces of evidence. Loans from the same lender largely repeat the same story. Counting them as independent is like polling one household nine times and reporting a sample of nine.
+:::
+
+## Why Ignoring Clustering Is So Dangerous
+
+- $N$ loans, $G$ lenders of size $n$, error correlation $\rho_\varepsilon$
+- $\text{true Var} \approx \text{naive Var} \times [\,1 + (n-1)\,\rho_x\,\rho_\varepsilon\,]$
+- Damage scales with **cluster size $n$** — bigger clusters, worse
+- $n = 200$, $\rho_x\rho_\varepsilon = 0.05$: bracket $\approx 11$
+- True SE is $\sqrt{11} \approx 3.3\times$ bigger; $t = 6.0 \to 1.8$
+- More observations within clusters $\neq$ evidence; more **clusters** does
+
+::: notes
+Here is why ignoring clustering is so dangerous, and it earns its own derivation. Suppose Maya has N loans split into G lenders of equal size n, and within a lender the errors share a common shock with within-cluster correlation rho-epsilon. There is a classic result — a special case of the Moulton factor — for how badly the naive standard error understates the truth. The true variance is approximately the naive variance times the bracket: one plus n minus one, times rho-x, times rho-epsilon, where n is the cluster size, rho-epsilon is the within-cluster error correlation, and rho-x is the within-cluster correlation of your regressor. Stare at that bracket. The damage scales with cluster size n: bigger clusters, worse understatement. With two hundred loans per lender and even a mild rho-x times rho-epsilon of zero point zero five, the bracket is one plus one ninety-nine times zero point zero five, about eleven. Your true variance is eleven times the naive one, so your true standard error is the square root of eleven, about three point three times bigger, and your reported t-stat of six should really be about one point eight. That is exactly what happened to Maya in the opening — not bad luck, arithmetic. Pouring in more observations within existing clusters does not buy the independent evidence the naive formula thinks it does. What buys evidence is more clusters.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Robust SEs assume **zero off-diagonals** — but errors routinely correlate within groups, and White is blind to it. Ignoring clustering inflates true variance by $[\,1 + (n-1)\rho_x\rho_\varepsilon\,]$, which scales with **cluster size $n$** — turning Maya's $t = 6.0$ into a true $t \approx 1.8$. More clusters, not more observations, buys evidence.
+:::
+
+::: notes
+To summarize part eight. Robust standard errors are blind to correlation across observations, and in finance errors routinely correlate within groups — loans within a lender, claims within a state. The Moulton derivation showed why ignoring that is catastrophic: the true variance scales with cluster size, so even a mild within-group correlation can inflate the variance elevenfold, and Maya's t-stat of six was really about one point eight. The cure is not more observations inside the same clusters — it is more clusters. In part nine we build the cluster-robust sandwich that repairs Omega, and learn the few-clusters trap that can bring the overconfidence right back.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Writing a Test and Measuring Its Size
+
+- Part 3 — code a z-test from scratch; measure its false-positive rate
+
+::: notes
+Welcome back to Lab one, building a coin-flip universe, part three of five. In part two we built the sampling distribution and watched it tighten and go normal. Now we build the decision machine of Chapter one-point-five with our own hands — a one-proportion z-test — and then do the thing only a simulator allows: measure its actual false-positive rate instead of taking it on faith.
+:::
+
+## Step 3: A One-Proportion z-Test
+
+- Test $H_0: p = p_0$ vs $H_1: p \neq p_0$, with $p_0=0.5$
+- $\displaystyle z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/N}}$
+- Denominator uses $p_0$ — known under the null
+- Two-sided p-value: $2\,\Pr(Z > |z|)$
+- Cross-check against `binomtest`
+
+::: notes
+Step three: build the test. Sam's question is, is the coin fair? Frame it as the null that p equals p-naught against the alternative that p is not equal to p-naught, with p-naught equal to one-half — a two-sided alternative, the honest default. The test statistic is the same idea as the t-statistic — estimate, minus null value, divided by standard error — but for a large-sample proportion we use a z-statistic, because under the null the standard error is known: it uses p-naught, not an estimated s. So z equals p-hat minus p-naught, divided by the square root of p-naught times one minus p-naught over N. The denominator uses p-naught deliberately: under the null we pretend p equals p-naught is true, so we plug in the null value's standard error. By the Central Limit Theorem, z converges to the standard normal under the null, so the two-sided p-value is twice the normal area beyond the absolute value of z. Cross-check your hand-coded p-value against scipy's exact binomtest; at N equal to two hundred they agree closely.
+:::
+
+## Step 4: Measure the SIZE
+
+- **Size** = $\Pr(\text{reject } H_0 \mid H_0 \text{ true})$ — a Type I error
+- Build a genuinely fair coin, $p = p_0 = 0.5$
+- Run the test thousands of times; count rejections
+- Should land near $0.05$, within a few Monte Carlo SEs
+- MC SE at $20{,}000$ reps $\approx 0.0015$
+
+::: notes
+Step four: the payoff of owning a simulator. The size of a test is its probability of a Type One error — rejecting the null when the null is actually true. Chapter one-point-five defined size as alpha and asserted a well-built test rejects a true null about alpha of the time. You will now measure it. Build a universe where the null is exactly true — a genuinely fair coin, p equal to p-naught equal to one-half — run your test thousands of times, and count how often it rejects. The empirical size should land close to zero-point-zero-five, within a few Monte Carlo standard errors. At twenty thousand reps that standard error is about zero-point-zero-zero-one-five. You have verified that your from-scratch test controls its false-positive rate near the advertised level — without anyone taking it on faith.
+:::
+
+## When the Approximation Shows Its Seams
+
+- z-test on coin data is slightly **liberal** at moderate $N$
+- It over-rejects a touch — the bell doesn't match the lumps
+- That small gap shrinks as $N$ grows
+- Stress it: $N=25$, $p_0=0.1$ drifts off $0.05$
+- Fair-coin p-values are **uniform** on $[0,1]$
+
+::: notes
+Do not be alarmed if the size sits a hair above zero-point-zero-five. The normal-approximation z-test on discrete coin data is known to be slightly liberal — it over-rejects a touch — at moderate N, because the smooth normal does not perfectly match the lumpy Binomial. That small gap is itself a finding: the approximation showing its seams, and it shrinks as N grows. Now stress it. Re-measure the size with a small sample and an off-center null, say N equal to twenty-five and p-naught equal to zero-point-one. The empirical size drifts away from zero-point-zero-five — often below it, conservative, because of the discreteness from Step two. Finally, a true null produces a p-value below zero-point-zero-five about five percent of the time by construction: the p-value is uniform on zero to one under the null. Histogram your fair-coin p-values and you will see that flat shape.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A one-proportion z-test uses **$p_0$ in the standard error** because the p-value is computed assuming the null is true. Measured **size** at $N=200$ lands near $0.05$ — you *verified* false-positive control. The normal approximation runs slightly liberal on lumpy coin data, and breaks down at small $N$ near an edge. Next: power, and a p-hacking experiment.
+:::
+
+::: notes
+To summarize part three: a one-proportion z-test puts p-naught in the standard error, not p-hat, because the p-value is computed assuming the null is true. You then measured the size at N equal to two hundred and watched it land near zero-point-zero-five — you verified false-positive control rather than assuming it. The normal approximation runs slightly liberal on lumpy coin data and breaks down at small N near an edge, which is the theory of Step two showing up in practice. In part four we ask the opposite question: when there really is an effect, how often do we catch it? That is power — and we close with a p-hacking experiment.
+:::

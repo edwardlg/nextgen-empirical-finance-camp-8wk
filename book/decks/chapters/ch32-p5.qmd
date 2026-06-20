@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## Nearest-Neighbor and Caliper Matching
+
+- Part 5 — implementing the match, three bias–variance knobs
+
+::: notes
+Welcome back to selection on observables, part five of nine. In part four the propensity score collapsed a high-dimensional matching problem to a single number. Now we implement the comparison: nearest-neighbor matching, and three design choices that each trade bias against variance — number of neighbors, replacement, and the caliper.
+:::
+
+## Nearest-Neighbor Matching
+
+- The score is continuous — exact ties almost never happen
+- For each treated unit, find the untreated unit with **closest** $\hat e$
+- Use that control's outcome as the counterfactual
+- This is the workhorse estimator
+- Every design knob trades **bias against variance**
+
+::: notes
+Even on a single score, a treated and an untreated applicant almost never have identically equal estimated scores — it is a continuous number. So "exact match on the score" becomes nearest-neighbor match: for each treated unit, find the untreated unit whose estimated propensity score is closest, and use its outcome as the counterfactual. This is the workhorse, and it comes with a handful of design choices that each trade bias against variance. Keep that phrase in mind, because it is the lens for every knob we are about to turn. None has a universally right setting; each is a point on the same trade-off curve.
+:::
+
+## How Many Neighbors?
+
+- **1:1** — one nearest control per treated unit
+- **1:k** — average several nearest controls
+- More neighbors $\Rightarrow$ **lower variance** (noise cancels)
+- More neighbors $\Rightarrow$ **higher bias** (2nd, 3rd are worse matches)
+- The bias–variance trade-off in its purest form
+
+::: notes
+First knob: how many neighbors? The simplest is one-to-one matching — one nearest control per treated unit. Using more neighbors, one-to-k, averages several controls per treated unit. More neighbors means lower variance, because you average over more control outcomes, so noise cancels. But it also means potentially higher bias, because the second, third, and later nearest neighbors are by definition worse matches, with more dissimilar scores. This is the bias–variance trade-off in its purest form: tighter matches are less biased but noisier; looser, more-numerous matches are smoother but more contaminated. There is no free lunch — you are choosing where on that curve to stand.
+:::
+
+## With or Without Replacement?
+
+- **Without replacement:** each control used at most once
+- **With replacement:** one great control serves many treated units
+- With replacement: better matches, **lower bias**, higher variance
+- Reused controls break independence — naive standard errors wrong
+- Without replacement: simpler, but quality degrades; order matters
+
+::: notes
+Second knob: with or without replacement? Without replacement, each control can be used as a match only once; once spent, it is removed from the pool. With replacement, a single excellent control can serve as the counterfactual for many treated units. With replacement gives better matches — you always get the genuinely closest control, never a forced second-best because the best was already taken — and so lower bias. But it brings higher variance, and a subtlety in inference: because the same control's outcome is reused, the matched observations are not independent, and naive standard errors are wrong. Without replacement is simpler, but its quality degrades as the control pool gets used up, and the result can even depend on the order in which you process the treated units.
+:::
+
+## The Caliper
+
+- Problem: a treated unit's nearest neighbor is still far on $\hat e$
+- E.g. treated at $\hat e = 0.95$, closest control at $0.60$
+- **Caliper:** a maximum allowed matching distance
+- Outside the caliper? **Drop** the treated unit, don't force it
+- Rule of thumb (Austin 2011): $0.2$ times the score's SD
+
+::: notes
+Third knob: the caliper. What if a treated applicant's nearest neighbor is still far away — say a treated unit at an estimated score of point-nine-five whose closest control sits at point-six-zero? Forcing that match manufactures a bad comparison and reintroduces bias; it is a quiet overlap violation at the level of a single unit. The fix is a caliper: a maximum allowed distance. If the nearest neighbor lies outside the caliper, the treated unit is dropped rather than badly matched. A common rule of thumb, from Austin two-thousand-eleven, sets the caliper at point-two times the standard deviation of the estimated score. The caliper enforces common support unit by unit — it is overlap as a runtime check.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Nearest-neighbor matching** pairs each treated unit with the closest control on $\hat e$. Three knobs each trade bias against variance: **more neighbors** (lower variance, higher bias), **replacement** (better matches, dependent observations), and the **caliper** (drops unmatchable units, enforcing overlap). Make a defensible choice, check balance, and show robustness. Next: run the full workflow on numbers.
+:::
+
+::: notes
+To summarize part five. Nearest-neighbor matching pairs each treated unit with the untreated unit whose estimated propensity score is closest. Three knobs each sit on the bias–variance trade-off: more neighbors lowers variance but raises bias; replacement gives better matches but breaks independence, so naive standard errors are wrong; the caliper drops treated units with no close neighbor, enforcing overlap. The discipline is to make a defensible choice, check that it produced balance, and show the estimate is not fragile to flipping the knobs. In part six, we run the entire workflow on simulated numbers where we know the true answer.
+:::

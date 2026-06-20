@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## Efficiency, Debiased ML, and Choosing a Method
+
+- Part 9 — efficiency, debiased ML, and choosing a method
+
+::: notes
+Welcome back to Chapter three-point-three, part nine of ten. In part eight we built doubly-robust augmented I-P-W and saw it survive if either model is right. Now we see that doubly robust is not only a safety net but also more efficient, and the seed of debiased machine learning. Then we lay out a practical guide to choosing among matching, entropy balancing, and augmented I-P-W — judgments you should be able to defend to a referee.
+:::
+
+## Doubly Robust Is Also More Efficient
+
+- Lower variance than plain IPW when both models are roughly right
+- Outcome model soaks up variation in $Y$ first
+- Weights now act on *residuals* (small), not raw outcomes (large)
+- Weight-explosion damage is muffled, though not cured
+- Neyman orthogonality → plug in ML, sample-split, get valid CIs
+- The engine of **double/debiased ML** (Chernozhukov et al., 2018)
+
+::: notes
+Doubly robust is not just defensive. It also tends to be more efficient — lower variance — than plain I-P-W when both models are even roughly right, because the outcome model soaks up much of the variation in Y before the noisy inverse-probability weights ever touch it. The weights now act on residuals, which are small after a decent regression, rather than on the raw outcomes, which are large, so the weight-explosion damage is muffled even when some propensity scores are small. It does not fully cure the extreme-weight problem — a score near zero still hurts — but it leans on those weights far less. There is a deeper modern reason augmented I-P-W is everywhere now. Because the estimator has a special insensitivity to small errors in each model — a property called Neyman orthogonality — you can plug machine-learning estimators like random forests, gradient boosting, or neural nets into both models, use sample-splitting to avoid overfitting, and still get valid standard errors and confidence intervals. This is the engine behind double, or debiased, machine learning, from Chernozhukov and coauthors in twenty-eighteen — the dominant framework for high-dimensional causal estimation in current empirical finance.
+:::
+
+## A Practical Decision Guide
+
+- **Matching**: transparent, intuitive, good overlap — but discards units, approximate balance
+- **Entropy balancing**: exact balance, max stability, least spec angst — most of the time
+- **AIPW**: strongest guarantee, best efficiency, on-ramp to ML — for a headline estimate
+- The meta-advice: **report more than one**
+- Agreement → robust finding; disagreement → information, not noise
+
+::: notes
+How to choose, stated as judgments you could defend to a referee. Reach for propensity-score matching when you want a transparent, intuitive design and your groups overlap well — it mimics an experiment unit by unit and is easy to explain. But it discards unmatched units, forces arbitrary caliper and neighbor choices, and only achieves approximate balance. Good for exposition and a first look; rarely your final estimator. Reach for entropy balancing when you want guaranteed exact balance on chosen moments, maximum stability, and minimal specification angst — which in empirical finance is most of the time. It keeps every unit, produces tame weights, and is hard to accuse of cherry-picking. Its limitation: you must choose which moments to balance, and it balances only those. Reach for augmented I-P-W when you want the strongest consistency guarantee and the best efficiency, and you are willing to bring two models that cover for each other. This is the right default for a headline estimate you intend to publish, and the on-ramp to machine learning. Its cost is conceptual overhead and that it still suffers, though less, from extreme weights. The honest meta-advice: report more than one. If all three point to roughly the same number, your finding is robust to method choice. If they disagree, that disagreement is information — almost always a sign of thin overlap or a fragile specification — and it belongs in your paper, not swept under the rug.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+AIPW is also **more efficient** — its weights act on small residuals, not raw outcomes — and via **Neyman orthogonality** it is the seed of debiased machine learning. Choose by defensible judgment: matching to explain, **entropy balancing** as the steady default, **AIPW** for a headline — and **report more than one**. Next: the ceiling every one of these methods shares.
+:::
+
+::: notes
+To summarize part nine: doubly robust is not only a safety net but more efficient, because its weights act on small residuals rather than large raw outcomes, and through Neyman orthogonality it lets you plug in machine learning with valid confidence intervals — the engine of debiased machine learning from Chernozhukov and coauthors in twenty-eighteen. For choosing a method, lean on defensible judgment: matching to explain, entropy balancing as the steady default in empirical finance, augmented I-P-W for a headline estimate. And when in doubt, report more than one, because agreement signals robustness and disagreement is itself information. In part ten, the finale, we confront the one ceiling every method in this chapter shares — and the door it opens to the next chapter.
+:::

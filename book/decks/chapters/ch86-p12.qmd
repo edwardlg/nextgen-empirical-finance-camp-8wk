@@ -1,0 +1,62 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Why the Overnight Split Matters, and Your Turn
+
+- Part 12 — why the overnight split is cognitive, plus your deliverables
+
+::: notes
+Welcome back to The Talk, the Poster, the Defense, part twelve of twelve, the final part. In part eleven we built the feedback ledger — transcribe Saturday, sort Sunday. Now we see why that overnight split is cognitive, not merely logistical, and then we lay out your three live-delivery deliverables and the closing reflection this whole camp was pointed at.
+:::
+
+## Why the Overnight Split Matters
+
+- Severity reactions are **biased by fatigue** in the wrong direction
+- A row that feels Critical at nine p.m. Saturday…
+- …becomes Important by ten a.m. Sunday, Minor by Wednesday
+- That cooling is **not denial — it is calibration**
+- Collapse Sunday into Saturday and you bake in the over-reaction
+- Every `next_step` is a verb, an object, and a **date**
+
+::: notes
+Why does the overnight split matter so much? Because severity reactions are biased by fatigue in the wrong direction. A row that feels Critical at nine p.m. Saturday becomes Important by ten a.m. Sunday, and Minor by Wednesday. That cooling is not denial — it is calibration, produced by the overnight memory-consolidation gap. If you collapse Sunday's sorting into Saturday's transcription, you bake the over-reaction straight into your revision plan. So you transcribe under fatigue and you sort when rested. Then a short triage script filters the ledger: keep the Critical and Important rows, sorted, into a revision taskboard, and split the Courtesy rows into a follow-ups file for Monday's emails. Every next step is a verb, an object, and a date. You then walk into your first mentor meeting with one document — here is what I heard, here is how I sorted it, here is what I'm going to do — turning the mentor's job from discovery into calibration.
+:::
+
+## Your Turn
+
+- **The pre-flight, run for real** — freeze, audit, matrix, pre-mortem
+- **The six-slide arc plus a seven-thirty dry-run video**
+- Then a recorded ten-question adversarial Q&A
+- **The poster plus the feedback ledger**, passing the five-second test
+- Reuse figures already in the figures folder — not new ones
+- Send three follow-up emails inside forty-eight hours
+
+::: notes
+Your turn — three live-delivery deliverables, the same project seen from its three surfaces. First, the pre-flight run for real: freeze the deck with a tag, a hash, and a backup; run the three-step packet audit; author the anticipated-questions matrix with at least one row per row of your threats table, fatal rows rehearsed out loud; and write the twenty-minute pre-mortem in prose. The deliverable is the audit trail, not the talk. Second, the six-slide arc plus a seven-thirty dry-run video, graded on the six beats, then a recorded ten-question adversarial question period where, for each, you write the bucket, the answer, and which of the three honest answers you used. Third, the poster composed from the figures already in your figures folder — reuse, not new figures — passing the five-second test before you print, plus the feedback ledger built Saturday and triaged Sunday, with three follow-up emails sent inside forty-eight hours.
+:::
+
+## A Closing Reflection
+
+- Pick the **one Bucket B question** you most fear — fatal if right
+- Write the full fair-did-residual-retreat answer in long form
+- Keep it on paper in your pocket; could you deliver the retreat live?
+- Research is a **chain of hand-offs**
+- The artifact that survives each one sets the next one's quality
+- Then ask: clone the repo, one command — do they get the number?
+
+::: notes
+And a closing reflection. Pick the single identification-attack question you are most afraid of — the one where the attacker, if right, is fatal and not merely survivable. Write the full fair-did-residual-retreat answer in long form, on a piece of paper you keep in your pocket, and ask: if I had to deliver the retreat sentence live, could I do it? Then the deeper claim the whole NextGen arc points at: research is a chain of hand-offs, and the artifact that survives each one determines the quality of the next. The feedback ledger is the survival of the feedback. Finally, ask the question this camp was built around: if a stranger clones my repo and types one command, do they get the number I just defended? If yes, you are ready to walk into the room. The next chapter, eight-point-seven, is submission — sending your paper to the Schar Young Scholars Journal and the GMU MARS repository, where this feedback ledger becomes the agenda of your final revision.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Severity is biased by fatigue** — so transcribe tired, sort rested; the cooling is calibration, not denial. Research is a **chain of hand-offs**, and the artifact that survives each one sets the next one's quality. Ask: clone the repo, one command — do they get the number you defended? If yes, you're ready. Next chapter: submission.
+:::
+
+::: notes
+To close Chapter eight-point-six: the overnight split is cognitive, because severity reactions are biased upward by fatigue, so you transcribe tired and sort rested. The deeper claim the whole camp was built around: research is a chain of hand-offs, and the artifact that survives each one determines the quality of the next. Ask whether a stranger cloning your repo and typing one command gets the number you defended. If yes, you are ready. The next chapter, eight-point-seven, is submission, where this feedback ledger becomes the final-revision agenda.
+:::

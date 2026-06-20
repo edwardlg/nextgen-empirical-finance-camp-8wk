@@ -1,0 +1,60 @@
+---
+date: "2026-06-22"
+---
+
+## The Anthropic Messages API
+
+- Part 12 — the Anthropic API, key safety, and caching
+
+::: notes
+Welcome back to the AI co-pilot for research, part twelve of fourteen. In part eleven we defused p-hacking and irreproducibility. A chat window is fine for exploration, but a research pipeline that labels forty thousand filings runs through an A-P-I — an application programming interface — so the whole process is scripted, logged, and reproducible. We start with one non-negotiable rule, then the Anthropic Messages A-P-I and the three calls that turn a toy into a production pipeline.
+:::
+
+## The Non-Negotiable Rule
+
+- An **API key is a secret**, like a password
+- Never written into code, never pasted into a prompt
+- Never committed to git, never shown in a notebook
+- It lives in an *environment variable*, read at runtime
+- A key in your code is in your GitHub history forever
+
+::: notes
+The non-negotiable rule, stated once and meant absolutely: an A-P-I key is a secret, like a password. It is never written into code, never pasted into a prompt, never committed to git, never shown in a notebook. It lives in an environment variable and is read at runtime. Every snippet in this chapter obeys this, and the book's conventions require it of every notebook. A key in your code is a key in your GitHub history forever — and once it is there, rotating the key is the only real fix. Build the habit now, so it is automatic by the time real credentials are at stake.
+:::
+
+## Prompt Caching and Small Outputs
+
+- The SDK reads `ANTHROPIC_API_KEY` from the environment automatically
+- **Stable rubric** in `system`; **volatile filing** in `messages`
+- The API caches a *prefix* — the rubric is reused, not re-billed
+- Without it you re-process 1,500 rubric tokens 40,000 times
+- Verify: `cache_read_input_tokens` greater than zero
+- Tiny `max_tokens` for one-word labels — cheap and on-task
+
+::: notes
+The Python anthropic S-D-K reads your key from the ANTHROPIC underscore API underscore KEY environment variable automatically — you never name it in code. Two things in a classification call matter most. Prompt caching: the stable rubric goes in the system field with a cache-control marker; the volatile filing text goes in messages. The API caches a prefix of the request. Your rubric might be fifteen hundred tokens and identical for all forty thousand filings; without caching you pay to re-process it forty thousand times. With the cache-control breakpoint after the rubric, the API stores the processed rubric and reuses it on every later call. This is why the prompt-pattern lesson insisted on stable instruction first, volatile input last: any change to the cached prefix, even a timestamp, invalidates the cache. Verify by reading the usage field — cache-read-input-tokens greater than zero means the rubric was cached; if it stays zero, something is silently invalidating the prefix and you are paying full price. And set max-tokens small — the output is one word, so sixteen is plenty, which keeps cost down and stops the model rambling.
+:::
+
+## Harder Reasoning and Choosing a Model
+
+- **Adaptive thinking** for genuinely hard judgment calls
+- Skip it for cheap, high-volume labeling
+- `claude-opus-4-7` — most capable, the default
+- `claude-sonnet-4-6` — faster, cheaper, often plenty
+- `claude-haiku-4-5` — cheapest, simplest high-volume tasks
+- Develop on Opus, then check if a cheaper model clears your bar
+
+::: notes
+A one-word tone label needs no deliberation, but a harder task — does this M-D-and-A passage describe a new liquidity risk or restate an existing one, and why — benefits from letting the model reason first. On Opus four-point-seven you enable that with adaptive thinking, which lets the model decide how much internal reasoning to spend on each input. Use it for genuinely hard judgment calls; skip it for cheap, high-volume labeling where speed and cost dominate. Three model I-Ds are available: claude-opus-four-seven, the default and most capable; claude-sonnet-four-six, faster and cheaper and often plenty for classification; and claude-haiku-four-five, the cheapest, for the highest-volume, simplest tasks. A sensible workflow: develop and validate your rubric on Opus, then check whether a cheaper model still clears your F-one bar on the gold set before running it across all forty thousand documents.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **key is a secret** read from an environment variable, never in code. Put the **stable rubric in `system` with cache-control**, the volatile filing in `messages`, so caching reuses the rubric across all calls; keep `max_tokens` tiny. Develop on Opus, then check a cheaper model on the gold set. Next: GMU's Azure gateway, logging, and a local fallback.
+:::
+
+::: notes
+To summarize part twelve: a research pipeline runs through an A-P-I, not a chat window — and the non-negotiable rule is that the key is a secret, read from an environment variable, never written into code. On the Anthropic Messages A-P-I, put the stable rubric in the system field with a cache-control marker and the volatile filing in messages, so prompt caching reuses the rubric across all calls; verify with the cache-read-input-tokens field, and keep max-tokens tiny for one-word labels. Use adaptive thinking only for hard judgment calls, and choose among Opus, Sonnet, and Haiku by capability and cost — develop on Opus, then check whether a cheaper model clears your F-one bar. In part thirteen we add GMU's Azure gateway, audit logging, and a local fallback for licensed data.
+:::

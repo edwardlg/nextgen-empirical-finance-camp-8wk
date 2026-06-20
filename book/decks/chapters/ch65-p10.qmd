@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Critical Limits — Citations and Leakage
+
+- Part 10 — hallucinated citations and look-ahead bias
+
+::: notes
+Welcome back to the AI co-pilot for research, part ten of fourteen. In part nine we locked down honest out-of-sample reporting. But even with good prompts, grounding, and validation, four failure modes can wreck an AI-assisted study, and each has produced retracted or embarrassing results in practice. Here are the first two: hallucinated citations, and look-ahead bias from training-data leakage.
+:::
+
+## Hallucinated Citations
+
+- LLMs produce perfect-format references for papers that don't exist
+- Format is learned; content is fabricated
+- Already embarrassed lawyers and students with phantom sources
+- **Verify every citation** against a real index first
+- Google Scholar, the journal site, a DOI lookup
+- Treat the model as a *suggestion engine for what to verify*
+
+::: notes
+First, hallucinated citations. An LLM asked for references will produce author lists, titles, years, journals, volumes, and page numbers in perfect bibliographic format — for papers that do not exist. The format is correct because the model learned what citations look like; the content is fabricated because it is generating plausible text, not querying a database. This has already embarrassed lawyers who filed briefs citing invented cases and students who submitted bibliographies of phantom papers. In finance, a fabricated "Smith and Jones, two-thousand-fourteen, found a three-percent effect" is indistinguishable on the page from a real one. How to catch it: verify every citation against a real index — Google Scholar, the journal's own site, a D-O-I lookup — before it enters your document. If you cannot find the paper, it is not real, no matter how confident the model was. Treat an LLM as a suggestion engine for what to go verify, never as the citation itself. The same goes for any specific number — a charge-off rate, a coefficient: it is a hypothesis to check against a primary source like FRED, not a datum to cite.
+:::
+
+## Look-Ahead Bias and Data Leakage
+
+- A model is trained on text up to a cutoff date
+- If your sample ends before it, the model may "know the future"
+- Sam backtests: "read the January 10-K, predict the year's return"
+- The model has *read* what happened — fake, spectacular performance
+- Defenses: know the cutoff, test on post-cutoff data
+- In RAG, filter retrieval to chunks dated $\le t$
+
+::: notes
+Second, look-ahead bias and training-data leakage — subtle, specific to finance, and fatal. A model is trained on text up to a cutoff date. If your sample ends before that cutoff, the model may know things about your sample period that were not knowable at the time — it has read the later news, the eventual outcomes. Make it concrete: Sam backtests a trading rule, asking the model to read each firm's January 10-K and predict whether the stock will rise that year, running it on twenty-twenty-one filings. But the model was trained through, say, twenty-twenty-four — it has very likely read what happened. Its prediction is contaminated by hindsight, and the backtest shows spectacular, entirely fake performance that evaporates the instant you trade it forward on data the model has never seen, which is exactly when real money is at stake. Defenses: know your model's cutoff and treat any earlier sample as suspected contaminated for forward-looking tasks; note that classifying a contemporaneous attribute like tone is far safer than predicting future returns; the cleanest defense is genuine out-of-sample testing on data created after the cutoff; and in retrieval, enforce it mechanically — when answering a question dated time t, filter retrieval to chunks dated at or before t. This is why every chunk carries a date.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Hallucinated citations** are real-looking and fabricated — verify every one against a real index before it enters your paper. **Look-ahead bias** lets a model "know the future" relative to your sample — know its cutoff, prefer post-cutoff tests, and filter retrieval to data dated at or before the query. Next: p-hacking and reproducibility.
+:::
+
+::: notes
+To summarize part ten, the first two critical limits. Hallucinated citations: the model produces perfect-format references and specific numbers for things that do not exist, so verify every citation and figure against a real index or primary source before it enters your paper, and treat the model as a suggestion engine for what to verify, never the citation itself. Look-ahead bias and training-data leakage: a model trained past your sample's end may know the future, producing fake backtest performance that evaporates in live trading — so know the cutoff, prefer out-of-sample tests on post-cutoff data, remember that contemporaneous classification is far safer than prediction, and in retrieval filter mechanically to chunks dated at or before the query. In part eleven we cover the last two failure modes: prompt-induced p-hacking and the irreproducibility of stochastic outputs.
+:::

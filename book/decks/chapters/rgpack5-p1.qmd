@@ -1,0 +1,63 @@
+---
+date: "2026-06-22"
+---
+
+## How to Read an Empirical Paper
+
+**Learning objectives.** By the end you can:
+
+- State a paper's research question as one question
+- Name a design's identifying assumption in one sentence
+- Read a result off the table, not the prose
+- Apply the seven-part template to any paper
+
+::: notes
+Welcome to Week Five, the Reading Guide pack, part one of seven. For four weeks we built methods — ordinary least squares and its assumptions, robust and clustered standard errors, omitted-variable bias, instruments, difference-in-differences, regression discontinuity. You can run all of it. This week the book stops teaching methods and starts teaching judgment: how to pick up a paper you have never seen, in a journal you have never opened, and in twenty minutes know what it claims, whether to believe it, and where it is soft. This pack is the procedure, stated once, so you can carry it to any paper.
+:::
+
+## From Methods to Judgment
+
+- Weeks one to four: you can *run* the toolkit
+- The new skill: *read* a stranger's paper cold
+- In twenty minutes: claim, credibility, soft spots
+- This week applies one fixed procedure to five famous papers
+- This pack is the procedure itself
+
+::: notes
+Here is the shift. Weeks one through four gave you the toolkit and you can use it. What you cannot yet do — and what separates someone who uses econometrics from someone who reads it — is take an unfamiliar paper and quickly judge it. The five chapters this week each apply the same fixed procedure to one famous paper: Fama and French, nineteen ninety-two and nineteen ninety-three; Jegadeesh and Titman, nineteen ninety-three; Petersen, two thousand nine; and Bertrand, Duflo, and Mullainathan, two thousand four. This pack is the connective tissue — the procedure stated once, so you can carry it to any paper, including the unseen one you dissect on the Week Five assessment.
+:::
+
+## Papers Are Written to Be Cited
+
+- Papers are written to be cited, not *read*
+- The intro oversells; the lit review flatters
+- The key assumption hides in a clause on page fourteen
+- The professional reader is not impressed, not fooled
+- She has a checklist and reads out of order
+
+::: notes
+A warning before the trick. Papers are not written to be read; they are written to be cited. The introduction oversells. The literature review flatters. The one assumption everything hangs on is buried inside a subordinate clause on page fourteen. The professional reader is neither impressed nor fooled. She has a checklist, she reads in a deliberate order that is not front-to-back, and she knows the real paper lives in the tables. The rest of this pack hands you her checklist.
+:::
+
+## The Seven-Part Template: Boxes One to Three
+
+- **(1) Research question** — one sentence, ends in a question mark
+- Name the outcome and the key right-hand-side variable
+- **(2) Identification** — name the design and the identifying assumption
+- The single most important box; everything else serves it
+- **(3) Data** — unit, period, source, count, sample filters
+
+::: notes
+Every Reader's Guide this week has the same seven boxes, in the same order — the order in which a claim has to survive scrutiny. Box one, the research question: one sentence, in plain English, ending in a question mark. Not "this paper studies the cross-section of returns" but "does a stock's size predict its average return after you account for market risk?" Name the outcome — what is being explained — and the key right-hand-side variable, the thing whose effect we care about. Box two, identification: how does the paper claim to isolate the effect of the key variable from everything else? Name the design — a portfolio sort, a panel with fixed effects, an instrument, a difference-in-differences, a regression discontinuity — and then, in one sentence, the identifying assumption: the condition under which the estimate equals the thing we want. This is the single most important box; most of the rest of the guide decides whether that sentence is true. Box three, data: the unit of observation — a firm-month, a person, a state-year — the sample period, the source like CRSP, Compustat, or SEC EDGAR, and the number of observations. Note every sample filter, because filters are decisions, and decisions can be levers.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Read papers like a skeptic with a checklist. The seven-part template starts with the **research question** (outcome and key regressor), the **identification strategy** (design plus the identifying assumption in one sentence), and the **data** (unit, period, source, filters). Box two is the one that decides everything.
+:::
+
+::: notes
+To summarize part one: this week is about judgment, not new methods, and papers are written to be cited rather than read — so you read them as a skeptic with a checklist. The seven-part template opens with the research question stated as a question naming the outcome and key regressor, the identification strategy naming the design and the identifying assumption in one sentence, and the data — unit, period, source, and filters. Box two, identification, is the one everything else serves. In part two we finish the template: reading order, what is clever, what is vulnerable, and three replication exercises.
+:::

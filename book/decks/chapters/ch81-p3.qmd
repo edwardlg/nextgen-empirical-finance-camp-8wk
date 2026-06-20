@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Garden Made Visible: Enumerate the Forks
+
+- Part 3 — Why the PAP cannot answer, and Step 1: enumerate forks
+
+::: notes
+Welcome back to Execution and the Specification Curve, part three of ten. In part two Maya ran her confirmatory specification — negative one-point-nine points — and we warned that a clean run is just one branch of a tree. Now we make the whole tree visible. You met the garden of forking paths in Chapter seven-point-three as a threat: an honest researcher can p-hack without a single dishonest thought, by making a sequence of reasonable, outcome-aware choices that each nudge the coefficient the desired way. The plan nailed down the forks in advance to protect your headline — but it leaves one question hanging.
+:::
+
+## The Question the PAP Cannot Answer
+
+- The PAP is a single path through the garden
+- It protects your headline — but stays silent on the rest
+- How many *other* defensible paths give the same answer?
+- Spec curve (Simonsohn, Simmons & Nelson, 2020) answers this
+- It inverts the p-hacker's sin: **exhaustive disclosure**
+
+::: notes
+The pre-analysis plan is a single path through the garden, so it cannot answer this: how many of the other defensible paths would have given you the same answer? The specification curve, due to Simonsohn, Simmons, and Nelson in their twenty-twenty paper in Nature Human Behaviour, answers exactly that question by refusing to hide. Their insight is to invert the usual sin. The p-hacker runs many specifications and reports the one that looks best, hiding the rest. The specification-curve analyst runs many specifications — ideally all the defensible ones — and reports all of them at once, as a distribution. Where p-hacking exploits multiplicity by concealment, specification-curve analysis defangs multiplicity by exhaustive disclosure. If your result is a robust feature of the data, it will be there across most of the forest; if it is a lucky branch, the picture says so loudly, and you catch yourself before a referee does.
+:::
+
+## Step 1 — Enumerate Defensible Choices
+
+- List every option a competent researcher could pick
+- Crucially: **only the defensible ones**
+- Absurd specs pad the count and smuggle in noise
+- A spec you would not defend in a seminar does not belong
+- This is the act of *writing the garden down*
+
+::: notes
+The procedure has three steps, and the discipline is entirely in the first one. Step one: enumerate the defensible analytic choices. This is the act of writing the garden down. You list, for each decision in your analysis, every option a reasonable, competent researcher could have chosen — and, crucially, only the defensible ones. The point is not to include absurd specifications to pad the count. A specification you would never defend in a seminar does not belong in the multiverse, because including it would let you smuggle in noise and then hide behind the excuse "but the median was fine." Honest enumeration is the whole game, and it is harder than it sounds, because the temptation is always to make the multiverse look more robust than the evidence warrants.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **specification curve** answers what the PAP cannot: how many *other* defensible paths give the same answer. It inverts the p-hacker's sin into **exhaustive disclosure** — run them all, report them all. Step 1 is the disciplined act of enumerating *only* the forks you would defend out loud. Next: Maya's forks multiply to 144.
+:::
+
+::: notes
+To summarize part three: the pre-analysis plan is a single path through the garden, so it cannot tell you how many other defensible paths give the same answer. The specification curve, from Simonsohn, Simmons, and Nelson, answers that by inverting the p-hacker's sin — instead of hiding all but the best specification, it runs every defensible one and discloses them all as a distribution. The whole discipline lives in step one: enumerate only the forks you would defend out loud, never padding the count with specifications you would never present in a seminar. In part four, we take Maya's analysis and watch her defensible choices cross-multiply into a multiverse of one hundred forty-four specifications.
+:::

@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## What's Clever
+
+- Part 6 — four transferable moves that made this paper land
+
+::: notes
+Welcome back to lesson five-point-four, part six of eight. In part five we read the tables and watched OLS and White undercover while the matching cluster recovered the truth. Now we step back and name what is genuinely clever about this paper — four transferable moves you will reuse in your own work.
+:::
+
+## Simulation as Proof, and a Clean Taxonomy
+
+- **Simulation as proof:** every method is internally consistent
+- So build worlds where the answer is *known* and let methods compete
+- Same logic as a controlled experiment, in econometrics
+- **The clean taxonomy:** one diagnostic — *where are residuals correlated?*
+- A messy literature became a flowchart
+
+::: notes
+Four things are clever, and they are worth naming because they are transferable moves. First, simulation as proof. The deepest cleverness is epistemological. You cannot settle which standard error is right by argument alone, because every method is internally consistent given its own assumptions. Petersen sidesteps the debate by building worlds where the answer is known and letting the methods compete. This is the logic of a controlled experiment transplanted to econometrics: he randomizes the data-generating process so that the only thing varying across his comparisons is the method. It is a model of how to make a contested methodological claim decidable. Second, the clean taxonomy. Before this paper, which standard error felt like a matter of taste or local custom. Petersen reduced it to a single diagnostic question — where are your residuals correlated? — with a one-to-one map from the answer to the fix. Firm effect, cluster by firm; time effect, cluster by time; both, two-way. A messy literature became a flowchart, and good taxonomy is underrated: it changes what practitioners can hold in their heads.
+:::
+
+## Legible to Finance, and a Self-Diagnostic
+
+- **Made a subtle point legible to finance**
+- The sandwich estimator traces to White, Liang–Zeger, Arellano
+- Petersen showed *how much money was on the table*
+- He translated a theorem into a habit — hence the citations
+- **Self-diagnostic:** cluster by firm, then by time, and look
+- Whichever moves the SE more points at the bigger source
+
+::: notes
+Third, making a subtle econometric point legible. The underlying mathematics — the cluster-robust sandwich estimator and its consistency in the number of clusters — was not new to Petersen; it traces back to White, to Liang and Zeger, to Arellano, and others. What Petersen did was make it legible to finance: he showed working empiricists, in their own setting, with their own kind of data, exactly how much money was on the table. He translated a theorem into a habit. That is why the paper has tens of thousands of citations while the original theory papers, equally correct, are read by far fewer people. Fourth, diagnosing your own panel without knowing the truth. The practical gem is the self-diagnostic, the one your notebook walks you through: cluster by firm and look, cluster by time and look. Whichever clustering moves your standard error more, away from the White number, is pointing at the bigger source of correlation. He turned which cluster from a guess into something you read off your own output.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Four transferable moves: **simulation as proof**, a **clean taxonomy** that became a flowchart, **making a theorem legible** enough to become a finance habit, and a **self-diagnostic** you run on your own output. Good taxonomy and legibility are underrated contributions.
+:::
+
+::: notes
+To summarize part six: four transferable moves make this paper clever. Simulation as proof — build worlds where the answer is known and let the methods compete, the logic of a controlled experiment in econometrics. A clean taxonomy that reduced a messy literature to one diagnostic question and a flowchart. Making a subtle theorem legible to finance, which is why it has tens of thousands of citations while the equally correct theory papers do not. And a self-diagnostic — cluster by firm, then by time, and see which moves your standard error more. In part seven we do the harder, more honest work: we find the paper's edges, the places where a careful reader can still push.
+:::

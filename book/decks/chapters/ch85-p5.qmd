@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Translating Tables Into Figures
+
+- Part 5 — the mechanical table-to-figure translation
+
+::: notes
+Welcome back to The Eight-Minute Presentation and the Replication Packet, part five of twelve. In part four we said one idea per slide, and that a regression table is unreadable at speaking speed — so you translate it into a figure. Now we learn that translation. It is mechanical, and learning it is one of the highest-leverage skills in this chapter: every common result has a standard picture, and each picture answers a question faster than a table can.
+:::
+
+## The Mechanical Translation
+
+- One coefficient with its interval $\to$ a **point with an error bar**
+- Several specifications $\to$ a **coefficient plot**, lined up
+- Difference-in-differences $\to$ an **event-study plot**
+- Regression discontinuity $\to$ **binned scatter** with the jump
+- A subgroup pattern $\to$ **small-multiples bar chart**
+
+::: notes
+The translation is mechanical. A single coefficient with its confidence interval becomes a point with an error bar — one estimate, one whisker; the eye reads "is it different from zero?" and "how precise?" instantly, the two questions the table makes you compute by hand. A coefficient across several specifications — the columns of your robustness table — becomes a coefficient plot: one dot-and-whisker per specification, lined up, with a reference line at zero or at the headline, so the audience sees stability as a shape, a tight vertical cluster, not as seven numbers to compare mentally. A difference-in-differences or event study becomes an event-study plot: estimated effects by period, flat before treatment, jumping after — and that flat pre-period is your parallel-trends defense from Chapter seven-point-five, visible, arguing your identification for you. A regression discontinuity becomes a binned scatter with the fitted jump at the cutoff — a discontinuity you can see, which no table conveys as fast. And a subgroup pattern becomes a small-multiples bar chart, not a table with an interaction term the audience must mentally exponentiate.
+:::
+
+## Make One Comparison Obvious
+
+- A table is for a reader who can stop and study
+- A figure is for a listener who cannot
+- Translate every result you *say out loud* into a picture
+- Leave the precise table in the paper and backup slides
+- Strip gridlines, legends, third-decimal ticks — labels readable from the back
+
+::: notes
+The principle under all of these: a table is for a reader who can stop and study; a figure is for a listener who cannot. So translate every result you will say out loud into a picture, and leave the precise table in the paper and the backup slides for the questioner who wants the fourth decimal. Same number, two encodings, chosen for the medium. This is not dumbing down — Devon's E-T-F-volatility result is exactly as precise on the error-bar slide as in the table; it is just legible at the speed of speech. And one mercy rule for the figures themselves: a slide figure needs axis labels a person can read from the back of the room, and no more than is load-bearing. Strip the gridlines, the legend nobody reads, the third decimal on the tick marks. The figure has one job, which is to make one comparison obvious. Everything else on it is competing with your voice.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The translation is **mechanical**: a coefficient becomes a point-and-whisker, several specifications a coefficient plot, a difference-in-differences a flat-then-jump event-study plot, a discontinuity a binned scatter, a subgroup a small-multiples bar chart. A table is for a reader, a figure for a listener — so translate every result you *say out loud*, strip everything not load-bearing, and make one comparison obvious. Next: budgeting the eight minutes against a clock.
+:::
+
+::: notes
+To summarize part five: the table-to-figure translation is mechanical and worth memorizing. A single coefficient with its interval becomes a point with an error bar; several specifications become a coefficient plot whose tight cluster shows stability as a shape; a difference-in-differences becomes an event-study plot whose flat pre-period argues parallel trends for you; a discontinuity becomes a binned scatter with a visible jump; a subgroup becomes a small-multiples bar chart. The principle is that a table is for a reader and a figure is for a listener, so you translate every result you say out loud, leave the precise table in the paper, and strip every figure down to load-bearing labels that make one comparison obvious. In part six we budget the eight minutes and prove the budget against a clock.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Panels and Thinking Like the Referee
+
+- Part 5 — Petersen's panel taxonomy and the referee's mindset
+
+::: notes
+Welcome back to "the standard error is the whole ballgame," part five of six. In part four we walked the sandwich and its three fillings — robust, clustered, and H-A-C. Now we take it into the panel world, where firms are observed over many years, and meet Petersen's taxonomy. Then we finish the speak-from deck by learning to think the way a referee thinks.
+:::
+
+## Petersen's Panel Taxonomy
+
+- A firm × year panel can have **two** dependencies at once
+- **Firm effect:** errors correlated over time within a firm
+- **Time effect:** common shocks across firms in a year
+- Firm effect $\to$ cluster by firm; time effect $\to$ time fixed effects or cluster by time
+- Both $\to$ **two-way** cluster
+
+::: notes
+Slide four: the panel case, Petersen's taxonomy. A panel of firms by years can carry two kinds of dependence at once. The first is a firm effect: the errors for a single firm are correlated over time, because something persistent about that firm survives across years. The second is a time effect: a common shock hits all firms in a given year — a macro event, a regulatory change. Each calls for a different tool. A firm effect means you cluster by firm. A time effect means you use time fixed effects, or you cluster by time. If you have both, you reach for two-way clustering, which honors correlation along both dimensions simultaneously. The mistake Petersen documented is picking one and silently ignoring the other.
+:::
+
+## The Diagnostic, and a Warning
+
+- Cluster by firm, read the SE; cluster by time, read it again
+- Whichever moves the SE more off the White number is the bigger problem
+- Fixed effects and clustering are **not** substitutes
+- One removes a mean; the other honors leftover co-movement
+- You often need **both**
+
+::: notes
+Petersen also gives a practical diagnostic you can run instead of guessing. Cluster by firm and read the standard error. Then cluster by time and read it again. Whichever choice moves the standard error further off the White, robust number is pointing at your bigger problem. If firm-clustering roughly doubles the standard error but time-clustering barely moves it, the firm effect dominates, and you report firm-clustered standard errors. If both move it substantially, you have both effects, and two-way clustering is the honest report. One more warning that trips up many students: fixed effects and clustering are not substitutes. A fixed effect removes a mean — it subtracts out the average level of each firm. Clustering honors the leftover co-movement in the errors after that mean is gone. They do different jobs, and you very often need both.
+:::
+
+## Thinking Like the Referee
+
+- Naming your clustering level is an **economic claim** about $\boldsymbol\Omega$
+- Report: estimate, SE flavor, clustering level, **cluster count** — every time
+- "Significant" with the wrong SE is how papers get retracted
+- The coefficient was never the problem
+- Goal: SEs you'd defend to someone trying to break them
+
+::: notes
+Slide five: thinking like the referee. Naming your clustering level is not a button you click — it is an economic claim about where Omega's off-diagonal terms live, about which observations hold hands. So make that claim out loud and back it. Report four things every time, no exceptions: the estimate, the standard-error flavor, the clustering level, and the cluster count. The cluster count especially, because we now know too few clusters is its own trap. "Significant" computed with the wrong standard error is how real papers get retracted — and notice, the coefficient was never the problem. Your summer goal, stated plainly: produce standard errors you would defend to someone actively trying to break them. That adversarial posture is exactly what a referee brings, and what credible empirical finance demands.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A panel can carry a **firm effect** and a **time effect** at once — diagnose by clustering each way and watching the SE. Fixed effects and clustering are not substitutes. Report the estimate, SE flavor, clustering level, and **cluster count**, every time.
+:::
+
+::: notes
+To summarize part five: a firm-by-year panel can carry a firm effect and a time effect simultaneously; you diagnose which dominates by clustering each way and watching how far the standard error moves off the White number. Firm effect means cluster by firm, time effect means time fixed effects or cluster by time, and both means two-way clustering. Fixed effects and clustering are not substitutes — one removes a mean, the other honors leftover co-movement. And you report the estimate, the standard-error flavor, the clustering level, and the cluster count, every single time. In part six we connect all of this to two real papers and the reflection that closes the session.
+:::

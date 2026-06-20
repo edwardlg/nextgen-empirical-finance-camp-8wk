@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Russell Wrinkle: Sharp Looks, Fuzzy Reality
+
+- Part 16 — the Russell wrinkle: sharp-looking but genuinely fuzzy
+
+::: notes
+Welcome back to regression discontinuity, part sixteen of seventeen. In part fifteen we finished the validity checklist. Now we get honest about a real subtlety in the Russell design — it looks sharp but is genuinely fuzzy — and we meet the famous methodological fight that lives there.
+:::
+
+## Sharp Looks, Fuzzy Reality
+
+- Naively the R1000/R2000 boundary looks *sharp*
+- Rank deterministically decides your index
+- But the *outcome* — actual passive ownership — doesn't jump deterministically
+- Weights use *float-adjusted* cap; 2007 **banding** adds a buffer
+- So modern data is genuinely *fuzzy* — use the IV ratio
+
+::: notes
+It is worth being honest with Sam about a real subtlety in the Russell design, because it teaches the sharp-versus-fuzzy distinction better than any toy could. Naively, the Russell one thousand / two thousand boundary looks sharp: your end-of-May market-cap rank deterministically decides your index. But the outcome economists usually care about — actual passive-fund ownership, or index weight — does not jump deterministically with index membership, because index weights are based on float-adjusted market cap, not raw rank, and FTSE Russell added banding rules in two thousand seven that introduce a buffer zone to reduce churn. So in modern data the design is genuinely fuzzy: crossing the rank cutoff sharply raises the probability and intensity of Russell-two-thousand-tracking ownership, but does not force a fixed amount. The right tool is the fuzzy-R-D, instrumental-variables ratio — the jump in the outcome over the jump in passive ownership — with the above-cutoff indicator as the instrument.
+:::
+
+## A Methodological Fight Worth Knowing
+
+- A famous debate lives here — know it exists
+- Assignment uses a *float-adjusted* rank, reconstructed imperfectly
+- Running-variable and bandwidth choices swing headline results
+- Takeaway: define the running variable *exactly* as the institution does
+- First questions: what is $X$, sharp or fuzzy, is the first stage real?
+
+::: notes
+This is also where a famous methodological fight lives, and you should know it exists. Some influential Russell-R-D studies used the raw end-of-May rank as the running variable, but the actual index assignment depends on a float-adjusted rank that researchers reconstruct imperfectly, and the choice of running variable and bandwidth has been shown to swing the headline results. Sam's takeaway is not that the Russell design is bad — it is one of the best in finance — but that the running variable and the first stage must be defined exactly as the institution defines them, which is a special case of the compound-treatment threat. When you read a Russell-R-D paper, the first questions are: what is the running variable, is the design sharp or fuzzy, and is the first stage — the jump in passive ownership — real and well-measured? Treat the specific competing critiques in that literature as live and contested.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The Russell boundary *looks* sharp but is genuinely **fuzzy** in modern data — float-adjusted weights and 2007 banding mean crossing only raises the *probability* of passive ownership. Define the running variable *exactly* as the institution does. Always ask: what is $X$, sharp or fuzzy, and is the first stage real? Next: the code and what to carry forward.
+:::
+
+::: notes
+To summarize part sixteen: the Russell one thousand / two thousand boundary looks sharp — rank decides your index deterministically — but the outcome we care about does not jump deterministically, because weights are float-adjusted and banding rules add a buffer. So in modern data the design is genuinely fuzzy, and you use the instrumental-variables ratio. A famous methodological fight lives here: the running variable and bandwidth choices can swing headline results, so define the running variable exactly as the institution does, and always ask whether the first stage is real and well-measured. In part seventeen, our finale, we run the code that makes the bias–variance trade-off concrete and gather what to carry forward.
+:::

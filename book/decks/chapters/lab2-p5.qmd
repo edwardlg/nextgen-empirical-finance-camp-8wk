@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Running Pass 1 and Pass 2 in Code
+
+- Part 5 — running Pass 1 and Pass 2 in code
+
+::: notes
+Welcome back to the Fama–MacBeth lab, part five of seven. In part four we built the two paths and the synthetic panel. Now we actually run the machine. Pass one gives every stock a time-series beta. Pass two runs one cross-sectional regression every month. Both are small functions applied per group, and both use the numerically stable least-squares solver rather than forming a matrix inverse by hand. By the end you will hold a beta per stock and a slope per month.
+:::
+
+## Pass 1 — A Beta per Stock
+
+- Group by `permno`; regress `ret` on `mkt_excess`
+- Design matrix `[1, mkt_excess]`, solve with `np.linalg.lstsq`
+- Keep the slope — that is $\hat\beta_i$
+- Merge betas back so every row carries its stock's beta
+- `lstsq` is the stable way to get $(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}$
+
+::: notes
+Pass one. For each permno, regress its return on the market excess return and keep the slope — that slope is beta-i-hat. The cleanest way is a small function applied per group. You build the design matrix with a column of ones and the market excess return, then solve with n-p-dot-linalg-dot-l-s-t-s-q. That is the numerically stable way to compute beta-hat equals X-prime-X inverse, times X-prime-y, without ever forming the inverse by hand. You return the second coefficient — the slope — and apply this across every permno with a group-by. Then you merge the estimated betas back onto the panel so every stock-month row carries its own stock's beta, ready for Pass two.
+:::
+
+## Check Pass 1 Against Truth
+
+- Synthetic only: compare estimated betas to true betas
+- `corr(estimated beta, true beta)` should be about 0.93
+- Not exactly 1.0 — idiosyncratic noise estimates beta with error
+- More noise $\Rightarrow$ lower correlation $\Rightarrow$ trouble downstream
+- This is the errors-in-variables problem from Ch 2.5
+
+::: notes
+Now check it against the planted truth — something you could never do on real CRSP. Compute the correlation between your estimated betas and the true betas; it should come out around zero-point-nine-three. It is not exactly one because idiosyncratic noise means each beta is estimated with error. Think about why. If you cranked up that idiosyncratic noise, the correlation would slide toward zero-point-five, and that matters downstream. Betas estimated with noise are noisy regressors in Pass two — this is the errors-in-variables problem from chapter two-point-five, and it biases the recovered premium toward zero. Fama and MacBeth mitigated it by forming portfolios; you meet that fix in the reflection questions. For now, a correlation near zero-point-nine is your green light.
+:::
+
+## Pass 2 — One Regression per Month
+
+- Group by `month`; regress `ret` on `beta_hat`
+- Keep both coefficients: $\hat\gamma_{0,t}$ and $\hat\gamma_{1,t}$
+- Output is a $T \times 2$ table — one row per month
+- Plot the `gamma1` series: it swings positive and negative
+- That roughness is the realized market showing through
+
+::: notes
+Pass two. For each month, run one regression of return on the estimated beta across all stocks in that month, and keep both coefficients — the intercept gamma-zero-t and the slope gamma-one-t. Same lstsq pattern, now grouped by month instead of by permno. The output is a T-by-two table: one row per month. Then look at what you got. Plot the time series of gamma-one. You will see it swing wildly between positive and negative — in some months high-beta stocks crushed it, in others they got crushed. That month-to-month volatility is not noise to be embarrassed about; it is the realized market return showing through. The average of this jagged series is your premium; its roughness is your standard error.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Pass 1**: one `lstsq` per stock gives $\hat\beta_i$; check `corr(beta_hat, true_beta)` $\approx 0.93$. **Pass 2**: one `lstsq` per month gives a $T \times 2$ table of $\hat\gamma_{0,t}$ and $\hat\gamma_{1,t}$ — a jagged slope series whose *average is the premium*. Next: aggregate it and read the SE.
+:::
+
+::: notes
+To summarize part five: Pass one applies one least-squares fit per stock to get a beta-hat for every stock, and on synthetic data you confirm the correlation between estimated and true betas sits near zero-point-nine-three — high, but below one, because of estimation noise. Pass two applies one least-squares fit per month, returning a T-by-two table of monthly intercepts and slopes. Plotting the slope series shows it swinging hard between positive and negative — the realized market showing through. The average of that jagged series is the premium, its roughness the standard error. In part six, we collapse the series into the Fama–MacBeth estimate and learn to read its standard error.
+:::

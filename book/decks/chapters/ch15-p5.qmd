@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## Two Ways To Be Wrong
+
+- Part 5 — size and power, two ways tests fail
+
+::: notes
+Welcome back to Hypothesis Testing Done Right, part five of fourteen. In part four we computed Sam's t-statistic and got about one point six nine. Now we ask what would make that far enough to act on. Any decision based on noisy data can be wrong in two distinct ways, and naming them clearly is the single most clarifying thing you can do in this whole subject.
+:::
+
+## Type I and Type II
+
+| | $H_0$ true (no edge) | $H_1$ true (real edge) |
+|---|---|---|
+| **Reject $H_0$** | Type I error (false positive) | Correct ("hit") |
+| **Fail to reject** | Correct | Type II error (false negative) |
+
+- We cap Type I at the **significance level** $\alpha$, set in advance
+- $\alpha=0.05$: cry victory on a dead rule at most $5\%$
+- Reject when $t$ lands in the **rejection region**
+- Sam, one-sided, $\alpha=0.05$, 251 d.f.: reject if $t>1.65$
+
+::: notes
+A Type I error is rejecting a null that is actually true: declaring Sam's worthless rule a winner. We choose a ceiling on how often we are willing to make this mistake, called the significance level, or size, written alpha. The convention alpha equals zero point zero five means I will tolerate wrongly crying victory on a truly dead rule at most five percent of the time. Crucially, alpha is set before seeing the data, and it is a property of the rule, not of any one dataset. The rule itself: reject the null when the test statistic lands in the rejection region — the set of values so extreme they would occur with probability only alpha if the null were true. For Sam's one-sided alternative at alpha equals zero point zero five with two hundred fifty-one degrees of freedom, the critical value is the point cutting off the top five percent of the t-distribution, about one point six five. So the rule is: reject if t exceeds one point six five. A Type II error is the opposite mistake — failing to reject a null that is actually false, missing a rule that genuinely works. Its probability is written beta.
+:::
+
+## Power and Its Four Levers
+
+- **Power** $=1-\beta=\Pr(\text{reject }H_0\mid H_1\text{ true})$
+- Low power = a metal detector silent over treasure
+- **Lower $\alpha$** cuts false positives but lowers power
+- **Bigger true effect** is easier to detect
+- **Less noise** (smaller $s$) sharpens the test
+- **More data** (larger $N$) shrinks $s/\sqrt{N}$ — your main lever
+
+::: notes
+The quantity we usually care about is the complement of beta: power equals one minus beta, the probability of rejecting the null given the alternative is true. In words, the probability of catching a real effect when one exists. A test with low power is a metal detector that stays silent over buried treasure — it protects you from false alarms by almost never alarming at all, which is useless. The two error rates trade off, and four levers move them. First, lowering alpha demands more evidence and shrinks the rejection region, cutting false positives but also lowering power — you cannot drive both errors to zero at once with fixed data. Second, a bigger true effect is easier to detect, so power rises as the real mu moves farther from the null. Third, less noise — a smaller s — sharpens the test. Fourth, more data shrinks the standard error s over root N, and that is the lever you usually control. This is why power analysis — computing, before collecting data, the sample size needed to detect an effect of a given size with, say, eighty percent power — is standard practice in serious empirical work and a part of every well-designed study.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A test fails two ways: **Type I** (reject a true null — false positive, capped at $\alpha$) and **Type II** (miss a real effect — false negative). The complement of Type II is **power** $=1-\beta$. Four levers move them; the one you control is $N$. Next: power made concrete on Sam's numbers.
+:::
+
+::: notes
+To summarize part five: every test can fail two ways. A Type I error rejects a true null — a false positive — and we cap its rate at alpha, the significance level, set in advance, usually five percent. A Type II error misses a real effect — a false negative — and its complement, power, is the probability of catching an effect that is genuinely there. The two trade off against each other; you cannot crush both to zero with fixed data. Four levers move them: a stricter alpha, a bigger true effect, less noise, and more data. The lever you usually control is sample size, because more data shrinks the standard error and raises power, which is why serious studies run a power analysis before collecting a single observation. In part six we stop talking about power in the abstract and compute it for Sam — and the answer is sobering.
+:::

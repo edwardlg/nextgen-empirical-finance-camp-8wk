@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## Both Directions, and Independence
+
+- Part 3 — Bayes' rule both directions, plus independence
+
+::: notes
+Welcome back to Joint, Conditional, and the Two Laws That Run Everything — part three of eight. In part two we conditioned the return on the regime. Now two ideas. First, conditioning runs both directions — and the reverse direction is Bayes' rule in table form. Second, independence: the case where conditioning teaches you nothing, which hides a famous trap that confuses uncorrelated with independent.
+:::
+
+## Conditioning Runs Both Directions
+
+- Reverse question: bad day $X=-2\%$ — was it stormy?
+- Read *up a column*, divide by the column total
+- $\displaystyle \Pr(Y{=}2\mid X{=}-2\%)=\frac{0.15}{0.20}=0.75$
+- Belief about regime updates from $30\%$ to $75\%$
+- This flip is **Bayes' rule** in table form
+
+::: notes
+We conditioned return on regime because that matched Sam's decision: see the regime, forecast the return. But the same table answers the reverse. Suppose Sam sees a bad day, X equals minus two percent, and asks: how likely is it the market was actually stormy? That is the probability of Y equals two given X equals minus two percent — conditioning regime on return, reading up a column instead of across a row, dividing by the column total. The probability of minus two percent is zero point two zero, so the answer is zero point one five over zero point two zero, which is zero point seven five. Three-quarters of Sam's minus-two-percent days are stormy, even though stormy days are only thirty percent overall. Conditioning on the bad return updated Sam's belief from thirty percent up to seventy-five. That flip is exactly Bayes' rule in table form.
+:::
+
+## When Conditioning Fails
+
+- Definition divides by $p_Y(y)$ — silent when it is $0$
+- Cannot condition on an event that never happens
+- Discrete $Y$: a harmless edge case
+- Continuous $Y$: every value has probability zero — $0/0$
+- Rebuild with densities; the intuition is unchanged
+
+::: notes
+One caution. The definition divides by the marginal of Y, so it is silent when that marginal is zero — you cannot condition on an event that never happens. For discrete Y this is a harmless edge case. But for continuous Y, every single value has probability zero, so the naive ratio is zero over zero, and the definition has to be rebuilt with densities. We use the discrete picture all chapter because the arithmetic stays visible. The intuition — look at the slice of the world where Y equals y, then average over it — stays exactly right.
+:::
+
+## Independence: Knowing One Tells Nothing
+
+- Independent: conditioning on $Y$ doesn't change $X$ at all
+- $p(x,y)=p_X(x)\,p_Y(y)$ for **all** $x,y$
+- Equivalently $p_{X\mid Y}(x\mid y)=p_X(x)$
+- Test calm/$+2\%$: $0.35\times0.70=0.245\ne 0.30$
+- One failing cell — regime and return are **dependent**
+
+::: notes
+Independence is the special case where the conditioning move is a no-op. If learning the regime tells you nothing about the return, then X and Y are independent. Formally, they are independent if the joint factors into the product of the marginals for every pair of values. Equivalently, the conditional equals the marginal, so conditioning teaches you nothing. Are Sam's X and Y independent? Test the easiest cell. If they were, the calm, plus-two-percent cell would equal the marginal of plus two percent times the marginal of calm: zero point three five times zero point seven zero, which is zero point two four five. The actual joint is zero point three zero. One failing cell is enough — regime and return are dependent. That is the whole point of Sam's strategy: if returns were independent of the regime, there would be nothing for a regime-aware trader to exploit.
+:::
+
+## The Uncorrelated-Versus-Independent Trap
+
+- Independence is **stronger** than "uncorrelated"
+- Covariance detects only *linear* association
+- Let $Y\in\{-1,0,+1\}$ equally; set $X=Y^2$
+- $Y$ pins down $X$ exactly, yet $\operatorname{Cov}(X,Y)=0$
+- "Uncorrelated" never licenses "independent"
+
+::: notes
+Here is the subtle trap. Independence is strictly stronger than uncorrelated. Two variables can have zero covariance yet still be dependent, because covariance only detects linear association. Picture a variable Y equally likely to be minus one, zero, or plus one, and set X equal to Y squared. Knowing Y pins down X exactly — yet a quick calculation gives covariance of X and Y equal to zero, because the relationship is symmetric and bends rather than slopes. So uncorrelated never licenses you to assume independent. Conflating the two is one of the most common analytical errors in applied work.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Conditioning runs **both directions** — regime given return is **Bayes' rule** in table form. **Independence** is conditioning as a no-op, and it is strictly stronger than uncorrelated: covariance sees only linear association. Next: **conditional expectation**, the most useful object in the course.
+:::
+
+::: notes
+To summarize part three: a single joint distribution answers a question and its converse — regime given return is Bayes' rule in table form, updating Sam's belief from thirty percent to seventy-five. Independence is the case where conditioning teaches nothing — the joint factors into marginals — and Sam's table fails that test. Crucially, independence is strictly stronger than uncorrelated; zero covariance never licenses independence. In part four we build conditional expectation, the single most useful object in the course.
+:::

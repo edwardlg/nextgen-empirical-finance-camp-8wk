@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## The Staggered-Adoption Crisis: Setting the Scene
+
+**Learning objectives.** By the end you can:
+
+- Explain why staggered timing plus dynamic effects breaks TWFE
+- Name the forbidden comparison and its bias
+- Read Goodman-Bacon and negative-weight diagnostics
+- Apply Callaway–Sant'Anna clean group-time ATTs
+
+::: notes
+Welcome to Week Four, Chapter four-point-two, part one of twelve. Last chapter handed you a tool that felt almost too clean: the two-way fixed-effects regression, where one coefficient beta was supposed to be the effect of a policy. This chapter is where that tool stops working — not from a coding bug, not a violated assumption, but from a flaw in the estimator itself, hiding for thirty years and exposed only around twenty-eighteen to twenty-twenty-one. In this opening part we set the scene: where Chapter four-point-one left us, and the messier reality Priya is about to face.
+:::
+
+## Where Chapter 4.1 Left Us
+
+- TWFE: $Y_{it}=\alpha_i+\lambda_t+\beta D_{it}+\varepsilon_{it}$
+- $\alpha_i$ absorbs permanent unit traits; $\lambda_t$ common shocks
+- One $\beta$ — read off a clean four-cell table
+- Event study traced dynamics with lead/lag dummies
+- Under parallel trends, it all worked
+
+::: notes
+Recall where we stood. The two-way fixed-effects regression writes the outcome for unit i in year t as a unit fixed effect alpha-sub-i, plus a time fixed effect lambda-sub-t, plus beta times the treatment indicator D-sub-i-t, plus an error. The unit fixed effect absorbs everything permanent about a state — California always has more wildfire exposure than Ohio. The time fixed effect absorbs every nationwide shock — a bad hurricane season that lifts non-renewals everywhere. And beta, one number, was the effect of the policy. The canonical two-by-two — one treated group, one control, one switch-on date — gave a beta you could read off a four-cell table and trust. You even built an event-study version, swapping the single treatment dummy for a sequence of lead and lag dummies, to test parallel trends and trace the dynamics. It all worked.
+:::
+
+## Priya's Messier Reality
+
+- Climate-risk-disclosure rule for property insurers
+- Outcome: non-renewal rate in high-risk ZIP codes
+- California 2017, a 2019 wave, a 2021 wave, never-adopters
+- Effect *builds*: bites harder in year three than year one
+- Staggered timing **plus** dynamic effects — the exact recipe
+
+::: notes
+Priya is our guide again. A wave of states is adopting a climate-risk-disclosure rule for property insurers — a requirement that insurers publish how exposed their books are to wildfire, flood, and storm losses. The hope is that disclosure disciplines underwriting and lowers the share of policies non-renewed in high-risk ZIP codes — that is her outcome, the non-renewal rate in state i, year t. In Chapter four-point-one she imagined a single adoption date. Reality is messier: California adopts in twenty-seventeen, a cluster of states in twenty-nineteen, another wave in twenty-twenty-one, and some states never adopt. That is staggered adoption. And the effect plausibly builds — insurers re-underwrite slowly, so the policy bites harder in year three than in year one. Staggered timing, dynamic effects. That is the exact recipe for the crisis, and Priya is about to run straight into it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The 2×2 logic of Chapter 4.1 is sound. But Priya's real problem has **staggered adoption** and a **building effect** at once — the exact recipe that breaks the pooled TWFE regression. Over this chapter we follow the reveal-the-trick pattern: state the flaw, watch the sign flip, name the culprit, then route around it.
+:::
+
+::: notes
+To summarize part one: the difference-in-differences logic of Chapter four-point-one is as sound as ever. But Priya's real situation — many states adopting at many dates, with an effect that builds over time — has staggered adoption and dynamic effects turned on at once, which is the single most common situation in modern policy data, and exactly the recipe that breaks the pooled two-way fixed-effects regression. Over the next parts we follow the reveal-the-trick pattern: first the plain statement of the flaw, then a worked example where the sign flips, then the Goodman-Bacon decomposition that names the culprit, the negative-weights result that generalizes it, and finally the modern estimators that route around the whole problem. In part two, we state the crisis in one plain sentence.
+:::

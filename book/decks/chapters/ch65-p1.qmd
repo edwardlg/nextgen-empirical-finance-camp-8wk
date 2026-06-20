@@ -1,0 +1,53 @@
+---
+date: "2026-06-22"
+---
+
+## Co-Pilot, Not Autopilot
+
+**Learning objectives.** By the end you can:
+
+- Write prompts that constrain the model, not invite fabrication
+- Build retrieval that grounds answers in source documents
+- Validate every LLM label against hand-coded truth
+- Log every API call for reproducible, disclosable work
+
+::: notes
+Welcome to Week Six, Chapter six-point-five, part one of fourteen: the AI co-pilot for research. Leah is three weeks into her capstone on patents and innovation. She has forty thousand 10-K filings to read, a ninety-page data dictionary, a regression that throws an error she does not understand, and a deadline. She opens a chat window and types, "read these filings and tell me which firms are innovative." Twenty seconds later she has a confident, fluent answer. It is also, in places, completely made up — and the made-up parts look exactly like the true parts. This chapter is about how to use a large language model so that your results survive a referee.
+:::
+
+## The Most Useful and Most Dangerous Tool
+
+- An **LLM** predicts the next token, tuned to follow instructions
+- Useful and dangerous *for the same reason*
+- It produces fluent, plausible text on demand
+- Whether or not that text is grounded in anything real
+- The skill is not "how to type into a box"
+- The skill: extract real help, build guardrails
+
+::: notes
+A large language model — a system like Claude or G P T, trained to predict the next token of text and tuned to follow instructions — is the most useful new research tool to arrive in empirical finance in a generation, and also the most dangerous, for the same reason. It produces fluent, plausible text on demand, whether or not that text is grounded in anything real. So the skill this chapter teaches is not how to use an LLM — you already know how to type into a box. The skill is how to extract the genuine help, which is large, while building the guardrails that stop a confident-sounding model from quietly corrupting your data, your code, and your conclusions.
+:::
+
+## Co-Pilot, Not Autopilot
+
+- An LLM **accelerates work you can verify yourself**
+- A hazard when it replaces judgment you don't check
+- Take the aviation metaphor literally
+- The captain signs the logbook and answers the inquiry
+- In research, *you* are the captain
+- The model never signs your paper
+
+::: notes
+Here is the framing in one sentence: an LLM is a co-pilot — it accelerates work you could verify yourself, and it is a hazard exactly when you use it to replace judgment you cannot or do not check. The aviation metaphor is worth taking literally. A co-pilot reduces the captain's workload, catches routine errors, and handles the tedious legs — but the captain remains responsible for the aircraft, signs the logbook, and is the one the inquiry calls when something goes wrong. An autopilot flown into terrain by a crew that stopped watching the instruments is the cautionary tale. In research, you are the captain. The model never signs your paper.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+An LLM is a **co-pilot, not an autopilot**: it accelerates work you can verify and is a hazard when you cannot — *for the same reason*, it produces fluent text whether or not it is true. You remain the captain. Next: the five places the co-pilot genuinely helps, and the three where it is a hazard.
+:::
+
+::: notes
+To summarize part one: an LLM is a co-pilot, not an autopilot. It is the most useful new research tool in a generation and the most dangerous, for the same reason — it produces fluent, plausible text on demand whether or not that text is grounded in anything real. The skill is not typing into a box; it is extracting the genuine help while building guardrails. You remain the captain; the model never signs your paper. In part two we get concrete: the five places the co-pilot genuinely helps, and the three places it becomes a hazard.
+:::

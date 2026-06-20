@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## When the Data Is Words: From Effects to Measures
+
+**Learning objectives — by the end you can:**
+
+- Ask "is the measure valid?" of a measurement paper
+- Find and grade a paper's validation table
+- Build a RAG pipeline that answers with citations
+- Validate LLM labels like any noisy estimator
+
+::: notes
+Welcome to Week Six's reading lesson: when the data is words, and the tool has opinions. Last week you learned to read a causal paper — go straight to the headline table, pin down the identifying assumption in one sentence, and name the alternative explanation that would sink the result. That muscle does not retire. But this week's five papers are a different species. They are measurement papers: studies whose central act is not "we found an effect" but "we built a number out of text, and here is why you should believe the number means what we say." And Chapter six-point-five hands you a tool, a large language model, that can make you a faster researcher or quietly fabricate your evidence. This part frames the whole week.
+:::
+
+## The Question Changes, the Anatomy Stays
+
+- Causal paper asks: **is the effect causal?**
+- Measurement paper asks: **is the measure valid?**
+- Validity is not granted by a good variable name
+- It is *argued for*, with evidence
+- Your job: find that argument and grade it
+
+::: notes
+Here is the reveal. When you read a causal paper, the load-bearing question is "is the effect causal?" — does the comparison isolate the treatment from everything correlated with it? When you read a measurement paper, the load-bearing question becomes "is the measure valid?" — does the number the authors constructed actually capture the concept they named it after, and would it behave the way the concept should behave? A patent-value measure is valid only if higher values really do flag more valuable inventions. A similarity score is valid only if firms it calls similar really do compete. Validity is not assumed by giving the variable a good name. It is argued for, with evidence, and your job as a reader is to find that argument and grade it.
+:::
+
+## This Week's Five Papers
+
+- KPSS (2017): patent value from the **stock-price jump** at grant
+- Hoberg & Phillips (2016): product similarity via **10-K cosine**
+- Loughran & McDonald (2011): tone from a **finance dictionary**
+- Bartlett, Morse, Stanton, Wallace (2022) + Bhutta, Hizmo, Ringo
+- Fair-lending pair builds on Gao & Sun (2019)
+
+::: notes
+The five papers. Kogan, Papanikolaou, Seru and Stoffman, two thousand seventeen, build a dollar value for each patent out of the stock-price jump on the day the patent is granted. Hoberg and Phillips, two thousand sixteen, measure how similar two firms' products are by the cosine similarity of their ten-K business descriptions. Loughran and McDonald, two thousand eleven, measure the tone of a financial filing by counting words from a finance-specific sentiment dictionary. And the paired fair-lending studies — Bartlett, Morse, Stanton and Wallace, two thousand twenty-two, and Bhutta, Hizmo and Ringo — measure discrimination in algorithmic and human lending, building on Gao and Sun, two thousand nineteen. Four of the five turn words or events into a continuous number. None is, at its core, a clean natural experiment. So the Week-Five questions, asked verbatim, will mislead you.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A measurement paper's load-bearing question is **"is the measure valid?"** — does the constructed number capture the named concept? A good variable name proves nothing; validity must be argued with evidence. Next: the validation table is where the paper lives or dies.
+:::
+
+::: notes
+To summarize part one: this week's papers are measurement papers, and their load-bearing question is not "is the effect causal?" but "is the measure valid?" Does the number the authors built actually capture the concept they named it after? A good variable name proves nothing. Validity must be argued for, with external evidence, and grading that argument is your job as a reader. In part two we make the grading concrete: we find the validation table, the place where every measurement paper truly lives or dies, and we rotate the seven-part anatomy you already know.
+:::

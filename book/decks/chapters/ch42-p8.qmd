@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Why the Bad Comparison Is Bad — and the Weights
+
+- Part 8 — why Type 3 poisons the estimate, and how the weights fall
+
+::: notes
+Welcome back to Chapter four-point-two, part eight of twelve. In part seven we stated the Goodman-Bacon identity and named the forbidden Type-three comparison. Now we see precisely why Type three poisons the estimate, how the weights are assigned, and the formal punchline that names the crisis — plus the diagnostic you can actually run.
+:::
+
+## Why Type 3 Is Bad
+
+- Attributed change is contaminated by earlier group's *changing effect*
+- Constant effect $\Rightarrow$ change is zero $\Rightarrow$ harmless
+- Dynamic effect $\Rightarrow$ that motion gets *subtracted*
+- Type 3 estimates: later ATT *minus* change in earlier effect
+- A treatment effect masquerading as a counterfactual trend
+
+::: notes
+Why is the Type-three comparison bad? In it, the change you attribute to the later group's treatment is contaminated by the change in the earlier group's treatment effect over the same window. If the earlier group's effect is constant, that change is zero and the comparison is harmless — which is exactly why homogeneous effects save the regression. But if the effect is dynamic, growing or shrinking, the earlier group's effect is still moving, and that movement gets subtracted from the later group's estimated effect. Goodman-Bacon's identity makes this exact: the Type-three block does not estimate the later group's average treatment effect on the treated; it estimates that effect minus the change in the earlier group's effect over the window. The forbidden comparison literally has a treatment effect masquerading as a counterfactual trend.
+:::
+
+## The Weights — and the Punchline
+
+- Weight $\approx$ data share $\times$ *variance of treatment* in the pair
+- 0/1 variance largest when switch is mid-window
+- **Mid-sample adopters get the most weight** — clean or not
+- $\hat\beta^{\text{TWFE}}=\sum_{\text{pairs}} w_{\text{pair}}\cdot\widehat{\text{DiD}}_{\text{pair}}$
+- Type-3 weights can be **negative** — contamination can dominate
+
+::: notes
+Now the weights. The pooled beta hat weights each two-by-two by, roughly, the product of the subsample's share of the data and the variance of treatment within that pair — and the variance of a zero-one variable is largest when the switch happens in the middle of the window. Two consequences you must internalize. First, groups that adopt in the middle of the sample period get the most weight, regardless of whether their comparisons are clean or forbidden — the weighting has nothing to do with how trustworthy the comparison is, only with treatment timing. Second, the formal punchline that names the crisis: the pooled coefficient equals the sum over pairs of a weight times that pair's two-by-two difference-in-differences. The weights are determined entirely by treatment-timing variance and sum to one, but the forbidden Type-three comparisons enter with weights that can be negative, and even where positive they estimate the wrong thing. With dynamic effects, the contamination from Type-three comparisons can dominate, dragging beta hat away from any sensible average — even reversing its sign.
+:::
+
+## Run the Decomposition
+
+- `bacondecomp` (Stata), `bacon` (Python)
+- *See* how much of $\hat\beta$ comes from each comparison type
+- Big weight on forbidden comparisons $\Rightarrow$ number built on sand
+- Goodman-Bacon plot: each 2×2 vs. its weight, colored by type
+- Priya should run this *before* trusting any pooled coefficient
+
+::: notes
+This is the practical gift of the decomposition: you can run it — the bacondecomp routines in Stata, the bacon implementations in Python — and literally see how much of your headline beta hat comes from each type of comparison. If a large share of the weight sits on forbidden later-versus-already-treated comparisons, your headline number is built on sand, and the Goodman-Bacon plot — each two-by-two estimate against its weight, colored by type — shows it at a glance. Priya should run this before she trusts any pooled coefficient.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Type-3 comparisons estimate the later ATT *minus* the earlier group's **moving** effect — harmless only if effects are constant. Weights track treatment-timing variance, so mid-sample adopters dominate, and forbidden comparisons can carry **negative** weight. Run `bacondecomp` to see how much of $\hat\beta$ rides on the forbidden kind.
+:::
+
+::: notes
+To summarize part eight: the Type-three comparison is bad because it estimates the later group's effect minus the change in the earlier group's still-moving effect — harmless only when effects are constant, which is why homogeneous effects rescue the regression. The weights track treatment-timing variance, so mid-sample adopters dominate regardless of whether their comparisons are clean. The punchline: beta hat equals a weighted sum of two-by-twos, the weights sum to one, but the forbidden ones can be negative and the contamination can dominate, even flipping the sign. And you can run the decomposition to see exactly how much of your number rides on forbidden comparisons. In part nine, de Chaisemartin and D'Haultfœuille generalize the whole thing to negative cell weights.
+:::

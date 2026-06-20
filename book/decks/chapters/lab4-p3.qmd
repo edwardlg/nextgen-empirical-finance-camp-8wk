@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Path A — The Denial-Rate Panel and Treatment
+
+- Part 3 — build the denial-rate outcome and staggered treatment
+
+::: notes
+Welcome back to the Week Four lab, part three of ten. In part two we pinned the HMDA vintage and queried the CFPB aggregation endpoint for action counts by state, year, and action code. Now we turn those counts into the outcome — a denial-rate panel — and define the staggered treatment that the difference-in-differences design needs.
+:::
+
+## From Counts to a Denial-Rate Panel
+
+- Denial rate = denied ÷ (originated + denied), in points
+- **Drop thin cells**: rural counties swing wildly
+- We filter cells below 100 decided applications
+- **The denominator is a choice** you must state
+- A denial rate alone does *not* separate discrimination
+- It is the starting outcome, not the final word
+
+::: notes
+Whatever the geography, the outcome is the same. The denial rate in a geography-year cell is denied applications divided by applications that got a decision — originated plus denied — expressed in percentage points. Two cautions separate a careful panel from a sloppy one. First, thin cells are noise: a rural county with forty applications has a denial rate that swings wildly year to year, so filter out cells below a minimum count — we use one hundred decided applications — so your panel is not dominated by sampling noise in tiny geographies. Second, the denominator is a choice you must state. Denied over originated-plus-denied excludes withdrawn and incomplete applications, which is defensible, but a referee will ask, so write it into your spec. And remember: the denial rate is a coarse outcome. It does not, by itself, separate discrimination from differences in applicant creditworthiness — that is the whole subtlety of Week Two's omitted-variable-bias chapter and of the fair-lending literature. It is the starting outcome for a design that leans on a policy shock, not the final word.
+:::
+
+## Defining the Treatment
+
+- Treatment = a **state fair-lending regulatory change**
+- Adopted by different states in different years
+- Encode adoption year $G_i$; never-adopters coded missing
+- Build the policy table by hand, **cite each date**
+- We do not assert real adoption years here
+- Spec line: parallel trends assumed *per cohort*, not tested
+
+::: notes
+The design needs a treatment: a state-level regulatory change, adopted by different states in different years, that plausibly affects denial rates through the fair-lending channel. Real examples of the kind of shock you would use: a state strengthening a fair-lending examination regime, an anti-discrimination statute extending protected classes in credit, or a community-reinvestment obligation. For each state you encode the adoption year, written G sub i — the calendar year the rule first binds — with never-adopters coded as missing, exactly the cohort structure the differences package expects. You build that policy table yourself, by hand, from primary sources, and you cite each adoption date; this is empirical-spec discipline applied to the treatment. For the lab we do not assert specific real adoption years — those are a research task for the capstone. The full real-data spec names everything: outcome is the county-year denial rate, treatment is the staggered state policy, fixed effects are county and year, clustering is by state, control group is the never-adopting states, and the identifying assumption in one sentence — absent the regulation, each adopting cohort would have moved parallel to the never-adopters, assumed per cohort, not tested.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The outcome is a **denial rate** — denied over decided — with thin cells dropped and the denominator stated; it is a *starting* outcome, not proof of discrimination. Treatment is a **staggered, cited state policy**, with adoption year $G_i$ and never-adopters missing. The identifying assumption is stated **per cohort, never tested**. Next: Path B, the synthetic universe where you know the truth.
+:::
+
+::: notes
+To summarize part three: the outcome is a denial rate — denied over originated-plus-denied — with thin cells below one hundred decided applications dropped and the denominator choice written into the spec; it is a coarse starting outcome that confounds discrimination with creditworthiness, not proof on its own. The treatment is a staggered state fair-lending policy, encoded as an adoption year per state with never-adopters missing, built by hand and cited from primary sources. The full spec names outcome, treatment, fixed effects, clustering, sample, and control group — and the identifying assumption, stated per cohort and never tested. In part four we enter Path B, the synthetic universe where you plant a known effect and can finally check whether the estimator recovers it.
+:::

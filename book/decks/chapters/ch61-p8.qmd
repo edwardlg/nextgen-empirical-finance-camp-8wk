@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## What's Clever in KPSS
+
+- Part 8 — three moves: market prices, speed, public data
+
+::: notes
+Welcome back to KPSS, part eight of twelve. In part seven we read the economics exhibits and saw how the headline splits across a measurement table and an economics table. Now we step back and name what separates this paper from the long line of innovation papers that simply counted patents and citations. Three moves do the work. Each is worth owning, because each is a template you can reuse in your own capstone when you face an unobservable you need to measure.
+:::
+
+## Move 1: Market Prices as Valuation
+
+- A competitive market has **already** valued the patent
+- You just have to **read the price**
+- No structural model of demand, competition, discount rates
+- Extract it with the cleanest tool: the **abnormal return**
+- Tight window $\Rightarrow$ confounds have least time to creep in
+
+::: notes
+Move one: use market prices as a real-time valuation of innovation. The deep idea is that a competitive stock market is a forecasting machine that has already done the hard work of valuing a patent — you just have to read the price. Instead of building a structural model of how much a patent is worth, which would require assumptions about demand, competition, and discount rates that nobody can defend, K-P-S-S outsource the valuation to the thousands of investors who collectively set the price. And they extract that valuation with the cleanest possible tool: the abnormal return in a tight window, where confounds have the least time to creep in. This is the same philosophy as an event study, applied to a variable — innovation value — that the field had despaired of measuring. It converts an unobservable into an observable by finding the moment the market reveals its estimate.
+:::
+
+## Move 2: Fast, Not Slow
+
+- Citations take a **decade** and are truncated
+- A stock reaction happens in **three days**
+- Available the moment the patent issues
+- A value for *every* patent, *immediately* — including last year's
+- Fast measurement is what makes a long **panel** possible
+
+::: notes
+Move two: turn a slow, truncated proxy into a fast, real-time one. Citations take a decade to accrue and are truncated for recent patents. A stock reaction happens in three days and is available the moment the patent issues. By anchoring on the grant date, K-P-S-S get a value for every patent immediately, including last year's. That is what makes a long, dense panel possible — and a panel is what you need to study growth and reallocation, which play out year by year. The measure is not just better than citations; it is available on a timescale citations can never match.
+:::
+
+## Move 3: Release the Dataset
+
+- Publish the patent-level value estimates, keep them updated
+- The measure becomes a **common good**
+- A public dataset **compounds**
+- Every user **revalidates** it by using it
+- A standard, the way CRSP returns are a standard
+
+::: notes
+Move three: release the dataset as public infrastructure. This is the move with the longest half-life. By publishing the patent-level value estimates and keeping them updated, the authors made their measure a common good the whole profession builds on. The cleverness here is strategic as much as technical: a public dataset compounds. Every paper that uses the K-P-S-S measure validates it again by using it, and the measure becomes a standard the way CRSP returns are a standard. When you reach your capstone, notice the lesson — a well-constructed, well-documented, openly shared variable can be a larger contribution than any single regression.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three clever moves: **read the market's price** instead of modeling value; make the measure **fast** (three days, not a decade) so a panel becomes possible; and **release the dataset** so it compounds into a standard. The capstone lesson: a shared, well-built variable can outweigh any single regression. Next: what's vulnerable.
+:::
+
+::: notes
+To summarize part eight: three moves make K-P-S-S clever. First, use market prices as valuation — outsource the hard work to investors and read it off the abnormal return in a tight window. Second, make the measure fast rather than slow — three days instead of a decade — which is what makes a long panel possible. Third, release the dataset as public infrastructure, so it compounds into a standard the whole field uses. Carry the capstone lesson with you: a well-constructed, openly shared variable can be a larger contribution than any single result. But every clever measure has soft joints. In part nine we start reading like a referee and attack the paper at its weakest points.
+:::

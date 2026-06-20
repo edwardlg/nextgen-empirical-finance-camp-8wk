@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## A Worked Case: Short-Sale Constraints and Crash Risk
+
+- Part 5 — a real regulatory natural experiment from Prof. Gao's work
+
+::: notes
+Welcome back to natural experiments, part five of five — the last part. Across the session we built the three-part credibility test: as-good-as-random assignment with balance, the exclusion restriction, and the complier population. Now I make it concrete with a regulatory natural experiment my coauthors and I actually used. We will reason about identification and method only, not magnitudes — the point is to practice the judgment, not to quote results.
+:::
+
+## The Endogenous Correlation
+
+- In the data: harder-to-short stocks tend to have more **crash risk**
+- Crash risk = chance of a sudden, large negative price move
+- The fingerprint of bad news management hoarded until it burst
+- But the correlation is hopelessly endogenous
+- You cannot regress your way out of this
+
+::: notes
+Start with the puzzle. There is a long-standing correlation: stocks that are harder to short tend to have more crash risk. Crash risk is the chance of a sudden, large negative price move — the fingerprint of bad news management hoarded until it burst out all at once. But that correlation is hopelessly endogenous. Short-sellers choose which stocks to target based on the very bad news that also drives crashes — reverse causality. And unobserved firm qualities — governance, opacity, the manager's appetite for hiding losses — drive both how short-sellers behave and how prone the stock is to crash — confounding. Together, those two mean you cannot regress your way out of this.
+:::
+
+## The Coin the Regulator Flipped
+
+- You need exogenous variation in short-sale constraints
+- A U.S. regulatory pilot supplied exactly that
+- It suspended price restrictions on short sales for some stocks
+- Stocks selected off a **ranked list**, unrelated to fundamentals
+- The rest stayed constrained — treated versus control
+
+::: notes
+What you need is exogenous variation in short-sale constraints: some force that relaxed the constraint for some stocks and not others, for reasons unrelated to those firms' news or governance. A U.S. regulatory pilot supplied exactly that. The regulator suspended price restrictions on short sales for a set of stocks — selected off a ranked list, unrelated to any firm's fundamentals — while leaving the rest constrained. That ranked-list selection is what makes the comparison clean: assignment came from the list, not from firm choice, so it is blind to the bad news and hidden quality that wrecked the naive regression. That is the coin the regulator flipped, and the pilot stocks are the treated set.
+:::
+
+## The Three-Regression Anatomy
+
+- **First stage:** did the pilot actually change short-selling for treated stocks?
+- **Reduced form:** did the pilot change crash risk?
+- Their relationship identifies the causal effect
+- **Exclusion:** the pilot must touch crash risk *only through* short-selling
+- Hostile referee: attention, or managers behaving differently — name and rebut each
+
+::: notes
+Frame it in the three-regression anatomy from Chapter three-point-four. The first stage asks: did the pilot actually change short-selling for treated stocks? The reduced form asks: did the pilot change crash risk? And the relationship between those two identifies the causal effect. Now state the exclusion restriction in one sentence: the pilot must affect crash risk only through its effect on short-sale constraints, and be unrelated to the firms' crash-driving qualities. Then play hostile referee. Maybe being a pilot stock drew extra analyst attention. Maybe managers behaved differently knowing their stock was in the experiment. Each is a side door that would contaminate the estimate, so each must be named and argued down.
+:::
+
+## Compliers and Closing the Loop
+
+- **Compliers:** stocks where the pilot relaxed a *binding* constraint
+- Never-taker: a stock no one wanted to short anyway
+- Always-taker: a stock already shorted to its limit
+- Check **balance** before the pilot; a moderate first stage raises the stakes
+- The design *is* the finding — the coefficient just falls out
+
+::: notes
+Finally, the compliers. The estimate speaks only for stocks where the pilot relaxed a genuinely binding constraint. A stock nobody wanted to short is a never-taker — unmoved. A stock already shorted to its limit is an always-taker — also unmoved. The effect is silent about both. Before trusting any of this, you check balance: treated and control pilot stocks should look alike before the pilot began, and a failure would signal the selection was not as-if random. And if the first stage were only moderately strong, you would worry more about those side channels and reach for the weak-IV-robust tools from Chapter three-point-five. That is the whole lesson of Week Three. The design is the finding, and the coefficient is just what falls out once the lever is shown to be clean.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The Deng, Gao, and Kim (2020) short-sale pilot is a worked natural experiment: a ranked-list rule relaxed constraints **as-if at random**, beating reverse causality and confounding. Run it through all three tests — balance, exclusion, compliers — and report **first stage** and **reduced form**. The design *is* the finding; the coefficient just falls out once the lever is clean.
+:::
+
+::: notes
+To summarize part five and the whole session: Deng, Gao, and Kim, in the Journal of Corporate Finance in twenty-twenty, used a U.S. short-sale pilot as a natural experiment, where a ranked-list rule relaxed constraints as-if at random — beating the reverse causality and confounding that wreck the naive regression. We put it through all three tests: as-good-as-random assignment checked with balance, exclusion defended against side channels, and the complier population that bounds the claim. Next week we build on this causal toolkit — bring a natural experiment of your own to attack.
+:::

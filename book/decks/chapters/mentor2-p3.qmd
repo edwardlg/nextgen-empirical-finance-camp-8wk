@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Three Socratic Warm-Ups
+
+- Part 3 — three warm-ups: honest answers versus dishonest ones
+
+::: notes
+Welcome back to "the standard error is the whole ballgame," part three of six. In part two we saw that positive within-group correlation makes the naive standard error too small, so overconfidence is the default failure mode. Now we work three Socratic warm-up questions. There are no trick answers here — only honest ones and dishonest ones. Come with a written sentence or two for each.
+:::
+
+## Corrected, Not Weakened
+
+- Maya's $t$ fell $6.0 \to 2.2$; the coefficient stayed at $0.42$
+- Classmate: "clustering weakened her result, so the original was better"
+- Truth: nothing was weakened — the SE was **corrected**
+- The $6.0$ was never real; it was overstated confidence
+- "Better" is the wrong word for "honestly measured"
+
+::: notes
+Question one. Maya's t-statistic fell from six point zero to two point two when she clustered by lender, and her coefficient stayed at zero point four two. A classmate concludes: the clustering weakened her result, so the original result was better. What is actually true? Nothing about the result got weakened. The estimate did not move. What got corrected was the standard error — it went from a number that pretended nine thousand loans were independent to one that respected the lender clusters. The t of six point zero was never real; it was overstated confidence built on a false assumption. So "better" is exactly the wrong word. The original was not better; it was overconfident. The clustered version is not weaker; it is honest. Distinguish corrected from weakened, and you have understood the whole session.
+:::
+
+## What Robust SEs Cannot See
+
+- Friend: "I used robust HC1 SEs, so I'm protected"
+- Robust handles **heteroskedasticity** — unequal variances
+- It is **blind** to correlation *between* observations
+- Example: two loans, same lender, errors that move together
+- Robust treats them as independent — they are not
+
+::: notes
+Question two. A friend reports: I used robust, White or H-C-one, standard errors, so I'm protected against correlated errors. Is that true? Only partly, and the gap is dangerous. Robust standard errors handle one specific problem: heteroskedasticity, meaning the errors have different variances across observations. That is real and worth fixing. But robust standard errors are completely blind to correlation between observations — the off-diagonal terms of Omega. A one-line finance example: two loans issued by the same lender, whose errors move together because they share a pricing model. Robust standard errors still treat those two loans as independent. They correct the diagonal of Omega and ignore the off-diagonals entirely. So "robust" protects you against unequal variances, not against clustering. For within-group correlation you need clustered standard errors, not White ones.
+:::
+
+## The Few-Clusters Trap
+
+- Panel: 8,000 firm-years, but only **11 industries**
+- Tempting to cluster by industry to be more honest
+- With $G = 11$ clusters, the asymptotics fail
+- The cure can reintroduce the disease — overconfident again
+- One fix: $G-1$ degrees of freedom, or the wild cluster bootstrap
+
+::: notes
+Question three. You have a panel of eight thousand firm-year observations, but only eleven industries, and you're tempted to cluster by industry. Clustering is supposed to make you more honest — so where is the trap? The cluster-robust formula relies on having many clusters; the asymptotics live in the number of clusters G, not the number of observations N. With only eleven clusters, the cluster-robust variance is itself estimated badly, and the resulting t-test can become anti-conservative — overconfident again. So the cure reintroduces the disease: you clustered to be honest and ended up overstating significance from a different direction. What can you do? Use the small-sample t-distribution with G minus one degrees of freedom, or run the wild cluster bootstrap, both of which correct for having too few clusters. The deeper lesson: clustering is not a free upgrade — it has its own preconditions.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Clustering **corrects** an overstated SE; it does not weaken the result. Robust SEs fix unequal variances but are **blind** to correlation between observations. And with too few clusters, the cure reintroduces the disease — fix it with $G-1$ degrees of freedom or a wild cluster bootstrap.
+:::
+
+::: notes
+To summarize part three: first, when clustering lowers a t-statistic, the standard error was corrected, not the result weakened — overconfidence was removed. Second, robust or White standard errors fix heteroskedasticity but are blind to correlation between observations, so they miss within-lender or within-firm clustering. Third, clustering with too few clusters can make you overconfident again, because the asymptotics live in the number of clusters; remedies include the t-distribution with G minus one degrees of freedom and the wild cluster bootstrap. In part four we turn these intuitions into the speak-from deck, starting with the sandwich and its many fillings.
+:::

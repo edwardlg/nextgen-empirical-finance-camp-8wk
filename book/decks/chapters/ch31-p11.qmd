@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Where Week 3 Goes Next
+
+- Part 11 — how the next four chapters chase the same bias
+
+::: notes
+Welcome back to potential outcomes, part eleven of eleven — the finale. In part ten we reached the cliff: when you cannot randomize, you control for X and bet on conditional independence, an assumption the data cannot verify. Now we look ahead. The next four chapters are the climbing equipment, and every one is, underneath, a machine for the same selection-bias term you have spent this chapter learning to see.
+:::
+
+## Four Chapters, One Mission
+
+- Each next chapter chases the same **selection-bias term**
+- **3.2:** matching and propensity scores — the bet on observables, done best
+- **3.3:** inverse-probability weighting, doubly-robust methods
+- **3.4:** instrumental variables — find a lever; **LATE** derived here
+- **3.5:** ties the week together, stress-tests every assumption
+
+::: notes
+The next four chapters are the climbing equipment, each a strategy for zeroing or sidestepping selection bias. Chapter three-point-two, matching and propensity scores, takes conditional independence seriously and asks the best way to build comparable treated and control groups from the X's — by matching like with like, or by collapsing the X's into a single propensity-to-treat score. Chapter three-point-three, inverse-probability weighting, attacks the same conditional-independence world from the angle of reweighting — up-weighting under-represented combinations so the treated and control samples look alike — with doubly-robust methods that hedge the bet. Chapter three-point-four, instrumental variables, abandons conditional independence entirely for cases where unobserved confounders are unavoidable, and instead finds an external lever — the instrument — that shifts treatment without touching the outcome directly. This is where LATE, named back in part four, finally gets its full derivation, because an instrument identifies the effect only for the compliers it moves. And Chapter three-point-five ties the week together and stress-tests every assumption. Keep the selection-bias term in your mind's eye as the thing every method is chasing, and the week hangs together as a single argument rather than a bag of tricks.
+:::
+
+## The Spine of the Week
+
+- Every method is a machine for $\mathbb{E}[Y_i(0)\mid D_i{=}1]-\mathbb{E}[Y_i(0)\mid D_i{=}0]$
+- Assume it away conditional on $X$ — or design around it with an instrument
+- Notation you now own: $Y_i(1), Y_i(0), D_i, \tau_i$, ATE/ATT/LATE, SUTVA
+- You know what a causal effect *is* and why you can't see it directly
+- In finance, the easy design is off the table — almost always
+
+::: notes
+Every one of the coming methods is, underneath, a machine for dealing with the selection-bias term — the expected Y-of-zero among the treated minus the expected Y-of-zero among the untreated. Each either assumes it away conditional on X, in Chapters three-point-two and three-point-three, or designs around it with an instrument, in three-point-four. The notation you learned here is the spine of all of it: the two potential outcomes, the treatment indicator, the individual effect tau-sub-i, the three estimands — ATE, ATT, and LATE — the selection-bias term, and SUTVA. You now know exactly what a causal effect is, why you can never see one directly, what contaminates the easy comparison, and the one design that cleans it. The next four chapters teach you what to do when that clean design is off the table — which, in empirical finance, is almost always. That is Chapter three-point-one, the foundation the entire rest of Week Three, and Week Four, is built on.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Every method ahead — **matching, weighting, instrumental variables** — is a machine for the same selection-bias term $\mathbb{E}[Y_i(0)\mid D_i{=}1]-\mathbb{E}[Y_i(0)\mid D_i{=}0]$: assume it away conditional on $X$, or design around it with an instrument. The notation — $Y_i(1), Y_i(0), D_i, \tau_i$, ATE/ATT/LATE, SUTVA — is the spine of Week 3.
+:::
+
+::: notes
+To summarize part eleven, and the whole chapter: the next four chapters of Week Three — matching and propensity scores, inverse-probability weighting, instrumental variables, and a synthesis — are all machines for the same selection-bias term, either assuming it away conditional on X or designing around it with an instrument. The notation you learned here is the spine of every one of them. You now know what a causal effect is, why you can never observe one directly, what contaminates the easy comparison, and the one design — randomization — that cleans it. The next chapters teach you what to do when that design is off the table, which in finance is almost always. That completes Chapter three-point-one, potential outcomes, SUTVA, and the Fundamental Problem of Causal Inference.
+:::

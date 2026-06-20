@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## Momentum: The Paper That Named It
+
+**Learning objectives.** By the end you can:
+
+- Explain the momentum strategy and what it implies
+- Build the J/K winner-minus-loser portfolio sort
+- Spot the overlap-induced inference problem
+- Read the paper's tables as a referee would
+
+::: notes
+Welcome to Week Five, lesson three, part one of eight. This lesson is a Reader's Guide to Jegadeesh and Titman, nineteen ninety-three — Returns to Buying Winners and Selling Losers, published in the Journal of Finance. Yesterday's guides put a price on risk: Fama and French said the cross-section of average returns lines up with size and book-to-market, and then turned those patterns into tradable factors. Both were efficient-markets papers — returns differ because stocks carry different priced risk. Today's paper broke that story open. It takes a strategy a sixteen-year-old day-trader would scribble on a napkin — buy the stocks that went up, short the ones that went down — and shows it makes money, robustly, for decades, in a way the risk factors of the day could not explain. In this opening part we frame the question and why it matters.
+:::
+
+## The Napkin Strategy
+
+- Buy past **winners**, short past **losers**
+- Insultingly simple — no parameters, no accounting data
+- Makes money robustly, for decades
+- This is the paper that **named momentum**
+- A rule this dumb beating the market is **damaging**
+
+::: notes
+Here is the whole idea. Sort every stock by how it did over the past few months. Buy the ones near the top — call them the winners. Short the ones near the bottom — the losers. That is it. The strategy is almost insultingly simple: there is no firm characteristic to construct, no accounting data to clean, nothing to tune. And yet it works, robustly, for decades. This is the paper that gave momentum its name. It matters not because the strategy is exotic, but because of what its success implies. If a rule this dumb beats the market after you adjust for known risk, then either there is a risk factor nobody had written down, or prices are not impounding information the way the efficient-markets hypothesis says they do. A simple rule that works is far more damaging to a theory than a complicated one, because there is nowhere to hide a degree of freedom.
+:::
+
+## The Research Question
+
+- Plain English: **do past winners keep winning?**
+- Sort stocks by past return over recent months
+- Do top performers beat bottom performers **next**?
+- Strike at **weak-form** efficiency — only past prices used
+- The burden: show profits are **not** just risk
+
+::: notes
+The plain-English question is: do past winners keep winning? Take a stock's return over the past few months — say the past six. Sort all stocks by that past return. Do the ones near the top go on to earn higher returns over the next few months than the ones near the bottom? If yes, then past returns predict future returns, and buying winners while shorting losers should be profitable. Now recall the weak-form efficient-markets hypothesis from Week One: prices already reflect all information in past prices, so past returns should carry no usable signal about future returns. A profitable rule built only from past returns is a direct strike at weak-form efficiency. So the paper has a methodological burden it cannot dodge — it must show the profits are not just compensation for risk. If buying winners is really just loading up on some risk factor, there is no anomaly; you are being paid for bearing danger, exactly as efficiency predicts. The authors therefore spend much of the paper trying to kill their own result with risk adjustment, and reporting that it survives.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Jegadeesh and Titman named **momentum**: buy past winners, short past losers. Built only from past returns, it strikes directly at **weak-form efficiency** — so the authors must show the profit is not risk in disguise. A rule this simple is *harder* for a theory to absorb. Next: the J-K sort and the overlapping-portfolio trick.
+:::
+
+::: notes
+To summarize part one: Jegadeesh and Titman named momentum — buy past winners, short past losers — a strategy so simple there is nowhere to hide a degree of freedom. Because it is built only from past returns, it strikes directly at weak-form efficiency, which insists past prices are useless. That is why the authors do the skeptic's work themselves, adjusting for risk before anyone else can. In part two we get precise about the machinery: the J-by-K sort that constructs the portfolios, and the overlapping-portfolio trick that squeezes the data — and quietly creates a statistics problem we will have to fix.
+:::

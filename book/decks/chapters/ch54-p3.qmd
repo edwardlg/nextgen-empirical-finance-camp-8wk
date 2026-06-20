@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## The Monte Carlo Logic and Three Structures
+
+- Part 3 — the comparison that proves it, and three correlation structures
+
+::: notes
+Welcome back to lesson five-point-four, part three of eight. In part two we learned that Petersen identifies the truth by building it himself, in a Monte Carlo study. Now we make that machinery explicit — the exact comparison that turns simulation into proof — and meet the three correlation structures the whole paper turns on.
+:::
+
+## The Logic in One Breath
+
+- Generate $S$ panels from the *same* known process
+- On each, compute $\hat\beta_1$ and its estimated SE under method M
+- **True SE** = the actual spread of $\hat\beta_1$ across draws
+- **Average estimated SE** = mean of M's reported SE
+- Correct method: the two agree. Biased: one sits below or above
+- **Coverage:** what fraction of M's 95% intervals trap the truth?
+
+::: notes
+Here is the logic in one breath. Generate capital-S independent simulated panels from the same known process. On each, compute beta-one hat and its estimated standard error under method M. Now compare two numbers. The true standard error is the actual standard deviation of your capital-S estimates of beta-one hat — computable directly, because you have many draws. The average estimated standard error is the mean of method M's reported standard error across draws. If method M is correct, the two agree; if biased, its average reported standard error sits systematically below the truth, making you overconfident, or above it, making you overcautious. You can also check coverage directly: across the capital-S panels, what fraction of method M's ninety-five percent intervals actually trapped the true beta? A correct method covers ninety-five percent; an overconfident one covers far less.
+:::
+
+## Three Correlation Structures
+
+- **Firm effect:** firm $i$'s residual correlated with itself over time
+- A firm mispriced this year tends to be mispriced next year
+- **Time effect:** a common shock hits all firms in a period
+- The whole market drops — residuals correlated *across* firms
+- **Both, or neither:** he varies their relative sizes
+
+::: notes
+Petersen runs this experiment under three deliberately chosen correlation structures, and they form the taxonomy the whole paper turns on. First, a firm effect. The residual of firm i is correlated with itself across time — a firm mispriced this year tends to be mispriced next year — but firms are independent of each other. Formally there is a firm-specific component, gamma-i, baked into every error, so the covariance of firm i's error in period t with its error in period s is non-zero for the same firm across different periods. Second, a time effect. A common shock hits all firms in a given period — the whole market drops in two-thousand-eight — so residuals are correlated across firms within a period, but each firm's residual is independent across periods; here a time-specific component, delta-t, is shared by all firms in that period. Third, both or neither, where he varies the relative size of the firm and time components, including cases where one dominates and where they coexist.
+:::
+
+## The Regressor Matters Too
+
+- He also varies the structure of the regressor $x_{it}$
+- Moulton logic: damage scales with *both* correlations
+- Within-cluster correlation of **errors** times that of the **regressor**
+- If $x$ is noise within firm, even a strong firm effect barely bites
+- Bias bites when *both* are persistent — the corporate-finance case
+
+::: notes
+Crucially, he also varies the structure of the regressor x-i-t — whether x itself carries a persistent firm component — because, recall the Moulton logic from Week Two, the damage from ignored correlation scales with the product of two things: the within-cluster correlation of the errors, and the within-cluster correlation of the regressor. If x is purely random noise within firm, even a strong firm effect in the errors barely biases the OLS standard error. The bias bites only when both the regressor and the error are persistent — which is exactly the corporate-finance case, where slow-moving firm characteristics predict slow-moving outcomes. To complete the argument, Petersen pairs the simulations with re-analysis of real, published-style finance panels, showing the lessons are not an artifact of toy data: they change real standard errors by the predicted amounts.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Simulation becomes proof by comparing the **true SE** — the spread of $\hat\beta_1$ across draws — to each method's *estimate* and its *coverage*. Three structures drive everything: **firm effect, time effect, both** — and the bias bites only when error *and* regressor are persistent.
+:::
+
+::: notes
+To summarize part three: simulation becomes proof by comparing the true standard error — the actual spread of beta-one hat across many draws — to each method's average estimate and its coverage rate. Three structures organize the whole paper: a firm effect, a time effect, and both. And the damage only bites when the error and the regressor are both persistent, which is precisely the corporate-finance setting. In part four we turn to the data section — unusual because the workhorse dataset is fabricated on purpose — and to the taxonomy table you should memorize for life.
+:::

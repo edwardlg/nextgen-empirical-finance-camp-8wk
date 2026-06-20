@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## Reading the Curve: Maya's Robust Result
+
+- Part 5 — Read the two-panel curve; Maya's result is robust
+
+::: notes
+Welcome back to Execution and the Specification Curve, part five of ten. In part four we cross-multiplied Maya's forks to one hundred forty-four specifications and ran every one, keeping the estimate, the interval, and the choice-record for each. Now we read the picture, because the reading is the skill. The specification curve is a two-panel figure that, once you have read one, you cannot unsee. Both panels share a horizontal axis running over all one hundred forty-four specifications, sorted by the magnitude of the estimate — most negative on the left, most positive on the right.
+:::
+
+## The Two Panels
+
+- Top panel: 144 point estimates as a curve, with CI markers
+- Filled when significant; hollow when not
+- Sorted by estimate, so the curve rises left to right
+- Its *shape* is the whole story
+- Bottom panel: a grid — one row per choice, one column per spec
+- Read *downward* to see which choices produced any region
+
+::: notes
+The top panel plots the one hundred forty-four point estimates as a curve — hence the name — each with a marker for its confidence interval, filled when the specification is significant at your chosen level, hollow when it is not. Because the specifications are sorted by estimate, the curve rises monotonically from left to right; its shape is the whole story. A flat curve sitting entirely below zero, with nearly every marker filled, says: every defensible path gives roughly the same negative answer, and almost all are significant. A curve that sweeps from strongly negative through zero up to strongly positive, with a mix of filled and hollow markers, says: the sign and significance of my result depend entirely on which fork I walk — an artifact of analytic choice, not a feature of the world. The bottom panel turns a pretty picture into a diagnostic. It is a grid: one row per analytic choice, one column per specification, aligned to the top panel's sort order. A tick sits where a specification used that choice, so you read downward from any interesting region of the curve to see exactly which choices produced it.
+:::
+
+## Maya's Curve: A Robust Result
+
+- Estimates run from $-2.4$ to $-0.4$ points; median about $-1.8$
+- Pre-registered estimate ($-1.9$) sits near the center
+- 132 of 144 significant (92%); the 12 exceptions hug zero
+- Reading down: the 12 share wild-bootstrap + aggressive trim
+- Lowest-power corner of the multiverse — sign never flips
+
+::: notes
+Let us read Maya's curve concretely, because the reading is the skill. Suppose her one hundred forty-four specifications produce estimates running from about negative two-point-four points on the left to about negative zero-point-four on the right; the median is around negative one-point-eight; about one hundred thirty-two of the one hundred forty-four are significant at the five-percent level, filled, and the dozen hollow ones cluster at the right end near zero. Reading downward from those twelve non-significant specifications, the bottom panel shows they all share two choices: the wild-cluster bootstrap, which widens intervals when adopters are few, combined with the drop-first-and-last-cohorts sample, which throws away identifying variation. That is an honest, interpretable picture. This is a robust result, and the curve is what licenses the word: the sign never flips, the magnitude is stable around the pre-registered estimate, and the loss of significance is confined to specifications that are independently the least powerful — for reasons the bottom panel makes legible. A referee reading that figure cannot accuse Maya of cherry-picking, because she has shown them the entire orchard and pointed to exactly which trees bear less fruit and why.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **two-panel curve** sorts estimates on top and aligns the choice-grid underneath, so you read *downward* to find which forks drive any region. Maya's curve is robust: median near her pre-registered $-1.8$ points, sign never flips, and the 12 non-significant exceptions sit only in the lowest-power corner. Next: the curve that should terrify you.
+:::
+
+::: notes
+To summarize part five: the specification curve is two stacked panels sharing a horizontal axis — the point estimates sorted on top, the aligned choice-grid underneath — and the skill is reading downward from any region of the curve to the forks that produced it. Maya's curve is robust by every measure: the estimates all share a negative sign, the median sits right around her pre-registered negative one-point-eight points, one hundred thirty-two of one hundred forty-four are significant, and the dozen exceptions are confined to the lowest-power corner where the wild bootstrap meets the most aggressive sample trim. The sign never flips. That is what licenses the word robust. In part six, we look at the curve that should terrify you — Sam's momentum anomaly — and then build the four-point rule for reading any curve.
+:::

@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## Maya's Number She Can't Trust
+
+**Learning objectives** — by the end you can:
+
+- Define a causal effect with potential outcomes
+- Explain why individual effects are never observable
+- Decompose a naive comparison into effect plus bias
+- State the SUTVA assumption behind every causal claim
+
+::: notes
+Welcome to Week Three, Chapter three-point-one, part one of eleven. Maya has a number she does not trust, and this time it is not her regression. She volunteered at a credit union running a free financial-literacy program, and the enrollees got approved for loans far more often than non-enrollees. It looks like proof the program works. It is not — and no control variable, no robust standard error, no diagnostic test will save her. In this part we set the trap, and start building the language that exposes it: the potential-outcomes model.
+:::
+
+## Maya's Tempting Number
+
+- Free six-session financial-literacy program; enrollment is **voluntary**
+- Enrollees approved: **62%**; non-enrollees: **41%**
+- A **21-percentage-point** gap, wildly statistically significant
+- Tempting conclusion: the program *causes* a 21-point jump
+- The danger hides in one word — *causes*
+
+::: notes
+Here is Maya's setup. The credit union runs six evening sessions on budgeting, credit scores, and reading a loan offer. Anyone can sign up — enrollment is voluntary. Maya pulls the records. Among people who came through the program, sixty-two percent had their next loan approved. Among those who did not enroll, only forty-one percent were approved. That is a twenty-one-percentage-point gap, and with thousands of applicants it is wildly statistically significant — a t-statistic that would make a beginner reach for champagne. The tempting conclusion is that the program causes a twenty-one-point jump in approval, and Maya is ready to recommend a nationwide rollout. But the danger is buried in the word causes.
+:::
+
+## Who Actually Signs Up?
+
+- Ask the question Maya skipped — *who enrolls?*
+- People already organized enough to commit six weeknights
+- People already worried about credit, already reading the fine print
+- That kind of person is **already more approvable** — program or not
+- So Maya compares two *different kinds of people*, not the same people
+
+::: notes
+Here is the thing Maya has not asked: who signs up for a free six-week evening course on personal finance? People who are already organized enough to commit six weeknights. People already worried about their credit, already saving, already the type to read the fine print. The kind of person who voluntarily enrolls in a financial-literacy program is, on average, already more likely to get a loan approved — program or no program. So when Maya compares enrollees to non-enrollees, she is not comparing the same people with and without the program. She is comparing two different kinds of people. The twenty-one-point gap is some unknown blend of two things: whatever the program actually does, plus the head start the enrollees already had. Her number cannot tell her how much is which. This chapter builds the machinery to say that sentence precisely — precisely enough to write down an equation and split her twenty-one points into honest pieces.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Maya's **21-point gap** between enrollees and non-enrollees is *not* the program's effect — because enrollment is voluntary, she is comparing two different kinds of people. The framework that makes this precise is the **potential-outcomes model**, the language of the whole week. Next: two parallel worlds for one person.
+:::
+
+::: notes
+To summarize part one: Maya's twenty-one-point gap looks like proof the program works, but because enrollment is voluntary, she is comparing two different kinds of people — and the people who choose to enroll were already more approvable. The framework that lets us state this precisely is the potential-outcomes model, also called the Rubin causal model, after Donald Rubin who formalized it in the nineteen-seventies, building on earlier work by Jerzy Neyman. It is the language the entire rest of the camp speaks. In part two we start it from a single person and two parallel worlds.
+:::

@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Validity Threats: Donut, Sensitivity, and the Through-Line
+
+- Part 15 — donut robustness, specification stability, the through-line
+
+::: notes
+Welcome back to regression discontinuity, part fifteen of seventeen. In part fourteen we covered manipulation, covariate imbalance, and compound treatments. Now we finish the checklist with two more threats — anomalies at the cutoff and specification sensitivity — and draw out the single through-line that unifies all five.
+:::
+
+## Threats 4 and 5: Donut and Sensitivity
+
+- **Threat 4 — anomalies at $c$:** exact-threshold or re-scored cases
+- *Defense:* the **donut RD** — drop a tiny window at $c$, re-estimate
+- **Threat 5 — bandwidth/specification sensitivity**
+- A jump that vanishes at half the bandwidth is *not* a finding
+- *Test:* report across bandwidths and orders; show stability
+
+::: notes
+Threat four is a discontinuity in the running variable itself, or a donut problem. Sometimes observations exactly at the cutoff are weird — exact-threshold cases, rounding artifacts, or units that were re-scored. A common robustness check is the donut R-D, which drops observations in a tiny window right at the cutoff and re-estimates, to confirm the jump is not driven by anomalous exactly-at-the-line cases. Threat five is bandwidth and specification sensitivity. As we warned earlier, an estimate that appears at one bandwidth and vanishes at half that bandwidth is not a finding. The test: report the estimate across a range of bandwidths and polynomial orders, and show stability. With Calonico, Cattaneo, and Titiunik, report the robust bias-corrected interval, not the naive one.
+:::
+
+## The Through-Line
+
+- RD is identified by *one* claim
+- Crossing $c$ changes *one thing only*, smoothly in everything else
+- Threats one, two, and four leave statistical fingerprints — hunt them
+- Threat three does not — defend it in prose, with institutions
+- Good RD sections run long for exactly this reason
+
+::: notes
+The through-line of all five threats is a single claim: R-D is identified by the assumption that crossing the cutoff changes one thing and only one thing, smoothly in everything else. Threats one, two, and four leave statistical fingerprints you can hunt for — a density jump, a covariate jump, an anomaly-driven estimate. Threat three, the compound treatment, does not, and must be defended in prose with institutional evidence. A polished R-D study walks through every one of these, which is why R-D sections in good finance papers run long. The reward for that length is credibility: a reader who watches you rule out each threat in turn comes to trust that your jump really is the treatment.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Two more checks: the **donut RD** (drop a tiny window at $c$) and **bandwidth/specification stability** (a jump that vanishes at half the bandwidth is no finding). The through-line: RD rests on *crossing $c$ changes one thing only* — three threats leave fingerprints, the compound-treatment threat must be argued. Next: the Russell wrinkle and the code.
+:::
+
+::: notes
+To summarize part fifteen: we finished the validity checklist. Threat four, anomalies exactly at the cutoff, is handled by the donut R-D, which drops a tiny window at the cutoff and re-estimates. Threat five, specification sensitivity, is handled by reporting the estimate across bandwidths and polynomial orders and showing it is stable — a jump that vanishes at half the bandwidth is not a finding. The through-line of all five is one claim: crossing the cutoff changes one thing only, smoothly in everything else. Three threats leave statistical fingerprints you can hunt; the compound-treatment threat does not and must be argued in prose. In part sixteen we look at the real Russell wrinkle — where the clean design turns genuinely fuzzy.
+:::

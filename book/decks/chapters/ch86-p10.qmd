@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Working the Poster Session
+
+- Part 10 — working the session as a series of conversations
+
+::: notes
+Welcome back to The Talk, the Poster, the Defense, part ten of twelve. In part nine we built the poster as a layout of six zones. Now we work the session itself. The poster session is a series of conversations, and each viewer cues you, within five seconds, to the length they want. The discipline is to read that cue and match it — and to measure success by conversations, not foot traffic.
+:::
+
+## A Series of Conversations
+
+- Each viewer cues you, within five seconds, to the length they want
+- **Fifteen seconds**: question, finding, so-what — the filter
+- **One minute**: the six-beat arc compressed, and you **point**
+- **Five minutes**: extend design and robustness, for the engaged
+- Don't give a version the viewer did not ask for
+- Point at the feature; stand to the side; eye contact with the **viewer**
+
+::: notes
+The poster session is a series of conversations, and each viewer cues you, within five seconds, to the length they want. The elevator pitch, fifteen seconds, is question, finding, so-what — one sentence each, for what's it about — the filter, not the conversation. The one-minute version is the six-beat arc compressed, for tell me more, where you point through the poster beat by beat and it carries the argument while your voice narrates. The five-minute version extends the design and robustness zones, for the genuinely engaged. The discipline: do not give a version the viewer did not ask for — the elevator-pitch viewer is lost in the design zone ten seconds in. Three physical habits make the poster work for you. Point at the specific feature you describe, so the conversation happens in the poster. Stand to the side, about ninety degrees to its plane, so the viewer sees both you and the layout. And make eye contact with the viewer, not the poster — the hardest, because the poster is where your eyes naturally want to go.
+:::
+
+## The Success Metric Is Conversations
+
+- Not foot traffic — **what conversations, what next steps**
+- Five stopping with three next steps beats fifty glancing past
+- Three useful kinds: the critique, the lead, the collaboration thread
+- Before sleep, send **three follow-up emails**
+- Conversion is far higher inside forty-eight hours
+- Every projection of the argument stays **consistent**
+
+::: notes
+The success metric is not foot traffic; it is what conversations did I have, and what next steps did they generate. Five people stopping with three named next steps beats fifty glancing past. The three useful conversations are the substantive critique — write it in the notebook with a next step; the lead — a paper, dataset, or person, like the student who was pointed to a working paper he had missed; and the collaboration thread, rarest and highest-value. Before sleep that night, send three follow-up emails, because the conversion from contact to working relationship is roughly an order of magnitude higher inside forty-eight hours. The principle ties talk and poster together: every artifact of the project is a different projection of the same argument, and the discipline is to keep the projections consistent. The slide-five figure becomes the center figure; the threats slide becomes the robustness zone; the punchline becomes the design zone; the ask stays the ask. Get the spine right and every projection gets easier.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Run the poster as a **series of conversations**: read the five-second cue, match the length, and never give a version the viewer didn't ask for. Point, stand to the side, hold eye contact. Measure **conversations, not foot traffic**, and send **three follow-ups within forty-eight hours**. Next: the feedback ledger, before it perishes.
+:::
+
+::: notes
+To summarize part ten: the poster session is a series of conversations, and you read each viewer's five-second cue and match the length — fifteen seconds, one minute, or five — never giving a version they did not ask for. Point at the feature, stand to the side, and hold eye contact with the viewer rather than the poster. Measure success by the conversations you had and the next steps they generated, not by foot traffic, and send three follow-up emails within forty-eight hours when conversion is highest. The unifying principle: every artifact is a projection of one argument, kept consistent. In part eleven we turn to what you do Saturday night — the feedback ledger, because conference feedback is a perishable asset.
+:::

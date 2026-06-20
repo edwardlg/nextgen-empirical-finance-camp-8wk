@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Two More Routes: Sun–Abraham and Borusyak–Jaravel–Spiess
+
+- Part 13 — Sun–Abraham's saturated event study and BJS imputation
+
+::: notes
+Welcome back to Chapter four-point-two, part thirteen of fourteen. In part twelve, Callaway and Sant'Anna recovered the truth where the pooled regression failed. Now we meet two more leading estimators that reach the same destination by different roads — Sun and Abraham, and Borusyak, Jaravel, and Spiess. Seeing them clarifies that the fix is one idea, not three rival theories.
+:::
+
+## Sun–Abraham: An Honest Event Study
+
+- Sun & Abraham (2021), *Journal of Econometrics*
+- The crisis corrupts the **event-study** version too
+- Each $\hat\beta_e$ contaminated by *other* cohorts' event times
+- Flat pre-trends can hide real bias — the diagnostic can *lie*
+- Fix: **interaction-weighted** — saturate, then aggregate cleanly
+
+::: notes
+Sun and Abraham, twenty-twenty-one, in the Journal of Econometrics, noticed the crisis infects the event-study version just as badly as the static one — and in an especially treacherous way, because it corrupts the very pre-trend test you rely on. Recall the event study: you replace the single treatment dummy with a full set of relative-time dummies and estimate a coefficient beta-sub-e for each event time e. Sun and Abraham prove that under staggered timing with heterogeneous dynamics, each estimated beta-sub-e is contaminated by treatment effects from other event times of other cohorts — the leads and lags bleed into each other through the same forbidden comparisons. A flat-looking pre-trend can hide real bias, and the coefficient at event time three can be polluted by some other cohort's event-time-one effect. Their fix, the interaction-weighted estimator, is to saturate the regression: interact every relative-time dummy with every cohort indicator, estimating a separate coefficient for each cohort-and-event-time pair, using never-treated or last-treated units as the clean control. These are precisely Callaway and Sant'Anna's group-time effects in regression clothing. Then aggregate to event-time effects with cohort-share weights — the interaction weighting in the name. Because each cohort's dynamics are estimated separately before averaging, no cohort's effect can leak into another's.
+:::
+
+## Borusyak–Jaravel–Spiess: Imputation
+
+- Borusyak, Jaravel & Spiess (2024), *Review of Economic Studies*
+- Effect for a treated cell $= Y_{it}-Y_{it}(0)$; only $Y_{it}(0)$ missing
+- Fit $Y_{it}=\alpha_i+\lambda_t$ on **untreated cells only**
+- Impute $\hat Y_{it}(0)=\hat\alpha_i+\hat\lambda_t$; effect $=Y_{it}-\hat Y_{it}(0)$
+- Treated cells never corrupt the counterfactual — *efficient*
+
+::: notes
+Borusyak, Jaravel, and Spiess, twenty-twenty-four, in the Review of Economic Studies, take the most direct route, which doubles as the most illuminating way to understand what every clean estimator is really doing. Their imputation estimator reasons as follows. The treatment effect for a treated cell is, by definition, the actual outcome minus the untreated potential outcome. You observe the actual outcome; the only missing piece is the untreated potential outcome — what the unit would have done untreated. So impute it. The recipe is three steps. First, fit the two-way fixed-effects model using only the untreated observations — every cell where treatment is zero, all never-treated cells plus the pre-adoption years of every eventual adopter. The treated cells are excluded, so no treatment effect contaminates the estimated fixed effects. Second, use those estimates to impute the missing untreated outcome for each treated cell — alpha hat plus lambda hat. Third, the estimated effect for each treated cell is the gap between the actual outcome and that imputed value, and you average these however you like, with explicit weights. Imputation simply refuses to fit on treated cells, so an already-treated unit's effect can never leak into anyone's control. It is the clean-control principle reduced to its logical minimum — and, under their assumptions, the efficient estimator, with a proper pre-trend test built from the untreated residuals.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Sun–Abraham** saturate the event-study regression with cohort×event-time interactions, so no cohort's dynamics leak into another's. **Borusyak–Jaravel–Spiess** fit the fixed effects on **untreated cells only**, then impute each treated cell's counterfactual. Two more roads to the same clean-control destination — and BJS is, under its assumptions, efficient.
+:::
+
+::: notes
+To summarize part thirteen: two more routes to the same place. Sun and Abraham noticed the crisis corrupts the event study too, making pre-trend tests unreliable, and fixed it by saturating the regression with cohort-by-event-time interactions, so each cohort's dynamics are estimated in isolation and no effect leaks into another's. Borusyak, Jaravel, and Spiess take the most direct route: fit the fixed effects on untreated cells only, impute each treated cell's untreated counterfactual, and take the gap — the clean-control principle reduced to its minimum, and the efficient estimator under their assumptions. In part fourteen, our last, we see that these three are one principle, and gather the four things to carry forward for the rest of your career.
+:::

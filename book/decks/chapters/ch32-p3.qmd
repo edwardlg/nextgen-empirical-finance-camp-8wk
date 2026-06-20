@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## Overlap and the Curse of Dimensionality
+
+- Part 3 — overlap, and why exact matching collapses in high dimensions
+
+::: notes
+Welcome back to selection on observables, part three of nine. In part two we stated the Conditional Independence Assumption and saw, on two cells, how comparing like with like recovers the effect. Now we meet the second assumption hiding in that argument — overlap — and then watch exact matching collapse the moment we have more than one or two confounders.
+:::
+
+## Overlap: Both Kinds Must Exist
+
+- To compare at $\mathbf{X}_i = \mathbf{x}$, need a treated *and* an untreated unit there
+- **Overlap:** $0 < \Pr(D_i = 1 \mid \mathbf{X}_i = \mathbf{x}) < 1$ for all $\mathbf{x}$
+- No profile is a guaranteed enrollee or guaranteed non-enrollee
+- Regions failing this have no counterfactual — excluded
+- Unlike CIA, overlap is **partly checkable** in the data
+
+::: notes
+There is a second assumption hiding in part two's argument, easy to miss because it is so obvious once stated. To compute the within-cell difference at a covariate value x, you need both a treated unit and an untreated unit at x. If every applicant with a given profile enrolled, there is no untreated comparison and the cell is useless. This is the overlap, or common-support, condition: at every covariate profile, the probability of treatment is strictly between zero and one. Any region failing this has no usable comparison and must be excluded — which silently changes whose effect you are estimating. Unlike C-I-A, overlap is partly checkable: you can see whether treated and untreated units occupy the same regions of X.
+:::
+
+## Overlap for Maya, and a Name
+
+- Say everyone above credit score 780 enrolled — no untreated twins there
+- Say no one below 580 ever enrolled — no treated units there
+- Both tails **violate overlap**
+- Learn the effect only in the **region of common support**
+- CIA + overlap = **strong ignorability** (Rosenbaum–Rubin 1983)
+
+::: notes
+For Maya, suppose every applicant with a credit score above seven-eighty enrolled — the very savviest all take the free course — and no applicant below five-eighty ever did. Then there are no untreated high-score units to serve as counterfactuals for treated high-score units, and no treated low-score units at all. Those tails violate overlap. Maya can only learn the program's effect in the region of common support — the band of credit scores where both enrollees and non-enrollees exist. Together, the Conditional Independence Assumption plus overlap are called strong ignorability, the Rosenbaum and Rubin nineteen-eighty-three term. They are the joint license to compare like with like.
+:::
+
+## Exact Matching Breaks Down
+
+- Recipe: find untreated units with the *same* $\mathbf{X}$, average their outcomes
+- Trivial with one binary covariate — two cells
+- Realistic $\mathbf{X}$: credit, income, age, debt ratio, employment, ZIP
+- Coarse bins still give $5\times5\times4\times4\times3\times2\times5 = 12{,}000$ cells
+- 4,000 applicants across 12,000 cells: most cells **empty**
+
+::: notes
+So the recipe is clear: for each treated applicant, find untreated applicants with the same X, and average their outcomes. With a single binary covariate this is trivial; you have two cells. Now add realism. Maya's confounders are credit score, income, age, debt-to-income ratio, employment status, prior banking relationship, and ZIP-code median income. Coarsen each generously into a handful of bins — five, five, four, four, three, two, five. Multiply them and you get twelve thousand distinct cells. With four thousand applicants spread across twelve thousand cells, the average cell holds well under one person. Most cells are empty; most occupied ones hold a lone treated applicant with no untreated twin, or the reverse.
+:::
+
+## The Curse, and the Trap
+
+- Cells grow **multiplicatively** in the number of covariates
+- Data thin out exponentially — *nobody has an exact twin*
+- Coarsen more? Then "same $\mathbf{X}$" means "vaguely similar $\mathbf{X}$"
+- Fat cells reintroduce bias from unlike comparisons
+- Trapped between **empty cells** and **unlike comparisons**
+
+::: notes
+This is the curse of dimensionality. The number of cells grows multiplicatively in the number of covariates, so the data thin out exponentially fast, and the "find someone with the same X" step finds no one. Exact matching breaks down — not because the idea is wrong, but because in high dimensions, nobody has an exact twin. You might try to rescue it by coarsening more, but then "the same X" really means "vaguely similar X," the Conditional Independence Assumption is only approximately satisfied within each fat cell, and a different bias creeps back in. You are trapped between empty cells when too fine, and unlike comparisons when too coarse. This tension is what the propensity score was invented to escape.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Overlap** demands both treated and untreated units at every covariate profile; with **CIA** it forms strong ignorability. **Exact matching** implements "same $\mathbf{X}$" directly but dies of the **curse of dimensionality** — cells grow multiplicatively, so in high dimensions nobody has a twin. You are trapped between empty cells and unlike comparisons. Next: the propensity score lifts the curse.
+:::
+
+::: notes
+To summarize part three. Overlap requires that at every covariate profile there is a positive chance of being treated and of not being treated; without it, a region gets dropped. Overlap plus the Conditional Independence Assumption form strong ignorability. Exact matching implements "find the same X" directly but dies of the curse of dimensionality, because cells grow multiplicatively and the data thin out until nobody has an exact twin. Coarsening to fill cells just trades empty cells for unlike comparisons. In part four, the surprising trick that escapes the trap: the propensity score, and the Rosenbaum–Rubin reduction that collapses a high-dimensional matching problem to a single number.
+:::

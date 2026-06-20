@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Leah's Question, and Residualizing R&D
+
+- Part 3 — set the target, residualize R&D against size
+
+::: notes
+Welcome back to the Frisch–Waugh–Lovell theorem, part three of thirteen. In part two we saw that partialling-out separates the two interfering jobs of a regression. Now we watch it on a tiny dataset of six firms, small enough to do by hand. We meet Leah's honest question, fix our target, and take the first residualizing step.
+:::
+
+## Leah's Honest Question
+
+- Leah studies innovation: does R&D predict patents?
+- Obvious objection: **big firms do everything more**
+- Big firms spend more on R&D *and* file more patents
+- Raw correlation might be measuring nothing but size
+- Honest question is the **partial** one
+- Does R&D predict patents *after netting out firm size*?
+
+::: notes
+Leah studies innovation. She has firm-level data and a hunch she has heard a hundred ways: firms that spend more on research and development produce more patents. But she also knows the obvious objection — big firms do everything more. Big firms spend more on R and D, and they file more patents, simply because they are big. So a raw correlation between R and D and patents might be measuring nothing but size. The honest question is the partial one: does R and D predict patents after netting out firm size? The textbook move is a multiple regression. Let y be patents, x be R and D spending, and z be firm size, measured as log assets. Leah regresses patents on R and D and size with an intercept, and reports the coefficient on R and D as "the effect, controlling for size." F W L claims she can get exactly the same number a completely different way.
+:::
+
+## Target, Then Residualize the Regressor
+
+- Six firms; full regression gives $\hat{\beta}_1 = 1.838$ — our target
+- **Step 1:** residualize R&D against size and intercept
+- Regress $x$ on $z$, keep residual $\tilde{x}_i = x_i - \hat{x}_i$
+- Slope $a_1 = \operatorname{Cov}(x,z)/\operatorname{Var}(z) = 1.171$
+- $\tilde{x}_i$ = the part of R&D **size cannot explain**
+- Firm-specific R&D intensity, unrelated to mere bigness
+
+::: notes
+First, a target. The full multiple regression of patents on R and D and size, with intercept, gives a coefficient on R and D of one point eight three eight. Keep that number in mind. F W L says we can hit it with two simple regressions and no matrix inversion bigger than a scalar. Step one: residualize the key regressor against everything else. Everything else here is firm size plus the intercept, so regress R and D on size. The slope of R and D on size is the covariance of R and D with size, divided by the variance of size, which works out to one point one seven one. Subtract the fitted values to get the residuals, x tilde. These residuals are the part of R and D that size cannot explain — the firm-specific R and D intensity that has nothing to do with mere bigness. They sum to zero, as residuals from a regression with an intercept always must.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The honest question is **partial**: does R&D predict patents *after netting out size*? We fix the target $\hat{\beta}_1 = 1.838$ from the full regression, then residualize R&D on size to get $\tilde{x}$ — the R&D variation **size cannot explain**. Next: residualize patents too, and watch the punchline land.
+:::
+
+::: notes
+To summarize part three. Leah's honest question is the partial one: does R and D predict patents after netting out firm size? We fixed our target — the coefficient on R and D from the full three-variable regression is one point eight three eight. Then we took the first step: residualize R and D against size and the intercept, giving x tilde, the part of R and D that size cannot explain. In part four we residualize patents the same way, run the simple no-intercept slope of leftover on leftover, and watch the punchline land exactly on one point eight three eight.
+:::

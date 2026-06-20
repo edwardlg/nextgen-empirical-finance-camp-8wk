@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## What Separates a Finding From Noise
+
+- Part 4 — assemble the gauntlet on a real published result
+
+::: notes
+Welcome back to Mentor Session one, part four of four. Over the last three parts we built the gauntlet — gate one, too big to be noise; gate two, big enough to matter; gate three, robust to the search — plus the caution that even a clean pass proves a number real, not causal. In this final part we assemble the whole thing into one picture, then turn it on a real published result so you can see the gauntlet applied to an actual finding.
+:::
+
+## A Finding Clears All Three Gates
+
+- Arrives with a magnitude, an interval, a search history
+- The $\sqrt{N}$ in the denominator does the work
+- Same average, $N=63$ days, gives $t\approx 0.85$
+- Identical edge, opposite verdict — purely from sample size
+- Same machine — estimate minus null, over standard error
+- Runs on a mean today, a slope $\hat\beta$ in Week Two
+
+::: notes
+Let us assemble it. A finding clears all three gates and arrives carrying three things: a magnitude, a confidence interval, and a search history. Notice how tightly the gates connect. Sam's edge gave a t-statistic of one-point-six-nine over two hundred fifty-two days — but take that same daily average over only sixty-three days and the t-statistic falls to about zero-point-eight-five. Identical edge, opposite verdict, purely from sample size. The square root of N sitting in the denominator of the standard error is doing all the work, which is why a result is only ever as convincing as the N beneath it. And here is the unifying idea: the same machine — estimate, minus the null, divided by the standard error — runs on a sample mean today and on a regression slope, beta hat, in Week Two. One ruler, applied everywhere. Learn it once on a mean, and you own it for everything that follows.
+:::
+
+## The Gauntlet on a Real Paper
+
+- Gao, Han, Li & Zhou (2018), *Journal of Financial Economics*
+- "Market Intraday Momentum," $129(2)$, $394$–$414$
+- One impressive t-statistic is **not** enough — many slicings exist
+- Huge $N$: celebrate effect size, not mere significance
+- A weak month: low power makes non-rejection nearly meaningless
+- The honest test: data **not used** to find the pattern
+
+::: notes
+Now turn the gauntlet on a real result — a paper of mine: Gao, Han, Li and Zhou, two thousand eighteen, "Market Intraday Momentum," in the Journal of Financial Economics, volume one hundred twenty-nine, issue two, pages three ninety-four to four fourteen. It studies whether the return over part of the trading day predicts the return over a later part of the same day. Walk it through the gates. Gate three first: you could "discover" such a pattern by slicing the trading day many ways — many windows, many definitions — so one impressive t-statistic is not enough; you would want the per-test threshold to stay trustworthy across the whole search. Gate two: these studies use enormous samples, so "statistically significant" is almost the wrong thing to celebrate — report the effect size and its interval instead. And remember power: in one narrow, turbulent month the sample shrinks, power collapses, and a non-rejection there tells you almost nothing. The most credible move of all is to test the pattern on data not used to find it — a later period, a different market — because the in-sample search inflates the chance of a spurious winner. If the out-of-sample effect is weaker but its interval still excludes zero, you have learned the pattern is real and merely smaller — not that it has vanished.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A **finding** clears all three gates and arrives with a magnitude, an interval, and a search history. The same machine — estimate minus null, over standard error — runs on a mean today and a slope $\hat\beta$ in Week Two. Research is mostly the discipline of *not fooling yourself* — and you are the easiest person to fool. Your job this summer: produce numbers you would defend to a skeptic who tried to break them.
+:::
+
+::: notes
+To close Mentor Session one: a finding clears all three gates and arrives with a magnitude, a confidence interval, and a search history — and the same simple machine, estimate minus the null over the standard error, runs on a mean today and on a regression slope, beta hat, starting in Week Two. The deepest lesson is the quiet one: research is mostly the discipline of not fooling yourself, and you are the easiest person to fool. So here is your job this summer — produce numbers you would defend to a skeptic who actively tried to break them. That standard, held honestly, is the whole craft. Next week we pick up that same ruler and point it at the regression slope, where the real work of identification begins.
+:::

@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Feedback Ledger: Transcribe, Then Sort
+
+- Part 11 — the feedback ledger: transcribe Saturday, sort Sunday
+
+::: notes
+Welcome back to The Talk, the Poster, the Defense, part eleven of twelve. In part ten we worked the poster session and started sending follow-ups. Now it is Saturday evening. You are depleted from performing credibility for nine hours, and you want to sleep. But this is what you do first, and it decides whether the conference produced an outcome or merely an experience. The reveal: conference feedback is a perishable asset. Within twenty-four hours, fifty percent is gone — and the part that decays fastest, the exact framing that made a critique sting, is where the operational signal lived.
+:::
+
+## The Ledger: Transcribe Saturday Night
+
+- A single CSV, one row per piece of feedback, eight columns
+- ID, when, who, **verbatim** — fill these **Saturday evening**
+- Translation, bucket, severity, next step — fill **Sunday**
+- Saturday's pass is pure transcription — quantity, not quality
+- A half-remembered verbatim beats no row
+- Walk the Q&A, the approaches, the poster, your **self-reflections**
+
+::: notes
+Conference feedback is a perishable asset — within twenty-four hours, fifty percent is gone. So the feedback ledger is a single comma-separated file, one row per piece of feedback, with eight columns: an identifier, when, who, the verbatim quote, a translation, a bucket from A through H, a severity, and a next step. The split that makes it survivable: fill the first four columns Saturday evening, and the last four Sunday morning. Saturday's pass is pure transcription — quantity, not quality. A half-remembered verbatim beats no row at all. You walk your memory through the talk's question period, the post-talk approaches, the poster conversations from your pocket notebook, the overheard and indirect comments, and — the part most students skip — your own self-reflections. One student wrote, that evening: I rushed the design slide and skipped the unit-of-variation grid I had practiced; the two questions that followed would not have been asked if it had landed. That row names a delivery failure, connects it to a consequence, and seeds a rehearsal correction. By morning the verbatim column is half noise, so you transcribe tonight and think tomorrow.
+:::
+
+## The Triage: Sort Sunday Morning
+
+- Sunday, rested, fill translation, bucket, and **severity** by rule
+- **Critical**: if the critic is right, the headline doesn't survive
+- **Important**: meaningfully better, but not blocking
+- **Minor**: a sentence, a citation, a paragraph — the polish layer
+- **Courtesy**: relational, no paper-side action
+- The rubric exists to **short-circuit the emotional reaction**
+
+::: notes
+Sunday morning, rested, you fill the last four columns. Translation decodes each row into the language of your paper. Bucket tags it A through H. And severity runs on decision rules, not vibes. Critical: if this critic is right, the headline doesn't survive — a row is Critical if and only if the threat, confirmed, would break the identifying assumption itself. That is rare; most talks produce zero or one. Important: the paper is meaningfully better if you address it, but it is not blocking. Minor: a single sentence, a citation, a paragraph to tighten — the polish layer. And Courtesy: it served a relational, not a paper-improvement, purpose — a thank-you with no paper-side action. The rubric exists precisely to short-circuit the emotional reaction. A healthy distribution is zero to one Critical, four to eight Important, eight to fifteen Minor, and five to ten Courtesy.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Conference feedback is a perishable asset** — fifty percent gone in a day. **Transcribe Saturday night** for pure quantity, then **sort Sunday morning** with severity by rule, not vibes: Critical, Important, Minor, Courtesy. The rubric short-circuits the emotional reaction. Next: why the overnight split matters, plus your deliverables.
+:::
+
+::: notes
+To summarize part eleven: conference feedback is a perishable asset, half of it gone within a day, so the feedback ledger splits its work — fill the first four columns Saturday evening, in pure transcription where a half-remembered verbatim beats no row, walking your memory through the Q&A, the approaches, the poster, and your own self-reflections. Then Sunday morning, rested, you fill the last four columns, sorting severity by decision rule into Critical, Important, Minor, and Courtesy — a rubric that exists to short-circuit the emotional reaction. In part twelve, the final part, we see why that overnight split matters so much, and we lay out your three deliverables.
+:::

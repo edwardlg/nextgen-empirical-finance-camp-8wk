@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## From Sigma to the Heatmap
+
+- Part 10 — rescale $\mathbf{\Sigma}$ to the correlation heatmap; wrap up
+
+::: notes
+Welcome back to Chapter one-point-two, Expectations, Variance, and Covariance as Geometry, part ten of ten — our finale. In part nine we built the covariance matrix Sigma and found it symmetric and positive semidefinite, with the quadratic form w transpose Sigma w giving any portfolio's variance. We almost never know Sigma exactly, though. In practice we estimate it from data and rescale it into the correlation matrix — the heatmap of cosines you will actually plot in the notebook. Then we wrap up the whole chapter and look ahead to the work it sets up.
+:::
+
+## From $\mathbf{\Sigma}$ to the Heatmap
+
+- Estimate $\mathbf{\Sigma}$ from data: the **sample covariance matrix**
+- **Correlation matrix:** rescale so the diagonal is all ones
+- Every off-diagonal entry is a correlation in $[-1,1]$
+- A correlation heatmap is a grid of cosines
+- Hot where assets move together, cool where they move apart
+
+::: notes
+A last practical note for the notebook. We almost never know Sigma exactly; we estimate it from data with the sample covariance matrix, and we usually look at the correlation matrix — Sigma with each entry divided by the product of the relevant standard deviations, so the diagonal is all ones and every off-diagonal entry is a correlation between minus one and one. That rescaled matrix is what a correlation heatmap draws: a grid of cosines, hot where assets move together and cool where they move apart — the most honest one-glance picture of where diversification can and cannot help. Getting comfortable now with Sigma's symmetry, its positive-semidefiniteness, and the quadratic form w transpose Sigma w means Chapter two-point-one will feel like a sequel rather than a fresh shock.
+:::
+
+## Your Turn
+
+- Open notebook one-point-two: covariance matrices and heatmaps
+- Download returns for a handful of assets
+- Build the sample covariance and correlation matrices
+- Draw a correlation heatmap of the cosines
+- Confirm: low-correlation assets lower portfolio volatility
+
+::: notes
+Now it is your turn. Open the notebook for Chapter one-point-two, covariance matrices and correlation heatmaps. You will download returns for a handful of assets, build the sample covariance and correlation matrices, draw a correlation heatmap, and confirm numerically that combining low-correlation assets lowers portfolio volatility — Maya's experiment, but with real data and many assets at once. Three check questions to chew on before you start. First, recompute Maya's expected return and variance for a seventy-thirty split under the opposite-movement scenario, and ask whether the portfolio is still less volatile than asset two alone. Second, if two series have standard deviations zero point one five and zero point zero five, explain why a reported covariance of zero point zero one two must be wrong, and state the largest covariance they could have. Third, give two variables that are uncorrelated but clearly not independent, and name what covariance fails to see.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The correlation matrix rescales $\mathbf{\Sigma}$ to a grid of cosines — the heatmap. The whole chapter: expectation is linear, the variance cross-term drives diversification, and centering makes correlation a cosine bounded by Cauchy–Schwarz. $\mathbf{\Sigma}$ is the object Week 2's matrix OLS inverts.
+:::
+
+::: notes
+To close Chapter one-point-two: expectation is linear and never needs independence, so expected portfolio return is a simple weighted average. Variance and covariance are nonlinear, so the variance of a sum carries a cross-term, twice the covariance — and that single term is where diversification comes from, as Maya's three scenarios showed by pushing volatility below her safest asset. Centering variables turns the algebra into geometry: covariance is an inner product, standard deviation is length, correlation is the cosine of the angle, uncorrelated means perpendicular, and the bound that correlation never exceeds one is Cauchy–Schwarz. Stacking all the pairwise covariances gives the symmetric, positive-semidefinite matrix Sigma, whose quadratic form is any portfolio's variance — and which is the same kind of object that Week Two's matrix regression inverts. Nicely done. This is the algebra the rest of the camp stands on, and Chapter one-point-three will put it to work estimating these quantities from real data.
+:::

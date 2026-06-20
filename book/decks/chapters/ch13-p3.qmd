@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Proving the Sample Mean Unbiased
+
+- Part 3 — proving the sample mean unbiased for any $N$
+
+::: notes
+Welcome back to Chapter one-point-three, part three of eleven. In part two we defined bias as where a recipe sits, on average, across all possible samples. Now we put the sample mean on trial. We prove it is unbiased for any sample size, draw a surprising lesson about data, and then meet a recipe that quietly aims low — and see exactly which assumption makes the proof work.
+:::
+
+## The Sample Mean Is Unbiased
+
+- Assume each claim has $\mathbb{E}[x_i]=\mu$
+- $\mathbb{E}[\bar{x}]=\mathbb{E}\!\left[\tfrac{1}{N}\sum x_i\right]=\tfrac{1}{N}\sum\mathbb{E}[x_i]$
+- $=\tfrac{1}{N}\sum\mu=\tfrac{1}{N}\cdot N\mu=\mu$
+- Holds for *any* $N$ — even $N=3$
+- Unbiasedness has nothing to do with sample size
+
+::: notes
+Let us prove it. Suppose each claim x sub i is drawn from a population with mean mu. Using only that expectation is linear — it passes through sums and constants, which we established in Chapter one-point-two — the expectation of x bar equals the expectation of one over N times the sum of the x sub i. Pull the one over N out front, and it becomes one over N times the sum of the expectations. Each expectation is mu, so we have one over N times the sum of N copies of mu, which is one over N times N mu, which is just mu. The sample mean is unbiased, full stop, for any sample size — even N equals three. That is a strong and slightly surprising fact: unbiasedness has nothing to do with having lots of data. A three-claim average is just as unbiased as a three-million-claim average. What changes with N is something else entirely, the variance, which is the heart of the chapter and comes shortly.
+:::
+
+## A Recipe That Aims Low
+
+- Priya drops the 3 biggest claims "to remove outliers"
+- Losses are right-skewed: a few catastrophes, many small
+- Discarding the right tail lands *below* $\mu$ on average
+- Biased downward — baked into the recipe, not a typo
+- Proof used one thing: $\mathbb{E}[x_i]=\mu$ for every claim
+
+::: notes
+Now contrast with a biased recipe. Suppose Priya, worried about a budget meeting, quietly drops the three biggest claims before averaging, to remove outliers. The recipe now systematically discards the right tail of a distribution that is skewed right — a few catastrophic fires, lots of small claims, the way insurance losses almost always look. Across all possible samples, this recipe lands below mu on average. It is biased downward. That bias is not a mistake she made on Tuesday; it is baked into the recipe and would persist no matter how much data she collected. And here is the deeper lesson. The unbiasedness proof used exactly one thing: that the expectation of every claim equals mu — that all two hundred claims are drawn from the same population whose mean Priya cares about. If her spreadsheet over-represents one high-risk county because that county's broker files more diligently, then the claims are not all draws from the target population, the expectation no longer equals mu, and the proof collapses. The math did not break; the assumption did. Estimators are only as good as the sampling assumption behind them.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The sample mean is unbiased for *any* $N$, even $N=3$ — unbiasedness is not about having lots of data. The proof rests entirely on $\mathbb{E}[x_i]=\mu$: every observation must come from the target population. Break that sampling assumption and the proof collapses. Next: even a true-aiming recipe can be dangerously jumpy.
+:::
+
+::: notes
+To summarize part three: the sample mean is unbiased for any sample size, even three claims, because expectation is linear and every claim has mean mu — unbiasedness has nothing to do with how much data you hold. The whole proof rests on one assumption, that every observation is drawn from the target population. Drop the three biggest claims, or over-sample one county, and the assumption breaks and the proof collapses. The first thing to interrogate when a number looks wrong is whether the data you fed the recipe actually came from the population you meant to study. But aiming true on average is only half the story. In part four we measure how jumpy the recipe is from sample to sample: the variance.
+:::

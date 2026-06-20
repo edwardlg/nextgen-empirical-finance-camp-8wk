@@ -1,0 +1,65 @@
+---
+date: "2026-06-22"
+---
+
+## Four Questions Every Referee Asks
+
+**Learning objectives — by the end you can:**
+
+- Keep p-values honest when running many tests
+- Estimate heterogeneity to find for whom effects are large
+- Identify a mechanism without bad-controls collider bias
+- Judge whether a result transports to another setting
+
+::: notes
+Welcome to Week Four, Chapter four-point-six, part one of nine. This is the robustness lesson, and it sits at the very end of Week Four on purpose, because it applies to every design you just learned: difference-in-differences, regression discontinuity, synthetic control, and shift-share alike. You have a result with a star next to it. The design is honest, the parallel-trends plot is flat, the standard errors are clustered. You think you are done. You are not, because four questions come back every single time you present that number, and this part opens the first of them: did you torture the data until one of your many tests confessed?
+:::
+
+## You Are Not Done Yet
+
+- Honest design, flat pre-trends, clustered errors — still not done
+- Four questions come back **every single time**
+- Did you run **many tests** until one confessed?
+- Is the effect the **same for everyone**?
+- Through **what channel** does it work?
+- Would it **replicate** somewhere, or sometime, else?
+
+::: notes
+Picture presenting your clean coefficient to a room of economists. Four questions come back, and they come back without fail. First, did you run so many tests that one was bound to look significant by luck? Second, is the effect the same for everyone, or are you averaging over something interesting? Third, through what channel does the effect actually work? And fourth, would any of this replicate somewhere else, or in some later year? This chapter compresses what could be a whole unit into four tools, one for each question. Maya, whose staggered difference-in-differences on county-year denial gaps is our running example from Chapter four-point-two, carries us through all four.
+:::
+
+## Multiple Testing: When p Lies
+
+- One headline test: a p-value of 0.05 means what you think
+- Twelve rows, eight columns, twelve placebos $\approx$ thirty tests
+- $\Pr(\text{one false rejection}) = 1-(1-\alpha)^m$
+- $m=5\!: 0.226$; $m=14\!: $ crosses $0.50$; $m=100\!: 0.994$
+- This is the **family-wise error rate**, FWER
+
+::: notes
+Run your headline regression once and a p-value of zero-point-zero-five means what you think it means. But run a heterogeneity table with twelve rows, an outcome table with eight columns, and a battery of twelve placebos, and you have quietly run thirty-some tests. Several of your significant findings are false, and you cannot tell which. Here is the arithmetic. If every null is true and you run m independent tests, each at level alpha equals zero-point-zero-five, the probability of at least one false rejection is one minus the quantity one minus alpha, raised to the m. For m equals five that is zero-point-two-two-six. At m equals fourteen it crosses one-half. At m equals one hundred it is zero-point-nine-nine-four — you are essentially guaranteed a spurious discovery. That probability is called the family-wise error rate, or FWER: the chance that any test in your family is a false positive.
+:::
+
+## Bonferroni and Holm
+
+- **Bonferroni:** declare significant only if raw p $< \alpha/m$
+- Proof is the union bound — needs **no** dependence assumption
+- Its strength and weakness: assumes the worst case
+- **Holm (1979):** sort p ascending, compare to $\alpha/m,\ \alpha/(m{-}1),\dots$
+- Stop at first non-rejection; threshold loosens as you go
+- Holm rejects everything Bonferroni does, sometimes more
+
+::: notes
+The fixes redefine what significant means once you are in a family. Bonferroni is the blunt, oldest tool: to hold the family-wise error rate at alpha across m tests, declare each significant only if its raw p is below alpha divided by m. The one-line proof is the union bound, and it needs no assumption at all about how the tests depend on each other. That is both its superpower and its weakness — it must assume the worst case, so it is needlessly conservative when tests are correlated. Holm, from nineteen seventy-nine, is Bonferroni's strictly better sequential cousin. Sort the p-values ascending. Compare the smallest to alpha over m, the next to alpha over m minus one, and so on, stopping at the first non-rejection. Once you reject a few, the remaining family is smaller, so the threshold loosens. Holm rejects everything Bonferroni does and sometimes more, at the same guarantee. There is never a reason to prefer Bonferroni, except that referees recognize the name.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Running many tests inflates the chance of a false "discovery": with one hundred tests at five percent you are almost guaranteed one. The **family-wise error rate** is what Bonferroni and Holm control — Holm strictly dominates Bonferroni. Next: the false-discovery rate, Romano–Wolf, and the decision tree.
+:::
+
+::: notes
+To summarize part one: running many tests inflates the chance of a false discovery, and with one hundred tests at five percent you are almost guaranteed one. The family-wise error rate measures that chance, and Bonferroni and Holm both control it, with Holm strictly dominating Bonferroni. In part two we meet a different philosophy — the false-discovery rate, from Benjamini and Hochberg — plus the tool a sharp discussant will name, Romano and Wolf, and the small decision tree that tells you which correction to reach for.
+:::

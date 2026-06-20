@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Responsible Use: Disclose, Reproduce, Avoid Leakage
+
+- Part 9 — disclose, reproduce, and guard two leakage traps
+
+::: notes
+Welcome back to when the data is words, part nine of ten. In part eight we finished validating LLM labels with kappa. Now the rules that keep the work honest. The AI co-pilot is allowed in your Week Seven and Eight capstone — encouraged, even — but under rules that keep your work honest, reproducible, and legal. This checklist is binding for the capstone and is the standard a mentor will hold your draft to. This part covers disclosure, reproducibility, and the two leakage traps; the final part covers data governance.
+:::
+
+## Disclose the Assistance
+
+- A short **AI-use statement** in your capstone
+- Name every place a model touched the work
+- Which tasks, which model and version, what **you** did to verify
+- A reader should tell what the model did — and trust you checked
+- Using AI is fine; **hiding** it is the violation
+
+::: notes
+First, disclose the assistance. In a short AI-use statement in your capstone, name every place a language model touched the work: which tasks — brainstorming, code drafting, text classification, prose editing — which model and version, and what you did to verify its output. The rule of thumb: a reader should be able to tell what the model did and trust that you checked it. Using AI is not the violation; hiding it, or reporting unverified model output as your own verified finding, is. Transparency is the price of using a powerful, opaque instrument, and it costs you nothing if your work is honest.
+:::
+
+## Make API Work Reproducible
+
+- An LLM is **stochastic** — same prompt, different text
+- **Log every call:** prompt, response, model, temperature, seed
+- **Pin the model version** — the dated deployment, not "latest"
+- Set **temperature zero** for classification and extraction
+- **Save** the prompts, the gold set, and the eval script in the repo
+
+::: notes
+Second, make API-based work reproducible. An LLM is a stochastic instrument — the same prompt can return different text on two runs — so reproducibility takes extra care beyond pinning library versions. Log every call: timestamp, the exact prompt, the full response, and the parameters — model, temperature, top-p, max tokens, and seed if the API supports one — to a file you keep with the project. Pin the model version explicitly, the dated deployment, not a floating alias like latest, because providers update models silently and your numbers can move under you. Set temperature to zero for classification and extraction to make outputs as deterministic as the API allows, and record that you did. Save the prompts as versioned files the same way you version code, and save the gold set and the eval script so anyone can re-run your precision, recall, and kappa.
+:::
+
+## Two Leakage Traps
+
+- **Look-ahead bias:** a feature for time t using post-t information
+- The part-six code-review prompt catches it — run it
+- **Training-data leakage** is unique to LLMs
+- Ask it to "predict" 2019 and it may simply **remember** 2019
+- State the training cutoff; keep targets **after** it, or extract text only
+
+::: notes
+Third, heed the look-ahead and leakage warning — two distinct traps, both fatal. Look-ahead bias lives in your own pipeline: never let a feature for time t use information that did not exist until after t. The code-review prompt from part six is built to catch this; run it. Training-data leakage is unique to language models: the model was trained on text up to some cutoff, so if you ask it to predict twenty-nineteen outcomes, it may simply remember them from its training data rather than infer them, and your out-of-sample test is contaminated. State your model's training cutoff and make sure your prediction targets fall after it — or treat the model as a feature-extractor on text only, never as a forecaster of outcomes it could have memorized.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Disclose** every place a model touched the work; **reproduce** it by logging calls, pinning the version, and saving prompts. Guard two leakage traps — look-ahead in your pipeline, and a model that **remembers** rather than predicts. Next: the data-governance rule with legal teeth.
+:::
+
+::: notes
+To summarize part nine: three of the five checklist rules. Disclose the assistance in an AI-use statement naming the tasks, the model and version, and your verification — hiding AI is the violation, not using it. Make API work reproducible: log every call with its parameters, pin the dated model version, set temperature to zero for labeling, and save your prompts, gold set, and eval script. And guard two leakage traps — look-ahead bias, where a feature peeks past its own timestamp, caught by the code-review prompt; and training-data leakage, where a model remembers an outcome instead of predicting it, defeated by keeping targets after the training cutoff. In part ten, the final part, we cover the data-governance rule that carries actual legal weight, and we close the week.
+:::

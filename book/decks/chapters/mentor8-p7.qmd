@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Alternative That Steals Your Interpretation
+
+- Part 7 — the alternative that steals interpretation; begin your brief
+
+::: notes
+Welcome back to Mentor Session Eight, defending a result, part seven of eight. In part six we defended the disclosure result against selection — the deadliest attack — and learned to claim a robust association rather than a clean causal sweep. Now the most subtle attack of all: the alternative explanation that grants your number and steals your interpretation. Then we begin the thing this whole session pointed at — writing your own defense brief.
+:::
+
+## "It's Not Politics — It's Risk Tolerance"
+
+- At R&R, a referee offers a rival story
+- "Conservative executives are simply more **risk-averse**"
+- More dangerous than robustness: it **grants your number**
+- It steals the *interpretation*, not the estimate
+- The hardest thing to win back
+
+::: notes
+Step into the authors' shoes at the revise-and-resubmit stage — exactly the R-and-R memo of Chapter eight-point-four, now imagined for a real journal. A referee raises the selection concern from before, and adds an alternative explanation: this isn't about politics at all — it's about risk tolerance. Conservative-leaning executives are simply more risk-averse, and risk-averse managers disclose differently. You've relabeled risk aversion as politics. Why is that alternative-explanation attack more dangerous than a pure robustness complaint, even though it doesn't attack the design directly? Because it grants your number and steals your interpretation. The referee isn't saying your estimate is wrong; they are saying it means something other than what you claim. And interpretation, once stolen, is the hardest thing to win back — a moved number you can re-estimate, but a re-labeled mechanism you must out-argue with evidence.
+:::
+
+## The Shape of a Convincing Answer
+
+- Don't deny the rival — find where stories **predict differently**
+- A setting where the two traits point opposite ways
+- Or a measure that moves one trait without the other
+- Let the **data choose** between them
+- State the residual plainly — it belongs in **limitations**, not buried
+
+::: notes
+Describe the shape of a convincing answer, using today's rule: find a place where it's politics and it's just risk aversion make different predictions, and let the data choose. What test splits those two stories? A setting where the two traits point in opposite directions — politics predicting one thing, risk aversion the reverse — or a measure that moves one trait without the other. Wherever predictions diverge, the data votes, and you show it siding with you. Then tie it to honesty. A referee will never be fully satisfied that politics, risk aversion, and a dozen correlated traits are perfectly disentangled. Does that residual belong buried, or stated plainly in the limitations? Stated plainly. The author who writes here is the trait I still can't fully separate gets believed more than the one who claims a clean sweep.
+:::
+
+## Begin Your Defense Brief
+
+- Open your **Ch 7.5 threats table**, Ch 8.2 robustness, Ch 8.5 packet
+- Anticipate the **three hardest questions** about your result
+- Phrase each as a hostile, intelligent reader truly would
+- **Classify**: identification, robustness, or alternative
+- The classification decides **how hard you fight**
+
+::: notes
+Now begin your defense brief for your own capstone. Open your Chapter seven-point-five threats-and-responses table, your robustness results from Chapter eight-point-two, and your one-click packet from Chapter eight-point-five. Then do the thing this session pointed at: anticipate the three hardest questions a referee will ask about your result. For each, start with the question itself, phrased the way a hostile, intelligent reader would actually say it — the real one, the one you hope nobody asks. Then classify it: identification, fatal if lost; robustness, a number that might move; or an alternative explanation, someone stealing your interpretation. The classification decides how hard you fight — an identification threat earns your scarce composure, a robustness one a specification curve, an alternative a different-predictions test. In part eight we finish the brief — the four-beat answers, the retreat position — and say the two sentences that end the camp.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The alternative explanation is the subtlest attack — it **grants your number and steals your interpretation**. Beat it by finding where the two stories **predict differently** and letting the data choose, then state the residual plainly in limitations. Begin your defense brief: three hardest questions, each **named by family**. Next: finishing the brief and closing the arc.
+:::
+
+::: notes
+To summarize part seven: the alternative explanation is the subtlest attack, because it grants your number and steals your interpretation — the one thing you can't re-estimate your way out of. You beat it not by denying the rival story but by finding where your story and theirs make different predictions, then letting the data choose; and you state the residual you can't fully disentangle plainly in the limitations, because the author who shows the seam gets believed more. Then you begin your defense brief: open your threats table, robustness results, and packet, write your three hardest questions as a hostile reader would phrase them, and classify each by family, because that decides how hard you fight. In part eight we finish the brief with the four-beat answers and the retreat position, and close the eight-week arc with two sentences.
+:::

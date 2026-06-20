@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Reproducibility Is the Credibility
+
+- Part 11 — why reproducibility is the form credibility takes
+
+::: notes
+Welcome back to The Eight-Minute Presentation and the Replication Packet, part eleven of twelve. In part ten we finished the packet with the fixed seed and the run-all entry point. Now we step back and state the thesis of the whole chapter as bluntly as it deserves, because it is the habit the entire camp was built to install. It also connects the two halves of the chapter — the talk and the packet — into a single posture.
+:::
+
+## A Claim About a Result Is Not a Result
+
+- A result a stranger can't reconstruct is a *claim* about a result
+- The reviewer who types `make all` has *checked* you
+- No eloquence on a slide substitutes for that
+- The packet is your credibility's form after you stop talking
+- It is not paperwork bolted on at the end
+
+::: notes
+State the thesis as bluntly as it deserves. A result a stranger cannot reconstruct is not yet a result — it is a claim about a result. The reviewer who clones your repository, types make all, and watches your one-point-eight-percentage-point estimate emerge from raw H-M-D-A data, through your seeded code, into a compiled P-D-F has checked your work in a way no amount of eloquence on a slide could substitute for. That is why the packet is not paperwork bolted on at the end; it is the literal form your credibility takes once you stop talking and the skeptic is alone with your folder. Everything across the camp — the estimator with its standard error, the design you can defend, the pre-analysis plan, the identification memo — was building toward a claim someone else could check. The packet is where "could check" becomes "did check." A number nobody has reconstructed is a promissory note; the packet is what makes it money.
+:::
+
+## Invite Verification, Don't Ask for Trust
+
+- The two halves of the chapter meet here
+- Hostile question? "The exact code is in the packet — clone it"
+- You are not asking to be believed — you are inviting verification
+- The opposite posture: someone with nothing to hide
+- "Trust me" and "here's the command that checks me" land differently
+
+::: notes
+This connects the two halves of the chapter. In the question period, the most powerful thing you can say to a hostile question about a number is: "the exact code that produces that number is in the packet — clone it and you'll get the same figure, seed and all." You are not asking to be believed; you are inviting verification, which is the opposite posture, and it is the posture of someone with nothing to hide. A talk that ends with "trust me" and a talk that ends with "here's the one command that checks me" are received completely differently by a serious audience, and the difference is the entire game. The packet lets you be the second kind of speaker. The seam should be visible by design — the same logic as the pre-analysis-plan tag from Chapter seven-point-three: a referee trusts you more when the work is open to inspection, not less, because the openness is itself evidence that you believe what you found. Hiding the seams reads as fear; showing them reads as confidence, and it is confidence you have earned.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**A result a stranger cannot reconstruct is only a *claim* about a result.** The packet is the form your credibility takes once you stop talking — so the strongest answer to a hostile question is *"clone it and you'll get the same figure, seed and all."* You *invite verification* instead of asking for trust, and a serious audience trusts you *more* for it, not less. Next: the arc the eight weeks walked, and the sentence the camp was for.
+:::
+
+::: notes
+To summarize part eleven: the thesis of the whole chapter is that a result a stranger cannot reconstruct is not yet a result, only a claim about one — so the packet is the literal form your credibility takes once you stop talking and the skeptic is alone with your folder. This joins the two halves of the chapter into one posture: the strongest answer to a hostile question about a number is to invite verification — clone the packet and get the same figure, seed and all — rather than to ask to be believed. That is the posture of someone with nothing to hide, and a serious audience trusts the open work more, not less, exactly as the pre-analysis-plan tag earns trust by making the seam visible. In part twelve we close the camp: the arc the eight weeks walked, and the one sentence the whole camp existed to let you say.
+:::

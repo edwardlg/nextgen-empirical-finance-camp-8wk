@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Fix: Local Linear Regression
+
+- Part 9 — the fix: local linear regression with a triangular kernel
+
+::: notes
+Welcome back to regression discontinuity, part nine of seventeen. In part eight we saw the global-polynomial trap. Now the fix: local polynomial estimation, whose workhorse is local linear regression on a narrow window around the cutoff, weighted by a triangular kernel.
+:::
+
+## The Recipe
+
+- Throw away data far from $c$; fit low-order *within a window*
+- Keep observations with $|X_i - c| \leq h$ — bandwidth $h$
+- Fit a separate straight line on each side of $c$
+- Weight by a **triangular kernel**: weight one at $c$, zero at the edge
+- The estimated jump is the gap between the two lines *at* $c$
+
+::: notes
+The fix is local polynomial estimation, and the recommended workhorse is local linear regression. The idea is to throw away the data far from the cutoff and fit a simple, low-order — usually linear — model only within a window of width h, the bandwidth, on each side of c. Step one: keep only observations whose distance from the cutoff, the absolute value of X-sub-i minus c, is less than or equal to h. Step two: fit a separate straight line to the outcome on each side of the cutoff — equivalently, one regression of Y on D, on X minus c, and their interaction. Step three: weight observations by a kernel that gives points near c more weight than points near the edge — a triangular kernel, which declines linearly from weight one at the cutoff to weight zero at the window edge, is standard and theoretically near-optimal for boundary estimation. Step four: the estimated jump is the gap between the two fitted lines at c, which is the coefficient on D.
+:::
+
+## Why a Line Works Locally
+
+- A line is a good local approximation to any smooth curve
+- It is just the first-order Taylor expansion from calculus
+- No wild extrapolation, unlike a high-order polynomial
+- Go local *quadratic* only with lots of data
+- The consensus: **stay local, stay low-order**
+
+::: notes
+Why does a line suffice? A line is a good local approximation to almost any smooth curve over a short enough interval — it is just the first-order Taylor expansion you know from calculus. So within a narrow window the linear fit captures the trend faithfully without the wild extrapolation a high-order polynomial commits. You can go to local quadratic if you have a lot of data and want to reduce bias from curvature, but the field's consensus, following Gelman and Imbens, is: stay local, stay low-order. Local linear with a good bandwidth and a triangular kernel is the default for a reason. The contrast is the whole lesson: a global quartic lets distant data corrupt the boundary; a local line trusts only the neighbors that actually resemble the marginal units.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The fix is **local linear regression**: keep only $|X_i-c|\leq h$, fit a straight line on each side, weight by a **triangular kernel** peaking at $c$, and the jump is the gap between the two lines at $c$. A line is the first-order Taylor approximation — faithful locally, no wild extrapolation. Next: choosing $h$ — the bias–variance trade-off.
+:::
+
+::: notes
+To summarize part nine: the fix for the global-polynomial trap is local linear regression. Keep only the observations within a window of width h around the cutoff, fit a separate straight line on each side, weight observations by a triangular kernel that peaks at the cutoff and falls to zero at the window edge, and read the jump off the coefficient on the treatment dummy. A line works because it is the first-order Taylor approximation — faithful over a short interval, with none of the wild extrapolation a high-order polynomial commits. Stay local, stay low-order. In part ten we tackle the single most consequential choice in an R-D analysis — the bandwidth h — and the bias–variance trade-off that governs it.
+:::

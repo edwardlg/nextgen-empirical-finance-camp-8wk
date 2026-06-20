@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## When Is a Liability Not a Liability?
+
+**Learning objectives** — by the end you can:
+
+- Explain why general dictionaries mismeasure financial tone
+- Score a 10-K with the bag-of-words method
+- Validate a finance dictionary against market reactions
+- Name what counting words cannot capture
+
+::: notes
+Welcome to Week Six, Chapter six-point-three, part one of twelve. For five weeks you have turned numbers into evidence. This week the raw material itself changes — from columns of returns to fifty thousand words of corporate prose. Today's paper, Loughran and McDonald, two thousand eleven, in the Journal of Finance, taught the field how not to score that prose with the most popular tool of its era. In this opening part we meet the raw material and the trick the paper reveals.
+:::
+
+## The Raw Material Changes
+
+- A 10-K is roughly fifty thousand words of prose
+- Holds information the income statement omits
+- Worry, litigation, uncertainty — in management's own words
+- **Text-as-data:** turn prose into a regression column
+- Today's paper: how *not* to do it
+
+::: notes
+Start with what a ten-K is. It is a firm's annual report filed with regulators — roughly fifty thousand words of prose. Buried in there is information the income statement simply does not carry: how worried management is, how much litigation looms, how uncertain the future looks to the people who know the firm best. Text-as-data is the project of turning that prose into a column of numbers you can drop into a regression. The question is how. And the paper you read today is famous for showing how not to do it, using the most popular text-scoring tool of its time. Read it that way from the start.
+:::
+
+## The Trick It Reveals
+
+- The 2011 standard scored "negativity" with a general dictionary
+- Built for novels, newspapers, psychology experiments
+- Point it at a 10-K: most "negative" words are not
+- "Liability," "tax," "cost," "depreciation," "capital"
+- To a balance sheet, these are **Tuesday**
+
+::: notes
+Here is the trick the paper reveals, in one breath. The standard way of scoring text for negativity in two thousand eleven used a dictionary built for novels, newspapers, and psychology experiments. Point that dictionary at a ten-K and most of the words it flags as negative are not negative at all. They are the ordinary vocabulary of accounting. Liability, tax, cost, depreciation, capital, crude — to a general-English sentiment dictionary these are dark, gloomy words. To a balance sheet they are Tuesday. Loughran and McDonald showed this is not a quibble. It is a measurement error large enough to change what you conclude about whether the tone of a filing predicts anything. Then they did the constructive thing: they built a finance-specific dictionary, put it in the public domain, and watched it become the field standard.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A 10-K is fifty thousand words of prose holding information the income statement omits. **Text-as-data** turns that prose into a regression column — but the 2011 standard scored "negativity" with a general-English dictionary that mislabels accounting words like "liability" and "tax." Next: why this is a *measurement* paper, and the research question.
+:::
+
+::: notes
+To summarize part one. A ten-K is fifty thousand words of prose that holds information the income statement leaves out — worry, litigation, uncertainty. Text-as-data turns that prose into a number you can regress. But the standard tool of two thousand eleven, a general-English sentiment dictionary, mislabels the ordinary vocabulary of accounting as negative. In part two we name the genre — a measurement paper — and state the research question precisely, anchored on the riddle in the title.
+:::

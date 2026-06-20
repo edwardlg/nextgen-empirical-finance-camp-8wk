@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Fundamental Problem of Causal Inference
+
+- Part 3 — why individual effects can never be observed
+
+::: notes
+Welcome back to potential outcomes, part three of eleven. In part two we defined two potential outcomes for each person and the individual treatment effect, the difference between them. Now the bad news, and the escape route. We meet the Fundamental Problem of Causal Inference, which says individual effects can never be observed, and then see why averages over a population offer a way forward.
+:::
+
+## We Can Never See Both Worlds
+
+- Effect $\tau_i = Y_i(1) - Y_i(0)$; the switch reveals only one term
+- If she enrolled, we see $Y_i(1)$; $Y_i(0)$ never happens
+- If she did not, we see $Y_i(0)$; $Y_i(1)$ never happens
+- The unseen one is the **missing counterfactual**
+- Unobservable *in principle* — not for lack of data
+
+::: notes
+Put the individual effect and the observation rule side by side. The effect tau-sub-i is Y-sub-i-of-one minus Y-sub-i-of-zero. But the switch D-sub-i takes exactly one value. If she enrolled, we observe Y-sub-i-of-one, and the world where she did not enroll never happens — we do not get to see Y-sub-i-of-zero. If she did not enroll, we observe Y-sub-i-of-zero, and the treated world never happens. We can never observe both potential outcomes for the same unit. The unseen one is the missing counterfactual — a road not taken. The individual effect tau-sub-i is a perfectly well-defined number, yet it is unobservable in principle — not because our instruments are crude or our sample is small, but because reality only runs one of the two worlds. No amount of data on person i, not a billion observations, not a perfect measurement, will ever reveal it. The counterfactual leaves no trace.
+:::
+
+## A Missing-Data Problem — and the Escape
+
+- **The Fundamental Problem:** $\tau_i$ is never computable for any single unit
+- Named by the statistician Paul Holland in 1986
+- Causal inference is, irreducibly, a **missing-data problem**
+- The escape: stop asking about individuals, ask about a **population**
+- The Problem kills individual effects — *not* average effects
+
+::: notes
+This is the Fundamental Problem of Causal Inference, and the name is due to the statistician Paul Holland in nineteen eighty-six. It deserves a box, because the rest of the camp is a hundred different attempts to wriggle around it. For each unit, we observe at most one of the two potential outcomes, whichever the treatment selected; the other is the missing counterfactual. Therefore the individual treatment effect can never be computed from data for any single unit. Causal inference is, irreducibly, a missing-data problem. It is worth sitting with how strange this is. The individual effect is a difference of two real features of unit i — nothing fuzzy or probabilistic about it — and yet it is unobservable in principle, because the data can only ever come from the world that actually happened. So we are stuck, at the individual level. But here is the escape the rest of the chapter develops: stop asking about individuals and start asking about averages over a population. We cannot recover any single tau-sub-i, but with the right design we can recover the average of the tau-sub-i's across many people. The Fundamental Problem says individual effects are gone forever. It does not say average effects are. That distinction is the whole ballgame.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **Fundamental Problem of Causal Inference** (Holland, 1986): we observe at most one potential outcome per unit, so $\tau_i$ is never computable individually — causal inference is a **missing-data problem**. The escape: give up on individuals and target *population averages*. Next: which average — ATE, ATT, or LATE?
+:::
+
+::: notes
+To summarize part three: the Fundamental Problem of Causal Inference, named by Paul Holland in nineteen eighty-six, says we observe at most one potential outcome per unit, so the individual effect can never be computed — causal inference is a missing-data problem. The counterfactual leaves no trace, and no amount of data fixes it. The escape is to give up on individuals and target population averages instead. In part four we ask the crucial follow-up: which average? We name the three estimands that carry the entire week — the ATE, the ATT, and a first look at the LATE.
+:::

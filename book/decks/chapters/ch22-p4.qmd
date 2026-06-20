@@ -1,0 +1,69 @@
+---
+date: "2026-06-22"
+---
+
+## Unbiasedness: The Recipe Aims at the Truth
+
+- Part 4 — proving OLS is unbiased in a few lines
+
+::: notes
+Welcome back to Gauss–Markov, part four of eight. In part three we finished the five-clause contract and saw the ladder: one through three buy unbiasedness. Now we earn that first rung. We prove that O-L-S is unbiased in just a few lines — the same move we used for the sample mean in Chapter one-point-three — and the star ingredient will be assumption three.
+:::
+
+## The Standard, and the Setup
+
+- **Unbiased:** $\mathbb{E}[\hat{\boldsymbol{\beta}}] = \boldsymbol{\beta}$
+- Same standard we set for the sample mean in Chapter 1.3
+- Substitute the true model into the OLS formula:
+- $\hat{\boldsymbol{\beta}} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'(\mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon})$
+- This step connects the estimate to the truth it chases
+
+::: notes
+Recall the standard from Chapter one-point-three. An estimator is unbiased if its expected value — its center across all possible samples — equals the truth: the expectation of beta hat equals beta. For the sample mean we proved this in three lines. We now do the exact same move for O-L-S. Start from the formula — beta hat equals the inverse of X-transpose-X times X-transpose y — and substitute in the true model, y equals X beta plus epsilon. That gives beta hat equals the inverse of X-transpose-X, times X-transpose, times the quantity X beta plus epsilon. This substitution is the step that connects the estimate to the truth it is chasing.
+:::
+
+## The Contamination Identity
+
+- Distribute; the first piece collapses since $(\mathbf{X}'\mathbf{X})^{-1}(\mathbf{X}'\mathbf{X}) = \mathbf{I}$
+- $\hat{\boldsymbol{\beta}} = \boldsymbol{\beta} + (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\boldsymbol{\varepsilon}$
+- **Truth plus a contamination term**
+- Whole question: does that second term average to zero?
+
+::: notes
+Distribute the multiplication across the sum. The first piece collapses beautifully, because the inverse of X-transpose-X times X-transpose-X is the identity matrix — a matrix times its own inverse is the do-nothing matrix. So we land on the most revealing equation in the chapter: beta hat equals beta plus the inverse of X-transpose-X, times X-transpose, times epsilon. In words: the estimate equals the truth plus a contamination term. The whole question of whether O-L-S aims true reduces to whether that second term averages to zero. The estimation error is a known matrix — the inverse of X-transpose-X times X-transpose — multiplying the unknowable error vector epsilon. Pause here, because everything in the chapter pivots on this one line.
+:::
+
+## Take the Conditional Expectation
+
+- Condition on $\mathbf{X}$: the matrix becomes a constant, pull it out
+- $\mathbb{E}[\hat{\boldsymbol{\beta}}\mid\mathbf{X}] = \boldsymbol{\beta} + (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\,\mathbb{E}[\boldsymbol{\varepsilon}\mid\mathbf{X}]$
+- Assumption 3 makes that last factor $\mathbf{0}$ — so it equals $\boldsymbol{\beta}$
+- By total expectation, the unconditional center is $\boldsymbol{\beta}$ too
+- **OLS is unbiased.** Maya's recipe aims true
+
+::: notes
+Now take the conditional expectation given X. Conditioning lets us treat the matrix as a constant — once we fix the regressors, the only thing still random is the error — so we pull it outside the expectation, exactly the way we pulled one-over-N out of the expectation of x-bar. That leaves beta hat's conditional expectation equal to beta plus that matrix times the expectation of epsilon given X. And there it is: by assumption three, the expectation of epsilon given X is zero, so the contamination term vanishes and the conditional expectation equals beta exactly. By the law of total expectation, the unconditional center is the same. O-L-S is unbiased. Maya's recipe aims at the true beta one.
+:::
+
+## Three Echoes of Chapter 1.3
+
+- The proof used **exactly one** assumption — number 3
+- Homoskedasticity and normality played **no role**
+- Unbiasedness has **nothing to do with sample size**
+- Fails when Assumption 3 fails — at a visible spot
+- That leftover term *is* the omitted-variable bias formula
+
+::: notes
+Three things to notice, each an echo of Chapter one-point-three. First, the proof used exactly one assumption — number three. Homoskedasticity and normality played no role whatsoever. Unbiasedness is cheap: it doesn't care whether errors are heteroskedastic or non-normal — which is why heteroskedasticity leaves beta hat unbiased and only damages the standard errors. Second, unbiasedness has nothing to do with sample size — O-L-S is unbiased at N equals five and at five million, provided assumption three holds. Third, when assumption three fails, the proof collapses at a visible spot: the expectation of epsilon given X is no longer zero, the contamination term survives, and that leftover term is exactly the omitted-variable bias formula. The math didn't break; the assumption did.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The contamination identity $\hat{\boldsymbol{\beta}} = \boldsymbol{\beta} + (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\boldsymbol{\varepsilon}$ says the estimate equals **truth plus error**. Assumption 3 kills the error term in expectation, so **OLS is unbiased** — using only assumption 3, at any sample size. Next: how tight are the arrows?
+:::
+
+::: notes
+To summarize part four: substituting the true model into the O-L-S formula gives the contamination identity — beta hat equals beta plus the inverse of X-transpose-X times X-transpose times epsilon. Taking the conditional expectation, assumption three sends the contamination term to zero, so O-L-S is unbiased. The proof leaned on assumption three alone, ignored sample size entirely, and breaks at a visible spot that becomes the omitted-variable bias formula. We've centered the archer on the bullseye. In part five we ask the second question: how tightly are the arrows clustered? That's the variance of O-L-S.
+:::

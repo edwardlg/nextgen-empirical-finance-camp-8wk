@@ -1,0 +1,60 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Five-Year Research Identity
+
+- Part 9 — the five-year research identity and sustaining practices
+
+::: notes
+Welcome back to Chapter eight-point-seven, part nine of nine — the last segment of the camp. In part eight we learned to absorb rejection and handle the revise-and-resubmit. Now step back from the single paper. The reviewer wait, the desk-reject, the R&R, and the eventual acceptance are not events that happen to your paper; they happen to you, and what makes you a researcher five years from now is how you respond to them. A paper is a single artifact; a research identity is a multi-year posture toward silence and rejection. The camp has been training that posture all summer; here it assembles into a sustained practice.
+:::
+
+## Six Sustaining Practices
+
+- **Read three papers a week** — about 750 over five years
+- **Write 30 minutes a day** — routine, not inspiration, before email
+- **Present at one conference a year**, minimum
+- **Maintain the portfolio** — late revision, early circulation, an idea
+- **Build relationships** — the discussant of 2027 referees in 2031
+- **Keep a research journal** — remember why you cared
+
+::: notes
+Six practices sustain the long work. Read three papers a week — depth, not volume; about seven hundred fifty over five years, the substrate of a career. Write thirty minutes a day — routine, not inspiration, before email. Present at one conference a year, minimum — the feedback engine. Maintain the portfolio — one paper in late revision, one in early circulation, one as an idea, so no single project carries the load. Build relationships, because academic finance is small — the discussant of twenty-twenty-seven is the referee of twenty-thirty-one. And keep a research journal, so you still remember why you cared. And cultivate the mentor past Week Eight: a light-touch email twice a year, in October and April, keeps the thread that recommendation letters and your first job will hang on.
+:::
+
+## The Five-Year Question
+
+- *What do you want to be working on in five years?*
+- A **substantive area**, a **methodological identity**, a **venue identity**
+- Maya's: consumer-credit access, applied microeconometrics, finance journals
+- The answer can change every six months — but have one **today**
+- Articulating the plan is what **creates** the identity
+
+::: notes
+Ask the five-year question Prof. Gao asks in the final lab: what do you want to be working on in five years — a substantive area, a methodological identity, a venue identity? The answer can change every six months, but have one today. Maya's, in June twenty-twenty-six: consumer-credit access, applied-microeconometric methods, and finance and economics journals. Five years on she may want insurance markets, or crypto, or something unnamed — and that is fine. Articulating the plan is what creates the identity; the specifics evolve. The point is not to lock a career, but to have a direction you can name and revise.
+:::
+
+## What the Eight Weeks Walked
+
+- A number became a **number-with-uncertainty**
+- "We control for X" became a **claim**, not a spell
+- Claims became **designs** you can defend sentence by sentence
+- You made it **robust**, peer-reviewed, defended, packaged
+- Now **submitted, posted**, and pointed down the long arc
+
+::: notes
+Look at where Week One started — a series of returns and a mean of about eight percent — and trace what the eight weeks walked. A number became a number-with-uncertainty; "we control for X" became a claim, not a spell; claims became designs you can defend sentence by sentence; you made an idea yours, pre-registered it, built it without look-ahead, and named every threat; and in Week Eight you made it robust, peer-reviewed, defended in eight minutes, and packaged so a stranger can rebuild it with one command — and now submitted, posted, and pointed down the long arc. What you have is not "the average return was eight percent." It is a question nobody had cleanly answered, attacked with a defensible design, estimated with honest uncertainty, reproducible by one command, and now out in the world — an original empirical paper, the first move in a portfolio.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A research identity is a **multi-year posture** toward silence and rejection. Sustain it with **six practices** — read, write, present, portfolio, relationships, journal — and answer the **five-year question** today. The eight weeks turned a number into a published claim. The book ends here; the career begins. **Go submit.**
+:::
+
+::: notes
+To close the camp: the wait, the desk-reject, and the revise-and-resubmit happen to you, not just your paper, and a research identity is a multi-year posture toward the silence and the rejection. Sustain it with six practices — read three papers a week, write thirty minutes a day, present once a year, keep a portfolio, build relationships, and keep a research journal — and answer the five-year question today, knowing it can change. Over eight weeks a number became a number-with-uncertainty, then a defensible design, then a robust, peer-reviewed, reproducible paper, now submitted and posted. The camp does not require that you become an academic; the experience of having done the work, question to submission, is yours regardless. The book ends here. The research career begins. Both are good things. Go submit.
+:::

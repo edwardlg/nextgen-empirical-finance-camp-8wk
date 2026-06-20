@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Fragile Curve and the Reading Rule
+
+- Part 6 — Sam's fragile curve and the four-point reading rule
+
+::: notes
+Welcome back to Execution and the Specification Curve, part six of ten. In part five we read Maya's robust curve. Now we look at its terrifying opposite, Sam's momentum anomaly, and then distill everything into a four-point rule for reading any curve.
+:::
+
+## The Curve That Should Terrify You
+
+- Sam's momentum sort: 200-plus defensible forks
+- Curve sweeps from significant *negative* to significant *positive*
+- Bottom panel: every positive spec shares one choice
+- "Include microcaps, equal-weighted"
+- The anomaly is a weighting artifact, not a feature of returns
+
+::: notes
+Now contrast the picture that should terrify you, and would have, had Sam built a curve for his momentum anomaly. Sam asks whether past-twelve-month winners outperform losers next month — a portfolio sort with a long menu of defensible forks: the formation window, the holding period, value- versus equal-weighting, NYSE versus all-stock breakpoints, including or excluding microcaps, the sample period. Those forks easily multiply past two hundred specifications. Suppose his curve sweeps from a significantly negative long-short return on the left, through a band of insignificant near-zero estimates in the middle, up to a significantly positive return on the right — and the bottom panel reveals that every significantly positive specification shares one choice: include microcaps, equal-weighted. Reading downward tells the whole story in one glance: the anomaly is not a feature of the cross-section of returns; it is a feature of how you weight tiny, illiquid, hard-to-trade stocks. The headline "momentum earns eighty basis points a month" was a single branch, and the curve drags it into the light. That sentence kills the easy paper and replaces it with a true, far more interesting one.
+:::
+
+## The Four-Point Reading Rule
+
+- **Where does the sign live?** Both signs = direction is fragile
+- **Where does the pre-registered spec sit?** Center or tail?
+- **What fraction is significant, and where do exceptions cluster?**
+- **Which rows drive the spread?** Name the fork; 8.2 must address it
+- Optional: permutation test on the whole curve
+
+::: notes
+The general reading rule is a short checklist you apply to every curve you build or referee. One: where does the sign live? If estimates span both signs, your effect's direction is choice-dependent — the most serious possible fragility. If they all share a sign, the direction is robust even if the magnitude wanders. Two: where does the pre-registered specification sit? If it sits near the center, your headline is representative; if at an extreme tail, you must explain why. Three: what fraction is significant, and where do the exceptions cluster? Significance lost in the low-power corner is benign; significance only under one or two specific choices is a red flag pointing straight at those choices. Four: which rows of the bottom panel drive the spread? The choice whose ticks best separate left from right is the fork your result is most sensitive to. Name it — it is the thing a skeptic will attack, and the thing your robustness section must address head-on.
+:::
+
+## The Permutation Test, Kept Light
+
+- Simonsohn, Simmons & Nelson attach a formal inference test
+- Sharp null: the effect is zero everywhere
+- Re-shuffle treatment, recompute all 144 specs each shuffle
+- Ask if the observed curve is more extreme than the null curves
+- Tests the multiverse *as a whole* — the descriptive curve is the deliverable
+
+::: notes
+A word on the formal inference Simonsohn, Simmons, and Nelson attach to the curve, kept light because the picture is most of the value. They propose a permutation test on the whole curve. Under the sharp null that the effect is zero everywhere, you re-shuffle the treatment assignment, recompute all one hundred forty-four specifications on each shuffle, and ask whether the observed curve — say, the number of significant-and-correctly-signed specifications — is more extreme than the null curves produce. This tests the multiverse as a whole rather than any single specification, the right unit of analysis once you admit "which specification" was itself a choice. For your capstone, the descriptive curve read with the four-point checklist is the required deliverable; the permutation test is an extension for those who want a formal p-value on the entire forest.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Sam's curve flips sign with one choice — equal-weighted microcaps — exposing momentum as a weighting artifact. Read any curve with four questions: where the **sign** lives, where the **pre-registered spec** sits, where significance **exceptions** cluster, and which **rows** drive the spread. The descriptive curve is the deliverable; the permutation test is optional. Next: when the curve itself lies.
+:::
+
+::: notes
+To summarize part six: Sam's momentum curve is the cautionary mirror of Maya's — it sweeps across both signs, and the bottom panel shows the positive, significant specifications all share one choice, equal-weighting with microcaps, revealing the anomaly as a weighting artifact. The four-point rule distills the skill: ask where the sign lives, where the pre-registered specification sits, where significance exceptions cluster, and which rows drive the spread — then name that fork. The permutation test formalizes inference on the whole forest, but the descriptive curve is the required deliverable. In part seven, reveal-the-trick demands its third move: when this persuasive picture itself lies.
+:::

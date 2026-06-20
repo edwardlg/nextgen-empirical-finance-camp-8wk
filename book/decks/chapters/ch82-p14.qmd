@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## What a Survivor Looks Like, and Your Turn
+
+- Part 14 — what a survivor looks like, and your turn
+
+::: notes
+Welcome back to Robustness and Inference Stress-Tests, part fourteen of fourteen — the last part. In part thirteen we covered Oster's honesty rules and mapped every test to a row of your threats table. Now we land the chapter's real lesson — a result that does not survive should be reported as not surviving — and hand you the robustness-battery harness that runs column three of your own table, end to end.
+:::
+
+## What a Survivor Is — and Isn't
+
+- A survivor is **credible**, not *proven* — nothing observational is
+- You tried every attack a referee would, on yourself, first
+- The number held — the strongest honest empirical claim
+- The converse is the real lesson: report non-survival
+- A failed test is a **finding**, not a setback to bury
+- A success of the method, not a failure of you
+
+::: notes
+A result that survives this battery is not proven — nothing observational ever is, as Chapter seven-point-five hammered — but it is credible in the precise sense the identification memo demanded: you tried every attack a referee would try, you tried them on yourself first, and the number held. That is the strongest claim empirical work can honestly make. And the converse is the real lesson of this chapter, so let it land. A result that does not survive should be reported as not surviving. The single most important professional habit you can build is to treat a failed robustness test as a finding, not a setback to be buried. If Maya's wild cluster bootstrap had returned p of zero-point-two, the honest paper says the effect is suggestive but imprecisely estimated. If her in-time placebo had lit up, the honest paper says the design cannot separate the program from a pre-trend. If her Oster delta had come in at zero-point-four, the honest paper states that unobserved selection could explain the result. None of these is a failure of you; each is a success of the method, which is built to stop you from telling the world something that is not true.
+:::
+
+## Your Turn — The Robustness-Battery Harness
+
+- Open **nb8.2** — runs column 3 of *your* threats table
+- Placebo engine: fake dates, fake units, fake outcomes
+- SE panel: re-cluster everywhere, wild cluster bootstrap
+- Benjamini–Hochberg for your pre-specified family
+- Oster $\delta$ with an $R_{\max}$ sensitivity sweep
+- Run your scariest placebo first — write the honest sentence
+
+::: notes
+Your turn. Open notebook eight-point-two, the robustness-battery harness. It runs column three of your threats table, end to end, on your pre-registered estimate from Chapter eight-point-one: a placebo engine with fake dates, fake units by permutation, and fake outcomes; a standard-error panel that re-clusters at every defensible level and runs the wild cluster bootstrap; a Benjamini–Hochberg routine for your pre-specified family of outcomes; and an Oster delta calculator with an R-max sensitivity sweep. Three reflection prompts go alongside it. First, run your scariest placebo first — take the threat you ranked most dangerous and build the placebo that would expose it. If it fails, do not move on: write the honest sentence that narrows or kills your claim. Second, read your coefficient stability with Oster's eyes: report both R-squareds, compute delta-hat, and decide whether the controls were powerful or toothless; defend your R-max, then re-run with R-max equal to one. Third, audit your family: write down every outcome you looked at, count m, apply both corrections, and ask which results survive — and whether the honest contribution sentence is the one you were hoping to write.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A **survivor is credible, never proven**. And a failed test is a *finding* — report non-survival plainly. The author who runs these tests to learn the truth, not to pass, is the one doing science. Open **nb8.2** and run column 3 of your own threats table.
+:::
+
+::: notes
+To close Chapter eight-point-two: a result that survives the battery is credible — you ran every attack a referee would, on yourself first, and the number held — but it is never proven, because nothing observational is. The real lesson is the converse: a failed test is a finding, and reporting non-survival plainly is the most important professional habit you can build. The author who runs these tests hoping they pass and the author who runs them hoping to learn the truth get the same code and the same output — but only the second one is doing science. The whole apparatus exists to make you the second kind of author, on purpose, before anyone else makes you one by force. Open notebook eight-point-two and run column three of your own threats table; next you will learn to present these results in a robustness section a reader trusts.
+:::

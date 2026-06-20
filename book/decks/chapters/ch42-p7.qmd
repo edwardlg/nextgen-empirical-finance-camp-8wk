@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Goodman-Bacon: An Exact Identity and Three Kinds of 2×2
+
+- Part 7 — the exact identity, and the three kinds of 2×2 comparison
+
+::: notes
+Welcome back to Chapter four-point-two, part seven of twelve. In part six we traced, by hand, how the regression used already-treated State E as a control for State L and flipped the sign. Goodman-Bacon, in twenty-twenty-one, makes that exact: the staggered coefficient is, identically, a weighted average of all the simple two-by-two difference-in-differences you could form. This part states the identity and names the three kinds of comparison.
+:::
+
+## An Exact Algebraic Identity
+
+- Goodman-Bacon (2021), *Journal of Econometrics*
+- $\hat\beta$ *literally equals* a weighted sum of 2×2 DiDs
+- Not an approximation — **no error term**
+- Decomposes by *pairs of cohorts* plus never-treated
+- Tells you each 2×2 and its weight
+
+::: notes
+The beauty of the Goodman-Bacon result is that it is an exact algebraic identity, not an approximation: the one number beta hat literally equals a particular weighted sum of two-by-two comparisons, with no error term. It decomposes the pooled coefficient by pairs of cohorts. Take any two cohorts — an earlier-adopting group and a later-adopting group — plus the never-treated group, and Goodman-Bacon shows the pooled beta hat is built from these blocks, and tells you the weight on each. The citation, for the record: Goodman-Bacon, twenty-twenty-one, Difference-in-Differences with Variation in Treatment Timing, in the Journal of Econometrics.
+:::
+
+## The Three Kinds of 2×2
+
+- **Type 1:** treated cohort vs. never-treated — *clean*
+- **Type 2:** earlier vs. later, *before* later switches on — *clean*
+- **Type 3:** later vs. earlier, *after* earlier switched on — **forbidden**
+- Type 3: the control is *already treated* — the poison
+- Our §3 table lacked any Type 1 — no never-treated state
+
+::: notes
+With staggered timing there are several types of two-by-two the data can support. Type one: a treated cohort compared to states that never adopt. This is clean — the control is genuinely untreated throughout. It is the comparison our two-state table lacked, because it had no never-treated state, which is exactly why nothing could rescue the sign there. Type two: an earlier-treated group compared to a later-treated group, in the window before the later group switches on. The later group is still untreated here, acting as a clean control while the earlier group is treated — clean. In our example, State L was the clean control for State E during years two through four, before L adopted. Type three: a later-treated group compared to an earlier-treated group, in the window after the earlier group switched on. Here is the poison. The earlier group is already treated throughout, and is being used as the control for the later group. This is the forbidden comparison. In our example, State E was the contaminated control for State L during years five through eight — exactly what we traced by hand. Types one and two are honest two-by-twos with clean, untreated-in-window controls; Type three is the entire source of the bias.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Goodman-Bacon (2021): $\hat\beta$ is *exactly* — no error term — a weighted average of 2×2 DiDs. **Type 1** (vs. never-treated) and **Type 2** (vs. not-yet-treated) are clean. **Type 3** (later vs. already-treated) is the forbidden comparison and the whole source of bias. Next: why Type 3 poisons the estimate, and how the weights fall.
+:::
+
+::: notes
+To summarize part seven: Goodman-Bacon proves the pooled coefficient is, exactly and with no error term, a weighted average of every two-by-two difference-in-differences in the data, decomposed by pairs of cohorts. Three kinds appear. Type one compares a treated cohort to never-treated units — clean. Type two compares an earlier cohort to a later one before the later adopts — also clean, because the later group is still untreated in that window. Type three compares a later cohort to an earlier one after the earlier adopts — the forbidden comparison, using an already-treated control, and the entire source of the bias. In part eight, we see precisely why Type three poisons the estimate, and how the weights are assigned — including the punchline that names the crisis.
+:::

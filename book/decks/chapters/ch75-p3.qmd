@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Threat Menu: OLS and Instrumental Variables
+
+- Part 3 — named threats for OLS and instrumental variables
+
+::: notes
+Welcome back to the identification memo, part three of nine. In part two we wrote the central sentence — credible as long as one specific assumption holds. Now we ask: how do you know which threats to name? You do not invent them. Each design ships with a standard menu of named failures. This part covers the first two designs: O-L-S on observables, and instrumental variables.
+:::
+
+## You Don't Invent Threats
+
+- Each design ships with a **standard menu** of named failures
+- The referee reaches for these first — they bite *that* design
+- Knowing the menu is half the battle
+- Tells you which alternatives to pre-empt before writing a word
+- These are the recurring villains of Weeks 3 and 4
+
+::: notes
+You are not inventing threats from scratch. Each design from Weeks Three and Four comes with a standard menu of named failures — the ones a referee will reach for first, because they are the ones that bite that design. Knowing the menu is half the battle: it tells you, before you have written a word, which alternative explanations you must pre-empt. Here is the menu, design by design, each threat stated as the specific way the identifying assumption fails. The memo is where you finally name these recurring villains out loud against your own data. You will use exactly one of these designs for your primary specification — the one you committed to in your pre-analysis plan — so pull its row off the menu and you have your starting list.
+:::
+
+## OLS on Observables
+
+- Assumes: conditional on controls, treatment is **as-good-as-random**
+- Threat one: **omitted-variable bias** — Week 2's ghost
+- "We control for X" is a claim, not a spell
+- Threat two: **selection** on something you cannot see
+- The *weakest* design — one named omitted variable can wound you
+
+::: notes
+Start with O-L-S on observables — selection on observables, or conditional independence. The assumption is that, conditional on the controls, treatment is as-good-as-random; there is no confounder you left out. The standard threats are two. First, omitted-variable bias — a variable that drives both treatment and outcome and is not in your controls. That is Week Two's ghost, and the reason "we control for X" is a claim, not a spell. Second, selection — units choose into treatment on something you cannot see. This is the weakest design on the credibility ladder, precisely because its assumption, "I have measured every confounder," is the hardest to defend and the easiest to attack. A referee needs only to name one plausible omitted variable to wound you.
+:::
+
+## Instrumental Variables
+
+- Two assumptions, asymmetric — Week 3 drilled this
+- **Relevance** (instrument moves treatment) is *testable* — first-stage $F$
+- **Exclusion** (affects outcome only through treatment) is *arguable*
+- Threat one: **weak instrument** — 2SLS drifts back to OLS bias
+- Threat two: **exclusion violation** — a back-channel to the outcome
+
+::: notes
+Now instrumental variables — exclusion and the weak instrument. Two assumptions, and Week Three drilled their asymmetry. Relevance — the instrument moves the treatment — is testable: you report the first-stage F. Exclusion — the instrument affects the outcome only through the treatment — is arguable: there is no test, no p-value, only an argument from institutions. The two named threats follow. First, the weak-instrument problem: the first-stage F is too small, so two-stage least squares drifts back toward O-L-S bias, and its confidence interval lies about its own width. Second, the exclusion violation: the instrument has its own back-channel to the outcome. When a referee attacks an instrumental-variables paper, they almost always attack exclusion, because it is the assumption the data can never defend.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+You pull threats off a **standard menu**, not from thin air. **OLS on observables** — the weakest design — carries omitted-variable bias and selection, because "I measured every confounder" is the hardest assumption to defend. **Instrumental variables** carries the weak instrument (relevance, *testable* via first-stage F) and the exclusion violation (*arguable*, never testable). Next: the menu for difference-in-differences, regression discontinuity, and synthetic control.
+:::
+
+::: notes
+To summarize part three: you do not invent threats — you pull them off a standard menu, one row per design. O-L-S on observables is the weakest design, and it brings two named threats: omitted-variable bias, Week Two's ghost, and selection on the unseen, because "I have measured every confounder" is nearly impossible to defend. Instrumental variables brings the weak instrument and the exclusion violation, and the key asymmetry is that relevance is testable through the first-stage F, while exclusion is only arguable from institutions. In part four we finish the menu with three more designs: difference-in-differences, regression discontinuity, and synthetic control.
+:::

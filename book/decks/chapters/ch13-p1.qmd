@@ -1,0 +1,52 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Estimator versus Estimate
+
+**Learning objectives.** By the end you can:
+
+- Distinguish an estimator (rule) from an estimate (number)
+- Define and compute bias, variance, and MSE
+- Explain consistency and the $1/\sqrt{N}$ standard error
+- Read a sampling distribution from simulation
+
+::: notes
+Welcome to Week One, Chapter one-point-three, part one of eleven. Meet Priya, interning at a regional insurer. Her supervisor drops a deceptively simple question on her desk: what is the average wildfire-related claim we pay per policy this season? There is a true answer — one number, mu dollars, buried in the behavior of every policyholder and every dry summer. But Priya cannot see it. She sees only the claims that came in: a spreadsheet of two hundred numbers. She averages them, gets eight thousand four hundred ten dollars, and writes it on a sticky note. The real question of this chapter is deeper than it looks.
+:::
+
+## Priya's Question
+
+- True average claim is one fixed number, $\mu$
+- Priya sees only one sample: $N=200$ claims
+- She averages them: $\bar{x}=\$8{,}410$
+- Honest question: how much should she trust it?
+- "What if the draw had been different?"
+
+::: notes
+Let us frame the problem. Somewhere there is a true average claim, mu dollars — fixed, real, unknowable. Priya cannot observe it directly. All she has is one sample of two hundred claims that actually came in. She averages them and gets eight thousand four hundred ten dollars. Now, the honest question is not, is this the right number? She will never know the right number. The honest question is this: if the universe had handed her a different two hundred claims — same insurer, same season, same underlying risk, just a different draw of which policies happened to file — how different would her sticky note be? If a re-draw would have given her eight thousand three hundred ninety, the figure is solid. If a re-draw could plausibly have given her six thousand or eleven thousand, then eight thousand four hundred ten is barely more than a rumor. That what-if question is the entire content of this chapter.
+:::
+
+## The Distinction
+
+- **Estimator**: a random *rule* for turning data into a guess
+- **Estimate**: the one *number* that rule returns today
+- Recipe versus the cake you baked
+- Sample mean: $\displaystyle \bar{x}=\frac{1}{N}\sum_{i=1}^{N}x_i$
+- $\bar{x}$ is a *random variable*; $\$8{,}410$ is not
+
+::: notes
+Here is the most important sentence in the chapter. An estimator is a random rule for turning data into a guess; an estimate is the one number you get when you feed that rule the data you happen to have. The estimator is the recipe. The estimate is the cake you baked today. Confusing the two is the single most common conceptual error in empirical work. Priya's recipe is, add up the claims and divide by how many there are — the sample mean, x bar equals one over N times the sum of the x sub i. Now notice what kind of object x bar is. Each claim, before the season plays out, is a draw from some distribution — a random variable. A function of random variables is itself a random variable. So x bar is random; it has an expectation, a variance, and a whole distribution of its own. The number eight thousand four hundred ten is not random. It already happened. It is one realized value of x bar, the way four is one realized value of a die roll. That realized number is the estimate.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+An **estimator** is the random rule; an **estimate** is the single number it returns today. The sample mean $\bar{x}$ is a *random variable* with its own distribution; $\$8{,}410$ is one realized draw of it. Next: the many rival recipes, and how we score them.
+:::
+
+::: notes
+To summarize part one: an estimator is the random rule for turning data into a guess, and an estimate is the single number that rule returns when you feed it today's data. The sample mean is a random variable with a whole distribution of its own; eight thousand four hundred ten is just one realized draw of it. In part two we will see that the sample mean is only one of many possible recipes, and we will name the three words we use to judge them all: bias, variance, and mean squared error.
+:::

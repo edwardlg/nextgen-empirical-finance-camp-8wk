@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Callaway–Sant'Anna: Group-Time ATTs
+
+- Part 11 — the group-time ATT(g,t), each a clean 2×2
+
+::: notes
+Welcome back to Chapter four-point-two, part eleven of fourteen. In part ten we stated the shared cure — clean controls plus transparent aggregation. Callaway and Sant'Anna, in twenty-twenty-one, give the cleanest statement of it, and it is the estimator paired with the broken regression in this chapter's notebook, so we spend the most time here. Their central object is the group-time average treatment effect, and each one is a humble, clean two-by-two.
+:::
+
+## The Central Object: ATT(g, t)
+
+- $\text{ATT}(g,t)$: effect at calendar time $t$ for cohort that adopted in $g$
+- $g$ indexes *which cohort*; $t$ indexes *when you measure*
+- $\text{ATT}(2017,2019)$: the 2017-adopters, measured in 2019
+- That is their two-years-after effect
+- Callaway & Sant'Anna (2021), *Journal of Econometrics*
+
+::: notes
+Their central object is the group-time average treatment effect, written A-T-T of g and t: the average treatment effect, at calendar time t, for the cohort of units that first adopted in year g. Read the two arguments carefully — g indexes which cohort, defined by its adoption year, exactly the G-sub-i from earlier, and t indexes when you are measuring. A-T-T of twenty-seventeen, twenty-nineteen is the effect on the states that adopted in twenty-seventeen, measured in twenty-nineteen — that is, their two-years-after effect. The citation: Callaway and Sant'Anna, twenty-twenty-one, Difference-in-Differences with Multiple Time Periods, Journal of Econometrics.
+:::
+
+## Each ATT Is a Humble, Clean 2×2
+
+- Compare cohort $g$'s change, from $g-1$ to $t$…
+- …against a clean control's change over the *same* window
+- $\widehat{\text{ATT}}(g,t)=(\bar Y_{g,t}-\bar Y_{g,g-1})-(\bar Y_{C,t}-\bar Y_{C,g-1})$
+- Control $C$ = **never-treated** or **not-yet-treated** ($G>t$)
+- Never an already-treated unit — the rule TWFE broke
+
+::: notes
+The estimation of each group-time effect is a humble, honest two-by-two difference-in-differences, built to use only clean controls. For cohort g and a post-adoption period t at or after g, compare the change in cohort g's outcome — from the period just before g adopted, that is g minus one, to period t — against the change over the same calendar window in a clean comparison group. In symbols: the estimated effect equals cohort g's change, Y-bar at g and t minus Y-bar at g and g-minus-one, minus the clean control's change over the same two periods. The control group C is either the never-treated units or the not-yet-treated units — those whose adoption year is strictly after t, so they are still untreated throughout the window. That is the only real rule, and it is the rule the regression broke: the control is never an already-treated unit. Each estimate is a clean Type-one or Type-two comparison in Goodman-Bacon's language, and not a single forbidden Type-three comparison is ever formed. In practice, Callaway and Sant'Anna let you make the comparison conditional on covariates, using a doubly-robust DiD that marries the outcome-regression and propensity-score ideas from Chapter three-point-three — so you can relax parallel trends to hold only after conditioning.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The Callaway–Sant'Anna building block is the **group-time** effect $\text{ATT}(g,t)$ — cohort $g$'s change from $g{-}1$ to $t$, minus a **clean** control's change over the same window. The control is always **never-** or **not-yet-treated**, never already-treated. No forbidden comparison is ever formed. Next: aggregate the grid into an honest event study.
+:::
+
+::: notes
+To summarize part eleven: Callaway and Sant'Anna build the group-time average treatment effect, A-T-T of g and t, where g names the cohort by its adoption year and t names when you measure. Each one is a humble two-by-two: cohort g's change from the period just before adoption to period t, minus a clean control's change over the same window. The control is always never-treated or not-yet-treated — never an already-treated unit — so not a single forbidden comparison is ever formed, and you can optionally condition on covariates with a doubly-robust DiD. In part twelve, we take the whole grid of these effects and aggregate it on purpose — into a heterogeneity-robust event study — and run it on Priya's world to recover the truth.
+:::

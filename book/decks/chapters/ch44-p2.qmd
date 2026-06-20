@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Central Idea: Build a Synthetic Twin
+
+- Part 2 — the core idea and the method in one sentence
+
+::: notes
+Welcome back to synthetic control, part two of twelve. In part one we saw that with a single treated unit, difference-in-differences' parallel-trends assumption collapses into a wish, because no naturally occurring group is a twin for one specific unit. Now we meet the idea that rescues us. Instead of picking a control or averaging controls equally, you build one. Let me show you exactly what that means, and state the whole method in a single sentence.
+:::
+
+## Don't Pick or Average — Build
+
+- Take a **donor pool** of untreated units
+- Find the weighted average that matches the pre-period
+- That blend is the **synthetic control** — a synthetic twin
+- It walks in lockstep with the real unit before treatment
+- Let the policy hit; watch the two **diverge**
+- The post-treatment gap is your estimated effect
+
+::: notes
+The central idea, due to Abadie and Gardeazabal, two thousand three, and developed in full by Abadie, Diamond and Hainmueller, two thousand ten, is disarmingly simple to state and surprisingly deep once you push on it. Instead of picking a control or averaging controls equally, you build one. You take a pool of untreated units, the donor pool, and find the weighted average of them that best reproduces your treated unit's behavior before the treatment. That weighted average is the synthetic control: a synthetic version of the treated unit, assembled from real untreated units, that walks in lockstep with the real thing through the entire pre-period. Then you let the policy hit, and you watch the real unit and its synthetic twin diverge. The gap between them, after treatment, is your estimated effect.
+:::
+
+## Priya's Running Example
+
+- One state passed a 2018 climate-risk disclosure mandate
+- Insurers must publish wildfire- and flood-exposure pricing
+- Did the mandate move average homeowner premiums?
+- One treated state, no clean twin
+- Exactly the problem synthetic control was built for
+
+::: notes
+Throughout this chapter, Priya is our guide. From the Week Four opening narrative, she is chasing one event: a single state, call it the treated state, that in two thousand eighteen passed a first-in-the-nation climate-risk disclosure mandate, forcing home insurers to publish wildfire- and flood-exposure pricing. The question is sharp: did the mandate change average homeowner premiums? One treated state. No clean twin. This is precisely the problem synthetic control was built for, and we will follow Priya's study from the donor pool through the weights, the assumptions, the diagnostics, and finally the honest inference.
+:::
+
+## The Result in One Sentence
+
+- Build a fake control as a weighted average of untreated units
+- Choose weights to match the treated unit's pre-period
+- Read the effect off post-treatment drift from the twin
+- Parallel trends is not assumed — it is **engineered**
+
+::: notes
+Here is the result in one plain sentence. When you have one treated unit, build a fake control unit as a weighted average of the units that were not treated, choosing the weights so the fake unit matches the treated unit's pre-treatment outcomes; then read the treatment effect off how far the real unit drifts from its fake twin after treatment. The whole method is in the phrase: weighted average chosen to match the pre-period. You are not assuming a control group is comparable; you are constructing one that demonstrably tracks the treated unit before anything happened, and then arguing, exactly as in difference-in-differences but with a far better-matched comparison, that it would have kept tracking absent the policy. Parallel trends does not disappear. It is engineered: the weights are picked precisely so the pre-trends are parallel, indeed nearly identical, by construction. The leap of faith shrinks from these two groups would have moved together to this carefully matched composite would have kept moving for a few more years.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The method in one sentence: build a fake control as a **weighted average of untreated donors**, with weights chosen to match the treated unit's pre-period, then read the effect off the post-treatment gap. Parallel trends is **engineered**, not assumed. Priya's climate-disclosure study is our guide. Next: the formal setup.
+:::
+
+::: notes
+To summarize part two: synthetic control replaces the wish of parallel trends with a construction. You assemble a weighted average of untreated donor units, choose the weights to match your treated unit's pre-treatment path, and read the treatment effect off the gap that opens after the policy hits. The whole method lives in the phrase weighted average chosen to match the pre-period, and the consequence is that parallel trends is engineered rather than assumed. Priya's climate-disclosure study, one state with no clean twin, is our running example. In part three we set this up formally in potential-outcomes notation and write down exactly what the estimator is.
+:::

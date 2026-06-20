@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Identification: BHR Closes the OVB, Plus the Data
+
+- Part 3 — BHR's bet: observe the score; then the data contrast
+
+::: notes
+Welcome back to the reader's guide on fair lending in the algorithmic era, part three of six. In part two we saw Bartlett and coauthors find a clean benchmark in a formula-priced market. Now we cover Bhutta, Hizmo and Ringo's opposite bet — close the omitted-variable gap by observation — and then turn to what each paper's data can and cannot see.
+:::
+
+## BHR: Get the Score, Then Benchmark
+
+- Earlier HMDA work had to **design around** the missing score
+- BHR simply *get* the score by linking richer data
+- If the residual collapses, it was **omitted-variable bias**
+- The race-blind AUS = a mechanical counterfactual
+- Compares actual denials to "what a blind rule would decide"
+
+::: notes
+Bhutta, Hizmo and Ringo close the omitted-variable gap by observation, then benchmark against the algorithm. Where Gao and Sun and the classic HMDA literature had to design around the missing credit score, BHR simply get the score, and much more, by linking to richer loan-level data. Their identifying logic: if the residual racial disparity collapses once you add the creditworthiness variables underwriters actually see, then much of what earlier studies called unexplained was omitted-variable bias all along — the OVB of Week Two, finally measured rather than feared. The masterstroke is the race-blind automated-underwriting benchmark. The government's automated underwriting engine produces an approve-or-refer recommendation from risk inputs without seeing race, so it is a literal mechanical counterfactual for what a rule that cannot discriminate would decide. Comparing actual denials to those recommendations separates what the risk model says from what the human did on top of it. Tie this back to the spine: this is the selection-on-observables logic of Week Three. Both papers bet they have conditioned on enough of creditworthiness that the residual race coefficient is causal. Neither runs a difference-in-differences or a regression discontinuity — the identifying work is done by the conditioning set and the institutional benchmark.
+:::
+
+## The Data: Who Sees the Credit Score
+
+- Both start from **HMDA** — the near-census of applications
+- Bartlett adds GSE / loan-level risk inputs and rate detail
+- BHR adds credit-bureau records: the **credit score** itself
+- HMDA alone is **blind to the score** — the whole point
+- Locate immediately whether the score is in the data
+
+::: notes
+Now the data, where the two papers most obviously complement each other, because they see different things. Bartlett and coauthors combine HMDA — the Home Mortgage Disclosure Act near-census of U.S. mortgage applications, carrying loan amount, applicant race and income, action taken, and, after twenty eighteen, pricing fields — with GSE loan-level data that supply the risk inputs and rate detail HMDA alone does not. The unit of observation is the loan or application, and the sample is large enough that small rate differences are estimable with precision. BHR also start from HMDA but link to GSE and credit-bureau records, and the decisive difference is that they observe the credit score and a near-complete underwriting file, plus the race-blind automated recommendation. Here is the pedagogical point, worth saying plainly to Maya. HMDA alone is blind to the credit score. That single omission is why Mentor Four argued a design beats more controls in the same-sex-borrower work, and why Gao and Sun reached for matched comparison and policy variation rather than a kitchen-sink regression. BHR's data let them do the thing the HMDA-only researcher cannot: directly test how much of the residual disparity was the missing score in disguise. When you read either paper, locate immediately whether the credit score is in the data — that one fact determines whether the residual race coefficient is a serious estimate of differential treatment or a placeholder for everything the data could not measure.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+BHR **shrink the unobserved set** until OVB has nowhere to hide; Bartlett et al. find a setting where the legitimate benchmark is clean. The dividing line in the data is one variable: **is the credit score in there?** Next: how to read both papers table by table.
+:::
+
+::: notes
+To summarize part three: Bhutta, Hizmo and Ringo's contribution is to shrink the unobserved set until the bias has nowhere to hide, while Bartlett and coauthors find an institutional setting where the legitimate-risk benchmark is unusually clean. Week Two named the danger — omitted-variable bias from the unobserved score. These two papers attack it from opposite directions. And the single fact that organizes the data is whether the credit score is observed. In part four we read both papers the professional way: tables first, in the order the argument actually flows — headline disparity, then the controls that shrink it, then the mechanism table that assigns blame to human or machine.
+:::

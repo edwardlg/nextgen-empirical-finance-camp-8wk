@@ -1,0 +1,63 @@
+---
+date: "2026-06-22"
+---
+
+## Selection on Observables: The Problem
+
+**Learning objectives.** By the end you can:
+
+- State the Conditional Independence Assumption and overlap
+- Explain why the propensity score lifts the curse of dimensionality
+- Run nearest-neighbor caliper matching to estimate the ATT
+- Judge a design by balance, knowing CIA is untestable
+
+::: notes
+Welcome to Week Three, Chapter three-point-two, part one of nine: selection on observables, with matching and propensity scores. Maya is back, with a new lender and a new question. The lender runs a free financial-literacy program — a short course on budgeting, credit scores, and loan terms — that some applicants take before applying and most do not. Maya wants the program's causal effect on getting approved. Does the course actually raise your odds, or do the people who choose to enroll just look better to begin with? That word, choose, is the whole problem.
+:::
+
+## Maya's New Question
+
+- A free financial-literacy course before applying for a loan
+- Some applicants enroll; most do not
+- Goal: the **causal effect** of the course on approval
+- Danger: enrollees may already look better
+- The word **choose** is the whole problem
+
+::: notes
+Here is the setup. The lender offers a short, free course on budgeting and credit. Some applicants take it; most do not. Maya wants to know whether sitting through that course actually raises the chance of approval. The trap is that enrollment is a choice. The people who sign up for a free finance course may already be the more financially savvy, higher-income applicants — exactly the ones a lender would approve anyway. So a raw comparison of enrollees to non-enrollees might just be measuring who they already were, not what the course did. Chapter three-point-one gave us the language to make this precise, so let us use it.
+:::
+
+## The Potential-Outcomes Setup
+
+- $D_i = 1$ if applicant enrolled, $D_i = 0$ if not
+- Potential outcomes $Y_i(1)$ and $Y_i(0)$: approved if treated or not
+- We observe only one — the fundamental problem
+- Target: $\tau_{\text{ATT}} = \mathbb{E}[\,Y_i(1) - Y_i(0)\mid D_i = 1\,]$
+- The average benefit *for those who actually enroll*
+
+::: notes
+Let D sub i equal one if applicant i enrolled and zero if not. Each applicant has two potential outcomes: Y sub i of one, whether they would be approved if they took the course, and Y sub i of zero, whether they would be approved if they did not. We only ever see one of these — that is the fundamental problem of causal inference — and the one we see is the outcome under the treatment they actually got. The causal effect we want is the average treatment effect on the treated, written tau ATT: the expected value of Y sub i of one minus Y sub i of zero, given that D sub i equals one. In words, the average benefit of the program for the kind of person who actually enrolls. We will see later why this — the effect on the treated — is the natural target for matching, rather than the effect on everyone.
+:::
+
+## The Naive Comparison Is Biased
+
+- Naive gap $= \mathbb{E}[Y_i\mid D_i{=}1] - \mathbb{E}[Y_i\mid D_i{=}0]$
+- Equals $\tau_{\text{ATT}}$ **plus** a selection-bias term
+- Bias $= \mathbb{E}[Y_i(0)\mid D{=}1] - \mathbb{E}[Y_i(0)\mid D{=}0]$
+- The gap in untreated outcomes between the two groups
+- Maya's job: **kill that term**
+
+::: notes
+Chapter three-point-one also showed the trap. The obvious move — compare the approval rate of enrollees to non-enrollees — does not estimate tau ATT. Decompose that naive difference exactly. It equals what we want, tau ATT, plus a second term: the gap in the untreated potential outcome, Y sub i of zero, between the people who enrolled and the people who did not. That second term is the selection bias. If enrollees are the savvier, higher-income applicants who would have been approved at higher rates even without the course, then their untreated outcome is higher than the non-enrollees', the selection bias is positive, and the naive comparison overstates the program. Maya's whole job in this chapter is to kill that term — and to do it using only variables she can observe.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The naive enrollee-minus-non-enrollee gap equals the true effect **plus selection bias** — the difference in untreated outcomes $Y_i(0)$ between groups. **Selection on observables** is the strategy to kill that bias when the thing driving it is measured. But remember from page one: matching is *the same bet as regression with controls* in better clothes. Next: the assumption that makes it work.
+:::
+
+::: notes
+To summarize part one. Maya wants the average treatment effect on the treated — the program's benefit for those who enroll. The naive comparison of enrollees to non-enrollees equals that true effect plus a selection-bias term: the gap in the untreated outcome between the two groups. This chapter is the first of two on how to kill that bias when the thing driving it is observable — a strategy called selection on observables, with the tool of matching, refined into propensity-score matching. But hold one warning from the first page: matching is not a different beast from regression with controls. It is the same bet — that you have measured the confounders — dressed in better clothes. In part two, we state the exact assumption that licenses the whole method.
+:::

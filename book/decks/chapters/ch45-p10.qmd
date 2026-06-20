@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## How Many Shocks, and the Inference Trap
+
+- Part 10 — shock count credibility and the AKM inference trap
+
+::: notes
+Welcome back to Week Four-point-five, part ten of twelve. In part nine we met the shifts view: a quasi-experiment in the national shocks, letting the shares be endogenous. Now we ask when that is credible, how many shocks you actually need, and then we meet a third paper whose warning about standard errors bites under both views — Adão, Kolesár and Morales.
+:::
+
+## When Is "Quasi-Random Shifts" Credible?
+
+- Credible exactly when the shares view is shaky — beautiful complementarity
+- **Many industries** (hundreds): a single endogenous shock washes out
+- **Few concentrated shares** (the bank case): no "many" to invoke
+- Exposure dispersed, so no single region drives the regression
+- Diagnostic: **effective number of shocks**; residualize against controls
+
+::: notes
+This assumption is credible precisely when the shares assumption is shaky, and vice versa — the beautiful complementarity. It is most defensible when there are many industries, so the exposure-weighted average has a law-of-large-numbers logic to lean on. With industries in the hundreds — the labor-demand case — a single endogenous shock washes out. With only a handful — Maya's bank version, where two banks hold most deposits — there is no many to invoke; a single big bank's idiosyncratic shock dominates, the law of large numbers fails, and you should not lean on the shifts story. This is why the how-many-shocks question decides your strategy: many industries, the shifts view is natural; few concentrated shares, the shares view is your only honest defense. It is also more credible when exposure is dispersed, not concentrated in a few regions, and when the shocks are plausibly as-good-as-random — national auto demand swinging for reasons like oil prices or foreign competition, not handpicked to hurt auto-heavy regions. The diagnostic is shock-level: report the effective number of shocks — if a few industries carry all the exposure weight, your many shocks is an illusion — and check balance of the shifts against industry-level confounders. A standard move is to residualize the shocks against shock-level controls, removing broad sector trends so what remains is plausibly idiosyncratic.
+:::
+
+## Adão–Kolesár–Morales: Inference Bites Both Views
+
+- Regions with similar shares are exposed to the **same** shocks
+- That induces error correlation ordinary clustering **misses**
+- Two auto-heavy zones on opposite coasts → correlated outcomes
+- Standard shift-share standard errors are **too small** — over-rejection
+- AKM (2019) fix it; BHJ shock-level regression is correct by construction
+
+::: notes
+There is a third paper you must know, because it concerns inference, not identification, and it bites under both views. Adão, Kolesár and Morales, in twenty nineteen, pointed out that regions sharing similar industry shares are effectively exposed to the same shocks, which induces a correlation in their regression errors that ordinary clustering — by region or by state — completely misses. Two commuting zones on opposite coasts that are both auto-heavy will have correlated outcomes through the common auto shock, even though they share no geographic cluster. Standard shift-share standard errors are therefore too small, sometimes wildly, and the over-rejection can be severe. Adão, Kolesár and Morales derive standard errors valid under this cross-regional correlation induced by shared exposure; the Borusyak-Hull-Jaravel shock-level regression delivers correct inference by construction, clustering at the shock level. The Chapter Two-point-four lesson returns in a new guise: the structure of your design dictates the structure of your dependence, and the wrong clustering lies to you about precision. When you report a shift-share result, AKM-robust or shock-level standard errors are the honest choice, not vanilla region-clustered ones.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Quasi-random shifts is credible with **many dispersed** shocks (labor), useless with **few concentrated** shares (banks) — diagnose with the **effective number of shocks**. And **Adão, Kolesár & Morales (2019):** shared exposure correlates errors across regions, so ordinary clustering makes standard errors **too small**. Use AKM-robust or shock-level inference. Next: tie it all back to IV — relevance and exclusion, shift-share edition.
+:::
+
+::: notes
+To summarize part ten: quasi-random shifts is credible exactly when the shares view is shaky — many dispersed industries, where one endogenous shock washes out — and it is useless when shares are few and concentrated, like the bank case where a single big lender dominates. Diagnose it with the effective number of shocks; if a few industries carry all the weight, many shocks is an illusion. Then Adão, Kolesár and Morales warn that regions with similar shares share shocks, correlating their errors across geography in a way ordinary clustering misses, so vanilla standard errors are too small and you over-reject. Use AKM-robust or shock-level inference. In part eleven we step back and map the whole design onto the instrumental-variables vocabulary of Week Three — relevance and exclusion, shift-share edition.
+:::

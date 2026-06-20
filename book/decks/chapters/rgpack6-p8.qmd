@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Evaluation: Cohen's Kappa and the Capstone Sentence
+
+- Part 8 — Cohen's kappa above chance; the capstone sentence
+
+::: notes
+Welcome back to when the data is words, part eight of ten. In part seven we built the gold set and scored precision, recall, and F-one with a confusion matrix. Now the one number beginners skip — Cohen's kappa — and the single sentence that ties the whole AI module back to the science of measurement.
+:::
+
+## Accuracy Lies Without a Noise Floor
+
+- Accuracy compares the model to humans **as if humans were perfect**
+- But two humans rarely agree perfectly
+- If they agreed only 70%, a 75% model barely beats noise
+- You need agreement measured **above chance**
+- That is what **Cohen's kappa** gives you
+
+::: notes
+One number more, and it is the one beginners skip. Accuracy and F-one compare the model to humans as if the humans were infallible — but if your two human labelers only agreed seventy percent of the time, a model that agrees with the gold set seventy-five percent of the time is barely better than the noise floor. You cannot interpret an agreement rate without knowing how much agreement chance alone would produce. So report inter-rater agreement with Cohen's kappa, which measures agreement above what you would get by chance. It rescales raw agreement against the chance baseline, so a number that looks impressive against a low floor is correctly discounted.
+:::
+
+## Cohen's Kappa
+
+- kappa = (p-observed minus p-expected) over (1 minus p-expected)
+- p-observed: fraction two raters labeled the **same**
+- p-expected: fraction they'd match **by chance**
+- kappa of **1** is perfect; kappa of **0** is chance-level
+- Compute **human–human** *and* **LLM–human**
+
+::: notes
+Here is the formula. Kappa equals p-observed minus p-expected, all over one minus p-expected. P-observed is the fraction of items two raters labeled the same. P-expected is the fraction they would match by chance, given each rater's label frequencies. Kappa of one is perfect agreement; kappa of zero is chance-level. And you compute it twice. Compute it between the two humans, to know how hard the task is and whether your rubric is even well-defined. And compute it between the LLM and a human, to know whether the model is as reliable as a second human annotator. If human-to-human kappa is only zero point five, the task is genuinely ambiguous and you should fix the rubric before blaming the model. If LLM-to-human kappa approaches human-to-human kappa, the model is a credible annotator for that task.
+:::
+
+## The Sentence for Your Capstone
+
+- An LLM label is a **noisy measurement of a latent concept**
+- Just like a sentiment score or a patent-value proxy
+- It earns a regression seat **only after** validation
+- On a held-out, human-labeled test set
+- Reporting **precision, recall, F1, and kappa**
+
+::: notes
+The whole harness in one sentence, and it is the sentence to carry into your capstone: an LLM label is a noisy measurement of a latent concept, exactly like a sentiment-dictionary score or a patent-value proxy, and it earns its place in a regression only after you have validated it on a held-out, human-labeled test set and reported its precision, recall, F-one, and kappa. Anything less and you are running KPSS without the validation table. Hear the echo from the first half of this week: the skepticism you bring to a stranger's measurement paper is the exact skepticism you must bring to your own prompt output. An LLM label is not ground truth; it is a measure, and a measure must be validated.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Report **Cohen's kappa** — agreement above chance — for both human–human and LLM–human pairs; accuracy alone hides the noise floor. An LLM label is a **noisy measure**, earning a regression seat only after a held-out validation reporting precision, recall, F1, and kappa. Next: using the co-pilot responsibly.
+:::
+
+::: notes
+To summarize part eight: accuracy and F-one silently treat humans as infallible, so you must report Cohen's kappa, which measures agreement above chance. Kappa is p-observed minus p-expected over one minus p-expected; compute it human-to-human to learn how hard the task is, and LLM-to-human to learn whether the model rivals a second annotator. And carry the harness sentence into your capstone: an LLM label is a noisy measurement of a latent concept, like a sentiment score or a patent-value proxy, earning a regression seat only after validation on a held-out test set reporting precision, recall, F-one, and kappa — anything less is KPSS without the validation table. In part nine we turn to the rules that keep all of this honest, reproducible, and legal.
+:::

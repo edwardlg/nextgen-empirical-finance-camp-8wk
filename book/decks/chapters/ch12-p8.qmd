@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Cauchy–Schwarz and Maya's Angles
+
+- Part 8 — why $\lvert\rho\rvert\le 1$, and Maya's scenarios as angles
+
+::: notes
+Welcome back to Chapter one-point-two, Expectations, Variance, and Covariance as Geometry, part eight of nine. In part seven we learned that correlation is the cosine of an angle between two centered variables. A cosine never exceeds one in size — and that single geometric fact, translated back, is the famous Cauchy–Schwarz inequality. We prove it cleanly with a non-negative parabola, then redraw Maya's three scenarios as three angles between two arrows. Risk, we will see, adds like vectors, not like numbers.
+:::
+
+## Why $|\rho| \le 1$ Is Cauchy–Schwarz
+
+- $\lvert\operatorname{Cov}(X,Y)\rvert \le \operatorname{sd}(X)\,\operatorname{sd}(Y)$, hence $\lvert\rho_{XY}\rvert \le 1$
+- Proof: $0 \le \operatorname{Var}(X - tY)$ for every real $t$
+- $= \operatorname{Var}(X) - 2t\operatorname{Cov}(X,Y) + t^2\operatorname{Var}(Y)$
+- Parabola never below zero $\Rightarrow$ discriminant $\le 0$
+- Equality only when $X$ is an exact linear function of $Y$
+
+::: notes
+In vector geometry, the cosine being at most one in size is equivalent to the Cauchy–Schwarz inequality: the size of an inner product is at most the product of the lengths. Translate through the dictionary and you get, for free, that the size of the covariance is at most the product of the two standard deviations — hence the size of the correlation is at most one. You can prove it without ever saying the word geometry, using the same one-variable-knob trick that reappears in Gauss–Markov. For any real number t, the variance of X tilde minus t times Y tilde cannot be negative — it is an expected square. Expand it: the variance of X, minus two t times the covariance, plus t squared times the variance of Y. The right-hand side is a parabola in t that never dips below zero, so its discriminant must be at most zero. That rearranges to exactly the covariance squared being at most the product of the two variances. Equality holds only when some line, X minus t Y, has zero variance — that is, X is an exact linear function of Y. The vectors are parallel, correlation plus or minus one. So the boundary of correlation is precisely perfect linearity.
+:::
+
+## Maya's Scenarios as Angles
+
+- Cauchy–Schwarz boxes $\lvert\sigma_{12}\rvert \le (0.20)(0.10) = 0.02$
+- **A** ($\rho = +1$, $0^\circ$): arrows aligned, longest sum — max risk
+- **B** ($\rho = 0$, $90^\circ$): perpendicular, Pythagorean — free reduction
+- **C** ($\sigma_{12}=-0.01$, $\rho = -0.5$, $120^\circ$): splay apart, cancel
+- Volatility is the **length of the vector sum** $w\tilde{R}_1 + (1-w)\tilde{R}_2$
+
+::: notes
+Back to Maya, now with a picture. Her two assets have volatilities zero point two zero and zero point one zero, so by Cauchy–Schwarz the covariance is boxed into a size of at most zero point zero two. That is why Scenario A used a covariance of exactly zero point zero two — it is the most the assets can possibly move together, correlation plus one, angle zero. Her three scenarios are three angles between two arrows of length zero point two zero and zero point one zero. Scenario A, correlation plus one, angle zero: the arrows point the same way and the combined arrow is as long as it can be — maximum risk. Scenario B, correlation zero, angle ninety degrees: perpendicular arrows, and the combined length obeys the Pythagorean theorem, shorter than adding the lengths — the free risk reduction. Scenario C, covariance minus zero point zero one, so correlation minus one half, angle one hundred twenty degrees: the arrows splay apart past a right angle, partly cancel, and the combined arrow is shorter still. Portfolio volatility is literally the length of the vector sum, and the law of cosines for that sum is identical, symbol for symbol, to the weighted variance formula. Risk adds like vectors, not like numbers.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+$\lvert\rho\rvert \le 1$ **is** Cauchy–Schwarz — provable from one non-negative parabola, with equality only at perfect linearity. Maya's three scenarios are three angles: aligned (max risk), perpendicular (Pythagorean), splayed (cancel). Diversification is the triangle inequality. Next: stacking it all into the covariance matrix.
+:::
+
+::: notes
+To summarize part eight: the fact that correlation never exceeds one in size is exactly the Cauchy–Schwarz inequality, and we proved it from a single non-negative parabola — the variance of X minus t Y, which can never go below zero, forces its discriminant to be at most zero. Equality holds only at perfect linearity, when one variable is an exact linear function of the other. Maya's three scenarios become three angles between two arrows: aligned arrows give maximum risk, perpendicular arrows give Pythagorean free reduction, and splayed arrows partly cancel. Portfolio volatility is the length of the vector sum, so risk adds like vectors — diversification is just the triangle inequality doing its job. In part nine, our finale, we stack every pairwise covariance into one matrix, the object Week Two's matrix regression feeds on.
+:::

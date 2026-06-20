@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Look-Ahead, Parsing, and the Bridge
+
+- Part 10 — look-ahead, parsing, and the bridge to LLMs
+
+::: notes
+Welcome back to Chapter six-point-three, part ten of twelve. In part nine we found two edges of bag-of-words: it ignores context, and a static dictionary decays. Now we cover two more — look-ahead in tuning the dictionary, and parsing as researcher degrees of freedom — and then build the bridge to the embeddings and language models of the next chapter.
+:::
+
+## Look-Ahead in Tuning the Dictionary
+
+- The methodological worry, same family as data-snooping
+- A list tuned to returns *in-sample* grades itself circularly
+- Defense: lists built on *linguistic* judgment, pre-specified
+- A skeptic still asks how much was informed by test data
+- The honest standard: **out-of-sample validation**
+
+::: notes
+Third, the methodological worry to keep your eye on — the same family of error you met with data-snooping in Week One. If the word list were selected to maximize its correlation with returns in the very sample used to validate it, the validation would be circular: the dictionary would be using the answer key to grade itself, and its apparent power would be illusory. The defense is that the lists are built on linguistic and financial judgment about what words mean, not fit to the return data, and that the categories are pre-specified rather than mined for return-predictability. But a skeptical referee still asks: how much of the word selection was informed, even indirectly, by what worked on the test data? The honest standard — which the next chapter will hammer — is out-of-sample validation: build the instrument on one set of filings, test it on filings it never saw.
+:::
+
+## Parsing Is Researcher Degrees of Freedom
+
+- Stripping tables, exhibits, HTML, boilerplate is *not* mechanical
+- Different rules yield different word bags
+- Two labs counting "the LM negative score" can disagree
+- The pipeline before the count is itself a set of decisions
+- Report and stress-test those choices
+
+::: notes
+Fourth: parsing decisions are researcher degrees of freedom. Stripping tables, exhibits, markup, and boilerplate from a ten-K is not mechanical. Different rules yield different word bags and can move the measured tone. Two labs both claiming to count the Loughran-McDonald negative score can disagree if they parse differently. The paper specifies its choices, but the broader lesson is that the pipeline before the count is itself a set of decisions that should be reported and stress-tested. When you read a text-as-data result, the parsing appendix is not boilerplate — it is part of the measurement, and a quiet place for results to wobble.
+:::
+
+## The Bridge to Embeddings and LLMs
+
+- Every vulnerability is one complaint: *meaning lives in context*
+- **Word embeddings** place "good" near "great" in vector space
+- **Contextual models** represent a word *via its whole sentence*
+- "Not a good year" finally differs from "a good year"
+- A fancier model is *also* just an instrument
+
+::: notes
+Now the bridge. Every one of these vulnerabilities is, at root, the same complaint: a word is not an atom of meaning; meaning lives in context. The next decade of text-as-data is the story of putting context back in. Word embeddings — word2vec, GloVe — represent each word as a dense vector learned from the company it keeps, so good and great land near each other in space; that is the cosine-similarity geometry you met in Chapter six-point-two. Contextual models and large language models — the transformers behind Chapter six-point-five — go further: they represent each word as a function of the whole sentence around it, so not a good year and a good year finally get genuinely different representations. Negation, sarcasm, and long-range dependence become at least partly learnable rather than invisible. Loughran-McDonald is the high-water mark of the era before this — the most careful possible version of counting words — so reading it teaches you exactly what counting words cannot do. And it carries the hardest lesson forward: a fancier model is also just an instrument, only as trustworthy as its out-of-sample validation. The tool got smarter; the discipline did not change.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Two more edges: **look-ahead** in tuning could make validation circular — the cure is out-of-sample testing; and **parsing choices** before the count are researcher degrees of freedom that move the score. All edges share one complaint — *meaning lives in context* — which the embeddings and LLMs of Ch 6.5 address. But a fancier model is still just an instrument. Next: replication exercises.
+:::
+
+::: notes
+To summarize part ten. Two more edges. Look-ahead: if the word list were tuned to returns in the same sample used to test it, the validation would be circular — the cure is genuine out-of-sample testing. And parsing: stripping tables, markup, and boilerplate is not mechanical, so the pipeline before the count is itself a researcher choice that can move the score and should be stress-tested. All four edges reduce to one complaint — meaning lives in context — which is exactly what the word embeddings and language models of Chapter six-point-five put back in. But the hardest lesson carries forward: a fancier model is still just an instrument, trusted only by its out-of-sample test. In part eleven we make all of this concrete with three replication exercises.
+:::

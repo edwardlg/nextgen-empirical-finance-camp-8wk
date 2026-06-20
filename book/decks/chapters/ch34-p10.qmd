@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Code, and What to Carry Forward
+
+- Part 10 — the full simulation and four lessons to keep
+
+::: notes
+Welcome back to instrumental variables, part ten of ten — the finale. In part nine we learned to measure instrument strength with the first-stage F and its robust replacement, the Olea–Pflueger effective F. Now we put the whole chapter in one runnable block: simulate a world with an unobserved confounder where OLS is biased, recover the truth with two-stage least squares, and read off the first stage. Then we gather the four things from this chapter that will do real work for the rest of the camp.
+:::
+
+## The Simulation, in Words
+
+- Build a world: true effect $\beta_1 = -2$
+- Motivation confounds both treatment and outcome
+- A random mailer $Z$ shifts treatment — the instrument
+- Naive OLS of $Y$ on $D$: biased
+- 2SLS with `IV2SLS`, instrument $D$ with $Z$: recovers truth
+
+::: notes
+Here is the whole chapter in one runnable block. We build the data so the true effect beta-one equals negative two — the treatment lowers the balance change by two units. Financial motivation, an unobserved confounder, both lowers the balance change and raises take-up, so it sits in the error and creates endogeneity. A random mailer Z, a coin flip independent of motivation, shifts treatment — the instrument satisfying exclusion by design. We run two estimators. Naive OLS regresses Y on the constant and D; with motivation in the error and correlated with D, it is biased. Then 2SLS, using IV2SLS from linearmodels, instruments the endogenous D with Z and reports correct robust standard errors in one call.
+:::
+
+## Reading the Output
+
+- OLS and 2SLS **disagree** — the bias made visible
+- 2SLS lands near the true $-2$
+- First-stage diagnostics report the partial F on $Z$
+- Comfortably above ten — we built a strong first stage
+- Shrink the first stage: watch 2SLS slide back to OLS
+
+::: notes
+Running it prints three things. First, an OLS coefficient biased relative to the truth — motivation makes treated people look better than the course alone explains. Second, a 2SLS coefficient close to the true negative two. Third, a first-stage diagnostics table reporting the partial F on the instrument, comfortably above ten because we built a strong first stage. Two things to notice. First, OLS and 2SLS disagree, and the gap is the endogeneity bias made visible — the entire reason for the exercise. Second, if you shrink the first stage — change zero-point-eight times Z to zero-point-zero-five times Z — and re-run, you watch 2SLS slide back toward the biased OLS number while its standard error explodes. That is the weak-instrument pathology from part eight, which you reproduce in full in Chapter three-point-five.
+:::
+
+## Four Things to Carry Forward
+
+- **Escape from CIA**: import exogenous variation from outside
+- **Two conditions**: relevance testable, exclusion arguable
+- **LATE, not ATE**: the effect for compliers only
+- **Strength is everything**: report the effective F
+- Chapter 3.5: the full weak-IV pathology and robust inference
+
+::: notes
+Four things from this chapter will do real work for the rest of the camp. First, the escape from conditional independence: when an unobserved confounder makes treatment endogenous and balancing cannot help, an instrument identifies a causal effect anyway by importing exogenous variation from outside the system. Second, the two conditions and their asymmetry. Relevance is testable — check the first stage. Exclusion is untestable and must be argued; random assignment buys you the hardest half for free, the direct-path half you defend in prose. Third, LATE, not ATE: IV identifies the effect for compliers — the units the instrument moved — not always-takers, never-takers, or the population. Fourth, strength is everything: a weak first stage drags 2SLS back toward OLS bias and corrupts your standard errors. Report the first-stage F, clear Stock–Yogo's bar, but for clustered finance data report the Olea–Pflueger effective F. Chapter three-point-five reproduces the full pathology and arms you with Anderson–Rubin inference that stays valid even when the instrument is weak.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+IV trades an *unobservable* confounder for an *arguable* instrument. Carry four things forward: escape from CIA, the relevance-versus-exclusion asymmetry, **LATE not ATE**, and that strength is everything — report the **effective F**. Chapter 3.5 delivers weak-IV-robust inference.
+:::
+
+::: notes
+To close instrumental variables: the arithmetic is a two-line matrix formula and one function call, but the argument — that your instrument is valid — is where careers are spent. We simulated the whole story: OLS biased by an unobserved confounder, 2SLS recovering the true negative two, a strong first stage, and the slide back toward bias when the instrument weakens. Carry four things forward — the escape from conditional independence, the asymmetry of relevance and exclusion, LATE not ATE, and that strength is everything. Open notebook three-point-four to reproduce Maya's mailer as a Wald estimator, scale up to 2SLS, and watch the effective F drop below its critical value as you weaken the instrument. That preview is Chapter three-point-five. Well done — you now hold the Swiss Army knife of endogeneity.
+:::

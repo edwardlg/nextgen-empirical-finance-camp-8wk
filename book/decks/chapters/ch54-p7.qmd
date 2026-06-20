@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## What's Vulnerable
+
+- Part 7 — three edges: few clusters, two-way gap, assumed shapes
+
+::: notes
+Welcome back to lesson five-point-four, part seven of eight. In part six we named four clever, transferable moves. Now we do the harder, more honest work: a good reader does not just admire a paper, she finds its edges. Petersen is unusually honest about his own, so this is partly a guide to his caveats and partly a note on what the field learned after him.
+:::
+
+## The Few-Clusters Problem
+
+- Cluster-robust is consistent as the *number of clusters* $G \to \infty$
+- Not as the number of observations
+- Few clusters — a dozen industries, ten years — make it noisy
+- And **biased downward** — the overconfidence it was meant to cure
+- Rule of thumb: roughly **30 to 50** clusters
+- Below that: small-sample $t$, or the wild cluster bootstrap
+
+::: notes
+First, the few-clusters problem — his own caveat. The cluster-robust estimator is consistent as the number of clusters, capital-G, goes to infinity, not as the number of observations goes to infinity. With few clusters — say, clustering by industry with a dozen industries, or by year with only ten years — the cluster-robust standard error is itself noisy and biased downward, reintroducing the very overconfidence it was meant to cure. Petersen flags this directly: clustering is the fix when you have enough clusters, and the rule of thumb is roughly thirty to fifty. Below that, his own method degrades, and you reach for the small-sample t with G minus one degrees of freedom, or the wild cluster bootstrap of Cameron, Gelbach and Miller, two-thousand-eight. A reader should ask of any clustered result: how many clusters, really?
+:::
+
+## The Gap to Two-Way Clustering
+
+- **Two-way clustering** was formalized *after* 2009
+- Cameron, Gelbach & Miller (2011) — general multiway sandwich
+- Thompson (2011) — the finance firm-and-time formula
+- Treat his "both" guidance as correct in spirit
+- For the build, reach for the modern two-way estimator
+- It also needs enough clusters in **both** dimensions
+
+::: notes
+Second, the gap to two-way clustering — a temporal vulnerability, a thing the paper could not fully resolve because the tool arrived later. Petersen handles both effects present with the methods available in two-thousand-nine, but the clean, general two-way cluster-robust estimator was formalized in the two years right after his paper. Cameron, Gelbach and Miller, two-thousand-eleven, in the Journal of Business and Economic Statistics, gave the general multiway sandwich; and Thompson, two-thousand-eleven, in the Journal of Financial Economics, gave the finance-facing firm-and-time formula — both after Petersen's main contribution. So a twenty-twenty-six reader should treat Petersen's both guidance as correct in spirit but reach for the modern two-way estimator — the firm-clustered sandwich plus the time-clustered sandwich minus the White sandwich — and remember that two-way also needs enough clusters in both dimensions.
+:::
+
+## Reliance on the Assumed Structure
+
+- He models **additive variance components** — $\gamma_i + \delta_t + $ noise
+- Real dependence can be richer
+- Correlation that *decays* with time
+- Spatial or network dependence — supply chains, common ownership
+- Validity is robust; *power* and verdicts inherit his shapes
+- Ask: is my dependence a shape his Monte Carlo ever saw?
+
+::: notes
+Third, reliance on the assumed correlation structure. The simulations are only as informative as the data-generating processes Petersen chose. He models the firm and time effects as additive variance components — a firm component gamma-i, plus a time component delta-t, plus noise. Real financial dependence can be richer: correlation that decays with time, so that clustering, which allows arbitrary within-firm correlation, may be less efficient than a structured estimator; spatial or network dependence, where firms are linked by supply chains or common ownership, fitting neither the firm nor the time box; and dependence that changes over the sample. The method's validity is robust, but its power and the comparison verdicts inherit the shapes he simulated. A skeptical reader asks: is my real dependence one of the shapes he tested, or something his Monte Carlo never saw? None of these sink the paper — they locate it: a correct and enormously useful result, with known boundaries the author mostly drew himself.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Three edges: **few clusters** re-break the fix below ~30–50; general **two-way clustering** arrived only *after* 2009; and the verdicts inherit the **additive shapes** he chose to simulate. None sink the paper — they *locate* it, with boundaries the author mostly drew himself.
+:::
+
+::: notes
+To summarize part seven: a careful reader finds three edges. The few-clusters problem — below roughly thirty to fifty clusters the cluster-robust fix is itself biased downward and re-breaks. The gap to general two-way clustering, which Cameron, Gelbach and Miller and Thompson only closed after two-thousand-nine, so reach for the modern estimator when both effects are present. And reliance on additive variance components, so the comparison verdicts inherit the shapes Petersen chose to simulate — decaying, spatial, or network dependence he never saw could behave differently. None of these sink the paper; they locate it. In part eight, the finale, we play the author's own game with three replication exercises and carry three referee questions into the next paper.
+:::

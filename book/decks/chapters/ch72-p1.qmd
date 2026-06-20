@@ -1,0 +1,52 @@
+---
+date: "2026-06-22"
+---
+
+## From Question to File on Disk
+
+**Learning objectives.** By the end you can:
+
+- Ask the same six questions of any data source
+- Read secrets from the environment, never from code
+- Keep licensed data on GMU infrastructure
+- Pin, cache, and log every pull for reproducibility
+
+::: notes
+Welcome to Week Seven, Chapter seven-point-two, Data Acquisition in Practice. In the last chapter, each of our five students left the workshop with a sharp question and a named dataset. But a question is not a dataset. Between "I want the data" and "I have a file on disk I can defend to a referee" lies a whole craft: knowing where data lives, who owns it, how to ask for it, and how to pull it so the same command a year from now gives the same answer. This part frames that craft and the six questions we will ask of every source.
+:::
+
+## A Question Is Not a Dataset
+
+- Five students, eight or nine data sources, one shared problem
+- Getting data is often the hardest, slowest, error-prone part
+- API keys, headers, pagination, license agreements — not glamorous
+- But it is where reproducibility is won or lost
+- A pull that cannot be re-run is work no one can check
+
+::: notes
+Maya needs mortgage records and a macro control. Devon needs S-E-C filings and a price series. Priya needs firm fundamentals and ten-K text. Sam needs a clean daily price panel. Leah needs patent counts. Five questions, eight or nine sources, and one problem they all share: a question is not a dataset. Let us be honest about something the polished tables in journals hide. Getting the data is often the hardest, slowest, and most error-prone part of an empirical project, and almost none of it is glamorous. It is keys and headers and pagination and license agreements. But it is also where reproducibility is won or lost. A study whose data pull cannot be re-run is a study no one can check — and Week Seven's whole arc, from idea to pre-analysis plan, is about building work that survives checking.
+:::
+
+## Six Questions for Every Source
+
+1. **Coverage** — what is in it, over what span
+2. **Key identifiers** — codes to find and merge a record
+3. **Access path** — the package, API, or workflow
+4. **Licensing** — who owns it; may it leave the building?
+5. **Rate limits and gotchas** — how to get blocked
+6. **The reproducible pull** — pin, cache, log
+
+::: notes
+For each source we will state the same six things in the same order, so you can compare sources at a glance, and so that by source number three you know exactly what to look for. First, coverage: what is in it, and over what time span. Second, key identifiers: the codes you use to find and later merge a record. Third, the access path: the package or A-P-I and a short workflow pattern. Fourth, licensing and the G-M-U infrastructure rule: who owns it, and whether it may leave the building. Fifth, rate limits and gotchas: how to get blocked, and how not to. Sixth, the reproducible pull: how to pin a snapshot, cache the raw data, and log the query. We will not cover merging or cleaning — that is Chapter seven-point-four. Here we stop the moment a clean raw file sits on disk with a log beside it. Each source also has a fuller reference, a data card, in Appendix C; think of this chapter as the narrated tour and the cards as the spec sheets you return to while coding.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A question is not a dataset — turning one into the other is a craft, and it is where reproducibility is won or lost. Every source in this chapter answers the **same six questions**: coverage, identifiers, access path, licensing, rate limits, and the reproducible pull. Next: the three rules that govern every source.
+:::
+
+::: notes
+To summarize part one: a question is not a dataset, and turning one into the other is the craft this chapter teaches. We will tour each source with the same six questions — coverage, identifiers, access path, licensing, rate limits, and the reproducible pull — stopping the moment a clean raw file sits on disk with a log beside it. In parts two and three, before any specific source, we state the three rules that cut across all of them — the difference between a data pull a referee trusts and one they cannot.
+:::

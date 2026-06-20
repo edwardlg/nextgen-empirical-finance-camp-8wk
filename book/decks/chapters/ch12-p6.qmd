@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Minimum-Risk Blend
+
+- Part 6 — the weight that minimizes risk, and the parabola
+
+::: notes
+Welcome back to Chapter one-point-two, Expectations, Variance, and Covariance as Geometry, part six of nine. In part five we ran Maya's three scenarios and watched diversification push her volatility below her safest asset. But she settled for an even split. Now we ask: what weight minimizes her risk? Because portfolio variance is a quadratic in the weight, it has a genuine bottom, and we can find it with calculus Maya already owns. That parabola-with-a-minimum is the seed of modern portfolio theory — and of the optimization in next week's regression.
+:::
+
+## Finding the Bottom of the Parabola
+
+- $\operatorname{Var}(R_p)$ is a **quadratic** in $w$ — it has a genuine bottom
+- $w^\star = \dfrac{\sigma_2^2 - \sigma_{12}}{\sigma_1^2 + \sigma_2^2 - 2\sigma_{12}}$
+- Scenario B: $w^\star = 0.01/0.05 = 0.2$ — hold only 20% of the risky asset
+- Gives $\operatorname{Var} = 0.008$, $\operatorname{sd}\approx 0.089$, below the even split
+- The point is the **shape**, not the formula
+
+::: notes
+Maya does not have to settle for the even split. Since the portfolio variance is a quadratic in the weight w, she can find the weight that minimizes it: differentiate, set the derivative to zero, and solve. The minimizing weight, w star, equals the variance of asset two minus the covariance, all over the variance of asset one plus the variance of asset two minus twice the covariance. In Scenario B, where the covariance is zero, this is zero point zero one over zero point zero five, equal to zero point two — she should hold only twenty percent of the riskier asset. Plugging back in gives a variance of zero point zero zero eight and a volatility of about zero point zero eight nine, lower than the even split's zero point one one two. The point is not the formula but the shape. Risk is a parabola in the weight, it has a genuine bottom, and the location of that bottom is governed by the covariance. Optimization over a quadratic risk surface is the seed of modern portfolio theory, and we will meet the same parabola-with-a-minimum when ordinary least squares chooses its coefficients in Week Two.
+:::
+
+## The Lesson Maya Takes Away
+
+- Expected return is a straight average; **risk is not**
+- All the curvature lives in the $2w(1-w)\sigma_{12}$ term
+- Lower covariance $\Rightarrow$ more risk cancels when you combine
+- Diversification is not "spreading out" — it is one covariance term
+- A loan book: correlated defaults are far more dangerous
+
+::: notes
+Here is the lesson Maya takes away. Expected return is a straight average — that is linearity from part one. Risk is not, because of the two w times one minus w times covariance term. The lower the covariance, the more risk cancels when you combine assets, and a negative covariance can push the portfolio below its safest component. Diversification is not magic, and it is not about spreading out. It is one term in one quadratic, and that term is the covariance. A lender like the ones Maya studies thinks the same way about a book of loans: defaults that move together — a regional recession hitting everyone at once — are far more dangerous than the same number of defaults that move independently, even when each individual loan looks identical on paper. The sign and size of the covariance is the whole risk story.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Portfolio risk is a **parabola in the weight**, with a bottom set by the covariance — Maya minimizes hers by holding just 20% of the risky asset. Expected return is a straight average; the curvature is all covariance. The same quadratic returns when OLS picks coefficients. Next: this covariance is secretly a cosine.
+:::
+
+::: notes
+To summarize part six: portfolio risk is a parabola in the weight, with a genuine minimum whose location is governed by the covariance. Maya minimizes her risk by holding only twenty percent of the riskier asset, dropping volatility to about zero point zero eight nine. The big lesson is that expected return is a straight average, but risk curves, and all the curvature lives in the covariance term. Diversification is one term in one quadratic — and a lender reasons identically about correlated versus independent defaults. This same quadratic-with-a-minimum returns when ordinary least squares chooses its coefficients next week. In part seven, we reveal that this covariance term is secretly the cosine of an angle between two vectors.
+:::

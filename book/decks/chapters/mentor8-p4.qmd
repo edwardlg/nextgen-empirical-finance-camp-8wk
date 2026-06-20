@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## When the Attacker Is Right — and Defending Your Own
+
+- Part 4 — conceding a fatal critique, then defending your own result
+
+::: notes
+Welcome back to Mentor Session Eight, defending a result, part four of six. In part three we walked identification, robustness, and alternatives, and the four-beat answer. Now the hardest case: when the critique is fatal and the attacker is genuinely right. Then we turn the table on you — slide five, where you defend your own capstone against a live referee.
+:::
+
+## Slide 4 — When the Critique Is Fatal
+
+- The instinct is to argue harder — exactly wrong
+- Defending a broken design turns a damaged paper into a damaged reputation
+- **Concede** at the level the point was made; retreat to what survives
+- "A strong *association*, not the clean causal estimate I'd hoped for"
+- Fatal to the *causal* claim is rarely fatal to the *descriptive* one
+
+::: notes
+Slide four: when the critique is fatal and the attacker is right. It happens. The instinct is to argue harder. That is exactly wrong — defending a broken design in front of a room that can see it is broken turns a damaged paper into a damaged reputation. The move is to concede at the level the point was made, and retreat to what survives. You're right, I can't rule that out with this design, so the honest reading is a strong association consistent with the mechanism, not the clean causal estimate I had hoped for. Almost always there is a retreat position: fatal to the causal claim is rarely fatal to the descriptive one. A robust pattern that future work with the better design should test causally is real, honest, and publishable. Know your retreat position before you walk in. That is what the residual-concern column of your threats table was for. A conceded fatal critique is a wounded paper, but an intact scientist.
+:::
+
+## Slide 5 — Now Defend Your Own
+
+- Walk in with your result and your **Chapter 7.5 threats table**
+- Walk out having found the one question you **couldn't** answer cleanly
+- Graded on the **defense**, not the cleverness (Assessment 8)
+- Strongest line: "clone the code — same figure, **seed and all**"
+- Invite verification instead of asking for trust
+
+::: notes
+Slide five turns the table on you. You walk in with your capstone result and your Chapter seven-point-five threats table. You walk out having defended it against a live referee — me — and having found the one question you could not answer cleanly. Your capstone is graded on the defense, not the cleverness; that is Assessment Eight. In the eight-minute talk, the eight minutes are the easy part; the question period is where the result is judged, and the questions are your own threats-table rows, fired back at you. The strongest sentence you can say to a hostile question about a number: the exact code that produces it is in the packet — clone it and you get the same figure, seed and all. You invite verification instead of asking for trust. That is the posture of someone with nothing to hide. The reflection prompt makes you write the three hardest questions you'll face, and your drafted answers, before the conference, when you're calm. Bring it to your defense.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+When a fatal critique lands and the attacker is right, **concede and retreat** to the claim that survives — usually the honest descriptive one. Then defend your own: graded on the defense, not the cleverness, with the strongest line being *"clone the code — same figure, seed and all."* Next: a real disclosure paper under fire.
+:::
+
+::: notes
+To summarize part four: when the critique is fatal and the attacker is right, the worst move is to argue harder — that turns a damaged paper into a damaged reputation. Concede at the level the point was made and retreat to what survives, almost always the honest descriptive version: a robust association that future work with a better design should test causally. Fatal to the causal claim is rarely fatal to the descriptive one, so know your retreat before you walk in. Then you defend your own capstone, graded on the defense and not the cleverness, where the strongest line is an invitation to verify — clone the code and get the same figure, seed and all. In part five we make all of this concrete on a real published paper about CEO political ideology and disclosure, sitting in the crosshairs of all three families at once.
+:::

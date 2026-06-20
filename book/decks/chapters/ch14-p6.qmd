@@ -1,0 +1,57 @@
+---
+date: "2026-06-22"
+---
+
+## Watching the Bell Form From a Skewed Population
+
+- Part 6 — simulating the bell emerge from a skewed population
+
+::: notes
+Welcome back to Chapter one-point-four, the Law of Large Numbers and the Central Limit Theorem, part six of ten. In part five we built the intuition for why the bell must appear. Now we earn it by simulation: we start from a population that looks nothing like a normal distribution and watch the bell emerge anyway, panel by panel.
+:::
+
+## The Experiment: A Skewed Population
+
+- Priya studies insurance claims — notoriously **right-skewed**
+- Stand-in: the **exponential** distribution, $\mu=1$, $\sigma=1$
+- Draw $N$ values, average, standardize to $z_N$, store it
+- Repeat $50{,}000$ times to map the sampling distribution
+- Redo for $N=1,2,5,30,100$ and watch it morph
+
+::: notes
+The honest way to be convinced is to start from a population that looks nothing like a normal distribution and watch the bell emerge anyway. Priya is studying insurance claims, which are notoriously skewed — most policies cost the insurer nothing in a given month, a few cost a fortune. A clean stand-in is the exponential distribution: strongly right-skewed, piled up near zero with a long tail to the right. Its mean and standard deviation both equal one. Here is the experiment, the heart of notebook one-point-four. We pick a sample size N, draw N exponential values, compute the sample mean, standardize it to z-sub-N, and store that one number. We repeat the whole process fifty thousand times to map out the sampling distribution of the standardized mean. Then we histogram those fifty thousand values and overlay the standard normal curve. Finally we redo the entire thing for several values of N — one, two, five, thirty, and one hundred — and watch the histogram morph from a lopsided spike into a clean bell.
+:::
+
+## Panel by Panel: The Bell Emerges
+
+- $N=1$: still the raw exponential — sharp wall, long tail
+- $N=2$: wall softens, peak pulls toward center, still lopsided
+- $N=5$: skew fading, a bell trying to form
+- $N=30$: histogram and dashed normal nearly on top of each other
+- $N=100$: indistinguishable from the normal curve by eye
+
+::: notes
+Describe to yourself what comes out, panel by panel, because this sequence of pictures is the Central Limit Theorem. At N equals one, the standardized mean is just a single standardized exponential draw; it looks exactly like the exponential — a sharp wall on the left, a long tail dragging off to the right. Nothing bell-like. At N equals two, averaging two draws already softens the wall and pulls the peak toward center, but it is still visibly lopsided. At N equals five, the skew is fading; a bell is trying to form, the left side has rounded off and the right tail is shorter. At N equals thirty, the histogram and the dashed normal curve are nearly on top of each other. At N equals one hundred, it is indistinguishable from the normal curve by eye.
+:::
+
+## The Lesson Lands
+
+- Remember where we started: a **violently skewed** pile-up at zero
+- Average a hundred, standardize, and you get a **perfect bell**
+- You cannot tell the result from the normal curve
+- This is the CLT, **shown not asserted**
+
+::: notes
+The lesson lands hardest if you remember where we started: a violently skewed pile-up-at-zero distribution, nothing like a bell. Average a hundred of them, standardize, and you cannot tell the result from a perfect bell. That is the Central Limit Theorem, shown not asserted — not a claim on a slide, but a histogram that walks, step by step, from a lopsided spike to the universal bell curve, in front of your eyes. This is the spirit of the whole book: state the result plainly, then make the simulation prove it. And the convergence we just watched — comfortable by about N equals thirty — is exactly what gives rise to the famous folk rule we examine next.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Starting from a violently skewed exponential, the standardized mean morphs panel by panel into a clean bell — indistinguishable from $N(0,1)$ by about $N=30$. That is the Central Limit Theorem *shown, not asserted*. Next: the "$N\ge 30$" folk rule, and reading the two laws together.
+:::
+
+::: notes
+To summarize part six: we started from a violently skewed exponential population and watched the standardized sample mean morph, panel by panel — N of one, two, five, thirty, one hundred — from a lopsided spike with a sharp left wall into a clean bell, indistinguishable from the standard normal by about N equals thirty. That is the Central Limit Theorem shown, not asserted: the simulation proves what the slide merely claims. That comfortable convergence around N equals thirty is the origin of the famous folk rule. In part seven we examine why N at least thirty is only a folk rule, and then we read the two laws together to fix their division of labor.
+:::

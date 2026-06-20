@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Non-Classical Error, and Watching Attenuation in Code
+
+- Part 8 — non-classical error; simulate attenuation
+
+::: notes
+Welcome back to Week Two-point-five, part eight of twelve. In part seven we named the reliability ratio and saw that mismeasured outcomes are harmless while mismeasured controls re-open bias. Now the third and trickiest subtlety: when the measurement error is non-classical, attenuation can fail entirely. Then we close the measurement-error thread by simulating it — building data with a known true coefficient and watching the estimate slide toward zero exactly as the formula predicts.
+:::
+
+## Subtlety 3: Non-Classical Error Can Bias *Away* From Zero
+
+- Toward-zero guarantee needs error uncorrelated with the truth
+- Top-coded incomes, or high earners under-stating more
+- Then bias can go *either* direction — including away from zero
+- "Measurement error always attenuates" is a half-truth
+- State the assumptions first, *then* claim the direction
+
+::: notes
+Third subtlety: non-classical error can bias away from zero. The toward-zero guarantee depends on the error being uncorrelated with the true value. When the error is correlated with the truth — for instance, top-coded incomes, or self-reports where high earners under-state more — the bias can go in either direction, including away from zero. So measurement error always attenuates is a half-truth; it attenuates under the classical assumptions. The discipline is the same as everywhere in this chapter: state the assumptions, then claim the direction. Never assert attenuation reflexively without checking that the noise really is the pure, independent jiggle the classical case requires. The moment the error knows something about the true value, the clean toward-zero result is gone.
+:::
+
+## Watching Attenuation Happen in Code
+
+- Build data with known $\beta_1 = 2$, no omission
+- Corrupt $x$ with rising noise: $\sigma_m = 0, 0.5, 1, 2$
+- Predict $\lambda = \operatorname{Var}(x^{*})/(\operatorname{Var}(x^{*})+\sigma_m^2)$
+- $\hat\beta$ slides: $1.998 \to 1.602 \to 1.001 \to 0.402$
+- Matches $\beta_1\lambda$; bigger $N$ barely moves it
+
+::: notes
+The fastest way to trust the formula is to simulate it. We build data where we know the true beta-one equals two, with no omission, then corrupt the regressor with increasing amounts of noise and watch the estimate slide toward zero exactly as lambda predicts. We draw the true regressor x-star with variance one, form the outcome, then loop over measurement-error standard deviations of zero, zero-point-five, one, and two. For each, we form the observed x as x-star plus noise, regress y on x, and compare the estimate to beta-one times lambda. Running it produces, up to simulation noise: at noise zero, lambda is one and beta hat is one-point-nine-nine-eight. At noise zero-point-five, lambda is zero-point-eight and beta hat is one-point-six-zero. At noise one, lambda is one-half and beta hat is one-point-zero-zero — exactly halved. At noise two, lambda is zero-point-two and beta hat is zero-point-four-zero. The estimate marches from two toward zero exactly as beta-one lambda predicts. And no amount of additional data changes this — try five million observations and the numbers barely move, because attenuation is a bias in the probability limit, not sampling noise. That is the difference between a bias problem and a standard-error problem in one experiment.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Non-classical** error — noise correlated with the truth — can bias in *either* direction, even away from zero; state the assumptions before claiming attenuation. Simulation confirms $\hat\beta \to \beta_1\lambda$ regardless of sample size, because attenuation lives in the *probability limit*. Next: the third threat — wrong functional form.
+:::
+
+::: notes
+To summarize part eight: the clean attenuation result holds only under the classical assumptions. When the measurement error is non-classical — correlated with the true value, as with top-coded incomes — the bias can run in either direction, even away from zero, so you must state your assumptions before claiming attenuation. The simulation made the core result concrete: with the true coefficient set to two, the estimate slid from one-point-nine-nine-eight down through one-point-six, then to exactly one when noise equalled signal, then to zero-point-four — matching beta-one times lambda at every step — and a vastly larger sample barely moved it, because attenuation is a bias in the probability limit, not sampling noise. In part nine we turn to the third and final threat, which is not about which variables or how well measured, but about shape: functional-form misspecification.
+:::

@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Run TWFE First — and See It Fail
+
+- Part 6 — run static TWFE and watch it attenuate
+
+::: notes
+Welcome back to the Week Four lab, part six of ten. In part five you inspected the panel and stated the identification argument — the cohort-mean plot that is the argument in one image. Now, Step Three: you run the static two-way fixed-effects regression a beginner reaches for, and you watch it land well short of the truth. This is the regression Chapter four-point-two warned you about, and now you feel why from the inside.
+:::
+
+## Step 3 — Run TWFE First
+
+- Static two-way fixed effects: denial rate on treatment dummy
+- Absorb county and year; cluster by state
+- The regression a beginner reaches for
+- On staggered data with dynamic effects, exactly the suspect one
+- TWFE beta hat $\approx -0.81$ vs truth $-1.49$
+- Right sign, but only about **55%** of the truth
+
+::: notes
+Run the static two-way fixed-effects regression from Chapter four-point-one: denial rate on the treatment dummy, absorbing county and year fixed effects, clustered by state. This is the regression a beginner reaches for, and on staggered data with dynamic effects it is exactly the one Chapter four-point-two warned you about. What you expect: the two-way-fixed-effects coefficient, beta hat, comes out around negative zero-point-eight-one percentage points against a true mean average treatment effect of negative one-point-four-nine — the right sign, but only about fifty-five percent of the truth. Two-way fixed effects is attenuated: biased toward zero. A policymaker reading negative zero-point-eight-one would conclude the policy did barely more than half what it actually did. The number is wrong in a way that matters for the decision it would inform — and the attenuation is not noise; rerun with a different seed and it still lands well short.
+:::
+
+## Why TWFE Is Attenuated
+
+- The Chapter 4.2 mechanism: **forbidden comparisons**
+- Already-treated 2016 wave used as a control for the 2020 wave
+- During years the 2016 effect is still deepening
+- That still-moving effect gets subtracted, dragging toward zero
+- Here the sign survives — real never-adopters dilute it
+- With *no* never-treated unit, the sign can flip outright
+
+::: notes
+Why is it attenuated? Exactly the Chapter four-point-two mechanism. With staggered adoption, two-way fixed effects forms forbidden comparisons — it uses already-treated states, the twenty-sixteen wave, as controls for newly-treated states, the twenty-twenty wave, during years when the twenty-sixteen wave's own effect is still deepening. That still-moving effect of the contaminated control gets subtracted from the newly-treated cohort's estimate, dragging the pooled coefficient toward zero. Here the sign survives because genuine never-adopting controls exist to dilute the forbidden comparisons. But recall from Chapter four-point-two: with no never-treated unit at all, the sign can flip outright. The reflection the lab asks: name the specific forbidden comparison in this panel — which cohort is wrongly used as a control for which, and in which years — and explain why the bias would vanish if you made the effect constant instead of building.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+On staggered data with dynamic effects, **TWFE is attenuated** — about $-0.81$ versus the true $-1.49$, only ~55% of the truth — because it makes **forbidden comparisons**, using the 2016 wave as a control while its own effect is still building. The sign survives only because real never-adopters dilute it. Next: the event study, and stressing parallel trends on purpose.
+:::
+
+::: notes
+To summarize part six: static two-way fixed effects lands around negative zero-point-eight-one percentage points against the true negative one-point-four-nine — the right sign but only about fifty-five percent of the truth — and that attenuation is signal, not noise. The cause is the Chapter four-point-two mechanism: staggered adoption forces forbidden comparisons, using the twenty-sixteen wave as a control while its own effect is still deepening, and that still-moving effect gets subtracted toward zero. The sign survives only because genuine never-adopters dilute the bad comparisons; with none, it could flip. In part seven we run the event study to read the pre-trends, then stress parallel trends on purpose and watch the leads tilt.
+:::

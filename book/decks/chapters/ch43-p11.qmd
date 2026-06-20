@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## CCT Robust Bias-Corrected Inference
+
+- Part 11 — CCT robust bias-corrected inference at the optimal bandwidth
+
+::: notes
+Welcome back to regression discontinuity, part eleven of seventeen. In part ten we automated the bandwidth with Imbens–Kalyanaraman. But the MSE-optimal bandwidth hides a catch, and Calonico, Cattaneo, and Titiunik fixed it. We meet their robust bias-corrected inference, then a discipline note.
+:::
+
+## The Catch the Optimal Bandwidth Creates
+
+- The MSE-optimal $h$ is *large enough that bias isn't negligible*
+- $\hat\tau \pm 1.96\,\widehat{\text{se}}$ assumes the estimator is centered
+- At the optimal $h$ it is *not* — leftover bias remains
+- So the naive interval is mis-located — it *undercovers*
+- It contains the truth less than ninety-five percent of the time
+
+::: notes
+Here is the subtlety Imbens–Kalyanaraman leaves dangling. The mean-squared-error-optimal bandwidth is, by design, large enough that the bias is not negligible — that is what minimizing mean squared error means, you accept some bias to buy variance reduction. But the conventional confidence interval, tau-hat plus or minus one point nine-six times the standard error, is built assuming the estimator is centered on the truth. At the optimal bandwidth it is not centered — there is leftover bias — so the conventional interval is mis-located and undercovers: it contains the true effect less than ninety-five percent of the time. The very bandwidth that minimizes error sabotages the naive confidence interval.
+:::
+
+## CCT (2014): The Fix
+
+- Calonico, Cattaneo, Titiunik: **robust bias-corrected inference**
+- (i) estimate and subtract the leading bias term — *bias correction*
+- (ii) inflate the SE for the correction's added noise — *robust*
+- Achieves nominal coverage even at the optimal $h$
+- Implemented in `rdrobust`
+
+::: notes
+Calonico, Cattaneo, and Titiunik, in two thousand fourteen, gave the now-standard fix, robust bias-corrected inference. They do two things. First, they estimate the leading bias term explicitly and subtract it from the point estimate — that is the bias correction. Second, they inflate the standard error to account for the extra noise that the bias-correction step itself introduces — that is what makes the standard errors robust. The result is a confidence interval that achieves its nominal coverage even at the mean-squared-error-optimal bandwidth. This is the method implemented in the r-d-robust package, and it is what the notebook for this chapter uses. The citation: Calonico, Cattaneo, and Titiunik, Robust Nonparametric Confidence Intervals for Regression-Discontinuity Designs, in Econometrica.
+:::
+
+## A Discipline Note
+
+- Pick the bandwidth procedure *before* you see the estimate
+- Report it; show the result survives reasonable alternatives
+- Standard check: halve and double $h$, confirm the jump holds
+- Today's expectation: data-driven $h$, local linear, triangular kernel
+- Plus CCT robust bias-corrected intervals
+
+::: notes
+A discipline note in the spirit of our conventions. Pick your bandwidth procedure before you look at the estimate, report it, and show that the result survives reasonable alternatives. A standard robustness check is to halve and double the chosen h and confirm the jump does not vanish or explode. Bandwidth-shopping until the stars appear is one of the easiest ways to fool yourself and your reader with R-D. When you report an R-D estimate today, the expectation is: a data-driven bandwidth in the I-K or C-C-T style, local linear with a triangular kernel, and C-C-T robust bias-corrected confidence intervals.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The MSE-optimal bandwidth deliberately leaves a bias, so $\hat\tau \pm 1.96\,\widehat{\text{se}}$ **undercovers**. **CCT (2014)** fixes it: subtract the leading bias, inflate the SE for the correction's noise — nominal coverage even at the optimal $h$, all in `rdrobust`. Next: how to *read* an RD plot.
+:::
+
+::: notes
+To summarize part eleven: the mean-squared-error-optimal bandwidth deliberately leaves a bias the estimator is not centered on, so the naive confidence interval undercovers — it contains the truth less than ninety-five percent of the time. Calonico, Cattaneo, and Titiunik fixed this with robust bias-corrected inference: estimate and subtract the leading bias term, then inflate the standard error for the noise that correction adds. The result achieves nominal coverage even at the optimal bandwidth, and it is built into r-d-robust. Always pick the bandwidth before you see the estimate and check that it survives halving and doubling. In part twelve we step away from regressions and learn to read an R-D plot.
+:::

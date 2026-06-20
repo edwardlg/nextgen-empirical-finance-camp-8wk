@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## What a Referee Actually Asks
+
+**Learning objectives.** By the end you can:
+
+- Adopt the referee's "reason not to believe" mindset
+- Sort questions into the three danger families
+- Tell a fatal attack from a survivable one
+- Stress-test your own result before the room does
+
+::: notes
+Welcome to Mentor Session Eight, the camp's final mentor session, part one of six. Eight weeks ago you computed an average return and thought you had an answer. Today you have a result — a number you can defend sentence by sentence, with a design behind it and an uncertainty attached. So we close the arc by teaching the last skill the camp owes you: what happens after the result exists. The place a result is actually judged is not on paper. It is live, in a room, when someone who wants to disbelieve you starts asking questions and you have six seconds to answer. In this part we learn the referee's mindset.
+:::
+
+## The Game Changes After the Result Exists
+
+- The room is not trying to *understand* your number
+- It is hunting the **more boring explanation** for it
+- That is the job — the most useful service in science
+- Defense is not pretending no such explanation exists
+- Defense: you found it first, and bounded it
+
+::: notes
+Here is the thing nobody tells you until you have published a few papers, so I will tell you now. A referee is not trying to understand your result. A referee is trying to find the reason not to believe it. That sounds adversarial, and in a sense it is — but it is the most useful service in all of science, and once you stop taking it personally it becomes the thing you cannot work without. The referee stands between your claim and the permanent record and asks, on behalf of every future reader who will cite you without checking: is there a more boring explanation for this number than the one the author is selling? Almost always there is at least a candidate. Your job in the defense is not to pretend there isn't. It is to show you found that candidate first, looked it in the eye, and either ruled it out or honestly bounded how much it could matter.
+:::
+
+## Three Families, In Order of Danger
+
+- **Identification** — is the comparison *fair*?
+- **Robustness** — is the number *fragile*?
+- **Alternative explanations** — does another mechanism fit?
+- Identification is **fatal**; the other two usually survive
+- A moved number is a wound; a removed comparison, a death
+
+::: notes
+After refereeing and presenting for two decades, I can tell you the hard questions in empirical finance collapse into three families, and they come in this order of danger. The first and deadliest is identification — whether your comparison is fair, whether the difference you measured between treated and untreated, before and after, high and low, is caused by the thing you claim or by something tangled up with it. Isn't this just picking up some confounder? That is the identification question in everyday clothes, and it is the question that kills papers, because if the comparison was never clean, no amount of careful estimation rescues it. A precise standard error on a confounded coefficient is a precise estimate of nothing. The second is robustness — granting the design, does the number survive the arbitrary choices you made? A different filter, control set, cutoff, or window. The third is alternative explanations — does a different mechanism produce the same data? Internalize the ranking: identification is fatal, robustness and alternatives are usually survivable. A robustness attack moves a number; an identification attack removes a comparison.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A referee hunts the **reason not to believe you**. Strong defense shows you found that reason first and bounded it. Questions fall into three families: **identification** (fatal), **robustness**, and **alternative explanations**. Next: three Socratic warm-ups to decode real referee questions.
+:::
+
+::: notes
+To summarize part one: a referee is not trying to understand your result; they are hunting the more boring explanation for it, and that is the most useful service in science. A strong defense shows you found that explanation first and either ruled it out or bounded it. The hard questions collapse into three families, in order of danger: identification, which asks whether the comparison is fair and is fatal if lost; robustness, which asks whether the number is fragile; and alternative explanations, which ask whether a different mechanism fits the same data. Hold one reflex sharp: for my own result, what is the one reason a hostile, intelligent reader would have not to believe it, and have I already written down my answer? In part two we decode real referee questions with three Socratic warm-ups.
+:::

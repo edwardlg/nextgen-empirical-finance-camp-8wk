@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## AI Fools You: Leakage and Prompt P-Hacking
+
+- Part 4 — two traps: look-ahead leakage and prompt p-hacking
+
+::: notes
+Welcome back to "Text as data, and AI without fooling yourself," part four of seven. In part three we built the validation pipeline: gold set, held-out split, precision and recall out of sample. Now we name the first two of the three specific traps a large language model sets for finance researchers — look-ahead leakage and prompt p-hacking — and the concrete guardrail that defuses each. Both are about not fooling yourself.
+:::
+
+## Trap One: Look-Ahead and Leakage
+
+- The model may "know the future" of your sample
+- Trained on text through a cutoff — it read what happened
+- Labeling 2019 *tone* is safe — tone is in the text
+- *Predicting* 2020 returns from it is contaminated
+- Hindsight manufactures fake performance that evaporates live
+
+::: notes
+Trap one is the finance-specific killer: look-ahead and leakage. A language model is trained on text through some cutoff date, which means it may know the future relative to your sample — it has already read what happened to those twenty-twenty-one stocks. Now draw a sharp line. Labeling the tone of a twenty-nineteen filing is comparatively safe, because the tone is right there in the text the model is reading. But predicting twenty-twenty's returns from that same filing is exactly where hindsight leaks in. The model isn't forecasting; it is partly remembering. That manufactures fake performance that looks spectacular in your backtest and evaporates the moment you trade it forward.
+:::
+
+## Guardrail: Fence the Dates
+
+- Test out of sample on **post-cutoff** episodes
+- Episodes the model could not have read
+- Enforce a date filter **mechanically** in retrieval
+- A query dated $t$ never sees a document dated after $t$
+- Make the machine enforce honesty, not your memory
+
+::: notes
+The guardrail for leakage is to fence the dates, mechanically. First, run your out-of-sample tests on post-cutoff episodes — events that happened after the model's training cutoff, which it could not possibly have read. If performance holds there, the result isn't hindsight. Second, when you retrieve passages to feed the model, enforce the date filter in code: a query dated at time t never sees a document dated after t. Do not trust yourself to remember the rule case by case — wire it into the pipeline so the machine enforces it every single time. Honesty you have to remember is honesty you will eventually forget.
+:::
+
+## Trap Two: Prompt P-Hacking
+
+- Rewording the rubric until the coefficient turns significant
+- Same old p-hacking, new costume
+- Each reworded prompt is a silent new specification
+- Guardrail: **freeze** the prompt against the gold set first
+- Freeze it *before* you look at the regression; report it verbatim
+
+::: notes
+Trap two: prompt p-hacking. This is an old sin in a new costume. You write a prompt, get your labels, run the regression — and the coefficient isn't significant. So you reword the prompt a little and try again. And again. Eventually one wording makes the coefficient cross the line, and you keep that one. You have just searched over specifications until the data confessed, which is p-hacking, full stop. The guardrail is discipline about order. Freeze your prompt by validating it against the gold set — precision and recall — before you ever look at the regression result. The prompt is a variable definition; lock it down on measurement quality alone, then run the regression once, and report the prompt verbatim in an appendix.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Two traps, two guardrails. **Leakage:** the model knows your sample's future — test on post-cutoff episodes and date-fence retrieval, so a query dated $t$ never sees a document dated after $t$. **Prompt p-hacking:** freeze the prompt against the gold set *before* you look at the regression, then report it verbatim. Both guardrails move honesty out of your memory and into the pipeline. Next: the third trap, and the thread through all three.
+:::
+
+::: notes
+To summarize part four: a language model fools you in finance-specific ways, and we covered the first two. Leakage — the model may know your sample's future — is defused by testing on post-cutoff episodes the model could not have read, and by fencing retrieval so a query dated t never sees a document dated after t. Prompt p-hacking — rewording the rubric until significance appears — is defused by freezing the prompt against the gold set before you look at the regression, then reporting it verbatim. Both fixes share one idea: move honesty out of your memory and into the pipeline, where the machine enforces it. In part five, we name the third trap, irreproducibility, and pull the single thread that runs through all three.
+:::

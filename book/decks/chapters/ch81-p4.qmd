@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## Maya's 144 Specifications
+
+- Part 4 — Maya's forks cross-multiply to 144 specifications
+
+::: notes
+Welcome back to Execution and the Specification Curve, part four of ten. In part three we learned the spec curve answers what the plan cannot — how many other defensible paths give the same answer — and that step one is enumerating only the forks you would defend out loud. Now we take Maya's analysis and watch her choices cross-multiply into a full multiverse, then see why this is the same multiple-testing problem from Week One in disguise.
+:::
+
+## Maya's Seven Slots Multiply to 144
+
+- **Controls:** none, income, income+LTV, all three — 4
+- **Fixed effects:** baseline; add state trends — 2
+- **Sample window:** full; drop 2020; drop edge cohorts — 3
+- **Clustering:** state; county; wild bootstrap — 3
+- **Outcome:** denial gap as difference vs. log-ratio — 2
+- $4 \times 2 \times 3 \times 3 \times 2 = 144$ specifications
+
+::: notes
+Maya's choices partition naturally into the slots of her spec-discipline conventions. Controls: which county-year composition covariates enter — none, income only, income plus loan-to-value, or all three — four combinations. Fixed effects: county and year are baseline; does she also add state-specific trends? With or without — two options. Sample window: full period, drop twenty-twenty for COVID, or drop the thinly-identified first and last cohorts — three options. Clustering: cluster by state, her pre-registered choice; cluster by county; or wild-cluster bootstrap by state — three options. Outcome: the denial gap as a difference, or as a log-ratio — two operationalizations. Multiply them: four times two times three times three times two equals one hundred forty-four specifications. And notice — one of those is her pre-registered primary spec. The confirmatory run is not outside the multiverse; it is a labeled, privileged point inside it.
+:::
+
+## Why This Is Just Multiple Testing
+
+- Recall Chapter 1.5: 20 true nulls, one crosses 5% with prob $\approx 0.64$
+- With 144 specs, a spurious "winner" is nearly certain
+- The garden is multiple testing wearing a disguise
+- 144 = how many regressions she *could defensibly* have run
+- The curve shows the whole distribution luck + choice produce
+
+::: notes
+Here the arithmetic of Week One comes back to bite. Recall from Chapter one-point-five: if you test twenty independent true nulls at alpha equals zero-point-zero-five, the chance at least one crosses the line by luck is one minus zero-point-nine-five raised to the twentieth power — about zero-point-six-four, a spurious winner purely from giving luck enough tries. With one hundred forty-four specifications, even if the true effect were exactly zero, the probability that at least one lands below p equals zero-point-zero-five is overwhelming. The garden of forking paths is just multiple testing wearing the disguise of "I only ran one regression." Maya ran only one regression for the confirmatory result — but the one hundred forty-four specifications measure how many she could defensibly have run, the real size of her multiple-testing problem. The curve does not eliminate that problem; it shows the whole distribution of what luck and choice together could produce, so a single starred specification can never masquerade as the only one you considered.
+:::
+
+## Steps 2 and 3
+
+- **Step 2 — Run all of them:** estimate the key coefficient 144 times
+- Collect estimates, confidence intervals, and the *choice-record*
+- 144 fixed-effects regressions run in seconds
+- The choice-record is the load-bearing part
+- **Step 3 — Plot the distribution, choices underneath**
+
+::: notes
+Step two: run all of them. Estimate the key coefficient — for Maya, the average treatment effect on the denial gap — under every one of the one hundred forty-four specifications, and collect the estimates and confidence intervals into a table. This is embarrassingly fast: one hundred forty-four fixed-effects regressions on a county-year panel run in seconds. The output is one hundred forty-four estimates and inference results, plus, for each, a record of which choice was made in each slot. That choice-record is the load-bearing part, as the next step reveals. Step three: plot the distribution, with the choices underneath. The specification curve is a two-panel figure that has become the signature of this method, and once you have read one you cannot unsee it. We build it in the next part.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Maya's seven slots of defensible choices cross-multiply to **144 specifications** — and her pre-registered spec is one privileged point inside that grid. This is the Week 1 multiple-testing problem in disguise: with 144 tries, a spurious winner is nearly certain. Run them all, keep the choice-record. Next: read the two-panel curve.
+:::
+
+::: notes
+To summarize part four: Maya's defensible choices across controls, fixed effects, sample window, clustering, and outcome definition cross-multiply to one hundred forty-four specifications, and her pre-registered primary specification is one labeled point inside that grid. This is the arithmetic of Week One returning: with one hundred forty-four tries, even a true effect of zero almost surely produces some significant winner, so the garden of forking paths is multiple testing in disguise — and that count is the true size of her multiple-testing problem. Step two runs all one hundred forty-four in seconds, keeping the estimate, the interval, and the all-important choice-record for each. In part five, we read the signature two-panel specification curve and learn what its shape is telling us.
+:::

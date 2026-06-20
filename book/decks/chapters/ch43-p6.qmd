@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## Fuzzy RD: When the Cutoff Only Nudges
+
+- Part 6 — fuzzy RD, where the cutoff only nudges treatment probability
+
+::: notes
+Welcome back to regression discontinuity, part six of seventeen. In part five we read the effect straight off the outcome jump in sharp R-D. But the real world is messier: often the cutoff only nudges the probability of treatment. This is fuzzy R-D, and its estimand is a ratio of two jumps.
+:::
+
+## When the Cutoff Only Nudges
+
+- Crossing into R2000 doesn't force a fixed dose of passive money
+- It changes the *probability and intensity* of passive ownership
+- Funds vary; banding rules add slack; some track custom benchmarks
+- Treatment probability jumps — say thirty percent to seventy percent
+- $\lim_{x\downarrow c}\mathbb{E}[D\mid X] \neq \lim_{x\uparrow c}\mathbb{E}[D\mid X]$
+
+::: notes
+Sharp R-D assumes the cutoff flips treatment with certainty. The real world is messier, and the Russell example is the textbook illustration of why. The reconstitution rule does not mechanically force a fixed quantity of passive money into every stock that crosses into the Russell two thousand. What crossing changes is the probability and intensity of passive ownership. Index funds tracking the two thousand will tend to buy a newly added stock, but not every fund rebalances identically, the float-adjusted weights vary, banding rules introduce slack, and some institutions track custom benchmarks. So treatment does not jump from zero to one at the cutoff; its probability jumps — from, say, a thirty percent chance of heavy passive uptake just inside the one thousand to a seventy percent chance just inside the two thousand. Formally, the limit of the expected value of D given X from above does not equal the limit from below.
+:::
+
+## The Fuzzy-RD Estimand: A Ratio
+
+$$\tau_{\text{FRD}} = \frac{\text{jump in outcome at } c}{\text{jump in treatment at } c}$$
+
+- Numerator: a *reduced form* — effect of crossing on $Y$
+- Denominator: a *first stage* — effect of crossing on $D$
+- This is the **Wald estimator** from Chapter three-point-four
+- Fuzzy RD *is* IV, instrument $Z_i = \mathbf{1}\{X_i \geq c\}$
+
+::: notes
+Here is where Week three comes roaring back. In a fuzzy design you have a discontinuity that affects the outcome — the numerator — and a discontinuity that affects the treatment — the denominator — and the causal effect is their ratio. Tau-F-R-D equals the jump in the outcome at c divided by the jump in treatment at c. Each jump is itself a difference of two one-sided limits, just as in sharp R-D. Stare at that fraction and you will recognize the Wald estimator from Chapter three-point-four exactly. The numerator is a reduced form: the effect of crossing the cutoff on the outcome, ignoring treatment. The denominator is a first stage: the effect of crossing the cutoff on the treatment. Divide, and you scale the reduced form up by the dose of treatment the cutoff actually delivered. Fuzzy R-D is instrumental variables, where the instrument is the indicator for being above the cutoff.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+In **fuzzy RD** the cutoff shifts the treatment *probability*, not treatment itself. The effect is the **jump in $Y$ over the jump in $D$** — the Wald estimator, with the above-cutoff indicator as the instrument. Fuzzy RD *is* instrumental variables. Next: how every Week 3 lesson transfers.
+:::
+
+::: notes
+To summarize part six: fuzzy R-D handles the case where the cutoff only nudges the treatment probability rather than flipping it deterministically. The probability of treatment jumps at the cutoff, but does not go all the way from zero to one. The effect is then the jump in the outcome divided by the jump in treatment — the Wald estimator from Chapter three-point-four — with the above-cutoff indicator as the instrument. Fuzzy R-D is instrumental variables in disguise. In part seven we cash that in: every lesson from Week three about relevance, exclusion, weak instruments, and compliers transfers directly.
+:::

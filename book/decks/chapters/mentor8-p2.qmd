@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Decoding the Referee — Three Warm-Ups
+
+- Part 2 — three Socratic warm-ups to decode referee questions
+
+::: notes
+Welcome back to Mentor Session Eight, defending a result, part two of six. In part one we learned the referee hunts the more boring explanation, and that the hard questions fall into three families: identification, robustness, and alternative explanations. Now we practice on three Socratic warm-ups. Come with a written sentence or two for each. These have honest answers and evasive ones — not right and wrong ones.
+:::
+
+## Warm-Up 1 — Decode the Real Question
+
+- Referee: *"the effect is driven by pre-existing differences"*
+- Translate to plain English — what is accused?
+- Name the family: identification, robustness, or alternative?
+- Then: the **single slide of evidence** that answers it best
+- Showing evidence beats arguing in words
+
+::: notes
+First warm-up: the referee's real question, decoded. A referee writes, I worry the effect is driven by pre-existing differences between your treated and control groups. Translate that single sentence into plain English — what are they actually accusing your design of? — and then name which of the three families it belongs to. It is identification: they are saying your two groups differed before the treatment ever happened, so the comparison was never fair. Now the harder half: in one sentence, what is the single piece of evidence you could put on a slide that would do the most to answer it, and why does producing that evidence beat arguing with the referee in words? A balance table, a pre-treatment trend, a placebo — something they can see — beats paragraphs, because the room believes what it can check, not what you assert.
+:::
+
+## Warm-Up 2 — Survivable or Fatal in Six Seconds
+
+- *(i)* "Did you cluster standard errors at the right level?"
+- *(ii)* "Did your treatment also change who is in the sample?"
+- One you answer: "we checked; it doesn't move"
+- One, if the questioner is right, **sinks the paper**
+- General test: does it attack a *number* or the *comparison*?
+
+::: notes
+Second warm-up: survivable or fatal, told apart in six seconds. Here are two questions you might get. Question one: did you cluster your standard errors at the right level? Question two: couldn't the same event that you call your treatment also have changed who is in your sample? One you can answer with, we checked, it doesn't move. The other, if the questioner is right, sinks the paper. The clustering question is robustness — it moves a number. The sample-composition question is identification — it attacks the comparison itself. State which is which, and state the general test that lets you classify any incoming question while it is still being asked. The test, from Chapter eight-point-five: does it attack a number, or the comparison? A number is survivable. A comparison is fatal.
+:::
+
+## Warm-Up 3 — The Honest "I Don't Know"
+
+- Write the **bluff**: a number invented on the spot
+- Write the **located "I don't know"**
+- Good version names: *what* is unknown, *why*, *what would resolve it*
+- A located limit makes your **other answers** more trusted
+- Bluffing once poisons everything you said
+
+::: notes
+Third warm-up: the honest I don't know. You will get a question you cannot answer; everyone does. Write the bad version of your answer — the bluff, a number or a claim invented on the spot — and then the good version, the located I don't know. What three things does the good version contain that the bluff doesn't? It names exactly what you don't know, it says why you don't know it given your data or design, and it says what evidence would resolve it. And why does a room full of people who do this for a living trust your other answers more after you admit this one limit, not less? Because a located I don't know proves you know the boundary of your own knowledge — so everything inside that boundary, everything you did claim, becomes more credible. A bluff, once caught, poisons all of it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Decode every referee question: translate it, **name its family**, and answer with evidence the room can *see*. Classify on the fly — does it attack a number (survivable) or the comparison (fatal)? And a located **"I don't know"** earns more trust than any bluff. Next: the five-slide speak-from scaffold.
+:::
+
+::: notes
+To summarize part two: every referee question can be decoded — translate it to plain English, name which of the three families it belongs to, and answer with a single piece of evidence the room can see rather than words it must take on faith. Classify on the fly using one test: does the question attack a number, which is survivable, or the comparison, which is fatal? And when you genuinely cannot answer, a located I don't know — naming what is unknown, why, and what would resolve it — earns you more trust than a bluff, because it proves you know the edge of your own knowledge. In part three we walk the five-slide speak-from scaffold, starting with the referee's mindset and the fatal family, identification.
+:::

@@ -1,0 +1,50 @@
+---
+date: "2026-06-22"
+---
+
+## Building an Instrument Instead of Finding One
+
+**Learning objectives.** By the end you can:
+
+- Build a shift-share instrument from shifts and shares
+- Explain why the constructed lever is exogenous
+- Defend exclusion from the share side or shift side
+- Diagnose with Rotemberg weights and AKM inference
+
+::: notes
+Welcome to Week Four-point-five, part one of twelve. Week Three handed you the instrumental-variables machine and one hard truth: a valid instrument is something you find, and finding one is rare. You need a variable Z that shoves the treatment around, has no other path to the outcome, and is unrelated to the confounder — and most of the time the world simply does not hand you a clean coin flip. This lesson is about a different way to get an instrument: not by finding one ready-made, but by building one out of pieces you already have.
+:::
+
+## A Different Way to Get an Instrument
+
+- Week Three: a valid instrument is **found**, and that is rare
+- This lesson: an instrument you **build** from pieces you have
+- Called the **shift-share** or **Bartik** instrument
+- Bartik put it to work in nineteen ninety-one
+- Everywhere: labor, immigration, trade, bank lending, credit
+
+::: notes
+The construction is called a shift-share instrument, or a Bartik instrument after Timothy Bartik, who put it to work in nineteen ninety-one. It is everywhere in empirical economics and finance — local labor markets, immigration, trade exposure, bank lending, household credit. For thirty years it had a peculiar status: everyone used it, it clearly worked in the sense of producing sensible results, and almost nobody could say cleanly why it was a valid instrument. The why got sorted out only recently, in two landmark papers that gave two different, and at first glance contradictory, answers. Goldsmith-Pinkham, Sorkin and Swift, in twenty twenty, said the identification comes from the shares. Borusyak, Hull and Jaravel, in twenty twenty-two, said it comes from the shifts. Both are right; they are two lenses on the same object, and which lens you look through depends on your data.
+:::
+
+## Maya's Question and the Plan
+
+- Does a **local** labor-demand downturn push households into debt trouble?
+- Still an instrument — every Week Three condition applies
+- What is new is the **structure**: national part plus local part
+- Plan: statement, two views, code, then a closing bridge
+
+::: notes
+This lesson does not re-teach instrumental variables. Relevance, exclusion, the first stage, local average treatment effects — all of that is Week Three, and you should keep it loaded, because a shift-share instrument is still an instrument and every condition from Chapter Three-point-four still applies. What is new is the structure: this instrument is assembled from a national part and a local part, and that structure is what lets us argue exogeneity in two distinct ways. Our anchor is Maya. She wants to know whether a negative shock to local labor demand — a downturn in the industries that happen to employ a region's workers — causes households in that region to fall behind on their debt. Does a place getting economically hammered push its residents into credit-card delinquency and mortgage default? The trouble is the same endogeneity disease as always.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+When the world refuses a clean coin flip, you can **build** an instrument instead of finding one. The **shift-share** (Bartik) instrument is assembled from a **national** part and a **local** part — and that structure lets us defend exogeneity two different ways. It is still an instrument: every Week Three condition applies. Next: the result in one plain sentence.
+:::
+
+::: notes
+To summarize part one: when the world refuses to hand you a clean coin flip, you can build an instrument instead of finding one. The shift-share, or Bartik, instrument is assembled from a national part and a local part, and that structure is exactly what will let us defend its exogeneity in two different ways — one pointing at the shares, one at the shifts. But it is still an instrument: every condition from Week Three applies to it. Our anchor throughout is Maya's question, whether a local labor-demand downturn pushes households into debt trouble. In part two we state the whole idea in one plain sentence and meet the two words at its heart — shifts and shares.
+:::

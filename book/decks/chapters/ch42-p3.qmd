@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Why TWFE Looks Innocent
+
+- Part 3 — the precise setup, and why pooled TWFE looks right
+
+::: notes
+Welcome back to Chapter four-point-two, part three of twelve. In part two we stated the crisis in one sentence and named the forbidden comparison. Now we slow down and look at the pooled regression with fresh eyes: the precise setup, and exactly why it looks like the right thing to do. The trap is set by something that looks like a virtue, so we must be careful.
+:::
+
+## The Setup, Precisely
+
+- Panel: $N$ states over $T$ years
+- Each state adopts in cohort year $G_i$ — or never, $G_i=\infty$
+- Treatment $D_{it}=\mathbf{1}\{t\ge G_i\}$ — turns on, stays on
+- **Absorbing** treatment: once you have the rule, you keep it
+- Same regression as Chapter 4.1
+
+::: notes
+Be precise about the setup. Priya has a panel: N states, observed over T years, each state adopting the disclosure rule in some year G-sub-i — its cohort, or group, the year it first switches on — or never, in which case we write G-sub-i equals infinity. The treatment indicator D-sub-i-t is the indicator that t is greater than or equal to G-sub-i: it turns on in the adoption year and stays on. That is an absorbing treatment, the standard staggered setup — once a state has the rule, it keeps it. She runs the same regression as last chapter: outcome equals unit fixed effect plus time fixed effect plus beta times treatment plus error.
+:::
+
+## Why It *Looks* Right
+
+- $\alpha_i$ soaks up permanent state differences
+- $\lambda_t$ soaks up nationwide shocks
+- $\beta$ identified by *within* variation — the switch moments
+- One group: exactly the 2×2 DiD
+- Many groups: feels like "pooling all the DiDs"
+
+::: notes
+Why does this look like exactly the right thing? Because the unit fixed effects soak up every state's permanent differences, the time fixed effects soak up every nationwide shock, and beta is left to be identified by the within variation — the moments when a state's treatment indicator flips from zero to one, against the backdrop of states whose status did not change. With one treated and one control group this is precisely the two-by-two difference-in-differences. With many groups it feels like the natural generalization — pooling all the difference-in-differences together. For decades, that is exactly how it was taught and used.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The pooled regression *looks* right because the fixed effects sweep out permanent state differences and nationwide shocks, leaving $\beta$ to ride on the within-unit **switch moments**. With one group it is exactly the 2×2; with many it feels like honest pooling. That very appearance of virtue is where the trap is set — which we open next.
+:::
+
+::: notes
+To summarize part three: the pooled regression looks right because the unit fixed effects absorb permanent state differences, the time fixed effects absorb nationwide shocks, and beta is left to be identified by the within variation — the switch moments when a state flips from untreated to treated. With one treated and one control group it is exactly the two-by-two; with many groups it feels like honest pooling of all the comparisons, and that is how it was taught for decades. But that very appearance of virtue is where the trap is set. In part four, we open the algebra — the residualized treatment — and see exactly how an already-treated unit gets pressed into service as a control.
+:::

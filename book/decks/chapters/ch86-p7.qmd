@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Q&A: "It's in the Paper" and "Good Point"
+
+- Part 7 — the second and third honest answers
+
+::: notes
+Welcome back to The Talk, the Poster, the Defense, part seven of twelve. In part six we read the question and used the first honest answer, I don't know. Now the second and third honest answers: it's in the paper, the gracious deflection, and good point, the prepared sub-answer you read from your matrix.
+:::
+
+## "It's in the Paper" — The Gracious Deflection
+
+- For fair questions that would eat your Q&A budget live
+- Three parts: a one-sentence partial answer
+- A **specific** pointer — "Appendix B.3, Table B6"
+- Never just "it's in the paper"
+- The open door — "happy to walk through it afterward"
+- Use for number-choice, data, methodology — **never** identification
+
+::: notes
+The second honest answer is it's in the paper, the gracious deflection, for fair questions that would eat your question-period budget if you answered them live. Three parts. A one-sentence partial answer. A specific pointer — Appendix B-point-three, Table B-six — never just it's in the paper. And the open door: happy to walk through it afterward. One student, asked why don't you control for size, said: we do — column three of Table three includes size as a Fama-MacBeth control, and the coefficient is unchanged; happy to walk through it afterward. The room is satisfied, and the deep dive is offered to the questioner alone. Use it for number-choice, data-construction, and methodology-curiosity questions — but never for an identification attack, a generalization, or a motivation question, which must be defended live.
+:::
+
+## "Good Point" — The Prepared Sub-Answer
+
+- For an identification attack, with the matrix row ready
+- A marker — "I'm about to read from the matrix" — not a pleasantry
+- Structure: **fair, did, residual, retreat**
+- Grant the worry, name the two tests, state the bound
+- Then the retreat to the descriptive claim if they don't buy it
+- The visible structure is itself a **credibility move**
+
+::: notes
+The third honest answer is good point, the prepared sub-answer, for an identification attack when you have the matrix row ready. Good point is a marker — I am about to read from the matrix — not a pleasantry. The structure is fair, did, residual, retreat. One student, asked whether her wildfire result is just declining property values, said: fair question — exposed counties are also disproportionately rural and losing population. We tested it two ways: the pre-treatment coefficients are flat for four years before the rating shock, and dropping counties with population decline above five percent per year leaves the coefficient within zero-point-two standard errors of the headline. What I can't rule out is a county-specific shock coincident with the re-rating. If you don't buy the causal reading, the descriptive finding — insurer concentration collapses within two years of a re-rating in high-fire counties — is robust on its own. The visible structure is itself a credibility move: the room hears that you have a system for exactly this question.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**"It's in the paper"** is a partial answer plus a *specific* pointer plus an open door — for number-choice, data, and methodology, never identification. **"Good point"** is the *fair-did-residual-retreat* structure read from your matrix, for an identification attack. Next: when a fatal critique lands and the attacker is right.
+:::
+
+::: notes
+To summarize part seven: the second honest answer, it's in the paper, is a one-sentence partial answer plus a specific pointer plus an open door, and you use it for number-choice, data-construction, and methodology questions, never for an identification attack. The third honest answer, good point, is a marker that you are reading from your matrix, structured as fair, did, residual, retreat — granting the worry, naming the tests with their bounds, then retreating to the descriptive claim if the room does not buy the causal reading. In part eight we face the hardest case: when a fatal critique lands and the attacker is right.
+:::

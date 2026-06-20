@@ -1,0 +1,63 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Reader's Guide: Why Fama and French 1992
+
+**Learning objectives — by the end you can:**
+
+- Read a frontier paper the way a referee reads it
+- Name a study's genre before judging its claims
+- Run and interpret Fama-MacBeth cross-sectional regressions
+- Attack a paper at its weakest empirical joints
+
+::: notes
+Welcome to Week Five, Chapter five-point-one, part one of nine. For four weeks you were a producer of empirical work: you built ordinary least squares from the design matrix up, you learned which standard errors lie and which tell the truth, and you drew the line between a correlation and a cause. Week Five flips the verb. Now you become a consumer. The skill that separates a student who has merely taken econometrics from one who can actually do research is the ability to pick up a frontier paper, read it the way a referee reads it, and decide for yourself whether to believe it. This part frames the lesson and states the paper's central question.
+:::
+
+## From Producer to Consumer
+
+- Four weeks: you *built* the empirical machine
+- Week 5: you *read* frontier papers like a referee
+- A trainable, different muscle
+- Our text: Fama and French, 1992
+- Uses **exactly** the machine you built in Lab 2
+
+::: notes
+For four weeks you produced. You built the regression machinery, you learned about honest standard errors, and you learned to separate correlation from cause. Week Five asks something different. A referee does not just run regressions; a referee judges other people's regressions. That is a separate, trainable muscle, and we train it slowly on a great text with someone pointing at the moves. Our great text is Fama and French's nineteen ninety-two paper. It is one of the most cited articles in all of finance, it killed a theory that had ruled the field for two decades, and, crucially for us, it uses exactly the machine you built in Lab Two. You already own the tools. This chapter teaches you to watch a master use them.
+:::
+
+## Sam's Stake in This Paper
+
+- Sam trades momentum; believes "riskier stocks pay more"
+- The clean version: **CAPM** — reward tracks market beta
+- This paper is the **autopsy** on that belief
+- Read it as the field telling Sam he was incomplete
+
+::: notes
+Here is why this matters for our running character. Sam trades on momentum and holds a working belief that riskier stocks pay more. In Lab Two he built the Fama-MacBeth machine to test the cleanest version of that belief: the Capital Asset Pricing Model claim that a stock's reward is proportional to its market beta. This paper is the moment the field told Sam his belief was, at best, badly incomplete. Read it as the autopsy on the theory Sam started with. We read the whole week through a fixed Reader's-Guide anatomy: seven sections we will use for every paper. Learn the anatomy here; from now on it is the lens.
+:::
+
+## The Research Question
+
+- One sentence: **why do some stocks earn more than others?**
+- CAPM's sharp answer: only **market beta** $\beta_i$ matters
+- Diversifiable risk earns nothing — it is free to shed
+- $\mathbb{E}[r_{it}] = \gamma_0 + \gamma_1\,\beta_i$, with $\gamma_1 > 0$
+- Strict form: beta is the *whole story*
+
+::: notes
+Strip the paper to one sentence and it asks: what explains why some stocks have higher average returns than others? To feel the force of that, you need the theory it attacked. The Capital Asset Pricing Model gives a sharp answer. The only thing that should earn a stock a higher average return is its market beta, beta sub i, its sensitivity to swings in the overall market. Diversifiable, stock-specific risk earns you nothing, because you can diversify it away for free; only the move-with-the-market part deserves compensation. Written as the relationship Lab Two estimated, the expected return on stock i equals gamma zero plus gamma one times beta sub i. The model predicts gamma one is positive — higher beta, higher reward — and, in strict form, that beta is the whole story. For twenty years this was the organizing fact of asset pricing.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Fama and French ask whether **CAPM** is *true* in the data — and answer that **size** and **book-to-market** capture the cross-section of average returns, while **market beta** adds essentially nothing once they are controlled. The paper did not just add a variable; it *dethroned* one.
+:::
+
+::: notes
+To summarize part one: this week you become a consumer of research, learning to read a frontier paper the way a referee does. The paper is Fama and French, nineteen ninety-two. Its one-sentence question is what explains why some stocks earn more than others, and the reigning answer was the Capital Asset Pricing Model: only market beta should be rewarded. Fama and French ask whether that is true in the data. The answer, which made the paper famous, is that size and book-to-market capture the cross-sectional variation in average returns, and market beta adds essentially nothing once they are controlled for. Beta, the field's crown jewel, comes out flat. In part two we open the hood and examine the identification strategy — the empirical machinery, both pieces of which you have already built.
+:::

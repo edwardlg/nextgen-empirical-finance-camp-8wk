@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Threats You Can Test vs. Threats You Can Only Argue
+
+- Part 6 — decide each threat: test it, or argue it
+
+::: notes
+Welcome back to the identification memo, part six of nine. In part five we built the four-column table. Now we learn the distinction that organizes its third and fourth columns — the most important conceptual point in the chapter. Some threats leave fingerprints in the data, and some do not. The ones that do, you test. The ones that do not, you argue.
+:::
+
+## The Central Distinction
+
+- Some threats leave **fingerprints** in the data; some do not
+- The ones that do, you **test**. The ones that don't, you **argue**
+- Confusing the two is the most common error in a weak memo
+- A test against an untestable threat advertises you don't get your design
+- Arguing past a threat you could've checked looks lazy
+
+::: notes
+Here is the distinction that organizes the entire third and fourth columns of your table, and it is the most important conceptual point in the chapter. Some threats leave fingerprints in the data, and some do not. The ones that do, you test. The ones that do not, you argue. Confusing the two — running a test for something that is fundamentally untestable, or arguing your way around something you could simply have checked — is the most common error in a weak identification memo. A memo that runs a clever test against an untestable threat — for example, claiming a balance table "shows the exclusion restriction holds," which it cannot — advertises that the author does not understand their own design. A memo that argues its way past a threat it could have simply tested looks lazy. Match the response to the nature of the threat, every time.
+:::
+
+## Threats You Can Test
+
+- **Pre-trends (DiD)**: read the event-study leads — flat leads reassure
+- But a flat pre-trend can only *fail to refute*, never confirm
+- **First-stage $F$ (IV)**: reassures on relevance — silent on exclusion
+- **Balance (OLS / RD)**: reassuring on observables — silent on unobservables
+- **McCrary density (RD)**: a smooth density reassures; a jump is often fatal
+
+::: notes
+Threats you can test have a checkable signature, so column three is a statistic. The canonical four, one per design. Pre-trends in difference-in-differences: read the event-study leads — flat, insignificant leads are consistent with parallel trends, but a flat pre-trend cannot confirm the counterfactual, only fail to refute it, so even a clean test leaves a residual concern. First-stage F in instrumental variables: an F comfortably above the weak-instrument thresholds reassures on relevance, but says nothing about exclusion. Balance in O-L-S or regression discontinuity: a balance table shows whether groups look alike on observables, but is silent on unobservables — the very confounder you fear is the one not in the table. And the McCrary density test in regression discontinuity: a smooth density is consistent with no manipulation, while a jump is often fatal.
+:::
+
+## Threats You Can Only Argue
+
+- **Exclusion restriction (IV)**: untestable, full stop — argue from institutions
+- **Compound treatment (RD)**: passes every test — only institutions rule it out
+- **Parallel-trends counterfactual** beyond the pre-period: no test reaches it
+- **Silent anticipation**: reaction before any observed date — argue from institutions
+- Column 3 is an argument; column 4 says "data cannot confirm"
+
+::: notes
+Threats you can only argue have no fingerprint — the data are logically incapable of revealing them — so column three is an institutional fact or an economic argument, and column four is "this rests on a claim the data cannot confirm." The canonical members. The exclusion restriction in instrumental variables: untestable, full stop — you argue it from how the instrument works. Week Three's slogan: relevance is testable, exclusion is arguable. Compound treatment in regression discontinuity: it passes every test and still breaks the design — only institutional knowledge, "I have read the rule and only my treatment switches at this cutoff," rules it out. The parallel-trends counterfactual beyond the pre-period: whether trends would have stayed parallel in the post-period is a counterfactual no test can reach — you argue it from the exogeneity of treatment timing. And silent anticipation: if units reacted before any date you can observe, no lead coefficient catches it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+For every threat, decide first: **testable** or **arguable**? Testable threats leave fingerprints — pre-trends, first-stage F, balance tables, McCrary density — so column three is a statistic. Arguable threats leave none — exclusion, compound treatment, the post-period counterfactual, silent anticipation — so column three is an institutional argument. Running a test against an untestable threat advertises you don't understand your design. Next: the honesty rules and the discipline of not overselling.
+:::
+
+::: notes
+To summarize part six: the distinction that organizes columns three and four is whether a threat leaves a fingerprint. The ones that do, you test — pre-trends in difference-in-differences, the first-stage F in instrumental variables, balance tables in O-L-S and regression discontinuity, and the McCrary density test in regression discontinuity — but each test has a known blind spot, so name it. The ones that do not, you argue from institutions — the exclusion restriction, compound treatment, the post-period parallel-trends counterfactual, and silent anticipation. The discipline is simple to state and hard to live by: for every threat, decide first whether it is testable or arguable, and put the right kind of thing in column three. In part seven we turn to intellectual honesty — three rules that keep you from overselling.
+:::

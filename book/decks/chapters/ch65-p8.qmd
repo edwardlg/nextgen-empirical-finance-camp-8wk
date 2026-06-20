@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## The Validation Protocol
+
+- Part 8 — gold set, train/test split, confusion matrix
+
+::: notes
+Welcome back to the AI co-pilot for research, part eight of fourteen. In part seven we established that an LLM label is a measurement that must be validated against truth, out of sample. Now the procedure, step by step. It is not optional and it is not hard. We cover the first three steps here — build the gold set, split it, and build the confusion matrix — then the metrics in part nine.
+:::
+
+## Step 1 — Build a Gold Set by Hand
+
+- Draw a *random* sample — say 200 documents
+- Label each one *yourself*
+- Better: two coders label independently, then reconcile
+- Reconciling also reveals how hard the task is for humans
+- Random matters — easy cases would flatter the classifier
+- 200 is a floor; smaller means wider confidence intervals
+
+::: notes
+Step one, build a gold set by hand. Draw a random sample of documents from your corpus — say two hundred — and label each one yourself. Better still, have two people label independently and reconcile disagreements, which also tells you how hard the task is for humans: if two careful coders disagree often, you cannot expect the model to be crisp either. This hand-labeled set is your gold standard, the closest thing you have to ground truth. It must be a random sample, because a gold set of cherry-picked easy cases will flatter your classifier and give you a number you cannot trust. Two hundred is a reasonable floor; the smaller the gold set, the wider the confidence intervals on everything that follows, so do not skimp here.
+:::
+
+## Step 2 — Split the Gold Set
+
+- Set aside ~50 as a **held-out test set**
+- Do not look at it while developing the prompt
+- The other ~150 are your **development set**
+- Same discipline as a train/test split
+- Tune on test and your reported accuracy is garbage
+- The test set is touched *once*, at the very end
+
+::: notes
+Step two, split the gold set. Set aside a portion — say fifty documents — as a held-out test set that you will not look at while developing your prompt. The other one hundred fifty are your development set, used for writing and tuning the rubric. This split is the same discipline as a train-test split in any predictive modeling, and it exists for the same reason: if you tune your prompt until it nails the very examples you are measuring it on, your reported accuracy is optimistic garbage. The test set is touched once, at the very end, after the prompt is frozen. Treat those fifty documents as untouchable until then; the moment you peek at them to fix an error, they stop being a clean out-of-sample test and start flattering you.
+:::
+
+## Step 3 — Build the Confusion Matrix
+
+Run the LLM on the gold set; for a binary task the labels fall into four cells:
+
+| | Gold: Negative | Gold: Not-negative |
+|---|---|---|
+| **LLM: Negative** | True Positive (TP) | False Positive (FP) |
+| **LLM: Not-negative** | False Negative (FN) | True Negative (TN) |
+
+::: notes
+Step three, run the LLM on the gold set and build a confusion matrix. For a binary task — say negative versus not-negative — the LLM's labels versus the gold labels fall into four cells. A true positive is when the LLM says negative and the gold label is negative — a hit. A false positive is when the LLM says negative but the gold label is not-negative — a false alarm. A false negative is when the LLM says not-negative but the gold label is actually negative — a miss. And a true negative is when both agree the filing is not-negative. Those four counts — true positive, false positive, false negative, true negative — are everything you need to compute the metrics that actually matter, which we do next. The confusion matrix is just an honest tally of where the instrument agrees with truth and where it disagrees.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Validate in steps: **build a random gold set by hand** (~200), **split off a held-out test set** (~50) you touch only once, and **build a confusion matrix** of true/false positives and negatives. Random sampling and an untouched test set are what keep the number honest. Next: turning those four counts into precision, recall, and F1.
+:::
+
+::: notes
+To summarize part eight: the validation protocol begins with three steps. Build a gold set by hand — a random sample of around two hundred documents, labeled by you or, better, by two coders who reconcile — because a random sample is the only honest one. Split it, holding out around fifty documents as a test set you do not look at while tuning, the same discipline as a train-test split, touched exactly once at the end. Then run the LLM on the gold set and build a confusion matrix: true positives, false positives, false negatives, and true negatives. Those four counts are the raw material for everything that follows. In part nine we turn them into precision, recall, and F-one — and see why accuracy alone lies.
+:::

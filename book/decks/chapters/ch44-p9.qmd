@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Inference With a Sample of One: The Placebo Test
+
+- Part 9 — placebo inference and the RMSPE ratio yardstick
+
+::: notes
+Welcome back to synthetic control, part nine of twelve. In part eight we learned that the pre-period fit is the credential and that synthetic control confesses its own failures. Now the hardest part. You have a treated unit, a synthetic twin, and a post-treatment gap. Is that gap real, or just the kind of gap any unit shows from noise? With one treated unit, the usual standard error is off the table, so we need a different kind of honesty.
+:::
+
+## Why Not a t-Statistic?
+
+- Post gap of, say, $+\$140$ in premium — real or noise?
+- Effective number of treated units is **one**
+- No cross-sectional variation to power a standard error
+- The asymptotics behind t-tests (2.4) don't apply at $N_{\text{treated}}=1$
+- A t-statistic here is **false precision**
+
+::: notes
+You have a treated unit, a synthetic twin, and a post-treatment gap of, say, plus one hundred forty dollars in average premium. Is that gap real, a genuine effect of the mandate, or is it the kind of gap any unit might show against its synthetic control just from noise and imperfect fit? In standard regression you would compute a standard error and a t-statistic. But here the effective number of treated units is one. There is no cross-sectional variation in treatment to power a conventional standard error; the asymptotics that justify t-tests, from Chapter two-point-four, simply do not apply when the number of treated units is one. Reporting a t-statistic here would be false precision dressed up as rigor. Abadie, Diamond and Hainmueller, two thousand ten, supply the honest alternative, and it is a beautiful piece of reasoning.
+:::
+
+## The Placebo Permutation Test
+
+- If the mandate did nothing, the treated unit is **not special**
+- Run the *exact same procedure* on each untreated donor
+- For each donor $j$: pretend $j$ is treated, build SC from the rest
+- Compute $j$'s post-treatment gap path
+- Result: $J$ **placebo gaps** — the null distribution
+
+::: notes
+The logic is this. If the mandate truly did nothing, then the treated state is not special: its post-treatment gap should look like the gap you would get by running the exact same procedure on a state that was not treated. So run the procedure on every donor as if it were the treated one. For each donor state j, pretend j is the treated unit, build a synthetic control for j from the other donors, and compute j's post-treatment gap path. This gives you J placebo gaps, a distribution of effects for units we know were never treated. That distribution is your null: it is what gaps look like when nothing happened, including all the noise and fit imperfection the method generates. The real treated state's effect is credible only if its gap is an outlier relative to this placebo distribution, out past where almost all the fake-treated donors landed.
+:::
+
+## The RMSPE Ratio Is the Right Yardstick
+
+- Some donors fit badly pre-period — big gaps mean nothing
+- Scale each gap by its **own** pre-period fit
+- $r_i=\dfrac{\text{RMSPE}_{\text{post},i}}{\text{RMSPE}_{\text{pre},i}}$
+- Large $r_i$: fit well before, diverged sharply after
+- That is the signature of a **real** effect
+
+::: notes
+There is a wrinkle, and fixing it gives the workhorse statistic. Some donors fit their synthetic controls badly in the pre-period; for them, a big post-period gap means nothing, because they were already off-track before any pretend-treatment. Comparing raw post-period gaps would let those badly-fit donors masquerade as large effects. The fix is to scale each unit's post-period gap by its own pre-period fit. Define the post-over-pre root mean squared prediction error ratio, r-i, as the post-period R-M-S-P-E for unit i divided by its pre-period R-M-S-P-E. A large r-i means the unit fit well before treatment, a small denominator, and diverged sharply after, a large numerator, exactly the signature of a real effect. So instead of comparing raw gaps, you compare these ratios, which puts every unit on the same honest footing regardless of how well it fit to begin with.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+With one treated unit there is no honest standard error — a t-statistic is **false precision**. The **placebo test** reruns the whole procedure on each donor as fake-treated, building a null distribution of gaps. Scale every gap by its own pre-fit with the **RMSPE ratio** $r_i$. Next: turning these ratios into a p-value.
+:::
+
+::: notes
+To summarize part nine: with one treated unit there is no cross-sectional variation to power a standard error, so a t-statistic is false precision dressed as rigor. The placebo permutation test rescues us by reasoning that if the policy did nothing, the treated unit is not special, so we rerun the entire procedure on each donor as fake-treated and collect J placebo gaps as a null distribution. To compare units fairly, we scale each unit's post-period gap by its own pre-period fit, giving the post-over-pre root mean squared prediction error ratio, which is large exactly when a unit fit well before and diverged sharply after. In part ten we turn these ratios into a permutation p-value, meet the floor that limits it, and read the gray-spaghetti placebo plot.
+:::

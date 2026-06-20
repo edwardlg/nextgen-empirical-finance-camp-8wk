@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## The Test Statistic
+
+- Part 2 — rescaling the estimate into units of noise
+
+::: notes
+Welcome back to Hypothesis Testing Done Right, part two of fourteen. In part one we wrote the two hypotheses: the skeptic's null that Sam's true edge mu is zero, versus the alternative that mu is positive. Now we turn the messy data into a single number we can judge — the test statistic — by rescaling Sam's estimate into units of its own noise.
+:::
+
+## Rescale Into Units of Noise
+
+- Raw distance $\bar{x}-0=0.08\%$ is uninterpretable alone
+- Small or large only *relative to* how $\bar{x}$ wobbles
+- Divide by the **standard error** $\sigma/\sqrt{N}$
+- From the CLT: $\dfrac{\bar{x}-\mu}{\sigma/\sqrt{N}}\xrightarrow{d}N(0,1)$
+- $\sqrt{N}$: four times the data, half the wobble
+
+::: notes
+Here is the reasoning. Sam's eight basis points looks small or large only relative to how much the sample mean wobbles from sample to sample. If daily returns barely vary, then eight basis points averaged over two hundred fifty-two days is a mountain. If they swing wildly, it is a pebble. So a raw distance from the null — here, x-bar minus zero, eight basis points — is uninterpretable on its own. We must divide it by a measure of its own variability. Recall the central result from Chapter one-point-four: for independent draws with mean mu and finite variance, the Central Limit Theorem says the standardized sample mean converges in distribution to a standard normal. The denominator there, sigma over the square root of N, is the standard error of the mean — the standard deviation of x-bar across hypothetical repeated samples. Note the square root of N: collect four times as much data and the wobble halves. This is why sample size will matter so much.
+:::
+
+## The One Move That Defines a Test
+
+- *Assume the null is true* — substitute $\mu=0$
+- Under $H_0$: $\dfrac{\bar{x}-0}{\sigma/\sqrt{N}}\xrightarrow{d}N(0,1)$
+- Estimate, minus null, over standard error — a pure number
+- "Eight basis points expressed in standard errors above zero"
+- A statistic of $0.3$: utterly unremarkable
+- A statistic of $4$: a place the null almost never visits
+
+::: notes
+Now do the one move that defines a test. Assume the null is true and substitute mu equals zero into the Central Limit Theorem expression. Under the null, x-bar minus zero, all over sigma divided by root N, converges to the standard normal. This is the test statistic in its idealized form: take your estimate, subtract the null value, divide by the standard error. The result is a pure number — Sam's eight basis points expressed in standard errors above zero. A test statistic of zero point three means the data sit less than a third of a standard error from the null: utterly unremarkable. A test statistic of four means four standard errors out: a place the null almost never visits. That single number is now something we can look up in a known distribution, which is the whole point — we have turned how far is the data from the null into a quantity we can compute a probability for. There is one honest problem left, and fixing it gives us the t.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A **test statistic** rescales your estimate into units of its own noise: estimate minus null, divided by the standard error $\sigma/\sqrt{N}$. Assume $H_0$ true and it becomes a pure number you can look up — Sam's eight basis points in "standard errors above zero." Next: the honest problem that $\sigma$ is unknown.
+:::
+
+::: notes
+To summarize part two: a test statistic rescales your estimate into units of its own noise — it is the estimate minus the null value, divided by the standard error. The standard error, sigma over root N, comes straight from the Central Limit Theorem, and that square root of N means more data buys a tighter, more convincing result. Assume the null is true, and the statistic becomes a pure number: how many standard errors Sam's average sits above zero, something we can look up in a known distribution. In part three we confront the one honest problem with this idealized statistic — we do not actually know the true standard deviation sigma — and fixing it gives us the t-statistic you will compute every day.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Bridge to Week 8
+
+- Part 9 — how the memo becomes the entire Week-8 paper
+
+::: notes
+Welcome back to the identification memo, part nine of nine — the last part of the chapter. In part eight we wrote Maya's full worked memo. Now we close the loop: how this one page becomes the entire Week-Eight paper, the single thread from Week Five to your own defense, and the frozen notebook for your turn.
+:::
+
+## You've Closed the Design Half
+
+- Chapters 7.1 to 7.4: question, dataset, pre-analysis plan, clean data
+- Chapter 7.5 distilled the design into **one page**
+- This memo is what **Assessment 7** grades — on the research-design rubric
+- The pre-analysis plan and the memo are graded together
+- It is the **spine** of the Week-8 paper
+
+::: notes
+You have now closed the design half of your project. Chapters Seven-point-One through Seven-point-Four took you from a question to a feasible dataset to a filed pre-analysis plan to a clean, documented analysis dataset. Chapter Seven-point-Five distilled the design into the one page the whole paper defends. This memo is what Assessment Seven grades — the pre-analysis plan and the identification memo together, on the research-design rubric — and it is the spine of the Week-Eight paper. Everything you build next hangs from this page.
+:::
+
+## How the Spine Becomes the Paper
+
+- Assumption paragraph $\rightarrow$ your **empirical strategy** section, nearly verbatim
+- Threats table $\rightarrow$ the skeleton of your **robustness** section
+- Chapter 8.2: literally "run column 3 for every row"
+- Chapter 8.3: turn the prose into a calibrated-verb **introduction**
+- Chapter 8.4: peer review — another student attacks your buried row
+
+::: notes
+Here is how the spine becomes the paper. The identifying-assumption paragraph becomes your empirical strategy section, nearly verbatim. The threats-and-responses table becomes the skeleton of your robustness section: Chapter Eight-point-Two, execution and robustness, is almost literally the instruction "go run column three for every row of your table" — the placebos, the alternative standard errors, the bandwidth and sample perturbations that turn each promised defense into a real result. Chapter Eight-point-Three, writing the paper, will have you turn the memo's prose into an introduction that promises exactly what the design can deliver and no more. And Chapter Eight-point-Four, peer review, will hand your memo to another student, who will read it the way you learned to read Fama-French in Week Five: tables first, identifying assumption second, prose last and skeptically — and who will attack the row you hoped to bury. Write the memo so that there is no such row.
+:::
+
+## The Single Thread, and Your Turn
+
+- Week 5: find the load-bearing assumption in *someone else's* paper
+- The memo: you doing it to *yourself*, on purpose, first
+- *The skeptic and the honest author are the same person*
+- Open **nb7.5** — first-look regressions, *frozen until the PAP is filed*
+- The freeze lets the first look **inform** you, never **seduce** you
+
+::: notes
+The thread that runs from Week Five's reading discipline through this memo to Week Eight's defense is a single idea: the skeptic who reads a stranger's table and the author who builds an honest one are the same person. You spent Weeks Five and Six learning to find the load-bearing assumption in someone else's paper. The identification memo is you doing it to yourself, on purpose, before anyone else gets the chance. For your turn, open notebook seven-point-five — first-look regressions, frozen until the pre-analysis plan is filed. This notebook runs the first estimate of your primary specification, the headline number your memo defends. You do not run it until your plan and this memo are filed as a tagged commit in Lab Seven. The freeze is the technological enforcement of the honesty rules: with the spec and the threats committed in advance, the first look can inform you but can no longer seduce you. Run it, compare the estimate to what your plan predicted, then re-read your threats table and ask which row the first look just made more or less worrying. Audit your verb — did you write causal or credible? — and run the empty-cell test: a blank residual concern means either a rare bulletproof threat or, more likely, one you have not looked at hard enough.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The memo is the **spine** of the Week-8 paper: the assumption paragraph becomes your empirical-strategy section, the threats table becomes your robustness section, and the calibrated verbs become your introduction. The single thread from Week 5 to your own defense — *the skeptic reading a stranger's table and the author building an honest one are the same person.* Now file your PAP and memo as a tagged commit, unfreeze nb7.5, and let the first look inform you, not seduce you.
+:::
+
+::: notes
+To close the chapter: the identification memo is the spine of your Week-Eight paper. The identifying-assumption paragraph becomes your empirical-strategy section, the threats table becomes the skeleton of your robustness section — run column three for every row — and the calibrated verbs become an introduction that promises only what the design delivers. The single thread is that the skeptic reading a stranger's table and the author building an honest one are the same person. The memo is you reading yourself, on purpose, while there is still time to fix the design. File your plan and memo as a tagged commit, then unfreeze notebook seven-point-five, and let the first look inform you, never seduce you. In Week Eight you execute the paper this page defends.
+:::

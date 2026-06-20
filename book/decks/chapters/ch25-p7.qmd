@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Reliability Ratio and Two Subtleties
+
+- Part 7 — reliability ratio; mismeasured $y$ and controls
+
+::: notes
+Welcome back to Week Two-point-five, part seven of twelve. In part six we derived that classical measurement error shrinks the slope to beta-one times lambda. Now we give lambda its name — the reliability ratio — apply it to Maya's self-reported income, and start working through the variations that confuse people: mismeasured outcomes, and mismeasured controls. Getting these distinctions right is what separates a careful analyst from a sloppy one.
+:::
+
+## The Reliability Ratio
+
+- $\lambda$ = **reliability ratio**: fraction of variance that is signal
+- Half the variance noise $\Rightarrow \lambda = 1/2$, coefficient halved
+- Nearly perfect measurement $\Rightarrow \lambda \approx 1$, no problem
+- Maya's **self-reported income** is famously noisy
+- Income coefficient is attenuated — *understates* its true effect
+
+::: notes
+The factor lambda has a beautiful interpretation: it is the reliability ratio, the fraction of the observed regressor's variance that is genuine signal. If half the variance in your measured x is noise — that is, the noise variance equals the signal variance — then lambda equals one-half and your coefficient is exactly half its true size. A one-hundred-percent measurement-error variance halves your estimate. If the measurement is nearly perfect, lambda is approximately one and there is no problem. Now Maya's self-reported income. Her dataset records applicant income from a self-reported field — and self-reported income is famously noisy: people round, misremember, conflate gross and net, occasionally exaggerate. Treat self-reported income as x equals x-star plus m, where x-star is true income. Then the coefficient on income in her approval model is attenuated: it will understate how much true income matters for approval. Named per spec discipline: classical measurement error in income, biasing its coefficient toward zero. The fix is a better-measured income — verified tax records or pay stubs — or formally, an instrument for true income in Week four, such as a second independent measurement, which under the classical assumptions provides exactly the leverage needed to undo lambda.
+:::
+
+## Subtlety 1: Mismeasured $y$ Is Mostly Harmless
+
+- Observe outcome with classical noise: $y = y^{*} + v$
+- Folds into the error: $y = \beta_0 + \beta_1 x + (\varepsilon + v)$
+- $v$ uncorrelated with $x \Rightarrow$ assumption survives
+- $\hat\beta_1$ stays **consistent**; only standard errors inflate
+- Noise in $x$ biases; noise in $y$ does not
+
+::: notes
+First subtlety: mismeasured outcome is harmless to the slope, mostly. Suppose the outcome is measured with classical error — you observe y equals y-star plus v, where v is random static uncorrelated with the regressors. Then the mismeasurement just folds into the equation error: y equals beta-zero plus beta-one x plus the quantity epsilon plus v. Since v is uncorrelated with x, the zero-conditional-mean assumption survives, and beta-one hat remains consistent. The only cost is a larger error variance, which inflates standard errors — a precision problem, not a bias problem. This is the crucial asymmetry: classical noise in x biases the slope, but classical noise in y does not. The catch is the word classical. If the outcome's error is correlated with a regressor — say, people with higher x systematically over-report y — all bets are off.
+:::
+
+## Subtlety 2: Mismeasured Controls Re-Open OVB
+
+- Your *control* variable is measured with noise
+- It only *partially* removes the confounding it should absorb
+- Regression controls for the noisy proxy, not the truth
+- Residual confounding leaks back into the key coefficient
+- A noisily-measured control is a *partially-omitted* control
+
+::: notes
+Second subtlety: mismeasured controls re-open omitted variable bias. Suppose your control variable is mismeasured. Maya includes creditworthiness, but her credit proxy is noisy. Then the control only partially removes the confounding it was meant to absorb — the regression controls for the noisy proxy, not the true confounder, so residual confounding leaks back into the coefficient on D. A noisily-measured control is a partially-omitted control. This is why I controlled for it and I controlled for it well are different claims, and why the control bet from part five is even riskier than it first looked. You may believe you have closed a confounding channel when you have only narrowed it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+$\lambda$ is the **reliability ratio** — the signal share of the regressor's variance; half-noise halves your coefficient. Two subtleties: classical noise in $y$ is a *precision* problem, not bias; a noisily-measured *control* is a partially-omitted control that re-opens OVB. Next: non-classical error, and watching attenuation in code.
+:::
+
+::: notes
+To summarize part seven: lambda is the reliability ratio, the fraction of the observed regressor's variance that is genuine signal. When noise variance equals signal variance, lambda is one-half and the coefficient is halved; Maya's noisy self-reported income is attenuated, understating income's true effect. Two subtleties refine the picture. Classical noise in the outcome folds harmlessly into the error and is a precision problem only, leaving the slope consistent. But a noisily-measured control only partially absorbs its confounder, so it re-opens omitted variable bias — a noisily-measured control is a partially-omitted control. In part eight we cover the third subtlety, non-classical error that can bias away from zero, and then watch attenuation march toward zero in live simulation code.
+:::

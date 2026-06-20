@@ -1,0 +1,52 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Idea-Generation Trick
+
+**Learning objectives.** By the end you can:
+
+- Turn a vague puzzle into a falsifiable hypothesis
+- Run an idea through so-what, who-cares, what's-new
+- Find identifying variation in your own data
+- Score and rank ideas for feasibility
+
+::: notes
+Welcome to Week Seven, Chapter seven-point-one, part one of eight. For six weeks you have been a passenger. Every dataset arrived pre-cleaned, every regression had a known right answer in the back of the book, and every research question was really a teaching device — a scaffold built so you would meet difference-in-differences, or weak instruments, or the Loughran-McDonald dictionary, in a controlled setting. Starting today that scaffold comes down. The rest of the camp is your own project. This opening part frames the whole lesson: the one trick experienced researchers use to turn a vague interest into a real, answerable question.
+:::
+
+## The Scaffold Comes Down
+
+- Six weeks: clean data, known answers, teaching scaffolds
+- Now the rest of camp is **your own project**
+- A real question, on real data you acquire yourself
+- A design you choose and **defend** in Phase 2
+- Most first projects die *before* the regression
+
+::: notes
+Let us be honest about where projects die. They do not die in the regression — by now you can run a regression in your sleep. They die at the very beginning, in the gap between "I'm interested in crypto" and "here is a specific, answerable, falsifiable question I can attack with data I can actually get in five weeks." That gap is the entire subject of this chapter. The exciting news, and the reassuring news, is that crossing it is not a flash of genius you either have or you don't. Experienced researchers cross it again and again, in minutes rather than weeks, because it is a trick — a repeatable procedure. We are going to learn that procedure.
+:::
+
+## The Trick In One Sentence
+
+- A good project = a vague interest passed through **three filters**
+- *Does anyone care? Is it new? Can I actually do it?*
+- Output: one sentence naming **treatment**, **outcome**, **identification**, **data**
+- "The effect of [treatment] on [outcome]..."
+- "...identified by [variation], using [a dataset I can get]"
+
+::: notes
+Here is the trick, stated the way this book states every trick before unpacking it. A good empirical project is a vague interest passed through three filters — does anyone care, is it new, and can I actually do it — until what comes out the other side is a single sentence of the form: the effect of a specific treatment or variation, on a specific measurable outcome, identified by a specific source of variation, using a specific dataset I can get. Everything else in Week Seven is downstream of getting that one sentence right. Acquiring the data in Chapter seven-point-two, writing it down as a pre-analysis plan in seven-point-three, building the dataset in seven-point-four, and arguing the identification in a memo in seven-point-five — all of it assumes the sentence already exists. Get the sentence right and the project almost runs itself. Get it wrong and no amount of clever econometrics will save you.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A good empirical project is a **vague interest passed through three filters** — *does anyone care, is it new, can I do it* — until it becomes one sentence naming a treatment, an outcome, an identification, and a dataset you can get. Get the sentence right and the project runs itself. Next: turning a puzzle into a hypothesis you can be *wrong* about.
+:::
+
+::: notes
+To summarize part one: the rest of this camp is your own project, and projects die not in the regression but at the start, in the gap between a mood and a sharp question. The trick that crosses that gap is a vague interest run through three filters — does anyone care, is it new, can I actually do it — until it distills into one sentence naming a treatment, an outcome, a source of identification, and a dataset you can actually get. That sentence is the input to everything that follows in Week Seven. In part two we take the first step: turning a puzzle, a mere feeling that something is interesting, into a falsifiable hypothesis — a statement you can be wrong about.
+:::

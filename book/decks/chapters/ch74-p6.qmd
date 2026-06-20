@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Look-Ahead Bias and Point-in-Time Discipline
+
+- Part 6 — never let future data leak into past decisions
+
+::: notes
+Welcome back to Building the Analysis Dataset, part six of ten. In part five we defeated survivorship bias by keeping the firms that died. Now the deadliest content error, because it is the most seductive: look-ahead bias — using information in your analysis that was not yet knowable at the moment your strategy would have acted. Your code can see the whole dataset at once; an investor in March two thousand fifteen could not see June's data. If your merge lines up a future number with a past decision, you build a strategy that "works" only because it cheated.
+:::
+
+## The Reporting Lag Trap
+
+- Using data **not yet knowable** when the decision acted
+- Compustat dates financials by **fiscal-period-end**
+- But firms **file** weeks or months later — sixty to ninety days
+- Merging December book equity onto December returns **peeks**
+- A backtest that "works" only because it cheated
+
+::: notes
+The canonical source of look-ahead bias in finance is the reporting lag on accounting data. Compustat records a firm's financials with the fiscal-period-end date — say, fiscal year ending December thirty-first, two thousand fourteen. But the firm does not file its annual report on that date. It files weeks or months later — the SEC allows large filers sixty days, smaller filers up to ninety — and the market cannot trade on numbers it has not seen. If Sam merges December twenty-fourteen book equity onto December twenty-fourteen returns and forms a portfolio, he is trading on data that did not exist yet. That is look-ahead, and it is precisely why the Week Five Fama-French reading guide insisted on a lag.
+:::
+
+## The Six-Month Point-in-Time Lag
+
+- Default to the **six-month Compustat lag** (Fama-French)
+- Fiscal year ending in year $y$ usable from **June 30 of $y{+}1$**
+- So fiscal-2014 book equity matches **July 2015–June 2016**
+- Build an **available-as-of** date; merge on *that*
+- Generous on purpose: trade timeliness for never peeking
+
+::: notes
+The standard, conservative convention — the one Fama and French use, and your default — is the six-month Compustat lag. Assume accounting data for a fiscal year ending in calendar year y becomes usable for portfolio formation only from June thirtieth of the following year, y plus one. For a December fiscal-year-end, that is a six-month buffer, comfortably after even a late filer has reported. So fiscal twenty-fourteen book equity is matched to returns from July twenty-fifteen through June twenty-sixteen. Six months is deliberately generous; it trades a little timeliness for the certainty that you never peek. The general principle: construct, for every accounting variable, a point-in-time available-as-of date — the earliest date the number could have been known — and merge on that, never on the fiscal-period-end.
+:::
+
+## The Tool and the Tripwire
+
+- `merge_asof` with `direction="backward"` walks **backward** in time
+- It **structurally cannot** attach a future record
+- End the build with a **no-future-data assertion**
+- The bug is invisible in results — it just makes them better
+- It dies instantly against an explicit assert
+
+::: notes
+Here is the lag done explicitly in code. The workhorse for point-in-time joins is pandas merge-as-of with direction set to backward. It attaches to each monthly return the most recent fundamental whose availability date is on or before the return month. It structurally cannot attach a future record — it walks backward to the most recent available value. Then end the build with an assertion: that every return date is on or after the available date of the data it uses. That assert is not decoration; it is a tripwire. Run it on every build. A look-ahead bug is invisible in your results — it just makes them better, with higher mean return and a tighter t-statistic — but it dies instantly against an explicit no-future-data assertion. Connect this to Week Two: a mis-dated regressor is a form of mismeasurement, except here the noise is not random — it is the future leaking into the past, biasing you in a flattering and entirely fake direction.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Look-ahead bias** trades on data that wasn't filed yet — the deadliest error because it *flatters* every backtest statistic and hides in your output. Defeat it structurally: build an **available-as-of** date with the six-month lag, join with `merge_asof` set to `direction="backward"` so it cannot peek, and ship a **no-future-data `assert`** as a tripwire. Next: outliers — when to winsorize, and when not to.
+:::
+
+::: notes
+To summarize part six: look-ahead bias is using information that was not yet knowable when the decision would have acted, and in finance its canonical source is the reporting lag — Compustat dates numbers by fiscal-period-end, but firms file weeks or months later. Default to the six-month Fama-French lag: data for a fiscal year ending in year y is usable only from June thirtieth of the next year. Build an available-as-of date and merge on it, never on the fiscal-period-end. The tool is merge-as-of with direction backward, which structurally cannot peek, and the safeguard is a no-future-data assertion. Because the bug only ever improves your results, only structure can catch it. In part seven we move to outliers: when to winsorize, and crucially, when not to.
+:::

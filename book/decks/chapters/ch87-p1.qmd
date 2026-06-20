@@ -1,0 +1,52 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Submission Packet
+
+**Learning objectives.** By the end you can:
+
+- Name the five components of a submission packet
+- Explain why most rejections are procedural, not scientific
+- Identify the three readers each packet serves
+- Submit cleanly to the Schar journal and MARS
+
+::: notes
+Welcome to Week Eight, Chapter eight-point-seven, part one of nine. Last chapter put you on a stage and beside a poster: eight minutes, a hostile question, a folder a stranger can rebuild. That was the camp's private life. This chapter is about handing the paper to the world — submitting it into the public record and starting the long, often silent process by which a result becomes a published paper. The whole chapter turns on one move: submission is not attaching a PDF to a form. It is the first move in a multi-year arc. In this opening part we begin the submission packet for the Schar Young Scholars Journal and the MARS repository.
+:::
+
+## A Packet, Not a File
+
+- A submission is **five components**, each for a different reader
+- About **one in seven** first submissions bounced — procedural, not science
+- Serves the **editor**, the **archivist**, and the **future-you of 2030**
+- Most writers polish the manuscript, treat the rest as boilerplate
+- That is the asymmetric mistake
+
+::: notes
+A submission is not one file; it is a packet of five components, each written for a different reader. Most first-time submitters write the manuscript carefully and treat the other four as boilerplate. That is the asymmetric mistake, because the most common reason a submission gets bounced is procedural — an incomplete packet — not substantive. Roughly one in seven first-time submissions is returned because the paperwork, not the science, is bad. The packet satisfies three readers at once: the editor doing a three-minute intake check, the archivist ingesting metadata, and the future-you of twenty-thirty who must defend authorship, funding, and contributions in a tenure file or a graduate-school application. Treat all five with care.
+:::
+
+## The Five Components
+
+- **Manuscript** — one PDF, publication standard, line numbers
+- **Cover letter** — under 400 words: identify, contribution, fit, attestations
+- **Author statement** — the CRediT taxonomy, fourteen roles
+- **Data-and-code availability** — every source, license, repository handle
+- **Conflicts declaration** — honest and short
+
+::: notes
+The five components, in the order the editor reads them. First, the manuscript — one PDF typeset to publication standard: double-spaced, page numbers, line numbers so referees can cite them, tables and figures near first reference, references in house style. The Schar journal uses Chicago author-date. Second, the cover letter — under four hundred words, four paragraphs: identification of the paper and corresponding author; contribution, one or two sentences; fit, why this venue in the journal's own scope language; and attestations of originality and exclusive submission, plus three suggested reviewers with no conflict. Third, the author statement — the CRediT taxonomy, fourteen standardized roles, each with an intensity descriptor of lead, equal, or supporting. Fourth, the data-and-code availability statement — every source by proper noun, its license, and the repository handle. Fifth, the conflicts-of-interest declaration — usually one honest, short sentence.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A submission is a **five-component packet** — manuscript, cover letter, CRediT statement, data-and-code availability, conflicts — and the modal rejection is *procedural*, not scientific. Each component serves a different reader: editor, archivist, and the future-you of 2030. Next: honesty in the CRediT statement, and the two channels.
+:::
+
+::: notes
+To summarize part one: a submission is a five-component packet — the manuscript, the cover letter, the CRediT author statement, the data-and-code availability statement, and the conflicts declaration — and the most common reason a first submission gets bounced is procedural, an incomplete packet, not the science. Each component serves a different reader: the editor's intake check, the archivist's metadata, and the future-you who must defend the work years later. In part two we look at why the CRediT statement demands honesty, and at the two channels you submit to — the Schar journal and the MARS repository.
+:::

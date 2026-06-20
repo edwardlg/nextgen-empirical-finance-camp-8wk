@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Least-Squares Objective
+
+- Part 3 — define the rule OLS uses to pick the best fit
+
+::: notes
+Welcome back to Lesson two-point-one, part three of eleven. In part two we collapsed Sam's data into the master equation y equals X beta plus epsilon. We do not know beta, so we have to estimate it. This part sets up the estimation rule — ordinary least squares — starting with a careful distinction between two words that look like twins but are not: error and residual.
+:::
+
+## Residual Versus Error
+
+- Guess a coefficient vector $\mathbf{b}$; fitted value is $\mathbf{x}_i'\mathbf{b}$
+- **Residual:** $e_i(\mathbf{b}) = y_i - \mathbf{x}_i'\mathbf{b}$ — from a *guess*
+- **Error:** $\varepsilon_i = y_i - \mathbf{x}_i'\boldsymbol\beta$ — from the *true* $\boldsymbol\beta$
+- We never observe the error; we *can* compute the residual
+- Goal: choose $\mathbf{b}$ so residuals are collectively small
+
+::: notes
+We do not know beta, so we guess it. Call a candidate guess b — a plain vector of numbers we get to choose. For that guess, the predicted outcome for observation i is the fitted value x sub i transpose times b, where x sub i transpose is the i-th row of X. The residual is the gap between what actually happened and what the guess predicts: e sub i of b equals y sub i minus x sub i transpose b. Be careful with two words that look like twins but are not. The error, epsilon sub i, is built from the true unknown beta, and we never observe it. The residual, e sub i, is built from a guess b, and we can compute it for any guess we like. The whole game is to choose b so that the residuals are collectively small, and the resulting best guess we will crown beta hat.
+:::
+
+## Square, Then Add
+
+- Can't just add residuals — positive and negative ones cancel
+- Square first: kills signs, punishes big misses more
+- $$\text{SSR}(\mathbf{b}) = \mathbf{e}'\mathbf{e} = (\mathbf{y}-\mathbf{X}\mathbf{b})'(\mathbf{y}-\mathbf{X}\mathbf{b})$$
+- A vector dotted with itself = its squared length
+- "Least squares" = **shortest residual vector**
+
+::: notes
+What does collectively small mean? We cannot just add the residuals — positive and negative ones would cancel, and a wildly wrong line could score zero. We square them first, which kills the signs and punishes big misses more than small ones, then we add. Stacking the residuals into a vector e of b equals y minus X b, the sum of squared residuals is e transpose e, which is the quantity y minus X b, transposed, times y minus X b. That middle step, the sum of e sub i squared equals e transpose e, is worth pausing on: a vector dotted with itself is the sum of its squared entries — its squared length. So the sum of squared residuals is literally the squared length of the residual vector, the squared distance between y and the prediction X b. Least squares means shortest residual vector. Hold that thought; in a couple of parts it becomes the entire geometry.
+:::
+
+## The OLS Rule
+
+- $$\hat{\boldsymbol\beta} = \arg\min_{\mathbf{b}}\;(\mathbf{y}-\mathbf{X}\mathbf{b})'(\mathbf{y}-\mathbf{X}\mathbf{b})$$
+- A quadratic **bowl** in the entries of $\mathbf{b}$
+- Same shape Maya minimized for portfolio variance last week
+- Minimizing it is the same calculus move, in $K$ dimensions
+
+::: notes
+Ordinary least squares is the rule: choose beta hat to be the argument that minimizes y minus X b, transposed, times y minus X b. You met a function shaped like this last week without realizing it would return. When Maya minimized her portfolio's variance, she was minimizing a quadratic in the weight — a parabola with a genuine bottom. The sum of squared residuals is the same kind of object, a quadratic bowl in the entries of b, and minimizing it is the same calculus move, just done in K dimensions at once. So the plan is set: write down the bowl, find its bottom. In the next part we turn the crank of calculus and do exactly that.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **residual** uses a guess $\mathbf{b}$; the **error** uses the true $\boldsymbol\beta$. OLS chooses $\hat{\boldsymbol\beta}$ to minimize the sum of squared residuals $\mathbf{e}'\mathbf{e}$ — the squared length of the residual vector, a convex bowl in $\mathbf{b}$. Next: find the bottom by calculus.
+:::
+
+::: notes
+To summarize part three: keep the residual and the error distinct — the residual is built from a guess we can compute, the error from the true unknown beta we never see. Ordinary least squares picks the coefficient vector that minimizes the sum of squared residuals, e transpose e, which is the squared length of the residual vector. We square before adding so signs do not cancel and big misses are punished, and the resulting objective is a convex quadratic bowl in the entries of b. In part four we minimize that bowl the way calculus always minimizes — differentiate, set the gradient to zero — and out fall the normal equations.
+:::

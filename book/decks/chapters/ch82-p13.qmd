@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Oster Honesty Rules and Assembling the Battery
+
+- Part 13 — Oster's honesty rules and assembling the battery
+
+::: notes
+Welcome back to Robustness and Inference Stress-Tests, part thirteen of fourteen. In part twelve we computed Maya's Oster delta of about four-point-seven and called the result robust. But the test is easy to abuse, so we cover its three honesty rules. Then we step back and assemble the whole battery, mapping each stress-test to the row of the threats table it answers.
+:::
+
+## Three Honesty Rules for δ
+
+- **Report $R_{\max}$ and defend it** — $\hat\delta$ is sensitive to it
+- Show how $\hat\delta$ moves if you push $R_{\max}$ to 1
+- **$\delta$ is not a p-value** — robustness, not significance
+- Wildly significant can have $\hat\delta=0.3$; modest t can have $\hat\delta=5$
+- **A failing $\delta$ is information, not embarrassment**
+- $\hat\delta=0.4$ belongs in your limitations, stated plainly
+
+::: notes
+Three honesty rules specific to Oster, because the test is easy to abuse. First, report R-max and defend it. Delta-hat is mechanically sensitive to R-max: assume the controls explain everything, R-max equal to the controlled R-squared, and the test is vacuous; assume R-max equal to one and it is harshest. State which you used — the default, one-point-three times the controlled R-squared — and show how delta-hat moves if you push R-max to one. A delta reported without its R-max is uninterpretable. Second, delta is not a p-value. It does not measure statistical significance; it measures robustness to a specific, untestable threat. A result can be wildly significant and have delta-hat of zero-point-three, fragile to confounding; another can have a modest t and delta-hat of five, hard to confound. Report both kinds of evidence. Third, a failing delta is information, not an embarrassment. If delta-hat is zero-point-four, the test has told you honestly that a confounder weaker than your observables could be the whole story. That belongs in your limitations, stated plainly: we cannot rule out that unobserved selection drives the result. You found the project's vulnerability before a referee did, and you said so.
+:::
+
+## Each Test Answers a Threat-Table Row
+
+| Threat (Ch 7.5 table) | Stress-test | Pass looks like |
+|---|---|---|
+| Differential pre-trend | In-time placebo | Placebo ATT ≈ 0 |
+| Few treated clusters | Wild cluster bootstrap; in-space placebo | Bootstrap p agrees / effect in tail |
+| Errors correlated | Alternative clustering; HAC | CI excludes zero |
+| Tuned to a knob | Bandwidth / controls / winsorize | Estimate flat across range |
+| Cherry-picked family | Bonferroni / Benjamini–Hochberg | Survives the pre-specified correction |
+| Unobserved confounder | Oster (2019) δ | $\hat\delta \ge 1$; set excludes zero |
+
+::: notes
+Now step back and see the structure. Each test in this chapter answered a row of the threats table you wrote in Chapter seven-point-five. The differential-pre-trend threat is answered by the in-time placebo: pass looks like a placebo A-T-T near zero. The few-treated-clusters threat is answered by the wild cluster bootstrap and the in-space placebo: pass means the bootstrap p-value agrees, or the real effect sits in the tail. Errors correlated across units or time are answered by alternative clustering levels and HAC: pass means the confidence interval excludes zero under conservative clustering. A result tuned to a knob is answered by sensitivity to bandwidth, controls, and winsorizing: pass means the estimate stays flat across the defensible range. A result cherry-picked from a family is answered by Bonferroni or Benjamini–Hochberg: pass means it survives the correction you pre-specified. And the unobserved confounder is answered by Oster's delta: pass means delta-hat is at least one and the bounding set excludes zero.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Oster's $\delta$ has three honesty rules: report and defend $R_{\max}$, remember $\delta$ is *not* a p-value, and own a failing $\delta$ as a finding. The assembled battery maps each test to one threat-table row. Next: what a survivor looks like, and your turn.
+:::
+
+::: notes
+To summarize part thirteen: Oster's delta is easy to abuse, so three rules keep it honest — report and defend your R-max because delta-hat is mechanically sensitive to it, remember that delta is not a p-value but a measure of robustness to an untestable threat, and treat a failing delta as information that belongs in your limitations, not an embarrassment to bury. Stepping back, the assembled battery maps cleanly onto your Chapter seven-point-five threats table: each row's column-three promise is operationalized by one stress-test, from the in-time placebo for pre-trends to the Oster delta for unobserved confounders. In part fourteen, the last part, we ask what a survivor actually looks like, why a failed test is itself a finding, and we hand you the robustness-battery harness.
+:::

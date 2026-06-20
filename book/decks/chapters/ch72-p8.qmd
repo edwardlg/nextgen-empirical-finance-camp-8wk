@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## HMDA — Fair Lending at Scale
+
+- Part 8 — HMDA at national scale, where size is the constraint
+
+::: notes
+Welcome back to Data Acquisition in Practice, part eight of thirteen. In part seven we covered FRED and its revision gotcha. Now we meet H-M-D-A, the fair-lending data at national scale — a public source so large that the size itself is the constraint, and the rule it teaches is to aggregate on the server, not after downloading.
+:::
+
+## HMDA — The Near-Universe of Mortgages
+
+- Tens of millions of loan *application* records per year
+- Loan amount, action taken, location to census tract
+- Applicant race, ethnicity, sex, and income — the fair-lending core
+- This is Maya's project: did denial rates move differently?
+- Keys on a lender **LEI** and on geographic codes
+
+::: notes
+H-M-D-A — the Home Mortgage Disclosure Act data, served by the C-F-P-B — is the near-universe of US mortgage applications: tens of millions of loan application records per year, each with the loan amount, the action taken — originated, denied, withdrawn — the property location down to census tract, and the reason it is the central fair-lending dataset: applicant race, ethnicity, sex, and income. This is Maya's project: did denial rates for first-generation or minority applicants move differently when standards tightened? It is public, with no license restriction. H-M-D-A records key on a Legal Entity Identifier, an L-E-I, for the lending institution, and on geographic codes — state, county, census tract — for location. There is no person-level identifier; these are application records, not a panel of people, which shapes what questions are answerable.
+:::
+
+## Aggregate on the Server, Not After
+
+- A single year's national file is several gigabytes
+- **Aggregate or filter on the server, not after downloading**
+- CFPB Data Browser API returns small summary tables
+- Counts grouped by action taken and race, per state-year
+- For row-level data, pull a *narrow filtered slice* only
+
+::: notes
+H-M-D-A is huge: a single year's national Loan and Application Register is several gigabytes and tens of millions of rows. You almost never want all of it. The C-F-P-B Data Browser A-P-I lets you request filtered slices or pre-aggregated counts, which is how you keep the pull tractable. The cardinal rule: aggregate or filter on the server, not after downloading the universe. The aggregations endpoint returns counts grouped by the variables you specify — for example, applications by action taken and race, for one state and one year, where action one is originated and action three is denied. That returns a small summary table, not the multi-gigabyte row-level file. If you genuinely need row-level data — for a regression with individual controls — pull a narrow filtered slice: one state, one year, the columns you need, through the C-S-V download endpoint, never the full national file.
+:::
+
+## Hygiene, Throttle, and Schema Drift
+
+- Public, but sensitive demographic data — handle with care
+- Never attempt re-identification — hygiene, not a license term
+- No published rate limit, but **the throttle is the size**
+- Ask small, get instant tables; ask for the universe, it fails
+- Schema drift: fields changed with the 2018 revision
+
+::: notes
+H-M-D-A is public and unrestricted, with one ethical caveat that is not a license term: it contains sensitive demographic data, and although it is published in de-identified form, you should handle it respectfully and never attempt re-identification. No G-M-U-infrastructure rule applies, but good data hygiene does. The C-F-P-B A-P-I has no published hard rate limit, but it will time out on greedy requests — and that is itself the lesson: the throttle is the size. Ask for an aggregation and you get an instant small table; ask for a state-year of raw records and you get megabytes; ask for the national universe through the A-P-I and it will fail. The other gotcha is schema drift: H-M-D-A's fields changed materially with the twenty-eighteen reporting revision, so a twenty-seventeen file and a twenty-nineteen file do not have identical columns. Pin the year and read that year's data dictionary. For the reproducible pull, pin the data year and the exact filter, cache the small aggregated result, and log the U-R-L with its query parameters — the log is especially valuable here because the request, "originated and denied, Virginia, twenty-twenty," is itself a modeling choice you want on the record.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**HMDA** is the fair-lending near-universe — tens of millions of mortgage applications a year. Its one rule is *the throttle is the size*: aggregate or filter on the server, never download the universe. Pin the **data year** against schema drift, handle the demographic data with care, and log the request — it *is* a modeling choice. Next: 13F.
+:::
+
+::: notes
+To summarize part eight: H-M-D-A is the fair-lending near-universe — tens of millions of mortgage application records a year, with the demographic detail that makes it the central dataset for questions like Maya's. Its one defining rule is that the throttle is the size: you aggregate or filter on the server with the Data Browser A-P-I, never pulling the national universe. Pin the data year against schema drift, read that year's dictionary, handle the demographic data with care, and log the request, because the filter itself is a modeling choice. In part nine we cover thirteen-F institutional holdings, where the hardest gotchas are conceptual, not technical.
+:::

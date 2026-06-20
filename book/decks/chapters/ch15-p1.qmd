@@ -1,0 +1,52 @@
+---
+date: "2026-06-22"
+---
+
+## The Two Hypotheses
+
+**Learning objectives.** By the end you can:
+
+- State a null and alternative about the population
+- Build a t-statistic and read its p-value
+- Tell statistical significance from economic significance
+- Spot p-hacking across many tests
+
+::: notes
+Welcome to Week One, Chapter one-point-five, part one of fourteen: Hypothesis Testing Done Right. Sam has a trading rule — each morning, buy yesterday's biggest losers, hold one day, sell at the close, betting they bounce back. Over two hundred fifty-two trading days the rule earned an average of eight basis points a day, which annualizes to more than twenty percent. Sam is briefly very excited. Then the right doubt arrives: the daily returns bounced all over the place. Could a rule whose true edge is exactly zero still produce a positive sample average just by luck? That single question — could pure luck have produced what I'm seeing — is the engine of this whole chapter. In this opening part we write down the two competing claims a test pits against each other.
+:::
+
+## The Skeptic's Default
+
+- Two claims about the **population**, not your sample
+- **Null** $H_0$: "nothing going on" — the boring default
+- For Sam, the true expected daily return is $\mu$
+- Skeptic's null: $H_0:\mu=0$ — the rule is worthless
+- **Alternative** $H_1$: what you suspect instead
+- Sam suspects an edge: $H_1:\mu>0$
+
+::: notes
+A hypothesis test starts by writing down two competing claims — not about your sample, but about the population or process that generated it. The null hypothesis, written H-naught, is the claim of nothing going on. It is the skeptic's position: the boring default you believe until the data force you off it. For Sam, the population quantity of interest is the true expected daily return of the rule, mu — the average it would earn over an infinite number of days under the same conditions. The skeptic says the rule has no edge: H-naught says mu equals zero. The alternative hypothesis, written H-one, is what you suspect might be true instead. Sam suspects the rule makes money, so H-one says mu is greater than zero. Why pick zero as the null rather than some small positive number? Because zero is the value that means worthless — the dividing line between an edge and an anti-edge, and the thing a skeptic believes at no cost. The null is generally the uninteresting, status-quo value, the one whose rejection would count as a discovery. Choosing it well is a scientific judgment, not a statistical one.
+:::
+
+## Three Things To Hold Onto
+
+- Hypotheses are about $\mu$, **not** about $\bar{x}=0.08\%$
+- We already *know* $\bar{x}$ — nothing to test there
+- The test is **asymmetric**: $H_0$ gets the benefit of the doubt
+- Like a courtroom: presume innocence, make the data overturn it
+- The null is a **point** ($\mu=0$) so we can compute with it
+
+::: notes
+Three things deserve emphasis right away, because this is where the logic lives. First, the hypotheses are statements about mu, the unobservable population mean — not about x-bar, the sample average Sam actually computed. We know x-bar equals eight basis points with certainty; there is nothing to test about a number we already hold. The whole exercise is about what x-bar lets us infer about mu. Second, the test is deliberately asymmetric. We do not treat the null and the alternative as two equally-matched contestants. We grant the null the benefit of the doubt and ask whether the data can overturn it — the way a courtroom presumes innocence and asks the prosecution to overcome that presumption. This asymmetry is a choice, and it is the reason a test's conclusions are phrased so carefully. Third, the null is almost always a single point, like mu equals zero, precisely because a point gives us something concrete to compute with. If we assume mu equals zero is exactly true, we can ask exactly how surprising Sam's eight basis points would be. We could never do that with a vague the rule is bad.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A test pits a **null** $H_0:\mu=0$ ("no edge") against an **alternative** $H_1:\mu>0$ — both claims about the unobservable $\mu$, not the sample. The null gets the benefit of the doubt and is a single point so we can compute with it. Next: turning the data into one number.
+:::
+
+::: notes
+To summarize part one: a hypothesis test pits a null hypothesis against an alternative. The null, H-naught, is the skeptic's boring default — for Sam, mu equals zero, the rule has no edge. The alternative, H-one, is what you suspect: mu greater than zero. Both are claims about the unobservable population mean mu, never about the sample average we already hold. The null gets the benefit of the doubt, like a presumption of innocence, and we make it a single point so we have something concrete to compute with. In part two we take Sam's eight basis points and the noise around them and crush them into a single ruler — the test statistic.
+:::

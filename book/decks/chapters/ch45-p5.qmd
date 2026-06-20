@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## Why It Was Invented: The Endogeneity Disease
+
+- Part 5 — the regional simultaneity disease Bartik cures
+
+::: notes
+Welcome back to Week Four-point-five, part five of twelve. In part four we worked the numbers and saw the shares turn one set of national shocks into two regional predictions. Now we ask why this construction was invented at all. The answer is the textbook simultaneity disease of Chapter Three-point-four, in regional form — and then how Bartik's instrument cures it by importing the demand piece from outside the region.
+:::
+
+## The Endogeneity Disease, Regional Form
+
+$$Y_r = \beta_0 + \beta_1\, \Delta L_r + \varepsilon_r$$
+
+- $Y_r$ = change in region's delinquency; $\Delta L_r$ = realized job growth
+- Maya wants $\beta_1$: the causal effect of a labor-demand shock
+- Realized growth is **jointly determined** with the outcome
+- Bubbles, optimism, and supply-vs-demand all contaminate it
+
+::: notes
+Suppose Maya runs the naive regression of a region-level outcome on realized employment growth: Y-sub-r equals beta-zero plus beta-one times delta-L-sub-r plus epsilon-sub-r. Here Y-sub-r is the change in the household debt-delinquency rate, and delta-L-sub-r is realized growth in local employment — her proxy for how the local economy did. She wants beta-one: the causal effect of a labor-demand shock on household financial distress. The problem is that realized local employment growth is jointly determined with the outcome and tangled with local confounders. A wave of local optimism could raise both employment and household borrowing. A local housing bubble could inflate employment and set up the later delinquency spike — an unobserved local confounder living in the error. Worst of all, realized growth blends labor demand, firms wanting to hire, with labor supply, workers moving in or out — and Maya only wants the demand piece. So the covariance of the regressor with the error is not zero: the regressor is endogenous, ordinary least squares is biased, and conditional independence is hopeless because the confounders are local and unmeasured.
+:::
+
+## Bartik Imports the Demand Piece
+
+- National shifts $g_j$ are demand shocks **no town caused**
+- Reweight by baseline mix → predicted demand shock $B_r$
+- Strips out local supply responses and local confounders
+- **First stage:** worse predicted shock → worse realized growth? (testable)
+- **Second stage:** read the effect off the national-tide part of growth
+
+::: notes
+Bartik's instrument isolates the demand piece by importing it from outside the region. The national industry shifts are demand-side shocks to each industry that an individual commuting zone is too small to have caused — Toledo's local conditions did not move the national auto cycle. Reweighting those national shocks by region r's baseline industry mix predicts the labor-demand shock region r should have received purely from riding national industry tides, stripped of local supply responses and local confounders. That predicted demand shock, B-sub-r, is then used as an instrument for realized local growth. The first stage asks: do regions with worse predicted shocks actually have worse realized growth? Yes — that is relevance, and it is testable. The second stage reads the effect of growth on delinquency off the part of growth that the national tides explain. This template — predict a local shock from national-industry-mix exposure, instrument the realized shock with the prediction — is the canonical Bartik design, and it drives a huge literature: immigration and wages, the China trade shock, and the finance examples we turn to next.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Realized local growth $\Delta L_r$ is **endogenous**: it blends demand with supply and sits beside local confounders, so OLS for $\beta_1$ is biased. Bartik **imports the demand piece** from outside — national shifts no town caused, reweighted by baseline exposure — giving a predicted shock $B_r$ to instrument the realized one. Relevance is testable; exclusion is the harder claim. Next: the finance flavor — bank-lending shocks.
+:::
+
+::: notes
+To summarize part five: realized local employment growth is endogenous. It blends labor demand with labor supply and sits right beside local confounders like housing bubbles and optimism, so ordinary least squares for the causal effect is biased. Bartik's cure is to import the demand piece from outside the region — national industry shifts no single town could have caused — and reweight them by the region's baseline industry mix. That gives a predicted demand shock, B, which instruments the endogenous realized shock. The first stage, whether predicted shocks track realized ones, is testable relevance; exclusion is the harder, arguable claim we will spend the next several parts on. In part six we meet the finance flavor of this design — bank-lending shocks — which makes the share-and-shift logic especially vivid.
+:::

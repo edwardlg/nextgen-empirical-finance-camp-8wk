@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Normal Equations, by Calculus
+
+- Part 4 — differentiate the bowl to get the normal equations
+
+::: notes
+Welcome back to Lesson two-point-one, part four of eleven. In part three we set up the least-squares bowl. Now we minimize it the way calculus always does — differentiate, set the gradient to zero — and out fall the normal equations, the tidy linear system the best coefficients must satisfy.
+:::
+
+## Expand the Objective
+
+- Multiply out, using $(\mathbf{A}\mathbf{B})' = \mathbf{B}'\mathbf{A}'$:
+- $\text{SSR} = \mathbf{y}'\mathbf{y} - \mathbf{y}'\mathbf{X}\mathbf{b} - \mathbf{b}'\mathbf{X}'\mathbf{y} + \mathbf{b}'\mathbf{X}'\mathbf{X}\mathbf{b}$
+- The two middle terms are each a single number
+- A number equals its own transpose — they are identical
+- $$\text{SSR} = \mathbf{y}'\mathbf{y} - 2\,\mathbf{b}'\mathbf{X}'\mathbf{y} + \mathbf{b}'\mathbf{X}'\mathbf{X}\mathbf{b}$$
+
+::: notes
+Expand the objective by multiplying it out, treating b as the variable. Using the rule that the transpose of a product reverses the order, the sum of squared residuals becomes y transpose y, minus y transpose X b, minus b transpose X transpose y, plus b transpose X transpose X b. Now look at the two middle terms. Each is a single number, and a number equals its own transpose, so they are identical, and we merge them into minus two times b transpose X transpose y. So the cleaned-up objective is y transpose y, minus two b transpose X transpose y, plus b transpose X transpose X b. That is the bowl we are about to differentiate.
+:::
+
+## Two Matrix-Calculus Facts
+
+- Both mirror scalar derivatives you already trust
+- $\dfrac{\partial}{\partial\mathbf{b}}(\mathbf{a}'\mathbf{b}) = \mathbf{a}$ — like $\tfrac{d}{db}(ab)=a$
+- $\dfrac{\partial}{\partial\mathbf{b}}(\mathbf{b}'\mathbf{A}\mathbf{b}) = 2\mathbf{A}\mathbf{b}$ — like $\tfrac{d}{db}(ab^2)=2ab$
+- $\mathbf{A} = \mathbf{X}'\mathbf{X}$ is symmetric, so the second rule applies cleanly
+
+::: notes
+Now minimize. With a vector of variables you differentiate each component at once, which is the gradient, written partial with respect to b. You need exactly two matrix-calculus facts, both direct analogues of scalar rules you already trust. First: the derivative of a transpose b with respect to b is just a — the analogue of the derivative of a times b being a. Second: the derivative of b transpose A b is two A b, when A is symmetric — the analogue of the derivative of a times b squared being two a b. And the matrix A here is X transpose X, which is symmetric, so the second rule applies cleanly.
+:::
+
+## Set the Gradient to Zero
+
+- $$\frac{\partial\,\text{SSR}}{\partial\mathbf{b}} = -2\mathbf{X}'\mathbf{y} + 2\mathbf{X}'\mathbf{X}\mathbf{b}$$
+- Set to the zero vector; the $2$'s cancel
+- $$\boxed{\mathbf{X}'\mathbf{X}\,\hat{\boldsymbol\beta} = \mathbf{X}'\mathbf{y}}$$
+- $K$ linear equations in $K$ unknowns — the **normal equations**
+- "Normal" = old word for **perpendicular**
+
+::: notes
+Apply the two rules term by term. The constant y transpose y differentiates to zero. The linear term, minus two b transpose X transpose y, gives minus two X transpose y. And the quadratic term, b transpose X transpose X b, gives two X transpose X b. So the gradient of the sum of squared residuals is minus two X transpose y plus two X transpose X b. Set this gradient to the zero vector and call the solution beta hat. The twos cancel, and rearranging gives the normal equations: X transpose X times beta hat equals X transpose y. These are K linear equations in the K unknowns of beta hat. They are called normal not because they are ordinary but because normal is the old word for perpendicular — a clue we will cash out in part five.
+:::
+
+## Genuinely a Minimum
+
+- Gradient vanishing only marks a **flat point**
+- Hessian (second derivative) is $2\mathbf{X}'\mathbf{X}$
+- $\mathbf{v}'\mathbf{X}'\mathbf{X}\mathbf{v} = \lVert\mathbf{X}\mathbf{v}\rVert^2 \ge 0$ — positive semidefinite
+- A bowl opening upward: the flat point is its bottom
+- Unique honest minimum — no maxima, no saddles
+
+::: notes
+Before solving, notice we have only verified that the gradient vanishes here, which marks a flat point. Is it a minimum? Yes, decisively. The second derivative, the Hessian, is two X transpose X, and X transpose X is positive semidefinite: for any vector v, v transpose X transpose X v equals the squared length of X v, which is never negative — the same argument that made the covariance matrix positive semidefinite last week. A quadratic with a non-negative-definite Hessian is a bowl opening upward, so the flat point is its bottom. No competing maxima or saddles. Least squares has a unique honest minimum, provided we can solve the system — a proviso we reach later in the lesson.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Differentiating the sum-of-squares bowl and setting the gradient to zero gives the **normal equations** $\mathbf{X}'\mathbf{X}\hat{\boldsymbol\beta} = \mathbf{X}'\mathbf{y}$ — $K$ equations in $K$ unknowns. The Hessian $2\mathbf{X}'\mathbf{X}$ is positive semidefinite, so it is a genuine, unique minimum. Next: the same equations, with no calculus.
+:::
+
+::: notes
+To summarize part four: expand the least-squares bowl, differentiate using two matrix-calculus rules that mirror scalar derivatives, and set the gradient to zero. The twos cancel and out fall the normal equations, X transpose X beta hat equals X transpose y. Because the Hessian is positive semidefinite, the minimum is unique. In part five we reach those exact same normal equations a second way, with not one derivative taken — by a single geometric demand. The word normal will finally earn its name.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Why the Law Holds: Chebyshev's Inequality
+
+- Part 2 — proving the Weak Law with Chebyshev's inequality
+
+::: notes
+Welcome back to Chapter one-point-four, the Law of Large Numbers and the Central Limit Theorem, part two of ten. In part one we stated the Law of Large Numbers: the sample mean converges in probability to the true mean. Now we prove it almost for free, using one beautifully crude tool you can carry for the rest of your life — Chebyshev's inequality.
+:::
+
+## Chebyshev's Inequality
+
+- For any $Y$ with mean $\mu_Y$, variance $\sigma_Y^2$, and $\epsilon>0$:
+- $\displaystyle \Pr\!\big(|Y-\mu_Y|\ge\epsilon\big)\le\frac{\sigma_Y^2}{\epsilon^2}$
+- No assumption about **shape** — only finite variance
+- Deliberately **crude**, almost always loose
+- Loose is fine: we only need a bound that goes to **zero**
+
+::: notes
+Here is the tool: Chebyshev's inequality. For any random variable Y with mean mu-sub-Y and variance sigma-sub-Y squared, and any positive epsilon, the probability that Y strays at least epsilon from its mean is at most sigma-sub-Y squared divided by epsilon squared. The idea in a sentence: variance is the average squared distance from the mean, so if a lot of probability sat far out at distance epsilon or more, the variance would have to be large. Turn that around, and small variance forbids much probability from sitting far out. Chebyshev makes no assumption about the shape of the distribution, only that it has a finite variance, so it is deliberately crude and almost always loose. But loose is exactly what we want, because we are not trying to nail down a probability — we are trying to prove one vanishes, and a crude upper bound that goes to zero settles that just as decisively as a sharp one would.
+:::
+
+## Apply It to the Sample Mean
+
+- Sample mean has mean $\mu$, variance $\sigma^2/N$ (from last chapter)
+- $\displaystyle \Pr\!\big(|\bar{x}-\mu|\ge\epsilon\big)\le\frac{\sigma^2}{N\,\epsilon^2}$
+- $\epsilon$ fixed, $\sigma^2$ fixed, but $N$ is in the **denominator**
+- As $N\to\infty$ the bound $\to 0$ — that **is** the Weak Law
+- We got it almost for free
+
+::: notes
+Now apply Chebyshev to the sample mean. We already know — this was last chapter's punchline — that the sample mean has mean mu and variance sigma squared over N. Plug that in: the probability that the sample mean misses mu by at least epsilon is at most sigma squared divided by N times epsilon squared. Stare at the right-hand side. Epsilon is whatever you fixed, sigma squared is a fixed property of the population, but N sits in the denominator. As N goes to infinity, that bound goes to zero. The probability of missing mu by more than epsilon is squeezed to nothing. That is the Weak Law, and we got it almost for free, because the real work — establishing that the variance of the sample mean equals sigma squared over N — was done last chapter.
+:::
+
+## The Engine: Averaging Cancels Noise
+
+- Each draw has variance $\sigma^2$; the average's falls like $1/N$
+- **Independence** lets deviations offset rather than reinforce
+- Sum of deviations grows like $\sqrt{N}$, not $N$
+- Strong **correlation** would degrade the rate — slow or no LLN
+- Standard error $\sigma/\sqrt{N}$: halve it $\Rightarrow$ **quadruple** the sample
+
+::: notes
+Notice what the engine of the law is: averaging cancels noise. Each draw has its own variance, sigma squared, but when you average N independent draws, the wiggles partly cancel, and the variance of the average falls like one over N. Independence is what makes the cancellation work: deviations from mu are as likely to offset as to reinforce, so the sum of N deviations grows only like the square root of N rather than like N, and dividing by N leaves something that shrinks. If the draws were instead strongly correlated — every observation echoing the last, as in a trending time series — the deviations would reinforce instead of cancel, the rate would degrade, and the law would arrive slowly or not at all. That foreshadows why time-series data demand special standard errors in Week Two. And the square-root-of-N attached to standard errors is this same fact: the standard deviation of the sample mean is sigma over the square root of N, so to halve your uncertainty you must quadruple your sample.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Chebyshev plus the fact that $\operatorname{Var}(\bar{x})=\sigma^2/N$ forces the miss-probability to zero as $N$ grows — that *is* the Weak Law. The engine is **averaging cancels noise**, and independence is what makes the cancellation work. Next: watch the law happen on screen.
+:::
+
+::: notes
+To summarize part two: Chebyshev's inequality, fed the fact that the sample mean has variance sigma squared over N, forces the probability of a meaningful miss to zero as N grows. That is the Weak Law, proved almost for free. The engine underneath is that averaging cancels noise, and independence is what lets the deviations offset rather than reinforce. Remember too that the square-root-of-N law means halving your uncertainty costs you a quadrupling of your sample. In part three we stop proving and start watching: we follow a single running average as it grows and see the Law of Large Numbers happen in pixels.
+:::

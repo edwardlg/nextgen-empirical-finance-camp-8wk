@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Holding Constant Is a Subtraction, Not a Filter
+
+- Part 7 — what "holding constant" really buys you
+
+::: notes
+Welcome back to the Frisch–Waugh–Lovell theorem, part seven of thirteen. In part six we proved it in four lines and saw its geometry. Now comes the conceptual heart of the chapter — what "holding constant" really means. This one reframing changes how you read every empirical table, and it explains why some controls move a coefficient a lot and others barely at all.
+:::
+
+## "Controlling" Is a Subtraction, Not a Filter
+
+- Beginners picture: hold size fixed, wiggle R&D, watch patents
+- The regression **cannot** hold size fixed — firms are what they are
+- What it does: remove size's linear influence from both
+- Then look at how the **leftovers** move together
+- Not a filter, not an experiment — a **subtraction**
+- The slope is built only from what size cannot explain
+
+::: notes
+When a paper says the coefficient is one point eight three eight, controlling for firm size, beginners picture something physical: hold size fixed at some value, wiggle R and D, and watch patents respond. That picture is fine intuition, but it is not what the regression did. The regression has no way to hold size fixed; the firms in the data are whatever sizes they are. What it actually did, F W L tells us exactly, is remove the linear influence of size from both R and D and patents, and then look at how the leftovers move together. So controlling for size is not a filter, and not an experiment. It is a subtraction. The coefficient answers the question: among firms that have more R and D than their size would predict, do we also see more patents than their size would predict? It is a statement entirely about the residual variation — the wobble in R and D and patents that size leaves unexplained.
+:::
+
+## Why Controls Move Coefficients — Or Don't
+
+- Irrelevant control: $\tilde{x}\approx x$, coefficient **barely budges**
+- Relevant control overlaps $x$: residualizing strips a big chunk
+- The control matters only as it **overlaps** your regressor
+- Control predicts $x$ almost perfectly: $\tilde{x}\approx\mathbf{0}$
+- Tiny denominator $\tilde{\mathbf{X}}_1'\tilde{\mathbf{X}}_1$ — slope is fragile
+- That is **multicollinearity**, seen exactly where it bites
+
+::: notes
+This reframing settles things that otherwise feel mysterious. First, why does adding an irrelevant control barely move a coefficient, while a relevant one moves it a lot? If a control is unrelated to your regressor, then residualizing your regressor on it changes the regressor hardly at all — x tilde is roughly x — so the coefficient barely budges. But if the control is strongly related to your regressor, as size is to R and D, residualizing strips out a big chunk, and the coefficient can change a lot. F W L makes this mechanical, not mystical: the control matters only to the extent it overlaps with the regressor you care about. Second, why is a control with almost no independent variation dangerous? Suppose the controls together can predict your regressor almost perfectly. Then x tilde is nearly the zero vector — almost no leftover R and D variation once the controls have had their say. The denominator becomes tiny, and a tiny denominator makes the slope wildly sensitive to noise. That is multicollinearity, and F W L shows you precisely where it bites: you have residualized away nearly all of your own regressor.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+"Holding $z$ constant" is **subtraction, not filtering**: remove $z$'s linear influence from both variables, then read the leftovers. A control moves a coefficient only to the extent it **overlaps** the regressor — and residualizing away *almost all* of your regressor is exactly multicollinearity. Next: what *omitting* a control does, and the discipline FWL enforces.
+:::
+
+::: notes
+To summarize part seven. Holding a control constant is subtraction, not filtering: the regression removes the control's linear influence from both variables and reads how the leftovers move together. The coefficient is a statement about residual variation — the part the control cannot explain. A control matters only to the extent it overlaps your regressor; an irrelevant control barely budges the slope, while a strongly overlapping one moves it a lot. And if the controls can nearly reproduce your regressor, you residualize away almost all of it, the denominator collapses, and the slope turns fragile — that is multicollinearity, seen exactly where it bites. In part eight we ask the mirror question: what does omitting a control do, and what discipline does F W L enforce on how we report?
+:::

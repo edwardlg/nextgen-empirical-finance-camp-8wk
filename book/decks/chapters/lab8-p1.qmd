@@ -1,0 +1,63 @@
+---
+date: "2026-06-22"
+---
+
+## Lab 8 — The Three Artifacts
+
+**Learning objectives.** By the end you can:
+
+- Compile an AEA-style paper, Overleaf or locally
+- Finalize the repo as a one-click packet
+- Run the `make clean && make all` honesty test
+- Rehearse the eight-minute defense and triage questions
+
+::: notes
+Welcome to Week Eight, Lab Eight — the final lab of the camp. This lab introduces no new idea, and that is the point. Everything you need was built in the seven weeks behind you. In this opening part I frame the whole lesson: what the three deliverables are, what "done" actually means here, and one housekeeping note about the tools before you start.
+:::
+
+## A Lab That Introduces Nothing New
+
+- Terminal lab of the camp — by design
+- Built already: defensible estimate, robustness battery
+- Built already: code-generated tables and figures
+- Built already: the Lab 7 repo, the pre-analysis plan
+- Now those parts become three handed-over artifacts
+
+::: notes
+This is the terminal lab of the camp, and it does not introduce a single new idea, by design. Everything you need was built in the seven weeks behind you: the estimate you can defend from the Week Eight chapters, the robustness battery that survived in Chapter eight point two, the publication tables and figures generated from code in notebook eight point three, the repository you stood up in Lab Seven, the pre-analysis plan you tagged, and the identification memo whose threats table you wrote when you were calm. Lab Eight is where those pieces stop being a pile of parts and become the three artifacts a researcher actually hands over: a compiled paper, a one-click replication packet, and an eight-minute defense that survives the questions. Chapter eight point five argued why those three are the form your credibility takes; this lab is the bench where you build them.
+:::
+
+## The Operational Test of "Done"
+
+- The discipline: a result a stranger cannot reconstruct
+- That result is not yet a result
+- Not "is my coefficient right?"
+- But "can a stranger rebuild my paper from raw data?"
+- And: can I defend it for eight minutes without flinching?
+
+::: notes
+The discipline this lab drills is stated as a procedure, not a slogan: a result a stranger cannot reconstruct is not yet a result. So the result you are checking here is operational, exactly as it was in Lab Seven. Not "is my coefficient right?" but "can a stranger, on a machine that has never seen my project, type one command and watch my paper rebuild from raw data to a finished PDF — and can I stand in front of that stranger for eight minutes and not flinch when they attack it?" Those are yes-or-no questions you can actually test, and the submission checklist at the end is how you test them. Work through the three parts in order; each builds the surface the next one defends.
+:::
+
+## One Housekeeping Note On Tools
+
+- Container ships a LaTeX engine and `make`
+- `latexmk`, `tectonic`, `pdflatex` all on the PATH
+- On your own laptop with no TeX? Use Overleaf
+- The `.tex` is the durable artifact
+- A PDF is a convenience some machines produce
+
+::: notes
+One housekeeping note before you start. The camp container ships a LaTeX engine — TinyTeX with latexmk, tectonic, and pdflatex all on the PATH — and make, so every command in this lab runs as written on the container. If you are on your own laptop and have no TeX install, you will use the Overleaf path in Part One instead of the local compile. The dot-tex file is the durable artifact, and a PDF is a convenience some machines produce and some cannot. This is the same gate the notebooks build around the shutil-which check: compile if an engine exists, otherwise ship the source and build in the browser. Either road ends at the same PDF.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Lab 8 turns seven weeks of parts into **three artifacts**: a compiled paper, a one-click replication packet, and an eight-minute defense. The bar is operational — *a result a stranger cannot reconstruct is not yet a result*. Next: compiling the LaTeX paper.
+:::
+
+::: notes
+To summarize part one: Lab Eight introduces no new idea — it assembles seven weeks of work into the three artifacts a researcher hands over. A compiled paper, a one-click replication packet, and an eight-minute defense. The bar throughout is operational: a result a stranger cannot reconstruct is not yet a result, so everything reduces to yes-or-no questions you can test. And remember the tools note — the container has LaTeX and make, and if your laptop does not, Overleaf compiles the same source in the browser. In part two we build the first artifact: compiling the LaTeX paper from a minimal AEA-style template.
+:::

@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## An LLM Label Is a Measurement
+
+- Part 7 — why a label is a noisy measurement, not truth
+
+::: notes
+Welcome back to the AI co-pilot for research, part seven of fourteen — the heart of the chapter. In part six we saw retrieval reduce but not eliminate hallucination. Now the single most important sentence in this chapter: an LLM-produced label is a measurement, not the truth — so before any LLM label enters a regression, you must validate it against a hand-labeled gold standard and report its error rate on held-out data. If you remember nothing else from Week Six, remember that an LLM classifier is a measurement instrument, and a measurement instrument that has not been calibrated against ground truth is just a confident guess.
+:::
+
+## Why a Label Is a Measurement
+
+- Recall measurement error from Chapter 1.3
+- A label is a *noisy proxy* for the true latent tone
+- It has a systematic component and a random one
+- A mismeasured regressor attenuates and inflates errors
+- If error is *correlated*, the bias is unsignable
+- Loughran-McDonald's rubric is a word list; an LLM's is opaque
+
+::: notes
+Why is a label a measurement? Recall the idea of measurement error from Chapter one-point-three. When you label a filing "negative tone," you are not observing the true latent quantity — its actual tone — directly. You run it through an instrument, the LLM plus your rubric, that produces a noisy proxy. The instrument has a systematic component — maybe it over-calls "negative" on legal boilerplate — and a random component, since the same filing might get a different label on a re-run. Regress next-quarter returns on this label and it is a mismeasured regressor: at best it attenuates your coefficient toward zero and inflates your standard errors; at worst, if the error is correlated with something, it biases the coefficient in a direction you cannot sign. You met the transparent version of this instrument in Chapter six-point-three, the Loughran-McDonald finance sentiment dictionary, whose rubric is just a published word list anyone can inspect. An LLM may be more accurate but is far less transparent, which raises the bar on validation, not lowers it.
+:::
+
+## The Right Question
+
+- Never "is the LLM accurate?" in the abstract
+- Ask: how accurate is *this* classifier, on *my* data?
+- Measured against *truth*, out of sample
+- Accurate enough that the result isn't a label-error artifact
+- Validate it the way you validate any instrument
+- Against a gold standard, out of sample
+
+::: notes
+So the question is never "is the LLM accurate?" in the abstract. The question is: how accurate is this classifier, on my data, measured against truth — and is it accurate enough that my downstream result is not an artifact of label error? An LLM may be more capable than the published dictionary, but capability is not calibration. You answer the question the way you would validate any instrument — a thermometer, a scale, a survey question — against a gold standard, out of sample. That phrase, out of sample, is doing real work: you must measure performance on data you did not use to build or tune the classifier, because anything else flatters it. In part eight we turn this into a concrete, step-by-step protocol you can run, and that the Week Six assessment grades.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**An LLM label is a measurement, not the truth** — a noisy proxy with systematic and random error that, untreated, can bias your regression in a direction you cannot sign. The right question is never "is it accurate?" but "how accurate is *this* classifier on *my* data, against truth, out of sample?" Next: the validation protocol, step by step.
+:::
+
+::: notes
+To summarize part seven, the heart of the chapter: an LLM-produced label is a measurement, not the truth. Like any instrument it produces a noisy proxy of the latent quantity, with a systematic component and a random one, and an uncalibrated mismeasured regressor can attenuate your coefficient or, if the error is correlated, bias it in a direction you cannot sign. The published Loughran-McDonald dictionary is transparent; an LLM is more capable but far less transparent, which raises the bar on validation. So the right question is never whether the model is accurate in the abstract, but how accurate this classifier is on your data, against truth, out of sample. In part eight we run the validation protocol step by step — build the gold set, split it, and build the confusion matrix.
+:::

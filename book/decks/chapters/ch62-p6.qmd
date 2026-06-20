@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## What's Clever: Four Moves to Steal
+
+- Part 6 — four transferable moves worth stealing
+
+::: notes
+Welcome back to Chapter six-point-two, part six of eight. In part five we read the tables in two passes — validation first, economics second. Now we step back and name the four clever moves in this paper, because each one is transferable to your own capstone. Two are refusals; two are bridges.
+:::
+
+## Refusal One — Firms Define Themselves
+
+- Reject the government's top-down taxonomy
+- Let *firms* say who they are, in their own words
+- Let the *data* draw the boundaries
+- The 10-K description sat in plain sight for decades
+- Pattern: when a classification is convenient but wrong, build your own
+
+::: notes
+The first clever move is a refusal. Rather than accept the government's top-down taxonomy, Hoberg and Phillips let firms say who they are, in their own words, and let the data draw the boundaries. The pattern generalizes: when an official classification is convenient but wrong, build your own from a primary source the classifiers ignored. The ten-K product description sat in plain sight — legally mandated, machine-readable — for decades. Hoberg and Phillips were the ones who finally read it as data rather than as a legal formality. That instinct, to distrust a convenient label and go back to a primary source, is the most portable thing in the paper.
+:::
+
+## Refusal Two — A Network, Not a Partition
+
+- SIC's three defects: one box, frozen, no overlaps
+- TNIC fixes all three — built from pairwise similarity
+- A weighted **network** replaces crude disjoint sets
+- Competition really *is* overlapping, shifting rivalries
+- Know when your phenomenon needs a network, not a partition
+
+::: notes
+The second clever move is choosing the right mathematical object. SIC has three defects — one box per firm, frozen in time, and no overlaps — and TNIC fixes all three precisely because it is built from pairwise similarity rather than from a partition. That is a fundamentally different object: a weighted network replacing crude disjoint sets, and it is the right object for competition, which really is a web of overlapping, shifting rivalries. Recognizing when your phenomenon needs a network and not a partition is a modeling instinct worth stealing. Many measurement mistakes are really object mistakes — forcing a web of relationships into a set of tidy bins because bins are familiar.
+:::
+
+## Bridge One — The Cosine
+
+- The whole apparatus reduces to one operation you knew
+- Chapter 1.2: correlation *is* a cosine
+- The cosine doesn't care: returns or word counts
+- This is why the paper launches the AI module, Ch 6.5
+- Embeddings there are the grown-up cousin of bag-of-words
+
+::: notes
+The third clever move is a bridge: the whole apparatus reduces to one operation you already knew, the cosine between two vectors. Chapter one-point-two said correlation is a cosine; this paper shows the cosine does not care whether the vectors hold returns or word counts. That generality is exactly why this paper launches the A-I module in Chapter six-point-five. Modern language models represent text as vectors and compare them with cosine similarity, so the embedding you will meet there is the grown-up cousin of the bag-of-words vector you build in the notebook. One small piece of geometry, learned once, carries you from return correlations to industry maps to large language models.
+:::
+
+## Bridge Two — A Reusable Dataset
+
+- The most *consequential* cleverness is sociological
+- Publishing TNIC made the measure a public good
+- Hundreds of later papers use it without re-deriving it
+- Infrastructure compounds — each new paper is evidence for it
+- Ask: could what I *build* be useful to the next person?
+
+::: notes
+The fourth clever move is the most consequential, and it is sociological. By publishing the TNIC library, the authors made their measure a public good. Hundreds of later papers use TNIC industries without re-deriving them, the way you use Fama-French factors without re-sorting portfolios. Infrastructure compounds: every paper built on the measure is, indirectly, evidence for it. So when you design a capstone, ask not only "what do I find?" but "could what I build be useful to the next person?" A reusable tool can have a longer life and a wider reach than any single finding you publish alongside it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Four transferable moves: **let firms define their own industry** from a primary source; build a **network, not a partition**, when relationships overlap; bridge words to numbers with the **cosine** you already know; and publish a **reusable dataset** that compounds. Each is a habit to carry into your own capstone. Next: the four soft spots a referee will press.
+:::
+
+::: notes
+To summarize part six. Four clever moves, each worth stealing. First, let firms define their own industry, going back to a primary source the classifiers ignored. Second, build a weighted network rather than a partition, because competition is overlapping and shifting. Third, bridge words to numbers with the same cosine you already knew from Chapter one-point-two — the bridge that also leads to the A-I module. And fourth, publish the measure as reusable infrastructure that compounds with every paper built on it. In part seven we turn critical and name the four soft spots a referee will press — the measurement vulnerabilities specific to text.
+:::

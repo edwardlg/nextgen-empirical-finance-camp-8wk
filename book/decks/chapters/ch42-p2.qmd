@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Result in One Plain Sentence
+
+- Part 2 — the crisis stated in one sentence, and the cure previewed
+
+::: notes
+Welcome back to Chapter four-point-two, part two of twelve. In part one we met Priya's staggered climate-disclosure problem, with a treatment effect that builds over time — the exact recipe for trouble. Now we state the crisis in one plain sentence, name the phrase to burn into memory, and preview the cure. Everything in this chapter unpacks this single sentence.
+:::
+
+## The Crisis in One Sentence
+
+- $\hat\beta$ = weighted average of many small two-by-two DiDs
+- Some comparisons are **forbidden**: control is *already treated*
+- An early adopter is contaminated by *its own* effect
+- Weights on forbidden comparisons can be **negative**
+- $\hat\beta$ can be biased — even the **wrong sign**
+
+::: notes
+Here is the whole chapter in one sentence. When different units start treatment in different years, and the treatment effect is not identical for everyone at every horizon, the single coefficient beta hat from the two-way fixed-effects regression is a weighted average of many little difference-in-differences comparisons — and some of those comparisons are forbidden, because they use already-treated units as the control group, with weights that can be negative. The phrase to burn into memory is forbidden comparison: a two-by-two in which the control group is a set of units that are already treated. In a clean DiD the control is untreated throughout — its job is to show what would have happened absent the policy. But the pooled regression will happily treat an early-adopting state as a control for a late adopter during the years after the early one switched on. That early adopter is not a clean counterfactual; it is contaminated by its own treatment effect. If that effect is still moving, it injects a spurious trend that lands inside beta hat with a weight that can be negative.
+:::
+
+## The Cure Is Conceptually Trivial
+
+- Hold this through the gloom of the next parts
+- Compare a newly-treated unit *only* to a genuinely clean control
+- Clean = **never-treated**, or **not-yet-treated**
+- Never to a unit already treated
+- Average clean comparisons with transparent, non-negative weights
+
+::: notes
+The good news, which you should hold onto through the gloom of the next several parts: the disease has a clean cure, and the cure is conceptually trivial. Only ever compare a newly-treated unit to a control group that is genuinely clean — never treated, or not yet treated — never to a unit that has already been treated. Estimate each clean comparison separately, then average them with transparent, non-negative weights you choose on purpose. That single sentence is the whole research program of Callaway and Sant'Anna, Sun and Abraham, and Borusyak, Jaravel, and Spiess. The hard part was seeing that the regression fails to do this; the fix, once seen, is almost obvious.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The crisis: under staggered timing with heterogeneous effects, the pooled $\hat\beta$ averages many 2×2 DiDs — some **forbidden**, using already-treated controls, with weights that can be negative — so it can be biased, even **wrong-signed**. The cure: compare each newly-treated unit *only* to never- or not-yet-treated controls, then aggregate transparently.
+:::
+
+::: notes
+To summarize part two: the crisis is that the pooled two-way fixed-effects regression — the thing you reach for to handle many units adopting at many dates — silently averages many small two-by-two comparisons, some of them forbidden, using already-treated units as controls, with weights that can come out negative. So the result can be biased, can be a nonsensical average, and can carry the wrong sign. The cure is conceptually trivial: only ever compare a newly-treated unit to a never-treated or not-yet-treated control, and average those clean comparisons with weights you choose. In part three, we slow down and see exactly why the pooled regression looks so innocent — and where, in the algebra, the trap is set.
+:::

@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Few-Clusters Danger and the Wild Cluster Bootstrap
+
+- Part 4 — few-clusters danger and the wild cluster bootstrap
+
+::: notes
+Welcome back to Robustness and Inference Stress-Tests, part four of fourteen. In part three we read the clustering table and saw Maya's t settle at a solid two-point-three. But that table silently hides a threat she wrote into her own list as "few-treated-cluster inference": when the number of clusters is small, the cluster-robust standard error itself lies. This part names the danger and reveals the trick that fixes it — the wild cluster bootstrap.
+:::
+
+## The Danger: Few Clusters Over-Reject
+
+- Cluster-robust SEs need *many* clusters — rule of thumb 30 to 50
+- With few clusters the SE is **downward-biased and noisy**
+- The t-stat no longer follows the t-distribution you compare to
+- You over-reject — find significance that is not there
+- Maya has 50 states, but only treated clusters count
+- If just eight states ever adopted, effective count is tiny
+
+::: notes
+Here is the danger. Cluster-robust standard errors lean on an asymptotic argument that needs the number of clusters to be large — the rule of thumb from Chapter two-point-four was thirty to fifty. With few clusters, the cluster-robust standard error is itself downward-biased and noisy, so the t-statistic does not follow the t-distribution you compare it against, and you over-reject — you find significance that is not there. Maya has fifty states, which sounds fine, but the relevant count for a treatment effect is closer to the number of treated clusters, and if only, say, eight states ever adopted an examination program, her effective cluster count is dangerously small. This is the same fragility that made Card and Krueger's single-treated-state design demand permutation inference back in Chapter four-point-one.
+:::
+
+## The Trick: Flip Each Cluster's Sign
+
+- Wild cluster bootstrap, Cameron–Gelbach–Miller 2008
+- Ordinary bootstrap resamples observations — breaks within-cluster correlation
+- Cluster bootstrap resamples clusters — too few distinct resamples
+- Wild version keeps clusters and regressors fixed
+- Flips each cluster's residuals by $+1$ or $-1$ — Rademacher weights
+- Re-impose the null, perturb, re-estimate thousands of times
+
+::: notes
+The fix is the wild cluster bootstrap, Cameron, Gelbach and Miller, two-thousand-eight, which you met by name in Chapter two-point-four. The intuition is the trick worth revealing. An ordinary bootstrap resamples observations; that breaks the within-cluster correlation you are trying to respect. A cluster bootstrap resamples whole clusters; with few clusters that does not give you enough distinct resamples. The wild cluster bootstrap does something cleverer: it keeps the clusters and the regressors exactly as they are, and instead flips the sign of each cluster's residuals at random — multiplying every residual in a cluster by plus-one or minus-one with equal probability, the Rademacher weights — to manufacture a distribution of the test statistic under the null. You re-impose the null hypothesis, beta equals zero, when computing the residuals, perturb, re-estimate thousands of times, and read your real t-statistic's position in that bootstrapped distribution to get a p-value. It is, in spirit, the same permutation logic as a placebo test: build the distribution of what this statistic looks like when nothing is going on, then locate your real number in it.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+With few treated clusters the cluster-robust SE is downward-biased, so you over-reject. The **wild cluster bootstrap** holds clusters and regressors fixed and flips each cluster's residual sign under the null to build an honest distribution. Next: reading its verdict.
+:::
+
+::: notes
+To summarize part four: cluster-robust standard errors need many clusters, and what matters is the number of treated clusters, which can be small even with fifty states. With few of them, the standard error is downward-biased and noisy, and you over-reject — finding significance that is not there. The wild cluster bootstrap holds the clusters and regressors fixed, flips each cluster's residuals by plus or minus one under the imposed null, and re-estimates thousands of times to build the distribution of the test statistic when nothing is going on. In part five we read its verdict — pass or fail — and connect it to the placebo logic that runs through the rest of the chapter.
+:::

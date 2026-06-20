@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## When One Treated Unit Breaks DiD
+
+### Learning objectives
+
+- Build a synthetic control from a weighted donor pool
+- Use convexity to avoid extrapolation and fake fits
+- Infer with placebo permutation when sample size is one
+- Reach for synthetic DiD when a trend match suffices
+
+::: notes
+Welcome to Week Four, Chapter four-point-four: synthetic control and synthetic difference-in-differences. Chapter four-point-one gave you difference-in-differences, and it gave you a warning. In this opening part we frame the lesson. Difference-in-differences compares the change in a treated group to the change in a control group, and it identifies the causal effect only if the two groups would have moved in parallel had the policy never happened. That parallel-trends assumption is the entire engine. But what do you do when the world hands you just one treated unit? That is the question this chapter answers.
+:::
+
+## DiD Needs Many Units With Matching Trends
+
+- Dozens of treated units, dozens of controls
+- Pre-trends lying convincingly on top of each other
+- The event-study plot from 4.1 makes that case visible
+- Parallel trends becomes a bet you can defend
+- Point at the pre-period; show the lines tracking
+
+::: notes
+When you have dozens of treated units and dozens of controls, and their pre-treatment trends lie convincingly on top of one another, parallel trends is a bet you can defend. You point at the pre-period, show the lines tracking, and argue that absent the policy they would have kept tracking. The event-study plot from section four-point-one is exactly that argument made visible. That is the comfortable world: many units, a clean comparison group, and a pre-period you can display to a skeptic. The trouble starts when that comfortable world disappears, and you are left with a single treated unit and no obvious group to compare it against.
+:::
+
+## Sometimes You Get Exactly One
+
+- One state, one firm, one country adopts the policy
+- Pick one similar control? A critic finds another
+- Average all controls equally? No reason that matches
+- Pre-trends rarely line up for one specific unit
+- Parallel trends becomes a **wish**, not a claim
+
+::: notes
+But sometimes the world hands you one treated unit. A single state passes a first-in-the-nation law. A single firm gets hit by a scandal. A single country adopts the euro, or builds a wall, or unifies after a partition. Now the comfortable machinery of difference-in-differences starts to creak. Which control do you use? If you pick one similar state, your estimate lives or dies on that one arbitrary choice, and a critic will always find a different similar state that gives the opposite answer. If you average all the other states into a single control group, you are implicitly weighting them equally, and there is no reason equal weights should reproduce your treated unit's trajectory. The pre-trends almost never line up, because no naturally occurring group is a good twin for one specific unit. Parallel trends becomes a wish rather than a defensible claim. This chapter is about what to do when one treated unit is all you have.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Difference-in-differences leans on **parallel trends**, which you can defend when many treated units share a clean control group. With **one** treated unit there is no natural twin: picking a control is arbitrary, averaging equally is unjustified, and parallel trends collapses into a wish. Next: the central idea — build a twin.
+:::
+
+::: notes
+To summarize part one: difference-in-differences works by comparing a treated group's change to a control group's change, and it leans entirely on parallel trends. When you have many treated units and a clean control group whose pre-trends track, you can defend that assumption by displaying it. But with a single treated unit, the assumption collapses. Picking one similar control is arbitrary, averaging all controls equally has no justification, and the pre-trends almost never line up for one specific unit. Parallel trends becomes a wish. In part two we meet the idea that rescues us: instead of picking or averaging a control, we build one.
+:::

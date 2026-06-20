@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Dummies Equal Demeaning: Fixed Effects, a Month Early
+
+- Part 10 — dummies equal demeaning; this is fixed effects
+
+::: notes
+Welcome back to the Frisch–Waugh–Lovell theorem, part ten of thirteen. In part nine we saw that group dummies demean within groups — the within transformation. Now we cash out the equivalence: regressing on dummies gives the identical slope as demeaning. We check it on Leah's firms, then see why this is the entire idea of fixed effects, arriving a month before Weeks Three and Four.
+:::
+
+## Dummies ⇔ Demeaning, Checked on Six Firms
+
+- Regress $y$ on $x$ **plus group dummies** $=$ regress demeaned on demeaned
+- Same slope, to the last digit — FWL guarantees it
+- Dummies *are* $\mathbf{X}_2$; demeaning *is* their $\mathbf{M}_2$
+- Leah by industry: biotech firms 1–3, hardware firms 4–6
+- Demean within industry; slope $= 49.67/13.33 = 3.725$
+- Add a biotech/hardware dummy $\Rightarrow$ same **3.725**
+
+::: notes
+Here is the equivalence. Running a regression of y on x plus a full set of group dummies produces exactly the same slope on x as running a regression of the within-group-demeaned y on the within-group-demeaned x. You can get the coefficient either way and the number is identical — F W L guarantees it, because the dummies are the X-two block and demeaning is multiplication by their residual maker. Watch it on Leah's six firms, now grouped by industry: firms one through three are biotech, firms four through six are hardware. The within transformation subtracts each firm's own industry mean of each variable. The biotech mean R and D is three point three three three, the hardware mean is six point three three three; subtract to get the demeaned columns. A no-intercept simple regression of demeaned patents on demeaned R and D gives forty-nine point six seven over thirteen point three three, which is three point seven two five. And if instead you regress patents on R and D plus a biotech-hardware dummy, the R and D coefficient comes out to exactly three point seven two five as well — agreeing to the last digit. Notice this differs from the earlier one point eight three eight: controlling for industry asks a different question than controlling for size, and F W L makes the difference visible as a different residualization.
+:::
+
+## This Is Fixed Effects, a Month Early
+
+- A panel of firms over years groups naturally **by firm**
+- A firm dummy absorbs all that **doesn't change over time**
+- Industry, founding culture, headquarters, baseline quality
+- Within transform: subtract each firm's own time-average
+- $y_{it} = \alpha_i + \beta x_{it} + \varepsilon_{it}$ — estimate $\beta$ by demeaning
+- Same $\beta$ as a dummy per firm, and **cheap** — no huge matrix
+
+::: notes
+This is not a side curiosity. It is the entire idea of fixed effects, which run Weeks Three and Four. A panel of firms observed over many years has a natural grouping — by firm. Controlling for a firm dummy for every firm absorbs everything about a firm that does not change over time: its industry, its founding culture, its headquarters state, its baseline managerial quality. The within transformation subtracts each firm's own time-average from each of its observations, leaving only how the firm deviates from itself over time. F W L is the reason the "subtract the firm mean" estimator and the "throw in a firm dummy for every firm" estimator give the identical slope — and it is the reason you do not have to build and invert a matrix with thousands of dummy columns. You demean instead, which is cheap. When we write y-i-t equals alpha-i plus beta x-i-t plus epsilon-i-t in Week Three, and estimate beta by within-demeaning, you should hear F W L humming underneath. We get that machinery for free, four weeks early, just by turning the dial from one mean to many group means.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Dummies ⇔ demeaning.** Regressing on a full set of group dummies gives the *identical* slope as subtracting each group's mean and regressing on the leftovers — on Leah's firms, **3.725** both ways. That equivalence *is* fixed effects: the within estimator and the dummy-per-firm estimator are the same $\beta$. Next: why FWL also makes computation fast.
+:::
+
+::: notes
+To summarize part ten. F W L delivers a clean equivalence: regressing on a full set of group dummies gives the identical slope as subtracting each group's mean and regressing on the leftovers, because the dummies are the control block and demeaning is their residual maker. On Leah's firms, both routes hit three point seven two five exactly. That equivalence is the entire idea of fixed effects, the engine of Weeks Three and Four: the within estimator that subtracts each firm's time-average and the estimator with a dummy per firm give the same beta — and the demeaning route is cheap. In part eleven we see why F W L also makes computation fast, and the diagnostic plot it unlocks.
+:::

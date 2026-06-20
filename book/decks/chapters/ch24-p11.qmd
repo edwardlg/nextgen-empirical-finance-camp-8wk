@@ -1,0 +1,49 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Petersen (2009) Taxonomy
+
+- Part 11 — which clustering to use for panels
+
+::: notes
+Welcome back to heteroskedasticity, clustering, and HAC, part eleven of twelve. In part ten we built the HAC estimator for serial correlation. Now we face the hardest case Maya and Priya actually live in: a panel, where both diseases can strike at once. We work through Mitchell Petersen's now-canonical two-thousand-nine taxonomy — which clustering to use when — and one subtlety that trips up almost everyone: fixed effects versus clustering.
+:::
+
+## The Panel Problem and Petersen (2009)
+
+- Panel: many firms $i$ over many periods $t$
+- **Firm effect**: errors correlated within a firm over time
+- **Time effect**: errors correlated across firms in a period
+- Petersen (2009): a taxonomy, after papers' SEs differed by 2×
+- Firm effect $\to$ **cluster by firm**; White, Fama–MacBeth don't fix it
+- Time effect $\to$ time fixed effects or **cluster by time**
+
+::: notes
+Now the hard case, the one Maya and Priya actually live in: a panel, where you observe many firms over many time periods at once. A panel can have both diseases at once — errors correlated within a firm across time, a firm effect, where a firm mispriced this year tends to be mispriced next year; and errors correlated across firms within the same period, a time effect, where when the whole market drops, every firm's residual drops together. Which standard error do you use? Mitchell Petersen took up this question in a now-canonical two-thousand-nine paper, after noticing finance papers were using a chaos of incompatible methods and getting standard errors that differed by factors of two or more on the same data. His contribution was a clear taxonomy and a set of simulations. The headline findings: a persistent firm effect is, in Petersen's data, the dominant problem in corporate-finance panels and the one most often ignored. The right tool is clustering by firm, which lets each firm's errors be arbitrarily correlated across all its years. White SEs and Fama–MacBeth do not fix a firm effect and leave you badly overconfident. A time effect — a common shock hitting all firms in a period — is better handled by clustering by time, or often well absorbed by including time fixed effects.
+:::
+
+## Both Effects, and a Subtlety
+
+- Both present? **Two-way clustering** (Cameron, Gelbach & Miller, 2011)
+- Recipe: firm-clustered + time-clustered − plain White
+- Diagnostic: cluster by firm, then by time — which moves SE more?
+- Fixed effects and clustering are **not substitutes**
+- FE removes a firm's average level; clustering honors residual co-movement
+- "I have firm FE, so I needn't cluster" — common, costly error
+
+::: notes
+What if both effects are present? Use two-way clustering — Cameron, Gelbach and Miller, two thousand eleven, building on Petersen and Thompson — which clusters by firm and by time simultaneously. The mechanical recipe is elegant: compute the firm-clustered sandwich, add the time-clustered sandwich, and subtract the plain White sandwich so the overlap is not double-counted. How do you tell which effect dominates without guessing? Petersen offers a diagnostic you can run yourself. Cluster by firm and look at the standard error; then cluster by time and look again. Whichever clustering moves the standard error more away from the naive White number is pointing at the bigger source of correlation. If firm clustering roughly doubles your SE but time clustering barely changes it, you have a firm effect and little else. If both move it a lot, you have both, and want two-way clustering. One subtlety worth flagging: fixed effects and clustering are not substitutes — they do different jobs. A firm fixed effect removes the firm's average level from both sides; it handles a firm-specific mean that never changes. Clustering by firm handles correlation in the leftover residuals over time — the part a fixed effect cannot touch, because it is about co-movement, not means. You often want both at once. Conflating them — saying I have firm fixed effects so I do not need to cluster — is a common and costly error.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+For **panels**, diagnose $\boldsymbol\Omega$ à la **Petersen (2009)**: firm effect → cluster by firm; time effect → time FEs or cluster by time; both → **two-way cluster**. Tell which dominates by seeing which clustering moves the SE more. And remember: **fixed effects and clustering are not substitutes** — you often need both.
+:::
+
+::: notes
+To summarize part eleven. A panel can carry both a firm effect and a time effect, and Petersen's two-thousand-nine taxonomy tells you which clustering to use: firm effect, cluster by firm; time effect, time fixed effects or cluster by time; both, two-way clustering. A simple diagnostic — cluster each way and see which moves the SE more — points at the dominant source. And do not confuse fixed effects with clustering: one removes means, the other honors residual co-movement, and you usually want both. In part twelve, the finale, we watch the same coefficient drift across the significance line in code, then assemble the four-step mental checklist.
+:::

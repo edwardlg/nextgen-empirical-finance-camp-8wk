@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Bias–Variance Tradeoff, Scored
+
+- Part 7 — scoring the bias–variance tradeoff with numbers
+
+::: notes
+Welcome back to Chapter one-point-three, part seven of eleven. In part six we proved the mean squared error decomposes into variance plus bias squared — a budget. Now we spend that budget. We pit two of Priya's recipes against each other with real numbers, watch a biased recipe win, and see why that tradeoff is the engine behind modern machine learning.
+:::
+
+## Two Recipes, Scored
+
+- Keep $\mu=\$8{,}000$, $N=200$
+- **A — sample mean**: unbiased, $\operatorname{Var}\approx720{,}000$, $\operatorname{MSE}\approx720{,}000$
+- **B — 5%-trimmed mean**: $\operatorname{Var}\approx400{,}000$, bias $=-300$
+- $\operatorname{MSE}_B\approx400{,}000+(-300)^2=490{,}000$
+- B *wins*: $490{,}000<720{,}000$
+
+::: notes
+Let us put numbers on the tradeoff. Keep the true mean at eight thousand dollars and N at two hundred, and pit two of Priya's recipes against each other. Recipe A is the plain sample mean. It is unbiased, so its bias is zero. Its standard error is about eight hundred forty-nine dollars, so its variance is eight hundred forty-nine squared, roughly seven hundred twenty thousand dollars-squared. Its mean squared error is therefore all variance, about seven hundred twenty thousand. Recipe B is the five-percent-trimmed mean, which drops the largest and smallest five percent of claims before averaging. On a right-skewed loss distribution this lops off the volatile catastrophe tail, so suppose simulation shows its variance falls to about four hundred thousand — but, because it systematically discards the right tail, it lands about three hundred dollars low on average, a bias of negative three hundred. Its mean squared error is four hundred thousand plus negative three hundred squared, which is four hundred thousand plus ninety thousand, equals four hundred ninety thousand. Recipe B is biased and yet wins decisively — four hundred ninety thousand is less than seven hundred twenty thousand — because the variance it saved, three hundred twenty thousand, dwarfs the bias-squared it paid, ninety thousand.
+:::
+
+## Why You'd Ever Accept Bias
+
+- If bias were a fat $\$700$: penalty $490{,}000$, B *loses*
+- A little bias is a bargain only if it buys enough variance
+- Trimming slashes variance on skewed losses
+- This tradeoff drives regularization, shrinkage, all of ML
+- We meet it again in earnest in Week 4
+
+::: notes
+But the arithmetic cuts both ways. If instead the bias had been a fat seven hundred dollars, the penalty would be seven hundred squared, which is four hundred ninety thousand, and recipe B would lose: four hundred thousand plus four hundred ninety thousand is eight hundred ninety thousand, more than seven hundred twenty thousand. The whole game is in that arithmetic: a little bias is a bargain only when it buys enough variance. This explains a fact that confuses people — sometimes a biased estimator beats an unbiased one. On a wildly skewed loss distribution, the extreme claims are exactly what makes the sample mean jump around, so trimming them can slash the variance. If that variance drop is bigger than the bias-squared you pick up, the trimmed mean has lower mean squared error and is, by this scorecard, the better recipe. This bias–variance tradeoff is not a curiosity; it is the engine behind regularization, shrinkage estimators, and essentially all of machine learning, and we will meet it again in earnest in Week Four. For now, hold the picture: a tiny, deliberate bias bought with a big cut in variance can be a bargain.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A *biased* recipe can win on **MSE** when the variance it saves exceeds the bias squared it pays — the trimmed mean beat the plain mean, $490{,}000<720{,}000$. But a fat enough bias flips the verdict. This **bias–variance tradeoff** drives regularization and all of machine learning. Next: the recipe that gets it right *eventually*.
+:::
+
+::: notes
+To summarize part seven: because mean squared error is variance plus bias squared, a biased recipe can win whenever the variance it saves exceeds the bias squared it pays. The five-percent-trimmed mean beat the plain sample mean, four hundred ninety thousand against seven hundred twenty thousand, by trading a small bias for a big cut in variance — but a fat enough bias, say seven hundred dollars, would flip the verdict and make it lose. That is the bias–variance tradeoff, and it is the engine behind regularization, shrinkage, and essentially all of machine learning. So far everything has been about a fixed sample size. In part eight we let the data grow without bound and ask whether the recipe homes in on the truth and stays there — the property called consistency.
+:::

@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## The Data and the Reading Order
+
+- Part 3 — the CPS panel and the tables-first reading order
+
+::: notes
+Welcome back to lesson five, part three of five. In part two we saw the placebo-law experiment: invent fake laws with a true effect of zero, run DiD thousands of times, and read the false-positive rate off the output. Now two practical questions. What data does this run on, and in what order does a professional read the paper's tables?
+:::
+
+## The Perfect Crime Scene
+
+- Workhorse data: **CPS-style microdata**, aggregated to state-year cells
+- Current Population Survey — the U.S. monthly labor survey
+- Per state, per year: women's wages, employment, and similar
+- Feature one: a **long panel** — many years per state
+- Feature two: outcomes are **economically persistent**
+- The treatment dummy itself is persistent — off, then on for years
+
+::: notes
+The paper runs on the kind of panel DiD studies actually use, so the indictment lands on real practice, not a strawman. The workhorse dataset is C-P-S-style microdata aggregated to state-year cells: the Current Population Survey, the U.S. government's monthly labor survey, from which you build, for each state and year, an average outcome such as women's log wages or an employment rate. Two features make this the perfect crime scene. First, it is a long panel, many years per state, and serial correlation only does real damage when there are enough time periods for within-state persistence to accumulate. With two periods there is little room for the problem to grow; with twenty, a slow-moving outcome's residuals form long, gently drifting runs that the independence assumption badly misreads. The longer the panel, the worse the over-rejection. Second, the outcomes are persistent in exactly the way that matters: wages and employment move slowly, so this year looks a lot like last year, and a state's residuals are positively autocorrelated. That is the genuine time-series structure of the economy, not an artifact. B-D-M also note the treatment dummy is itself extremely persistent, off for years then on for years. Week Four taught you, via the Moulton intuition, that a persistent regressor combined with serially correlated errors is the worst case for naive standard errors.
+:::
+
+## Read It Tables-First
+
+- A professional does **not** read front to back
+- **First:** the placebo rejection-rate table — the headline
+- Find the conventional-SE row; it should be near 0.05 — it is **not**
+- Do **not** memorize a precise figure
+- What is robust: over-rejection is **severe**, many times nominal 5%
+- The advertised 5% test is, in truth, a coin-flip-ish test
+
+::: notes
+A professional does not read this paper front to back. Read it tables-first. Start with the placebo rejection-rate table, the headline that made the paper famous. It reports, for the conventional DiD specification, the fraction of placebo laws, true effect zero, that came back significant at the five-percent level. Read down the column for the standard, serial-correlation-ignoring standard error, and look for a number that should be near zero-point-zero-five and is not. It is far higher. Do not memorize a precise figure. What is robustly true is that the over-rejection is severe, many times the nominal five percent, large enough that a substantial fraction of pure-noise laws look significant. Once you have seen this one number, you understand the whole paper: the advertised five-percent test is, in truth, a coin-flip-ish test. Everything else is diagnosis and cure.
+:::
+
+## Then Mechanism, Then Cures
+
+- **Then:** the table that varies **panel length**
+- Longer panels, more serial correlation $\Rightarrow$ worse over-rejection
+- This pins the blame on autocorrelation — the *right* culprit
+- **Then:** the fixes table(s) — the cures
+- Ask each row: did it bring rejection back to **~5 percent**?
+- Order: symptom $\rightarrow$ mechanism $\rightarrow$ cure
+
+::: notes
+Then read the table that varies the panel length. Having established that over-rejection happens, B-D-M show when it gets worse, and the answer, longer panels and more serial correlation, confirms the mechanism. This table rules out "maybe it's just noise" and pins the blame on autocorrelation, the right culprit. Then read the fixes tables, the cures. B-D-M test remedies and report the rejection rate each delivers. Read this table asking one question of every row: did this fix bring rejection back down to roughly five percent? Reading in this order, symptom, mechanism, cure, is how the paper argues, and it is the reading-order heuristic this whole week is teaching you.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The CPS state-year panel is the perfect crime scene: a **long panel** of **persistent** outcomes with a **persistent** treatment dummy. Read tables-first — **symptom** (headline rejection rate), then **mechanism** (panel length), then **cure** (the fixes).
+:::
+
+::: notes
+To summarize part three. The Current Population Survey state-year panel is the perfect crime scene because it combines a long panel, economically persistent outcomes, and a persistent treatment dummy, exactly the conditions under which ignoring serial correlation does the most damage. And a professional reads the paper tables-first: the headline placebo rejection rate as symptom, the panel-length table as mechanism, the fixes table as cure. In part four we look closely at the three remedies, what makes the design so clever, and where a careful reader should push back.
+:::

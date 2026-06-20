@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Aggregation Weights and the Headline Figure
+
+- Part 9 — name aggregation weights; the side-by-side figure
+
+::: notes
+Welcome back to the Week Four lab, part nine of ten. In part eight Callaway and Sant'Anna with clean controls recovered the planted effect — an overall average treatment effect near negative one-point-three-two against the true negative one-point-four-nine. Now we explain why those two numbers differ — aggregation weights — and run the verification assertions, then put the three numbers side by side in one figure.
+:::
+
+## Why the Overall ATT Isn't Exactly the Truth
+
+- CS overall $-1.32$ differs from raw cell-mean $-1.49$ — not an error
+- `simple` aggregation weights by **cohort size**
+- The raw target averages over **treated cells**
+- Different weighted averages of the *same* true effects
+- Chapter 4.2's point: **name your aggregation weights**
+- "The overall ATT" isn't one number until you say how you averaged
+
+::: notes
+One honest subtlety to notice and explain. The Callaway and Sant'Anna overall effect, negative one-point-three-two, is not identical to the raw true-cell-mean of negative one-point-four-nine, and that is not an error. The simple aggregation weights the group-time effects by cohort size, while the raw target averages over treated cells, so later horizons — with more accumulated effect — get different weight. They are different weighted averages of the same true effects. This is exactly Chapter four-point-two's point: you must name your aggregation weights, because the overall average treatment effect is not one number until you say how you averaged. Then the lab makes you prove the pipeline works with explicit verification assertions: that Callaway and Sant'Anna and the truth are both negative, that the clean estimate lands within a quarter point of the planted effect, that two-way fixed effects is attenuated relative to it, and that the pre-period coefficients hug zero below half a point. All assertions pass, and the success line prints.
+:::
+
+## Step 6 — Three Numbers Side by Side
+
+- One figure: planted truth, CS overall, attenuated TWFE
+- Left panel: event-study curves over the planted profile
+- CS curve **hugs** the dashed truth line
+- Naive TWFE curve **drifts off** it in the post-period
+- Right panel: CS bar reaches most of the way; TWFE falls short
+- One picture, the whole week
+
+::: notes
+Step six makes the contrast unmissable with one figure: the planted truth, the Callaway and Sant'Anna overall effect, and the attenuated two-way-fixed-effects coefficient, plus the event-study curves overlaid on the planted profile. The left panel shows the Callaway and Sant'Anna curve hugging the dashed planted-truth line while the naive two-way-fixed-effects curve drifts off it in the post-period — that is the cohort-bleed made visible. The right panel shows the Callaway and Sant'Anna bar reaching most of the way to the planted-truth line while the two-way-fixed-effects bar falls short. One picture, the whole week. You have now demonstrated, on data whose truth you planted, that the Callaway and Sant'Anna pipeline recovers the effect and that two-way fixed effects does not — which is your license to trust the same code on real HMDA, where you can never see the truth directly.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The small gap between CS overall ($-1.32$) and the raw cell-mean ($-1.49$) is **aggregation weights, not error**: `simple` weights by cohort size, the raw target by treated cells — so **name how you averaged**. Verification assertions all pass. The headline figure: CS hugs the planted truth, TWFE falls short — one picture, the whole week. Next: tying it back to fair lending.
+:::
+
+::: notes
+To summarize part nine: the gap between the Callaway and Sant'Anna overall effect, negative one-point-three-two, and the raw cell-mean, negative one-point-four-nine, is aggregation weights, not error — the simple aggregation weights by cohort size while the raw target averages over treated cells, so you must name how you averaged, because the overall average treatment effect is not one number until you do. The verification assertions all pass: clean estimate near the truth, two-way fixed effects attenuated relative to it, pre-periods flat. And the headline figure makes it unmissable — the Callaway and Sant'Anna curve hugs the planted truth while two-way fixed effects drifts off and falls short. In part ten we close the loop, tying the design back to fair lending and to where it carries forward.
+:::

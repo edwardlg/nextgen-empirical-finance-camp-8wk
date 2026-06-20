@@ -1,0 +1,62 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Eight-Minute Talk: Threats, Ask, Rehearsal
+
+- Part 5 — the threats strike, the ask, and rehearsing to time
+
+::: notes
+Welcome back to The Talk, the Poster, the Defense, part five of twelve. In part four we covered the identification slide and the headline result. Now the last two beats of the talk — the threats slide and the contribution slide with its ask — plus the backup slides behind them, and how to rehearse against a timer.
+:::
+
+## The Threats Slide Is a Strike
+
+- A defensive slide projects anxiety — a strike projects mastery
+- "We tested the three choices a careful reader would worry about…"
+- "…and the result moves by less than half a standard error"
+- You **use up** a hostile question with the slide
+- The mechanism is the **specification curve** — a shape the eye reads
+- **Never show robustness checks the result does not pass**
+
+::: notes
+The threats slide is a strike, not a defense. A defensive slide — here are some specifications in case you ask — projects anxiety. A strike says: we tested the three choices a careful reader would worry about — clustering, sample restriction, fixed effects — and the result moves by less than half a standard error in every case. The room hears that you thought about it harder than the questioner is about to, and you have used up a hostile question with a single slide. The mechanism is the specification curve from Chapter eight-point-one — a tight cluster the eye reads as a shape. The rule: do not show robustness checks the result does not pass. A failed check belongs in the paper and in your honest answer to did you check this, not on a slide.
+:::
+
+## The Contribution Slide and the Ask
+
+- Close with what the room knows, what you're **not** claiming, one ask
+- The ask is one concrete italic sentence, not a pleasantry
+- A methodological, a data, or a collaboration ask
+- Named so the **right person self-identifies**
+- Behind the six slides: **backup** slides, labeled to navigate
+- Backup is what you *could* say, not what you *will* say
+
+::: notes
+The contribution slide closes with three things: what the room now knows, what you are not claiming, and one specific ask. The ask is one concrete italic sentence. A methodological ask — if you have worked with this dataset on fair-lending questions, I would like to ask in the question period whether my within-credit-band matching is doing what I think it is doing. Or a data ask, or a collaboration ask. It is not I would love any feedback, which the room hears as a pleasantry. It is named at the granularity where the right person self-identifies. Behind the six live slides you carry backup slides — the full table, the full event-study plot, the placebo — labeled so you can navigate to them. The backup is what you could say, not what you will say.
+:::
+
+## Rehearse Against a Timer
+
+- Rehearse three times against a timer, target seven-thirty
+- Cut from the **motivation**, where the time leak lives
+- **Never cut from the design**
+- Record yourself and watch three tells
+- Rising intonation at the end of declarative sentences
+- "Um" more than once per slide; looking at slides, not the camera
+
+::: notes
+Rehearse three times against a timer, targeting seven minutes thirty seconds, which leaves slack against the eight-minute wall. When you run long, cut from the motivation, where the time leak always is — never from the design, which the question period depends on. Record yourself and watch three tells. First, rising intonation at the end of declarative sentences, which turns statements into questions and signals you do not believe them. Second, the word um more than once per slide. Third, looking at the slides instead of the camera. Fix those three and the delivery reads as confidence.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **threats** slide is a strike that uses up a hostile question — never show a check the result fails. The **ask** is one named, concrete sentence. Behind it all, **backup** slides for what you could say. Rehearse to seven-thirty, cut from motivation, fix the three tells. Next: the question period and the three honest answers.
+:::
+
+::: notes
+To summarize part five: the threats slide is a strike, not a defense — it uses up a hostile question, and you never show a robustness check the result fails. The contribution slide closes with one named, concrete ask, and backup slides wait behind for what you could say but won't. Rehearse three times to seven-thirty, cutting from motivation and never design, and record yourself to catch rising intonation, ums, and looking at the slides. In part six we move from the talk to the question period, and the three honest answers a great defender uses in a single afternoon.
+:::

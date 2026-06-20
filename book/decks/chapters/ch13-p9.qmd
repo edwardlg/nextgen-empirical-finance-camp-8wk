@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Consistency — Two Warnings
+
+- Part 9 — two warnings that keep consistency honest
+
+::: notes
+Welcome back to Chapter one-point-three, part nine of eleven. In part eight we defined consistency — convergence in probability to the truth as the data grow — and saw the sample mean qualify because it is centered with a vanishing spread. Consistency is a lovely property, but it is easy to over-learn. This short part draws two sharp warnings that keep you honest about what consistency does and does not promise.
+:::
+
+## Warning One: Different from Unbiased
+
+- Unbiased and consistent are *different*; neither implies the other
+- "Use only $x_1$": unbiased, variance $\sigma^2$ forever — inconsistent
+- It ignores new data, so it never settles down
+- Biased at every $N$ yet consistent if bias $\to 0$ — possible
+- Consistency is about the limit; unbiasedness, each fixed $N$
+
+::: notes
+First warning: unbiased and consistent are different properties, and neither implies the other. A recipe can be unbiased at every N yet inconsistent — for instance, just use the first claim, x sub one, and ignore the rest. That is unbiased, since the expectation of x sub one is mu, but its variance is sigma squared forever; pouring in more data never helps, because the recipe ignores the new data. It never settles down. Conversely, a recipe can be biased at every finite N but consistent, if its bias shrinks to zero as N grows. The lesson: consistency is a statement about the limit, as the sample size goes to infinity; unbiasedness is a statement at each fixed N. They answer different questions, and a recipe can satisfy either one without the other.
+:::
+
+## Warning Two: It Won't Fix Bad Sampling
+
+- Consistency does *not* save a broken sampling assumption
+- Over-sample one county $\Rightarrow$ converge to the *wrong* number
+- More bad data just adds confidence to the error
+- A consistent estimator of the wrong thing is still wrong
+- Garbage in, garbage in
+
+::: notes
+Second warning: consistency does not save a broken sampling assumption. If Priya's claims systematically over-sample one high-risk county, more of the same bad data drives x bar toward the wrong number with ever-greater confidence. The estimate still converges — it just converges to the wrong target. A consistent estimator of the wrong thing is still wrong, just precisely, confidently wrong. The familiar slogan is garbage in, garbage out; here it is sharper — garbage in, garbage in. Consistency buys you precision around whatever your sampling process actually points at, and if that process is biased, precision only makes the error look more authoritative. So keep interrogating the sampling assumption, no matter how much data you have.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Consistency and unbiasedness are **independent**: "use only $x_1$" is unbiased but inconsistent, and a vanishing-bias recipe can be consistent yet biased at every $N$. And consistency never rescues a broken sampling assumption — it only makes you *confidently* wrong. Next: we *see* the whole sampling distribution by faking the universe.
+:::
+
+::: notes
+To summarize part nine: heed two warnings about consistency. First, it is independent of unbiasedness — the recipe that uses only the first claim is unbiased but inconsistent, while a recipe whose bias shrinks to zero can be consistent yet biased at every finite sample size. Consistency is about the limit; unbiasedness is about each fixed N. Second, consistency cannot rescue a broken sampling assumption: over-sample one county and you converge confidently to the wrong number — garbage in, garbage in. We have now characterized the sampling distribution by its center, its spread, and its limiting behavior. In part ten, opening the finale, we stop describing it in summaries and actually see its full shape, by faking the universe on a computer.
+:::

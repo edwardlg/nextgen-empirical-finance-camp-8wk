@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## From Grid to Event Study — and Recovering the Truth
+
+- Part 12 — aggregate the grid to an event study, recovering the truth
+
+::: notes
+Welcome back to Chapter four-point-two, part twelve of fourteen. In part eleven we built the Callaway–Sant'Anna group-time effect — a clean two-by-two for each cohort and period. Now we take the whole grid of those effects and aggregate it on purpose, into a heterogeneity-robust event study, and run it on Priya's world to watch it recover the truth the pooled regression mangled.
+:::
+
+## From Grid to Event Study
+
+- A grid of $\widehat{\text{ATT}}(g,t)$ — one per cohort, per post period
+- Aggregate by **event time** $e=t-g$ (years since adoption)
+- Average across cohorts sharing the same $e$, non-negative weights
+- $e<0$ values: genuine pre-trend / placebo checks
+- $e\ge0$ values: the dynamic build-up TWFE mangled
+
+::: notes
+Now you have a whole grid of estimated group-time effects — one for every cohort and every post period. This grid is the honest output, and you aggregate it on purpose. The most useful aggregation is by event time, e equals t minus g, years since adoption, averaging the estimates across cohorts that share the same event time, with non-negative weights — cohort sizes, summing to one. Plotting these event-time effects against e is the heterogeneity-robust event study — the honest replacement for the lead-and-lag event study of Chapter four-point-one. Its negative event-time values are genuine placebo and pre-trend checks: effects should be near zero before adoption. Its non-negative values trace the dynamic build-up of the disclosure effect that the pooled regression mangled. You can also collapse the whole grid to a single overall effect — a transparent weighted average of every clean group-time effect — the one number to report in place of the broken pooled coefficient.
+:::
+
+## The Honest Flip Side
+
+- Two-state §3 world: late cohort L has **no clean control**
+- E is already treated; no never-treated state $\Rightarrow$ *unidentified*
+- Clean estimators **refuse** to fabricate when no clean control exists
+- That refusal is a feature, not a bug
+- Restore a genuine never-treated state N
+
+::: notes
+Run this on Priya's world from the worked example — but notice the catch that example deliberately exposed. With only the two eventually-treated states E and L, the late cohort L has no clean control in its post-period — State E is already treated, and there is no never-treated state — so L's effect is not identified without one. This is the honest flip side of the crisis: clean estimators refuse to form the forbidden comparison, which means they refuse to fabricate an answer when no clean control exists. That refusal is a feature, not a bug — the pooled regression's willingness to answer anyway was exactly the problem. So restore a genuine never-treated state N — Priya's real data has plenty of non-adopters — and watch it work.
+:::
+
+## Recovering the Truth
+
+- $\widehat{\text{ATT}}(2,t)$ uses N (and early-on L): recovers E's $-1,\dots,-5$
+- $\widehat{\text{ATT}}(5,t)$ uses N — never E: recovers L's $-1,-2$
+- Aggregate by event time $\Rightarrow$ overall clean ATT $= -2.57$
+- Pooled TWFE on the same data: attenuated $-1.23$
+- No forbidden comparison, no contamination, no sign flip
+
+::: notes
+On the six-year version with a never-treated state N, watch it work. The group-time effect for State E uses State N, and before year five the not-yet-treated State L, as clean controls, and recovers E's true effects minus one, minus two, minus three, minus four, minus five. The group-time effect for State L uses State N as a clean control — never the already-treated State E — and recovers L's true effects minus one and minus two. Aggregate by event time and the overall clean effect comes out at the true minus two-point-five-seven, the negative, building dynamic profile that is true by construction. Compare that to the attenuated minus one-point-two-three that the pooled regression returns on the very same data, with the very same parallel-trends assumption holding perfectly. No forbidden comparison, no contamination, no sign flip — the estimator returns the answer the data actually contain.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Aggregate the clean group-time grid by **event time** for an honest event study — pre-period values test parallel trends, post-period values trace the dynamics. On Priya's restored world it recovers the true $-2.57$ where pooled TWFE gives an attenuated $-1.23$. And it honestly **refuses** to answer where no clean control exists.
+:::
+
+::: notes
+To summarize part twelve: the grid of group-time effects is the honest output, and you aggregate it on purpose — by event time for a heterogeneity-robust event study whose pre-period values genuinely test parallel trends and whose post-period values trace the dynamics, or to one overall number to report in place of the broken coefficient. On Priya's restored world, it recovers the true minus two-point-five-seven exactly, where pooled TWFE gave an attenuated minus one-point-two-three. And in the two-state world with no never-treated state, it honestly refuses to identify the late cohort — a feature, not a bug. In part thirteen, we see two more routes to this same destination: Sun and Abraham's saturated event study, and Borusyak, Jaravel, and Spiess's imputation.
+:::

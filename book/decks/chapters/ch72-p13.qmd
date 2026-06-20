@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Data Acquisition Is the Method
+
+- Part 13 — the repository it builds and why it is the method
+
+::: notes
+Welcome back to Data Acquisition in Practice, part thirteen of thirteen — the last part. In part twelve we stated the eight-step skeleton that every source obeys. Now we see the repository that skeleton builds, the asymmetry between public and licensed reproducibility, and the chapter's closing reframe: that data acquisition is part of the method, not a chore before it.
+:::
+
+## The Repository That Falls Out
+
+- `.gitignore` excludes `data/raw/` and `.env`
+- `.env` holds your API keys — **never committed**
+- `code/pull_data.py` — bounded queries, keys from env
+- `data/raw/` — cached pulls; licensed data lives *only* here
+- `logs/pulls.jsonl` — one line per pull, with content hash
+
+::: notes
+The directory layout that falls out is the one notebook seven-point-two sets up and the one your capstone repo should use. A dot-gitignore that excludes the data raw folder and the dot-e-n-v file. A dot-e-n-v file holding your A-P-I keys, never committed. A code folder with pull-data-dot-p-y, holding the bounded queries that read keys from the environment. A data raw folder for cached pulls, where licensed data lives only. And a logs folder with pulls-dot-j-s-o-n-l: one line per pull, with the content hash. A reviewer handed this repository can read pull-data to see exactly what you requested, read the log to see when and how much, and — for public sources — re-run the pull and check the hash against yours.
+:::
+
+## Public vs. Licensed Reproducibility
+
+- Public data: a reviewer can **fully re-run** your pull
+- Licensed data: they cannot re-run without GMU access
+- The license forbids shipping the data — **not the recipe**
+- Recipe plus log = as reproducible as the license allows
+- The asymmetry is not a loophole — it is the honest best
+
+::: notes
+For licensed sources, a reviewer cannot re-run your pull without G-M-U access, and that is correct: the license forbids you from shipping them the data, but it does not forbid you from shipping the recipe, and the recipe plus the log is what makes even licensed-data work as reproducible as the license allows. So note the asymmetry. Public data is fully re-runnable — a reviewer reproduces your pull and checks the content hash. Licensed data is recipe-reproducible only — they get the code and the log, not the bytes. That asymmetry is not a loophole; it is the honest best you can do within the rules, and a referee who knows the rules expects exactly that.
+:::
+
+## Data Acquisition *Is* the Method
+
+- The novice rushes data acquisition to reach the modeling
+- The researcher knows it is **part of the method**
+- Every pin, cache, and logged query is a reproducibility claim
+- Get this right and the rest of Week 7 stands on rock
+- Your turn: open **nb7.2**, the data-pull harness
+
+::: notes
+One closing reframe of the chapter's whole point. The novice thinks data acquisition is a one-time chore to rush through on the way to the interesting modeling. The researcher knows it is part of the method — every pin, every cache, every logged query is a claim about reproducibility that your results stand or fall on, exactly as much as your choice of standard errors or fixed effects. The data card tells you what is possible; the eight-step skeleton tells you how to do it defensibly; and the log on disk is the evidence that you did. Get this right and the rest of Week Seven — the pre-analysis plan, the dataset build, the identification memo — is built on rock. Get it wrong, and you are building on data no one, including future-you, can reconstruct. Your turn: open notebook seven-point-two, the multi-source data-pull harness — the runnable, offline-safe version of this chapter. By the end you will have a data raw folder, a pulls log with content hashes, and a git-ignore that keeps licensed bytes where the license requires.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The eight-step skeleton builds a clean repository: code and log committed, raw and secrets git-ignored. Public data is **fully re-runnable**; licensed data is **recipe-reproducible** — the honest best the license allows. The deepest lesson: **data acquisition is part of the method.** Get it right, and the rest of Week 7 stands on rock.
+:::
+
+::: notes
+To summarize this final part, and the chapter: the eight-step skeleton builds a clean repository where the code and the log are committed while the raw data and your secrets stay git-ignored. That lets a reviewer fully re-run your public pulls and check the content hashes, while licensed work stays recipe-reproducible — the honest best the license allows. The deepest lesson of Chapter seven-point-two is that data acquisition is not a chore before the real work; it is part of the method, every bit as much as your standard errors or fixed effects. Get it right, and everything else in Week Seven stands on rock. Open notebook seven-point-two and build the scaffolding yourself.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## A Worked Referee Report — Devon on Maya
+
+- Part 4 — the skeleton made real on Maya's paper
+
+::: notes
+Welcome back to Peer Review and Revision, part four of six. In part three we learned to sort points into major and minor and render a verdict, tough on the work and kind to the person. Now we watch it happen. Devon has Maya's draft — her staggered difference-in-differences asking whether state fair-lending examinations narrowed the minority-white mortgage-denial gap, using HMDA data. Here is the core of his report.
+:::
+
+## Summary, Then the Biggest Concern
+
+- Summary in his words: staggered DiD on HMDA, county-year
+- Headline: examinations narrow the gap by ~1.4 points, significant at 1%
+- **Biggest concern — anticipation:** no event study is shown
+- Programs are debated a year before adoption, inviting pre-shifts
+- Wants four pre-leads; flat leads reassure, a downward trend is near-fatal
+
+::: notes
+Devon opens as the skeleton demands — a summary in his own words. The paper asks whether state fair-lending examination programs reduced the gap in denial rates between minority and white applicants. Using HMDA application data aggregated to county-year, the author estimates a staggered difference-in-differences with county and year fixed effects and standard errors clustered by state. The headline, from Table Two column three, is that examinations narrow the gap by about one-point-four percentage points — roughly a fifth of the pre-period mean, significant at the one percent level. Then he leads with the biggest concern, named specifically — anticipation, not vague endogeneity. The causal claim rests on parallel trends, and he cannot assess it because the paper reports no event study. Fair-lending programs are debated in a legislature for a year or more before adoption, exactly the condition under which lenders might change behavior in anticipation, contaminating the pre-period. He needs an event-study plot with at least four pre-period leads. Flat, insignificant leads would reassure him; a downward pre-trend would be close to fatal, because it would mean the gap was already closing before the policy.
+:::
+
+## Majors Two and Three
+
+- **Two — forbidden comparison:** staggered TWFE, negative weights
+- Re-estimate with Callaway–Sant'Anna; compare the two numbers
+- **Three — small-cell denominator:** raw HMDA application counts
+- Volatile small counties could drive the estimate
+- Weight by volume, or drop low-application counties, to check
+
+::: notes
+Major point two is another identification threat — the forbidden comparison. The design is staggered, and the methods say two-way fixed effects without addressing the negative-weights problem from Chapter four-point-two: already-treated counties serve as controls for later-treated ones, which biases the estimate when effects are dynamic. Devon wants the headline re-estimated with a heterogeneity-robust estimator, Callaway and Sant'Anna against clean controls only, and the two numbers compared. If they agree, the two-way fixed-effects number is safe; if they diverge, the robust one is the result. Major point three is specification — the denominator. The county-year gap comes from raw HMDA application counts, but the text does not say whether counties with very few minority applications are dropped or winsorized. A handful of small counties where the gap is mechanically volatile could be driving the estimate. A column weighting by application volume, or dropping counties below a minimum threshold, would tell us whether the result is real or a small-cell artifact.
+:::
+
+## Minors and Verdict
+
+- Minors: missing star thresholds, an overclaiming intro line
+- A missing y-axis label; a citation to place where clustering enters
+- **Verdict: major revision** — good question, real data, right design
+- One event study and one robust column from convincing
+- No major point asks her to change the project
+
+::: notes
+The minors stay minor, exactly where exposition belongs. Table Two's note does not state the significance thresholds for the stars; the introduction claims the paper establishes that examinations cause fairer lending, stronger than a conditional difference-in-differences supports, so soften it; Figure One has no y-axis label; and the clustering citation should appear where clustering is introduced. Then the verdict: major revision. The question is good, the data are real, the design is right; the paper is one event study and one robust-estimator column away from convincing. None of his major points asks the author to change the project — only to defend the design it already has. Read against the rules: he summarized first, led with the biggest concern named specifically, ordered majors by danger, put exposition in the minors, gave evidence for every major, and was tough yet kind — closing with an accurate, encouraging verdict.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Devon's report is the skeleton made real: **summary first**, **biggest concern named specifically** (anticipation, with the exact event study that would settle it), majors ordered by danger, exposition in the minors, **evidence on every major**, and a verdict that is tough on the work and kind to the person.
+:::
+
+::: notes
+To summarize part four: Devon's report shows the whole skeleton working. He summarized in his own words, led with the biggest concern named precisely — anticipation — ordered majors by danger, kept exposition in the minors, gave evidence for every major, and closed with a verdict that is honest, tough, and kind. In part five we flip the desk and learn to respond — the revise-and-resubmit memo, and when to concede versus defend.
+:::

@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## Checklist on a Slide, and Two of My Own Funnels
+
+- Part 6 — checklist slide and two of my funnels
+
+::: notes
+Welcome back to how I pick and kill a project, part six of nine. In part five we opened the speak-from deck with the furnace and the three enemies. Now slides three, four, and five: the fatal-flaw checklist on its own, two of my own projects as live funnels, and the slide that hands the furnace to you.
+:::
+
+## Slide Three: The Fatal-Flaw Checklist
+
+- **No variation** — nothing to compare, no design saves it
+- **Unmeasurable outcome** — no number, a mood not a study
+- **Hopeless confounding** — no cutoff, no event, no instrument
+- → causal claim dead; **honest descriptive** may live
+- **Data you can't get in time** — the most common killer
+- All diagnosable **before a single regression**
+
+::: notes
+Slide three is the fatal-flaw checklist on its own, because it is the gift of the session. No variation in the treatment — nothing to compare, and no design saves it. Unmeasurable outcome — no number for the y column means a mood, not a study. Hopeless confounding — no cutoff, no policy date, no clean event, no instrument, so the causal claim is dead, though the honest descriptive version may live, per our conventions, section four. Data you cannot get in time — the most common killer of all. Here is the gift: each of these is diagnosable before you run a single regression. Most fatal flaws are visible on paper, in an afternoon, which is exactly why killing can be cheap.
+:::
+
+## Slide Four: Two of My Own Funnels
+
+- **A clean shock makes a project viable** — the CSR paper
+- Price pressure moving a stock for **non-fundamental** reasons
+- That turned a correlation into a **design**
+- **An idea becomes a paper over years** — *Rainbow of Credits*
+- Municipal borrowing; AEA 2025, headed for the *JF*
+- Both lived or died on: **clean variation? can I measure it?**
+
+::: notes
+Slide four puts up two of my own funnels. The first: a clean shock is what made a project viable. In Standing Out from the Crowd via CSR Engagement, in the Journal of Financial and Quantitative Analysis, twenty twenty-three, the question only became answerable when we found a source of price pressure that moves a firm's stock for reasons unrelated to its fundamentals. That is what turned a correlation into a design. The second: an idea becomes a paper over years. The Rainbow of Credits, on municipal borrowing, presented at the American Economic Association meetings in twenty twenty-five and headed for the Journal of Finance — I will trace how the question narrowed, which versions I killed, and what survived contact with the data. The thread is that both lived or died on the same two questions: where is the clean variation, and can I actually measure and get this?
+:::
+
+## Slide Five: Now Kill Your Own
+
+- Walk in with **three or four** candidates from PS 7.1
+- Walk out having **killed one** on purpose
+- And **committed hard** to one, runner-up in reserve
+- Commitment is the **other half** of killing
+- Capstone graded on the **defense**, not cleverness
+- First Phase-2 question: **what did you reject, and why?**
+
+::: notes
+Slide five turns the session on you. You walk in with three or four candidate questions from problem set seven-point-one. You walk out having killed at least one on purpose and committed hard to one, with a runner-up in reserve. Commitment is the other half of killing: once the furnace has run, you stop shopping for a better idea and start building. A good question you finish beats a brilliant one you do not. Remember, your capstone is graded on the defense, not the cleverness — and the first thing I will ask in Phase Two is, what did you consider and reject, and why? The reflection prompt at the end makes you write your own kill-or-commit memo; bring it next week.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **fatal-flaw checklist** is visible on paper before any regression. Two of my funnels carry the lesson — a **non-fundamental price shock** turned a correlation into a design, and the muni project traveled the funnel **over years** — both judged by *where's the clean variation?* and *can I measure and get it?*
+:::
+
+::: notes
+To summarize part six: the fatal-flaw checklist, on its own slide, is diagnosable before a single regression — the gift that makes killing cheap. Two of my own funnels carry the lesson: the CSR paper became viable only when a non-fundamental price shock turned a correlation into a design, and the Rainbow of Credits traveled the whole funnel over years. Both were decided by the same two questions — where is the clean variation, and can I measure and get it — and slide five hands that furnace to you. In part seven we walk the first worked case, the CSR paper, in full.
+:::

@@ -1,0 +1,63 @@
+---
+date: "2026-06-22"
+---
+
+## A Paper Is a Chain, Not a Result
+
+**Learning objectives**
+
+- See why credibility, not surprise, gets papers published
+- Name the four links of a publishable paper
+- Watch a real working paper get built inward
+- Run the seven-part anatomy on your own questions
+
+::: notes
+Welcome to Week Five, Mentor Session Five — the anatomy of a Journal of Finance paper. This is part one of five. All week you have been a reader. You ran the seven-part template on Fama and French, on Jegadeesh and Titman, on Petersen, on Bertrand, Duflo, and Mullainathan. You learned to go to the tables first and the introduction last, to find the headline number, to state the identifying assumption in one sentence, and to name the one threat a referee would fire first. That is the skill of dissecting a finished paper. Today we turn the camera around and watch a paper get built.
+:::
+
+## Reading and Writing Are the Same Act
+
+- All week you dissected *finished* papers, tables first
+- Today: watch a paper get **built**, from itch to tables
+- I use one of my own working papers as the cadaver
+- A published paper hides its two years of false starts
+- Same seven-part anatomy, run **inward** instead of outward
+
+::: notes
+Here is the idea that organizes today. The seven-part anatomy you have been applying outward, to strangers' papers, is the same anatomy I apply inward when I decide whether a question of mine is even worth chasing. Reading well and writing well are the same act run in opposite directions, and today you see both directions at once. I am going to use one of my own working papers as the cadaver on the table, because the one thing a published paper hides best is the two years of false starts that produced it — and those, I can tell you about. So bring your pre-read and your written warm-ups, because we will build a real paper in front of you, link by link.
+:::
+
+## What Actually Gets Into a Top Journal
+
+- A myth: top papers have a *surprising result*
+- Truth: journals are full of unbelieved surprises
+- What wins is the **credibility of the argument**, not the size of the finding
+- A paper is a **chain**, only as strong as its weakest link
+- Referees attack that link; the paper lives or dies there
+
+::: notes
+There is a myth that a top-journal paper is one with a surprising result. It is not. Journals are full of surprising results that nobody believes, and the surprise is precisely why nobody believes them. What gets a paper into the Journal of Finance is not the size of the finding but the credibility of the argument that produced it. A publishable empirical paper is a chain, and the chain is only as strong as its weakest link. Referees attack the weakest link, and a paper lives or dies there — not on the headline. Four links matter, and they are exactly the four things you have been grading all week, now stated as construction advice rather than reading advice.
+:::
+
+## The Four Links
+
+- **Sharp question** — one sentence, ending in a question mark
+- **Credible design** — the argument you isolated your variable
+- **Transparent tables** — the table that hides nothing
+- **Honest robustness** — you do the referee's job to yourself first
+- We build each link in turn, on a real paper of mine
+
+::: notes
+The four links are these. First, a sharp question — one sentence, ending in a question mark, naming an outcome and the one right-hand-side variable whose effect you care about. Second, a credible research design — your argument that you have isolated your variable from everything it is tangled with. Third, transparent tables — a table that hides nothing, showing the key coefficient survive or collapse as controls pile on. Fourth, honest robustness — the months you spend trying to kill your own result before a referee does. We will take each link in turn, and we will build it on a real working paper of mine, false starts and all.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A top-journal paper wins on the **credibility of its argument**, not the surprise of its finding. A paper is a **chain of four links** — sharp question, credible design, transparent tables, honest robustness — and a referee attacks the weakest one. Next: turning an itch into a sharp question.
+:::
+
+::: notes
+To summarize part one: what gets into the Journal of Finance is not a surprising result but a credible argument, and that argument is a chain of four links — a sharp question, a credible design, transparent tables, and honest robustness. A referee attacks the weakest link, and the paper lives or dies there. Today we run the seven-part anatomy inward, building a real paper of mine link by link. In part two, we start at the first link: turning a vague itch of a topic into a sharp, falsifiable research question — and the counterfactual it implies.
+:::

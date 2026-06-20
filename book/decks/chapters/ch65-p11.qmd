@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Critical Limits — P-Hacking and Reproducibility
+
+- Part 11 — prompt p-hacking and stochastic irreproducibility
+
+::: notes
+Welcome back to the AI co-pilot for research, part eleven of fourteen. In part ten we covered hallucinated citations and look-ahead bias. Here are the last two failure modes: prompt-induced p-hacking, which is p-hacking in a new costume, and the irreproducibility of stochastic outputs, which forces you to make the pipeline reproducible even when the model is not.
+:::
+
+## Prompt-Induced P-Hacking
+
+- The label column *depends on the prompt*
+- Reword the rubric until the regression turns significant
+- P-hacking in a new costume — and arguably worse
+- **Freeze the rubric** against the gold set, before the result
+- Pre-register the prompt and spec in a dated file
+- Report the prompt verbatim; show every prompt you tried
+
+::: notes
+Third, prompt-induced p-hacking. You met p-hacking in Week One: torturing a dataset until it confesses a result that is really just noise. LLMs open a new and seductive avenue, because the label column depends on the prompt. You can — consciously or not — rewrite the prompt until the labels produce the result you were hoping for: define "negative" one way, the coefficient is insignificant; reword the rubric, now it is significant; stop and declare victory. This is p-hacking in a new costume, arguably worse, because the researcher degree of freedom — the exact prompt wording — is so large and easy to fiddle with that you may not notice you are doing it. The defenses adapt the usual ones. Freeze the rubric before you look at the downstream result — validate it against the gold set, which has nothing to do with your regression coefficient, and lock the prompt when its F-one is acceptable; the gold set, not the regression, decides when the prompt is good. Pre-register, even informally, the prompt and specification in a dated file. Report the prompt verbatim so a replicator can confirm you did not shop for it. And if you genuinely tried several prompts, show the results under each. The honest question: would this result survive a referee who can see everything you tried?
+:::
+
+## Reproducibility of Stochastic Outputs
+
+- A regression is deterministic; an LLM, by default, is *not*
+- Same question twice can give two answers
+- Temperature zero and a seed help — but not guaranteed
+- Some frontier models expose no temperature at all
+- Make the *pipeline* reproducible: pin the version, log calls
+- Run **once**, save labels to disk, treat them as data
+
+::: notes
+Fourth, reproducibility of stochastic outputs. A regression is deterministic — same data, same code, same coefficient forever. An LLM is by default stochastic: ask the same question twice and you can get two different answers, because it samples from a probability distribution over next tokens. For a research instrument, irreproducibility is serious — "I got p equals zero-point-zero-four that one time" is not science. Several controls help. Temperature scales how much randomness is injected; temperature zero makes the model close to greedy and far more repeatable, which you usually want for classification. A seed, where the API exposes one, pins the draws. But the caveat is itself a reproducibility lesson: these controls differ by provider and are not bit-for-bit guaranteed — some current frontier models, such as Anthropic's Opus four-point-seven, do not expose a temperature parameter at all, and even temperature zero is not a hard determinism guarantee. So you cannot rely on the model being deterministic; make your pipeline reproducible by other means. Pin and record the exact model version string, because a model silently updated under the same name will change your labels; log every prompt and response so your labels are saved, not regenerated; and run the classification once, save the output to disk, and treat that file as your data — never re-query the model inside an analysis that is supposed to be reproducible. The labels are data; freeze them like data.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Prompt-induced p-hacking**: the label depends on the prompt, so freeze the rubric against the gold set *before* the regression. **Stochastic irreproducibility**: the model isn't reliably deterministic, so pin the version, log every call, and run once — saving the labels to disk as data. Next: the APIs that make this scriptable and reproducible.
+:::
+
+::: notes
+To summarize part eleven, the last two critical limits. Prompt-induced p-hacking: because the label column depends on the prompt, you can shop for the wording that makes your regression significant — so freeze the rubric against the gold set before you ever look at the result, and report the prompt verbatim. Reproducibility of stochastic outputs: an LLM is not deterministic, and the controls differ by provider — some frontier models expose no temperature at all — so make the pipeline reproducible instead: pin the version string, log every call, and run once, treating the saved labels as data. In part twelve we write the actual API code that does all of this — correct, current, and secret-safe.
+:::

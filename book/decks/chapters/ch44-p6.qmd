@@ -1,0 +1,60 @@
+---
+date: "2026-06-22"
+---
+
+## The Donor Pool: Clean and Comparable
+
+- Part 6 — curating the pool: untreated and comparable donors
+
+::: notes
+Welcome back to synthetic control, part six of twelve. In part five we saw that convexity buys sparse, nameable weights, and that difference-in-differences is just this method with frozen weights. But the synthetic control is only as good as the units the optimizer draws from. Now we turn to the donor pool, and the first two of three rules that keep it honest: donors must stay untreated, and donors must be comparable without being clones.
+:::
+
+## Curating the Pool Is a Design Decision
+
+- Which untreated units may receive weight?
+- As consequential as choosing an instrument (3.4)
+- Must be **defended**, not made by reflex
+- Three rules, each mapping to an assumption
+- Violate one, and the counterfactual is quietly corrupted
+
+::: notes
+The synthetic control is only as good as the units you let it draw from. Choosing the donor pool, which untreated units are eligible to receive weight, is a research-design decision as consequential as choosing an instrument in Chapter three-point-four. And like that choice, it must be defended, not made by reflex. Three rules govern the pool, and each maps to an assumption that, if violated, quietly poisons the estimate. We take them one at a time. In this part: donors must stay untreated, and donors must be comparable but not contaminated by idiosyncratic shocks. In the next part we tackle the two subtler assumptions, no interference and no anticipation. Each one is a way the synthetic counterfactual can be silently corrupted while the pre-period fit still looks reassuring, which is exactly what makes them dangerous.
+:::
+
+## Donors Must Stay Untreated
+
+- Donors must be untreated through the **whole** sample
+- A donor that adopts its own law in 2020 is contaminated
+- After 2020 its premium path reflects *its* treatment
+- Any weight on it corrupts your counterfactual
+- Fix: drop it, or truncate before its adoption
+- Same as the staggered-timing problem (4.2)
+
+::: notes
+First rule: donors must be untreated, and stay untreated, through the whole sample. Obvious but easy to botch. If a donor state passed its own disclosure law in two thousand twenty, then after twenty its premium path is contaminated by its treatment, and any weight on it corrupts your counterfactual. The synthetic control is supposed to show you what the treated state would have done with no treatment, built from donors that genuinely had no treatment; a donor carrying its own policy effect poisons that. The fix is to drop it, or truncate the sample before its adoption so only its clean years are used. This is the synthetic-control version of the staggered-timing problem you will meet head-on in Chapter four-point-two: contaminated controls are poison wherever they appear, and you have to hunt them down deliberately.
+:::
+
+## Comparable, but Not a Clone
+
+- Donors driven by the **same forces** as the treated unit
+- Same national reinsurance market, same climate trends
+- So a blend of them can mimic the treated state
+- But exclude units hit by **idiosyncratic shocks**
+- A donor's freak 2019 hurricane spikes its premium
+- That spike injects a non-comparable event into your line
+
+::: notes
+Second rule: donors must be plausibly driven by the same forces as the treated unit, but not be the treated unit in disguise. You want a pool of states whose premiums respond to the same national reinsurance market, the same climate trends, the same regulatory backdrop, so that a blend of them can mimic the treated state. But you must exclude units affected by idiosyncratic shocks the treated unit did not face. If one donor state had a once-in-a-century hurricane in two thousand nineteen, its premium spiked for reasons unrelated to anything the treated state experienced, and letting it into the synthetic counterfactual injects that hurricane into your what-would-have-happened line. The counterfactual is supposed to be smooth and comparable; a freak event smuggled in through a donor makes it neither. Curate the pool the way you would curate a control group: similar enough to be relevant, clean enough to be valid.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The donor pool is a **research-design decision** you must defend. Two rules so far: donors must stay **untreated** through the whole sample (drop or truncate contaminated ones), and donors must be **comparable but not shock-ridden** (exclude freak idiosyncratic events). Next: the two subtler assumptions — no interference and no anticipation.
+:::
+
+::: notes
+To summarize part six: the synthetic control inherits the quality of its donor pool, so curating that pool is a research-design decision you must defend, as consequential as choosing an instrument. The first rule is that donors must stay untreated through the whole sample; a donor that adopts its own policy is contaminated, and you drop it or truncate before its adoption, the same staggered-timing poison from Chapter four-point-two. The second rule is that donors must be comparable, driven by the same broad forces as the treated unit, but free of idiosyncratic shocks like a freak hurricane that would inject a non-comparable event into your counterfactual. In part seven we tackle the two subtler assumptions that protect the pool: no interference, and no anticipation.
+:::

@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## When It Fails: Reading the Pre-Period Fit
+
+- Part 8 — reading the pre-period fit and failure modes
+
+::: notes
+Welcome back to synthetic control, part eight of twelve. In part seven we finished the donor-pool assumptions, no interference and no anticipation, and logged the design in conventions form. Now we ask the reveal-the-trick question this camp insists on: what does failure look like? Synthetic control is unusually honest here, because its central diagnostic is staring at you the whole time. It is the pre-treatment fit, and learning to read it separates a credible study from a fantasy.
+:::
+
+## The Pre-Period Fit Is the Credential
+
+- Good study: real and synthetic overlap before $T_0$
+- They diverge only **after** treatment
+- Can't reproduce the unit *before*? No business claiming it *after*
+- A large pre-gap is the method **confessing**
+- Convexity won't let it paper over the failure
+
+::: notes
+The reveal-the-trick discipline demands we ask what failure looks like, and synthetic control is unusually honest, because its central diagnostic is staring at you the whole time: the pre-treatment fit. A good study shows the real unit and its synthetic twin lying on top of each other through the entire pre-period, then diverging after T-naught. The pre-period fit is the credential. If the synthetic control cannot reproduce the treated unit before treatment, when there is no effect to obscure the comparison, then it has no business claiming to reproduce it after. A large pre-period gap is the method confessing that no convex combination of your donors resembles your treated unit, and the convexity constraint will not let it lie about that. An unconstrained regression would paper over the failure with a slick in-sample fit; the constrained optimizer leaves the gap visible. The honesty you bought back in part four pays off precisely here.
+:::
+
+## Quantify It: Pre-Period RMSPE
+
+- $\text{RMSPE}_{\text{pre}}=\sqrt{\frac{1}{T_0}\sum_{t=1}^{T_0}(Y_{1t}-\hat{Y}_{1t}^{N})^2}$
+- Root mean squared prediction error over the pre-period
+- Small relative to outcome scale $\Rightarrow$ tracks well
+- Large $\Rightarrow$ red flag: no honest comparison exists
+- Report it against the scale of premiums
+
+::: notes
+Quantify the fit with the root mean squared prediction error over the pre-period, written R-M-S-P-E sub pre. It equals the square root of one over T-naught, times the sum over the pre-period of the squared difference between the treated unit's actual outcome Y-one-t and its synthetic counterfactual Y-one-t-N hat. In words: for each pre-period year, take the gap between the real unit and its synthetic twin, square it, average those squares, and take the square root. A small value, relative to the scale of the outcome, means the synthetic control tracks well. A large one is a red flag that no honest comparison exists. Report it against the scale of premiums, so the reader can judge whether the tracking is genuinely tight or merely looks tight on a compressed axis.
+:::
+
+## Three Failure Modes
+
+- **Bad fit:** large pre-RMSPE — report it, abandon the design
+- Don't crank predictors until something fits
+- **Interpolation bias:** edge unit can't be matched from below
+- Convexity forbids reaching past the extreme donor
+- **Short pre-period trap:** few periods match by luck
+- A *long* pre-period makes tracking hard to fake
+
+::: notes
+Three failure modes to watch for. First, bad fit: a large pre-period root mean squared prediction error, no credible counterfactual. The honest move is to report it and abandon the design, not to crank the predictors until something fits. Second, interpolation bias: a treated unit at the edge of the donor distribution, say the highest-premium state, cannot be matched by a convex average of donors all below it. The constraint forbids reaching past the most extreme donor, so the synthetic systematically falls short. Third, the short pre-period trap: with only a few pre-periods, you can match them by luck, the way an unconstrained regression overfits. A convincing study has a long pre-period, so that tracking through it is genuinely hard to fake. The longer the pre-period the synthetic control survives, the more the post-period divergence deserves to be read as causal. So reach back as far as clean data allows; every extra pre-year the twin survives is credibility you cannot manufacture any other way.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **pre-period fit is the credential**: a small pre-RMSPE earns the post-period comparison; a large one is the method confessing no honest twin exists. Watch for bad fit, **interpolation bias** at the edge, and the **short-pre-period trap**. Next: how to do inference when your sample size is one.
+:::
+
+::: notes
+To summarize part eight: synthetic control wears its failure on its sleeve. The pre-period fit is the credential, and the root mean squared prediction error over the pre-period quantifies it. A small value earns the post-period comparison; a large value is the optimizer confessing no honest twin exists, a confession a slick regression would hide. Watch three failure modes: outright bad fit, which you report and abandon; interpolation bias for a treated unit at the edge of the donor distribution; and the short-pre-period trap, where a few periods match by luck. In part nine we tackle the hardest piece: how do you do honest inference when your effective sample size is exactly one?
+:::

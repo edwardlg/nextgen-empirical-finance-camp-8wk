@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## From Puzzle to Falsifiable Hypothesis
+
+- Part 2 — turning a puzzle into a hypothesis you can be wrong about
+
+::: notes
+Welcome back to the Idea-Generation Workshop, part two of eight. In part one we stated the trick: a vague interest passed through three filters until it becomes one sharp sentence. Now we take the first step of that journey — turning a puzzle, a mere feeling that something is interesting, into a hypothesis you can actually be wrong about. We also learn the four-slot grammar that every sharp question shares.
+:::
+
+## A Puzzle Is Not A Question
+
+- A **puzzle** = a feeling something is interesting
+- "Crypto seems to crash all at once" is a puzzle
+- You *cannot be wrong* about a puzzle — it predicts nothing
+- Popper: a claim nothing could refute is **not scientific**
+- The target: a **falsifiable hypothesis**
+
+::: notes
+A puzzle is a feeling that something is interesting. "Crypto seems to crash all at once" is a puzzle. "Insurers are pulling out of wildfire states" is a puzzle. Puzzles are necessary — you should not work on something you find boring for five weeks. But a puzzle is not a research question, because you cannot be wrong about a puzzle. It makes no prediction. Nothing you could observe in data would force you to abandon it. And a claim that nothing could refute is, in Karl Popper's sense, not a scientific claim at all. The first job of this chapter is to teach you to turn a puzzle into something you can be wrong about: a falsifiable hypothesis, sharp enough to be written as a sign on a coefficient.
+:::
+
+## Watch The Sharpening
+
+- Devon's puzzle: "crypto seems to crash all at once"
+- Sharpened: a stablecoin **depeg** $\Rightarrow$ DEX volume **spikes** same day
+- Named: the trigger, the outcome, the timing
+- Committed to a **direction**: volume goes *up*
+- Now Devon can be **wrong** — and that is a feature
+
+::: notes
+Watch the transformation happen on Devon's puzzle. "Crypto seems to crash all at once" becomes, after sharpening: when a large stablecoin loses its dollar peg, trading volume on decentralized exchanges spikes within the same day. Notice what the sharpening did. It named the trigger — a stablecoin depeg. It named the outcome — decentralized-exchange trading volume. It named the timing — same day. And, this is the crucial part, it committed to a direction: volume goes up, not down, not merely "changes." Now Devon can be wrong. If he pulls the data and volume does not move, or moves down, the hypothesis is dead — and that is a feature, not a flaw. A hypothesis you cannot kill is a hypothesis you cannot learn from.
+:::
+
+## The Four-Slot Grammar
+
+- **Outcome $y$** — a number you'd put in a data column
+- **Treatment $D$** — the variation whose effect you want, and it *varies*
+- **Direction or magnitude** — the prediction; up, down, larger
+- **Unit and window** — *whose* outcome, over *what* period
+- This is CONVENTIONS section four, written before any data
+
+::: notes
+The grammar of a sharp hypothesis is worth memorizing, because you will run every project idea through it. It has four slots. First, an outcome, written y — a thing you can measure, ideally a number, for many units. If you cannot say what number you would put in the y column of a dataset, you do not yet have an outcome; you have a mood. Second, a treatment or key variation, written D — the thing whose effect on y you want to know, and which varies across your units. No variation, no study: if every unit has the same D, there is nothing to compare. Third, a direction or magnitude — the prediction, up or down, larger for group A than group B. This is what makes it falsifiable. Fourth, a unit and a window — whose outcome, over what period. You met this grammar before, unlabeled: CONVENTIONS section four demands every regression name its outcome, treatment, controls, fixed effects, clustering, sample, and identifying assumption. A sharp hypothesis is the first, second, and last of those, written down before you have any data.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A **puzzle** is a feeling; a **falsifiable hypothesis** is a signed prediction you can be wrong about. Sharpen any puzzle through four slots: **outcome $y$**, **treatment $D$**, a **direction**, and a **unit and window**. If you can't name the number in the $y$ column, you have a mood, not a study. Next: even a sharp question can be a *bad* one.
+:::
+
+::: notes
+To summarize part two: a puzzle is just a feeling that something is interesting, and you cannot be wrong about it, so it is not yet science. The target is a falsifiable hypothesis — sharp enough to be a sign on a coefficient, committed to a direction, killable by data. Sharpen any puzzle through four slots: an outcome you can measure, a treatment that varies, a direction, and a unit and window. That is CONVENTIONS section four, written before you own a single row of data. But being answerable is not the same as being worth answering. In part three we run even a sharp hypothesis through three brutal questions: so what, who cares, and what's new.
+:::

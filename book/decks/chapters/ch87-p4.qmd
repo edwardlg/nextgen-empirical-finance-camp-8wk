@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The DOI Question and Versioning
+
+- Part 4 — the DOI question and disciplined preprint versioning
+
+::: notes
+Welcome back to Chapter eight-point-seven, part four of nine. In part three we posted the preprint to SSRN and saw why it matters. Now two practical points: the D-O-I question students ask most, and the versioning discipline that keeps a mutable preprint trustworthy. SSRN papers can be changed after posting, so the rules here are what separate a reliable record from a confusing one.
+:::
+
+## The DOI Question
+
+- Does SSRN register a DOI? **Sometimes, conditionally**
+- Most independent working papers — including Maya's — get **no DOI**
+- They get a persistent **URL** instead
+- Maya carries **three identifiers**: SSRN URL, MARS handle, journal DOI
+- Name the **MARS handle** in the SSRN "Note" field
+
+::: notes
+The D-O-I question is the one students ask most. Does SSRN register a D-O-I? Sometimes, conditionally. For most independent working papers — Maya's included — the answer is no: the paper gets a persistent web address but not a registered D-O-I. Papers posted through a registered series, like Harvard Business School or NBER-mirrored series, do get one. This is fine, because Maya's paper carries three persistent identifiers: the SSRN address, which is the preprint's citation; the MARS handle, which is the data-and-code citation; and eventually the journal D-O-I. Name the MARS handle in the SSRN Note field, so anyone landing on the preprint finds the data and code.
+:::
+
+## Versioning Discipline
+
+- Every version gets a **dated number**: "Version 1.0, October 4, 2026"
+- Significant revisions get a **new cross-linked posting**, not a swap
+- **Never silently change a coefficient** — log it
+- Keep old versions downloadable
+- Exceptions to "post now": confidentiality, co-author, or unfinished work
+
+::: notes
+Versioning discipline prevents the worst preprint failure — the "which version did you read?" problem. Preprints are mutable, and the abstract page shows the latest version. Four rules. One: every version gets a dated number on the title page — Version one-point-zero, October fourth, twenty-twenty-six. Two: significant revisions — a changed coefficient, sample, or conclusion — get a new cross-linked posting, not a silent file swap. Three: never silently change a coefficient — log it, because a referee who saw the old numbers trusts you more when the change is disclosed. Four: keep old versions downloadable. A footnote plus a changelog makes a mutable preprint as trustworthy as an immutable deposit. The only exceptions to post-immediately are a confidentiality constraint, a co-author who has not consented in writing, a journal that bars preprints, or a paper that is not finished. For Maya, all clear. Post.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Most independent SSRN papers get a **persistent URL, not a DOI** — and that is fine, because the paper carries three identifiers together. Version with **dated numbers**, post new revisions as cross-linked postings, and **never silently change a coefficient**. Next: the decade-long arc to a top journal.
+:::
+
+::: notes
+To summarize part four: SSRN registers a D-O-I only sometimes, through registered series, so most independent papers get a persistent web address instead — and that is fine, because the paper carries three identifiers together: the SSRN address, the MARS handle, and eventually the journal D-O-I. Name the MARS handle in the SSRN Note field. Because preprints are mutable, version with discipline: dated numbers on every title page, new cross-linked postings for significant revisions, a logged changelog, old versions kept downloadable, and never a silently changed coefficient. In part five we step back and trace the decade-long arc, from a working-paper draft to a top journal.
+:::

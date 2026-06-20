@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Hat Matrix and the Residual Maker
+
+- Part 8 — name the projection: hat matrix and residual maker
+
+::: notes
+Welcome back to Lesson two-point-one, part eight of eleven. In part seven we saw OLS as an orthogonal projection of y onto the column space of X. This part gives that projection a name and an algebra — the hat matrix and the residual maker — two operators you will meet in every remaining lesson this week, so it is worth knowing them cold.
+:::
+
+## The Hat Matrix
+
+- Fitted values: $\hat{\mathbf{y}} = \mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}$
+- Everything left of $\mathbf{y}$ is a fixed $N\times N$ matrix
+- $$\mathbf{H} = \mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}', \qquad \hat{\mathbf{y}} = \mathbf{H}\mathbf{y}$$
+- Called the **hat matrix** — it puts the hat on $\mathbf{y}$
+- $\mathbf{H}$ *is* the projection onto $\text{col}(\mathbf{X})$
+
+::: notes
+Look again at the fitted values: y hat equals X times the inverse of X transpose X, times X transpose, times y. The vector y sits on the right; everything to its left is a fixed N by N matrix that depends only on the design X. Give it a name: H equals X times the inverse of X transpose X, times X transpose, so that y hat equals H times y. It is called the hat matrix because it is the operator that puts the hat on y — feed it the outcomes, it returns the fitted values. Geometrically, H is the projection onto the column space of X: it takes any vector and returns its shadow on the regressor plane. Depend only on X, and it is fixed before you ever look at y.
+:::
+
+## The Residual Maker
+
+- $\hat{\mathbf{e}} = \mathbf{y} - \mathbf{H}\mathbf{y} = (\mathbf{I} - \mathbf{H})\mathbf{y}$
+- $$\mathbf{M} = \mathbf{I} - \mathbf{H}, \qquad \hat{\mathbf{e}} = \mathbf{M}\mathbf{y}$$
+- $\mathbf{M}$ returns the part of $\mathbf{y}$ perpendicular to regressors
+- Together: $\mathbf{y} = \mathbf{H}\mathbf{y} + \mathbf{M}\mathbf{y} = \hat{\mathbf{y}} + \hat{\mathbf{e}}$
+- $\mathbf{M}\mathbf{X} = \mathbf{0}$: it **annihilates** the regressors
+
+::: notes
+The residuals get their own operator. Since e hat equals y minus y hat, which is y minus H y, which is the quantity I minus H, times y, we define M equals I minus H, so that e hat equals M times y. M is the residual maker, or annihilator: hand it y and it returns the residual vector, the part of y perpendicular to the regressors. Together, H and M split any vector into its two orthogonal pieces: y equals H y plus M y, which is y hat plus e hat. One identity worth seeing: M times X equals the zero matrix. The residual maker annihilates the regressors themselves — hence the name annihilator — and this is just the matrix form of residuals being orthogonal to every regressor.
+:::
+
+## Where They Reappear
+
+- $\mathbf{M}$ runs the partialling-out of **Frisch–Waugh–Lovell** in 2.3
+- Diagonal entries of $\mathbf{H}$ are the **leverages**
+- Leverages drive the robust standard errors of 2.4
+- Learn $\mathbf{H}$ and $\mathbf{M}$ now; they recur all week
+
+::: notes
+These two operators are not a one-off curiosity — they will appear in every remaining lesson this week. The residual maker M runs the partialling-out at the heart of the Frisch–Waugh–Lovell theorem in lesson two-point-three, the result that lets you interpret a multiple-regression coefficient as a simple regression on a cleaned-up regressor. And the diagonal entries of the hat matrix H, called the leverages, measure how much pull each observation has on its own fitted value, and they drive the heteroskedasticity-robust standard errors of lesson two-point-four. So the small investment of learning H and M now pays off repeatedly. In the next part we nail down their two defining algebraic properties — symmetric and idempotent — and the question of when the inverse inside them even exists.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **hat matrix** $\mathbf{H} = \mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'$ projects $\mathbf{y}$ to its fitted values; the **residual maker** $\mathbf{M} = \mathbf{I} - \mathbf{H}$ returns the perpendicular residual. Together they split $\mathbf{y} = \hat{\mathbf{y}} + \hat{\mathbf{e}}$, and $\mathbf{M}\mathbf{X} = \mathbf{0}$. Next: their defining properties, and when the inverse exists.
+:::
+
+::: notes
+To summarize part eight: the hat matrix H equals X times the inverse of X transpose X, times X transpose, and it projects y onto the column space, returning the fitted values y hat equals H y. Its complement, the residual maker M equals I minus H, returns the perpendicular residual, e hat equals M y. Together they split y into fitted values plus residuals, and M times X is zero, the matrix statement that residuals are orthogonal to the regressors. These operators run the partialling-out of Frisch–Waugh–Lovell and supply the leverages for robust standard errors later this week. In part nine we prove their two signature properties — symmetric and idempotent — and ask when X transpose X is actually invertible.
+:::

@@ -1,0 +1,64 @@
+---
+date: "2026-06-22"
+---
+
+## Two IPW Estimators and a Worked Number
+
+- Part 3 — Horvitz–Thompson vs. Hájek, and a worked example
+
+::: notes
+Welcome back to Chapter three-point-three, part three of ten. In part two we proved that dividing by the propensity score recovers the right average and builds a pseudo-population. Now we turn that expectation into a formula you can actually run. There are two versions — Horvitz–Thompson and Hájek — and the difference between them is a small but consequential lesson about bias versus variance. Then we walk a tiny six-student example end to end.
+:::
+
+## Horvitz–Thompson, and Its Defect
+
+- $\hat\tau_{\text{HT}} = \dfrac{1}{N}\sum_i \dfrac{D_i Y_i}{\hat e(\mathbf{X}_i)} - \dfrac{1}{N}\sum_i \dfrac{(1-D_i) Y_i}{1 - \hat e(\mathbf{X}_i)}$
+- Direct translation of the two expectations
+- Weights do **not** sum to $N$ in any given sample
+- Dividing by $N$ can push the mean outside the data range
+- Unbiased in expectation, but wild in finite samples
+
+::: notes
+Turning that expectation into a formula gives the Horvitz–Thompson estimator — the name comes from nineteen-fifties survey sampling, where the same inverse-probability idea handled unequal sampling rates. It is the treated average of D-i times Y-i over the estimated propensity score, divided by N, minus the symmetric control term using one-minus-D over one-minus-the-score. That is a direct translation of our two expectations, with sample averages standing in for expectations. But there is a subtle defect. The weights, one over the estimated score, do not in any given sample add up to N — they add up to whatever they happen to add up to. So Horvitz–Thompson divides the weighted sum of outcomes by N rather than by the actual total weight, which can make it numerically wild and even push the estimated mean outside the range of the data. It is unbiased in expectation but a bad idea in finite samples.
+:::
+
+## The Fix: the Hájek Estimator
+
+- Normalize the weights to sum to one within each arm
+- Numerators unchanged; denominators are the **sum of weights**
+- A self-normalizing weighted mean — far more stable
+- This is what software means by "IPW"
+- **Use Hájek, not raw Horvitz–Thompson**
+
+::: notes
+The fix is to normalize the weights so they sum to one within each arm, giving the Hájek estimator. The numerators are the same; the denominators are now the sum of the weights in each arm rather than N. This is a self-normalizing weighted mean — far more stable in practice — and it is what essentially every software package means when it says I-P-W. Use Hájek, not raw Horvitz–Thompson. The distinction is the I-P-W version of a lesson from Week One: an estimator can be unbiased in expectation, like Horvitz–Thompson, and still be a bad idea in finite samples because its variance is enormous.
+:::
+
+## A Worked Number: Six Students
+
+| Student | $D$ | $\hat e$ | $Y$ (rate) | weight |
+|---|---|---|---|---|
+| A | 1 | 0.8 | 7.0 | $1/0.8 = 1.25$ |
+| B | 1 | 0.5 | 8.0 | $1/0.5 = 2.00$ |
+| C | 1 | 0.2 | 9.0 | $1/0.2 = 5.00$ |
+| D | 0 | 0.8 | 9.5 | $1/0.2 = 5.00$ |
+| E | 0 | 0.5 | 9.0 | $1/0.5 = 2.00$ |
+| F | 0 | 0.2 | 8.5 | $1/0.8 = 1.25$ |
+
+- Hájek treated mean $\approx 8.45$; control mean $\approx 9.23$
+- IPW estimate $= -0.78$; naive unweighted would be $-1.0$
+
+::: notes
+Make it concrete. Maya has six students; three enrolled, three did not. The outcome Y is the interest rate in percentage points; e-hat is the estimated propensity score, and the weight is one over the relevant score. The Hájek treated mean is the weighted average of students A, B, and C — one-point-two-five times seven, plus two times eight, plus five times nine, all over eight-point-two-five — about eight-point-four-five. The Hájek control mean of D, E, and F comes out about nine-point-two-three. So the I-P-W estimate is eight-point-four-five minus nine-point-two-three, which is minus zero-point-seven-eight percentage points: enrolling lowered the rate by about three-quarters of a point. Notice what the weights did. Student C — a low-propensity enrollee, the rare student "like a control" who enrolled anyway — got a weight of five and dominates the treated mean. Student D, a high-propensity control, likewise got weight five and dominates the control mean. The estimator leans hardest on exactly the units that look like the other group, because those tell us about the missing counterfactual. The naive unweighted difference would have been eight minus nine, a clean minus one — a different answer, because the unweighted version lets selection contaminate the comparison.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **Horvitz–Thompson** estimator divides by $N$ and can run wild; the **Hájek** estimator normalizes weights to sum to one within each arm and is far steadier — always use Hájek. In Maya's six-student example, IPW recovers $-0.78$ points by leaning on the rare units that resemble the *other* group. Next: the failure mode where these weights explode.
+:::
+
+::: notes
+To summarize part three: Horvitz–Thompson is the direct translation of the I-P-W expectation, but because its weights do not sum to N it can be numerically wild. The Hájek estimator normalizes the weights to sum to one within each arm, giving a self-normalizing weighted mean that is what every package means by I-P-W — always use it. On Maya's six students, I-P-W returns minus zero-point-seven-eight points, leaning hardest on the rare units that resemble the other group. But we saw weights of five appear from nowhere. In part four we ask what happens when a weight becomes fifty — the explosion problem that defines I-P-W's central practical hazard.
+:::

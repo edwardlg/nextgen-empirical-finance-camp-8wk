@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Merge Discipline: Asserting Cardinality
+
+- Part 3 — make every merge prove its own cardinality
+
+::: notes
+Welcome back to Building the Analysis Dataset, part three of ten. In part two we learned to join on a researched, date-aware crosswalk. Now Sam has the pieces: a CRSP returns table keyed by PERMNO and date, a Compustat fundamentals table keyed by GVKEY, and the CCM link to connect them. Time to merge. And here is where we install the single most valuable habit in this entire chapter — treating every merge as a claim you must verify, not a hope you cross your fingers on.
+:::
+
+## Every Merge Has a Cardinality
+
+- Is it one-to-one? One-to-many? Many-to-one?
+- You **think** you know — you are frequently wrong
+- A duplicate you never noticed breaks your assumption
+- A wrong-cardinality merge does not crash — it **lies**
+- Many-to-many $\Rightarrow$ a **Cartesian explosion** of rows
+
+::: notes
+Every merge has a cardinality — a claim about how rows on the left relate to rows on the right. Is it one-to-one, where each left row matches exactly one right row? One-to-many? Many-to-one? Many-to-many? You think you know which one you are doing. You are frequently wrong, because of a duplicate you did not know was in the data. And a merge whose cardinality is not what you assumed does not crash — it silently does the wrong thing. The most destructive case is a many-to-many join, which produces a Cartesian explosion. If a key appears three times on the left and four times on the right, you get three times four — twelve output rows where you expected far fewer. Every duplicated row quietly reweights your regression, and nothing warns you.
+:::
+
+## The One-Keyword Fix: `validate=`
+
+- `pandas` lets you **assert** the cardinality up front
+- Pass `validate="many_to_one"` to `merge`
+- If reality disagrees, it raises `MergeError` — loudly
+- Legal values: `1:1`, `1:m`, `m:1`, `m:m`
+- **Always pass it.** One keyword kills a silent bug
+
+::: notes
+The reveal-the-trick fix is one keyword. Pandas lets you assert the cardinality and refuses to proceed if reality disagrees, through the validate argument to merge. Suppose you assert that each PERMNO-and-date row matches at most one link row by passing validate equals "many to one." If a duplicate exists, pandas raises a MergeError instead of silently exploding the panel. The legal values are "one to one," "one to many," "many to one," and "many to many." The first three check a uniqueness assumption and raise an error if it is violated. "Many to many" checks nothing, and it is the default behavior you get when you omit the argument. So always pass validate. It is one keyword, and it converts a silent data-corruption bug into a loud, immediate exception at the exact line that caused it. If you write only one thing differently after this chapter, write validate.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A merge's cardinality is a **claim**, not a hope — so assert it with `validate=`. The check turns a silent Cartesian explosion into a loud, immediate `MergeError` at the exact line that caused it. The legal values are `1:1`, `1:m`, `m:1`, and `m:m`; the omitted default checks nothing. If you change one habit after this chapter, **always pass `validate=`**. Next: cardinality is not completeness — how to measure the match rate.
+:::
+
+::: notes
+To summarize part three: every merge is a claim about cardinality — one-to-one, one-to-many, many-to-one, or many-to-many. You are frequently wrong about which one you are doing, and a wrong-cardinality merge does not crash; it silently corrupts your panel, most destructively through a many-to-many Cartesian explosion. The fix is one keyword: pass validate to merge, assert the cardinality you believe holds, and let pandas raise a loud MergeError when reality disagrees. It converts a silent bug into an immediate exception at the offending line. In part four we see why validate is necessary but not sufficient: it checks cardinality, but it says nothing about how complete your merge was — and for that you need the match rate.
+:::

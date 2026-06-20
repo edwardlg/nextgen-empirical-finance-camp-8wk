@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## The Conclusion and Causal-Language Discipline
+
+- Part 7 — the conclusion and matching verbs to evidence
+
+::: notes
+Welcome back to Writing the Empirical Paper, part seven of nine. In part six we presented results and robustness. Now we close the argument with a conclusion that recalibrates, and confront the discipline running through every section — matching your verbs to your evidence.
+:::
+
+## Conclusion: Recalibrate, Don't Recap
+
+- Not a summary — the reader **just read** the paper
+- It is a **recalibration**
+- First: a tight, properly **hedged** restatement
+- Second: honest **limitations** — the residual-concern column
+- Third: **what's next** — the question you opened, did not close
+
+::: notes
+The conclusion says what we learned, what we cannot claim, and what comes next. It is not a summary that repeats the introduction — the reader just read the paper. It is a recalibration. First, a tight restatement of the finding in its properly hedged form. Second — the part students skip, to their cost — an honest statement of limitations: the residual concerns from your threats table, the populations your sample does not cover, the mechanism you could not fully open up. The conclusion is where the residual-concern column of your identification memo finally appears in the prose, and stating it is not weakness; it is the candor that makes a referee trust everything else. Third, what's next: the question your paper opened but did not close, the natural extension, the data that would settle the residual concern.
+:::
+
+## Don't Let the Verbs Creep Back Up
+
+- Temptation: "this paper proves," "we have established"
+- After eleven pages of disciplined hedging — **resist it**
+- The conclusion is the **most-quoted** part after the abstract
+- One overclaiming sentence undoes the calibrated honesty
+- Calibration is the whole credibility of the paper
+
+::: notes
+There is a temptation, in the conclusion, to let the verbs creep back up — to write "this paper proves" or "we have established that" after eleven pages of disciplined hedging. Resist it. The conclusion is the most-quoted part after the abstract, and a single overclaiming sentence can undo the calibrated honesty of everything before it. This points us at the discipline running under every section: the contribution sentence, the design, the results, the conclusion all live or die on whether you matched your verbs to your evidence — the discipline you have enforced on others since Week Five.
+:::
+
+## The Verb Is a Promise
+
+- **Your strongest verb is bounded by your weakest assumption**
+- Randomized experiment → "causes," "the effect of"
+- Quasi-experiment, assumption passed → "causally estimate"
+- Observational OLS → "is associated with," "predicts"
+- Descriptive → "documents" — never causal clothing
+
+::: notes
+The rule is simple to state. Your strongest verb is bounded by your weakest assumption. A clean randomized experiment earns "causes," "increases," "the effect of." A quasi-experiment with a testable-and-passed identifying assumption — a difference-in-differences with flat pre-trends, a regression discontinuity with a smooth density — earns "causally estimate," with the assumption named. An observational regression with a plausible omitted variable you could not rule out earns only "is associated with," "predicts," "is consistent with." A descriptive or predictive study earns "documents," "captures variation in," and must not be dressed in causal clothing at all. The verb is a promise about the design, and a reader who knows designs reads your verbs as a confession of how strong yours is.
+:::
+
+## Guard Against Drift
+
+- Most common failure is not lying — it is **drift**
+- Abstract hedges; conclusion goes all the way to "cause"
+- Read **only the verbs** on your main result, force them down
+- Don't **over-hedge into mush** — the opposite failure
+- Calibration cuts both ways: claim **exactly** what you can
+
+::: notes
+The most common failure is not lying; it is drift. The abstract hedges correctly — "we document a robust association." The introduction is a little bolder — "our results suggest the program reduces the gap." The results section forgets itself — "the program reduces the gap by one-point-eight points." And the conclusion goes all the way — "we have shown that fair-lending examinations cause a decline in discrimination." Each step is small; the cumulative drift claims far more than your design supports. Guard against it with a deliberate pass: after a draft is done, read only the verbs attached to your main result and force them all down to the level your weakest assumption permits. But do not over-hedge into mush — a paper drowning in "may possibly perhaps tentatively suggest" has hedged itself out of any claim at all. Calibration cuts both ways: claim exactly as much as your design supports, no more and no less.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The conclusion **recalibrates** — hedged finding, honest limits, what's next — and never lets the verbs creep back to "proves." One rule governs every verb: **your strongest verb is bounded by your weakest assumption**. Guard against drift, but don't hedge into mush. Next: table craft and a worked intro.
+:::
+
+::: notes
+To summarize part seven: the conclusion recalibrates rather than recaps — a hedged restatement, honest limitations, and what comes next — and must not let the verbs creep back to "proves." Running through everything is the causal-language discipline: your strongest verb is bounded by your weakest assumption. The most common failure is drift, so read only the verbs on your main result and force them down, avoiding the opposite failure of hedging into mush. Part eight turns to table craft.
+:::

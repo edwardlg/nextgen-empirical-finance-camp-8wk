@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Anatomy of an IV Table
+
+- Part 7 — read first stage, reduced form, and 2SLS together
+
+::: notes
+Welcome back to instrumental variables, part seven of ten. In part six we learned that IV estimates the local average treatment effect — the effect among compliers. Before we confront weak instruments, install a reading habit. Every honest IV analysis reports three regressions, and you should always read them as a set, not in isolation. They are the first stage, the reduced form, and the two-stage least squares estimate itself.
+:::
+
+## Three Regressions, One Set
+
+- **First stage**: $D$ on $Z$ — establishes *relevance*
+- Want a large, precisely-estimated coefficient on $Z$
+- **Reduced form**: $Y$ on $Z$ — instrument's total effect on $Y$
+- Flat-zero reduced form $\Rightarrow$ IV built on **nothing**
+- **2SLS**: the ratio, reduced form over first stage
+
+::: notes
+Every honest IV analysis reports three regressions. First, the first stage — D on Z and controls. It establishes relevance, and you want a large, precisely-estimated coefficient on Z. This is where the strength diagnostics of the next part live. Second, the reduced form — Y on Z and controls. This is the instrument's total effect on the outcome. Crucially, if the reduced form is a flat zero, your IV estimate is built on nothing: there is no instrument-driven outcome variation to scale up, and a significant two-stage least squares number coming out of a null reduced form is a red flag that something — usually a weak first stage — has gone wrong. Third, the 2SLS estimate itself — the ratio, reduced form over first stage in the just-identified binary case.
+:::
+
+## The Sanity Identity
+
+- Just-identified case: 2SLS = reduced form ÷ first stage **exactly**
+- No first stage shown? **Ask for it**
+- It is where the design lives
+- The 2SLS number alone hides what can break it
+- Read the three together, always
+
+::: notes
+A useful sanity identity, true in the just-identified case: the two-stage least squares coefficient is exactly the reduced-form coefficient divided by the first-stage coefficient. If a colleague shows you a 2SLS table without the first stage and reduced form, ask for them — they are where the design lives, and the 2SLS number alone hides the two things that can break it. Reading the three as a set is the difference between trusting a result and merely receiving one. The first stage tells you the lever exists; the reduced form tells you the outcome actually moved; the ratio combines them. If either of the first two is missing or null, the third is not to be trusted.
+:::
+
+## Connecting Simultaneity and Finance
+
+- Same anatomy powers reverse-causality designs
+- Instrument shifts the *cost* of short-selling a stock
+- First stage: does the rule change short interest?
+- Reduced form: does the rule change crash risk?
+- Ratio: effect of short-selling on crash risk for compliers
+
+::: notes
+This is also where the simultaneity and measurement-error applications connect. For Maya's reverse-causality cousin — a researcher worried that crash risk and short interest are jointly determined — an instrument that shifts the cost or feasibility of short-selling, say a regulatory pilot that randomly relaxes short-sale constraints for some stocks, gives a first stage: does the rule change short interest? And a reduced form: does the rule change crash risk? The ratio identifies the causal effect of short-selling on crash risk for the complier stocks — those whose short interest actually responded to the rule. This is the logic behind the Deng, Gao, and Kim, two thousand twenty, natural-experiment design you will meet in Mentor Session Three. The regulatory change borrows randomness from the regulator the way Maya's mailer borrows it from the coin flip. The anatomy is identical; only the source of exogenous variation differs.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Every honest IV table reports **three regressions**: first stage (relevance), reduced form (instrument's effect on $Y$), and 2SLS (the ratio). In the just-identified case, 2SLS *equals* reduced form over first stage. A null reduced form means the IV rests on nothing — demand all three.
+:::
+
+::: notes
+To summarize part seven: install the habit of reading three regressions as a set. The first stage establishes relevance — D on Z. The reduced form gives the instrument's total effect on the outcome — Y on Z — and if it is a flat zero, the design rests on nothing. The 2SLS estimate is the ratio, and in the just-identified case it equals reduced form divided by first stage exactly. The same anatomy powers finance designs like the short-selling natural experiment of Deng, Gao, and Kim. Never accept a 2SLS number without its first stage and reduced form. In part eight we zoom in on the denominator — the first stage — and ask what happens when the lever barely moves: the weak-instrument problem.
+:::

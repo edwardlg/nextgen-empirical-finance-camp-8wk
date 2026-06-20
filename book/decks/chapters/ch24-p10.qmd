@@ -1,0 +1,62 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## HAC / Newey–West
+
+- Part 10 — Newey–West SEs for serial correlation over time
+
+::: notes
+Welcome back to heteroskedasticity, clustering, and HAC, part ten of twelve. In part nine we built the cluster-robust sandwich for within-group correlation. Now we extend the very same machine to correlation across time, following Whitney Newey and Kenneth West's nineteen-eighty-seven estimator for serially correlated data.
+:::
+
+## The Time-Series Version of the Disease
+
+- Sam regresses monthly strategy returns on a signal
+- Residuals are **serially correlated** — this month echoes last
+- Slow forces persist: risk premium, liquidity, momentum
+- $\boldsymbol\Omega$: a band of decaying correlations around the diagonal
+- $\operatorname{Cov}(\varepsilon_t, \varepsilon_{t-1})$ large; $\operatorname{Cov}(\varepsilon_t, \varepsilon_{t-12})$ near zero
+- Not clustering, not pure heteroskedasticity — a third shape
+
+::: notes
+Sam trades. He regresses a strategy's monthly return on a market-timing signal and gets a beautiful t-stat. But returns and residuals in financial time series are serially correlated, also called autocorrelated: this month's error is correlated with last month's, because slow-moving forces — a drifting risk premium, a liquidity squeeze, momentum itself — persist across periods. Now Omega has nonzero off-diagonals, but in a special pattern: the correlation is strongest between adjacent periods and fades as the time gap grows. The covariance of epsilon-t with epsilon-t-minus-one is large; the covariance of epsilon-t with epsilon-t-minus-twelve is near zero. This is not clustering — there are no clean groups — and it is not pure heteroskedasticity. It is a third shape for Omega: a band of decaying correlations around the diagonal. Ignoring it, just like ignoring clustering, makes standard errors too small when the autocorrelation is positive — the usual case in finance.
+:::
+
+## Newey and West's Idea (1987)
+
+- Same sandwich; middle adds nearby-lag cross-products
+- $\hat\varepsilon_t\hat\varepsilon_{t-\ell}\,\mathbf{x}_t\mathbf{x}_{t-\ell}'$ for lags $\ell = 1, \dots, L$
+- Declining weights $w_\ell = 1 - \frac{\ell}{L+1}$ (Bartlett kernel)
+- Beyond bandwidth $L$, lags count for nothing
+- Weights guarantee a valid (positive) variance matrix
+- Auto bandwidth $L \approx 4(T/100)^{2/9}$; HAC = default for time series
+
+::: notes
+Whitney Newey and Kenneth West built the heteroskedasticity-and-autocorrelation-consistent, or HAC, estimator for exactly this. Same sandwich. The middle now includes not just each period's own squared-residual term but cross-products of residuals from nearby periods — epsilon-hat-t times epsilon-hat-t-minus-ell, times x-t x-t-minus-ell prime — for time gaps, or lags, ell equals one through L. Because correlation fades with distance, Newey–West applies declining weights — w-sub-ell equals one minus ell over L plus one, the Bartlett kernel — so the lag-one cross-products count almost fully, distant lags count for less, and beyond bandwidth L they count for nothing. Those declining weights honor the fading-correlation structure and also guarantee the resulting variance matrix is positive. The one knob you must set is the bandwidth L: too small and you miss real persistence, too large and you add noise. A common automatic choice is four times T over one hundred, to the two-ninths power, where T is the number of periods. HAC SEs are the default for pure time-series regressions — predictive return regressions, factor-model tests, anything indexed by t with one observation per period.
+:::
+
+## Why Positive Autocorrelation Inflates t-Stats
+
+- Same Moulton intuition, in a time-series costume
+- Correlated obs carry *less* fresh information — they echo neighbors
+- $T = 120$ months, $0.4$ autocorrelation $\Rightarrow$ effective $T < 120$
+- Naive formula divides by too-large $T$ $\Rightarrow$ SE too small, $t$ too big
+- HAC counts lag cross-products: finds the smaller effective $T$
+- Negative autocorrelation (e.g. bid–ask bounce) does the reverse
+
+::: notes
+Why does serial correlation make naive standard errors too small? The mechanism is the same one as clustering, in a time-series costume. When errors are positively correlated, each new observation carries less fresh information than the naive formula assumes, because part of it just echoes what you already saw. A time series with positive autocorrelation is exactly a chain of observations echoing their neighbors. If Sam has one hundred twenty monthly returns but each month's residual is, say, zero point four correlated with the previous month's, his effective sample size is well below one hundred twenty. The naive formula divides by the wrong, too-large effective T, reporting a standard error too small and a t-stat too big. HAC repairs this by counting the lagged cross-products. The same logic explains the sign: positive autocorrelation, the usual case in finance, shrinks the effective sample and inflates t-stats; negative autocorrelation, rarer, does the reverse. Either way, HAC estimates the actual band of off-diagonal covariances rather than assuming it is empty.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**HAC / Newey–West** handles serial correlation: $\boldsymbol\Omega$ becomes a band of decaying off-diagonals. The middle adds lag cross-products with weights $w_\ell = 1 - \frac{\ell}{L+1}$ out to bandwidth $L$. Positive autocorrelation shrinks the *effective* sample, so naive $t$-stats run too big — HAC fixes it.
+:::
+
+::: notes
+To summarize part ten. Serial correlation is clustering's time-series cousin: Omega becomes a band of decaying off-diagonals, strongest between adjacent periods. Newey and West's HAC estimator uses the same sandwich, adding lag cross-products with declining Bartlett weights out to a bandwidth you choose. The intuition is pure Moulton: positively correlated observations echo their neighbors, so the effective sample is smaller than T, and naive standard errors run too small. In part eleven we face the hardest case — a panel with both diseases at once — through Mitchell Petersen's two-thousand-nine taxonomy.
+:::

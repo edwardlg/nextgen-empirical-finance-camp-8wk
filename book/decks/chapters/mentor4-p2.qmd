@@ -1,0 +1,60 @@
+---
+date: "2026-06-22"
+---
+
+## What Controlling for Creditworthiness Buys You
+
+- Part 2 — what the workhorse regression can and cannot establish
+
+::: notes
+Welcome back to the Week Four mentor session, part two of five. In part one we drew the line between a disparity and a finding of discrimination, and saw that a raw gap cannot tell a fair lender from a biased one. The standard fix is to control for creditworthiness — to regress the outcome on the protected characteristic and on income, credit score, loan size, and whatever else the underwriter is supposed to use. This part asks, with real precision, what that regression establishes and what it cannot.
+:::
+
+## The Workhorse Regression
+
+- Regress the outcome on the protected characteristic *and* on legitimate factors
+- Income, credit score, loan size, whatever the underwriter should use
+- Read the coefficient on the protected trait as the *residual disparity*
+- "The disparity that remains after accounting for legitimate factors"
+- Real progress over a raw gap — the workhorse of the field
+
+::: notes
+Here is the standard fix. You regress the outcome — approval, or price — on the protected characteristic and on income, credit score, loan size, and whatever else a fair underwriter is supposed to use. Then you read the coefficient on the protected characteristic as the disparity that remains after accounting for legitimate factors. This is real progress over a raw gap, and it is genuinely the workhorse of the field. But you must be precise about what it can and cannot establish. It can establish that the disparity is not explained by the covariates you measured. It cannot, by itself, establish discrimination — and the reason is exactly the one that defeated us back in Week Three.
+:::
+
+## Why Controls Are Never Enough
+
+- It buys: the disparity is *not explained by the covariates you measured*
+- It does **not** buy: a clean causal effect
+- The underwriter sees things you don't — a letter, a soft assessment, collateral
+- If that unobserved factor correlates with trait *and* outcome → **omitted-variable bias**
+- Your residual is part real treatment, part bias — controls can't separate them
+- Selection-on-observables failed us in Week Three, all over again
+
+::: notes
+What does controlling buy you? It buys this and only this: the disparity is not explained by the covariates you measured. What it does not buy is a clean causal effect, for the same reason selection-on-observables failed us in Week Three. There is almost always something the underwriter sees that you do not — a thin-file applicant's explanatory letter, a banker's soft assessment, a piece of collateral that never makes it into your data. If that unobserved factor is correlated with both the protected characteristic and the outcome, your residual disparity is part real differential treatment and part omitted-variable bias, and no amount of the controls you happen to have can pull those two pieces apart.
+:::
+
+## The Opposite Trap: Over-Controlling
+
+- You can also adjust for *too much*
+- Suppose you control for a variable that is *itself a channel* of discrimination
+- Example: the loan terms the lender steered the applicant toward
+- Then you regress away the very effect you are hunting
+- Controlling is necessary; never sufficient; bias direction is rarely obvious
+- The honest target is a *counterfactual*, not a coefficient
+
+::: notes
+And there is a trap on the other side. You can over-control. If you adjust for a variable that is itself a channel of discrimination — say, the loan terms the lender steered the applicant toward — you regress away the very effect you are hunting. So controlling is necessary, it is never sufficient, and which way it biases you is rarely obvious. The honest target, then, is not a disparity after controls. It is not a coefficient at all. It is a counterfactual — and that is where we go next.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Controlling for creditworthiness buys you one thing — the disparity is *not explained by the covariates you measured* — and not a clean causal effect. The underwriter sees what you don't, so **omitted-variable bias** lingers; and *over*-controlling for a channel of discrimination regresses away the effect itself. Controlling is necessary, never sufficient. Next: the counterfactual that defines discrimination cleanly, and why design beats more controls.
+:::
+
+::: notes
+To summarize part two: controlling for creditworthiness buys exactly one thing — your disparity is not explained by the covariates you measured — and never a clean causal effect, because the underwriter sees things you cannot, leaving omitted-variable bias behind. And over-controlling for a channel of discrimination can erase the very effect you want. Controlling is necessary and never sufficient. In part three we write down the counterfactual that defines discrimination cleanly, and see why a design, not a longer list of controls, is what rescues you.
+:::

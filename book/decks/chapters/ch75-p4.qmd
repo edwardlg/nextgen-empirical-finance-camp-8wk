@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Threat Menu: DiD, RD, and Synthetic Control
+
+- Part 4 — named threats for DiD, RD, and synthetic control
+
+::: notes
+Welcome back to the identification memo, part four of nine. In part three we covered the named threats for O-L-S and instrumental variables. Now we finish the menu with the three design-based workhorses of Weeks Three and Four: difference-in-differences, regression discontinuity, and synthetic control.
+:::
+
+## Difference-in-Differences
+
+- Assumes **parallel trends** — absent treatment, groups move together
+- Threat: **pre-existing differential trend** — a slope mislabeled an effect
+- Threat: **anticipation** — units respond before the official date
+- Threat: **forbidden comparison** — already-treated used as controls (Ch 4.2)
+- A pre-trend can *refute* parallel trends; a flat one cannot *confirm*
+
+::: notes
+Difference-in-differences — parallel trends and anticipation. The assumption is parallel trends: absent treatment, treated and control units' outcomes would have moved together. The named threats are three. A pre-existing differential trend, where the treated group was already diverging before treatment, so a slope gets mislabeled an effect. Anticipation, where units respond before the official treatment date — they saw it coming — so the pre period is already contaminated. And in staggered designs, the forbidden comparison of Chapter Four-point-Two, where already-treated units are used as controls, injecting the negative-weights bias when effects are dynamic. Remember the one sentence underlined three times in Chapter Four-point-One: parallel trends is a claim about a counterfactual, so a pre-trend can refute it, but a flat pre-trend can never confirm it.
+:::
+
+## Regression Discontinuity
+
+- Assumes **continuity** of potential outcomes at the cutoff
+- Threat: **manipulation / sorting** — McCrary fingerprint is a density jump
+- Threat: **covariate imbalance** — something predetermined jumps at the cutoff
+- Threat: **compound treatment** — more than one thing switches at the threshold
+- Compound treatment passes every test — ruled out by argument alone
+
+::: notes
+Regression discontinuity — manipulation and compound treatment. The assumption is continuity of potential outcomes at the cutoff. The named threats are three. Manipulation, or sorting, where units precisely control which side of the cutoff they land on, so the just-above and just-below groups are no longer comparable — the McCrary fingerprint is a jump in the density. Covariate imbalance at the cutoff, where something predetermined jumps where only treatment should. And the most insidious, compound treatment, where more than one thing switches at the same threshold, so your jump is the bundled effect of all of them, not the clean treatment you wanted. Manipulation and imbalance leave fingerprints you can test for; compound treatment passes every statistical test and must be ruled out by institutional argument alone.
+:::
+
+## Synthetic Control
+
+- Assumes weighted **donor** units reproduce the treated unit's untreated path
+- Threat: **bad donor pool** — no combination matches, or donors are contaminated
+- Threat: **anticipation** — treated unit reacts before the event, fouling the fit
+- Threat: **overfitting** — weights fit pre-period noise
+- Sample size of one $\Rightarrow$ inference is a **placebo permutation**
+
+::: notes
+Finally synthetic control — donor pool and anticipation. The assumption is that a weighted average of untreated donor units reproduces the treated unit's untreated path. The named threats are three. A bad donor pool, where no convex combination of donors actually matches the treated unit's pre-period, or the donors are themselves contaminated by spillovers from the treatment. Anticipation, where the treated unit reacts before the event, fouling the pre-period fit. And interpolation or overfitting, where the weights fit pre-period noise and so mispredict the counterfactual. With an effective sample size of one, inference is not a t-test but a placebo permutation — assign the fake treatment to each donor in turn, and ask how extreme the real effect looks against that distribution.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**DiD** assumes parallel trends — threats: pre-trends, anticipation, forbidden comparisons; a pre-trend can refute parallel trends but never confirm it. **RD** assumes continuity — threats: manipulation, imbalance, and compound treatment (which passes every test). **Synthetic control** assumes donors reproduce the untreated path — threats: bad donor pool, anticipation, overfitting; inference is a placebo permutation. Pull your design's row, then add threats specific to your data. Next: the four-column table.
+:::
+
+::: notes
+To summarize part four: difference-in-differences assumes parallel trends, with threats of a pre-existing differential trend, anticipation, and the forbidden comparison — and a pre-trend can refute parallel trends but a flat one can never confirm it. Regression discontinuity assumes continuity at the cutoff, with threats of manipulation, covariate imbalance, and compound treatment, the last of which passes every statistical test and must be argued away. Synthetic control assumes a weighted donor average reproduces the untreated path, with threats of a bad donor pool, anticipation, and overfitting, and its inference is a placebo permutation because the effective sample size is one. You will use exactly one design for your primary specification, so pull its row off the menu, then add any threat specific to your own data. In part five we build that list into the four-column threats-and-responses table.
+:::

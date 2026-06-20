@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Let the Market Value the Patent
+
+- Part 3 — the clever move and filtering out the market
+
+::: notes
+Welcome back to KPSS, part three of twelve. In part two we sharpened the measurement question and saw why patent counts and citations both fail. Now we meet the answer — the clever move at the heart of the paper. The headline contribution here is not a causal estimate in the Week-Three or Week-Four sense. It is a measurement strategy: a recipe for turning observable data into a number that proxies an unobservable, the economic value of an invention. So the thing that plays the role of an identifying assumption here is the assumption that makes the recipe valid. Pin that down and you have understood the paper.
+:::
+
+## The Clever Move
+
+- A patent grant is **news** the market did not fully expect
+- Valuable patent $\Rightarrow$ stock should jump at the grant
+- Worthless patent $\Rightarrow$ stock should not move
+- Read the **market reaction** as the patent's value
+- Same **event-study logic** you met in Week 4
+
+::: notes
+Here is the move. When the U.S. Patent and Trademark Office grants a patent to a publicly traded firm, that grant is news. The market did not know for certain the patent would issue, or on exactly what claims; the grant resolves some of that uncertainty. If the patent is valuable, the firm's stock should jump when the grant becomes public. If it is worthless, the stock should not move. So K-P-S-S read the stock-market reaction in a short window around the patent-grant date as the market's real-time, dollar-denominated estimate of what that patent is worth. This is exactly the event-study logic from Week Four: pick an event date, define a narrow window around it, and measure the abnormal return — the part of the return not explained by the market's normal movement on those days. Here the event is a patent grant, and the abnormal return is the valuation.
+:::
+
+## Refinement One: Filter Out the Market
+
+- Raw window return is **contaminated**
+- Market rallied? Sector moved? Not the patent
+- Strip the market out — keep the **idiosyncratic** part
+- Market model: $R_{it} = a_i + b_i R_{mt} + \varepsilon_{it}$
+- Value lives in the **residual** $\varepsilon_{it}$, not raw return
+
+::: notes
+Two refinements turn that intuition into a usable number. Refinement one: filter out the market. A stock can move during the grant window for reasons that have nothing to do with the patent — the whole market rallied, or the firm's sector moved. The raw window return is therefore contaminated. K-P-S-S strip out the market's contribution, leaving the idiosyncratic, firm-specific component of the window return — the abnormal return in the language of Week Four. This is the same discipline as the market model: the return on stock i at time t equals a constant a-i, plus beta-i times the market return, plus a residual epsilon-i-t. That residual is the firm-specific surprise. The patent's value lives in the residual, not the raw return.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The clever move: **outsource valuation to the market**. Read the abnormal return in a short grant window as the market's dollar estimate of the patent's worth — pure Week-4 event-study logic. Refinement one filters out the market so the value lives in the **residual** $\varepsilon_{it}$. Next: scaling to dollars and stating the validating assumption.
+:::
+
+::: notes
+To summarize part three: the clever move is to let the stock market value the patent. K-P-S-S read the abnormal return in a short window around the grant date as the market's real-time dollar estimate of the patent's worth — exactly the event-study logic of Week Four. The first refinement filters out the market: strip the market's contribution and keep the idiosyncratic residual, because the patent's value lives in epsilon, not in the raw return. In part four we add the second refinement — scaling the percentage to dollars and adjusting for surprise — and then we state the one assumption that makes the whole recipe valid.
+:::

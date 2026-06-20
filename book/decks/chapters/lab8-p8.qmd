@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Anticipating the Threats-Table Questions
+
+- Part 8 — turn each threats-table row into a prepared answer
+
+::: notes
+Welcome back to Lab Eight, part eight of twelve. In part seven we built the timed rehearsal protocol and pre-decided the cut line. Now we prepare for the question period — and the key insight is that the questions are not a surprise. They are the rows of the threats-and-responses table you wrote weeks ago, when you were calm.
+:::
+
+## The Questions Are Your Threats Table
+
+- The questions are the rows of your threats table
+- Every hard question has the same shape
+- "Isn't your estimate just picking up a confounder?"
+- That is your identifying assumption, attacked at a weak point
+- A weak point you already named in column one
+
+::: notes
+The questions you will get are not a surprise — they are the rows of your threats-and-responses table from Chapter seven point five, the one you wrote weeks ago when you were calm. Every hard question in an empirical seminar has the same shape: isn't your estimate just picking up some confounder rather than the effect you claim? That is your identifying assumption being attacked at a weak point you already named in column one of that table. Because you named the weak points yourself, the attacker is, in effect, reading from your own notes. The question period is not an ambush; it is a recital of a script you wrote.
+:::
+
+## Turn Each Row Into a Four-Part Answer
+
+- The threat — concede it is the central worry
+- The signature — what would we see if it were true?
+- What you did — the test or choice from column three
+- The residual — what column four honestly admits remains
+- Rehearse saying it in that order
+
+::: notes
+So before the talk, turn each row of the threats table into a prepared four-part answer, and rehearse saying it in this order. First, the threat: concede it is the central worry, do not dismiss it. Second, the signature: if the confounder were driving the result, what would we see? Third, what you did: the test or design choice from column three. Fourth, the residual concern: what column four honestly admits remains. Said live, it sounds like this: "Yes, that's the central worry — if the confounder were driving this, we'd see this signature; we checked, and we see this reassuring result; what I still can't fully rule out is this residual, though here is a bound on how bad it could be." That answer makes you look more credible than a confident dismissal, because it shows you saw the problem before they did.
+:::
+
+## Build the Prep Table, Rehearse Like Flashcards
+
+| Question (threat) | Signature if true | What I did | Residual |
+|---|---|---|---|
+| Diverging pre-trends? | upward-sloping leads | event-study: flat leads | only fail to reject |
+| Right clustering level? | SEs too small | clustered by state (30) | wild-cluster bootstrap |
+| Contemporaneous policy? | jump at same date | none on this timing | unnamed state shock |
+
+::: notes
+Build the prep table from your real threats table and rehearse from it like flashcards. Each row holds the likely question, the signature if it were true, what you did, and the residual concern. One row might be: "were treated and control diverging before treatment?" — whose signature is upward-sloping pre-period leads, answered by the event-study plot showing flat leads with all confidence intervals crossing zero, the residual being that you can only fail to reject parallel trends, never prove it. Another row: "did you cluster at the right level?" — whose signature is standard errors too small if treatment is state-level, answered by clustering on the thirty states, the residual being few clusters, checked with a wild-cluster bootstrap. A third: "what about a contemporaneous policy?" — answered because no other program adopted on this timing in these states, the residual being a state-specific shock you have not named.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The question period is a recital of a script you wrote: every hard question is a row of your **threats table**. Turn each row into a four-part answer — threat, signature, what you did, residual — and rehearse from it like flashcards. Conceding the worry first beats a confident dismissal. Next: triaging questions live.
+:::
+
+::: notes
+To summarize part eight: the questions are not a surprise. Every hard question in an empirical seminar attacks your identifying assumption at a weak point you already named in column one of your threats table, so the question period is a recital of a script you wrote weeks ago when you were calm. Turn each row into a four-part answer — concede the threat, name the signature it would leave, say what you checked and saw, and admit the residual with a bound on how bad it could be. That candor reads as more credible than a confident dismissal. Build the prep table from your real threats table and rehearse the rows like flashcards. In part nine we learn to triage a hostile question live: telling a fatal critique from a survivable one.
+:::

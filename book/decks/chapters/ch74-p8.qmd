@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Missing Data: Why It Is Missing Matters More Than How Much
+
+- Part 8 — why data is missing beats how much
+
+::: notes
+Welcome back to Building the Analysis Dataset, part eight of ten. In part seven we decided what to do with outliers. Now Maya's HMDA file becomes the better teacher. The Home Mortgage Disclosure Act data records millions of mortgage applications, and many fields are missing — some applicants do not report income, race fields are blank for some channels, and the credit score is never present. Maya's instinct is to call drop-N-A and move on. This is the single most common way to silently bias a study, because the rows you drop are almost never a random sample.
+:::
+
+## Ask Why, Not How Much
+
+- The question is never *how much* — it's **why**
+- **MCAR**: missing independent of everything — dropping is safe
+- **MAR**: depends on *observed* variables — correctable
+- **MNAR**: depends on the *unobserved value itself* — dangerous
+- MNAR dropping = selecting on the outcome again
+
+::: notes
+The professional question is never how much data is missing, but why. There is a formal taxonomy, and you should know it by name. Missing Completely At Random — M-CAR — means missingness is independent of everything; a server randomly dropped some records. Here, dropping the missing rows, called listwise deletion, loses precision but does not bias you. Missing At Random — M-AR — means missingness depends on observed variables you can see. Here you can in principle correct using those observed variables. Missing Not At Random — M-NAR — means missingness depends on the unobserved value itself; applicants with the lowest incomes are most likely to leave income blank. This is the dangerous one: being missing carries information about the very number you wish you had. Dropping M-NAR rows is selecting your sample on the outcome — the survivorship error wearing a different hat.
+:::
+
+## Two Honest Options, One Rule
+
+- **Listwise deletion** — fine if MCAR or MAR-given-controls
+- ...and you report the loss and check the survivors
+- **Imputation** — keeps $N$, but injects assumptions
+- Naïve mean-imputation distorts variances and correlations
+- The rule is absolute: **never silently drop. Log it.**
+
+::: notes
+So what do you actually do? Two honest options, plus one rule. Listwise deletion — dropping any row with a missing value in a variable your regression uses — is fine if you have argued the missingness is plausibly M-CAR or M-AR given controls, and if you report how many rows you lost and check that the survivors are not systematically different. Imputation — filling missing values with a model-based estimate, like the column mean, a regression prediction, or multiple imputation — keeps your N but injects assumptions, and a naïve mean-imputation distorts variances and correlations. It is a real tool, but not a free lunch. Whichever you choose, the rule is absolute: never silently drop. Log it.
+:::
+
+## The Probe That Earns Its Keep
+
+- Make an `income_missing` flag
+- Group by it; compare **denial rates**
+- Different denial rates $\Rightarrow$ missingness is **informative**
+- Then it is *not* MCAR — dropping changes your population
+- Say so in the memo, and decide **deliberately**
+
+::: notes
+Here is the line that earns its keep. Build a flag marking whether applicant income is missing, then group by that flag and compare denial rates across the two groups. If applications with missing income are denied at a wildly different rate than those with income reported, missingness is not random — it is informative, which means it is not M-CAR, and dropping those rows changes the population you are studying. You then have to say so in the memo and decide deliberately. That is the difference between cleaning and hiding. Maya's HMDA file makes this vivid precisely because credit score is never present and income is selectively blank — exactly the conditions under which a thoughtless drop-N-A reshapes who is in your study without your noticing.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The professional question is never *how much* is missing but **why**. The taxonomy matters: **MCAR** is safe to drop, **MAR** is correctable, **MNAR** is dangerous — dropping it selects on the outcome. Two honest options — listwise deletion or imputation — and one absolute rule: **never silently drop. Log it.** Probe missingness by comparing outcomes across a missing-flag. Next: the build script that makes every decision auditable.
+:::
+
+::: notes
+To summarize part eight: with missing data, the professional question is never how much is missing, but why. The taxonomy has three names. Missing Completely At Random is safe to drop, losing only precision. Missing At Random depends on variables you observe and is correctable. Missing Not At Random depends on the missing value itself, and it is dangerous, because dropping those rows selects on the outcome, just like survivorship. You have two honest options — listwise deletion, justified and reported, or imputation, which keeps your sample but injects assumptions — and one absolute rule: never silently drop; log it. The probe that earns its keep is to flag missingness and compare outcomes like denial rates across the groups; if they differ sharply, missingness is informative. In part nine we make every decision so far reproducible, with the build script and its row-count log.
+:::

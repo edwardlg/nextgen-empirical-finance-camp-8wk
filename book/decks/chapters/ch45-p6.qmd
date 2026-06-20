@@ -1,0 +1,45 @@
+---
+date: "2026-06-22"
+---
+
+## The Finance Flavor: Bank-Lending Shocks
+
+- Part 6 — bank-lending shocks and the shock-count question
+
+::: notes
+Welcome back to Week Four-point-five, part six of twelve. In part five we saw why Bartik was invented — to cure regional endogeneity by importing the demand piece from national tides. Now we meet a second finance flavor that makes the share-and-shift logic vivid: bank-lending shocks. It also sets up the question that decides everything later — how many shocks do you have, and how concentrated are the shares?
+:::
+
+## Bank-Lending Shocks
+
+- Banks are not evenly spread — credit depends on **which banks** operate
+- **Shares**: fraction of region $r$'s deposits held by each bank $b$
+- **Shifts**: each bank's national lending growth, computed **outside** $r$
+- $B_r = \sum_b s_{rb}\, g_b$ predicts a region's credit-supply shock
+- Banked with a national contractor → predicted credit crunch
+
+::: notes
+Banks are not evenly spread. A region's credit supply depends on which banks operate there, and different banks expand or contract their lending at different national rates in a given year for reasons internal to each bank — a merger, a capital shock, a strategy shift. So we build a shift-share instrument for a region's credit-supply shock by combining shares — the fraction of region r's baseline deposits or loans held by each bank b — with shifts — the national growth rate of each bank's lending, computed from the bank's lending outside region r, a bank-level shock the region did not cause. The instrument B-sub-r equals the sum over banks b of s-sub-r-b times g-sub-b. It predicts region r's credit-supply shock from which banks happened to be here and how those banks did elsewhere. A town that banked heavily with an institution that contracted nationally gets a predicted credit crunch; a town tied to a nationally-expanding lender gets predicted easy credit. Maya can then ask whether a predicted credit-supply contraction raises household delinquency, instrumenting realized local credit growth with the bank-mix prediction.
+:::
+
+## How Many Shocks? It Decides Everything
+
+- Labor case: **hundreds** of industries
+- Bank case: maybe **a handful** of banks dominate deposits
+- "How many shocks, how concentrated the shares" sets your strategy
+- This question will pick your identification view later
+
+::: notes
+Keep both finance examples in view, because they sharpen the two identification views. In the labor version there are a few hundred industries; in the bank version there might be only a handful of banks that dominate a region's deposits. As you will see, how many shocks you have, and how concentrated the shares are, is precisely what decides which identification story you are allowed to tell. With hundreds of industries, you can lean on averaging logic across many shocks. With only two or three big banks holding most of a region's deposits, there is no many to average over, and one bank's idiosyncratic shock can dominate. Hold that contrast; it is the hinge on which the next several parts turn. The realized local credit is endogenous, because a town with deteriorating households both borrows differently and gets lent to differently, so the instrument is doing real work here.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The bank-lending design is the same skeleton: **shares** are a region's deposit mix across banks, **shifts** are each bank's national lending growth, and $B_r = \sum_b s_{rb}\,g_b$ predicts the credit-supply shock. The crucial contrast: labor has **hundreds** of shocks, banks maybe **a handful** — and that count decides which identification view you may invoke. Next: the long-delayed answer — why is $B_r$ valid? It's the shares.
+:::
+
+::: notes
+To summarize part six: the bank-lending design is the same shift-share skeleton with the nouns swapped. The shares are the fraction of a region's deposits held by each bank; the shifts are each bank's national lending growth, computed outside the region; and the instrument is the share-weighted sum, predicting a region's credit-supply shock. The crucial contrast with the labor case is the number of shocks: hundreds of industries versus maybe a handful of dominant banks. That count — how many shocks, how concentrated the shares — will decide which identification view you can honestly invoke. In part seven we finally answer the long-delayed question: why is the Bartik instrument valid? The first modern answer, from Goldsmith-Pinkham, Sorkin and Swift, says it's the shares.
+:::

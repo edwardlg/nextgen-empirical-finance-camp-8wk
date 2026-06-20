@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## It's Still IV: Relevance and Exclusion
+
+- Part 11 — mapping shift-share back to IV conditions
+
+::: notes
+Welcome back to Week Four-point-five, part eleven of twelve. In part ten we settled when each view is credible and met the inference warning from Adão, Kolesár and Morales. Now we step back and map the whole design onto the instrumental-variables vocabulary of Week Three. A shift-share instrument earns no exemptions — it is an instrument, and the two conditions still rule. Then we walk the code.
+:::
+
+## It Is Still IV: Two Conditions Rule
+
+- **Relevance** is testable: first stage of realized shock on $B_r$
+- Want a large coefficient and healthy first-stage F (per Ch 3.5)
+- **Exclusion**: $B_r$ affects $Y$ only through the realized local shock
+- $B_r$ is shares times shifts → exogeneity of **either** factor suffices
+- A product is exogenous to the error if **either** factor is
+
+::: notes
+Map this chapter onto the instrumental-variables vocabulary of Chapter Three-point-four. Relevance is exactly as before and exactly as testable: the first stage regresses the realized local shock on the constructed instrument and the controls; you want a large, precisely-estimated coefficient and a healthy first-stage F. Regions predicted to be hit hard should actually have been hit hard. Heed Chapter Three-point-five's warning that significance is not strength — use robust, effective-F diagnostics. A weak shift-share first stage drags two-stage least squares back toward ordinary least squares just as surely as any weak instrument. Exclusion is where the structure earns its keep. The restriction is that the instrument affects the outcome only through the realized local shock and is uncorrelated with the error. Since the instrument is shares times shifts, that covariance can be made to vanish by making either ingredient exogenous. A product is exogenous to the error if either factor is.
+:::
+
+## Two Routes, Two Shots at One Assumption
+
+- **GPSS route:** assume the **shares** are exogenous; any old shifts as weights
+- Defend region-by-region; diagnose with Rotemberg weights; best when shocks **few**
+- **BHJ route:** assume the **shifts** are exogenous across many industries
+- Defend industry-by-industry; diagnose with effective shocks; best when shocks **many**
+- What you identify: a **Rotemberg-weighted** average — the LATE cousin
+
+::: notes
+So exclusion gives you two routes — two strategies for arguing the same untestable restriction. The shares route, from Goldsmith-Pinkham, Sorkin and Swift: assume the shares are exogenous, then any old shifts will do as weights. Defend it region-by-region, diagnose with Rotemberg weights, and lean on it when shocks are few. The shifts route, from Borusyak, Hull and Jaravel: assume the shifts are exogenous across many industries, then any old shares will do as exposure. Defend it industry-by-industry, diagnose with the effective number of shocks, and lean on it when shocks are many and dispersed. This is the deep lesson: exclusion for a constructed instrument can be sourced from whichever ingredient you can most credibly call exogenous, because a product is exogenous if either factor is. So the design gives you two independent shots at the single hardest, untestable assumption in all of instrumental variables. The honest empiricist names which shot they are taking and brings the matching diagnostic. And just as in Chapter Three-point-four, what you identify is a local-average-treatment-effect-like weighted average — here a Rotemberg-weighted average across regions and shocks, not a clean population average.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+It is **still IV**: **relevance** is testable (first-stage F, robust per Ch 3.5); **exclusion** is arguable. Because $B_r$ is shares times shifts, exclusion holds if **either** factor is exogenous — two shots at the hardest assumption in IV. **Name your shot** and bring the matching diagnostic. What you identify is a **Rotemberg-weighted** average, the shift-share cousin of LATE. Next: the code, OLS biased and 2SLS recovering the truth.
+:::
+
+::: notes
+To summarize part eleven: a shift-share instrument is still an instrument, so the two conditions rule. Relevance is testable — check the first-stage F, robustly, per Chapter Three-point-five. Exclusion is arguable, and here the structure pays off: because the instrument is shares times shifts, the exclusion restriction holds if either factor is exogenous, giving you two independent shots at the hardest assumption in instrumental variables. Take the shares route when shocks are few, the shifts route when shocks are many, and name which shot you are taking with the matching diagnostic. And what you identify is not a clean population average but a Rotemberg-weighted average across regions and shocks — the shift-share cousin of the local average treatment effect. In part twelve, the finale, we walk the runnable code where ordinary least squares comes back biased while two-stage least squares recovers the truth, then close the whole causal-inference arc.
+:::

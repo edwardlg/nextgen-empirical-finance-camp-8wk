@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Survivorship Bias
+
+- Part 5 — why the firms that vanished are the ones that matter
+
+::: notes
+Welcome back to Building the Analysis Dataset, part five of ten. In part four we measured how complete our merge was with the match rate. Now we turn to the content errors — the ones no syntax checker can catch — and they are the dangerous ones. The first is survivorship bias: analyzing only the units that survived to the end of your sample, when survival is correlated with the outcome you care about. It enters at the merge, it is invisible, and it can manufacture a premium out of thin air. Let's see exactly where it sneaks in.
+:::
+
+## Selecting on Survival
+
+- Analyzing only units that **survived** to the end
+- ...when survival is correlated with the outcome
+- Download "firms trading today," pull history backward — trap
+- The bankrupt and delisted firms are **missing**
+- You conditioned your sample on **success**
+
+::: notes
+State survivorship bias in one sentence: it is the error of analyzing only the units that survived to the end of your sample, when survival is correlated with the outcome you care about. Sam wants to know whether high book-to-market — value — stocks beat the market. Suppose, the lazy way, he downloads the list of firms trading today and pulls their entire return history backward. Every firm in that list survived to today. The firms that went bankrupt, got delisted, or were acquired at a loss — the failures — are not in the list, because they are not trading today. He has accidentally conditioned his sample on success. This is a selection-on-the-outcome problem, exactly the threat the potential-outcomes lens of Week Three trained you to smell.
+:::
+
+## Why It Inflates the Value Premium
+
+- Failures are disproportionately distressed, high-book-to-market firms
+- Drop them: keep value firms that **recovered**
+- You measure "being a value firm that **survived**"
+- No one could follow that strategy in real time
+- The fix: include **every** firm that existed at the decision
+
+::: notes
+Why does this bias the answer, and which way? Failures are disproportionately firms that fell — often the distressed, high-book-to-market firms whose prices collapsed. By dropping them, Sam keeps the value firms that recovered and discards the value firms that died. His estimate of the value premium is inflated, possibly enormously, because he is measuring the return to being a value firm that happened to survive — which is not a strategy anyone could have followed in real time. The fix is conceptual before it is technical: your sample must include every unit that existed at the time of the decision, including the ones that later died. CRSP is built for this. It retains delisted securities and records a delisting return — the final, often catastrophic, return when a stock leaves the exchange. The classic bug is to drop delisted firms because their later rows are missing, instead of incorporating that delisting return and then letting them exit.
+:::
+
+## The Smell Test: Count Firms Per Year
+
+- Count unique firms **per year**, not just in total
+- A real universe **churns**: IPOs in, delistings out
+- Red flag: a count that only ever **grows**
+- ...ending exactly at today's universe, with no exits
+- Maya's cousin: only lenders still operating today
+
+::: notes
+In code, the smell test is simple: count your firms per year, not just in total. A real CRSP universe has firms entering through IPOs and exiting through delistings every single year. Group by year, count unique PERMNOs, and look at the series. If firms only ever enter and never leave — if the count is monotonically increasing and ends exactly at today's universe with no exits — you dropped the firms that died. A healthy financial panel churns: IPOs arrive, delistings depart, the count wobbles. Maya's HMDA work has a cousin of this bias. If she studies only lenders still operating today, she misses the subprime originators that failed in two thousand eight — who were precisely the ones whose lending behavior the question is about.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Survivorship bias** is selecting on survival — and since failures are disproportionately distressed value firms, dropping them inflates the value premium into a strategy no one could have run. Fix it conceptually: include every firm that existed at the decision, keep CRSP's **delisting return**, then let them exit. Smell-test by counting firms *per year* — a healthy panel churns. Next: the deadliest content error, look-ahead bias.
+:::
+
+::: notes
+To summarize part five: survivorship bias is the error of analyzing only the units that survived, when survival is correlated with the outcome. In Sam's case it inflates the value premium, because the failures he drops are disproportionately the distressed value firms whose prices collapsed. The fix is to include every firm that existed at the time of the decision, keep CRSP's delisting return rather than dropping the firms that died, and smell-test by counting firms per year, because a healthy panel churns with IPOs and delistings. In part six we meet the deadliest content error of all, because it is the most seductive: look-ahead bias.
+:::

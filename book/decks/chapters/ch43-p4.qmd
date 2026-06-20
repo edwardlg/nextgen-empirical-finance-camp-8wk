@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## Sharp RD: The Estimand
+
+- Part 4 — sharp RD, where the cutoff flips treatment with certainty
+
+::: notes
+Welcome back to regression discontinuity, part four of seventeen. In part three we stated the continuity assumption. Now we make the design concrete: sharp R-D, where the cutoff flips treatment with certainty, and the estimand is a difference of two one-sided limits.
+:::
+
+## Sharp RD: A Deterministic Step
+
+- Everyone on one side treated, everyone on the other not
+- $D_i = \mathbf{1}\{X_i \geq c\}$ — a perfect, gapless step
+- The indicator equals one when its condition holds
+- A lender approves every applicant with score at or above six-sixty
+- Cross six-sixty and approval flips from zero to one with certainty
+
+::: notes
+Sharp R-D is the case where treatment is a deterministic step function of the running variable: everyone on one side is treated, everyone on the other side is not, with no exceptions. Formally, D-sub-i equals the indicator that X-sub-i is greater than or equal to c, where the indicator equals one when its condition holds and zero otherwise. Treatment is a perfect, gapless function of X. A lender's world is the cleanest example: an automated underwriting system approves every applicant with a credit score at or above six hundred sixty and rejects every applicant below, mechanically, with the loan officer having no discretion. Cross six hundred sixty and approval flips from zero to one with certainty.
+:::
+
+## The Sharp-RD Estimand
+
+$$\tau_{\text{SRD}} = \lim_{x\downarrow c}\mathbb{E}[Y\mid X{=}x] - \lim_{x\uparrow c}\mathbb{E}[Y\mid X{=}x]$$
+
+- Limit from *above* (treated) minus limit from *below* (control)
+- One-sided limits: the *height of each fitted curve* at $c$
+- Each extrapolated to $c$ from its own side
+- Only the treatment can produce a gap between them
+
+::: notes
+Under continuity, the sharp-R-D estimand is the jump in the conditional-mean function of the outcome at c. In symbols, tau-S-R-D equals the limit as x approaches c from above of the expected value of Y given X, minus the limit as x approaches c from below of that same expected value. In words: take the limit of the outcome's average as you approach c from above, the treated side, subtract the limit as you approach from below, the control side, and the difference is the treatment effect. Those two limits — written with the down-arrow and the up-arrow — are one-sided limits. You are reading the height of each fitted curve right at the boundary, extrapolated to the cutoff from its own side. Because the running variable is continuous through c and enters the untreated mean smoothly, the only thing that can produce a gap between those two limits is the treatment switching on. The gap is tau-S-R-D.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Sharp RD** is a deterministic step, $D=\mathbf{1}\{X\geq c\}$. Its estimand is the **jump** in $\mathbb{E}[Y\mid X]$ at $c$ — the limit from above minus the limit from below, each the height of a fitted curve extrapolated to the boundary from its own side. Next: what that local effect means, and a worked number.
+:::
+
+::: notes
+To summarize part four: sharp R-D is the case where treatment is a deterministic step at the cutoff, the indicator that X is at or above c. The estimand reads the effect straight off the outcome jump — the limit of the average from above minus the limit from below, each the height of a fitted curve extrapolated to the boundary from its own side. Only the treatment can produce that gap. In part five we interpret what kind of effect this is — the R-D analog of LATE — and read a real number off a worked Russell example.
+:::

@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## From Filings to Word Vectors
+
+- Part 2 — extracting the text and building word vectors
+
+::: notes
+Welcome back to Chapter six-point-two, part two of eight. In part one we framed the question — define industries from what firms say, not from a government code — and promised the engine is the cosine. Now we begin building the measure the slow way. This part covers the first two construction steps: getting the text out of the filings, and turning each description into a vector of numbers.
+:::
+
+## Step One — Get the Text
+
+- Every U.S. public firm files a **10-K**
+- Item 1 is a mandated **business / product description**
+- A few hundred to a few thousand words on what it sells
+- Extracted from tens of thousands of SEC **EDGAR** filings
+- How *cleanly* you can extract it is a vulnerability
+
+::: notes
+Step one: get the text. Every U.S. public firm files a ten-K, and Item One is a mandated business and product description — a few hundred to a few thousand words saying what the firm makes and sells. Hoberg and Phillips extract that section from tens of thousands of filings on SEC EDGAR, the public filing system. Note already that how cleanly you can pull that section out of a messy, decades-spanning archive is itself a soft spot — we return to it when we discuss what is vulnerable. For now, picture one block of plain-English prose per firm per year, describing its products in its own words.
+:::
+
+## Step Two — Words Into Vectors
+
+- Build a dictionary of every non-trivial word — tens of thousands
+- Firm $i$ becomes a vector $\mathbf{w}_i$, one entry per word
+- **Bag-of-words:** entry = count or presence of that word
+- Word order is thrown away — a real limitation
+- "Wireless, spectrum, subscribers" lands far from "crude, refining"
+
+::: notes
+Step two: turn each description into a vector. Build a giant dictionary of every non-trivial word appearing across all descriptions — tens of thousands of distinct words. Represent firm i's description as a vector w-i with one entry per dictionary word, where entry j measures how much firm i uses word j. In the simplest bag-of-words scheme that entry is just a count or a presence indicator. A firm heavy on "wireless," "spectrum," and "subscribers" lands far from one full of "crude," "refining," and "barrels." Word order is thrown away — hence the name "bag" — and that is a real limitation we will flag again later. But it buys enormous simplicity, and it is enough to get a first map of who resembles whom.
+:::
+
+## Refinement — TF–IDF
+
+- Not all words are equally informative
+- "Company" is everywhere — tells you nothing about *which* firm
+- "Lithium" is rare — tells you a lot
+- $\text{idf}_j = \log(D / d_j)$, with $D$ docs, $d_j$ containing word $j$
+- A word in every doc scores $\log 1 = 0$ — silenced
+- Firm entries become $\text{tf}_{ij}\cdot\text{idf}_j$
+
+::: notes
+A refinement that the notebook and the A-I module both lean on is T-F-I-D-F: term frequency times inverse document frequency. Not all words are equally informative. "Company" appears in every description and tells you nothing about which firm you are looking at; "lithium" appears in few descriptions and tells you a lot. T-F-I-D-F multiplies a word's within-document frequency by a factor that grows when the word appears in fewer documents. The inverse-document-frequency weight for word j is the log of D over d-j, where D is the number of documents and d-j is the number containing word j. A word in every document has d-j equal to D, so its weight is the log of one, which is zero — silenced. A word in one document out of ten thousand gets a large weight. The firm vector then has entries equal to t-f for firm i and word j times i-d-f for word j. Distinctive words get amplified; ubiquitous words get muted.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Pull each firm's **Item 1** product description from its 10-K, then turn it into a word vector. **Bag-of-words** counts words but ignores order; **TF–IDF** silences ubiquitous words like "company" and amplifies distinctive ones like "lithium." Each firm is now a point in a high-dimensional word space. Next: measure how close two firms are, and stitch them into a network.
+:::
+
+::: notes
+To summarize part two. The construction begins by pulling the Item One product description from each ten-K on EDGAR — one block of prose per firm per year. We then turn that prose into a word vector with one entry per dictionary word. Plain bag-of-words counts words but throws away order. T-F-I-D-F improves on it by silencing words that appear everywhere and amplifying words that appear rarely, so each firm becomes a point in a high-dimensional word space whose coordinates reflect what is distinctive about it. In part three we measure how close two such points are — with the cosine — and stitch the firms into a network.
+:::

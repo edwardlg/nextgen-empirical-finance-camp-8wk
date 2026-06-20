@@ -1,0 +1,63 @@
+---
+date: "2026-06-22"
+---
+
+## Regression Discontinuity: The Jump Is the Effect
+
+**Learning objectives.** By the end you can:
+
+- Read a causal effect off a *jump* at a cutoff
+- Distinguish sharp from fuzzy RD (fuzzy = IV)
+- Estimate jumps with local linear regression
+- Audit the design: McCrary, balance, bandwidth
+
+::: notes
+Welcome to Week Four, Chapter four-point-three, part one of seventeen: regression discontinuity. Every design so far has been a fight to make treated and untreated units comparable — by conditioning, by instruments, by parallel trends. Each buys comparability at the price of an assumption you mostly cannot test. This chapter introduces a design where comparability is almost handed to you by the world, and where the central assumption is, for once, partly checkable. In this opening part we meet the idea and state the estimand in one plain sentence.
+:::
+
+## Comparability, Almost for Free
+
+- Past designs bought comparability with *untestable* assumptions
+- C-I-A, exclusion, parallel trends — all hard to check
+- **RD** lives wherever a sharp rule switches treatment on
+- Credit score at or above six-sixty flips approval
+- A test score at the cutoff wins the scholarship
+
+::: notes
+Recall the through-line of this book. Week three fought for comparability with conditioning, and then with an instrument that imported clean variation from outside. The two difference-in-differences chapters that opened this week fought it across time, leaning on a parallel-trends assumption. Each design buys comparability at the price of an assumption you mostly cannot test — conditional independence, exclusion, parallel trends. Regression discontinuity, which we abbreviate R-D, is different. It lives wherever a treatment is switched on by a sharp, mechanical rule. A credit score at or above six hundred sixty flips a loan from rejected to approved. A test score at or above a cutoff wins a scholarship. A firm's market-cap rank at the annual reconstitution lands it in one stock index rather than another. The rule creates a knife-edge.
+:::
+
+## A Unit at 659 vs. a Unit at 661
+
+- The rule creates a knife-edge at the cutoff
+- A unit at six-fifty-nine and one at six-sixty-one are *the same*
+- Same everything that matters — yet one is treated
+- Compare outcomes *just* across the line
+- Looks like a randomized experiment, run for free
+
+::: notes
+Here is why that knife-edge is so powerful. A unit that lands at six hundred fifty-nine and a unit that lands at six hundred sixty-one are, for all practical purposes, the same kind of unit — same creditworthiness, same everything that matters — yet one is treated and one is not, purely because a number crossed a line. Compare the outcomes of units just on either side of that line and you have something that looks remarkably like a randomized experiment, run for free by the institution that drew the cutoff. Our guide this chapter is Sam, who trades on momentum and index effects, and who has fixated on one of the cleanest natural experiments in all of finance: the annual reconstitution of the Russell stock indexes.
+:::
+
+## RD, Stated Plainly
+
+- Running variable $X$, known cutoff $c$
+- Treatment assigned by which side of $c$ you fall on
+- If $Y$ varies smoothly except for a break at $c$...
+- ...that break cannot be the smooth influence of $X$
+- The vertical gap in $\mathbb{E}[Y\mid X]$ at $c$ *is* the effect
+
+::: notes
+Here is the design in one plain sentence. When a treatment switches on at a known cutoff — call it c — in some running variable X, the causal effect of the treatment, for units right at the cutoff, is the size of the jump in the outcome as X crosses c. That is the entire design. There is a variable X, the running variable, also called the forcing variable or score, and a known threshold c. The treatment is assigned by which side of c you fall on. Now suppose the outcome Y varies smoothly with X everywhere except for a clean break exactly at c. That break cannot be the smooth influence of X itself, because X is continuous through c. The only thing that changes discontinuously at c is the treatment. So the vertical gap in the conditional mean of Y given X, evaluated at c, is the treatment effect. Everything technical in this chapter is an elaboration of measure the jump.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**RD** reads a causal effect off a *jump*: when treatment switches at a known cutoff $c$ in a running variable $X$, the gap in $\mathbb{E}[Y\mid X]$ at $c$ is the effect — for units right at the cutoff. Next: *why* units near $c$ are comparable, via local randomization.
+:::
+
+::: notes
+To summarize part one: regression discontinuity reads a causal effect off a jump. When a treatment switches on at a known cutoff c in a running variable X, the vertical gap in the conditional mean of the outcome at c is the treatment effect — for the local population sitting right at the cutoff. Everything else in this chapter elaborates measure the jump. In part two we build the deepest justification for why this works: the analogy to a randomized experiment, called local randomization, and the continuity assumption that makes it rigorous.
+:::

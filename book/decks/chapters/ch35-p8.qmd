@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Reading the Weird AR Shapes
+
+- Part 8 — reading unbounded and empty Anderson–Rubin intervals
+
+::: notes
+Welcome back to Reading instrumental variables in the wild, part eight of thirteen. In part seven we built the Anderson–Rubin cure — test each candidate effect through the reduced form, never dividing by the first stage. Its honesty has a price: the interval can take strange shapes the conventional one never does. Those shapes are not bugs; they are messages. In this part we learn to read the two strangest — the unbounded interval and the empty interval.
+:::
+
+## The Unbounded Interval
+
+- Very weak instrument $\Rightarrow$ the test has no power
+- Almost every $\beta_0$ survives — interval balloons
+- Can stretch to the whole real line
+- The **honest face** of a weak instrument
+- Conclusion: "this instrument cannot answer the question"
+
+::: notes
+Because the Anderson–Rubin interval is the set of candidate values we cannot reject, it is not forced to be a tidy symmetric segment around a point estimate. It can be unbounded, stretching to plus and minus infinity. Suppose the instrument is very weak. Then for almost any candidate beta-naught you try, the adjusted outcome shows no significant relationship with z — not because every value is plausible, but because z is so weakly related to anything that the test has no power to reject. The interval balloons, possibly to the whole real line. An unbounded Anderson–Rubin interval is the honest face of a weak instrument. It says: given how little this instrument moves the treatment, the data are consistent with almost any effect size, including enormous ones. The conventional two-stage interval, faced with the identical instrument, would have reported something tight and specific — and would have been lying. When you see an unbounded interval, the design has failed to identify the parameter; the conclusion is, this instrument cannot answer the question, not a number.
+:::
+
+## The Empty Interval
+
+- Even stranger: **no** $\beta_0$ survives the test
+- Only possible when **over-identified**
+- Instruments disagree about $\beta$ too severely
+- A red light on **exclusion or specification**
+- Means "your instruments cannot all be telling the truth"
+
+::: notes
+Stranger still, the Anderson–Rubin interval can come back empty — no value of beta-naught survives the test. This can only happen when the model is over-identified, with more instruments than regressors, and it means the instruments disagree about beta so severely that no single value can simultaneously make all of them uncorrelated with the adjusted outcome. An empty interval is a flashing red light on the exclusion restriction or the model specification: it is the procedure detecting, through the same machinery, an overidentification failure. The instruments are not all valid, or the model is misspecified. An empty interval does not mean no effect; it means your instruments cannot all be telling the truth. So Devon, reading his crypto paper, should now demand: what does the Anderson–Rubin interval look like? If the authors only report a two-stage standard error and the first-stage F is in the single digits, an honest interval might well be unbounded — in which case the headline number is an artifact of dividing by a weak first stage, and the real answer is, we do not know.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+An **unbounded** AR interval is a weak instrument confessing it cannot identify the effect — the honest version of what a tidy 2SLS interval hid. An **empty** one, possible only when over-identified, signals the instruments disagree: an exclusion or specification failure. Next: the overidentification test that formalizes that disagreement.
+:::
+
+::: notes
+To summarize part eight: the Anderson–Rubin interval's strange shapes each carry a precise message. An unbounded interval is the honest confession of a weak instrument — the data cannot identify the effect, so the right conclusion is that this instrument cannot answer the question, not a number; it is what the tidy conventional interval should have looked like. An empty interval, possible only when the model is over-identified, signals that the instruments disagree so badly that no single effect reconciles them — an exclusion or specification failure, not a finding of no effect. Both shapes are the procedure telling you the truth about how little the data know. In part nine, we turn that disagreement into a single statistic: the overidentification test, the Sargan and Hansen J tests, and their severe and routinely ignored limits.
+:::

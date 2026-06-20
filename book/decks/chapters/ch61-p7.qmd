@@ -1,0 +1,48 @@
+---
+date: "2026-06-22"
+---
+
+## Reading Order: The Economics Exhibits
+
+- Part 7 — asset-pricing, reallocation, and the split headline
+
+::: notes
+Welcome back to KPSS, part seven of twelve. In part six we did step one — validate the measure, reading those tables for positive, significant signs. Now, with the measure earned, we read the economics: the asset-pricing exhibits and the growth-and-reallocation exhibits that justify the title. And then we learn how to spot the headline in this paper, which is split across two different tables. These economics tables are the most interpretively loaded in the paper, so we read them the most skeptically.
+:::
+
+## Steps 2 and 3: The Economics
+
+- **Step 2 — asset pricing:** does an innovation sort spread returns?
+- Connects innovation to the cross-section (Week 5)
+- **Step 3 — growth and reallocation:** the title's payoff
+- A firm's innovation predicts its **own** future growth
+- And — creative destruction — predicts **rivals** lose ground
+- Read these most **skeptically**: associations, not experiments
+
+::: notes
+Step two: the asset-pricing exhibits. Having validated the measure, K-P-S-S show it carries information for returns — firms doing more high-value innovation, or firms exposed to others' innovation, have different return profiles. This connects the innovation measure to the cross-section of expected returns you met in Week Five with Fama-French. Read for whether an innovation-based sort produces a return spread. Step three: the growth and reallocation exhibits — the economics payoff that justifies the title. Look for a firm's innovation predicting its own future growth, the innovator expanding. And look for the creative-destruction signature: a firm's innovation predicting that competitors lose ground, and that resources reallocate toward innovators. At the aggregate level, look for the link between economy-wide patent value and measured productivity growth. These are the most interpretively loaded tables, so read them most skeptically: they are associations consistent with creative destruction, not an experiment that isolates it.
+:::
+
+## Spotting the Headline
+
+- The headline is **split** across two tables
+- *Measurement* headline: value predicts citations and profits
+- *Economics* headline: one firm's innovation, rivals' decline
+- If the first broke — paper is a non-starter
+- If the second broke — still a measurement contribution
+- Know which table carries which claim
+
+::: notes
+How do you spot the headline in a table you have never seen? For this paper the headline is split. The measurement headline is the validation table where the market-based value predicts forward citations and future profits — point to the value coefficient and read its sign and t-stat. The economics headline is the reallocation table where one firm's innovation predicts rivals' decline. If the first broke, the paper is a non-starter. If the second broke, the paper would still stand as a measurement contribution. Knowing which table carries which claim is most of reading K-P-S-S well.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The economics: step two looks for an **innovation sort spreading returns** (Week 5); step three for a firm's innovation predicting its **own growth** and its **rivals' decline** — creative destruction. Read these as **associations, not experiments**. The headline is split: a measurement table and an economics table. Next: what's clever.
+:::
+
+::: notes
+To summarize part seven: with the measure validated, you read the economics. Step two, the asset-pricing exhibits, ask whether an innovation-based sort spreads returns, connecting back to the Week-Five cross-section. Step three, the growth and reallocation exhibits, are the title's payoff: a firm's innovation predicting its own growth, and the creative-destruction signature of rivals losing ground and resources reallocating toward innovators. Read these most skeptically — they are associations, not experiments. And remember the headline is split across two tables: a measurement headline and an economics headline, each carrying a different claim. In part eight we name the three moves that make this paper genuinely clever.
+:::

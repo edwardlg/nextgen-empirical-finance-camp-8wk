@@ -1,0 +1,63 @@
+---
+date: "2026-06-22"
+---
+
+## From Folder to Paper: The Core Move
+
+**Learning objectives.** By the end you can:
+
+- Treat a paper as an **argument**, not a transcript
+- Recognize the fixed skeleton and each section's **load**
+- Apply "say the important thing **first**" at every scale
+- Write for the skeptical referee you already are
+
+::: notes
+Welcome to Week Eight, Chapter eight-point-three, Writing the Empirical Paper, part one of nine. By now you have almost everything a paper is made of: a pre-analysis plan, an identification memo, a specification curve, a threats table run to completion, a frozen point estimate, and a pile of checks that survived. What you have is a folder full of tables. What you do not yet have is a paper. This chapter is the last transformation — turning that folder into eight or twelve pages that a busy, skeptical referee reads in one sitting and comes away believing. This part states the chapter's central reveal and the fixed shape of the paper.
+:::
+
+## The Reveal This Chapter Turns On
+
+- A paper is **not a transcript** of what you did
+- It is an **argument** for why a reader should believe
+- Transcript: chronological, exhaustive, "first I, then I"
+- Argument: **logical** and **ruthlessly selective**
+- Beginners write transcripts; nobody finishes them
+
+::: notes
+Here is the reveal, stated before the details so you carry it through everything that follows. A paper is not a transcript of what you did; it is an argument for why a reader should believe what you found. Those are different objects. The transcript is chronological and exhaustive — first I downloaded the data, then I cleaned it, then I tried three specifications, two of which broke. The argument is logical and ruthlessly selective — here is the question, here is why my design answers it, here is the answer, here is why you cannot easily dismiss it. Beginning writers produce transcripts and wonder why nobody finishes them. The move from transcript to argument is the single most valuable skill this chapter teaches, and almost every rule that follows is a special case of it.
+:::
+
+## You Already Know How to Attack This Object
+
+- Week 5 taught you to read as a referee
+- Tables first, identifying assumption second, prose last
+- Writing = building the object you learned to **attack**
+- Each section answers a Reader's-Guide question
+- You write for the reader you already are
+
+::: notes
+There is a second reveal layered under the first, and it is why Week Five came before Week Eight. You already know how to read a paper as a referee — tables first, identifying assumption second, prose last and skeptically. Writing the paper is just building the object you learned to attack, so that it survives your own Week-Five reading. Every section maps onto a question your Reader's-Guide anatomy taught you to ask. The introduction answers, what is the question and why should I care? The design section answers, what is the identifying assumption, and would it hold? The results section answers, what is the headline number? You are not learning a new format. You are learning to write for the reader you already are.
+:::
+
+## The Fixed Skeleton
+
+- Order: intro, literature, data, design, results, robustness, conclusion
+- The fixedness is a **gift**, not a constraint
+- Learn the **loads** each section carries, not the labels
+- Introduction is most-read, most-rewritten — weight it
+- Say the important thing **first**, at every scale
+
+::: notes
+Empirical-finance papers have a fixed skeleton, and the fixedness is a gift. A referee opening your manuscript knows exactly where to look. The standard order is introduction, literature, data, empirical design, results, robustness, conclusion. Top journals vary the labels — some call the design section empirical strategy — but the load each section carries is invariant. Learn the loads, not the labels. The proportions matter as much as the order. A common rookie error is a one-paragraph introduction and a six-page data section. Invert that instinct: the introduction is the most-read and most-rewritten part, and many referees decide acceptance from it alone. One structural principle unifies the whole document: say the important thing first, at every scale. The paper leads with its contribution, the introduction leads with the hook, the results section leads with the headline table, each paragraph leads with its topic sentence. In a paper, suspense is a bug.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A paper is an **argument**, not a transcript — logical and ruthlessly selective. It has a fixed skeleton whose *loads* you learn, and one rule spans every scale: **say the important thing first**. Next: the introduction that promises.
+:::
+
+::: notes
+To summarize part one: a paper is not a transcript but an argument for why a reader should believe what you found, and the move from transcript to argument is the skill this whole chapter teaches. You already know how to attack this object from your Week-Five reading; writing it is just building something that survives that attack. The paper has a fixed skeleton, and you learn the loads, not the labels. One rule spans every scale: say the important thing first. In part two, we open the engine of the whole paper — the introduction that promises.
+:::

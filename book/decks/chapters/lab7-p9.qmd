@@ -1,0 +1,70 @@
+---
+date: "2026-06-22"
+---
+
+## Filing the Pre-Analysis Plan as a Tagged Commit
+
+- Part 9 — file, tag, and the cryptographic time-stamp
+
+::: notes
+Welcome back to Lab Seven, your data reproducibly, part nine of ten. In part eight we verified the gitignore. Now the step that turns your repo into an instrument of scientific honesty: filing your pre-analysis plan as a tagged commit. We file it, tag it, see why the time-stamp is cryptographic, and fix the order.
+:::
+
+## File the PAP as Its Own Commit
+
+- A plan only constrains you if it is **fixed before** you analyze
+- The proof is a credible time-stamp — your Git history is the registry
+- First, the plan must exist as a committed file
+- `git add PRE-ANALYSIS-PLAN.md`, commit it **clean**, nothing else mixed in
+- This commit is unambiguously "the moment the plan was filed"
+
+::: notes
+Now the step that ties this lab to Chapter seven-point-three. Recall the argument: a pre-analysis plan only constrains you if its contents are fixed before you analyze your outcomes, and the only way to prove that to a skeptic is a credible time-stamp. The mechanism — your Git history is your registry, and you file the plan as a tagged commit. First, the plan must exist as a committed file. You wrote it earlier and saved it as the pre-analysis-plan markdown file. Commit it as its own clean commit, with nothing else mixed in, so it is unambiguously "the moment the plan was filed." Stage just that one file and commit it with a message naming it pre-registration. You want a single point in the history a referee can put a finger on.
+:::
+
+## Tag It — The Registration Time-Stamp
+
+- A **tag** is a permanent, human-named pointer to a commit
+- An **annotated** tag stores its own message, author, and **date**
+- `git tag -a pap-filed -m "..."` then `git push origin pap-filed`
+- Push the tag so the instructor can see it
+- `git show pap-filed` reads back the commit, its date, and the diff
+
+::: notes
+Now tag that commit. A Git tag is a permanent, human-named pointer to a specific commit; an annotated tag — the dash-a form — additionally stores its own message, author, and, the part that matters, a date. This is your registration time-stamp. Create the annotated tag named pap-filed with a message, then push it to origin so the instructor can see it. Confirm it landed: git show pap-filed displays the tagged commit, its date, and the plan diff. Pushing the tag makes it visible on the dashboard, so the timestamp is not just local — it is on GitHub's servers where anyone with access can check it.
+:::
+
+## Why It Is a Cryptographic Promise
+
+- Git names every commit by a hash of its contents **and its parent's hash**
+- Each commit's identity depends on the entire history before it
+- A later commit cannot be slipped in **before** `pap-filed`
+- That would rewrite every later hash — visibly; others hold the original
+- **Anyone can verify the plan existed, in this form, before your results**
+
+::: notes
+Why this is a cryptographic promise and not just a sticky note. Git names every commit by a hash of its full contents and the hash of its parent — so each commit's identity depends on the entire history before it. A commit made after your confirmatory regression cannot be inserted before the pap-filed commit without changing every subsequent hash, which would visibly rewrite the whole pushed history — and the instructor and GitHub's servers already hold the original. In plain terms: anyone can verify the plan existed, in exactly this form, before the commits that contain your results. That is the point of "register by time-stamping." The tag is the seal; the hash chain is what makes the seal unbreakable.
+:::
+
+## The Order of Operations
+
+- The plan is tagged **first**
+- Only **after** `pap-filed` do you run confirmatory regressions
+- Never silently edit the tagged plan — you cannot, honestly
+- Record every departure, dated, in `DEVIATIONS.md`
+- Commit deviations **after** the tag — history tells the honest story
+
+::: notes
+The discipline that follows is the order of operations. The plan is tagged first. Only after pap-filed do you run the confirmatory regressions — the first-look notebook is frozen until this moment. When you deviate — a control drops for collinearity, a crisis year needs handling — you do not silently edit the tagged plan; you cannot, because the tag points at the old version. Instead you record every departure, dated, in a deviations file, committed after pap-filed. The commit history now tells the honest story by construction: here is the plan, immutable, and here, in commits that come after, is everything that changed and why. A referee trusts you more, because the seams are visible. The tag is the difference between a number that tested a hypothesis and one selected to look like it did.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+File the plan as its **own clean commit**, then `git tag -a pap-filed` and push. Git chains every commit's hash to its parent's, so the tag is a **cryptographic promise**: the plan provably existed *before* your confirmatory results. The order is fixed — **tag first, regress after, log deviations later** in `DEVIATIONS.md`. Next: the audit checklist and where this leads.
+:::
+
+::: notes
+To summarize part nine: you filed your plan as its own clean commit, tagged it pap-filed with an annotated tag carrying a date, and pushed it. Because Git chains every commit's hash to its parent's, that tag is a cryptographic promise — anyone can verify the plan existed, in this exact form, before any confirmatory result. The order is fixed: tag first, regress after, log deviations after. In part ten we run the checklist and see how this repository becomes the spine of the rest of the camp.
+:::

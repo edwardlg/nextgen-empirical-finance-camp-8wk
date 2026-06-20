@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## Randomization Zeroes the Bias
+
+- Part 9 — how a coin makes selection bias vanish
+
+::: notes
+Welcome back to potential outcomes, part nine of eleven. In part eight we saw the three ways finance breaks SUTVA, and warned that randomization cannot fix it. Now, with SUTVA assumed to hold, we reach the payoff: hand the treatment decision to a coin and watch the selection-bias term vanish by design. The naive difference in means, the simplest estimator there is, becomes the causal effect itself.
+:::
+
+## Hand the Decision to a Coin
+
+- Don't let people choose — **randomly assign** the program
+- Flip a fair coin per applicant; heads enroll, tails control
+- This makes $\big(Y_i(0), Y_i(1)\big) \perp\!\!\!\perp D_i$
+- The symbol $\perp\!\!\!\perp$ means "is independent of"
+- Which group you land in carries *no* information about your outcomes
+
+::: notes
+Now the payoff. We have a villain with a name — the selection-bias term — and we want it to be zero. The cleanest way is to take the decision of who gets treated out of human hands and hand it to a coin. Suppose that instead of letting people choose, the credit union randomly assigns the program: flip a fair coin — or, realistically, a computer's random-number generator — for each applicant, enroll the heads, leave the tails as controls. The applicant has no say. What does this buy us? It makes the treatment indicator statistically independent of the potential outcomes. We write the pair Y-of-zero and Y-of-one, with the double-perpendicular symbol, independent of D-sub-i. That symbol means is independent of. The claim is that which group you land in carries no information about what your outcomes would be, because the coin does not know or care who you are. The organized, credit-savvy, already-approvable applicants are split evenly across treatment and control by chance; so are the disorganized ones. The two groups become, in expectation, the same kind of people — identical in their distribution of potential outcomes, differing only in the coin flip.
+:::
+
+## The Bias Vanishes; Δ Becomes the ATE
+
+- Independence: $\mathbb{E}[Y_i(0)\mid D_i{=}1]=\mathbb{E}[Y_i(0)\mid D_i{=}0]$
+- So selection bias $= 0$ — gone, by construction
+- It also collapses ATT into ATE — treated are a random slice
+- Feed it back: $\Delta = \text{ATT} + 0 = \text{ATE}$
+- The simplest estimator now equals the causal effect
+
+::: notes
+Watch what independence does to the bias term. Independence means conditioning on D-sub-i does not change the expectation of a potential outcome, so the expected Y-of-zero among the treated equals the expected Y-of-zero among the untreated — both equal the expected Y-of-zero overall. The untreated potential outcome has the same average in both groups, because the groups are interchangeable by construction. So the selection bias, the expected Y-of-zero among the treated minus the expected Y-of-zero among the untreated, is zero. It is gone. The same logic equates the treated potential outcome across groups, which collapses the distinction between ATT and ATE — when the treated are a random slice, the effect on the treated equals the effect on everyone. Feed the zero back into the master decomposition: Delta equals ATT plus zero, which equals the ATE. The naive difference in means — the simplest possible estimator, two averages subtracted — now equals the causal effect, full stop. In Maya's numbers, had the program been randomized, the enrollees' counterfactual would have equaled the controls' observed zero-point-four-one, not the inflated zero-point-five-five her self-selected enrollees brought. The difference in means would read off the true effect directly.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**Randomization** makes $\big(Y_i(0),Y_i(1)\big)\perp\!\!\!\perp D_i$: the two groups have the *same* distribution of potential outcomes, so selection bias is zero *by construction* and $\Delta = \text{ATE}$. The simplest estimator — two averages subtracted — now reads off the causal effect. Next: why this is the gold standard, and the bridge to "controlling for X."
+:::
+
+::: notes
+To summarize part nine: randomization makes the potential outcomes independent of the treatment indicator. The two groups become the same kind of people, with the same distribution of potential outcomes, so the selection-bias term is zero by construction. Feed that zero into the master decomposition and the naive difference in means equals the ATE — the simplest possible estimator now reads off the causal effect directly, with no contamination to subtract. In part ten we say why this makes a randomized trial the gold standard, note its two honest caveats, and bridge to what you do when you cannot randomize: controlling for X.
+:::

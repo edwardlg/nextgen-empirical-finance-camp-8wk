@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## 2SLS by Hand: One Draw Swings Wildly
+
+- Part 3 — hand-roll 2SLS; one draw is useless
+
+::: notes
+Welcome back to the weak-instrument lab, part three of six. In part two we built the rigged data-generating process and confirmed ordinary least squares is biased upward, landing near plus zero-point-four against a truth of zero. Now we instrument by hand — build just-identified two-stage least squares from the projection formula, cross-check it against linearmodels, and learn why a single draw tells you almost nothing.
+:::
+
+## The Projection Estimator
+
+- $\hat{\boldsymbol\beta}_{\text{2SLS}} = (\mathbf{X}'\mathbf{P}_Z\mathbf{X})^{-1}\mathbf{X}'\mathbf{P}_Z\,\mathbf{y}$
+- $\mathbf{P}_Z = \mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'$, with $\mathbf{X}=[\mathbf 1, x]$, $\mathbf{Z}=[\mathbf 1, z]$
+- Write it by hand so nothing is hidden
+- Structural residual uses real $x$, **not** fitted $\hat x$
+- Match `linearmodels.IV2SLS` to machine precision
+
+::: notes
+Now instrument. With one instrument, one endogenous regressor, and a constant, just-identified two-stage least squares is the projection estimator: beta-hat equals the inverse of X-prime P-Z X, times X-prime P-Z y, where P-Z is the projection matrix Z times the inverse of Z-prime Z times Z-prime. Here X is a constant stacked with x, and Z is a constant stacked with z. You write this by hand so nothing is hidden. One subtlety students get wrong constantly: the structural residual uses the real x, not the fitted x-hat. That is why you hand-roll it once. You confirm your code is right by matching linearmodels' I.V.-two-S.L.S. to machine precision.
+:::
+
+## The SE That Is About to Lie
+
+- Also compute conventional SE: $\hat\sigma^2(\mathbf{X}'\mathbf{P}_Z\mathbf{X})^{-1}$
+- This is the textbook formula — and it will lie to you
+- First-stage $F$: simply $t^2$ from regressing $x$ on $z$
+- Never trust your hand-rolled SE for *reporting*
+- Hand-roll once to see inside; report from the library
+
+::: notes
+Crucially, you also compute the conventional standard error: sigma-hat squared times the inverse of X-prime P-Z X. That is the textbook formula the software reports, and it is the one about to lie to you. While you are here, grab the first-stage F: with one instrument it is simply t-squared from regressing x on z. The discipline from Chapter three-point-four: never trust your hand-rolled standard error for reporting. You hand-roll it once to see inside the machine, confirm it matches the library to floating-point dust, and then report from the library. The point of building it yourself is understanding, not production.
+:::
+
+## What One Draw Shows
+
+- Hand-rolled matches `linearmodels` to about $10^{-16}$
+- On this seed: 2SLS $\approx +0.42$, *above* OLS — first-stage $F\approx 1.5$
+- Reported SE $\approx 0.18$ looks reassuringly tight — that is the lie
+- A weak instrument's estimate is a fat-tailed ratio
+- **Draw no conclusion** from one number — you must average
+
+::: notes
+Three things happen. First, your hand-rolled coefficient matches linearmodels to about ten-to-the-minus-sixteen — floating-point dust — so the machine is correct. Second, on this seed the single-draw two-stage-least-squares estimate lands around plus zero-point-four-two with a first-stage F near one-point-five — above the O.L.S. number, not below it. That is your first taste of how violently a single weak-instrument draw can swing, because a weak instrument's estimate is a fat-tailed ratio, and one draw can land almost anywhere. Third, the reported standard error of about zero-point-one-eight looks reassuringly tight — and that tightness is exactly the lie Chapter three-point-five warned about. Draw no conclusion from this one number. Here is the puzzle to hold: Chapter three-point-five says weak two-stage least squares is biased toward O.L.S., yet this single draw came out above O.L.S. There is no contradiction, because the chapter's claim is about a property of the sampling distribution — the typical estimate over many draws — not about where any single point lands. The whole point of the next steps is that you cannot read the pathology off a single draw. You have to average, thousands of times.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Hand-rolled 2SLS matches `linearmodels` to $\approx 10^{-16}$, so the machine is right — but one draw is useless: here it lands $+0.42$, *above* OLS, with a tight-looking SE that is the very lie to expose. A weak-IV estimate is a fat-tailed ratio. The pathology lives in the **sampling distribution**, not one point. Next: the Monte Carlo that exposes it.
+:::
+
+::: notes
+To summarize part three: you built just-identified two-stage least squares by hand from the projection formula, matched it to linearmodels at machine precision, and computed both the estimate and the conventional standard error. On a single draw the estimate swung to plus zero-point-four-two — above ordinary least squares — with a tight-looking standard error that is precisely the lie to expose. A weak-instrument estimate is a fat-tailed ratio, so no conclusion belongs to any single draw. The pathology is a property of the sampling distribution. In part four — the heart of the lab — we run the Monte Carlo, build the Anderson–Rubin interval, and measure how badly the conventional interval under-covers.
+:::

@@ -1,0 +1,61 @@
+---
+date: "2026-06-22"
+---
+
+## The Thread Through All Four
+
+- Part 9 — the thread through all four tools
+
+::: notes
+Welcome back to Chapter four-point-six, part nine of nine — the finale. Across the last eight parts we built four robustness tools: multiple-testing corrections, heterogeneous-treatment-effect estimation, mechanism analysis without bad controls, and external validity. Now we step back and see that the four tools are one discipline wearing four costumes, and we close out Week Four.
+:::
+
+## One Discipline, Four Costumes
+
+- **Multiple testing:** how many bets did you place?
+- **Heterogeneity:** for whom did the bet pay off?
+- **Mechanism:** through what channel — avoid the collider
+- **External validity:** where does the bet still pay?
+- Pre-registration, sequential ignorability, the transport diagram — each a guard
+- A referee asking all four reads it the way you should have
+
+::: notes
+Step back, and the four tools are one discipline wearing four costumes. Multiple testing keeps you honest about how many bets you placed. Heterogeneity asks for whom the bet paid off, with pre-registration as the guard against fishing. Mechanism asks through what channel, with the bad-controls collider as the trap to avoid and sequential ignorability as the assumption to name. External validity asks where the bet still pays, with the transportability diagram naming exactly which features must carry over. Each tool names its own guard. And a referee who asks all four questions is not being hostile; they are reading your paper the way you should have read it first.
+:::
+
+## The Week 4 Reflex
+
+- **Name the threat** that could undo the result
+- **Name the assumption** that addresses it
+- Separate what the data can **test** from what you must **argue**
+- Bring the **diagnostic** that shows where the result is fragile
+- The same reflex, now drilled five chapters deep
+- For the write-up: Appendix D, the Style Guide
+
+::: notes
+Every one of the four tools follows the same Week Four reflex you have now drilled five chapters deep. Name the threat that could undo the result. Name the assumption that addresses it. Separate what the data can test from what you must argue. And bring the diagnostic that shows where the result is fragile. That reflex is the through-line of the entire week, from difference-in-differences and event studies, through regression discontinuity, synthetic control, and shift-share, and now through robustness. When you write all of this up, Appendix D, the Style Guide, shows you how to table adjusted p-values, report a heterogeneity figure, frame a sequential-g sensitivity analysis, and write the external-validity paragraph.
+:::
+
+## Your Turn: Maya's Robustness Suite
+
+- **Count the family:** Holm, BH, and a hand-rolled Romano–Wolf
+- **Estimate heterogeneity three ways:** subgroup, interaction, causal forest
+- **Break a mediation regression** on purpose — then recover the CDE
+- **Transport the estimate** to not-yet-adopted states; check positivity
+- Watch how many findings survive **after adjustment**
+- Write the four-sentence external-validity paragraph
+
+::: notes
+Your turn. In a fresh notebook, reusing the staggered difference-in-differences panel you built for Week Four, work Maya's robustness suite end to end. First, count the family: assemble every test in a mock results section, then apply Holm, Benjamini-Hochberg, and a hand-rolled Romano-Wolf step-down, and watch how many significant findings survive after adjustment. Second, estimate heterogeneity three ways: pre-specified subgroup regressions, a continuous-moderator interaction, and an honest causal forest, reading the CATE histogram and the best-linear-predictor test. Third, break a mediation regression on purpose: run the bad-controls simulation, confirm the Baron-Kenny direct effect is biased, then recover the controlled direct effect with sequential-g. And fourth, transport the estimate: re-weight Maya's source effect to the not-yet-adopted states, inspect the transport weights for a positivity violation, truncate to common support, and write the four-sentence external-validity paragraph.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The four robustness tools are **one discipline**: name the threat, name the assumption, separate what the data can test from what you must argue, and bring the diagnostic that shows where the result is fragile. Master this reflex and you read your own paper the way a referee will.
+:::
+
+::: notes
+To close Chapter four-point-six and Week Four: the four robustness tools — multiple testing, heterogeneity, mechanism, and external validity — are one discipline wearing four costumes. For every check, name the threat, name the assumption that addresses it, separate what the data can test from what you must argue, and bring the diagnostic that shows where the result is fragile. Master that reflex and you will read your own paper the way a referee will — which is exactly how you should have read it first. That is the capstone of Week Four. Well done, and I will see you in Week Five.
+:::

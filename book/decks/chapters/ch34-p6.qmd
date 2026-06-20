@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+---
+
+## LATE: Whose Effect Did You Estimate?
+
+- Part 6 — IV estimates the effect among compliers only
+
+::: notes
+Welcome back to instrumental variables, part six of ten. In part five we built two-stage least squares as Frisch–Waugh–Lovell with an instrument. Now we arrive at the deepest idea in the chapter — the one separating people who use IV from people who understand it. Go back to the Wald estimate of three hundred dollars. It is tempting to call it the effect of the course. It is not. Imbens and Angrist, in nineteen ninety-four, proved whose effect it is: the local average treatment effect.
+:::
+
+## Four Types of People
+
+| Type | $D_i(0)$ | $D_i(1)$ | Behavior |
+|---|:---:|:---:|---|
+| Never-taker | $0$ | $0$ | Never enrolls |
+| Always-taker | $1$ | $1$ | Always enrolls |
+| Complier | $0$ | $1$ | Enrolls iff mailed |
+| Defier | $1$ | $0$ | Enrolls only if *not* mailed |
+
+::: notes
+The key move is to think about how each person's treatment status would respond to the instrument, using potential-outcomes notation — but now applied to the treatment itself. Define D-i-of-one as the treatment person i would take if mailed, and D-i-of-zero as the treatment they would take if not mailed. Just as we never see both potential outcomes, we never see both potential treatment statuses. Everyone falls into one of four types. Never-takers never enroll. Always-takers always enroll. Compliers take the course if and only if mailed — the instrument moves them. Defiers perversely take it only if not mailed. Attach Maya's people: the always-takers are the highly motivated who would hunt the course down anyway — the very people whose self-selection ruined OLS. The compliers are the swing group the mailer tips in. The defiers are contrarians we will assume away in a moment.
+:::
+
+## Only Compliers Are Visible
+
+- Always-takers: $D=1$ regardless — mailer changes nothing
+- Never-takers: $D=0$ regardless — mailer changes nothing
+- Both contribute **zero** to the first stage
+- Only **compliers** respond to the instrument
+- So the outcome response carries only compliers' effects
+
+::: notes
+Now watch what the instrument can and cannot learn. For an always-taker, D is one whether or not they are mailed, so the mailer changes nothing — they contribute zero to the first stage, and the instrument is blind to their treatment effect. Same for never-takers: D is always zero, the mailer moves nothing, invisible. The only people whose treatment status responds to the instrument are the compliers, and possibly defiers. So when the Wald ratio reads the outcome response off the instrument's wiggle, the only treatment effects in that response belong to compliers. IV literally cannot see the effect for always-takers and never-takers, because the instrument never changed their treatment.
+:::
+
+## Monotonicity and the LATE Theorem
+
+- Defiers could cancel or reverse the estimate
+- **Monotonicity**: $D_i(1) \geq D_i(0)$ for all $i$ — *no defiers*
+- Then IV estimand $\xrightarrow{p} \mathbb{E}[Y_i(1)-Y_i(0) \mid \text{complier}]$
+- Maya's \$300 is the effect **on fence-sitters**
+- Not the ATE, not the ATT — a different number
+
+::: notes
+There is one loose end: defiers. If some people are pushed into treatment while others are pushed out, their effects enter the numerator with opposite signs and can cancel or reverse the estimate. To rule this out, Imbens and Angrist impose monotonicity: the instrument moves everyone in the same direction or not at all. Formally, D-i-of-one is greater than or equal to D-i-of-zero for everyone — the mailer can only increase, or leave unchanged, the chance of taking the course. Monotonicity says: no defiers. Like exclusion, it is an assumption about behavior, not a fact you can fully check. With relevance, exclusion, and monotonicity in hand, the theorem delivers the punchline: the IV estimand converges to the average treatment effect among compliers — the LATE. Maya's three hundred dollars is therefore the effect of the course on the person who takes it because they were mailed: the fence-sitters. It is not the effect on the always-takers, nor the never-takers. The ATE — the average over everyone — and the ATT — the average over the treated — are generally different numbers.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Under a valid instrument and **monotonicity** (no defiers), IV estimates the **LATE** — the average effect among **compliers**, the units the instrument moved. Two valid instruments can give two different, both-correct LATEs. Always ask: *who are the compliers, and do I care about them?*
+:::
+
+::: notes
+To summarize part six: IV does not estimate the effect on everyone. Under relevance, exclusion, and monotonicity — no defiers — the Imbens–Angrist theorem proves it estimates the local average treatment effect, the average among compliers. This is why "LATE, not ATE" is a mantra: two valid instruments can yield two different LATEs because they move different compliers. A small reassurance — the first-stage difference is exactly the share of compliers, here thirty percent. When you read an IV result, the honest question is never just "is the instrument valid?" but also "who are the compliers, and do I care about them?" In part seven we install a reading habit: the three regressions every honest IV table reports.
+:::

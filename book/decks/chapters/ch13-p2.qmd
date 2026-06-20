@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Rival Recipes and the Bias Question
+
+- Part 2 — rival estimators, and what bias measures
+
+::: notes
+Welcome back to Chapter one-point-three, part two of eleven. In part one we split the estimator, the random rule, from the estimate, the single number it returns. Now we widen the lens: the sample mean is only one of many possible recipes. We meet its rivals, name the three words we judge recipes by, and define the first of those — bias.
+:::
+
+## Many Recipes, One Target
+
+- $\hat{\mu}$ = "an estimator of $\mu$"; here $\hat{\mu}=\bar{x}$
+- Other recipes: median, midrange, trimmed mean
+- Even "always report $\$7{,}500$" is legal — just bad
+- Each is a different random variable
+- We judge recipes with: **bias**, **variance**, **MSE**
+
+::: notes
+A notation convention we hold for the rest of the book: when we name an estimator as a rule, we write mu hat — an estimator of mu. The sample mean is one specific estimator of the population mean, so mu hat equals x bar here. But it is not the only estimator of mu. Priya could instead use the median of the two hundred claims; or the midrange, the average of just the smallest and largest claim; or the constant seven thousand five hundred no matter what the data say — yes, that is a legal estimator, a stupid one, but legal; or a trimmed mean that throws out the top and bottom five percent before averaging. Each of these is a different recipe, a different random variable, with a different distribution. The job of this chapter, and really of the whole field of econometrics, is to develop language for saying which recipes are good and why. That language has exactly three words: bias, variance, and, combining them, mean squared error.
+:::
+
+## What Bias Asks
+
+- Imagine running the recipe on *every* possible sample
+- Each sample gives an estimate; they form a distribution
+- **Bias** asks: where is that distribution centered?
+- Unbiased: $\mathbb{E}[\hat{\mu}]=\mu$
+- $\operatorname{Bias}(\hat{\mu})=\mathbb{E}[\hat{\mu}]-\mu$
+
+::: notes
+Take the first word, bias. Run Priya's recipe not once but, in your imagination, infinitely many times — every possible two-hundred-claim sample the universe could have handed her, each weighted by how likely it is. Each sample produces an estimate. Those estimates form a distribution. The question of bias is simply: where is that distribution centered? We say an estimator mu hat is unbiased for mu if the expectation of mu hat equals mu — on average across all possible samples, it lands exactly on the truth. Its bias is the expectation of mu hat minus mu. Now be careful: bias is not the error in your particular sample. Priya's eight thousand four hundred ten might be off from the true mu by hundreds of dollars — that is sampling error, and every estimate has it. Bias is about the center of the recipe: if you averaged the errors over all conceivable samples, do they cancel to zero, or is the recipe systematically aiming high or low?
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The sample mean is just one recipe among many — median, midrange, trimmed mean, even a constant. We judge them with **bias**, **variance**, and **MSE**. **Bias** asks where a recipe is centered across all possible samples: unbiased means $\mathbb{E}[\hat{\mu}]=\mu$. Next: we prove the sample mean is unbiased — and meet one that isn't.
+:::
+
+::: notes
+To summarize part two: the sample mean is only one estimator among many — the median, the midrange, the trimmed mean, even the stubborn constant. We score every recipe with three words: bias, variance, and mean squared error. Bias, the first, asks where the recipe is centered across all possible samples; unbiased means the expectation of the estimator equals the true mean, and it is not the same thing as the error in any one sample. In part three we put the sample mean to the test, prove it is unbiased for any sample size, and then meet a recipe that quietly aims low.
+:::

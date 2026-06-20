@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+---
+
+## Maya's Two-Asset Budget
+
+- Part 5 — three scenarios, and diversification appears
+
+::: notes
+Welcome back to Chapter one-point-two, Expectations, Variance, and Covariance as Geometry, part five of nine. In part four we built the variance of a sum, and the headline was the cross-term. Now we cash it in. Maya has one dollar to split between two assets. Asset one is high-octane: more expected return, but double the volatility. Everything interesting lives in how the two move together — their covariance. We set up her portfolio variance, then run three scenarios at an even split and watch diversification appear.
+:::
+
+## The Setup
+
+- Maya allocates \$1; weight $w$ in asset 1, $1-w$ in asset 2
+
+| Quantity | Asset 1 | Asset 2 |
+|---|---|---|
+| Expected return $\mathbb{E}[R]$ | $0.08$ | $0.04$ |
+| Volatility $\operatorname{sd}(R)$ | $0.20$ | $0.10$ |
+| Variance $\operatorname{Var}(R)$ | $0.04$ | $0.01$ |
+
+- $\operatorname{Var}(R_p) = w^2(0.04) + (1-w)^2(0.01) + 2w(1-w)\sigma_{12}$
+- At $w = 0.5$: $w^2 = 0.25$, $2w(1-w) = 0.5$
+
+::: notes
+Here is the setup. Maya has one dollar to allocate; work in fractions, since dollars scale trivially. Asset one has an expected return of zero point zero eight, a volatility of zero point two zero, and therefore a variance of zero point zero four. Asset two has an expected return of zero point zero four, a volatility of zero point one zero, and a variance of zero point zero one. Asset one is the high-octane choice: more expected return, but double the volatility. The piece we have not pinned down is how the two move together — let their covariance be sigma one two. Maya holds weight w in asset one and one minus w in asset two, so by the weighted variance formula, the portfolio variance is w squared times zero point zero four, plus one minus w squared times zero point zero one, plus two w times one minus w times sigma one two. Everything interesting is in that covariance, so we run three scenarios at the even split, w equals one half, where w squared is zero point two five and two w times one minus w is zero point five.
+:::
+
+## Three Scenarios at the Even Split
+
+- **A — move together** ($\sigma_{12}=0.02$): $\operatorname{Var}=0.0225$, $\operatorname{sd}=0.15$
+- Sits on the line $0.5(0.20)+0.5(0.10)$ — **no benefit**
+- **B — uncorrelated** ($\sigma_{12}=0$): $\operatorname{Var}=0.0125$, $\operatorname{sd}\approx 0.112$
+- **C — move oppositely** ($\sigma_{12}=-0.01$): $\operatorname{Var}=0.0075$, $\operatorname{sd}\approx 0.087$
+- Expected return stays $0.06$ throughout
+
+::: notes
+Scenario A: the assets move together perfectly, sigma one two equals zero point zero two, the largest it can be. The variance is zero point two five times zero point zero four, plus zero point two five times zero point zero one, plus zero point five times zero point zero two — that is zero point zero two two five, so volatility is the square root, zero point one five. The blend sits exactly on the line between the two volatilities: one half of zero point two zero plus one half of zero point one zero is zero point one five. No diversification benefit at all. Scenario B: the assets are uncorrelated, the cross-term dies, and the variance is zero point zero one two five, with volatility about zero point one one two — below the average of the two volatilities. The expected return is unchanged at zero point zero six. Maya got lower risk for free. Scenario C: the assets move oppositely, sigma one two equals minus zero point zero one. Now the cross-term subtracts, the variance is zero point zero zero seven five, and volatility falls to about zero point zero eight seven — lower than asset two alone, the safer of the two. By blending in some of the riskier asset, Maya built a portfolio less volatile than either ingredient. That is the punchline of diversification.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+With the covariance positive, mixing just averages the risk. Zero covariance gives **free** risk reduction; negative covariance pushes volatility *below the safer asset alone*. Expected return stays $0.06$ throughout — only the covariance moved. Next: the minimum-risk blend, and the parabola behind it.
+:::
+
+::: notes
+To summarize part five: Maya's portfolio variance is the weighted variance formula, and everything interesting lives in the covariance term. Across three scenarios at the even split, we saw the full range. When the assets move in lockstep, mixing just averages the risk — no benefit. When they are uncorrelated, the cross-term vanishes and volatility drops to about zero point one one two for free. When they move oppositely, the cross-term subtracts and volatility falls to about zero point zero eight seven, below even the safer asset. And through all three, the expected return stayed at zero point zero six — only the covariance changed. In part six, we stop settling for the even split and find the weight that minimizes risk, meeting the parabola that seeds modern portfolio theory.
+:::

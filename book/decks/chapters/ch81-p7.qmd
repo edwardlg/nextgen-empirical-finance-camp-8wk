@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## When the Curve Lies: Enumeration and Equal Votes
+
+- Part 7 — Two ways the curve lies: enumeration and equal votes
+
+::: notes
+Welcome back to Execution and the Specification Curve, part seven of ten. In part six we read Sam's fragile curve and built the four-point rule. Now reveal-the-trick demands its third move: every technique has an assumption that breaks, and a picture this persuasive is dangerous precisely because it is persuasive. A specification curve can mislead in four distinct ways, and an honest analyst flags which ones apply. This part covers the first two; the next part covers the rest.
+:::
+
+## It Only Holds the Forks You Enumerated
+
+- Exhaustive over choices you *listed*; silent on the rest
+- If all 144 fix the outcome, that fork is never tested
+- The curve can look robust while resting on one unexamined fork
+- Robustness is *conditional* on the completeness of enumeration
+- Defense: enumerate broadly; state what you held fixed and why
+
+::: notes
+First, and deepest: the curve only contains the forks you chose to enumerate. It is exhaustive over the choices you listed and silent about every choice you did not think to vary. If Maya's entire multiverse quietly holds the outcome definition fixed — if all one hundred forty-four specifications assume the denial gap is the right outcome and never test the within-applicant denial indicator — then her curve can look gloriously robust while resting on one unexamined fork. The curve's robustness is conditional on the completeness of the enumeration, and completeness is a judgment call, not a guarantee. The defense is to enumerate the forks honestly and broadly, and to state in the paper which dimensions you held fixed and why — the same spec-discipline you already know, now applied to the meta-decision of what to vary.
+:::
+
+## Not All Specs Are Equally Defensible
+
+- A naive reading treats all 144 as equal votes
+- But clustering at the treatment level beats clustering by county
+- A doubly-robust DiD beats one without composition controls
+- Padding with weak specs drags the median — p-hacking with steps
+- Include only specs you would defend out loud
+
+::: notes
+Second: not all specifications are equally defensible, and the curve pretends they are. A naive reading treats all one hundred forty-four points as equal votes, so that "the median is negative" sounds like a democratic verdict. But some specifications are better than others. Clustering at the level treatment varies — the state — is more defensible than clustering by county. A doubly-robust difference-in-differences with composition controls is better-identified than one without. If you pad the multiverse with weak-but-arguable specifications, you can drag the median wherever you like, which is p-hacking with extra steps and a fancier chart. Simonsohn, Simmons, and Nelson are explicit that the choices must be theoretically justified and statistically valid — not merely things you could type into the regression. The honest move is to include only specifications you would defend out loud, and where they genuinely differ in quality, to say so rather than hide behind the median.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A spec curve can lie. First, it only holds the forks you **enumerated** — robustness is conditional on a complete, honest enumeration. Second, it pretends all specs are **equal votes**, when some are better-identified than others, so padding with weak specs is p-hacking with extra steps. Next: two more ways the curve lies.
+:::
+
+::: notes
+To summarize part seven: a specification curve is extraordinarily good at one job — honesty about analytic-choice multiplicity — but it fails in four ways you must flag, and we have covered the first two. It only contains the forks you enumerated, so its robustness is conditional on the completeness of your enumeration, and completeness is a judgment call. And it pretends all specifications are equal votes, when in truth some are better-identified than others — so padding the multiverse with weak-but-arguable specifications is just p-hacking with extra steps. The discipline is to include only specifications you would defend out loud. In part eight, we cover the last two ways the curve can lie: the difference between choices and identification, and the way the curve can quietly become a fishing license.
+:::

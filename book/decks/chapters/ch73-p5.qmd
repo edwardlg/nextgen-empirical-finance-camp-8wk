@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Component Two: The Primary Specification
+
+- Part 5 — component two: the primary spec, all seven slots
+
+::: notes
+Welcome back to The Pre-Analysis Plan, part five of twelve. In part four we wrote directional, numbered hypotheses, with H-one as primary. Now the heart of the plan: the single regression that tests H-one, written in spec-discipline form so exactly one number is the test. This is where the book's empirical-spec discipline earns its keep.
+:::
+
+## Name the First Three Slots
+
+- The primary spec is the single regression that tests **H1**
+- **Outcome:** exact dependent variable, to a variable name
+- `denied` = 1 if HMDA `action_taken` ∈ {3, 7}, else 0
+- **Key regressor:** the one coefficient you read off — `minority`, $\beta_1$
+- **Controls:** named, each justified — and name what you *exclude*
+
+::: notes
+Your primary specification is the single regression that tests H-one — the one number that, if it broke, sinks the paper. Write it out naming every one of seven slots. The outcome is the exact dependent variable, defined to a variable name: not "denial," but the binary indicator `denied` equals one if the HMDA action-taken code is in the set three or seven, else zero. The treatment, or key regressor, is the one coefficient you read off the table to answer H-one — for Maya, the minority indicator, a single coefficient beta-one. The controls are the legitimate covariates you hold fixed, named — loan amount, income, loan-to-value. And the plan forces you to state why each control belongs and, crucially, to name any variable you deliberately do not control for because it sits on the causal pathway. Maya excludes loan-product type, because steering applicants into a worse product is itself a channel of discrimination, and conditioning on a channel would regress away the very effect she is hunting.
+:::
+
+## Name the Last Four Slots
+
+- **Fixed effects:** lender (within-lender) and census-tract (same neighborhood)
+- **Clustering:** chosen in advance and justified — by lender
+- **Sample:** exact rows — years, purposes, exclusions, expected $N$
+- **Identifying assumption:** one sentence that makes $\beta_1$ what you claim
+- "$\beta_1$ is a *bound*, not a clean causal effect"
+
+::: notes
+The remaining four slots. Fixed effects: which absorbing dummies — lender fixed effects, so the comparison is within a lender, and census-tract fixed effects, so it is between applicants in the same neighborhood. Clustering: the level of the standard errors, chosen in advance and justified. This is a notorious fork — clustering by lender versus county versus tract can change your t-stat materially, and choosing after seeing which gives significance is p-hacking on the standard error. Maya commits to clustering by lender. Sample: the exact universe of rows — first-lien, owner-occupied, one-to-four-family purchase applications, twenty-nineteen to twenty-twenty-one, conventional conforming, dropping withdrawn or incomplete. Every exclusion is a fork; nail them all now. Finally, the identifying assumption in one sentence: conditional on the named controls, lender fixed effects, and tract fixed effects, the minority indicator is uncorrelated with the unobserved creditworthiness the lender legitimately prices — an assumption known to be imperfect, which is why the headline claim is a bound, not a clean causal effect.
+:::
+
+## The Equation Pins It Down
+
+$$\texttt{denied}_{i} = \beta_0 + \beta_1\,\texttt{minority}_{i} + \mathbf{x}_i'\boldsymbol{\gamma} + \alpha_{\ell(i)} + \delta_{t(i)} + \varepsilon_i$$
+
+- $\mathbf{x}_i$ = named control vector; $\alpha_\ell$ = lender, $\delta_t$ = tract effects
+- Errors clustered by lender; $\beta_1$ is the *single* coefficient H1 tests
+- The equation is not ornament — it pins which number is tested
+
+::: notes
+The mathematical object underneath is the linear model you have built since Week Two. The outcome `denied` for applicant i equals beta-zero, plus beta-one times the minority indicator, plus the named control vector x-i times its coefficient vector gamma, plus a lender fixed effect alpha, plus a tract fixed effect delta, plus the error term. The control vector is x-i; alpha is the lender effect, delta the tract effect; errors are clustered by lender; and beta-one is the single coefficient H-one is about. Writing the equation is not optional ornament — it pins down, unambiguously, which number is the test. A referee, or future-Maya six months from now, can read this one line and know exactly what was promised.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Component two writes the **primary specification** naming all seven slots — outcome, key regressor, controls (including what you deliberately exclude), fixed effects, clustering, sample, and a one-sentence identifying assumption. Writing the equation pins down exactly which single number is the test. Next: governing the army of *other* tests.
+:::
+
+::: notes
+To summarize part five: component two is the primary specification in spec-discipline form, naming all seven slots — outcome to a variable name, key regressor, controls including the ones you deliberately exclude because they sit on the causal pathway, fixed effects, clustering chosen in advance, the exact sample, and the one-sentence identifying assumption that makes beta-one a bound rather than a clean causal effect. Writing the equation pins down which single number is the test. But Maya will compute far more than one number. In part six, we begin the multiple-testing plan — declaring one primary test, and meeting the false discovery rate.
+:::

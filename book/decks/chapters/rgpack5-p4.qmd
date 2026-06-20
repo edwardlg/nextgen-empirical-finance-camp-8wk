@@ -1,0 +1,78 @@
+---
+date: "2026-06-22"
+---
+
+## Reading a Finance Table: Columns, Cells, Stars
+
+- Part 4 — table conventions: columns, cells, and significance stars
+
+::: notes
+Welcome back to How to Read an Empirical Paper, part four of seven. In part three we learned to read the tables before the prose. Now we learn to read the tables themselves. Empirical-finance tables look forbidding the first time and identical to each other ever after, because they obey strict, unwritten conventions. We work from a mock table that asks whether a borrower's debt-to-income ratio predicts loan default, controlling for credit score, with loans grouped within lenders.
+:::
+
+## A Mock Table to Decode
+
+| | (1) | (2) | (3) |
+|---|---|---|---|
+| **Debt-to-income** | 0.042*** | 0.038*** | 0.021** |
+| | (0.011) | (0.010) | (0.009) |
+| **Credit score** | | −0.015*** | −0.012*** |
+| | | (0.004) | (0.004) |
+| **Constant** | 0.118*** | 0.640*** | |
+| Lender fixed effects | No | No | Yes |
+| Year fixed effects | No | No | Yes |
+| $R^2$ | 0.04 | 0.11 | 0.19 |
+| $N$ | 18,402 | 18,402 | 18,402 |
+
+*Dependent variable: default (1 = defaulted within 24 months). SEs clustered by lender. \*\*\* p<0.01, \*\* p<0.05, \* p<0.10.*
+
+::: notes
+Here is the setup. The dependent variable is default — coded one if the loan defaulted within twenty-four months. There are three columns. The key regressor, debt-to-income, has a coefficient of zero-point-zero-four-two in column one, falling to zero-point-zero-two-one in column three. Credit score enters as a control in columns two and three. Standard errors, clustered by lender, sit in parentheses below each estimate. The note says three asterisks mean a p-value below one percent, two mean below five percent, one means below ten percent. Now read it the way a professional does, top to bottom and corner to corner.
+:::
+
+## Columns Are Specifications, Not Variables
+
+- Each numbered column is a **separate regression** of the same outcome
+- Move right: add controls or fixed effects
+- Column one is raw; column three is the most demanding
+- Left to right shows how *robust* the key coefficient is
+- Here $0.042$ shrinks to $0.021$ — about half was confounding
+
+::: notes
+First rule: columns are specifications, not variables. Each numbered column is a separate regression of the same outcome, adding controls or fixed effects as you move right. Column one is the raw bivariate relationship; column three is the most demanding specification. Reading left to right tells you how robust the key coefficient is as you pile on controls. Here, debt-to-income's coefficient shrinks from zero-point-zero-four-two to zero-point-zero-two-one as we add credit score and fixed effects, which honestly says about half of the raw association was confounding. A coefficient that survives the march across columns is a strong result; one that collapses to insignificance in the last column was mostly an artifact of what was left out.
+:::
+
+## Each Cell: Coefficient Over Standard Error
+
+- Top number is the estimate $\hat\beta$, e.g. $0.042$
+- Number in parentheses below is the **standard error**, $0.011$
+- Almost never the t-statistic — read the note to be sure
+- Compute it yourself: $t = \hat\beta / \text{SE} = 0.042/0.011 \approx 3.8$
+- Past $|t|=1.96$ is significant at five percent; past $2.58$ at one
+
+::: notes
+Second rule: each cell is a coefficient with its standard error stacked underneath in parentheses. The top number, zero-point-zero-four-two, is the estimate, beta hat. The number in parentheses below it, zero-point-zero-one-one, is its standard error — almost never the t-statistic, though a few journals do report t-statistics in brackets, so always read the table's note to see which. Given beta hat and its standard error you compute the t-statistic yourself: t equals beta hat divided by the standard error, which is zero-point-zero-four-two over zero-point-zero-one-one, about three-point-eight. Anything past an absolute t of one-point-nine-six is significant at the five percent level; past two-point-five-eight, at one percent.
+:::
+
+## Stars Are Significance Shorthand
+
+- Asterisks encode the p-value against the note's thresholds
+- Here three stars below one percent, two below five, one below ten
+- The exact mapping **varies by journal**
+- Iron rule: read the note, never assume the stars
+- Stars measure statistical, not economic, significance
+
+::: notes
+Third rule: stars are significance shorthand. The asterisks encode the p-value against the threshold given in the note: here three asterisks mean below one percent, two mean below five percent, one means below ten percent. But the exact mapping varies by journal — sometimes one star means ten percent, sometimes five — so the rule is iron: read the note, never assume the stars. And remember Week Two's discipline: stars measure statistical significance, not economic importance. A three-star coefficient of zero-point-zero-zero-zero-two may be precisely estimated and economically trivial.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Columns are **specifications**, not variables — read left to right to see whether the key coefficient survives controls. Each cell is $\hat\beta$ over its standard error, so compute $t = \hat\beta/\text{SE}$ yourself. Stars encode p-values, but the mapping varies — **read the note, never assume the stars**.
+:::
+
+::: notes
+To summarize part four: columns are separate specifications of the same outcome, so reading left to right shows whether the key coefficient survives added controls — here it halved, revealing confounding. Each cell stacks the estimate, beta hat, over its standard error in parentheses, and you compute the t-statistic yourself as beta hat divided by the standard error. Stars are p-value shorthand whose mapping varies by journal, so you read the note and never assume; and stars are statistical, not economic, significance. In part five we finish the table: the fixed-effects switches, the bottom-row reality checks, and the load-bearing standard-error note.
+:::

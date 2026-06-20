@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## WRDS Cloud — Coverage and Access
+
+- Part 4 — what lives behind WRDS, its keys, and querying it
+
+::: notes
+Welcome back to Data Acquisition in Practice, part four of thirteen. In parts two and three we set out the three rules that govern every source. Now we apply them to the single most important source in empirical finance: WRDS Cloud, the front door to the licensed datasets CRSP and Compustat. This part covers what lives behind WRDS, its keys, and how to query it like a guest.
+:::
+
+## What Lives Behind WRDS
+
+- **CRSP:** daily/monthly prices, returns, delisting returns since 1925
+- Survivorship-bias-free US equity universe — Sam's momentum data
+- **Compustat:** standardized firm financials back to the 1950s
+- **IBES:** analyst earnings forecasts and recommendations
+- **TRACE:** transaction-by-transaction corporate-bond trades
+
+::: notes
+WRDS — Wharton Research Data Services — is the front door to the licensed datasets that define empirical finance. Four you will meet most. CRSP, the Center for Research in Security Prices, gives daily and monthly stock prices, returns, shares outstanding, and its crown jewel: delisting returns and a survivorship-bias-free universe of US-listed equities back to nineteen twenty-five. That is Sam's momentum data, done right. Compustat, from S and P Global, gives standardized firm financial statements — income statement, balance sheet, and cash flow — for tens of thousands of public firms, North America back to the nineteen fifties and sixties. That is Priya's insurer fundamentals. I-B-E-S gives analyst earnings forecasts and recommendations, consensus and detail. And TRACE gives transaction-by-transaction corporate-bond trades.
+:::
+
+## Keys Differ and Don't Interchange
+
+- CRSP keys on **PERMNO** — permanent, unlike a ticker
+- Compustat keys on **GVKEY** plus a `datadate`
+- IBES uses its own internal TICKER — a classic trap
+- The CCM database links PERMNO to GVKEY
+- The keys differ and are *not* interchangeable
+
+::: notes
+Each WRDS dataset has its own primary key, and knowing them is half the battle — the other half, the crosswalks between them, is Chapter seven-point-four. CRSP keys on PERMNO, a permanent security identifier that, unlike a ticker, never changes when a firm renames or re-tickers. Compustat keys on GVKEY, a permanent company identifier, plus a data-date. I-B-E-S keys on its own internal ticker — an I-B-E-S code, not the exchange ticker, a classic trap. The CRSP Compustat Merged database, C-C-M, provides the PERMNO-to-GVKEY linking table. For now, just know the keys differ and are not interchangeable.
+:::
+
+## Query Like a Guest, Not an Owner
+
+- WRDS runs a PostgreSQL database; query with the `wrds` package
+- Connect, run SQL, get a DataFrame back
+- **Select only the columns and rows you need**
+- `SELECT *` on a 100-million-row table times out
+- Explore the schema first: list tables, describe a table
+
+::: notes
+WRDS runs a PostgreSQL database you query with the w-r-d-s Python package. You connect, run S-Q-L, and get a DataFrame back. The package reads your credentials from a password file or caches a token — you never put your WRDS password in code. The mental model: WRDS is a remote database, and you are writing S-Q-L against tables you do not own. Two habits matter. First, select only the columns and rows you need. CRSP's daily stock file has tens of millions of rows, and select-star will time out or blow your memory. So you write select permno, date, ret, prc, shrout from crsp dot m-s-f, where date is between two dates. Bound the dates, name the columns. Second, explore the schema first: list libraries, list the tables in a library, and describe a table — these tell you what is there before you guess. The data card for each WRDS source in Appendix C lists the tables and columns you will most want.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**WRDS** is the licensed front door to CRSP, Compustat, IBES, and TRACE. Each has its own permanent key — PERMNO, GVKEY, IBES TICKER — and they do not interchange. Query it like a guest: bound the dates, name the columns, never `SELECT *`, and explore the schema first. Next: WRDS licensing, gotchas, and the reproducible pull.
+:::
+
+::: notes
+To summarize part four: WRDS is the licensed front door to CRSP, Compustat, I-B-E-S, and TRACE — the datasets that define empirical finance. Each has its own permanent key — PERMNO for CRSP, GVKEY for Compustat, an internal ticker for I-B-E-S — and they are not interchangeable. You query a remote PostgreSQL database with the w-r-d-s package, behaving like a guest: bound the dates, name the columns, never select-star a hundred-million-row table, and explore the schema first. In part five we cover the rest of the WRDS story — the licensing rule that makes it the central case, the gotchas like R-E-T versus R-E-T-X, and the reproducible pull.
+:::

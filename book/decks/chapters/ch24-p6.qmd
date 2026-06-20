@@ -1,0 +1,51 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## HC0 to HC3
+
+- Part 6 — finite-sample corrections HC1, HC2, HC3
+
+::: notes
+Welcome back to heteroskedasticity, clustering, and HAC, part six of twelve. In part five we built White's robust standard errors and saw why to always report them. Raw White — HC0 — is consistent, but in finite samples it runs a touch too small. This part fixes that with the finite-sample corrections HC1, HC2, and HC3, and tells you exactly when each one matters.
+:::
+
+## Why HC0 Runs Too Small
+
+- HC0 consistent — right answer as $N \to \infty$
+- But OLS residuals are systematically **too small**
+- Fitting bends the line toward each point
+- So $\hat\varepsilon_i$ understates the true $\varepsilon_i$
+- HC0 SEs come out too small — overconfident in small samples
+- Fix: inflate the squared residuals
+
+::: notes
+White's HC0 is consistent — it gets the right answer as N goes to infinity. But in finite samples it has a known flaw: OLS residuals are systematically too small. The fitting procedure bends the line toward each point, so the residual epsilon-hat-i understates the true error epsilon-i. That makes HC0 standard errors too small — overconfident again, this time in small samples rather than from heteroskedasticity itself. The fix is to inflate the squared residuals before summing them. The four common flavors — HC0, HC1, HC2, HC3 — differ only in how aggressively they inflate, and that is the whole story of the next slide.
+:::
+
+## The Four Flavors
+
+| Flavor | $\hat\varepsilon_i^2$ replaced by | Corrects | Use when |
+|--------|-------------------------------------------|------------------|----------|
+| **HC0** | $\hat\varepsilon_i^2$ | nothing (raw White) | large $N$ |
+| **HC1** | $\dfrac{N}{N-K}\,\hat\varepsilon_i^2$ | flat d.o.f. factor | Stata default; moderate $N$ |
+| **HC2** | $\dfrac{\hat\varepsilon_i^2}{1-h_{ii}}$ | leverage, point by point | small samples |
+| **HC3** | $\dfrac{\hat\varepsilon_i^2}{(1-h_{ii})^2}$ | leverage, aggressively | small $N$ / high leverage; safest |
+
+- $h_{ii}$ = leverage from hat matrix $\mathbf{H} = \mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'$
+
+::: notes
+Here are the four flavors, each replacing the raw squared residual with something inflated. HC0 inflates nothing — raw White. HC1 multiplies every squared residual by N over N minus K, a flat degrees-of-freedom inflation; that is Stata's default and fine for moderate samples. HC2 divides each squared residual by one minus h-i-i, correcting leverage observation by observation. HC3 divides by one minus h-i-i, squared — leverage, more aggressively. Here h-i-i are the diagonal entries of the hat matrix from Chapter two-point-one: the leverage of observation i, a number between zero and one measuring how much that point pulls the fitted line toward itself. A high-leverage point — like Priya's one five-million-dollar estate among cabins — has its residual shrunk the most by fitting, so HC2 and HC3 inflate it the most to compensate. HC1 ignores leverage and applies the same factor to everyone. The practical guidance is worth memorizing. With a few hundred observations and no extreme leverage, HC1 is fine and the four barely differ. When N is small — say under fifty — or a handful of points have high leverage, the flavors diverge and HC3 is the conservative default. HC3 is never badly anti-conservative, so when in doubt, HC3 is the safe pick.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+OLS residuals run systematically too small, so **HC1–HC3 inflate them**: HC1 by a flat $\frac{N}{N-K}$, HC2 and HC3 by leverage $h_{ii}$. Use **HC1** by default; switch to **HC3** when $N$ is small or a few points have high leverage. HC3 is never badly anti-conservative.
+:::
+
+::: notes
+To summarize part six. HC0 is consistent but runs too small in finite samples, because OLS fitting shrinks the residuals. HC1 through HC3 inflate the squared residuals to compensate: HC1 with a flat degrees-of-freedom factor, HC2 and HC3 by each point's leverage, with HC3 the safest default when N is small or leverage is high. In part seven we put real numbers on Priya's table and watch the flavors fan out, then learn the three tells that catch heteroskedasticity in your own work.
+:::

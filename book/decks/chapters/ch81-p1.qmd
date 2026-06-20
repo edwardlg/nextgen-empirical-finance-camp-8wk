@@ -1,0 +1,64 @@
+---
+date: "2026-06-22"
+---
+
+## Execution: Run What You Filed
+
+**Learning objectives.** By the end you can:
+
+- Run the pre-registered primary specification exactly as filed
+- Report the confirmatory number whatever it shows
+- Build a specification curve over every defensible fork
+- Read the curve to judge robust versus fragile
+
+::: notes
+Welcome to Week Eight, Chapter eight-point-one, part one of ten: Execution and the Specification Curve. For five weeks Maya has been building toward one number. Two weeks ago she filed a pre-analysis plan — a tagged commit, time-stamped and frozen, naming exactly one primary specification. The hard thinking is done. What remains feels like it should be easy: run the thing. Open the notebook, point it at the confirmation data, execute the one regression she promised, and read the number off the table. This chapter is about that moment — because it is where most honest projects quietly go wrong. We start by drawing a boundary, then stating the job.
+:::
+
+## Two Anxieties, Pulled Apart
+
+- Week 8 separates two different worries on purpose
+- This chapter: **analytic-choice multiplicity** — many defensible regressions
+- Next chapter (8.2): **inference validity** — is the design right?
+- Spec curve asks: "did my *choices* drive the result?"
+- Robustness tests ask: "is my *design* even right?"
+- Do not conflate them
+
+::: notes
+Before we run anything, a boundary, so you do not go looking for the wrong thing here. This chapter is about analytic-choice multiplicity — the fact that one dataset and one hypothesis admit many defensible regressions, and that the choice among them is a hidden multiple-testing problem. The next chapter, eight-point-two, is about inference validity — whether the one design you chose actually identifies what you claim, stress-tested with placebos and Oster's delta. These are different anxieties. The specification curve asks: does my result survive the choices I could defensibly have made differently? The robustness tests of eight-point-two ask: is the design I committed to even the right design? Do not conflate them. This week pulls them apart on purpose, and we begin with the first.
+:::
+
+## The Job: Run It Once, Report It Always
+
+- Run the pre-registered primary spec **once**, on confirmation data
+- No edits, no peeking-then-tweaking
+- Report the number **whichever way it falls**
+- Hardest professional habit in the course
+- The reason is psychological, not technical
+
+::: notes
+Here is the job in one sentence. Your first task in Week Eight is to run the pre-registered primary specification once, on the confirmation data, exactly as written in the plan — no edits, no peeking-then-tweaking — and to report the number it produces no matter which way it falls. That sounds trivial. It is the hardest professional habit in the entire course, and the reason is psychological, not technical.
+:::
+
+## Why the Contract Only Holds If Fixed First
+
+- Recall Chapter 1.5: under a true null, p-value is uniform on $[0,1]$
+- One pre-specified test at $\alpha=0.05$ rejects a true null exactly 5%
+- That 5% is the contract you signed
+- It holds **only** if the test was fixed before you saw the outcome
+- Peek, dislike, tweak → back in the garden of forking paths
+
+::: notes
+Go back to Chapter one-point-five and the logic of what a p-value means. Under a true null the p-value is uniform on the interval from zero to one, so a single pre-specified test at alpha equals zero-point-zero-five rejects a true null exactly five percent of the time. That five percent is the contract you signed — and it only holds if the test was fixed before you saw the outcome. The instant you run a regression, look at the coefficient, dislike it, and adjust the specification to improve it, you have re-entered the garden of forking paths from Chapter seven-point-three, and your p-value no longer means five percent. It means something larger and unknowable, inflated by every fork you walked with the answer in view. The plan froze the forks; the confirmatory run is the act of honoring that freeze.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Week 8 separates **analytic-choice multiplicity** (this chapter) from **inference validity** (8.2). The first job: run the pre-registered primary specification *once* and report it whatever it shows. The 5% contract from Chapter 1.5 only holds if the test was fixed before you saw the outcome. Next: Maya runs hers.
+:::
+
+::: notes
+To summarize part one: Week Eight pulls apart two anxieties — this chapter asks whether your analytic choices drove the result, and Chapter eight-point-two asks whether your design is even valid. Your first job is the confirmatory run: execute the pre-registered primary specification once, on the confirmation data, and report whatever it shows. This matters because the five-percent contract from Chapter one-point-five only holds if the test was fixed before you saw the outcome; peeking and tweaking puts you back in the garden of forking paths. In part two, Maya runs her confirmatory specification, and we meet the subtle trap waiting inside even an honest run.
+:::

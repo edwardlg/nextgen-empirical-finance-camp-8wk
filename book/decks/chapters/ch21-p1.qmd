@@ -1,0 +1,52 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## Sam's Beta and the Regression Model
+
+**Learning objectives** — by the end you can:
+
+- Write the regression as $\mathbf{y} = \mathbf{X}\boldsymbol\beta + \boldsymbol\varepsilon$
+- Derive $\hat{\boldsymbol\beta} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}$ two ways
+- See OLS as projection onto the regressor space
+- Recover Sam's beta by hand on tiny data
+
+::: notes
+Welcome to Week Two, Lesson two-point-one, part one of eleven. Last week you learned to think of a random variable as a vector and of covariance as an inner product. That picture is about to pay an enormous dividend. In this lesson we take the regression you have only ever met as a black box — type two columns into a stats package, get back a slope and an intercept — and rebuild it from the floor up in matrix algebra. By the end you will write the whole procedure on one line, derive it two ways, and see what it does: it drops a perpendicular. This first part frames the question.
+:::
+
+## The Question: Sam's Beta
+
+- Sam trades momentum; his stock jumps when the market jumps
+- But not one-for-one — he wants a number
+- If the market moves one percent, how much does his stock move?
+- That number is **beta** — a regression of stock on market
+- We use a tiny dataset you can check by hand
+
+::: notes
+We anchor everything in a question Sam has been chewing on. Sam trades, he follows momentum, and he has noticed that on days the whole market jumps, his favorite stock tends to jump too — but not one-for-one. He wants a number for that. If the market moves one percent, how much does his stock move, on average? That number has a name in finance, beta, and estimating it is a regression of the stock's return on the market's return. We will set Sam's regression up with a deliberately tiny dataset, small enough that you can invert the matrices by hand and check every claim, and then watch the same machinery scale, unchanged, to thousands of observations. One promise up front: this whole lesson is about the algebra and geometry of the least-squares fit. We are not yet asking whether the fit is any good or how uncertain it is — those questions need assumptions, and they are the whole of the next three lessons.
+:::
+
+## One Equation Per Observation
+
+- Sam has returns for $N$ trading days
+- $$y_i = \beta_0 + \beta_1 x_i + \varepsilon_i, \quad i = 1,\dots,N$$
+- $\beta_0$ = intercept; $\beta_1$ = slope, **Sam's beta**
+- $\varepsilon_i$ = error: everything the line misses that day
+- The $\beta$'s are fixed unknowns; the errors are unobserved
+
+::: notes
+Start with what you already know, written one observation at a time. Sam has return data for N trading days. On day i his stock returned y sub i and the market returned x sub i. The simple regression model says each day's stock return is a line in the market return plus a leftover: y sub i equals beta zero plus beta one times x sub i plus epsilon sub i, for i running from one to N. Here beta zero is the intercept, the part of the stock's return unrelated to the market. Beta one is the slope — Sam's beta, the sensitivity to the market. And epsilon sub i is the error, or disturbance, for day i: everything about that day's return the line does not capture — stock-specific news, noise, whatever the market move leaves unexplained. These are population quantities. The betas are fixed unknown numbers we want to learn, and the errors are unobserved.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Sam wants **beta**: how much his stock moves when the market moves one percent. Written one day at a time, the model is $y_i = \beta_0 + \beta_1 x_i + \varepsilon_i$ — intercept, slope, and an unobserved error. Next: stack all $N$ equations into one matrix line.
+:::
+
+::: notes
+To summarize part one: Sam wants a single number, his beta — how much his stock moves, on average, when the market moves one percent. Written one trading day at a time, the model says the stock return equals an intercept beta zero, plus beta one times the market return, plus an error term that captures everything the line misses. The betas are fixed unknowns we want to learn, and the errors we never observe. In part two we do the one clever move that makes all of econometrics tractable: we stack these N separate equations into a single matrix equation.
+:::

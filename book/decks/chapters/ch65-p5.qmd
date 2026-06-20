@@ -1,0 +1,47 @@
+---
+date: "2026-06-22"
+---
+
+## Retrieval-Augmented Generation — The Pipeline
+
+- Part 5 — the four-stage RAG pipeline over filings
+
+::: notes
+Welcome back to the AI co-pilot for research, part five of fourteen. In part four we finished the four prompt patterns, and cite-or-decline had one obvious hole: it only works if the model has the right source text in front of it. A model's parametric knowledge — the facts baked into its weights — is a blurry, lossy compression of its training data, with no clean way to separate what it knows from what it confabulates. So instead of asking it to recall, we hand it the relevant source text at query time and ask it to answer from that. This is retrieval-augmented generation, the standard architecture for question-answering over a private document collection like a folder of 10-K filings.
+:::
+
+## The Four-Stage Pipeline
+
+- **Chunk** — split each filing at section boundaries
+- Each chunk keeps metadata: firm, fiscal year, section
+- **Embed** — convert each chunk to a meaning vector
+- Similar passages land near each other in vector space
+- **Retrieve** — embed the question, find the nearest $k$ chunks
+- **Ground** — answer from those chunks only, cite each one
+
+::: notes
+Here is the pipeline in four stages. Stage one, chunk: a single 10-K can run past one hundred thousand words, so you split it into passages of, say, five hundred to a thousand tokens, often broken at section boundaries like Item one-A risk factors and Item seven M-D-and-A, so each chunk is internally coherent. Each chunk keeps metadata — which firm, which fiscal year, which section — and that metadata is what lets you cite the source and, we will see, enforce that you never retrieve a chunk from the future. Stage two, embed: you convert each chunk into an embedding, a vector of a few hundred to a few thousand numbers representing its meaning. Passages about similar topics land near each other even with different words — "we face significant litigation exposure" sits close to "pending lawsuits could materially harm us" because they mean similar things. You store the vectors in a vector index built for fast nearest-neighbor search. Stage three, retrieve: when a question arrives, you embed it with the same model and find the k chunks whose vectors are nearest by cosine similarity, the metric from Chapter six-point-two, typically k between three and ten. Stage four, ground: you build a prompt containing the retrieved chunks and the question, instructing the model to answer using only those passages and cite the chunk I-D for every claim.
+:::
+
+## From Recall to Reading
+
+- Model's job shifts: **recall** $\to$ **reading comprehension**
+- Recall is dangerous and fabrication-prone
+- Summarizing provided text is far more reliable
+- Each chunk carries metadata, so answers cite a real source
+- "Firm X, fiscal-year 2019 10-K, Item 7" — open and verify
+
+::: notes
+Why does grounding help so much? Because the model now has the actual source text in its context window, so its job shifts from recall — dangerous and fabrication-prone — to reading comprehension and summarization, which is far more reliable. And because each chunk carries metadata, the answer can cite "Firm X, fiscal-year twenty-nineteen 10-K, Item seven," a citation you can open and verify. The grounding instruction is stable across all queries: answer using only the numbered passages, cite the passage number after each sentence, and if the passages do not contain enough information, respond exactly "not answerable from the provided passages." The passages themselves, assembled per query, carry their firm, year, and section labels right in the text, so the citation falls out automatically.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+**RAG** is four stages — chunk, embed, retrieve, ground — that hand the model real source text so its job shifts from **recall** (fabrication-prone) to **reading comprehension** (reliable). Every answer cites a chunk you can open. Next: why this reduces, but does not eliminate, hallucination.
+:::
+
+::: notes
+To summarize part five: retrieval-augmented generation answers questions over your own documents in four stages — chunk each filing with its metadata, embed each chunk into a meaning vector, retrieve the nearest k chunks to the question by cosine similarity, and ground the answer in those chunks with a cite-everything instruction. The key payoff is that the model's job shifts from recall, which is dangerous and fabrication-prone, to reading comprehension and summarization of text you control, which is far more reliable — and every answer cites a chunk you can open and verify. In part six we ask the honest question: why does this reduce hallucination rather than eliminate it, and what discipline makes it trustworthy?
+:::

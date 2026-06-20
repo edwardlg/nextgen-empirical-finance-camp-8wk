@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The McCrary Density Test
+
+- Part 13 — the McCrary density test for manipulation
+
+::: notes
+Welcome back to regression discontinuity, part thirteen of seventeen. In part twelve we learned to read an R-D plot. Now we confront the local-randomization story's one fatal enemy: manipulation. If units can precisely control which side of the cutoff they land on, the coin-flip story collapses — and there is a clean test that hunts for exactly this.
+:::
+
+## Manipulation Breaks the Coin Flip
+
+- The enemy: units precisely controlling which side they land on
+- A savvy applicant nudges a six-fifty-eight into a six-sixty-one
+- But only the *more sophisticated* borrowers know to do this
+- The just-above group is now enriched with higher-type units
+- The jump mixes treatment effect with *selection*
+
+::: notes
+The local-randomization story has one fatal enemy: manipulation. If units can precisely control which side of the cutoff they land on, the coin-flip story collapses, and the units just above the cutoff are no longer comparable to the units just below. Picture a lender's cutoff at a credit score of six hundred sixty. Suppose a savvy applicant, or a loan officer helping them, can nudge a six fifty-eight into a six sixty-one by paying down one small balance right before the pull — but only the more sophisticated, more financially-capable applicants know to do this. Then the people who should have been at six fifty-eight but appear at six sixty-one are systematically more capable than those who remain. The two groups are no longer exchangeable; the just-above group is now enriched with strategic, higher-type borrowers. Manipulation has sorted units across the cutoff on exactly the unobserved characteristic R-D assumes is balanced, and your jump now mixes the treatment effect with selection.
+:::
+
+## The Fingerprint and the Test
+
+- Sorting leaves *too few* observations just below $c$, *too many* just above
+- A cliff in the histogram of $X$ exactly at $c$
+- No manipulation $\Rightarrow$ density of $X$ smooth through $c$
+- **McCrary (2008):** test whether the two side-densities agree at $c$
+- **Null:** density continuous at $c$ — what you *hope* to see
+
+::: notes
+The fingerprint of manipulation is a discontinuity in the density of the running variable at the cutoff. If borrowers are sneaking from just-below to just-above six hundred sixty, then you will see too few observations piled up just below the cutoff and too many just above — a cliff in the histogram of X exactly at the cutoff. Under the clean, no-manipulation story, the density of X should be smooth through the cutoff, because people do not bunch at a threshold they cannot see or control. McCrary, in two thousand eight, proposed estimating the density of the running variable separately on each side of the cutoff and testing whether the two densities agree at the cutoff. The null is that the density of X is continuous — no sorting — which is what you hope to see. Reject the null and there is a jump in the density: evidence of manipulation, and a serious threat to the design. The citation: McCrary, Manipulation of the Running Variable in the Regression Discontinuity Design: A Density Test, in the Journal of Econometrics.
+:::
+
+## Run It, Plot It, Report It
+
+- Modern robust implementation: Cattaneo–Jansson–Ma, in `rddensity`
+- Sam's Russell case is comparatively safe — rank can't be finely set
+- But you must *check*, not assume
+- A *failed* test — a visible density jump — is often fatal
+- A *passed* test is *necessary but not sufficient*
+
+::: notes
+A modern, more robust implementation, due to Cattaneo, Jansson, and Ma, is what most packages ship, but the logic is McCrary's. It lives in the r-d-density package and is called from r-d-robust's diagnostics. Sam's Russell case is comparatively safe — a firm cannot control its rank to the dollar on the ranking day — but you must check, not assume. Run the test, plot the density, and report it. A failed test — a visible density jump at the cutoff — is often fatal: it says the cutoff is being gamed and your comparison is broken. A passed test is necessary but not sufficient: it rules out crude sorting but cannot by itself prove the design is clean. The citation: Cattaneo, Jansson, and Ma, Simple Local Polynomial Density Estimators, in the Journal of the American Statistical Association.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Manipulation — units sorting across $c$ — breaks the coin flip and mixes the treatment effect with selection. Its fingerprint is a **jump in the density of $X$ at $c$**. The **McCrary test** (null: continuity) hunts for it; a failed test is often fatal, a passed test is necessary but not sufficient. Next: the full validity checklist.
+:::
+
+::: notes
+To summarize part thirteen: manipulation is the local-randomization story's fatal enemy. If units can precisely control which side they land on, the just-above and just-below groups stop being exchangeable, and the jump mixes the treatment effect with selection. The fingerprint is a discontinuity in the density of the running variable at the cutoff — too few just below, too many just above. The McCrary density test, with its modern Cattaneo–Jansson–Ma implementation, checks the null of a continuous density; a failed test is often fatal, while a passed test is necessary but not sufficient. In part fourteen we widen the lens to the full validity checklist.
+:::

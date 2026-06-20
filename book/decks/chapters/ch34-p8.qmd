@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Weak Instruments: The Three Pathologies
+
+- Part 8 — how a near-zero first stage wrecks 2SLS
+
+::: notes
+Welcome back to instrumental variables, part eight of ten. In part seven we read the three-regression anatomy of an IV table. Now we zoom in on the denominator of the magic ratio — the first stage — and ask what happens as it shrinks toward zero. Relevance technically still holds, the estimator is still defined, still consistent in the limit. But dividing by a number close to zero is numerically violent, and it produces three pathologies that together can make IV worse than the OLS it was meant to fix.
+:::
+
+## Pathology 1 — Bias Toward OLS
+
+- Weak $Z$ explains almost none of $D$
+- So $\hat{D}_i$ is mostly first-stage **noise**
+- That noise is correlated with $\varepsilon$ in finite samples
+- 2SLS drifts back toward the OLS bias you fled
+- Bias fraction $\approx 1/F$, where $F$ is the first-stage F
+
+::: notes
+The first pathology is the counterintuitive killer: bias toward OLS. You turned to IV to escape OLS's bias; a weak instrument drags you right back. Here is why. The fitted treatment D-hat is supposed to be the clean, instrument-driven part of D. But when the instrument is weak, Z explains almost none of D, so D-hat is mostly not coming from Z — it is mostly first-stage sampling noise, and that noise is correlated with epsilon in finite samples, because the first-stage residual and the structural error share the confounder. So D-hat is contaminated by exactly the endogeneity you were fleeing, and the second-stage slope drifts toward the OLS slope. The approximation is stark: the finite-sample bias of 2SLS, as a fraction of the OLS bias, is roughly one over F, where F is the population first-stage F-statistic. When the first stage is strong, the bias fraction is small. When F is near one, 2SLS is nearly as biased as OLS — and you paid a large variance penalty for the privilege.
+:::
+
+## Pathology 2 — Inflated Variance
+
+- Dividing by near-zero balloons the sampling variance
+- Estimates wobble violently from sample to sample
+- The asymptotic approximation **breaks down**
+- Confidence intervals miscalibrated — often far too narrow
+- Overconfident inference around a biased point
+
+::: notes
+The second pathology is inflated, unreliable variance. Dividing by a near-zero denominator inflates the sampling variance of the ratio enormously. Weak-IV estimates wobble violently from sample to sample, the standard error balloons, and — worse — the usual asymptotic approximation that justifies the reported standard error and t-statistic breaks down. The textbook confidence interval becomes badly miscalibrated, often far too narrow, so you get overconfident inference around a biased point. The fix for inference under weak instruments — Anderson–Rubin confidence intervals, which stay valid no matter how weak the instrument — is the subject of Chapter three-point-five.
+:::
+
+## Pathology 3 — Amplified Exclusion Violations
+
+- Small forbidden direct effect: $\operatorname{Cov}(Z,\varepsilon)=c$
+- That bias enters IV as $c / \operatorname{Cov}(Z,D)$
+- Strong first stage: small $c$ over large denominator — negligible
+- Weak first stage: same $c$ over near-zero — blows up
+- A strong first stage is your **buffer** against untestable exclusion
+
+::: notes
+The third pathology: tiny exclusion violations get amplified. Suppose the instrument has a small forbidden direct effect on Y — the covariance of Z and epsilon equals some small c. That bias enters the IV estimate as c divided by the covariance of Z and D. When the first stage is strong, a small numerator violation over a large denominator is negligible. When the first stage is weak, that same small violation, divided by a near-zero denominator, blows up. Weak instruments make you maximally vulnerable to exactly the exclusion violations you cannot test for. A strong first stage is not just about precision; it is your buffer against the untestable assumption. Hold these three together: bias back toward OLS, variance you cannot trust, and amplified exclusion violations. Together they can leave you worse off than the OLS you were fleeing.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A weak first stage causes **three pathologies**: 2SLS drifts back toward OLS bias (fraction $\approx 1/F$), the variance inflates and confidence intervals lie, and tiny exclusion violations blow up. A strong first stage is both precision and protection against the untestable assumption.
+:::
+
+::: notes
+To summarize part eight: a near-zero first stage causes three pathologies. One, bias toward OLS — D-hat fills with first-stage noise that carries the confounder, and the bias fraction is roughly one over F. Two, inflated and corrupted variance — confidence intervals become too narrow, inference too confident, and the asymptotic approximation breaks down. Three, amplified exclusion violations — a small forbidden direct effect, divided by a tiny denominator, blows up, so a strong first stage is your buffer against the very assumption you cannot test. Together they can make IV worse than the OLS it was meant to fix. In part nine we turn to the good news: because relevance is testable, strength is measurable — and we meet the first-stage F and its robust replacement.
+:::

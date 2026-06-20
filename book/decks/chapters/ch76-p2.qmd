@@ -1,0 +1,84 @@
+---
+date: "2026-06-22"
+---
+
+## Publication-Grade Tables
+
+- Part 2 — engineer tables that pass the one-glance test
+
+::: notes
+Welcome back to the manuscript build, part two of five. In part one we built the abstract as a five-clause contract that promises a number. The table is the artifact the referee turns to first to verify it. In this part we build a publication-grade table that passes the one-glance test.
+:::
+
+## The One-Glance Test
+
+- A table is not regression output — it is re-engineered output
+- Built so the reader answers four questions in a minute
+- Headline coefficient: sign, magnitude, units
+- Its precision; the sample: $N$, clusters, span
+- What controls and fixed effects were in
+- Referees infer rigor from typography — so produce it
+
+::: notes
+The reveal: a publication-grade table is not regression output, it is a re-engineered presentation of selected output, built so the reader can answer four questions in under a minute. What is the headline coefficient — sign, magnitude, units? What is its precision? What is the sample — N, clusters, span? And what controls and fixed effects were in? Call it the one-glance test. Most student tables fail it because they were produced by the software, whose defaults dump everything, rather than for the reader. Referees infer rigor from typography; you may resent that and you must still produce it.
+:::
+
+## Three Flags Do the Work
+
+- `etable()` LaTeX is journal-clean by default
+- `keep=["treated_post"]` — show only the headline row
+- `coef_fmt="b (se)"` — estimate, standard error, stars
+- Pick one precision convention; use it everywhere
+- Forty control rows go to an online appendix
+
+::: notes
+The workhorse is pyfixest's e-table function, whose LaTeX output is journal-clean by default — booktabs rules, no vertical lines, sensible rounding. Three flags do most of the work. The keep argument, set to treated-post, is the most important typographic decision: it suppresses the forty rows of control coefficients that distract from the one row the abstract is about. Those go in an appendix, shown on the main table only as Yes-or-No fixed-effects flags. The coefficient-format argument fixes the precision convention: estimate, standard error in parentheses, stars — the finance-journal default. Pick one convention and use it across every table in the paper.
+:::
+
+## Stars Discipline
+
+- Stars on the **headline row**, not control rows
+- Calibrated to the inference you would defend
+- Cluster-robust for panel and DiD — never mixed
+- Stars never substitute for magnitude
+- A starred $0.0001$ is significant and trivial
+
+::: notes
+Stars discipline has three rules. First, stars belong on the headline row, not control rows — a table starred everywhere conveys no information. Second, stars must be calibrated to the inference you would defend: cluster-robust for panel and difference-in-differences work, never classical standard-error stars in one column and cluster standard-error stars in the next. Third, stars never substitute for magnitude — a coefficient of zero-point-zero-zero-zero-one starred at one percent is significant and trivial. The default is the three-tier finance convention: one percent, five percent, ten percent. Put stars only where they carry information.
+:::
+
+## The Footer and the Cluster Count
+
+- Below coefficients: Yes/No fixed-effects block
+- Include a **Sample row** — a restricted sample is a different population
+- Always report the cluster count when clustering
+- $47$ million obs, $614$ clusters — effective $N$ near $614$
+- Use thousands separators: "$47{,}123{,}481$"
+
+::: notes
+Below the coefficient block sits the fixed-effects indicator block — Yes-or-No rows per fixed effect — including a Sample row, because a restricted-sample column is a different population and the reader must see it. Then the sample footer. Always report the cluster count when standard errors are clustered: forty-seven million observations with six hundred fourteen county clusters has an effective sample size closer to six hundred fourteen, and reviewers know it. Use thousands separators — comma-separated digits read in half a second; the same digits run together do not.
+:::
+
+## Panels and the Three Tables
+
+- Panels: one spec across many outcomes or sub-samples
+- Vertical blocks share column headers, scan down fast
+- **Headline** table — progressively saturated columns
+- **Robustness** table — one row, many columns
+- **Heterogeneity** table — panels
+- Plus Table 1: summary stats with balance
+
+::: notes
+When you present one specification across multiple outcomes or sub-samples — rather than alternative specifications, which go in columns — break the table into panels: vertical blocks, Panel A, Panel B, sharing column headers, so the reader scans down the preferred column and reads the heterogeneity story in two seconds. Three tables every empirical paper needs: the headline table, with progressively saturated columns; the robustness table, with many columns and one row, where the eye scans left to right confirming the coefficient does not move; and the heterogeneity table, built from panels. Plus Table one, summary statistics with treated-and-control balance if the design is causal — the table students most often phone in.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A table is **re-engineered output that passes the one-glance test**: `keep` the headline row, fix one precision convention, apply stars discipline, report the cluster count with thousands separators. Three tables — headline, robustness, heterogeneity — plus a balanced Table 1. Next: the figures that *are* your arguments.
+:::
+
+::: notes
+To summarize part two: a publication-grade table is re-engineered output that passes the one-glance test. Keep only the headline row, fix a single precision convention, apply stars discipline — headline row only, calibrated to defendable inference, never a substitute for magnitude — and report the cluster count with thousands separators. Every paper needs three tables — headline, robustness, and heterogeneity — plus a balanced Table one. In part three we turn to figures, where the plots are the arguments themselves.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## The Worked Short-PAP for Maya
+
+- Part 11 — the whole short-form plan assembled for Maya
+
+::: notes
+Welcome back to The Pre-Analysis Plan, part eleven of twelve. We have built the five components and the three mechanics. Now we watch them assembled into the actual short-form plan Maya files as her pap-filed tagged commit. It is deliberately compact — the discipline is in the precision, not the length — and we close by seeing what it does to her dangerous afternoon.
+:::
+
+## Header, Hypotheses, Primary Spec
+
+- Filed before any confirmatory regression; data pinned in `data-cards/hmda.md`
+- **H1 (primary):** conditional gap $\beta_1>0$, one-sided
+- **H2 (secondary):** gap smaller for FinTech, interaction $<0$, one-sided
+- **§2 spec:** outcome `denied`; regressor `minority`; controls named
+- *Excluded:* product type, high-cost flag; FE lender + tract; cluster lender
+
+::: notes
+Here is the plan assembled. The header names it — conditional racial disparity in mortgage denial and the FinTech margin, authored by Maya, filed as the tagged commit pap-filed before any confirmatory regression, on a HMDA twenty-nineteen-to-twenty-twenty-one extract pinned in the data card. Section one, directional hypotheses. H-one, primary: conditional on observables, lender, and neighborhood, minority applicants face a higher denial rate — beta-one greater than zero, one-sided, the long-standing prior in fair-lending. H-two, secondary: the gap is smaller for algorithmic FinTech lenders — interaction below zero, one-sided. H-three, an exploratory family across subgroups and income bands, two-sided. Section two, the primary specification: outcome `denied` from the HMDA action codes; key regressor `minority`, the coefficient beta-one; controls are log loan amount, log income, loan-to-value, and term; deliberately excluded are product type and the high-cost flag, which sit on the discrimination pathway; fixed effects lender and tract; clustering by lender; sample first-lien owner-occupied purchase applications; and a one-sentence identifying assumption making beta-one-hat a bound, not a clean effect.
+:::
+
+## Sections 3 to 6 in Brief
+
+- **§3 testing:** A = H1; B = H2; C = subgroups, BH-FDR
+- **§4 falsification:** H1 dead if 95% CI brackets zero *and* excludes ≥2pp
+- **§5 robustness:** county clustering, drop 2020, rate-spread, top-50 — either way
+- **§6 hold-out:** 30/70 split on `hash(loan_id) mod 10`, pinned
+- Primary regression runs *once* on the 70% after tagging; deviations logged
+
+::: notes
+Section three, the multiple-testing plan: Family A is H-one alone at zero-point-zero-five, one-sided, no correction; Family B is the H-two FinTech interaction; Family C is the subgroup-by-income-band gaps under Benjamini–Hochberg false-discovery-rate control at zero-point-zero-five, labeled exploratory regardless. Section four, falsification: H-one is falsified if the ninety-five percent confidence interval for beta-one contains zero and excludes economically meaningful values — say a gap of at least two percentage points; a wide interval that merely includes zero is a power failure, reported as inconclusive. Section five, planned robustness, reported whichever way: re-cluster by county, drop twenty-twenty, add the continuous rate-spread outcome, restrict to the fifty largest lenders. Section six, the hold-out: a thirty-seventy split on a hash of the loan identifier mod ten, pinned; the specification designed only on the thirty percent; the primary regression run once on the untouched seventy percent after the plan is tagged; deviations logged.
+:::
+
+## What the PAP Did to Her Afternoon
+
+- The 32 forks are **gone** — one primary spec, one coefficient
+- Robustness checks are promised in advance, reported either way
+- Subgroup fishing is quarantined into an FDR-controlled exploratory family
+- The hold-out means she *physically could not* tune the spec
+- A tight zero is now a contribution — a pre-registered null
+
+::: notes
+Now read what the plan has done to Maya's dangerous afternoon. The thirty-two forks are gone: there is exactly one primary specification, one key coefficient, one clustering choice, one sample, all fixed before she could see a result. The robustness checks she might have used to fish are now promised in advance and reported either way. The subgroup analyses that could have generated a lucky star are quarantined into an explicitly exploratory family with false-discovery-rate control. And the hold-out means she physically cannot have tuned the confirmatory spec to the confirmatory data. If beta-one-hat comes out large and significant on the seventy percent, that is a result a referee can trust. If it comes out a tight zero, the plan has already obligated her to report a null — and a clean, pre-registered null about fair lending is a genuine contribution, not a failure.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Assembled, Maya's short-PAP fits on a page: directional hypotheses, one fully-specified primary regression, a families-and-FDR testing plan, concrete falsification, promised robustness, and a 30/70 hold-out. The reveal: it is the difference between a number that *tested* a hypothesis and one that was *selected* to look like it did. Next: when the PAP itself fails.
+:::
+
+::: notes
+To summarize part eleven: assembled, Maya's plan fits on a page — directional numbered hypotheses, one primary regression with every slot named, a families-and-false-discovery-rate testing plan, concrete falsification phrased to distinguish a real null from a power failure, promised robustness reported either way, and a thirty-seventy hold-out that makes don't-peek mechanical. That is the reveal. A pre-analysis plan is not paperwork; it is the difference between a number that tested a hypothesis and a number that was selected to look like it did — and the only person it protects you from is yourself, eight hours and thirty-two specifications from now. In part twelve, we keep Olken's promise and walk honestly through the perils.
+:::

@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Self-Check Rubric
+
+- Part 6 — the eight-question self-check rubric for any paper
+
+::: notes
+Welcome back to How to Read an Empirical Paper, part six of seven. In part five we finished reading a finance table — fixed-effects switches, bottom-row checks, and the load-bearing standard-error note. Now we add the self-check rubric: the eight questions you run on yourself after reading any paper. If you cannot answer them without re-opening the paper, you have not finished reading it.
+:::
+
+## The Self-Check Rubric, Part One
+
+- **The question** — state it in one sentence, outcome and key regressor?
+- **The identifying assumption** — "equals the true effect *as long as* ___"
+- Naming "endogeneity" with no specific threat means you failed
+- **The threat** — the most plausible alternative, and which way it biases
+- **The headline** — which table, which one number carries the paper?
+
+::: notes
+After you run the seven-part template on a paper, grade your own understanding against this rubric. These are the exact questions your mentor — and a seminar audience — will fire at you. The question: can I state the research question in one sentence, naming the outcome and the key regressor? The identifying assumption: can I state it in one sentence, in the form "this estimate equals the true effect as long as blank"? If my answer has the word endogeneity in it but names no specific threat, I have failed. The threat: can I name the single most plausible alternative explanation — the thing that, if true, would bias the estimate — and say which way it biases it? The headline: which table is the headline, and what is the one number that carries the paper? Could I point to it and read its sign, magnitude, and t-statistic aloud?
+:::
+
+## The Self-Check Rubric, Part Two
+
+- **The spec** — outcome, key regressor, controls, FE, clustering, sample, assumption
+- **The standard errors** — clustered at the level the key variable varies?
+- **The robustness** — the check that reassured you, and the one they skipped
+- **The replication** — one number you could reproduce on a laptop
+- Answer all eight: you have *read* it. Only the first two: you skimmed it
+
+::: notes
+The rubric continues. The spec: can I write the headline specification in the standard format — outcome, key regressor, controls, fixed effects, clustering, sample, and the identifying assumption in one sentence? The standard errors: are they clustered, and at the level the key variable varies? If not, do I expect the reported t-statistics are too big or too small? The robustness: what is the one check the authors ran that most reassured me, and the one they should have run but did not? The replication: can I name one number I could reproduce on a laptop with the data we have, and one thing I would change to stress-test it? A paper you can answer all eight on is a paper you have genuinely read. A paper you can answer only the first two on is a paper you have skimmed, and an abstract you have memorized.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Grade yourself on eight questions — the question, the identifying assumption, the threat, the headline, the spec, the standard errors, the robustness, the replication. Answer all eight and you have **truly read** the paper. Answer only the first two and you have skimmed it and memorized an abstract.
+:::
+
+::: notes
+To summarize part six: after running the seven-part template, grade yourself on eight questions — the research question, the identifying assumption stated as "true as long as blank," the most plausible threat and its direction, the headline table and its load-bearing number, the full specification, the clustering of the standard errors, the most reassuring robustness check and the missing one, and one number you could replicate on a laptop. Answer all eight and you have genuinely read the paper; answer only the first two and you have merely skimmed it. In part seven, the last part, we see why this skill is really preparation for the capstone you write in Weeks Seven and Eight — and why reading a table and building one are the same act.
+:::

@@ -1,0 +1,59 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## When the Outcome Itself Is a Proxy
+
+- Part 6 — measured outcome and the panel's clustering
+
+::: notes
+Welcome back to "Text as data, and AI without fooling yourself," part six of seven. In part five we closed out the three AI traps and the reflex — proxy for what, validated how, disclosed how. Now we take that discipline into a real paper and watch it apply where there is no text at all. The thread you'll carry: wherever a regression's outcome or regressor is a proxy rather than a fact, today's measurement discipline governs — and the panel design dictates the standard errors.
+:::
+
+## A Measured Construct, No Text Required
+
+- Paper: earnings management of supplier firms
+- Outcome is a **measured construct**, not a number you read off
+- Discretionary accruals — a noisy proxy for managerial intervention
+- Backed out as a residual from a model of "normal" accruals
+- Jones or modified-Jones — same shape as the text problem
+
+::: notes
+Take the first of my own papers. It studies earnings management of supplier firms — whether the same institutional investors holding both a supplier and its customer change how aggressively the supplier's managers shape reported earnings. Here is the point for us. The outcome, earnings management, is not a number that arrives ready-made. It is backed out of accounting data as discretionary accruals — the residual from a model of normal accruals, using a Jones or modified-Jones approach. That residual is a noisy proxy for unobserved managerial intervention. So even with no text and no language model anywhere in sight, this is a measurement problem of exactly today's shape: a proxy for an unseen latent quantity, carrying systematic and random error, dropped into a regression as the outcome.
+:::
+
+## The Panel Dictates the Standard Errors
+
+- Same firms over many years, linked supplier to customer
+- Residuals correlate **within firm** across years
+- They may also correlate **across** linked supplier and customer
+- Clustering is forced by the design, not optional
+- Clustered standard errors are usually *larger* than classical ones
+
+::: notes
+This paper is a panel: the same firms observed over many years, linked into supplier–customer pairs. That structure dictates the standard errors — the Petersen lesson from Pack Five is not optional here. Residuals for the same supplier firm are correlated across years: a firm running high discretionary accruals this year tends to do so next year too. And residuals may also be correlated across the linked supplier and customer. So you must cluster, and you defend the choice — by firm, by supplier–customer pair, by industry, or two-way — naming what dependence each one absorbs. Getting this wrong usually makes t-statistics look more significant than they deserve, because honest clustered standard errors are typically larger than classical ones.
+:::
+
+## Double-Barreled Self-Deception
+
+- Key regressor — common ownership — is *itself* measured
+- A network variable, with its own measurement error
+- Right-hand-side error + over-optimistic standard error
+- Two ways to fool yourself, stacked
+- Clustering fixes the standard error — *not* the measurement error
+
+::: notes
+Now connect it back to today's theme. The key regressor in that paper, common ownership along the supply chain, is itself a measured network variable — it carries its own measurement error, just like a text-derived tone score. So you can be fooled twice over: measurement error on the right-hand side, which biases or attenuates the coefficient, sitting on top of an over-optimistic standard error, which makes the t-statistic look stronger than it is. That is double-barreled self-deception. And here is the trap people miss: clustering the standard errors fixes the dependence problem, but it does nothing about the measurement error in the regressor. Two separate diseases need two separate cures. Honest standard errors do not buy you an honest measurement.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The discipline applies wherever an outcome or regressor is a **proxy, not a fact** — discretionary accruals as a measure of earnings management, with no text in sight. The panel design **dictates the clustering**, and clustered standard errors are usually larger than classical ones. Watch for double-barreled self-deception: measurement error in the regressor plus an over-optimistic standard error — clustering fixes only the second. Next: the bright line, and your graded disclosure.
+:::
+
+::: notes
+To summarize part six: today's measurement discipline is not about text alone. In my supply-chain paper, the outcome — earnings management — is a measured construct: discretionary accruals backed out as a residual, a noisy proxy for unobserved managerial intervention, with no language model in sight. The panel design dictates the clustering, and honest clustered standard errors run larger than classical ones. And because the key regressor, common ownership, is itself a measured network variable, you can be fooled twice — measurement error in the regressor stacked on an over-optimistic standard error — where clustering cures only the second. In part seven, we draw the bright line between AI as a writing aid and AI as a data generator, and assemble your capstone's graded disclosure.
+:::

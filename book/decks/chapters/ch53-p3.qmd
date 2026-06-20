@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Overlap Trick and the Inference Fix
+
+- Part 3 — the overlap trick and the Newey–West fix
+
+::: notes
+Welcome back to Week Five, lesson three, part three of eight. In part two we built the J-by-K sort and the zero-cost winner-minus-loser trade. Now we cover the clever move that makes the methodology efficient and also makes the statistics subtle — re-forming the portfolio every month and averaging across overlapping cohorts — and then the standard-error fix that this overlap forces on us. This is where Week Two and Week Five meet.
+:::
+
+## The Overlapping-Portfolio Trick
+
+- Re-form a **new** W-minus-L portfolio **every month**
+- Hold $K$ overlapping cohorts at once, average them
+- Uses every month of data — smooths the estimate
+- Cost: adjacent returns share $K-1$ cohorts $\Rightarrow$ **serial correlation**
+- This is Week Two's overlapping-observations problem
+
+::: notes
+Here is the clever move. If you held a six-month portfolio and only rebalanced every six months, you would get one fresh, non-overlapping observation every half-year — throwing away five-sixths of your months. Instead, Jegadeesh and Titman form a new winner-minus-loser portfolio every single month and hold each for K months. So in any given month you hold K overlapping cohorts at once — the one formed this month, last month, back K minus one months — and your reported monthly return is the equal-weighted average across them. This uses every month of data and smooths the estimate. The price you pay: because consecutive monthly returns share K minus one of their K component cohorts, adjacent observations are mechanically correlated even if the true signal were independent. This is exactly the overlapping-observations problem we built in Week Two.
+:::
+
+## The Inference Fix
+
+- Naive i.i.d. standard error is **too small** here
+- It overstates effective sample size, inflates the $t$-stat
+- Fix from Chapter 2.4: **Newey–West** HAC errors
+- Lag truncation at least $K-1$ to absorb autocorrelation
+- Referee's first question: *did they correct for overlap?*
+
+::: notes
+Why does the overlap matter for inference? When you regress an overlapping series on a constant to test whether its mean differs from zero, the usual ordinary-least-squares, independent-and-identically-distributed standard error is too small. It assumes independent observations you do not have, so it overstates your effective sample size and inflates the t-statistic. The fix is the one from Chapter Two point four: a heteroskedasticity-and-autocorrelation-consistent standard error — Newey–West — with the lag truncation set to at least K minus one, to absorb the induced autocorrelation. So when you read this paper's t-statistics, the first question a referee asks is: did they correct the standard errors for the overlap, or are these naive t-stats on overlapping data? One more design choice worth flagging — many momentum implementations skip the most recent week or month between formation and holding, to dodge the short-horizon reversal and bid-ask bounce that would otherwise contaminate the winner and loser definitions.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Re-forming every month and averaging $K$ overlapping cohorts squeezes the data but induces serial correlation: adjacent returns share $K-1$ cohorts. The naive i.i.d. error is too small, so use **Newey–West** with lag at least $K-1$. The cleverness and the vulnerability are the same coin. Next: the data, and the first table you should open.
+:::
+
+::: notes
+To summarize part three: re-forming the portfolio every month and averaging across K overlapping cohorts uses every drop of data and smooths the estimate, but it induces serial correlation — adjacent observations share K minus one cohorts. The naive independent error is too small, so you respect the overlap with Newey–West standard errors, lag at least K minus one. The cleverness and the vulnerability are the same coin. In part four we cover the data behind the study — CRSP, the New York and American exchanges, the sample years — and then open the most important table in the paper: the returns surface.
+:::

@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## One Sandwich, Many Fillings
+
+- Part 4 — the variance sandwich and its three real fillings
+
+::: notes
+Welcome back to "the standard error is the whole ballgame," part four of six. In part three we worked the warm-ups: corrected versus weakened, what robust standard errors miss, and the few-clusters trap. Now we walk the speak-from deck. We make one beta hat say "significant" and "not significant" without changing a single data point, and we name the three real shapes the error matrix can take.
+:::
+
+## The Point Estimate Is the Easy Part
+
+- $\hat\beta = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}$ — unbiased under Gauss–Markov
+- True no matter how the errors are correlated
+- Your laptop hands it to you for free
+- What is *not* free: knowing how much to trust it
+- Today's claim: credibility lives in the SE, not the coefficient
+
+::: notes
+Slide one of the scaffold: the point estimate is the easy part. Under Gauss-Markov, beta hat equals X-prime-X inverse times X-prime-y, and it is unbiased no matter how the errors are correlated. Your laptop hands it to you for free. What is not free, and not automatic, is knowing how much to trust it — and that is the standard error. So today's claim, stated as bluntly as possible: in empirical finance, credibility lives in the standard error, not in the coefficient. We will make one beta hat say both "significant" and "not significant" without changing a single data point. The coefficient is the same in both stories; only the standard error moves.
+:::
+
+## The Variance Sandwich
+
+- Honest variance: $(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\boldsymbol\Omega\mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}$
+- Bread is fixed; the **filling** $\boldsymbol\Omega$ is unknown
+- Classical SE is the sandwich for the fantasy $\boldsymbol\Omega = \sigma^2\mathbf{I}$
+- We never touch $\hat\beta$ — only estimate the **middle**
+- Three real shapes: heteroskedastic, block-correlated, time-banded
+
+::: notes
+Slide two: one sandwich, many fillings — Chapter two-point-four in one breath. The honest variance is always the sandwich: X-prime-X inverse, times X-prime, times Omega, times X, times X-prime-X inverse. The bread — those X-prime-X inverse pieces on the outside — is fixed. The filling, Omega, is unknown, and estimating it is the whole game. The classical standard error is just the sandwich computed for the fantasy diet where Omega equals sigma-squared times the identity — equal variances, zero correlation. We never fix or change beta hat; the entire exercise is estimating the middle without pretending Omega is sigma-squared times the identity. There are three real shapes for Omega worth naming: heteroskedastic, which calls for robust or H-C standard errors; block-correlated, which calls for clustered standard errors; and time-banded, which calls for H-A-C, the Newey-West kind.
+:::
+
+## Why Naive SEs Lie, and Which Way
+
+- Positive within-group correlation $\Rightarrow$ less independent info than $N$ pretends
+- True Var $\approx$ naive Var $\times\,[\,1 + (n-1)\rho_x\rho_\varepsilon\,]$
+- Damage scales with **cluster size** $n$
+- Naive SE almost always too *small*, t-stat too *big*
+- More obs inside clusters ≠ evidence; more *clusters* do
+
+::: notes
+Slide three: why naive standard errors lie, and which way. Positive within-group correlation means each observation carries less independent information than the count N pretends. The Moulton arithmetic again: true variance is approximately naive variance times the quantity one plus, n minus one, times rho-x, times rho-epsilon — and the damage scales with cluster size n. So the naive standard error is almost always too small, and the t-statistic too big. Overconfidence is the default failure mode, not a rare accident. And the operational consequence, worth repeating until it is reflex: more observations inside your existing clusters do not buy evidence — only more clusters do. Doubling the loans per lender barely helps; doubling the number of lenders is what adds real independent information.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The honest variance is always the **sandwich** — bread fixed, filling $\boldsymbol\Omega$ unknown. We never touch $\hat\beta$; we estimate the middle. Three real shapes — heteroskedastic, block-correlated, time-banded — call for robust, clustered, and HAC standard errors.
+:::
+
+::: notes
+To summarize part four: the honest variance is always the sandwich, with fixed bread and an unknown filling, Omega — and the classical formula just plugs in the fantasy that Omega equals sigma-squared times the identity. The whole craft is estimating that middle honestly, never touching beta hat. Three real shapes for Omega — heteroskedastic, block-correlated, and time-banded — map to robust, clustered, and H-A-C standard errors. And naive inference fails toward overconfidence, with damage scaling in cluster size. In part five we take this into the panel world and meet Petersen's taxonomy — firm effects, time effects, and thinking like the referee.
+:::

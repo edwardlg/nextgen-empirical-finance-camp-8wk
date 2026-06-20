@@ -1,0 +1,58 @@
+---
+date: "2026-06-22"
+---
+
+## Risk, Robustness, and the Anti-January Effect
+
+- Part 5 — risk, sub-periods, seasonality, and reversal
+
+::: notes
+Welcome back to Week Five, lesson three, part five of eight. In part four we opened the J-by-K returns surface and confirmed the spreads are positive — roughly one percent per month at six-six. Raw spreads, though, are not yet an anomaly. Now we continue the professional reading order: the risk-adjustment table, the sub-period split, the seasonality check, and finally the long-run reversal. Each table is a place the result could break, read in the order that gets you to the truth fastest.
+:::
+
+## Second: The Risk Table
+
+- Adjust returns for market exposure — **CAPM beta**
+- Winners are **not** meaningfully riskier than losers
+- Differences run the *wrong way* to rescue efficiency
+- Momentum alpha **survives** 1993-era risk controls
+- Later: a dedicated momentum factor gets bolted on
+
+::: notes
+Second, the risk-adjustment table. Having shown raw spreads are positive, the authors ask whether risk explains them. They adjust returns for market exposure — CAPM beta — and report that winners are not meaningfully riskier than losers. If anything, the beta and size differences run the wrong way to rescue efficiency. The momentum alpha survives the risk controls available in nineteen ninety-three. Read this table asking what risk model is being used and what is left unexplained. The honest answer, from later work, is that the standard factor models of the era cannot price momentum — which is why a dedicated momentum factor, sometimes written U-M-D or W-M-L, eventually gets bolted onto the Fama–French machinery you saw in lesson two.
+:::
+
+## Third: Sub-Periods and Seasonality
+
+- **Sub-periods:** split the sample, not one lucky decade
+- **Seasonality:** break profits out by calendar month
+- Size and value anomalies clustered in **January**
+- Momentum has the *opposite* problem — it **loses** in January
+- An *anti*-January effect — harder to dismiss
+
+::: notes
+Third, the sub-period and seasonality robustness. Two checks here. First, sub-periods: split the sample in half and confirm the profit is not driven by one lucky decade. Second, and the crucial one, seasonality — break the profits out by calendar month. The size and value anomalies of the era were famously concentrated in January. Momentum has the opposite January problem: the strategy tends to lose money in January, because the losers — often beaten-down small caps — bounce hard in January, while the strategy earns its keep in the other eleven months. Reading this table tells you the profit is not a January artifact; it is an anti-January effect, which is harder to dismiss, because you cannot wave it away as the same old January seasonal that drives size and value.
+:::
+
+## Last: Long-Horizon Reversal
+
+- Optional final check: post-holding behavior
+- Hold long enough and medium-horizon profits **reverse**
+- Reconciles with **De Bondt–Thaler** long-run reversal
+- Continuation for months, then eventual unwinding
+- Hints at the **overreaction** interpretation
+
+::: notes
+Last, and optional, look at the longer-horizon, post-holding behavior. Here you find evidence that the medium-horizon profits eventually reverse if you hold long enough. This reconciles momentum with the De Bondt and Thaler long-run reversal result — past long-term losers eventually outperform past long-term winners — and it hints at the overreaction interpretation of why momentum exists. So the full life of a momentum bet is: continuation for a few months to a year, then eventual unwinding. That arc — short-horizon reversal, medium-horizon continuation, long-horizon reversal — is the whole reason the paper pins itself so carefully to the three-to-twelve-month window.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Continue the reading order: the **risk table** shows winners are not riskier, so the alpha survives CAPM beta; **sub-periods** rule out one lucky decade; **seasonality** reveals an *anti-January* effect; and **long-horizon** behavior shows eventual reversal. Each table is a place the result could break — and doesn't. Next: weighing the paper as a referee.
+:::
+
+::: notes
+To summarize part five: after the returns surface, you read the risk table — winners are not meaningfully riskier, so the alpha survives CAPM beta. Then sub-periods, to rule out one lucky decade. Then seasonality, which reveals the surprising anti-January effect — momentum loses in January and earns its keep the other eleven months. And finally, optionally, the long-run reversal that reconciles momentum with De Bondt and Thaler. Each table is a place the result could break, and it holds. In part six we step back and judge the paper as referees — what is genuinely clever about its design, and the first two of five live threats to the result.
+:::

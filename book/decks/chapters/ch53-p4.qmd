@@ -1,0 +1,46 @@
+---
+date: "2026-06-22"
+---
+
+## The Data and the Returns Surface
+
+- Part 4 — the CRSP data and the J/K returns surface
+
+::: notes
+Welcome back to Week Five, lesson three, part four of eight. In part three we built the overlapping-portfolio trick and saw why it forces Newey–West standard errors. Now we cover the data behind the study, and then open the single most important table in the paper — the J-by-K returns surface. You do not read this paper top to bottom; you read it in a deliberate order, hunting for where the result could break, and this is where you start.
+:::
+
+## The Data
+
+- **CRSP** monthly returns — the standard return tape
+- Restricted to **NYSE and AMEX** common stocks
+- Sample period **1965–1989** — twenty-five years
+- Roughly three hundred monthly formation dates
+- Equal-weighted deciles, overlapping monthly re-formation
+
+::: notes
+The dataset is CRSP monthly returns — the Center for Research in Security Prices file, the same return tape Fama and French use. In this paper it is restricted to New York Stock Exchange and American Stock Exchange common stocks. Nasdaq's broad coverage on CRSP arrives later, which is one reason early momentum work leans on NYSE and AMEX. The sample period is nineteen sixty-five to nineteen eighty-nine — twenty-five years of monthly data. That gives roughly three hundred monthly formation dates, each spawning a decile sort over hundreds to a couple thousand eligible stocks. The portfolios are equal-weighted — each stock counts the same, not value-weighted — with the overlapping monthly re-formation we described. For our own notebook we will swap in modern CRSP and extend the sample forward, and you should expect the magnitudes to shift, because the period after nineteen ninety, especially the two thousand nine momentum crash, is unkind to the strategy.
+:::
+
+## First: The Returns Matrix
+
+- The heart of the paper — read it as a **surface**
+- Sixteen $J \times K$ average monthly spreads, with $t$-stats
+- Check **sign and significance** across the diagonal
+- 6/6 profit is order-of-magnitude **~1% per month**
+- Then ask: are these $t$-stats **overlap-corrected**?
+
+::: notes
+First, open the J-by-K returns matrix. This is the heart of the paper — a single table of average monthly winner-minus-loser spreads across the sixteen formation and holding combinations, each with a t-statistic. Read it as a surface, not a list. Three things to check before anything else. First, the sign and significance across the grid — are the spreads positive and significant, especially at six-six, nine-nine, twelve-three? The qualitative finding is that medium-horizon momentum profits are positive and on the order of roughly one percent per month for the classic six-six strategy — a big number once you annualize it. Describe it as order-of-magnitude one percent per month; do not quote a specific decimal from memory. Second, notice where it strengthens and weakens — longer formation paired with longer holding starts to show the profit decaying, the seed of the long-run reversal story. Third, hold the question of whether those t-stats are overlap-corrected; it governs how much of the significance you believe.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+Data is **CRSP** monthly, **NYSE/AMEX**, **1965–1989**, equal-weighted deciles. Open the $J \times K$ returns surface *first*: check the sign and significance across the grid, note that 6/6 is order-of-magnitude **~1%/month**, and ask whether the $t$-stats are overlap-corrected. Next: the risk-adjustment, sub-period, and seasonality tables.
+:::
+
+::: notes
+To summarize part four: the data is CRSP monthly returns, the New York and American exchanges, nineteen sixty-five to eighty-nine, equal-weighted deciles re-formed every month. And the first table you open is the J-by-K returns surface: check the sign and significance across the grid, note that six-six is positive and roughly one percent per month — order of magnitude, not a memorized decimal — and hold the question of whether those t-statistics are overlap-corrected. In part five we continue the reading order: the risk-adjustment table, the sub-period split, and the crucial seasonality check that reveals momentum's surprising relationship with January.
+:::

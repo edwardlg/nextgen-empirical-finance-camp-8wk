@@ -1,0 +1,73 @@
+---
+date: "2026-06-22"
+---
+
+## Publication-Grade Figures
+
+- Part 3 — engineer figures that are arguments, not decoration
+
+::: notes
+Welcome back to the manuscript build, part three of five. In part two we built the table that lets a referee verify your number in under a minute. Figures are not decoration — the event-study plot is the parallel-trends argument, the specification curve is your robustness disclosure, the forest plot is the heterogeneity result. In this part we engineer each to make a single comparison salient, designing backward from the claim.
+:::
+
+## Figures Are Arguments, Not Decoration
+
+- Event-study plot *is* the parallel-trends argument
+- Specification curve *is* your robustness disclosure
+- Forest plot *is* the heterogeneity result
+- Make one comparison salient; demote everything else
+- Tufte's data-ink ratio, turned into a checklist
+- Write the caption first, then engineer the plot
+
+::: notes
+Many students treat figures as decoration. In modern empirical finance this is backward: the event-study plot is the parallel-trends argument, the specification curve is your robustness disclosure, the forest plot is the heterogeneity result. The reveal: a publication-grade figure is engineered to make one comparison salient, with everything else demoted. This is Tufte's data-ink ratio turned into a checklist — remove the top and right spines, suppress the grid, one accent color for data and gray for context, axis labels with units, no internal title. The figure passes its one-glance test when a referee can name the x-axis, the y-axis, the comparison, and the claim in fifteen seconds. Design backward: write the caption first, then engineer the plot so the claim is visible without reading it.
+:::
+
+## The Event-Study Plot
+
+- Horizontal axis is **event time**, not calendar time
+- Vertical axis in the outcome's natural unit
+- Dashed vertical at $\tau=0$; gray horizontal at zero
+- Estimates: $\hat{\delta}_\tau \pm 1.96\,\hat{\sigma}_\tau$, no caps
+- Reference period $\tau=-1$ is $0$ by construction
+- Show it open, or drop it — never fake precision
+
+::: notes
+The event-study plot is the visual evidence for parallel trends in a difference-in-differences design. The horizontal axis is event time, not calendar time — in a staggered design the same calendar year is tau equals minus two for one cohort and tau equals plus one for another. The vertical axis is the outcome's natural unit, percentage points. A thin dashed vertical at tau equals zero separates pre from post; a gray horizontal at y equals zero lets the reader judge whether the bands cover the null. Point estimates are filled circles with error bars of delta-hat-tau plus or minus one-point-nine-six sigma-hat-tau. The reference period, tau equals minus one, returns zero by construction — show it open or drop it; never plot it with a zero-width bar, which fakes a precise estimate. Pre-period flat around zero, post-period falling to minus one-point-four: the entire claim, visible without the caption.
+:::
+
+## Specification Curve and Forest Plot
+
+- Spec curve: headline coefficient across the menu, sorted ascending
+- Black if the $95\%$ CI excludes zero, gray otherwise
+- Lower panel of choice indicators — or it's half-useful
+- Keep choice rows under twelve
+- Forest plot: each subgroup a dot, $95\%$ CI line
+- Ordered meaningfully; dashed reference at overall ATT
+
+::: notes
+The specification-curve plot, from Simonsohn, Simmons, and Nelson, twenty-twenty, shows the headline coefficient across the menu of plausible specifications, sorted ascending — an unsorted curve is noise. Color the dot black if its ninety-five-percent confidence interval excludes zero, gray otherwise. A lower panel of choice indicators lets the reader scan the most-positive specs and read down to see which choice drives them. Without it the figure is half-useful; keep the choice rows under twelve. The heterogeneity forest plot, borrowed from clinical trials, shows each subgroup as a dot with a ninety-five-percent confidence-interval line, ordered meaningfully — by moderator, then by quantile, never alphabetically — with the overall average treatment effect at the top and a dashed reference at it. Maya's forest tells the whole story in five seconds: a monotone minority-share gradient from minus zero-point-two to minus two-point-three.
+:::
+
+## Production Discipline
+
+- Save **vector** — PDF or SVG, not raster
+- Produce at display size; don't render big then shrink
+- Name files after the manuscript element
+- Captions: what it is, source, inference, claim
+- Color-blind-safe palettes; never red-green together
+
+::: notes
+Production discipline finishes the figure. Save vector — P-D-F or S-V-G — never raster. Produce at the size it will display; do not render a big figure then shrink it, because the fonts come out wrong. Name files after the manuscript element, so a reviewer's request to re-render figure three with a wider band is a one-parameter change. Captions run two to four lines: what the figure is, the source and sample, the inference convention, and an optional claim line. Use color-blind-safe palettes, and never red and green together.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A figure is **engineered to make one comparison salient** — Tufte styling, caption written first. The event-study plot is the parallel-trends argument; the specification curve, sorted with a choice panel, is the robustness disclosure; the forest plot is the heterogeneity result. Save vector, at display size. Next: the five-paragraph introduction.
+:::
+
+::: notes
+To summarize part three: a publication-grade figure is engineered to make one comparison salient, everything else demoted — Tufte styling, the caption written first. The event-study plot is the parallel-trends argument; the specification curve, sorted with a lower choice panel, is your robustness disclosure; the forest plot is the heterogeneity result. Save vector, at display size. In part four: the five-paragraph introduction.
+:::

@@ -1,0 +1,50 @@
+---
+date: "2026-06-22"
+date-format: "YYYY-MM-DD"
+---
+
+## The Two-Sign Rule
+
+- Part 4 — sign the bias direction; work Maya's case
+
+::: notes
+Welcome back to Week Two-point-five, part four of twelve. In part three we derived the omitted variable bias formula: the short slope converges to beta-one plus beta-two times delta-one, a product of two slopes. You will rarely know the magnitude of that bias, but you can almost always reason about its sign — and the sign alone often tells you whether your estimate is too big or too small. We state the rule, then work Maya's case in full.
+:::
+
+## The Two-Sign Rule
+
+| $\beta_2$ (omitted $\to y$) | $\delta_1$ (omitted $\leftrightarrow$ incl.) | Bias $\beta_2\delta_1$ | Effect on $\hat{\tilde\beta}_1$ |
+|:---:|:---:|:---:|:---|
+| $+$ | $+$ | $+$ | biased **up** |
+| $+$ | $-$ | $-$ | biased **down** |
+| $-$ | $+$ | $-$ | biased **down** |
+| $-$ | $-$ | $+$ | biased **up** |
+
+- Same signs push **up**; opposite signs push **down**
+
+::: notes
+You will rarely know the magnitude of the bias — that would require knowing beta-two and delta-one, and if you knew them you would just include z. But you can almost always reason about its sign. The sign of the bias, beta-two times delta-one, is the product of two signs. First, the sign of beta-two, the omitted variable's effect on the outcome. Second, the sign of delta-one, the omitted variable's correlation with your included regressor. Multiply them. If beta-two is positive and delta-one is positive, the bias is positive — biased up, too positive. If they have opposite signs, the bias is negative — biased down. This is the two-sign rule: figure out the sign of the omitted variable's effect on the outcome, figure out the sign of its correlation with your included regressor, multiply, and you have the direction the bias drags your estimate. Same signs push up, opposite signs push down.
+:::
+
+## Maya's Case, Worked
+
+- Regressor $D$ coded so disadvantaged group is $D = 1$
+- $\beta_2$: credit raises approval $\Rightarrow$ positive
+- $\delta_1$: group $D=1$ has lower credit $\Rightarrow$ negative
+- Product $(+)(-) = -$: bias is **negative**
+- Estimate **overstates** the penalty against group $D=1$
+
+::: notes
+Maya's case, worked. Her regressor is the demographic indicator D, coded so the disadvantaged group is D-equals-one. Her outcome is approval. The omitted variable is creditworthiness C. Two signs. First, beta-two, the effect of credit on approval: positive — more creditworthy applicants are approved more often. Second, delta-one, the slope of credit on D: in her sample the D-equals-one group has lower average measured creditworthiness, so regressing credit on D gives a negative slope. Product: positive times negative is negative. The bias is negative. Maya's short-regression coefficient on D is biased downward, meaning her estimate overstates the approval penalty against group D-equals-one. Part of what looks like discrimination is really the lender responding to lower measured creditworthiness, which her regression mistakenly loads onto D. The honest statement is not that there is no discrimination — we have not shown that — but that the raw D coefficient is an upper bound on the disadvantage attributable to D itself, and she cannot separate the two without controlling for credit.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+The **two-sign rule:** multiply the sign of the omitted variable's effect on $y$ by the sign of its correlation with $x$ — same signs bias up, opposite signs bias down. Maya's case gives $(+)(-) = -$: her demographic coefficient is biased down, *overstating* the penalty. Next: naming the threat, a second example, and why controls are a bet.
+:::
+
+::: notes
+To summarize part four: the two-sign rule lets you sign the bias even when you cannot size it. Multiply the sign of the omitted variable's effect on the outcome by the sign of its correlation with your regressor — same signs bias up, opposite signs bias down. Maya's case gives positive times negative, a negative bias, so her demographic coefficient is biased downward and overstates the penalty she is trying to measure. In part five we write Maya's threat out fully in specification language, work a second example in the opposite direction with Sam's momentum signal, and confront the seductive trap of simply adding controls.
+:::

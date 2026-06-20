@@ -1,0 +1,72 @@
+---
+date: "2026-06-22"
+---
+
+## The Five-Paragraph Introduction
+
+- Part 4 — build a five-paragraph intro, one job each
+
+::: notes
+Welcome back to the manuscript build, part four of five. In part three we engineered the figures that carry your arguments. Now the introduction restates the contract at one degree more detail. The reveal is sharp: a publication-grade introduction is exactly five paragraphs, and each has exactly one job. In this part we walk the five jobs as a funnel, then learn how to diagnose a sick intro.
+:::
+
+## Five Paragraphs, One Funnel
+
+- Exactly five paragraphs; each has exactly one job
+- A funnel: broad fact narrowing to the question
+- Then design, then numbers, then back out to literature
+- Each depends on the one before it
+- About $1{,}200$ to $1{,}600$ words total
+
+::: notes
+You have the abstract, the tables, the figures. The introduction restates the contract at one degree more detail. The reveal: a publication-grade introduction is exactly five paragraphs, and each has exactly one job. They form a funnel — broad institutional fact, narrowing to the question, the design, the numbers, then widening back out to the literature. Each depends on the one before: the hook motivates the question, the question motivates the design, the design produces the findings, the findings define the contribution. About one thousand two hundred to one thousand six hundred words. Length correlates with sickness; the worst introductions are the longest.
+:::
+
+## Hook, Question, What-We-Do
+
+- **Hook** (100–180 words) — one concrete fact, not a definition
+- A year, a city, a comparison, a magnitude to picture
+- **Question** (150–250 words) — known, then the gap, then the ask
+- Cite three to seven papers, no more
+- **What-We-Do** (200–350 words) — data, design, assumption, evidence
+- Where the referee decides R&R versus reject
+
+::: notes
+Paragraph one, the Hook: one concrete fact that locates the reader in the world, not a literature review and not a definition. Mortgage denial rates differ across racial groups is generic; in twenty-nineteen, a Black applicant in the Atlanta metro was one-point-seven times as likely to be denied as a White applicant with the same income and credit score is specific — a year, a city, a comparison, a magnitude the reader can picture. Paragraph two, the Question: the first sentence names what is known, the middle names the gap, and the last states the question, matching the abstract's first sentence. Cite three to seven papers, no more; failing to acknowledge a close prior is how a referee comes to write the author appears unaware of. Paragraph three, What-We-Do: data, design, identifying assumption, and evidence for it. This is where the referee decides revise-and-resubmit versus reject, so it earns the most effort.
+:::
+
+## Findings and Contribution
+
+- **Findings** (180–280 words) — four or five curated numbers
+- Headline with CI, temporal structure, key heterogeneity, placebo
+- Map directly to the abstract and Table 2
+- **Contribution** (150–250 words) — three strands, one literature each
+- Precise descriptors, not open superlatives
+
+::: notes
+Paragraph four, the Findings: not a tour of the tables, but a curated four or five numbers — the headline with its confidence interval, the temporal structure, the key heterogeneity, the placebo reassurance. Map these directly to the abstract's sentence four and to Table two. Paragraph five, the Contribution: three strands, one literature each, naming what the paper adds to each. Three matches the cognitive granularity of most papers' literatures — two is thin, four is too many. Use precise descriptors, like the first credibly identified estimate of, not open superlatives, because a superlative invites the reader to find the counterexample, and the counterexample becomes the referee's hook.
+:::
+
+## Diagnosing a Sick Intro
+
+- Tag each paragraph: H / Q / WWD / F / C — or Other
+- **Wandering Funnel** — any "Other," or a job done twice
+- **Methodological Detour** — para 3 becomes a tutorial
+- **Diffuse Hook** — under three numbers in first sentences
+- **Findings-Free Findings** — under four numbers in para 4
+- **Contribution Inflation** — over two superlatives in para 5
+
+::: notes
+Diagnosing a sick intro is the negative template. Tag each paragraph with its job — Hook, Question, What-We-Do, Findings, Contribution — or Other. Any Other, or two paragraphs sharing a job, is the Wandering Funnel: the eleven-paragraph, four-thousand-two-hundred-word February draft. The Methodological Detour: paragraph three becomes a methods tutorial — move the defense to Section three. The Diffuse Hook: fewer than three numbers or proper nouns in the first three sentences. The Findings-Free Findings Paragraph: fewer than four numbers in paragraph four. The Contribution Inflation: more than two superlatives in paragraph five. Maya's revised intro is one thousand one hundred fifty words — seventy-three percent shorter than her draft — and a reader who reads only those five paragraphs knows the setting, question, design, headline, and contribution.
+:::
+
+## Key Takeaway
+
+::: callout-tip
+## Key takeaway
+A publication-grade introduction is **exactly five paragraphs, each with one job** — Hook, Question, What-We-Do, Findings, Contribution — a funnel from a concrete fact to the literature. Diagnose it by tagging each paragraph; any "Other," thin findings, or inflated contribution is a sick paragraph. Next: the literature review.
+:::
+
+::: notes
+To summarize part four: a publication-grade introduction is exactly five paragraphs, each with one job — Hook, Question, What-We-Do, Findings, Contribution — a funnel from one concrete fact down to the findings and back out to the literature. Diagnose it by tagging each paragraph; any Other paragraph, a findings paragraph with fewer than four numbers, or a contribution with more than two superlatives, is sick. In part five we build the final artifact — the three-strand literature review.
+:::
