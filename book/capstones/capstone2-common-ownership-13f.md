@@ -1,6 +1,6 @@
 # Capstone 2 (Exemplar) — Common Ownership from 13F
 
-> **Track:** Common Ownership from 13F · **Anchor paper:** Gao, L., Han, J., Kim, J-B., & Pan, T. (2024), "Overlapping institutional ownership along the supply chain and earnings management of supplier firms," *Journal of Corporate Finance*, 84, 102520.
+> **Track:** Common Ownership from 13F · **Anchor paper:** Gao, L., Han, J., Kim, J-B., & Pan, Z. (2024), "Overlapping institutional ownership along the supply chain and earnings management of supplier firms," *Journal of Corporate Finance*, 84, 102520.
 >
 > **Student-track variant notice.** *The anchor paper's actual outcome variable is **earnings management of supplier firms** (measured as discretionary accruals from Compustat). This capstone keeps the **same thematic point** — overlapping ownership along a corporate relationship reshapes a firm-level outcome a referee will demand be measured carefully — but substitutes a **voluntary-disclosure index** as the outcome, because (i) the disclosure construct is easier to build, label, and reason about for a high-school capstone, and (ii) it lets the camp practice the measurement-error discipline against a different sensor than the anchor paper's accruals model. **Read this paper as a sibling-outcome variant of the anchor**, not as a replication of it; the design moves, threats table, and inference discipline are the same. Where the anchor paper measures earnings management as a continuous accounting residual, this paper measures voluntary disclosure as a count of guidance items — different sensor, same measurement-error logic.*
 >
@@ -205,7 +205,7 @@ What comes next is what would turn the association into an estimate. The natural
 
 Bertrand, M., Duflo, E., & Mullainathan, S. (2004). How much should we trust differences-in-differences estimates? *Quarterly Journal of Economics*, 119(1), 249–275.
 
-Gao, L., Han, J., Kim, J.-B., & Pan, T. (2024). Overlapping institutional ownership along the supply chain and earnings management of supplier firms. *Journal of Corporate Finance*, 84, 102520.
+Gao, L., Han, J., Kim, J.-B., & Pan, Z. (2024). Overlapping institutional ownership along the supply chain and earnings management of supplier firms. *Journal of Corporate Finance*, 84, 102520.
 
 Petersen, M. A. (2009). Estimating standard errors in finance panel data sets: Comparing approaches. *Review of Financial Studies*, 22(1), 435–480.
 

@@ -100,7 +100,7 @@ Used in the Preface, the reading guides (Weeks 5–6), and the mentor sessions (
 
 - **Fair lending / discrimination detection:** Gao, L., & Sun, H. (2019). Lending practices to
   same-sex borrowers. *PNAS*, 116(19), 9293–9302. (Congressional testimony; HUD; Federal Reserve.)
-- **Supply-chain common ownership:** Gao, L., Han, J., Kim, J-B., & Pan, T. (2024). Overlapping
+- **Supply-chain common ownership:** Gao, L., Han, J., Kim, J-B., & Pan, Z. (2024). Overlapping
   institutional ownership along the supply chain and earnings management of supplier firms.
   *Journal of Corporate Finance*, 84, 102520.
 - **Municipal borrowing (working):** Gao, L., Liu, S., & Wang, Y. The Rainbow of Credits: Evidence

@@ -10,7 +10,7 @@ The reveal is also the limitation the whole fair-lending literature turns on: **
 
 ## Coverage
 
-- **Years:** modern Data Browser coverage from **2007** forward, with the **2018 schema expansion** (Dodd-Frank/Regulation C) as a hard break: pre-2018 and post-2018 files have different fields and codings. The new fields (rate, DTI, LTV, property value, NMLS id) start in 2018.
+- **Years:** the modern **Data Browser covers 2018 forward** (the post-Dodd-Frank/Regulation C schema); **2007–2017** HMDA is public too but is served from CFPB's separate **historic-data** page (and the FFIEC bulk files), *not* the Data Browser API. The **2018 schema expansion** is a hard break: pre-2018 and post-2018 files have different fields and codings, and the new fields (rate, DTI, LTV, property value, NMLS id) start in 2018.
 - **Universe:** depository and non-depository lenders above a reporting threshold; smaller lenders are exempt, so HMDA is *near*-census, not total. The threshold has changed across years — `[CHECK]` the exact loan-count threshold for your pinned vintage, because it affects which small lenders appear.
 - **Size:** multiple gigabytes per nationwide year. **Never download the full national LAR to a laptop.**
 - **Revisions:** a year is published, then re-published with corrections. The vintage matters; pin it.

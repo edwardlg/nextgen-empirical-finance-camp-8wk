@@ -132,7 +132,7 @@ These tie today's ideas to two of my own papers, offered as live worked cases â€
 validating a behavioral construct (earnings management) inside a panel*, and one of *using AI responsibly
 in research and teaching*:
 
-> Gao, L., Han, J., Kim, J-B., & Pan, T. (2024). Overlapping institutional ownership along the supply
+> Gao, L., Han, J., Kim, J-B., & Pan, Z. (2024). Overlapping institutional ownership along the supply
 > chain and earnings management of supplier firms. *Journal of Corporate Finance*, 84, 102520.
 >
 > Gao, L., Gopalakrishnan, S., Ehrlich, M., & Wang, C. (forthcoming). Derivatives Trading Simulation
