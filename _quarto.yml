@@ -18,6 +18,7 @@ project:
     - "environment.yml"
     - "CONVENTIONS.md"
     - "video-map.json"   # built by tools/build_video_map.py; consumed by _includes/video-embed.html
+    - "interactive/**/*.html"   # standalone companion apps (e.g., the AI-in-research presentation + lab)
 
 # -----------------------------------------------------------------
 # Global execution policy: never execute code on CI or locally during
@@ -96,6 +97,8 @@ book:
         href: book/capstones/README.md
       - text: "Instructor Manual"
         href: book/instructor-manual/README.md
+      - text: "AI Research Lab"
+        href: interactive/ai-in-research-lab/index.html
       - text: "About"
         href: about.qmd
     right:

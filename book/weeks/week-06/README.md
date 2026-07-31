@@ -5,6 +5,7 @@ Text-as-data and machine-learning-flavored empirical finance, plus a full module
 
 ## Meta-pack
 - [Reading Guide Pack 6 + AI Lab Manual](reading-guide-pack-6-ai-lab-manual.md) — reading measurement papers, a RAG architecture, a prompt-pattern catalog, an LLM-label evaluation harness, and a responsible-use/disclosure checklist.
+- **[▶ Interactive companion — *AI in Empirical Research* (presentation + lab)](https://edwardlg.github.io/nextgen-empirical-finance-camp-8wk/interactive/ai-in-research-lab/index.html){target="_blank"}** — a browser-based slide deck on the latest OpenAI **Codex** / AI-agent applications in empirical economics and finance, with three hands-on verification drills (*spot the hallucination · upgrade the prompt · keep / fix / kill*). Every citation on the slides is individually verified. Also linked from the top navbar as **AI Research Lab**.
 
 ## Reader's Guides + the AI chapter
 1. [Ch 6.1 — Kogan, Papanikolaou, Seru & Stoffman (2017)](ch61-readers-guide-kpss-2017.md), *QJE* 132(2):665–712 (market-based patent value)
