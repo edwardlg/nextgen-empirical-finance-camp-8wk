@@ -19,6 +19,9 @@ project:
     - "CONVENTIONS.md"
     - "video-map.json"   # built by tools/build_video_map.py; consumed by _includes/video-embed.html
     - "interactive/**/*.html"   # standalone companion apps (e.g., the AI-in-research presentation + lab)
+    - "materials/**/*.pdf"      # live-session companion downloads (lesson plans, homework, scripts)
+    - "materials/**/*.pptx"     # live-session slide decks (PowerPoint, with speaker notes)
+    - "materials/**/*.html"     # live-session slide decks (interactive web version)
 
 # -----------------------------------------------------------------
 # Global execution policy: never execute code on CI or locally during
@@ -99,6 +102,8 @@ book:
         href: book/instructor-manual/README.md
       - text: "AI Research Lab"
         href: interactive/ai-in-research-lab/index.html
+      - text: "Live Session Materials"
+        href: materials/index.qmd
       - text: "About"
         href: about.qmd
     right:

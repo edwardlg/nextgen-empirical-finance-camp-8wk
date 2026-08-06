@@ -3,6 +3,8 @@
 Turn a hunch into a falsifiable, pre-registered empirical design with data in hand. See
 [`../../TOC.md`](../../TOC.md) for the full plan.
 
+> **▶ Live-session companion materials** (Friday, Aug 7): [lesson plan, slides (interactive web deck + PowerPoint with speaker notes), speaker script, and the homework](https://edwardlg.github.io/nextgen-empirical-finance-camp-8wk/materials/index.html){target="_blank"} — the *Pre-Analysis Plan + Identification Memo* set. Also on the top navbar as **Live Session Materials**.
+
 ## Chapters
 1. [Ch 7.1 — Idea-Generation Workshop](ch71-idea-generation-workshop.md) (so-what filter; cast → dataset map; feasibility/novelty rubric)
 2. [Ch 7.2 — Data Acquisition in Practice](ch72-data-acquisition-in-practice.md) (WRDS, EDGAR, FRED, HMDA, 13F, PatentsView, yfinance; reproducible pulls)

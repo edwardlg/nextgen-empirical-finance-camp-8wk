@@ -1,0 +1,41 @@
+---
+title: "Live Session Materials"
+subtitle: "Companion slides, lesson plans, and homework for the Friday live sessions"
+---
+
+These are the **companion teaching materials** for the NextGen Empirical Finance Research Camp's
+weekly Friday live sessions — the instructor's lesson plan, the presentation slides (as an
+interactive web deck *and* a downloadable PowerPoint with full speaker notes), the speaker script,
+and that week's homework. They pair with the textbook chapters for the same week.
+
+::: {.callout-note}
+Slides open as a full-screen web deck — use **← / →** to move between slides and press **N** to
+toggle the speaker notes for each page.
+:::
+
+---
+
+## Week 7 — Independent Research Project I: From Question to Pre-Analysis Plan
+
+*Live session: Friday, August 7, 2026. Pairs with [Textbook Week 7](../book/weeks/week-07/README.md).*
+
+| Material | Format |
+|---|---|
+| **Slides — interactive web deck** (with per-slide speaker notes) | [Open ▶](week-07/slides.html){target="_blank"} |
+| **Slides — PowerPoint** (detailed script in each page's notes) | [Download .pptx](week-07/Week7_Slides_2026-08-07.pptx) |
+| **Lesson plan** (120-minute timed agenda) | [Download PDF](week-07/Week7_Lesson_Plan_2026-08-07.pdf) |
+| **Speaker script** (full read-aloud narration) | [Download PDF](week-07/Week7_Slides_Script.pdf) |
+| **Homework — Pre-Analysis Plan + Identification Memo** *(due Fri Aug 14)* | [Download PDF](week-07/Week7_Homework_2026-08-07.pdf) |
+
+**What this session teaches.** The pivot from *consuming* research to *producing* it: the so-what
+filter, feasibility × novelty, the one-sentence **identifying assumption**, the threats-and-responses
+table, the Olken (2015) short-form **pre-analysis plan**, the labelled primary specification,
+falsification tests, and reproducible data acquisition. The homework is the **design half** of each
+student's capstone paper.
+
+*Every citation in these materials is individually verified; the anchor examples use Prof. Gao's own
+published work (the Rainbow of Municipal Credit; Gao & Sun 2019, *PNAS*; Deng, Gao & Kim 2020, *JCF*).*
+
+---
+
+*Additional weeks' live-session materials are added here as each session is delivered.*
