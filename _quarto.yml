@@ -103,7 +103,7 @@ book:
       - text: "AI Research Lab"
         href: interactive/ai-in-research-lab/index.html
       - text: "Live Session Materials"
-        href: materials/index.qmd
+        href: materials/index.html
       - text: "About"
         href: about.qmd
     right:
