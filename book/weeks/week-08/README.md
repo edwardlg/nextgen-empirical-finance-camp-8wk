@@ -4,6 +4,8 @@ Run it, break it on purpose, write it up to publication standard, present it to 
 submit it. The final week folds the symposium-and-submission essentials into the capstone. See
 [`../../TOC.md`](../../TOC.md) for the full plan.
 
+> **▶ Live-session companion materials** (Friday, Aug 14): [lesson plan, the **interactive** slide deck (live specification-curve explorer, robustness battery, referee lens) + PowerPoint with speaker notes, speaker script, and the capstone assignment](https://edwardlg.github.io/nextgen-empirical-finance-camp-8wk/materials/index.html){target="_blank"}. Also on the top navbar as **Live Session Materials**.
+
 ## Chapters
 1. [Ch 8.1 — Execution & Specification Curve](ch81-execution-specification-curve.md) (confirmatory run; multiverse analysis; deviations log)
 2. [Ch 8.2 — Robustness & Inference Stress-Tests](ch82-robustness-inference-stress-tests.md) (alt SEs, placebos, sensitivity, BH-FDR, Oster δ)
