@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 7 Slides — Independent Research Project I (NextGen Empirical Finance Camp)</title>
+<meta name="description" content="Week 7 live-session slides with speaker notes: From Question to Pre-Analysis Plan. Prof. Lei Gao, GMU.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%93%8A</text></svg>">
+</head>
+<body>
+<style>
+  :root{
+    --font-display:"Poppins","Segoe UI",system-ui,-apple-system,sans-serif;
+    --font-body:"Open Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
+    --green:#005239;--green-lift:#0a6b4c;--gold:#FFC733;--amber:#CC8A00;--steel:#004F71;--teal:#008285;--brick:#CC4824;
+    --ground:#eef1ec;--surface:#ffffff;--surface-2:#f6f8f4;--ink:#14201b;--muted:#5f6663;--hair:#dfe3dc;
+    --accent:var(--green);--accent-2:var(--amber);--verified:#0a7a6f;--fix:#B26A00;--kill:#c0402a;
+    --slide-ink:#14201b;--chip:#eef1ec;--shadow:0 1px 3px rgba(10,30,22,.06),0 10px 34px rgba(10,30,22,.09);
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --ground:#0b1611;--surface:#111f18;--surface-2:#152419;--ink:#e9efe9;--muted:#93a099;--hair:#243731;
+    --accent:#39b98f;--accent-2:var(--gold);--verified:#2fbfa8;--fix:#e5a93a;--kill:#ff7154;
+    --slide-ink:#e9efe9;--chip:#1a2c24;--shadow:0 1px 3px rgba(0,0,0,.4),0 12px 38px rgba(0,0,0,.5);
+  }}
+  :root[data-theme="light"]{--ground:#eef1ec;--surface:#fff;--surface-2:#f6f8f4;--ink:#14201b;--muted:#5f6663;--hair:#dfe3dc;--accent:var(--green);--accent-2:var(--amber);--verified:#0a7a6f;--fix:#B26A00;--kill:#c0402a;--slide-ink:#14201b;--chip:#eef1ec;--shadow:0 1px 3px rgba(10,30,22,.06),0 10px 34px rgba(10,30,22,.09)}
+  :root[data-theme="dark"]{--ground:#0b1611;--surface:#111f18;--surface-2:#152419;--ink:#e9efe9;--muted:#93a099;--hair:#243731;--accent:#39b98f;--accent-2:var(--gold);--verified:#2fbfa8;--fix:#e5a93a;--kill:#ff7154;--slide-ink:#e9efe9;--chip:#1a2c24;--shadow:0 1px 3px rgba(0,0,0,.4),0 12px 38px rgba(0,0,0,.5)}
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+  .stage{position:fixed;inset:0;display:grid;grid-template-rows:1fr auto;overflow:hidden}
+  .viewport{position:relative;display:grid;place-items:center;padding:clamp(14px,3vw,40px);overflow:hidden}
+  .slide{position:absolute;width:min(100%,1120px);aspect-ratio:16/9;max-height:100%;background:var(--surface);border:1px solid var(--hair);border-radius:16px;box-shadow:var(--shadow);
+    padding:clamp(22px,4.2vw,60px);opacity:0;transform:translateY(14px) scale(.99);pointer-events:none;transition:opacity .32s ease,transform .32s ease;overflow:hidden;display:flex;flex-direction:column;color:var(--slide-ink)}
+  .slide.on{opacity:1;transform:none;pointer-events:auto}
+  @media (prefers-reduced-motion:reduce){.slide{transition:none}}
+
+  h1,h2,h3{font-family:var(--font-display);margin:0;letter-spacing:-.02em;line-height:1.05;text-wrap:balance}
+  .eyebrow{font-family:var(--font-mono);font-size:clamp(.6rem,1vw,.74rem);letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 14px}
+  :root[data-theme="dark"] .eyebrow{color:var(--accent-2)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .eyebrow{color:var(--accent-2)}}
+  .slide h2{font-size:clamp(1.4rem,3.4vw,2.5rem);font-weight:700}
+  .slide h2 .hl{color:var(--accent)}
+  :root[data-theme="dark"] .slide h2 .hl{color:var(--accent-2)}
+  .sub{color:var(--muted);font-size:clamp(.95rem,1.5vw,1.2rem);margin:14px 0 0;max-width:60ch}
+  .slide p{font-size:clamp(.9rem,1.35vw,1.08rem);line-height:1.5}
+  .body{margin-top:auto;margin-bottom:auto}
+  .mono{font-family:var(--font-mono)}
+
+  /* title slide */
+  .slide.title{background:#00432f;color:#eef4ef;border:0}
+  .slide.title .eyebrow{color:var(--gold)}
+  .slide.title h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,5.4vw,4rem);letter-spacing:-.03em;max-width:16ch}
+  .slide.title .st{color:var(--gold);font-size:clamp(1.1rem,2.4vw,1.8rem);font-weight:700;margin-top:10px;font-family:var(--font-display)}
+  .slide.title .meta{margin-top:auto;font-family:var(--font-mono);font-size:clamp(.72rem,1.1vw,.9rem);color:rgba(238,244,239,.72);letter-spacing:.03em}
+
+  /* divider slides */
+  .slide.divider{background:#00432f;color:#eef4ef;border:0;justify-content:center}
+  .slide.divider .eyebrow{color:var(--gold)}
+  .slide.divider h2{font-size:clamp(1.8rem,5vw,3.4rem);color:#fff;max-width:18ch}
+  .slide.divider .time{font-family:var(--font-mono);color:var(--gold);margin-top:16px;font-size:clamp(.8rem,1.4vw,1.05rem);letter-spacing:.04em}
+
+  .grid{display:grid;gap:14px}
+  .g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--surface-2);border:1px solid var(--hair);border-radius:12px;padding:16px 18px}
+  .card .k{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  :root[data-theme="dark"] .card .k{color:var(--accent-2)}
+  .card h3{font-size:clamp(.98rem,1.5vw,1.16rem);margin:.35rem 0 .3rem}
+  .card p{color:var(--muted);font-size:clamp(.82rem,1.15vw,.96rem);margin:0;line-height:1.45}
+
+  ul.pts{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+  ul.pts li{display:flex;gap:12px;align-items:baseline;font-size:clamp(.92rem,1.4vw,1.12rem)}
+  ul.pts li .n{font-family:var(--font-mono);font-weight:700;color:var(--accent);flex:0 0 auto}
+  :root[data-theme="dark"] ul.pts li .n{color:var(--accent-2)}
+  ul.pts li b{color:var(--slide-ink)}
+  .muted{color:var(--muted)}
+
+  /* hero fill-in-blank */
+  .fillbox{background:var(--surface-2);border:1px solid var(--hair);border-left:5px solid var(--accent);border-radius:12px;padding:clamp(18px,3vw,30px);font-size:clamp(1.05rem,2vw,1.5rem);line-height:1.6;font-family:var(--font-display);font-weight:600}
+  :root[data-theme="dark"] .fillbox{border-left-color:var(--accent-2)}
+  .blank{color:var(--accent);border-bottom:2px dashed var(--accent);padding:0 4px}
+  :root[data-theme="dark"] .blank{color:var(--accent-2);border-bottom-color:var(--accent-2)}
+  .fillbox .kw{color:var(--brick);font-style:normal}
+
+  /* 2x2 */
+  .quad{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+  .quad .q{border:1px solid var(--hair);border-radius:10px;padding:14px 16px;min-height:92px}
+  .quad .q .lab{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .quad .q.win{border-color:var(--verified);background:color-mix(in srgb,var(--verified) 10%,transparent)}
+  .quad .q.win .lab{color:var(--verified)}
+  .quad .q h3{font-size:1rem;margin:.25rem 0 .2rem}.quad .q p{font-size:.84rem;color:var(--muted);margin:0}
+  .axis{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);letter-spacing:.06em}
+
+  table.tbl{border-collapse:collapse;width:100%;font-size:clamp(.8rem,1.15vw,.98rem)}
+  table.tbl th{background:var(--green);color:#fff;text-align:left;padding:9px 12px;font-family:var(--font-display);font-weight:600;font-size:.86em}
+  :root[data-theme="dark"] table.tbl th{background:var(--green-lift)}
+  table.tbl td{padding:9px 12px;border-bottom:1px solid var(--hair);vertical-align:top}
+  table.tbl tr:nth-child(even) td{background:var(--surface-2)}
+  table.tbl .resp{color:var(--verified);font-weight:600}
+
+  .eqn{font-family:var(--font-mono);background:#0c1712;color:#dfeee7;border-radius:12px;padding:clamp(14px,2.5vw,22px);font-size:clamp(.85rem,1.5vw,1.15rem);text-align:center;letter-spacing:.02em}
+  .eqn .o{color:#8fe3c9}.eqn .t{color:var(--gold)}.eqn .fe{color:#7fb2ff}
+  .parts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .parts .p{font-family:var(--font-mono);font-size:.78rem;background:var(--chip);border:1px solid var(--hair);border-radius:7px;padding:6px 10px}
+  .parts .p b{color:var(--accent)}
+  :root[data-theme="dark"] .parts .p b{color:var(--accent-2)}
+
+  .refs{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+  .refs li{font-size:clamp(.84rem,1.2vw,1rem);padding-left:16px;border-left:3px solid var(--accent)}
+  :root[data-theme="dark"] .refs li{border-left-color:var(--accent-2)}
+  .refs li .v{font-family:var(--font-mono);font-size:.82em;color:var(--muted)}
+
+  .roadmap{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}
+  .roadmap .w{flex:1 1 0;min-width:104px;border:1px solid var(--hair);border-radius:10px;padding:12px 13px;background:var(--surface-2)}
+  .roadmap .w .wl{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .roadmap .w h3{font-size:.9rem;margin:.2rem 0 0}
+  .roadmap .w.now{background:var(--green);border-color:var(--green)}
+  .roadmap .w.now .wl{color:var(--gold)}.roadmap .w.now h3{color:#fff}
+  :root[data-theme="dark"] .roadmap .w.now{background:var(--green-lift)}
+
+  .pivot{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:14px;margin-top:8px}
+  .pivot .box{background:var(--surface-2);border:1px solid var(--hair);border-radius:12px;padding:18px;text-align:center}
+  .pivot .box .k{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .pivot .box.bar{border-color:var(--verified);background:color-mix(in srgb,var(--verified) 9%,transparent)}
+  .pivot .box.bar .k{color:var(--verified)}
+  .pivot .arw{font-family:var(--font-mono);font-weight:800;color:var(--accent);font-size:1.4rem}
+  :root[data-theme="dark"] .pivot .arw{color:var(--accent-2)}
+  @media(max-width:720px){.pivot{grid-template-columns:1fr;text-align:center}.pivot .arw{transform:rotate(90deg)}.g2,.g3,.quad{grid-template-columns:1fr}}
+
+  .footer-tag{position:absolute;left:clamp(22px,4.2vw,60px);bottom:16px;font-family:var(--font-mono);font-size:.66rem;color:var(--muted);letter-spacing:.04em}
+  .slide.title .footer-tag,.slide.divider .footer-tag{display:none}
+
+  /* chrome */
+  .bar{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--surface);border-top:1px solid var(--hair)}
+  .btn{font-family:var(--font-body);font-weight:700;font-size:.9rem;border:1px solid var(--hair);border-radius:9px;padding:8px 14px;background:var(--surface);color:var(--ink);cursor:pointer}
+  .btn:hover{border-color:var(--accent)}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  :root[data-theme="dark"] .btn.primary{background:var(--accent-2);color:#10221a;border-color:var(--accent-2)}
+  .counter{font-family:var(--font-mono);font-size:.82rem;color:var(--muted);min-width:64px;text-align:center}
+  .dots{display:flex;gap:5px;flex:1;flex-wrap:wrap;justify-content:center}
+  .dot{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--muted);background:transparent;cursor:pointer;padding:0}
+  .dot.on{background:var(--accent);border-color:var(--accent)}
+  :root[data-theme="dark"] .dot.on{background:var(--accent-2);border-color:var(--accent-2)}
+  .spacer{flex:1}
+  .brandtag{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .brandtag b{color:var(--accent)}
+  :root[data-theme="dark"] .brandtag b{color:var(--accent-2)}
+  .btn:focus-visible,.dot:focus-visible{outline:3px solid var(--accent-2);outline-offset:2px}
+
+  /* notes drawer */
+  .notes{position:fixed;left:0;right:0;bottom:0;max-height:44vh;overflow-y:auto;background:var(--surface);border-top:2px solid var(--accent);box-shadow:0 -12px 40px rgba(0,0,0,.18);transform:translateY(100%);transition:transform .28s ease;z-index:40;padding:18px clamp(18px,5vw,60px) 26px}
+  :root[data-theme="dark"] .notes{border-top-color:var(--accent-2)}
+  .notes.open{transform:none}
+  .notes .nh{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px;display:flex;justify-content:space-between}
+  :root[data-theme="dark"] .notes .nh{color:var(--accent-2)}
+  .notes p{font-size:clamp(.92rem,1.5vw,1.08rem);line-height:1.65;margin:0;max-width:80ch;color:var(--ink)}
+  @media (prefers-reduced-motion:reduce){.notes,.slide{transition:none}}
+  @media print{.bar,.notes{display:none}}
+</style>
+
+<div class="stage">
+  <div class="viewport" id="viewport"><!-- slides injected --></div>
+  <div class="bar">
+    <span class="brandtag"><b>GMU</b> · NextGen · Week 7</span>
+    <div class="spacer"></div>
+    <button class="btn" id="prev" aria-label="Previous slide">‹ Prev</button>
+    <span class="counter" id="counter">1 / 24</span>
+    <button class="btn primary" id="next" aria-label="Next slide">Next ›</button>
+    <div class="spacer"></div>
+    <button class="btn" id="notesBtn" aria-label="Toggle speaker notes">Notes (N)</button>
+    <button class="btn" id="themeBtn" aria-label="Toggle theme">◐</button>
+  </div>
+  <div class="dots" id="dots" style="padding:6px 10px;background:var(--surface)"></div>
+</div>
+
+<div class="notes" id="notes" aria-live="polite">
+  <div class="nh"><span>Speaker script — slide <span id="noteNum">1</span></span><span class="muted" style="text-transform:none;letter-spacing:0">press N to hide</span></div>
+  <p id="noteBody"></p>
+</div>
+
+<script type="application/json" id="notesData">
+{
+  "1": "Welcome to Week 7 — this is the session you have been climbing toward all camp. Before we start, drop your Week 6 deliverable in the chat: the AI literature map plus your verification log. Got it? Good. Now here is what today is. For six weeks you have been a consumer of research. You learned probability, then regression, then two full weeks of causal design, and then you learned to read the frontier — first by hand, then with AI. Today you stop consuming and start producing. By two o'clock, every one of you walks out with a one-page design for your own study. Not results — we are not running anything today. A design. And here is the bar we hold it to: a plan honest enough that even a null result, a finding of nothing, would still teach us something. That is what separates a real study from fishing. Let's go build yours.",
+  "2": "Let's find ourselves on the map. Weeks one through four built your toolkit — probability, the OLS engine, and two full weeks of causal design. Weeks five and six taught you to read the frontier, first by hand and then with AI as an accelerant. Every one of those weeks was about consuming what other people made. Today, Week 7, the arrow flips. This is Research Project One, where you take the topic and the literature map you have been building and turn them into your own empirical design. Next week, Week 8, you execute it. So notice the tagline on the slide: you have read the frontier — now you plant your flag on it. Everything you have learned was preparation for exactly this moment. The skills weeks are behind you. From here on you are the researcher, and the work on the screen is your work, not somebody else's.",
+  "3": "Here is the whole pivot in one picture. On the left, six weeks of input. You consumed — the toolkit, the paper teardown, the verified literature map. That was you learning to judge other people's research. Today, in the middle, the arrow turns: you produce. You take all of that judgment and point it at a question of your own. And on the right is the bar, the single standard I want you to hold your design to all day: it has to be honest enough that a null result — finding nothing — would still be informative. Think about what that means. If the only way your project is interesting is if you get a big, significant effect, then you are not doing science, you are hoping. A good design tells us something whether the effect is there or not. That is the target. Everything in the next two hours is about getting your project to clear that bar.",
+  "4": "Alright, Block A. Before you can plan a study, you have to turn a vague interest into a sharp, answerable question — and then into a design. This is where most projects quietly live or die, and it happens in the first ten minutes of thinking, not the last. I am going to give you four tools. A filter that kills weak questions in ninety seconds. A two-by-two that tells you which surviving questions are actually worth your two weeks. A map that takes your question down to a real dataset. And then the single most important sentence you will write all camp — your identifying assumption. The goal is not a perfect question. It is a researchable one you can actually build in the time you have. Let's start.",
+  "5": "First tool: the so-what filter. Most research ideas are bad, and that is fine — the skill is killing the bad ones fast so you can spend your energy on a good one. Run every idea through three questions. One: is the answer already known? If a quick search shows five papers already nailed it, move on. Two: would anyone actually change a decision if they knew the answer? If nobody — no investor, regulator, manager, nobody — would do anything differently, it is trivia, not research. Three: can you actually measure both the cause and the effect? A beautiful question about something you cannot observe is a dead end. An idea that survives all three questions is worth your two weeks. An idea that fails any one of them, you drop right now, in ninety seconds, with no regret. Be ruthless here — it is the cheapest place in the whole project to say no.",
+  "6": "Second tool: the feasibility-by-novelty two-by-two. Put novelty on one axis — is this a fresh question or a done question — and feasibility on the other — can you actually get the data. That gives four boxes. Top right is where you want to live: feasible and fresh. A new question you can actually answer with data you can actually get. Top left is been-done: clean, easy data, but no new question — you would just be re-running someone's paper. Bottom right is the trap that catches ambitious students: heroic data. A gorgeous, important question that needs data no undergraduate can get in two weeks. And the bottom left you just skip. Your job today is to move your idea into that top-right box. Sometimes that means shrinking a heroic question down to a feasible slice of it. A smaller question you can actually answer beats a grand one you cannot.",
+  "7": "Third tool: the cast-to-dataset map. Take your question and pull out three things — who or what is it about, what is the outcome you care about, and when does the action happen. Then, for each one, name the actual dataset. Who: firms, individuals, municipalities — that is your unit and your identifier. What: the outcome variable, and which source has it. When: the event or the timing, and where those dates live. Watch how this works on Rainbow. Who: municipal bond issuers. What: their borrowing costs, from bond pricing data. When: the dates states adopted same-sex-marriage bans, from legislative and court records. Here is the hard rule that makes this tool bite: if you cannot name the dataset — the actual file, the actual source — you do not yet have a project. You have a wish. Naming the data is what turns a topic into something you can build.",
+  "8": "Now the most important sentence you will write all camp — your identifying assumption. Every credible empirical paper has one, stated or not, and today you make yours explicit. Here is the template on the screen, and I want you to fill in every blank. Comparing my treated units to my controls, my estimate of the effect is causal if this assumption holds — which is plausible because of this design feature. Read that again. It names who you compare, what you are estimating, the one assumption the whole causal claim rests on, and the concrete reason a skeptic should believe that assumption. If you cannot fill in the blank after because, you do not have identification — you have a correlation with a hopeful label. This sentence is not decoration. It is the load-bearing wall of your entire project. Everything else — the data, the regression, the robustness checks — exists to defend this one sentence.",
+  "9": "Let's fill in that sentence live, on Rainbow of Municipal Credit. Watch each blank. Comparing states that adopted a same-sex-marriage ban to states that had not yet adopted one, our estimate of the effect of the ban on municipal borrowing costs is causal if the two groups' borrowing costs would have moved in parallel absent the ban — which is plausible because the timing of adoption was driven by court and legislative calendars, not by a state's credit trajectory. Notice what the because clause is doing. The whole worry with a policy study is that states adopt the policy precisely when their economy is already changing. The defense here is that the ban timing was set by unrelated legal and political calendars, so it is not lining up with credit conditions. That is a real, checkable argument — not a hope. This is exactly the sentence each of you will write for your own project by two o'clock.",
+  "10": "Now the threats-and-responses table, and I want you to take this one seriously, because this table is literally the first page a referee reads. For every threat to your causal story, you write the design response — how your design already handles it. Confounding trend: some other shock hits your treated group at the same time. Response: check pre-trends and control for time-varying covariates. Reverse causality: maybe the outcome drives the treatment, not the other way around. Response, on Rainbow: the timing is set by legal calendars, not credit. Selection: treated and control groups differ systematically. Response: difference-in-differences differences out fixed group differences, and you use not-yet-treated units as controls. Measurement error: your outcome is noisy. Response: use the cleanest source you have. Here is the point — when you build this table yourself, before anyone else does, you are refereeing your own paper. You catch the objections while they are still cheap to fix.",
+  "11": "Block B. You have a sharp question, an identifying assumption, and a threats table. Now we do two things that turn that design into something real and defensible. First, the pre-analysis plan: you write down exactly what you are going to test, and how, before you look at a single outcome. That is what makes a null result believable and an effect trustworthy. Second, the data: how to pick the right source and pull it so cleanly that anyone — including you, six months from now — could reproduce every number. By the end of this block you will have the recipe for both the plan and the pull. This is the unglamorous machinery that separates a study people believe from a story people wave away. Let's get into it.",
+  "12": "Why bother pre-registering — writing down your plan before you see the data? Because of the garden of forking paths. Here is the trap. When you analyze data, you make dozens of small choices — which controls, which sample, which cutoff, which outcome. If you make those choices after you have seen what gives you a significant result, you can turn pure noise into a beautiful, publishable finding, and you will not even feel like you are cheating. Every fork felt reasonable at the time. The fix is simple and it is a commitment device: you write down your one primary specification before you look at any outcomes. Then, whatever the data says, you report it. That is what makes a null result informative — because everyone knows you did not just keep digging until nothing was left. Pre-registration does not make your result positive. It makes your result credible. And credible is the whole game.",
+  "13": "So what actually goes in a pre-analysis plan? You do not need a fifty-page document — you need Olken's short form, six items, one to two pages total. One: directional hypotheses. Not just there is an effect, but which sign you expect and why. Two: your one primary specification — the single regression that is the headline test. Three: secondary and heterogeneity analyses — the follow-up questions, clearly labeled as secondary. Four: a multiple-testing correction. If you test several outcomes, you use Benjamini-Hochberg to control the false-discovery rate, so you do not get to celebrate the one lucky star out of twenty. Five: falsification and placebo tests — checks that should come back empty if your design is clean. Six: what would falsify your main hypothesis — state, in advance, the result that would prove you wrong. That last one is the tell of a serious researcher. The value here is commitment, not length. Keep it tight, and file it on time.",
+  "14": "Let's build the piece that everything hinges on: the primary specification. The rule is that you can name every single part out loud. Look at the Rainbow equation on the screen. The outcome is the municipal offering spread — what it costs the issuer to borrow. The treatment is the ban indicator, switching on after a state adopts. The controls are issue and issuer characteristics. The fixed effects are issuer and year, soaking up fixed differences and common time shocks. The standard errors are clustered by state, because that is the level the policy varies at. And the estimator is a staggered difference-in-differences done properly — the Callaway and Sant'Anna approach from 2021, which handles the fact that states adopt at different times without the bias a naive two-way regression can produce. Every part has a name and a reason. When you can recite yours like this, from outcome to estimator, you have a specification — not a vague intention to run some regressions.",
+  "15": "Falsification and placebo tests — this is the move that turns a skeptic into a believer, so design at least one. The idea is beautifully simple: build a test that should return nothing if your design is clean. If it returns nothing, great, your story survives a real attempt to break it. If it lights up, you just caught your own problem before a referee did. Three flavors. Pre-trend test: check that treated and control groups were moving in parallel before the treatment — if they were already diverging, your parallel-trends assumption is in trouble. Placebo date: pretend the policy happened two years earlier than it did and re-run it — you should find no effect at the fake date. Unaffected group: run the same design on a group the policy should not have touched — again, you want nothing. A design that passes tests that were genuinely capable of failing is a design people believe.",
+  "16": "Now the data — where do you actually get it? Pick the right source for your question. WRDS is your gateway to CRSP for stock prices and returns, and Compustat for accounting fundamentals — the workhorses of finance. EDGAR gives you the raw SEC filings themselves. FRED is the home of macro and interest-rate series. HMDA is loan-level mortgage data — that is exactly the source behind the Gao and Sun fair-lending work in PNAS. Thirteen-F filings give you institutional holdings. PatentsView is your source for innovation and patent data. And yfinance is a quick, free way to pull market prices when you do not need the heavy machinery. The skill is not knowing all seven cold — it is matching your outcome variable to the one source that actually has it, cleanly, at the frequency you need. Name your source before you write a line of code.",
+  "17": "Getting the data is not enough — you have to pull it reproducibly, so that every number in your paper can be regenerated from scratch. Four habits. One: cache-or-fetch. Your code checks for a local copy first and only downloads if it is missing, so you are not hammering the server and your results do not change under you. Two: pin a data vintage. Databases get revised — write down exactly which version, which download date, you used, so your numbers are frozen in time. Three: keep an audit log. Record what you pulled, when, and how, so future-you can retrace every step. Four, and this is the big one: never hand-edit a downloaded file. The moment you open a spreadsheet and fix a value by hand, your pipeline is broken and no one can reproduce you. Every change happens in code. If you cannot rerun your whole project from raw data with one command, it is not reproducible — and reproducible is the standard.",
+  "18": "Now you build the analysis dataset, and this is where silent, deadly bugs live. Four traps. First, identifier crosswalks. Firms carry different IDs in different databases — PERMNO in CRSP, GVKEY in Compustat, CIK in EDGAR — and you have to join on the right crosswalk or you will silently merge the wrong companies. Second, survivorship and look-ahead bias. If you only keep firms that survived to today, or you accidentally use information that was not known yet at the time, you bake the answer in. The fix is an as-of merge — join on what was actually knowable at each date, not a naive join. Third, winsorizing. Outliers can hijack a regression, so trim them by a stated rule — say, at the first and ninety-ninth percentile — and write the rule down. Fourth, missing data: handle it on purpose, with a stated choice, not by silently dropping rows and hoping. Clean data, built deliberately, is half the paper.",
+  "19": "Here is the one rule from all of Block B I most want you to carry out the door. File your pre-analysis plan as a tagged commit before you run your first outcome regression. Let me say why that specific mechanic matters. A tagged commit in your repository carries a timestamp that you cannot fake after the fact. So when you later report your result, the timestamp is your evidence that you committed to the plan before you saw the answer — that you did not fish, did not fork, did not tune the specification to the result. It is the difference between saying trust me, I planned this and being able to prove it. Two minutes of work — write the plan, commit it, tag it — and you have converted your honesty into something checkable. Do it before the first outcome regression. Not after you peek. Before.",
+  "20": "Block C — the workshop. This is the payoff, so we protect the time. You have the so-what filter, the identifying-assumption sentence, the threats table, the pre-analysis plan, and the reproducible data pull. Now you stop watching me do it on Rainbow and you do it on your own project. In the next half hour you are going to draft one page for your study — the assumption sentence, a threats table, and your primary specification line — and then you are going to read it out loud and let the room stress-test it. This is the moment a generic design becomes your design, not a copy of mine on Rainbow. Two crisp minutes each, and the room's whole job is to find the threat you couldn't see from the inside. Keep it moving, and let's lock your project in.",
+  "21": "Here is your one page — three things, and only three, for your own project. Part A: the identifying-assumption sentence. Fill in every blank from slide eight — treated, controls, effect, the assumption, and the because. Part B: a three-row threats-and-responses table. Pick your three biggest threats and write the design response to each. Part C: the primary-specification line. Outcome, tilde, treatment, plus controls, plus fixed effects, clustered by something, estimated by something — every part named, like we did for Rainbow. That is the whole deliverable for the next twenty minutes. One page. If you get all three of these down honestly, you have the design half of your capstone paper, and everything in Week 8 is just execution. Do not polish the prose. Get the logic right. Start now, and I will come around.",
+  "22": "Round-robin — your turn, out loud, and this is the single most valuable two minutes you will spend today. Each of you reads your identifying-assumption sentence to the room. Just that one sentence — who you compare, what you estimate, the assumption, and the because. Then the room does its job: everyone else names one threat you missed. Not to tear you down — to save you. Catching a fatal flaw here, in this room, in August, is free. Catching it after you have pulled the data and run the regressions is not — that is a week of your life. So when it is your turn, say it clearly and then actually listen. And when it is someone else's turn, be the person who spots the confounder they did not see. The best thing that can happen to you today is that a classmate finds the hole in your design while it is still cheap to fix.",
+  "23": "Let's wrap and set the assignment. This week you write the Pre-Analysis Plan plus Identification Memo for your own project — the identifying assumption, the threats table, the primary specification, the falsification tests, and a reproducible data-pull plan. Keep it tight: one to two pages. The value is commitment, not length. This is due before the Week 8 session, Friday, August 14. And understand what it is: this is the design half of your capstone paper, the one due August 15. Week 8 is where you take this exact plan and execute it — pull the data, run the primary specification, run the falsification tests, and write up whatever you find, effect or null. So the more honest and complete your plan is this week, the smoother next week goes. Everything has been pointing here. Go plant your flag, commit your plan before you peek, and bring me a design you would defend to a skeptic.",
+  "24": "Let me close with the line that runs through this whole session. A good design is one you would defend to a skeptic — and one you filed before you saw the answer. That is the standard, whether your result comes back as a big effect or as a flat null. The tools on the honest references list are the ones behind everything we did today. Olken's 2015 piece in the Journal of Economic Perspectives on the promises and perils of pre-analysis plans. Callaway and Sant'Anna's 2021 method for difference-in-differences with staggered timing. And the running anchors from Prof. Gao's own work — the Rainbow of Municipal Credit, Gao and Sun's 2019 fair-lending study in PNAS, and Deng, Gao and Kim's 2020 Reg SHO natural experiment in the Journal of Corporate Finance. Bring your Pre-Analysis Plan and Identification Memo next Friday, August 14, and come ready to execute. You have read the frontier. Now go plant your flag. See you next week."
+}
+</script>
+
+<script type="application/json" id="slidesData">
+[
+ {"cls":"title","html":"<p class='eyebrow'>NextGen Empirical Finance Research Camp · Week 7</p><h1>Independent Research Project I</h1><div class='st'>From Question to Pre-Analysis Plan</div><p class='sub' style='color:rgba(238,244,239,.8)'>Turn a hunch into a falsifiable, pre-registered design — with data in hand.</p><div class='meta'>Friday, August 7, 2026 · 12–2 pm ET · Prof. Lei Gao · George Mason University</div>"},
+ {"html":"<p class='eyebrow'>Where we are</p><h2>You've read the frontier — <span class='hl'>now you plant your flag on it.</span></h2><div class='body'><div class='roadmap'><div class='w'><div class='wl'>Wk 1–4</div><h3>The toolkit</h3></div><div class='w'><div class='wl'>Wk 5–6</div><h3>Reading the frontier</h3></div><div class='w now'><div class='wl'>Week 7 · today</div><h3>Research Project I</h3></div><div class='w'><div class='wl'>Week 8</div><h3>Execute &amp; write</h3></div></div><p class='sub'>Six weeks you consumed research. Today the arrow flips — you produce it.</p></div>"},
+ {"html":"<p class='eyebrow'>The pivot</p><h2>From <span class='hl'>consuming</span> research to <span class='hl'>producing</span> it.</h2><div class='body'><div class='pivot'><div class='box'><div class='k'>Weeks 1–6</div><h3 style='margin:.3rem 0 0'>Consume</h3><p class='muted' style='font-size:.85rem;margin:.3rem 0 0'>toolkit · teardown · verified lit map</p></div><div class='arw'>→</div><div class='box'><div class='k'>Today</div><h3 style='margin:.3rem 0 0'>Produce</h3><p class='muted' style='font-size:.85rem;margin:.3rem 0 0'>your own design</p></div><div class='arw'>→</div><div class='box bar'><div class='k'>The bar</div><h3 style='margin:.3rem 0 0'>Null-proof</h3><p class='muted' style='font-size:.85rem;margin:.3rem 0 0'>even a null result is informative</p></div></div></div>"},
+ {"cls":"divider","html":"<p class='eyebrow'>Block A · 12:10–12:45</p><h2>From a Question to a Design</h2><div class='time'>the so-what filter · feasibility × novelty · cast → dataset · the identifying assumption</div>"},
+ {"html":"<p class='eyebrow'>Tool 1</p><h2>The <span class='hl'>so-what filter</span> — kill weak ideas in 90 seconds.</h2><div class='body'><ul class='pts'><li><span class='n'>1</span><span><b>Is the answer already known?</b> If five papers nailed it, move on.</span></li><li><span class='n'>2</span><span><b>Would anyone change a decision?</b> If no investor, regulator, or manager would act differently — it's trivia, not research.</span></li><li><span class='n'>3</span><span><b>Can you measure both cause and effect?</b> A beautiful question about the unobservable is a dead end.</span></li></ul><p class='sub'>Survives all three → worth your two weeks. Fails one → drop it now, no regret.</p></div>"},
+ {"html":"<p class='eyebrow'>Tool 2</p><h2>Feasibility × novelty — aim for <span class='hl'>feasible &amp; fresh.</span></h2><div class='body'><p class='axis' style='margin:0 0 4px'>↑ more feasible (you can get the data)</p><div class='quad'><div class='q win'><div class='lab'>feasible · fresh</div><h3>The target</h3><p>new question, gettable data</p></div><div class='q'><div class='lab'>feasible · done</div><h3>Been-done</h3><p>clean data, no new question</p></div><div class='q'><div class='lab'>heroic · fresh</div><h3>Heroic data</h3><p>great question, impossible data — the ambitious student's trap</p></div><div class='q'><div class='lab'>infeasible · done</div><h3>Skip</h3><p>—</p></div></div><p class='sub'>Shrink a heroic question to a feasible slice — a smaller answerable one beats a grand unanswerable one.</p></div>"},
+ {"html":"<p class='eyebrow'>Tool 3</p><h2>Cast → dataset map</h2><div class='body'><div class='grid g3'><div class='card'><div class='k'>Who / what</div><h3>Unit</h3><p>firms · people · municipalities → your identifier</p></div><div class='card'><div class='k'>What</div><h3>Outcome</h3><p>the variable — and which source has it</p></div><div class='card'><div class='k'>When</div><h3>Timing</h3><p>the event dates — and where they live</p></div></div><p class='sub'><b>Rainbow:</b> issuers → borrowing costs (bond pricing) → ban-adoption dates (legislative/court records). <b>If you can't name the dataset, you don't have a project — you have a wish.</b></p></div>"},
+ {"html":"<p class='eyebrow'>The load-bearing sentence</p><h2>Your <span class='hl'>identifying assumption</span></h2><div class='body'><div class='fillbox'>Comparing my <span class='blank'>treated units</span> to my <span class='blank'>controls</span>, my estimate of <span class='blank'>the effect</span> is causal <span class='kw'>if</span> <span class='blank'>this assumption</span> holds — which is plausible <span class='kw'>because</span> <span class='blank'>this design feature</span>.</div><p class='sub'>Can't fill in the <em>because</em>? You don't have identification — you have a correlation with a hopeful label.</p></div>"},
+ {"html":"<p class='eyebrow'>Worked live · Rainbow of Municipal Credit</p><h2>Fill in every blank.</h2><div class='body'><div class='fillbox' style='font-size:clamp(.95rem,1.7vw,1.28rem)'>Comparing states that <span class='blank'>adopted a same-sex-marriage ban</span> to states that had <span class='blank'>not yet adopted one</span>, our estimate of the ban's effect on <span class='blank'>municipal borrowing costs</span> is causal <span class='kw'>if</span> <span class='blank'>the two groups would have trended in parallel absent the ban</span> — plausible <span class='kw'>because</span> <span class='blank'>adoption timing was set by court/legislative calendars, not credit trajectories</span>.</div><p class='sub'>The <em>because</em> clause is a real, checkable argument — not a hope.</p></div>"},
+ {"html":"<p class='eyebrow'>Referee yourself first</p><h2>The <span class='hl'>threats-and-responses</span> table</h2><div class='body'><table class='tbl'><tr><th>Threat</th><th>Why it endangers the estimate</th><th>Design response</th></tr><tr><td>Confounding trend</td><td>another shock hits the treated group at the same time</td><td class='resp'>check pre-trends; control for time-varying covariates</td></tr><tr><td>Reverse causality</td><td>the outcome may drive the treatment</td><td class='resp'>timing set by legal calendars, not credit</td></tr><tr><td>Selection</td><td>groups differ systematically</td><td class='resp'>DiD differences out fixed gaps; not-yet-treated controls</td></tr><tr><td>Measurement error</td><td>noisy outcome</td><td class='resp'>use the cleanest available source</td></tr></table><p class='sub'>This table <em>is</em> the first page a referee reads. Build it before they do.</p></div>"},
+ {"cls":"divider","html":"<p class='eyebrow'>Block B · 12:50–1:25</p><h2>The Pre-Analysis Plan &amp; the Data</h2><div class='time'>pre-register · Olken short form · the primary spec · falsification · reproducible data</div>"},
+ {"html":"<p class='eyebrow'>Why pre-register</p><h2>The <span class='hl'>garden of forking paths.</span></h2><div class='body'><p>Analyzing data means dozens of small choices — controls, sample, cutoff, outcome. Make them <em>after</em> seeing what's significant and you can turn pure noise into a beautiful, publishable finding — <b>without ever feeling like you cheated.</b></p><div class='card' style='margin-top:14px;border-left:4px solid var(--verified)'><div class='k' style='color:var(--verified)'>The fix — a commitment device</div><p style='color:var(--slide-ink)'>Write down your <b>one primary specification before you see any outcomes.</b> Then report whatever the data says. Pre-registration doesn't make your result positive — it makes it <b>credible.</b></p></div></div>"},
+ {"html":"<p class='eyebrow'>Olken (2015) short form · 1–2 pages</p><h2>What goes in a <span class='hl'>pre-analysis plan</span></h2><div class='body'><div class='grid g3'><div class='card'><div class='k'>1</div><h3>Directional hypotheses</h3><p>which sign, and why</p></div><div class='card'><div class='k'>2</div><h3>One primary spec</h3><p>the single headline regression</p></div><div class='card'><div class='k'>3</div><h3>Secondary / heterogeneity</h3><p>labelled as secondary</p></div><div class='card'><div class='k'>4</div><h3>Multiple-testing (BH-FDR)</h3><p>no celebrating 1 lucky star in 20</p></div><div class='card'><div class='k'>5</div><h3>Falsification / placebo</h3><p>tests that should come back empty</p></div><div class='card'><div class='k'>6</div><h3>What would falsify H1</h3><p>state, in advance, what proves you wrong</p></div></div><p class='sub'>The value is <b>commitment, not length.</b> Keep it tight; file it on time.</p></div>"},
+ {"html":"<p class='eyebrow'>Name every part</p><h2>The <span class='hl'>primary specification</span></h2><div class='body'><div class='eqn'><span class='o'>Spread<sub>it</sub></span> = β₁·<span class='t'>Ban<sub>it</sub></span> + γ·X<sub>it</sub> + <span class='fe'>α<sub>i</sub></span> + <span class='fe'>δ<sub>t</sub></span> + ε<sub>it</sub></div><div class='parts'><span class='p'><b>outcome</b> = municipal offering spread</span><span class='p'><b>treatment</b> = ban indicator</span><span class='p'><b>controls</b> = issue/issuer chars</span><span class='p'><b>FE</b> = issuer + year</span><span class='p'><b>cluster</b> = state</span><span class='p'><b>estimator</b> = Callaway–Sant'Anna (2021)</span></div><p class='sub'>Every part has a name and a reason. Staggered timing → a heterogeneity-robust estimator, not naïve two-way FE.</p></div>"},
+ {"html":"<p class='eyebrow'>Turn a skeptic into a believer</p><h2>Design a <span class='hl'>test that should return nothing.</span></h2><div class='body'><div class='grid g3'><div class='card'><div class='k'>Flavor 1</div><h3>Pre-trend test</h3><p>were groups parallel <em>before</em> treatment? Diverging = trouble.</p></div><div class='card'><div class='k'>Flavor 2</div><h3>Placebo date</h3><p>pretend the policy hit 2 years early → should find nothing</p></div><div class='card'><div class='k'>Flavor 3</div><h3>Unaffected group</h3><p>run it on a group the policy shouldn't touch → want nothing</p></div></div><p class='sub'>A design that passes tests genuinely <em>capable of failing</em> is a design people believe. (cf. Deng, Gao &amp; Kim 2020 — the Reg SHO natural experiment.)</p></div>"},
+ {"html":"<p class='eyebrow'>Block B · getting the data</p><h2>Pick the <span class='hl'>right source</span> for your question.</h2><div class='body'><div class='grid g3'><div class='card'><div class='k'>WRDS</div><p style='color:var(--slide-ink)'>CRSP (prices/returns) · Compustat (fundamentals)</p></div><div class='card'><div class='k'>EDGAR</div><p style='color:var(--slide-ink)'>raw SEC filings</p></div><div class='card'><div class='k'>FRED</div><p style='color:var(--slide-ink)'>macro &amp; interest-rate series</p></div><div class='card'><div class='k'>HMDA</div><p style='color:var(--slide-ink)'>loan-level mortgages (behind Gao &amp; Sun 2019, PNAS)</p></div><div class='card'><div class='k'>13F · PatentsView</div><p style='color:var(--slide-ink)'>holdings · innovation/patents</p></div><div class='card'><div class='k'>yfinance</div><p style='color:var(--slide-ink)'>quick, free market prices</p></div></div><p class='sub'>Match your outcome to the <em>one</em> source that has it cleanly, at the frequency you need.</p></div>"},
+ {"html":"<p class='eyebrow'>Reproducibility</p><h2>Pull it so <span class='hl'>anyone can regenerate every number.</span></h2><div class='body'><ul class='pts'><li><span class='n'>1</span><span><b>Cache-or-fetch.</b> Check local first; download only if missing.</span></li><li><span class='n'>2</span><span><b>Pin a data vintage.</b> Databases get revised — freeze your version/date.</span></li><li><span class='n'>3</span><span><b>Keep an audit log.</b> What you pulled, when, how.</span></li><li><span class='n'>4</span><span><b>Never hand-edit a file.</b> Every change happens in code, or your pipeline is broken.</span></li></ul><p class='sub'>Can't rerun the whole project from raw data with one command? Then it isn't reproducible.</p></div>"},
+ {"html":"<p class='eyebrow'>Where silent, deadly bugs live</p><h2>Building the <span class='hl'>analysis dataset</span></h2><div class='body'><div class='grid g2'><div class='card'><div class='k'>Trap 1</div><h3>Identifier crosswalks</h3><p>PERMNO ↔ GVKEY ↔ CIK — join on the right one or merge the wrong firms</p></div><div class='card'><div class='k'>Trap 2</div><h3>Survivorship &amp; look-ahead</h3><p>use an <em>as-of</em> merge — join only on what was knowable at each date</p></div><div class='card'><div class='k'>Trap 3</div><h3>Winsorizing</h3><p>trim outliers by a stated rule (e.g. 1st/99th pctile) — and write it down</p></div><div class='card'><div class='k'>Trap 4</div><h3>Missing data</h3><p>handle on purpose, not by silently dropping rows</p></div></div></div>"},
+ {"html":"<p class='eyebrow'>The one rule</p><h2>File the PAP as a <span class='hl'>tagged commit</span> — before the first regression.</h2><div class='body'><div class='fillbox' style='font-weight:600'>A tagged commit carries a <span class='blank'>timestamp you cannot fake</span>. It's the difference between <em>“trust me, I planned this”</em> and <b>being able to prove it.</b></div><p class='sub'>Two minutes — write the plan, commit it, tag it — converts your honesty into something checkable. Do it <b>before</b> you peek, not after.</p></div>"},
+ {"cls":"divider","html":"<p class='eyebrow'>Block C · 1:25–1:55</p><h2>Workshop: Lock Your Own Project</h2><div class='time'>one page · read it aloud · take a threat from the room</div>"},
+ {"html":"<p class='eyebrow'>Your deliverable — 20 minutes</p><h2>One page. <span class='hl'>Three things.</span></h2><div class='body'><div class='grid g3'><div class='card'><div class='k'>Part A</div><h3>Assumption sentence</h3><p>fill every blank: treated, controls, effect, assumption, <em>because</em></p></div><div class='card'><div class='k'>Part B</div><h3>3-row threats table</h3><p>your three biggest threats + the design response to each</p></div><div class='card'><div class='k'>Part C</div><h3>Primary-spec line</h3><p>outcome ~ treatment + controls + FE, clustered by ___, estimated by ___</p></div></div><p class='sub'>Get these three down honestly and you own the <b>design half</b> of your capstone. Don't polish prose — get the logic right.</p></div>"},
+ {"html":"<p class='eyebrow'>The most valuable 2 minutes today</p><h2>Round-robin: read it aloud, <span class='hl'>take a threat.</span></h2><div class='body'><ul class='pts'><li><span class='n'>›</span><span>Each student reads their <b>identifying-assumption sentence</b> to the room.</span></li><li><span class='n'>›</span><span>The room's job: <b>name one threat you missed</b> — to save you, not to tear you down.</span></li></ul><p class='sub'>Catching a fatal flaw here, in August, is free. Catching it after you've pulled the data is a week of your life.</p></div>"},
+ {"html":"<p class='eyebrow'>Wrap &amp; assignment</p><h2>Due before Week 8 — <span class='hl'>Friday, August 14.</span></h2><div class='body'><div class='card' style='border-left:4px solid var(--accent)'><div class='k'>Homework — the design half of your Aug 15 paper</div><h3 style='margin:.4rem 0'>Pre-Analysis Plan + Identification Memo</h3><p style='color:var(--slide-ink)'>The identifying assumption · the threats table · the primary specification · falsification tests · a reproducible data-pull plan. Keep it to 1–2 pages — the value is <b>commitment, not length.</b></p></div><p class='sub'>Week 8 = execute this exact plan: pull the data, run the primary spec and the falsification tests, write up whatever you find — effect or null.</p></div>"},
+ {"html":"<p class='eyebrow'>Close</p><h2>A design you'd defend to a skeptic — <span class='hl'>filed before you saw the answer.</span></h2><div class='body'><ul class='refs'><li>Olken, B. (2015), “Promises and Perils of Pre-Analysis Plans,” <span class='v'>J. Economic Perspectives 29(3):61–80</span></li><li>Callaway, B. &amp; Sant'Anna, P. (2021), “Difference-in-Differences with Multiple Time Periods,” <span class='v'>J. Econometrics 225(2):200–230</span></li><li>Gao, Liu &amp; Wang, “The Rainbow of Municipal Credit” <span class='v'>(staggered DiD; same-sex-marriage bans → borrowing costs)</span></li><li>Gao &amp; Sun (2019), fair lending, <span class='v'>PNAS 116(19):9293–9302</span></li><li>Deng, Gao &amp; Kim (2020), Reg SHO natural experiment, <span class='v'>J. Corporate Finance</span></li></ul><p class='sub'>You've read the frontier. Now go plant your flag. See you Friday, August 14.</p></div>"}
+]
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var root=document.documentElement;
+  var NOTES=JSON.parse(document.getElementById('notesData').textContent);
+  var SLIDES=JSON.parse(document.getElementById('slidesData').textContent);
+  var vp=document.getElementById('viewport'), dotsWrap=document.getElementById('dots');
+  var N=SLIDES.length, cur=0;
+
+  SLIDES.forEach(function(s,i){
+    var el=document.createElement('section');
+    el.className='slide'+(s.cls?(' '+s.cls):'');
+    el.innerHTML=s.html+'<div class="footer-tag">NextGen Empirical Finance · Week 7 · Prof. Lei Gao</div>';
+    el.setAttribute('aria-hidden','true');
+    vp.appendChild(el);
+    var d=document.createElement('button');
+    d.className='dot';d.setAttribute('aria-label','Go to slide '+(i+1));
+    d.addEventListener('click',function(){go(i);});
+    dotsWrap.appendChild(d);
+  });
+  var slides=[].slice.call(vp.children), dots=[].slice.call(dotsWrap.children);
+
+  function render(){
+    slides.forEach(function(el,i){el.classList.toggle('on',i===cur);el.setAttribute('aria-hidden',i===cur?'false':'true');});
+    dots.forEach(function(d,i){d.classList.toggle('on',i===cur);});
+    document.getElementById('counter').textContent=(cur+1)+' / '+N;
+    document.getElementById('noteNum').textContent=(cur+1);
+    document.getElementById('noteBody').textContent=NOTES[String(cur+1)]||'';
+  }
+  function go(i){cur=Math.max(0,Math.min(N-1,i));render();}
+  function next(){go(cur+1);} function prev(){go(cur-1);}
+
+  document.getElementById('next').addEventListener('click',next);
+  document.getElementById('prev').addEventListener('click',prev);
+  var notes=document.getElementById('notes');
+  document.getElementById('notesBtn').addEventListener('click',function(){notes.classList.toggle('open');});
+  document.getElementById('themeBtn').addEventListener('click',function(){
+    var c=root.getAttribute('data-theme');
+    if(!c)c=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+    root.setAttribute('data-theme',c==='dark'?'light':'dark');
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();next();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
+    else if(e.key==='Home'){go(0);} else if(e.key==='End'){go(N-1);}
+    else if(e.key==='n'||e.key==='N'){notes.classList.toggle('open');}
+    else if(/^[0-9]$/.test(e.key)){/* no-op single digit */}
+  });
+  render();
+})();
+</script>
+
+</body>
+</html>
