@@ -210,5 +210,5 @@ Pick one assessment problem: Leah's 8-K event labels, Priya's ten-K tone, or Dev
 :::
 
 ::: notes
-Citations appear by author and year. Kogan, Papanikolaou, Seru, Stoffman 2017 QJE. Hoberg and Phillips 2016 JPE. Loughran and McDonald 2011 JF. Bartlett, Morse, Stanton, Wallace 2022 JFE. Bhutta, Hizmo, Ringo 2022 working paper, 2025 JF. Gao and Sun 2019. Gao et al. 2024 JCF.
+Citations appear by author and year. Kogan, Papanikolaou, Seru, Stoffman 2017 QJE. Hoberg and Phillips 2016 JPE. Loughran and McDonald 2011 JF. Bartlett, Morse, Stanton, Wallace 2022 JFE. Bhutta, Hizmo, Ringo 2022 working paper, 2025 JF. Sun and Gao 2019. Gao et al. 2024 JCF.
 :::

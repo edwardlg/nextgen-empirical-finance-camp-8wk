@@ -12,7 +12,7 @@ Welcome back to the identification memo, part eight of nine. In part seven we la
 
 ## The Specification
 
-- Staggered DiD on HMDA — Gao and Sun's same-sex-borrower data
+- Staggered DiD on HMDA — Sun and Gao's same-sex-borrower data
 - Outcome: county-year minority–white **mortgage-denial gap**
 - Treatment: state fair-lending exam program active that year (staggered)
 - Callaway–Sant'Anna against never- and not-yet-treated controls only

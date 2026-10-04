@@ -298,7 +298,7 @@ These six pitfalls are the ones you will catch in published papers if you read c
 
 **Lab 4** — Build a county-year HMDA panel; run TWFE, event study, and Callaway–Sant'Anna on a staggered fair-lending policy change
 
-**Mentor Session** — Gao and Sun (2024), detecting discrimination in same-sex couple mortgage applications
+**Mentor Session** — Sun and Gao (2019), detecting discrimination in same-sex couple mortgage applications
 
 **Up next (Week 5):** stop *building* estimators, start *reading* the frontier — published empirical finance papers, tables-first, with this toolkit as the lens
 
@@ -308,7 +308,7 @@ The reflex from Weeks 3 and 4: name the design, name the assumption, separate wh
 :::
 
 ::: notes
-Your deliverable this week is Lab 4. You will build a county-year panel from real HMDA mortgage application data, define treatment by a staggered state-level fair-lending regulatory change, and run the full pipeline: TWFE first so you feel why it is suspect, then the event study to inspect pre-trends, then Callaway and Sant'Anna with clean never-treated controls to get an honest number. Path B gives you a synthetic panel with a known planted effect so you can audit each estimator against ground truth. Friday's mentor session points all of this at fair lending. Did the lender treat two otherwise-identical applicants differently because of who they are? That is the question of my own paper with Wei Sun in 2024 on same-sex couple mortgage applications. Bring the pre-read. Next week we stop building estimators and start reading the frontier. The reflex you have built — name the design, name the assumption, separate testable from arguable, bring the diagnostic — is exactly what tables-first reading needs.
+Your deliverable this week is Lab 4. You will build a county-year panel from real HMDA mortgage application data, define treatment by a staggered state-level fair-lending regulatory change, and run the full pipeline: TWFE first so you feel why it is suspect, then the event study to inspect pre-trends, then Callaway and Sant'Anna with clean never-treated controls to get an honest number. Path B gives you a synthetic panel with a known planted effect so you can audit each estimator against ground truth. Friday's mentor session points all of this at fair lending. Did the lender treat two otherwise-identical applicants differently because of who they are? That is the question of my own paper with my coauthor, Sun and Gao 2019, on same-sex couple mortgage applications. Bring the pre-read. Next week we stop building estimators and start reading the frontier. The reflex you have built — name the design, name the assumption, separate testable from arguable, bring the diagnostic — is exactly what tables-first reading needs.
 :::
 
 ## References {.unnumbered}
@@ -317,5 +317,5 @@ Your deliverable this week is Lab 4. You will build a county-year panel from rea
 :::
 
 ::: notes
-References are auto-populated from cited keys when the book bibliography is wired up. For this deck, name-only citations include Card and Krueger 1994, Bertrand Duflo and Mullainathan 2004, Goodman-Bacon 2021, de Chaisemartin and D'Haultfoeuille 2020, Callaway and Sant'Anna 2021, Sun and Abraham 2021, Borusyak Jaravel and Spiess 2024, Gelman and Imbens 2019, Imbens and Kalyanaraman 2012, Calonico Cattaneo and Titiunik 2014, McCrary 2008, Lee and Lemieux 2010, Abadie Diamond and Hainmueller 2010, Arkhangelsky Athey Hirshberg Imbens and Wager 2021, Bartik 1991, Goldsmith-Pinkham Sorkin and Swift 2020, Borusyak Hull and Jaravel 2022, Adão Kolesár and Morales 2019, and Gao and Sun 2024.
+References are auto-populated from cited keys when the book bibliography is wired up. For this deck, name-only citations include Card and Krueger 1994, Bertrand Duflo and Mullainathan 2004, Goodman-Bacon 2021, de Chaisemartin and D'Haultfoeuille 2020, Callaway and Sant'Anna 2021, Sun and Abraham 2021, Borusyak Jaravel and Spiess 2024, Gelman and Imbens 2019, Imbens and Kalyanaraman 2012, Calonico Cattaneo and Titiunik 2014, McCrary 2008, Lee and Lemieux 2010, Abadie Diamond and Hainmueller 2010, Arkhangelsky Athey Hirshberg Imbens and Wager 2021, Bartik 1991, Goldsmith-Pinkham Sorkin and Swift 2020, Borusyak Hull and Jaravel 2022, Adão Kolesár and Morales 2019, and Sun and Gao 2019.
 :::

@@ -33,10 +33,10 @@ Here is the reveal. When you read a causal paper, the load-bearing question is "
 - Hoberg & Phillips (2016): product similarity via **10-K cosine**
 - Loughran & McDonald (2011): tone from a **finance dictionary**
 - Bartlett, Morse, Stanton, Wallace (2022) + Bhutta, Hizmo, Ringo
-- Fair-lending pair builds on Gao & Sun (2019)
+- Fair-lending pair builds on Sun & Gao (2019)
 
 ::: notes
-The five papers. Kogan, Papanikolaou, Seru and Stoffman, two thousand seventeen, build a dollar value for each patent out of the stock-price jump on the day the patent is granted. Hoberg and Phillips, two thousand sixteen, measure how similar two firms' products are by the cosine similarity of their ten-K business descriptions. Loughran and McDonald, two thousand eleven, measure the tone of a financial filing by counting words from a finance-specific sentiment dictionary. And the paired fair-lending studies — Bartlett, Morse, Stanton and Wallace, two thousand twenty-two, and Bhutta, Hizmo and Ringo — measure discrimination in algorithmic and human lending, building on Gao and Sun, two thousand nineteen. Four of the five turn words or events into a continuous number. None is, at its core, a clean natural experiment. So the Week-Five questions, asked verbatim, will mislead you.
+The five papers. Kogan, Papanikolaou, Seru and Stoffman, two thousand seventeen, build a dollar value for each patent out of the stock-price jump on the day the patent is granted. Hoberg and Phillips, two thousand sixteen, measure how similar two firms' products are by the cosine similarity of their ten-K business descriptions. Loughran and McDonald, two thousand eleven, measure the tone of a financial filing by counting words from a finance-specific sentiment dictionary. And the paired fair-lending studies — Bartlett, Morse, Stanton and Wallace, two thousand twenty-two, and Bhutta, Hizmo and Ringo — measure discrimination in algorithmic and human lending, building on Sun and Gao, two thousand nineteen. Four of the five turn words or events into a continuous number. None is, at its core, a clean natural experiment. So the Week-Five questions, asked verbatim, will mislead you.
 :::
 
 ## Key Takeaway

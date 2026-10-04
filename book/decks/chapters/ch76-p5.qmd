@@ -31,7 +31,7 @@ The contribution paragraph names three literatures and claims one contribution t
 - Chronological-but-thematic: group into intellectual moves
 
 ::: notes
-For Maya, the strands are these. Strand A, fair-lending disparities — from Munnell, Tootell, Browne, and McEneaney, through Bayer, Ferreira, and Ross, to Gao and Sun — with the gap being no credibly identified estimate of a regulatory intervention's effect. Strand B, the real effects of bank supervision — Berger and Bouwman, and Hirtle, Kovner, and Plosser — with the gap being a focus on safety-and-soundness, not distributional outcomes. Strand C, the methods literature on staggered designs. The strands are unequal — A deepest, C briefest — and their proportions track the contribution each earns. Each strand groups citations into intellectual moves, not a flat year-by-year list.
+For Maya, the strands are these. Strand A, fair-lending disparities — from Munnell, Tootell, Browne, and McEneaney, through Bayer, Ferreira, and Ross, to Sun and Gao — with the gap being no credibly identified estimate of a regulatory intervention's effect. Strand B, the real effects of bank supervision — Berger and Bouwman, and Hirtle, Kovner, and Plosser — with the gap being a focus on safety-and-soundness, not distributional outcomes. Strand C, the methods literature on staggered designs. The strands are unequal — A deepest, C briefest — and their proportions track the contribution each earns. Each strand groups citations into intellectual moves, not a flat year-by-year list.
 :::
 
 ## Two Principles for Every Citation

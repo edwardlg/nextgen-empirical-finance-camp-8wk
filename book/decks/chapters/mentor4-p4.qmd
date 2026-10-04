@@ -7,7 +7,7 @@ date: "2026-06-22"
 - Part 4 — the same-sex-borrower design in HMDA mortgage data
 
 ::: notes
-Welcome back to the Week Four mentor session, part four of five. In part three we defined discrimination as a counterfactual and saw that a design must construct the comparison the data hides. Now we make it concrete with a worked case from my own work — a paper my coauthor and I wrote, detecting discrimination against same-sex borrowers in real lending data. The citation is Gao and Sun, two-thousand-nineteen, "Lending practices to same-sex borrowers," in the Proceedings of the National Academy of Sciences. Let us walk through the design.
+Welcome back to the Week Four mentor session, part four of five. In part three we defined discrimination as a counterfactual and saw that a design must construct the comparison the data hides. Now we make it concrete with a worked case from my own work — a paper my coauthor and I wrote, detecting discrimination against same-sex borrowers in real lending data. The citation is Sun and Gao, two-thousand-nineteen, "Lending practices to same-sex borrowers," in the Proceedings of the National Academy of Sciences. Let us walk through the design.
 :::
 
 ## The Setting: HMDA
@@ -51,9 +51,9 @@ Here is a subtlety specific to HMDA: it does not contain the applicant's credit 
 
 ::: callout-tip
 ## Key takeaway
-The Gao and Sun (2019, *PNAS*) study uses **HMDA**'s record of each co-applicant's sex to compare **same-sex** and **different-sex** co-borrowers. A same-sex coefficient that survives controls shows a *surviving disparity*, not discrimination outright — **omitted-variable bias** blocks the leap. And because HMDA omits credit score, a *design* that differences out fixed unobservables earns its keep. Next: what a DiD adds, and reading the result responsibly.
+The Sun and Gao (2019, *PNAS*) study uses **HMDA**'s record of each co-applicant's sex to compare **same-sex** and **different-sex** co-borrowers. A same-sex coefficient that survives controls shows a *surviving disparity*, not discrimination outright — **omitted-variable bias** blocks the leap. And because HMDA omits credit score, a *design* that differences out fixed unobservables earns its keep. Next: what a DiD adds, and reading the result responsibly.
 :::
 
 ::: notes
-To summarize part four: the Gao and Sun two-thousand-nineteen study in PNAS uses HMDA's record of each co-applicant's sex to compare same-sex and different-sex co-borrowers, holding the application fixed. A same-sex coefficient that survives income, credit factors, loan-to-value, and location fixed effects shows a surviving disparity, not discrimination outright — omitted-variable bias still blocks the leap. And because HMDA omits the credit score, a design that differences out fixed unobservables earns its keep more than usual. In part five we add a difference-in-differences, state its parallel-trends assumption, and talk about reading the result responsibly when a number is headed for Congressional testimony.
+To summarize part four: the Sun and Gao two-thousand-nineteen study in PNAS uses HMDA's record of each co-applicant's sex to compare same-sex and different-sex co-borrowers, holding the application fixed. A same-sex coefficient that survives income, credit factors, loan-to-value, and location fixed effects shows a surviving disparity, not discrimination outright — omitted-variable bias still blocks the leap. And because HMDA omits the credit score, a design that differences out fixed unobservables earns its keep more than usual. In part five we add a difference-in-differences, state its parallel-trends assumption, and talk about reading the result responsibly when a number is headed for Congressional testimony.
 :::
