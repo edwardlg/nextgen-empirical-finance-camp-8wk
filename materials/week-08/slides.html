@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 8 Slides — Independent Research Project II (NextGen Empirical Finance Camp)</title>
+<meta name="description" content="Week 8 interactive live-session slides: Execute, Stress-Test, Write, Defend. Live specification-curve explorer, robustness battery, and referee lens. Prof. Lei Gao, GMU.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%93%88</text></svg>">
+</head>
+<body>
+<style>
+  :root{
+    --font-display:"Poppins","Segoe UI",system-ui,-apple-system,sans-serif;
+    --font-body:"Open Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
+    --green:#005239;--green-lift:#0a6b4c;--gold:#FFC733;--amber:#CC8A00;--steel:#004F71;--teal:#008285;--brick:#CC4824;
+    --ground:#eef1ec;--surface:#fff;--surface-2:#f6f8f4;--ink:#14201b;--muted:#5f6663;--hair:#dfe3dc;
+    --accent:var(--green);--accent-2:var(--amber);--verified:#0a7a6f;--fix:#B26A00;--kill:#c0402a;
+    --slide-ink:#14201b;--chip:#eef1ec;--shadow:0 1px 3px rgba(10,30,22,.06),0 10px 34px rgba(10,30,22,.09);
+  }
+  @media (prefers-color-scheme:dark){:root{--ground:#0b1611;--surface:#111f18;--surface-2:#152419;--ink:#e9efe9;--muted:#93a099;--hair:#243731;--accent:#39b98f;--accent-2:var(--gold);--verified:#2fbfa8;--fix:#e5a93a;--kill:#ff7154;--slide-ink:#e9efe9;--chip:#1a2c24;--shadow:0 1px 3px rgba(0,0,0,.4),0 12px 38px rgba(0,0,0,.5)}}
+  :root[data-theme="light"]{--ground:#eef1ec;--surface:#fff;--surface-2:#f6f8f4;--ink:#14201b;--muted:#5f6663;--hair:#dfe3dc;--accent:var(--green);--accent-2:var(--amber);--verified:#0a7a6f;--fix:#B26A00;--kill:#c0402a;--slide-ink:#14201b;--chip:#eef1ec;--shadow:0 1px 3px rgba(10,30,22,.06),0 10px 34px rgba(10,30,22,.09)}
+  :root[data-theme="dark"]{--ground:#0b1611;--surface:#111f18;--surface-2:#152419;--ink:#e9efe9;--muted:#93a099;--hair:#243731;--accent:#39b98f;--accent-2:var(--gold);--verified:#2fbfa8;--fix:#e5a93a;--kill:#ff7154;--slide-ink:#e9efe9;--chip:#1a2c24;--shadow:0 1px 3px rgba(0,0,0,.4),0 12px 38px rgba(0,0,0,.5)}
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+  .stage{position:fixed;inset:0;display:grid;grid-template-rows:1fr auto auto;overflow:hidden}
+  .viewport{position:relative;display:grid;place-items:center;padding:clamp(12px,2.6vw,34px);overflow:hidden}
+  .slide{position:absolute;width:min(100%,1180px);aspect-ratio:16/9;max-height:100%;background:var(--surface);border:1px solid var(--hair);border-radius:16px;box-shadow:var(--shadow);
+    padding:clamp(20px,3.6vw,52px);opacity:0;transform:translateY(12px) scale(.99);pointer-events:none;transition:opacity .3s ease,transform .3s ease;overflow:hidden auto;display:flex;flex-direction:column;color:var(--slide-ink)}
+  .slide.on{opacity:1;transform:none;pointer-events:auto}
+  @media (prefers-reduced-motion:reduce){.slide{transition:none}}
+
+  h1,h2,h3{font-family:var(--font-display);margin:0;letter-spacing:-.02em;line-height:1.05;text-wrap:balance}
+  .eyebrow{font-family:var(--font-mono);font-size:clamp(.58rem,1vw,.72rem);letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 12px}
+  :root[data-theme="dark"] .eyebrow{color:var(--accent-2)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .eyebrow{color:var(--accent-2)}}
+  .slide h2{font-size:clamp(1.35rem,3.2vw,2.4rem);font-weight:700}
+  .slide h2 .hl{color:var(--accent)}
+  :root[data-theme="dark"] .slide h2 .hl{color:var(--accent-2)}
+  .sub{color:var(--muted);font-size:clamp(.92rem,1.45vw,1.16rem);margin:12px 0 0;max-width:62ch}
+  .slide p{font-size:clamp(.88rem,1.3vw,1.05rem);line-height:1.5}
+  .body{margin-top:auto;margin-bottom:auto}
+  .mono{font-family:var(--font-mono)}
+  .muted{color:var(--muted)}
+
+  .slide.title,.slide.divider{background:linear-gradient(135deg,#00432f 0%,#063b2b 55%,#04302340 100%),radial-gradient(1200px 400px at 100% 0%, rgba(255,199,51,.14), transparent 60%);background-color:#00432f;color:#eef4ef;border:0}
+  .slide.title .eyebrow,.slide.divider .eyebrow{color:var(--gold)}
+  .slide.title h1{font-weight:800;font-size:clamp(1.9rem,5vw,3.8rem);letter-spacing:-.03em;max-width:17ch}
+  .slide.title .st{color:var(--gold);font-size:clamp(1.05rem,2.2vw,1.7rem);font-weight:700;margin-top:10px}
+  .slide.title .meta{margin-top:auto;font-family:var(--font-mono);font-size:clamp(.7rem,1.1vw,.88rem);color:rgba(238,244,239,.72)}
+  .slide.divider{justify-content:center}
+  .slide.divider h2{font-size:clamp(1.8rem,5vw,3.3rem);color:#fff;max-width:18ch}
+  .slide.divider .time{font-family:var(--font-mono);color:var(--gold);margin-top:14px;font-size:clamp(.78rem,1.4vw,1.05rem);letter-spacing:.04em}
+
+  .grid{display:grid;gap:13px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--surface-2);border:1px solid var(--hair);border-radius:12px;padding:15px 17px}
+  .card .k{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  :root[data-theme="dark"] .card .k{color:var(--accent-2)}
+  .card h3{font-size:clamp(.96rem,1.5vw,1.14rem);margin:.32rem 0 .28rem}
+  .card p{color:var(--muted);font-size:clamp(.8rem,1.12vw,.94rem);margin:0;line-height:1.45}
+  ul.pts{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+  ul.pts li{display:flex;gap:12px;align-items:baseline;font-size:clamp(.9rem,1.35vw,1.1rem)}
+  ul.pts li .n{font-family:var(--font-mono);font-weight:700;color:var(--accent);flex:0 0 auto}
+  :root[data-theme="dark"] ul.pts li .n{color:var(--accent-2)}
+  ul.pts li b{color:var(--slide-ink)}
+
+  .pipe{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+  .pipe .st2{background:var(--surface-2);border:1px solid var(--hair);border-radius:10px;padding:11px 15px;font-family:var(--font-display);font-weight:600;font-size:clamp(.85rem,1.4vw,1.05rem)}
+  .pipe .arw{color:var(--accent);font-weight:800}
+  :root[data-theme="dark"] .pipe .arw{color:var(--accent-2)}
+
+  .roadmap{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .roadmap .w{flex:1 1 0;min-width:96px;border:1px solid var(--hair);border-radius:10px;padding:11px 12px;background:var(--surface-2)}
+  .roadmap .w .wl{font-family:var(--font-mono);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .roadmap .w h3{font-size:.86rem;margin:.2rem 0 0}
+  .roadmap .w.now{background:var(--green);border-color:var(--green)}.roadmap .w.now .wl{color:var(--gold)}.roadmap .w.now h3{color:#fff}
+  :root[data-theme="dark"] .roadmap .w.now{background:var(--green-lift)}
+
+  .hero-quote{font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,3.6vw,2.6rem);letter-spacing:-.02em;line-height:1.12;max-width:20ch}
+  .hero-quote em{font-style:normal;color:var(--kill)}.hero-quote b{color:var(--verified)}
+
+  table.tbl{border-collapse:collapse;width:100%;font-size:clamp(.78rem,1.1vw,.96rem)}
+  table.tbl th{background:var(--green);color:#fff;text-align:left;padding:8px 11px;font-family:var(--font-display);font-weight:600;font-size:.85em}
+  :root[data-theme="dark"] table.tbl th{background:var(--green-lift)}
+  table.tbl td{padding:8px 11px;border-bottom:1px solid var(--hair);vertical-align:top}
+  table.tbl tr:nth-child(even) td{background:var(--surface-2)}
+
+  .refs{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+  .refs li{font-size:clamp(.82rem,1.15vw,.98rem);padding-left:15px;border-left:3px solid var(--accent)}
+  :root[data-theme="dark"] .refs li{border-left-color:var(--accent-2)}
+  .refs li .v{font-family:var(--font-mono);font-size:.82em;color:var(--muted)}
+
+  /* ---- interactive: specification-curve explorer ---- */
+  .specwrap{display:grid;grid-template-columns:1.5fr 1fr;gap:18px;margin-top:6px;align-items:stretch}
+  @media(max-width:820px){.specwrap{grid-template-columns:1fr}.g2,.g3{grid-template-columns:1fr}}
+  .canvaswrap{position:relative;background:var(--surface-2);border:1px solid var(--hair);border-radius:12px;padding:10px}
+  canvas{display:block;width:100%;height:auto}
+  .simtag{position:absolute;top:12px;right:14px;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--surface);border:1px solid var(--hair);border-radius:6px;padding:2px 7px}
+  .ctl{display:grid;gap:10px}
+  .ctl .grp{background:var(--surface-2);border:1px solid var(--hair);border-radius:10px;padding:10px 12px}
+  .ctl .grp .lab{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .seg{display:flex;gap:5px;flex-wrap:wrap}
+  .seg button{font-family:var(--font-mono);font-size:.74rem;font-weight:600;border:1px solid var(--hair);background:var(--surface);color:var(--muted);border-radius:7px;padding:5px 10px;cursor:pointer;transition:.12s}
+  .seg button:hover{border-color:var(--accent)}
+  .seg button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  :root[data-theme="dark"] .seg button.on{background:var(--accent-2);color:#10221a;border-color:var(--accent-2)}
+  .readout{background:var(--surface);border:1px solid var(--hair);border-radius:10px;padding:11px 13px;font-family:var(--font-mono);font-size:.82rem}
+  .readout b{font-size:1.05rem;color:var(--accent)}
+  :root[data-theme="dark"] .readout b{color:var(--accent-2)}
+  .readout .est{color:var(--verified);font-weight:700}
+
+  /* ---- interactive: robustness battery ---- */
+  .battery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:8px}
+  .test{background:var(--surface-2);border:1px solid var(--hair);border-left:4px solid var(--muted);border-radius:11px;padding:14px 15px;cursor:pointer;transition:.15s}
+  .test:hover{border-left-color:var(--accent)}
+  .test .tn{font-family:var(--font-display);font-weight:700;font-size:1rem}
+  .test .td{color:var(--muted);font-size:.83rem;margin:3px 0 0}
+  .test .res{font-family:var(--font-mono);font-size:.78rem;font-weight:700;margin-top:9px;opacity:0;transition:opacity .3s}
+  .test.done{border-left-color:var(--verified)}.test.done .res{opacity:1;color:var(--verified)}
+  .test.frag{border-left-color:var(--fix)}.test.frag .res{opacity:1;color:var(--fix)}
+  .batmsg{margin-top:12px;font-family:var(--font-mono);font-size:.84rem;color:var(--muted)}
+
+  /* ---- interactive: abstract budget ---- */
+  .abx{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+  @media(max-width:820px){.abx{grid-template-columns:1fr}}
+  .skeleton{display:grid;gap:9px}
+  .skeleton .s{background:var(--surface-2);border:1px solid var(--hair);border-radius:9px;padding:9px 12px;font-size:.9rem}
+  .skeleton .s b{font-family:var(--font-mono);color:var(--accent);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:2px}
+  :root[data-theme="dark"] .skeleton .s b{color:var(--accent-2)}
+  textarea.ab{width:100%;min-height:180px;resize:vertical;font-family:var(--font-body);font-size:.95rem;line-height:1.55;border:1px solid var(--hair);border-radius:11px;padding:13px 15px;background:var(--surface);color:var(--ink)}
+  textarea.ab:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+  .meter{display:flex;align-items:center;gap:11px;margin-top:10px}
+  .meter .track{flex:1;height:9px;background:var(--chip);border-radius:999px;overflow:hidden}
+  .meter .fill{height:100%;width:0;background:var(--verified);transition:width .2s,background .2s}
+  .meter .lbl{font-family:var(--font-mono);font-size:.82rem;font-weight:700;white-space:nowrap;color:var(--muted)}
+
+  /* ---- interactive: referee lens ---- */
+  .reflens{display:grid;gap:12px;margin-top:6px}
+  .claimcard{background:var(--surface-2);border:1px solid var(--hair);border-radius:11px;padding:14px 16px}
+  .claimcard .cl{font-size:clamp(.9rem,1.3vw,1.05rem);margin:0 0 4px}
+  .claimcard .dz{font-family:var(--font-mono);font-size:.78rem;color:var(--muted);margin:0 0 11px}
+  .refbtns{display:flex;gap:8px;flex-wrap:wrap}
+  .refbtns button{font-family:var(--font-mono);font-weight:700;font-size:.78rem;padding:6px 13px;border-radius:8px;border:1.5px solid var(--hair);background:var(--surface);color:var(--muted);cursor:pointer;transition:.12s}
+  .refbtns button[data-v="under"]:hover,.refbtns button[data-v="under"].on{border-color:var(--steel);color:var(--steel)}
+  .refbtns button[data-v="ok"]:hover,.refbtns button[data-v="ok"].on{border-color:var(--verified);color:var(--verified);background:color-mix(in srgb,var(--verified) 10%,transparent)}
+  .refbtns button[data-v="over"]:hover,.refbtns button[data-v="over"].on{border-color:var(--kill);color:var(--kill)}
+  .reffb{display:none;font-family:var(--font-mono);font-size:.8rem;margin-top:10px;padding:9px 12px;border-radius:8px;line-height:1.5}
+  .reffb.show{display:block}.reffb.good{background:color-mix(in srgb,var(--verified) 12%,transparent);color:var(--verified)}.reffb.bad{background:color-mix(in srgb,var(--kill) 12%,transparent);color:var(--kill)}
+
+  .talktime{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+  .talktime .seg2{border-radius:8px;padding:9px 12px;font-family:var(--font-mono);font-size:.76rem;font-weight:600;color:#fff;text-align:center;flex:1 1 0;min-width:64px}
+  .fillbox{background:var(--surface-2);border:1px solid var(--hair);border-left:5px solid var(--accent);border-radius:12px;padding:clamp(16px,2.6vw,26px);font-family:var(--font-display);font-weight:600;font-size:clamp(1rem,1.9vw,1.4rem);line-height:1.5}
+  :root[data-theme="dark"] .fillbox{border-left-color:var(--accent-2)}
+  .fillbox .blank{color:var(--accent);border-bottom:2px dashed var(--accent);padding:0 4px}
+  :root[data-theme="dark"] .fillbox .blank{color:var(--accent-2);border-bottom-color:var(--accent-2)}
+
+  .footer-tag{position:absolute;left:clamp(20px,3.6vw,52px);bottom:14px;font-family:var(--font-mono);font-size:.64rem;color:var(--muted)}
+  .slide.title .footer-tag,.slide.divider .footer-tag{display:none}
+
+  .bar{display:flex;align-items:center;gap:11px;padding:9px 15px;background:var(--surface);border-top:1px solid var(--hair)}
+  .btn{font-family:var(--font-body);font-weight:700;font-size:.88rem;border:1px solid var(--hair);border-radius:9px;padding:8px 13px;background:var(--surface);color:var(--ink);cursor:pointer}
+  .btn:hover{border-color:var(--accent)}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  :root[data-theme="dark"] .btn.primary{background:var(--accent-2);color:#10221a;border-color:var(--accent-2)}
+  .counter{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);min-width:60px;text-align:center}
+  .spacer{flex:1}
+  .brandtag{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .brandtag b{color:var(--accent)}
+  :root[data-theme="dark"] .brandtag b{color:var(--accent-2)}
+  .dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;padding:6px 10px;background:var(--surface)}
+  .dot{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--muted);background:transparent;cursor:pointer;padding:0}
+  .dot.on{background:var(--accent);border-color:var(--accent)}
+  :root[data-theme="dark"] .dot.on{background:var(--accent-2);border-color:var(--accent-2)}
+  .btn:focus-visible,.dot:focus-visible,.seg button:focus-visible,.test:focus-visible,.refbtns button:focus-visible{outline:3px solid var(--accent-2);outline-offset:2px}
+
+  .notes{position:fixed;left:0;right:0;bottom:0;max-height:44vh;overflow-y:auto;background:var(--surface);border-top:2px solid var(--accent);box-shadow:0 -12px 40px rgba(0,0,0,.18);transform:translateY(100%);transition:transform .28s ease;z-index:40;padding:16px clamp(18px,5vw,58px) 24px}
+  :root[data-theme="dark"] .notes{border-top-color:var(--accent-2)}
+  .notes.open{transform:none}
+  .notes .nh{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:7px;display:flex;justify-content:space-between}
+  :root[data-theme="dark"] .notes .nh{color:var(--accent-2)}
+  .notes p{font-size:clamp(.9rem,1.5vw,1.06rem);line-height:1.62;margin:0;max-width:80ch;color:var(--ink)}
+  @media (prefers-reduced-motion:reduce){.notes,.slide,.meter .fill,.test .res{transition:none}}
+  @media print{.bar,.notes,.dots{display:none}}
+</style>
+
+<div class="stage">
+  <div class="viewport" id="viewport"></div>
+  <div class="bar">
+    <span class="brandtag"><b>GMU</b> · NextGen · Week 8</span>
+    <div class="spacer"></div>
+    <button class="btn" id="prev">‹ Prev</button>
+    <span class="counter" id="counter">1 / 24</span>
+    <button class="btn primary" id="next">Next ›</button>
+    <div class="spacer"></div>
+    <button class="btn" id="notesBtn">Notes (N)</button>
+    <button class="btn" id="themeBtn" aria-label="Toggle theme">◐</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+
+<div class="notes" id="notes" aria-live="polite">
+  <div class="nh"><span>Speaker script — slide <span id="noteNum">1</span></span><span class="muted" style="text-transform:none;letter-spacing:0">press N to hide</span></div>
+  <p id="noteBody"></p>
+</div>
+
+<script type="application/json" id="notesData">
+{
+  "1": "Welcome to Week 8 — the last live session, and the one every other week was built for. Before we start, drop your Week 7 deliverable in the chat: your filed pre-analysis plan and identification memo. If you did the homework, you also arrive with a dataset in hand. Good. Here is what today is. You filed the plan; now you execute it and you defend it. In the next two hours you will run your one pre-registered test, try to break your own result on purpose, write it up to publication standard, and defend it out loud to the room. And the through-line of the whole camp finally lands: a result you would defend to a skeptic. Whatever comes back — a big effect or a flat null — you report it honestly and you defend the design. The capstone paper is due tomorrow, August 15. This session is your last supervised push before it. Let's cross the finish line.",
+  "2": "Find yourself on the map one last time. Weeks one through four built the toolkit — probability, the OLS engine, two full weeks of causal design. Weeks five and six taught you to read the frontier, by hand and then with AI. Week seven was the pivot: you turned a question into a filed pre-analysis plan. And here we are — Week eight, today, Research Project Two, where you execute that exact plan and defend what it produces. Notice the tagline on the slide: you filed the plan, now you execute and defend it. There is no week nine. This is the last supervised session before your capstone is due, so everything today is real work on your real project, not a demo on mine. The skills weeks are long behind you. From here on out you are the researcher, and by two o'clock you will have run, stress-tested, written, and defended a study that is entirely yours.",
+  "3": "Here is the whole day in one arc — five moves, in order, and none of them is optional. First, execute: you run the one primary specification you pre-registered, and you report it first, whatever it says. Second, break it on purpose: you attack your own result with tests that are genuinely capable of failing, because a result that survives an honest attack is one people believe. Third, write: you turn the run into a paper — a disciplined abstract, a clean contribution, causal language matched to your design. Fourth, defend: you present it in eight minutes and take the room's hardest question without flinching. And fifth, submit: tomorrow the capstone goes in. Notice the shape. You do not get to skip from execute straight to write. The breaking-it step in the middle is where honest research lives. Most students want to run it and love it. Today you run it and try to kill it. That is the difference.",
+  "4": "Block A — execute and stress-test. This is the half of the day people find hardest emotionally, because it asks you to attack the result you have been hoping for. Here is the sequence. First, the confirmatory run: your one pre-registered spec, reported first, no matter what. Then the specification curve — the realization that your one spec is a single point in a cloud of hundreds of defensible choices, and we are going to plot the whole cloud at once. Then reading that curve: telling a robust result from a fragile one. And then the full robustness battery — alternative standard errors, placebo tests, a bootstrap built for few clusters, and a sensitivity check for unobserved selection. The goal of this whole block is not to protect your result. It is to find out whether it deserves to survive. Let's run it and then try to break it.",
+  "5": "Start with the confirmatory run, and treat this as a discipline, not a formality. You wrote down one primary specification last week, before you saw any outcome. Today you run exactly that specification, and you report it first — before any robustness check, before any alternative, whatever the number turns out to be. If it is a clean significant effect, wonderful. If it is a flat null, you report the null with the same steadiness, because you pre-committed and a null from a pre-registered test is real evidence, not a failure. Now, real research is messy, and you will sometimes have to depart from the plan — a variable was unavailable, a sample restriction did not survive contact with the data. That is fine, on one condition: every departure goes into a deviations log. You do not quietly erase the change; you write it down, in the open. Transparency, not erasure. The log is what keeps an honest deviation from looking like a fishing expedition.",
+  "6": "Now the idea that will change how you read every empirical paper for the rest of your life: the specification curve. Your primary spec made a whole series of choices — which controls to include, which sample window, which fixed effects, which estimator. Each of those choices was defensible, and so were the alternatives you did not pick. Multiply them together and there are not one or two reasonable specifications — there are hundreds. That whole set is the multiverse. Instead of quietly running the one that looks best, you run all of them and plot every estimate at once, sorted from most negative to most positive. This is specification curve analysis — Simonsohn, Simmons and Nelson, 2020, in Nature Human Behaviour. The picture on the slide is simulated, illustrative only — not a real estimate. But the discipline is real: you stop cherry-picking a specification and start showing the reader the entire cloud your one headline number lives inside.",
+  "7": "So how do you read a specification curve? Two words: robust versus fragile. A robust result holds its sign and its significance across most of the curve. Toggle a control on or off, swap the sample window, change the estimator — the headline barely moves. That is a finding people believe. A fragile result is the opposite: it lives on a few lucky specifications and vanishes everywhere else. Change one reasonable choice and the effect collapses or flips sign. That is not a discovery; that is a coincidence you got attached to. Here is the honest move, and it is the whole point: you report where on the curve your headline specification sits. Is it typical of the cloud, or is it one of the few outliers holding the story up? The simulated curve on the slide shows both cases side by side. Telling the truth about where you sit is what separates a researcher from a salesperson.",
+  "8": "The robustness battery — four tests, each designed to be capable of failing, because a test that cannot fail proves nothing. One: alternative standard errors. Re-cluster, try heteroskedasticity-robust errors, and see whether your significance survives a different error structure. Two: placebo and falsification tests — the moves from last week — a fake treatment date, an unaffected group, checks that should come back empty if your design is clean. Three: the wild-cluster bootstrap. When you have only a handful of clusters — a few states, a few industries — ordinary clustered standard errors lie to you, and the wild-cluster bootstrap gives you honest p-values in that small-cluster world. Four: an Oster delta check — a sensitivity analysis that asks how much unobserved selection, relative to what you already control for, it would take to explain your whole result away. And if you test many outcomes, apply a Benjamini-Hochberg FDR correction so you are not celebrating one lucky star out of twenty. Survive these, and people believe you.",
+  "9": "Let me put the philosophy of the whole block on one slide, because it is the single most important idea in empirical research. A result that survives tests genuinely capable of failing is one people believe. Read that carefully — capable of failing. If you only run checks that were always going to pass, you have proven nothing; you have performed a ritual. The value of a placebo test is precisely that it could have lit up and exposed you. The value of a specification curve is that your effect could have vanished across the cloud. The value of an Oster check is that a small amount of selection could have explained you away. When you run tests that had a real chance of killing your result, and the result is still standing, you have earned the reader's belief. Fragile findings dodge those tests. Robust findings walk straight into them. Be the second kind of researcher.",
+  "10": "Now the single most common capstone mistake, and I want you to catch it in your own draft before I do: causal language that your design has not earned. Match the verb to the design. If you ran an observational study — a regression on data as it came, no clean shock, no experiment — then your result is that X is associated with Y. You write associated with, correlated with, predicts. You do not write causes, raises, lowers, drives. Those causal verbs are only yours when your identification earns them — a clean natural experiment, a real quasi-random shock, the kind of design we spent two weeks building. Here is why it matters so much: over-claiming is the fastest way to lose a referee. The moment a skeptical reader sees a causal verb sitting on top of a correlational design, they stop trusting the entire paper. Calibrated language is not weakness. It is the mark of a researcher who knows exactly what their design can and cannot say.",
+  "11": "Block B — write it up. You have a result and you have stress-tested it. Now you turn it into a paper that meets a real publication standard, and I am going to give you the machinery to do it fast. First, the skeleton the whole paper hangs on — five sentences and a disciplined abstract. Then the one sentence that says what is new. Then the causal-language discipline we just covered, applied to your own prose. And finally, the tables and figures at publication quality plus the one-click replication packet — the repository anyone can rerun with a single command to regenerate every number in your paper. Writing is not the thing you do after the research; the writing is where you find out whether you actually understand your own result. Let's build the paper.",
+  "12": "Every empirical paper has the same skeleton, and once you see it you can never unsee it. Six parts. The abstract: your whole paper in 250 words. The introduction: the question, why it matters, and what you find — front-loaded, because a referee decides in the first page whether to keep reading. Data and design: where the data came from and the identification strategy that makes your estimate mean something. Results: the primary specification first, then the robustness battery. Discussion and limitations: what it means, and — just as important — what it does not mean and where the design is vulnerable. And the piece that is unique to honest empirical work: a deviations log, the transparent record of every departure from your pre-analysis plan. Notice that limitations and the deviations log are not afterthoughts you bury. In a credible paper they are load-bearing. Stating your own weaknesses first is how you earn the reader's trust in your strengths.",
+  "13": "Here is how you write the paper fast: get the skeleton right before you write a single paragraph. Five sentences. One — the question: what do you ask? Two — the design: how do you identify the answer? Three — the data: what do you use to do it? Four — the finding: what did you actually get? Five — the contribution: why does anyone care? If you can write those five sentences cleanly, you can write the whole paper, because everything else is just expansion. Then the abstract, and here the constraint is the teacher: 250 words, hard budget. That limit forces you to cut everything that is not the question, the design, the data, the finding, and the contribution. A sprawling abstract is a sign of unclear thinking; a tight one proves you know what your paper is about. Write the five sentences, then grow them into 250 words. Not the other way around.",
+  "14": "Now the hardest sentence in the paper, and the one referees read most carefully: the one-sentence contribution. It fills in a single blank — we are the first to show that blank. And that sentence carries two burdens at once. It must be true: if three papers already showed it, you are not first, and a referee who knows the literature will catch you instantly. And it must be supported: your own evidence has to actually back the claim you just made. The most common failure is a contribution sentence that reaches past the results — claiming the paper shows something bigger or more causal than the design can support. So write it, then interrogate it twice. Is it genuinely new? And does my own table on the next page actually prove it? When the answer to both is yes, you have a contribution. When either is no, you shrink the sentence until it is true and supported. A smaller claim you can defend beats a grand one you cannot.",
+  "15": "Two craft standards to close the writing block. First, tables and figures to publication quality. A good table stands on its own — a reader should understand it without the text: clear variable names, standard errors in parentheses, significance marked, units and sample stated in the notes. A figure should make one point cleanly. If your reader has to hunt for what a table is telling them, it is not done. Second, and this is the one that separates a real study from a nice-looking one: the one-click replication packet. That is a repository — code, data or a documented data-pull, and a single command — that anyone, including future-you, can run to regenerate every single number in your paper from scratch. Not most numbers. Every number. If you cannot rerun your whole paper with one command, it is not reproducible, and reproducible is the standard the whole field is moving toward. Build the packet as you go, not the night before.",
+  "16": "Block C — defend it. This is the payoff of the whole camp, so we protect the time. You have a result, you have stress-tested it, and you have written it up. Now you have to stand in front of a skeptical room and defend it out loud. Three things in this block. First, peer review from the other side of the table — reading your own claims the way a referee would, and knowing what a referee actually asks. Second, the eight-minute talk, decomposed minute by minute, because a defense is a performance with a structure. And third, the three honest answers that carry you through any Q and A. This is where you learn that your result is yours to defend — not mine, not a textbook's. Yours. Let's get you ready to stand behind it.",
+  "17": "Peer review — and the fastest way to survive a referee is to become one first. Two documents live here. The referee report: a structured critique of a paper — what is the contribution, is the identification credible, is the causal language calibrated, what is the one fatal question. And the revise-and-resubmit memo: the author's point-by-point response, where you either fix the problem or explain, respectfully, why the referee is wrong. Today you read your own paper through the referee lens. Look at your headline claim and ask the hard question a referee would ask. Is my causal language calibrated, over-claimed, or under-claimed? What is the single objection that could sink this? Our mentor anchor is exactly this discipline: Elnahas, Gao, Hossain and Kim, published in the Journal of Financial and Quantitative Analysis in 2024 — a paper we read specifically to learn what a referee actually asks. When you can referee yourself honestly, an outside referee holds far fewer surprises.",
+  "18": "The eight-minute talk, decomposed — because a defense is not a data dump, it is a structure. Here is the budget. One minute of motivation: why should anyone care about this question? Two minutes of design: how do you identify the answer, and why is it credible? Two minutes of results: your primary specification, stated cleanly. One minute of robustness: how you tried to break it and how it held. One minute of contribution: the one new thing. And one minute of limitations: what the design cannot say. Eight minutes, and the governing rule is one idea per slide. Do not cram. A slide with one clear idea lands; a slide with five ideas lands none of them. Notice that a full minute — an eighth of your talk — goes to limitations. That is not modesty; it is strength. The presenter who names their own weaknesses looks like the smartest, most trustworthy person in the room. Rehearse it to time.",
+  "19": "Q and A terrifies people, so let me hand you three honest answers that carry you through almost anything. Answer one, when you genuinely do not know: I don't know — and here is exactly how I would find out. That is a strong answer, not a weak one; it shows you think like a researcher. Answer two, when someone hits a real weakness: that is a limitation, and here is how I bounded it — here is how big the problem could be and why it does not overturn my result. Answer three, when someone doubts your finding: here is the exact evidence, and you point to the specific table or figure. Notice what all three refuse to do: bluff. The one fatal move in a defense is to make something up to look confident, because the moment a sharp questioner catches it, you lose the whole room. Honesty, precision, and knowing where your own evidence lives — that is what wins a defense.",
+  "20": "Step back from tomorrow's deadline and see the long arc, because today is a beginning, not an end. Your capstone is a poster and a paper, but that is step one of a real road. There is the Young Scholars Journal, where strong high-school and early-undergraduate research actually gets published. There is posting a preprint to SSRN, so your work has a permanent, citable home the day it is done. There is the conference circuit — presenting, getting feedback, meeting people who do this for a living. And there is the decade arc: a line of researchers whose story starts with a poster exactly like the one you are building and, years later, ends in a top journal. I am not promising you that path — I am telling you it is real and it starts here. The habits you are practicing today — pre-register, stress-test, calibrate, replicate — are the same habits that carry a paper all the way to the top. Today's poster is the first step.",
+  "21": "Workshop — the mock defense, and this is the single most valuable exercise of the day, so we run it live. Here is the drill. Each of you, in turn, does two things. First, you give your one-sentence contribution out loud — we are the first to show that blank — clean, true, and supported. Then you take one referee question from the room, and you answer it using one of the three honest answers we just practiced. That is it. Short, sharp, real. The rest of the room's job is to be the referee: listen to the contribution and ask the one hard question — is that causal claim earned? Is that really new? Where is the evidence? Catching a weak spot here, in this room, today, is free. Catching it tomorrow when you are standing in front of the actual audience is not. So when it is your turn, say it clearly, take the hit, and answer honestly. Let's go around.",
+  "22": "Before you leave, here is your capstone checklist — four things, and the submission is not complete until all four exist. One: the paper itself — abstract, intro, data and design, results, discussion and limits, deviations log. Two: the one-click replication packet — the repository that regenerates every number with a single command. Three: the eight-minute presentation — decomposed to time, one idea per slide, rehearsed. And four: the AI-use disclosure — an honest statement of where and how you used AI in the work, because the same transparency we demand of the data we demand of the tools. Miss any one of these and the submission is incomplete. This is the terminal deliverable of the entire program, so treat the checklist as a gate, not a suggestion. Print it, and do not submit until every box is checked.",
+  "23": "Let's wrap and set the final assignment. This is it — the Capstone Submission, the terminal deliverable of the whole camp. Four pieces: the completed paper, the one-click replication packet, the eight-minute presentation, and your AI-use disclosure. It is due tomorrow, August 15 — presentation and conference day. Everything from the last eight weeks converges on this one submission. So tonight you finish the run if it is not finished, you make sure the packet actually reruns clean on a fresh machine, you rehearse the talk to eight minutes, and you write the honest AI disclosure. Then you submit. I want to say this plainly: what you are handing in is a real piece of empirical research that you designed, executed, stress-tested, wrote, and defended yourselves. Eight weeks ago most of you had never run a regression. Tomorrow you present a study you would defend to a skeptic. Go finish it. I could not be prouder of this group.",
+  "24": "Let me close with the line that has run through all eight weeks. A result you would defend to a skeptic — that has been the standard from day one, and today you met it. You executed a pre-registered test, you tried to break your own result on purpose, you wrote it up with language matched to your design, and you defended it out loud. Whether your result came back a big effect or a flat null, you reported it honestly, and that is what makes you a researcher. The verified anchors behind today: Simonsohn, Simmons and Nelson, 2020, in Nature Human Behaviour, on specification curve analysis; Olken, 2015, in the Journal of Economic Perspectives, on pre-analysis plans; the mentor anchor Elnahas, Gao, Hossain and Kim, 2024, in the Journal of Financial and Quantitative Analysis, for what a referee actually asks; and the running design anchors from Prof. Gao's work — the Rainbow of Municipal Credit, Gao and Sun's 2019 PNAS fair-lending study, and Deng, Gao and Kim's 2020 Reg SHO paper in the Journal of Corporate Finance. Your capstone is due tomorrow, August 15. Go plant your flag. It has been an honor."
+}
+</script>
+
+<script type="application/json" id="slidesData">
+[
+ {"cls":"title","html":"<p class='eyebrow'>NextGen Empirical Finance Research Camp · Week 8 · Finale</p><h1>Independent Research Project II</h1><div class='st'>Execute · Stress-Test · Write · Defend</div><p class='sub' style='color:rgba(238,244,239,.8)'>Run the plan you filed. Break your result on purpose. Write it to publication standard. Defend it.</p><div class='meta'>Friday, August 14, 2026 · 12–2 pm ET · Prof. Lei Gao · George Mason University · <span style='color:var(--gold)'>capstone due Aug 15</span></div>"},
+ {"html":"<p class='eyebrow'>Where we are — the last mile</p><h2>You filed the plan — <span class='hl'>now you execute and defend it.</span></h2><div class='body'><div class='roadmap'><div class='w'><div class='wl'>Wk 1–4</div><h3>Toolkit</h3></div><div class='w'><div class='wl'>Wk 5–6</div><h3>Read the frontier</h3></div><div class='w'><div class='wl'>Week 7</div><h3>Design + PAP</h3></div><div class='w now'><div class='wl'>Week 8 · today</div><h3>Execute &amp; defend</h3></div></div><p class='sub'>Your pre-analysis plan is filed and your data is built. Today it becomes a paper you can stand behind.</p></div>"},
+ {"html":"<p class='eyebrow'>The arc of the day</p><h2>Five moves to the finish line.</h2><div class='body'><div class='pipe'><span class='st2'>Execute</span><span class='arw'>→</span><span class='st2'>Break it on purpose</span><span class='arw'>→</span><span class='st2'>Write</span><span class='arw'>→</span><span class='st2'>Defend</span><span class='arw'>→</span><span class='st2'>Submit</span></div><p class='sub'>The honest frame for all of it: <b>whatever the result — effect or null — you report it, and your <em style='font-style:normal;color:var(--slide-ink)'>design</em> carries the paper.</b></p></div>"},
+ {"cls":"divider","html":"<p class='eyebrow'>Block A · 12:10–12:45</p><h2>Execute &amp; Stress-Test</h2><div class='time'>the confirmatory run · the specification curve · the robustness battery</div>"},
+ {"html":"<p class='eyebrow'>Execute</p><h2>Run the <span class='hl'>one</span> spec you pre-registered — <span class='hl'>report it first.</span></h2><div class='body'><ul class='pts'><li><span class='n'>1</span><span><b>The confirmatory run.</b> Your primary specification, exactly as filed. Report it first — whatever it says.</span></li><li><span class='n'>2</span><span><b>Report the sign and significance honestly.</b> A clean null, reported, beats a lucky star, fished.</span></li><li><span class='n'>3</span><span><b>Keep a deviations log.</b> Any departure from the PAP is <em>disclosed</em>, not erased.</span></li></ul><p class='sub'>The order — confirmatory first, exploration after — <em>is</em> the evidence you did not fish.</p></div>"},
+ {"html":"<p class='eyebrow'>Interactive · the multiverse</p><h2>The <span class='hl'>specification curve</span> — every defensible choice at once.</h2><div class='specwrap'><div class='canvaswrap'><span class='simtag'>simulated data</span><canvas id='specCanvas' width='680' height='360' aria-label='Specification curve of 144 estimates'></canvas></div><div class='ctl'><div class='grp'><div class='lab'>Controls</div><div class='seg' data-dim='controls'><button data-i='0' class='on'>none</button><button data-i='1'>basic</button><button data-i='2'>full</button></div></div><div class='grp'><div class='lab'>Fixed effects</div><div class='seg' data-dim='fe'><button data-i='0' class='on'>none</button><button data-i='1'>unit</button><button data-i='2'>unit + time</button></div></div><div class='grp'><div class='lab'>Sample &nbsp;·&nbsp; Outliers &nbsp;·&nbsp; SE &nbsp;·&nbsp; Estimator</div><div class='seg' data-dim='sample'><button data-i='0' class='on'>full</button><button data-i='1'>trimmed</button></div><div class='seg' data-dim='wins' style='margin-top:5px'><button data-i='0' class='on'>keep</button><button data-i='1'>winsorize</button></div><div class='seg' data-dim='se' style='margin-top:5px'><button data-i='0' class='on'>classical</button><button data-i='1'>clustered</button></div><div class='seg' data-dim='est' style='margin-top:5px'><button data-i='0' class='on'>OLS</button><button data-i='1'>robust</button></div></div><div class='readout' id='specReadout'></div></div></div>"},
+ {"html":"<p class='eyebrow'>Reading it</p><h2><span class='hl'>Robust</span> holds its ground · <span style='color:var(--kill)'>fragile</span> lives on luck.</h2><div class='body'><div class='grid g2'><div class='card' style='border-left:4px solid var(--verified)'><div class='k' style='color:var(--verified)'>Robust</div><p style='color:var(--slide-ink)'>The estimate keeps its <b>sign and significance across most of the curve.</b> Report where your headline sits: <em>“negative in 130 of 144 specifications.”</em></p></div><div class='card' style='border-left:4px solid var(--kill)'><div class='k' style='color:var(--kill)'>Fragile</div><p style='color:var(--slide-ink)'>The result <b>lives or dies on a handful of lucky specifications.</b> If toggling one control flips the sign, that is the story — tell it.</p></div></div><p class='sub'>Go back a slide and toggle <em>Fixed effects → none</em>: watch the curve drift. That drift is researcher degrees of freedom, made visible.</p></div>"},
+ {"html":"<p class='eyebrow'>Interactive · try to break it</p><h2>The <span class='hl'>robustness battery</span> — click each test.</h2><div class='battery' id='battery'></div><p class='batmsg' id='batmsg'>Click each stress-test to run it. A result that survives tests <em>capable of failing</em> is one people believe. <span class='simtag' style='position:static;display:inline-block'>simulated</span></p>"},
+ {"html":"<p class='eyebrow'>The standard</p><div class='body'><div class='hero-quote'>A result that survives tests that <em>could</em> have killed it is a result people <b>believe.</b></div><p class='sub'>Placebos that could have lit up and didn't. A sign that holds under clustered errors. An Oster δ that says it would take implausible hidden selection to explain your effect away. That is the difference between persuasion and hope.</p></div>"},
+ {"html":"<p class='eyebrow'>The discipline referees enforce hardest</p><h2>Match the <span class='hl'>verb</span> to the design.</h2><div class='body'><table class='tbl'><tr><th>If your design gives you…</th><th>You may write…</th><th>You may NOT write…</th></tr><tr><td>a conditional correlation</td><td>“is <b>associated with</b>”</td><td>“causes”, “raises”, “drives”</td></tr><tr><td>a clean quasi-experiment</td><td>“<b>causes</b> / raises / lowers”</td><td>—</td></tr></table><p class='sub'>Over-claiming is the fastest way to lose a referee. Read your results section once looking <em>only</em> at verbs. (cf. Elnahas, Gao, Hossain &amp; Kim 2024, <em>JFQA</em> — what a referee actually asks.)</p></div>"},
+ {"cls":"divider","html":"<p class='eyebrow'>Block B · 12:50–1:25</p><h2>Write It Up</h2><div class='time'>the paper structure · the 250-word abstract · the one-sentence contribution · the replication packet</div>"},
+ {"html":"<p class='eyebrow'>Structure</p><h2>The empirical paper — <span class='hl'>six parts.</span></h2><div class='body'><div class='grid g3'><div class='card'><div class='k'>1</div><h3>Abstract</h3><p>≤250 words: question, design, data, finding, contribution</p></div><div class='card'><div class='k'>2</div><h3>Introduction</h3><p>the five-sentence skeleton, expanded</p></div><div class='card'><div class='k'>3</div><h3>Data &amp; design</h3><p>the identifying assumption + threats table, built</p></div><div class='card'><div class='k'>4</div><h3>Results</h3><p>confirmatory first · spec curve · robustness</p></div><div class='card'><div class='k'>5</div><h3>Discussion &amp; limits</h3><p>what the design does and does not license</p></div><div class='card'><div class='k'>6</div><h3>Deviations log</h3><p>every departure from the PAP, disclosed</p></div></div></div>"},
+ {"html":"<p class='eyebrow'>Interactive · draft &amp; budget</p><h2>The five-sentence skeleton + the <span class='hl'>250-word</span> abstract.</h2><div class='abx'><div class='skeleton'><div class='s'><b>Question</b>What do you ask?</div><div class='s'><b>Design</b>How do you identify it?</div><div class='s'><b>Data</b>What do you build it on?</div><div class='s'><b>Finding</b>What do you find (effect or null)?</div><div class='s'><b>Contribution</b>What is new and true?</div></div><div><textarea class='ab' id='abstractBox' placeholder='Draft your abstract here — one sentence per skeleton line. Keep it under 250 words…'></textarea><div class='meter'><span class='lbl' id='wcLbl'>0 / 250 words</span><div class='track'><div class='fill' id='wcFill'></div></div></div></div></div>"},
+ {"html":"<p class='eyebrow'>The sharpest sentence in the paper</p><h2>The <span class='hl'>one-sentence contribution.</span></h2><div class='body'><div class='fillbox'>We are the first to show that <span class='blank'>&nbsp;X causes / is associated with Y&nbsp;</span>, using <span class='blank'>&nbsp;this design&nbsp;</span>, on <span class='blank'>&nbsp;this data&nbsp;</span>.</div><p class='sub'>It must be <b>true</b> and <b>supported.</b> If you can't say what is new in one sentence, the paper isn't ready — and if the sentence over-claims, the referee stops reading there.</p></div>"},
+ {"html":"<p class='eyebrow'>Make it believable, make it re-runnable</p><h2>Publication tables + the <span class='hl'>one-click</span> replication packet.</h2><div class='body'><div class='grid g2'><div class='card'><div class='k'>Tables &amp; figures</div><p style='color:var(--slide-ink)'>To the Appendix-D standard: labelled, self-explanatory, with the specification and clustering stated in the notes.</p></div><div class='card' style='border-left:4px solid var(--verified)'><div class='k' style='color:var(--verified)'>Replication packet</div><p style='color:var(--slide-ink)'>A repo that regenerates <b>every number with one command</b> — pinned env, pinned data vintage, seeded. If a reviewer can't reproduce Table 1, it doesn't count.</p></div></div></div>"},
+ {"cls":"divider","html":"<p class='eyebrow'>Block C · 1:25–1:55</p><h2>Defend It</h2><div class='time'>the referee lens · the 8-minute talk · the three honest answers · mock defense</div>"},
+ {"html":"<p class='eyebrow'>Interactive · read like a referee</p><h2>Is the causal language <span class='hl'>calibrated</span>?</h2><div class='reflens' id='reflens'></div><p class='muted' style='font-size:.82rem;margin-top:10px'>For each claim, given the design, decide: under-claim, calibrated, or over-claim.</p>"},
+ {"html":"<p class='eyebrow'>Eight minutes, one idea per slide</p><h2>The <span class='hl'>8-minute talk,</span> decomposed.</h2><div class='body'><div class='talktime'><div class='seg2' style='background:var(--steel);flex:1'>Motivation<br>1 min</div><div class='seg2' style='background:var(--green);flex:2'>Design / identification<br>2 min</div><div class='seg2' style='background:var(--green-lift);flex:2'>Results<br>2 min</div><div class='seg2' style='background:var(--teal);flex:1'>Robustness<br>1 min</div><div class='seg2' style='background:var(--amber);flex:1'>Contribution<br>1 min</div><div class='seg2' style='background:var(--brick);flex:1'>Limits<br>1 min</div></div><p class='sub'>Every slide carries a single idea. If a slide needs two breaths to explain, it's two slides.</p></div>"},
+ {"html":"<p class='eyebrow'>Q&amp;A survival</p><h2>The <span class='hl'>three honest answers.</span></h2><div class='body'><div class='grid g3'><div class='card'><div class='k'>When you don't know</div><p style='color:var(--slide-ink)'>“I don't know — <b>here's how I'd find out.</b>”</p></div><div class='card'><div class='k'>When it's a real weakness</div><p style='color:var(--slide-ink)'>“That's a limitation — <b>here's how I bounded it.</b>”</p></div><div class='card'><div class='k'>When you're right</div><p style='color:var(--slide-ink)'>“Here's the <b>exact evidence.</b>”</p></div></div><p class='sub'>None of these is a bluff. A defended limitation beats a dodged question every time.</p></div>"},
+ {"html":"<p class='eyebrow'>After the talk</p><h2>Submission &amp; <span class='hl'>the long arc.</span></h2><div class='body'><div class='pipe'><span class='st2'>Presentation day</span><span class='arw'>→</span><span class='st2'>Young Scholars Journal</span><span class='arw'>→</span><span class='st2'>SSRN preprint</span><span class='arw'>→</span><span class='st2'>conference circuit</span><span class='arw'>→</span><span class='st2'>the decade arc</span></div><p class='sub'>Today's poster is the first step of a road that, for some of you, ends in a published paper. The habits you built this week — pre-register, stress-test, disclose, reproduce — are the habits of that whole road.</p></div>"},
+ {"html":"<p class='eyebrow'>Block C workshop</p><h2>Mock defense — <span class='hl'>give it, take a question.</span></h2><div class='body'><ul class='pts'><li><span class='n'>›</span><span>Each student states their <b>one-sentence contribution</b> to the room.</span></li><li><span class='n'>›</span><span>The room asks <b>one referee question</b> — and you answer with one of the three honest answers.</span></li></ul><p class='sub'>This is the last rehearsal before Aug 15. The question you get here is the question you won't be surprised by tomorrow.</p></div>"},
+ {"html":"<p class='eyebrow'>Interactive · your capstone checklist</p><h2>Four pieces. <span class='hl'>Check them off.</span></h2><div class='battery' id='checklist'></div><p class='batmsg' id='checkmsg'>Tap each when it's done. All four = you're ready to submit.</p>"},
+ {"html":"<p class='eyebrow'>Wrap &amp; final assignment</p><h2>The Capstone — <span class='hl'>due Friday, August 15.</span></h2><div class='body'><div class='card' style='border-left:4px solid var(--accent)'><div class='k'>The program's terminal deliverable (200 pts)</div><h3 style='margin:.4rem 0'>Paper · one-click replication packet · 8-minute presentation · AI-use disclosure</h3><p style='color:var(--slide-ink)'>Report the confirmatory result first, put your headline on the specification curve, discipline every causal verb, and make the repo run for a stranger.</p></div><p class='sub'>You built this over eight weeks. Now go defend it. See you at the presentation.</p></div>"},
+ {"html":"<p class='eyebrow'>Close</p><h2>A result you'd <span class='hl'>defend to a skeptic</span> — reported whatever it says.</h2><div class='body'><ul class='refs'><li>Simonsohn, Simmons &amp; Nelson (2020), “Specification Curve Analysis,” <span class='v'>Nature Human Behaviour 4(11):1208–1214</span></li><li>Olken, B. (2015), “Promises and Perils of Pre-Analysis Plans,” <span class='v'>J. Economic Perspectives 29(3):61–80</span></li><li>Elnahas, Gao, Hossain &amp; Kim (2024), <span class='v'>Journal of Financial and Quantitative Analysis</span> — what a referee actually asks</li><li>Gao, Liu &amp; Wang, “The Rainbow of Municipal Credit”; Gao &amp; Sun (2019), <span class='v'>PNAS 116(19):9293–9302</span>; Deng, Gao &amp; Kim (2020), <span class='v'>J. Corporate Finance</span></li></ul><p class='sub'>Eight weeks. Now go plant your flag — and defend it. Congratulations.</p></div>"}
+]
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var root=document.documentElement;
+  var NOTES=JSON.parse(document.getElementById('notesData').textContent);
+  var SLIDES=JSON.parse(document.getElementById('slidesData').textContent);
+  var vp=document.getElementById('viewport'), dotsWrap=document.getElementById('dots');
+  var N=SLIDES.length, cur=0, built={};
+
+  SLIDES.forEach(function(s,i){
+    var el=document.createElement('section');
+    el.className='slide'+(s.cls?(' '+s.cls):'');
+    el.innerHTML=s.html+'<div class="footer-tag">NextGen Empirical Finance · Week 8 · Prof. Lei Gao</div>';
+    el.setAttribute('aria-hidden','true'); vp.appendChild(el);
+    var d=document.createElement('button');
+    d.className='dot';d.setAttribute('aria-label','Go to slide '+(i+1));
+    d.addEventListener('click',function(){go(i);}); dotsWrap.appendChild(d);
+  });
+  var slides=[].slice.call(vp.children), dots=[].slice.call(dotsWrap.children);
+
+  function render(){
+    slides.forEach(function(el,i){el.classList.toggle('on',i===cur);el.setAttribute('aria-hidden',i===cur?'false':'true');});
+    dots.forEach(function(d,i){d.classList.toggle('on',i===cur);});
+    document.getElementById('counter').textContent=(cur+1)+' / '+N;
+    document.getElementById('noteNum').textContent=(cur+1);
+    document.getElementById('noteBody').textContent=NOTES[String(cur+1)]||'— speaker script —';
+    if(cur===5&&!built.spec){built.spec=true;initSpec();}
+    if(cur===5)drawSpec();
+    if(cur===7&&!built.bat){built.bat=true;initBattery();}
+    if(cur===16&&!built.ref){built.ref=true;initReflens();}
+    if(cur===21&&!built.chk){built.chk=true;initChecklist();}
+  }
+  function go(i){cur=Math.max(0,Math.min(N-1,i));render();}
+  function next(){go(cur+1);} function prev(){go(cur-1);}
+  document.getElementById('next').addEventListener('click',next);
+  document.getElementById('prev').addEventListener('click',prev);
+  var notes=document.getElementById('notes');
+  document.getElementById('notesBtn').addEventListener('click',function(){notes.classList.toggle('open');});
+  document.getElementById('themeBtn').addEventListener('click',function(){
+    var c=root.getAttribute('data-theme');if(!c)c=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+    root.setAttribute('data-theme',c==='dark'?'light':'dark'); if(cur===5)drawSpec();
+  });
+  document.addEventListener('keydown',function(e){
+    var t=e.target.tagName;
+    if(t==='TEXTAREA'||t==='INPUT')return;
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();next();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
+    else if(e.key==='Home'){go(0);}else if(e.key==='End'){go(N-1);}
+    else if(e.key==='n'||e.key==='N'){notes.classList.toggle('open');}
+  });
+  window.addEventListener('resize',function(){if(cur===5)drawSpec();});
+
+  /* ---------- seeded PRNG + specification-curve model (SIMULATED) ---------- */
+  function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  var DIMS=['controls','fe','sample','wins','se','est'];
+  var SIZES={controls:3,fe:3,sample:2,wins:2,se:2,est:2}; // 3*3*2*2*2*2 = 144
+  var sel={controls:0,fe:0,sample:0,wins:0,se:0,est:0};
+  var SPECS=[]; // {choice:{}, est, se, sig, id}
+  function buildSpecs(){
+    SPECS=[]; var id=0;
+    for(var c=0;c<3;c++)for(var f=0;f<3;f++)for(var s=0;s<2;s++)for(var w=0;w<2;w++)for(var e=0;e<2;e++)for(var o=0;o<2;o++){
+      var rng=mulberry32(1000+id*7);
+      // "true" effect is negative (-2.0, simulated). Omitting FE biases toward 0/positive (confounding);
+      // controls & clustering move point/SE; noise is deterministic per spec.
+      var base=-2.0;
+      var feAdj=(f===0?1.55:(f===1?0.55:0.0));      // no FE -> big upward (confounding) bias
+      var ctlAdj=(c===0?0.45:(c===1?0.15:0.0));
+      var pt=base+feAdj+ctlAdj+(rng()-0.5)*0.9;
+      var se=(0.35+(s===1?0.12:0)+(e===1?0.05:0))*(o===1?1.35:1.0)*(f===0?0.8:1.0);
+      var t=pt/se;
+      SPECS.push({id:id,c:c,f:f,s:s,w:w,e:e,o:o,est:pt,se:se,sig:Math.abs(t)>=1.96,neg:pt<0});
+      id++;
+    }
+    SPECS.forEach(function(x){x.rank=0;});
+    var sorted=SPECS.slice().sort(function(a,b){return a.est-b.est;});
+    sorted.forEach(function(x,i){x.rank=i;});
+  }
+  function currentId(){ // index in nested order matching buildSpecs
+    return ((((sel.controls*3+sel.fe)*2+sel.sample)*2+sel.wins)*2+sel.se)*2+sel.est;
+  }
+  function initSpec(){
+    buildSpecs();
+    [].slice.call(document.querySelectorAll('#viewport .seg')).forEach(function(seg){
+      var dim=seg.getAttribute('data-dim'); if(!dim||!(dim in sel))return;
+      [].slice.call(seg.children).forEach(function(b){
+        b.addEventListener('click',function(){
+          [].slice.call(seg.children).forEach(function(x){x.classList.remove('on');});
+          b.classList.add('on'); sel[dim]=parseInt(b.getAttribute('data-i'),10); drawSpec();
+        });
+      });
+    });
+  }
+  function css(v){return getComputedStyle(document.body).getPropertyValue(v).trim()||v;}
+  function drawSpec(){
+    var cv=document.getElementById('specCanvas'); if(!cv)return;
+    var wrap=cv.parentElement, cw=wrap.clientWidth-20; if(cw<200)cw=200;
+    var ratio=window.devicePixelRatio||1, W=cw, H=Math.round(cw*0.52);
+    cv.width=W*ratio; cv.height=H*ratio; cv.style.height=H+'px';
+    var ctx=cv.getContext('2d'); ctx.setTransform(ratio,0,0,ratio,0,0); ctx.clearRect(0,0,W,H);
+    var padL=42,padR=12,padT=16,padB=26, iw=W-padL-padR, ih=H-padT-padB;
+    var ests=SPECS.map(function(s){return s.est;}); var lo=Math.min.apply(null,ests)-0.4, hi=Math.max.apply(null,ests)+0.4;
+    if(lo>-0.5)lo=-0.5; if(hi<0.5)hi=0.5;
+    function X(r){return padL+(r/(SPECS.length-1))*iw;}
+    function Y(v){return padT+(1-(v-lo)/(hi-lo))*ih;}
+    var ink=css('--muted'), hair=css('--hair'), teal=css('--verified'), brick=css('--kill'), gold=css('--gold'), acc=css('--accent');
+    // zero line
+    ctx.strokeStyle=hair; ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(padL,Y(0));ctx.lineTo(W-padR,Y(0));ctx.stroke();
+    ctx.fillStyle=ink; ctx.font='11px ui-monospace, monospace'; ctx.textAlign='right';
+    ctx.fillText('0',padL-6,Y(0)+3); ctx.fillText(lo.toFixed(1),padL-6,Y(lo)-1); ctx.fillText(hi.toFixed(1),padL-6,Y(hi)+9);
+    ctx.textAlign='center'; ctx.fillText('specifications, sorted by estimate  (n=144, simulated)',padL+iw/2,H-6);
+    var selId=currentId();
+    var sorted=SPECS.slice().sort(function(a,b){return a.est-b.est;});
+    // CI whiskers + dots
+    sorted.forEach(function(s,i){
+      var x=X(i);
+      ctx.strokeStyle=hair; ctx.lineWidth=1; ctx.globalAlpha=.5;
+      ctx.beginPath();ctx.moveTo(x,Y(s.est-1.96*s.se));ctx.lineTo(x,Y(s.est+1.96*s.se));ctx.stroke();
+      ctx.globalAlpha=1;
+      var col = (s.neg&&s.sig)?teal : (!s.neg?brick : ink);
+      ctx.fillStyle=col; ctx.beginPath(); ctx.arc(x,Y(s.est),2.4,0,6.2832); ctx.fill();
+      if(s.id===selId){
+        ctx.strokeStyle=gold; ctx.lineWidth=2.5; ctx.beginPath(); ctx.arc(x,Y(s.est),6.5,0,6.2832); ctx.stroke();
+        ctx.fillStyle=gold; ctx.beginPath(); ctx.arc(x,Y(s.est),3,0,6.2832); ctx.fill();
+      }
+    });
+    // readout
+    var negSig=SPECS.filter(function(s){return s.neg&&s.sig;}).length;
+    var neg=SPECS.filter(function(s){return s.neg;}).length;
+    var mine=SPECS[selId];
+    var el=document.getElementById('specReadout');
+    if(el){el.innerHTML='Your spec — <span class="est">β = '+mine.est.toFixed(2)+'</span> (se '+mine.se.toFixed(2)+'), '+
+      (mine.sig?'<b>significant</b>':'not significant')+', '+(mine.neg?'negative':'<span style="color:'+ 'var(--kill)'+'">positive</span>')+'.<br>'+
+      'Across all 144: <b>'+neg+'</b> keep the negative sign, <b>'+negSig+'</b> are negative &amp; significant at 5%.<br>'+
+      '<span style="color:var(--muted)">Toggle <b>Fixed effects → none</b> and watch your dot jump — that’s omitted-variable bias.</span>';}
+  }
+
+  /* ---------- robustness battery ---------- */
+  var BAT=[
+    {n:'Placebo date',d:'shift treatment 2 yrs early',res:'null at the fake date ✓',frag:false},
+    {n:'Alt. std errors',d:'cluster by state',res:'sign holds; t = 3.1 ✓',frag:false},
+    {n:'Wild bootstrap',d:'few clusters',res:'p = 0.02 ✓',frag:false},
+    {n:'Oster δ',d:'unobserved selection',res:'δ = 2.3 — robust ✓',frag:false},
+    {n:'Drop largest unit',d:'influence check',res:'attenuates but holds ~',frag:true}
+  ];
+  function initBattery(){
+    var host=document.getElementById('battery'); if(!host)return; host.innerHTML='';
+    var done=0;
+    BAT.forEach(function(t){
+      var el=document.createElement('div'); el.className='test'; el.setAttribute('tabindex','0'); el.setAttribute('role','button');
+      el.innerHTML='<div class="tn">'+t.n+'</div><div class="td">'+t.d+'</div><div class="res">'+t.res+'</div>';
+      function run(){ if(el.classList.contains('done')||el.classList.contains('frag'))return;
+        el.classList.add(t.frag?'frag':'done'); done++;
+        document.getElementById('batmsg').textContent = done<BAT.length ? (done+' of '+BAT.length+' run — keep going.') :
+          'All 5 run: 4 clean passes, 1 attenuates-but-holds. This result survives tests that could have failed — that is what makes it believable. (simulated)';
+      }
+      el.addEventListener('click',run);
+      el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();run();}});
+      host.appendChild(el);
+    });
+  }
+
+  /* ---------- referee lens ---------- */
+  var REF=[
+    {c:'“Common ownership <b>causes</b> a 12% drop in earnings management.”',dz:'Design: an OLS panel regression with firm &amp; year fixed effects (observational).',ans:'over',why:'Over-claim. Fixed effects are not identification — an observational panel supports “is associated with,” not “causes.”'},
+    {c:'“Ban states <b>pay higher</b> municipal yields after adoption.”',dz:'Design: staggered DiD (Callaway–Sant’Anna), clean not-yet-treated controls, flat pre-trends.',ans:'ok',why:'Calibrated. A clean quasi-experiment with flat pre-trends earns a causal verb.'},
+    {c:'“Our results <b>may be weakly consistent with</b> a fair-lending gap.”',dz:'Design: a matched comparison + policy DiD, effect significant and robust across the battery.',ans:'under',why:'Under-claim. When a clean design and robust evidence back you, hedging this hard undersells a real finding.'}
+  ];
+  function initReflens(){
+    var host=document.getElementById('reflens'); if(!host)return; host.innerHTML='';
+    REF.forEach(function(r){
+      var card=document.createElement('div'); card.className='claimcard';
+      card.innerHTML='<p class="cl">'+r.c+'</p><p class="dz">'+r.dz+'</p>'+
+        '<div class="refbtns"><button data-v="under">Under-claim</button><button data-v="ok">Calibrated</button><button data-v="over">Over-claim</button></div>'+
+        '<div class="reffb"></div>';
+      var btns=[].slice.call(card.querySelectorAll('button')), fb=card.querySelector('.reffb'), done=false;
+      btns.forEach(function(b){b.addEventListener('click',function(){
+        if(done)return; done=true; var pick=b.getAttribute('data-v'), right=pick===r.ans;
+        btns.forEach(function(x){x.disabled=true;}); b.classList.add('on');
+        card.querySelector('[data-v="'+r.ans+'"]').classList.add('on');
+        fb.className='reffb show '+(right?'good':'bad');
+        fb.innerHTML=(right?'✓ ':'✗ ')+r.why;
+      });});
+      host.appendChild(card);
+    });
+  }
+
+  /* ---------- capstone checklist ---------- */
+  var CHK=[{n:'Paper',d:'abstract → deviations log'},{n:'Replication packet',d:'one command, reruns clean'},{n:'8-minute talk',d:'rehearsed to time'},{n:'AI-use disclosure',d:'specific &amp; honest'}];
+  function initChecklist(){
+    var host=document.getElementById('checklist'); if(!host)return; host.innerHTML=''; var done=0;
+    CHK.forEach(function(t){
+      var el=document.createElement('div'); el.className='test'; el.setAttribute('tabindex','0'); el.setAttribute('role','button');
+      el.innerHTML='<div class="tn">'+t.n+'</div><div class="td">'+t.d+'</div><div class="res">ready ✓</div>';
+      function run(){ if(el.classList.contains('done'))return; el.classList.add('done'); done++;
+        document.getElementById('checkmsg').textContent = done<CHK.length ? (done+' of 4 ready.') : 'All four ready — you are cleared to submit. Congratulations. 🎓';
+      }
+      el.addEventListener('click',run);
+      el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();run();}});
+      host.appendChild(el);
+    });
+  }
+
+  /* ---------- abstract word budget (init immediately; slide 13) ---------- */
+  document.addEventListener('input',function(e){
+    if(e.target&&e.target.id==='abstractBox'){
+      var w=e.target.value.trim().split(/\s+/).filter(Boolean).length;
+      var pct=Math.min(100,w/250*100);
+      var fill=document.getElementById('wcFill'), lbl=document.getElementById('wcLbl');
+      fill.style.width=pct+'%';
+      fill.style.background = w>250 ? css('--kill') : (w>200? css('--fix') : css('--verified'));
+      lbl.textContent=w+' / 250 words'+(w>250?' — over budget':'');
+    }
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
